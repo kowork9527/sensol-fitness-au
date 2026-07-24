@@ -110,7 +110,7 @@ export function BrandStory() {
             <img
               src="/site-reformer.jpeg"
               alt="Sensol precision engineering"
-              className="w-full aspect-[4/5] object-cover img-zoom"
+              className="w-full aspect-[3/2] md:aspect-[16/10] object-cover img-zoom"
             />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#1A1816]/30 to-transparent">
               <p className="text-[#F7F4F0]/70 text-[9px] tracking-brand-lg uppercase">

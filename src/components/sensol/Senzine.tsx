@@ -106,7 +106,7 @@ export function Senzine() {
           </div>
           <div className="relative overflow-hidden">
             <img
-              src="/mechanism-detail.jpeg"
+              src="/site-engineered.jpeg"
               alt="Precision engineering detail"
               className="w-full aspect-[16/9] object-cover img-zoom"
             />
