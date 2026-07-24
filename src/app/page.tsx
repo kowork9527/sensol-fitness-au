@@ -1,24 +1,28 @@
 import { Navigation } from '@/components/sensol/Navigation';
 import { Hero } from '@/components/sensol/Hero';
-import { Philosophy } from '@/components/sensol/Philosophy';
+import { EngineeredMovement } from '@/components/sensol/EngineeredMovement';
+import { PrecisionMovement } from '@/components/sensol/PrecisionMovement';
+import { StrengthRedefined } from '@/components/sensol/StrengthRedefined';
 import { Marquee } from '@/components/sensol/Marquee';
-import { Products } from '@/components/sensol/Products';
-import { Engineering } from '@/components/sensol/Engineering';
+import { FutureOfTraining } from '@/components/sensol/FutureOfTraining';
+import { ReformerShowcase } from '@/components/sensol/ReformerShowcase';
 import { Senzine } from '@/components/sensol/Senzine';
-import { InTheWorld } from '@/components/sensol/InTheWorld';
+import { ProductSelection } from '@/components/sensol/ProductSelection';
 import { Footer } from '@/components/sensol/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#F7F4F0]">
       <Navigation />
       <Hero />
-      <Philosophy />
+      <EngineeredMovement />
+      <PrecisionMovement />
+      <StrengthRedefined />
       <Marquee />
-      <Products />
-      <Engineering />
+      <FutureOfTraining />
+      <ReformerShowcase />
       <Senzine />
-      <InTheWorld />
+      <ProductSelection />
       <Footer />
     </main>
   );

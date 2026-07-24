@@ -1,103 +1,91 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setLoaded(true);
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/hero-studio.jpeg"
-          alt="Sensol Studio"
-          className={`w-full h-full object-cover transition-all duration-[2s] ease-out ${
+          src="/site-hero-2.jpeg"
+          alt="SENSOL — Intelligent Training"
+          className={`w-full h-full object-cover transition-all duration-[2.5s] ease-out ${
             loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1816]/30 via-[#1A1816]/10 to-[#1A1816]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1816]/20 via-transparent to-[#1A1816]/40" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end h-full pb-24 md:pb-32 px-8 md:px-16">
-        <div className="max-w-[1600px] mx-auto w-full">
-          {/* Tagline */}
-          <p
-            className={`text-[#F7F4F0]/70 text-[10px] md:text-[11px] tracking-brand-lg uppercase mb-6 md:mb-8 transition-all duration-1000 delay-500 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            A New Language of Training
-          </p>
+      {/* Top Content - Brand Statement */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center">
+        {/* Small label */}
+        <p
+          className={`text-[#F7F4F0]/50 text-[9px] md:text-[10px] tracking-brand-lg uppercase mb-8 transition-all duration-1000 delay-300 ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          A new language of training
+        </p>
 
-          {/* Main Headline */}
-          <h1
-            className={`text-[#F7F4F0] text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight leading-[1.05] tracking-wide max-w-4xl transition-all duration-1000 delay-700 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            Where strength
-            <br />
-            meets precision.
-          </h1>
+        {/* Main Headline */}
+        <h1
+          className={`text-[#F7F4F0] text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extralight leading-[0.95] tracking-[0.08em] uppercase transition-all duration-1200 delay-500 ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          SENSOL
+        </h1>
 
-          {/* Subtitle */}
-          <p
-            className={`text-[#F7F4F0]/60 text-sm md:text-base font-light mt-8 md:mt-10 max-w-lg leading-relaxed transition-all duration-1000 delay-1000 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            Intelligent training systems that merge performance,
-            technology, and spatial aesthetics.
-          </p>
+        {/* Tagline */}
+        <p
+          className={`text-[#F7F4F0]/70 text-sm md:text-base font-light mt-6 max-w-md leading-relaxed tracking-wide transition-all duration-1000 delay-700 ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          Where strength meets precision,
+          <br />
+          and movement becomes design.
+        </p>
 
-          {/* CTA */}
-          <div
-            className={`mt-10 md:mt-12 flex items-center gap-8 transition-all duration-1000 delay-[1200ms] ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
+        {/* CTA */}
+        <div
+          className={`mt-12 transition-all duration-1000 delay-1000 ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <a
+            href="#collection"
+            className="inline-block text-[10px] tracking-brand-lg uppercase text-[#1A1816] bg-[#F7F4F0] px-10 py-4 hover:bg-[#F7F4F0]/90 transition-colors duration-500"
           >
-            <a
-              href="#products"
-              className="text-[11px] tracking-brand uppercase text-[#1A1816] bg-[#F7F4F0] px-8 py-4 hover:bg-[#F7F4F0]/90 transition-colors duration-500"
-            >
-              Explore Collection
-            </a>
-            <a
-              href="#philosophy"
-              className="link-underline text-[11px] tracking-brand uppercase text-[#F7F4F0]/80 hover:text-[#F7F4F0] transition-colors duration-500"
-            >
-              Our Philosophy
-            </a>
-          </div>
+            Shop All
+          </a>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-all duration-1000 delay-[1500ms] ${
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-all duration-1000 delay-[1400ms] ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <span className="text-[#F7F4F0]/40 text-[9px] tracking-brand-lg uppercase">
-          Scroll
-        </span>
-        <div className="w-[1px] h-8 bg-[#F7F4F0]/20 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-[#F7F4F0]/60 animate-[scrollDown_2s_ease-in-out_infinite]" />
+        <div className="w-[1px] h-10 bg-[#F7F4F0]/15 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-[#F7F4F0]/50 animate-[scrollPulse_2.5s_ease-in-out_infinite]" />
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes scrollDown {
+        @keyframes scrollPulse {
           0% { transform: translateY(-100%); }
-          100% { transform: translateY(300%); }
+          50% { transform: translateY(400%); }
+          100% { transform: translateY(-100%); }
         }
       `}</style>
     </section>
