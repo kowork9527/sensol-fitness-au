@@ -26,7 +26,9 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <a href="#" className="relative z-10">
-            <span className="text-[#1A1816] text-xl md:text-2xl font-light tracking-brand-lg uppercase">
+            <span className={`text-xl md:text-2xl font-light tracking-brand-lg uppercase transition-colors duration-700 ${
+              scrolled ? 'text-[#1A1816]' : 'text-white'
+            }`}>
               Sensol
             </span>
           </a>
@@ -35,31 +37,43 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-12">
             <a
               href="#philosophy"
-              className="link-underline text-[#1A1816] text-[11px] font-normal tracking-brand uppercase"
+              className={`link-underline text-[11px] font-normal tracking-brand uppercase transition-colors duration-700 ${
+                scrolled ? 'text-[#1A1816]' : 'text-white/80'
+              }`}
             >
               Philosophy
             </a>
             <a
               href="#products"
-              className="link-underline text-[#1A1816] text-[11px] font-normal tracking-brand uppercase"
+              className={`link-underline text-[11px] font-normal tracking-brand uppercase transition-colors duration-700 ${
+                scrolled ? 'text-[#1A1816]' : 'text-white/80'
+              }`}
             >
               Products
             </a>
             <a
               href="#engineering"
-              className="link-underline text-[#1A1816] text-[11px] font-normal tracking-brand uppercase"
+              className={`link-underline text-[11px] font-normal tracking-brand uppercase transition-colors duration-700 ${
+                scrolled ? 'text-[#1A1816]' : 'text-white/80'
+              }`}
             >
               Engineering
             </a>
             <a
               href="#senzine"
-              className="link-underline text-[#1A1816] text-[11px] font-normal tracking-brand uppercase"
+              className={`link-underline text-[11px] font-normal tracking-brand uppercase transition-colors duration-700 ${
+                scrolled ? 'text-[#1A1816]' : 'text-white/80'
+              }`}
             >
               Senzine
             </a>
             <a
               href="#products"
-              className="text-[11px] font-normal tracking-brand uppercase text-[#F7F4F0] bg-[#1A1816] px-6 py-3 hover:bg-[#2a2724] transition-colors duration-500"
+              className={`text-[11px] font-normal tracking-brand uppercase px-6 py-3 transition-colors duration-500 ${
+                scrolled
+                  ? 'text-[#F7F4F0] bg-[#1A1816] hover:bg-[#2a2724]'
+                  : 'text-white bg-white/10 hover:bg-white/20'
+              }`}
             >
               Shop All
             </a>
@@ -72,14 +86,14 @@ export function Navigation() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-6 h-[1px] bg-[#1A1816] transition-all duration-500 ${
-                menuOpen ? 'rotate-45 translate-y-[3.5px]' : ''
-              }`}
+              className={`block w-6 h-[1px] transition-all duration-500 ${
+                scrolled ? 'bg-[#1A1816]' : 'bg-white'
+              } ${menuOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`}
             />
             <span
-              className={`block w-6 h-[1px] bg-[#1A1816] transition-all duration-500 ${
-                menuOpen ? '-rotate-45 -translate-y-[3.5px]' : ''
-              }`}
+              className={`block w-6 h-[1px] transition-all duration-500 ${
+                scrolled ? 'bg-[#1A1816]' : 'bg-white'
+              } ${menuOpen ? '-rotate-45 -translate-y-[3.5px]' : ''}`}
             />
           </button>
         </div>

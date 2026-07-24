@@ -15,20 +15,22 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/site-hero-2.jpeg"
+          src="/pilates-side.jpeg"
           alt="SENSOL — Intelligent Training"
           className={`w-full h-full object-cover transition-all duration-[2.5s] ease-out ${
             loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1816]/20 via-transparent to-[#1A1816]/40" />
+        {/* Strong dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
       </div>
 
       {/* Top Content - Brand Statement */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center">
         {/* Small label */}
         <p
-          className={`text-[#F7F4F0]/50 text-[9px] md:text-[10px] tracking-brand-lg uppercase mb-8 transition-all duration-1000 delay-300 ${
+          className={`text-white/60 text-[9px] md:text-[10px] tracking-brand-lg uppercase mb-8 transition-all duration-1000 delay-300 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
@@ -37,7 +39,7 @@ export function Hero() {
 
         {/* Main Headline */}
         <h1
-          className={`text-[#F7F4F0] text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extralight leading-[0.95] tracking-[0.08em] uppercase transition-all duration-1200 delay-500 ${
+          className={`text-white text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extralight leading-[0.9] tracking-[0.08em] uppercase transition-all duration-1200 delay-500 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -46,7 +48,7 @@ export function Hero() {
 
         {/* Tagline */}
         <p
-          className={`text-[#F7F4F0]/70 text-sm md:text-base font-light mt-6 max-w-md leading-relaxed tracking-wide transition-all duration-1000 delay-700 ${
+          className={`text-white/80 text-sm md:text-base font-light mt-6 max-w-md leading-relaxed tracking-wide transition-all duration-1000 delay-700 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -76,8 +78,8 @@ export function Hero() {
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="w-[1px] h-10 bg-[#F7F4F0]/15 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/3 bg-[#F7F4F0]/50 animate-[scrollPulse_2.5s_ease-in-out_infinite]" />
+        <div className="w-[1px] h-10 bg-white/15 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-white/50 animate-[scrollPulse_2.5s_ease-in-out_infinite]" />
         </div>
       </div>
 
