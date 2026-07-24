@@ -1,8 +1,6 @@
 import { Navigation } from '@/components/sensol/Navigation';
 import { Hero } from '@/components/sensol/Hero';
-import { EngineeredMovement } from '@/components/sensol/EngineeredMovement';
-import { PrecisionMovement } from '@/components/sensol/PrecisionMovement';
-import { StrengthRedefined } from '@/components/sensol/StrengthRedefined';
+import { BrandStory } from '@/components/sensol/BrandStory';
 import { Marquee } from '@/components/sensol/Marquee';
 import { FutureOfTraining } from '@/components/sensol/FutureOfTraining';
 import { VideoShowcase } from '@/components/sensol/VideoShowcase';
@@ -15,9 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#F7F4F0]">
       <Navigation />
       <Hero />
-      <EngineeredMovement />
-      <PrecisionMovement />
-      <StrengthRedefined />
+      <BrandStory />
       <Marquee />
       <FutureOfTraining />
       <VideoShowcase />
