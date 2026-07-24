@@ -5,7 +5,7 @@ import { PrecisionMovement } from '@/components/sensol/PrecisionMovement';
 import { StrengthRedefined } from '@/components/sensol/StrengthRedefined';
 import { Marquee } from '@/components/sensol/Marquee';
 import { FutureOfTraining } from '@/components/sensol/FutureOfTraining';
-import { ReformerShowcase } from '@/components/sensol/ReformerShowcase';
+import { VideoShowcase } from '@/components/sensol/VideoShowcase';
 import { Senzine } from '@/components/sensol/Senzine';
 import { ProductSelection } from '@/components/sensol/ProductSelection';
 import { Footer } from '@/components/sensol/Footer';
@@ -20,7 +20,7 @@ export default function Home() {
       <StrengthRedefined />
       <Marquee />
       <FutureOfTraining />
-      <ReformerShowcase />
+      <VideoShowcase />
       <Senzine />
       <ProductSelection />
       <Footer />
