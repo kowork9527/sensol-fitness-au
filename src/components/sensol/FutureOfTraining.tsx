@@ -47,7 +47,7 @@ export function FutureOfTraining() {
           }`}
         >
           <img
-            src="/australia-home.jpeg"
+            src="/site-senzine-2.jpeg"
             alt="The future of modern training"
             className="w-full aspect-[21/9] object-cover img-zoom"
           />

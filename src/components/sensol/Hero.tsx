@@ -15,7 +15,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/pilates-side.jpeg"
+          src="/site-engineered.jpeg"
           alt="SENSOL — Intelligent Training"
           className={`w-full h-full object-cover transition-all duration-[2.5s] ease-out ${
             loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
