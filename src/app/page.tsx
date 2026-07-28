@@ -5,6 +5,7 @@ import { Marquee } from '@/components/sensol/Marquee';
 import { FutureOfTraining } from '@/components/sensol/FutureOfTraining';
 import { VideoShowcase } from '@/components/sensol/VideoShowcase';
 import { Senzine } from '@/components/sensol/Senzine';
+import { AppDownload } from '@/components/sensol/AppDownload';
 import { ProductSelection } from '@/components/sensol/ProductSelection';
 import { Footer } from '@/components/sensol/Footer';
 
@@ -18,6 +19,7 @@ export default function Home() {
       <FutureOfTraining />
       <VideoShowcase />
       <Senzine />
+      <AppDownload />
       <ProductSelection />
       <Footer />
     </main>

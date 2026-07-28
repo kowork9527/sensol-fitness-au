@@ -47,6 +47,9 @@ const eslintConfig = defineConfig([
     'dist/**',
     // Script files (CommonJS):
     'scripts/**/*.js',
+    // Shopify theme files (not part of Next.js project):
+    'assets/shopify-theme/**',
+    'shopify-theme/**',
   ]),
 ]);
 
