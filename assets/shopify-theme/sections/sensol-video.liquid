@@ -1,0 +1,215 @@
+<section class="sensol-video" style="background-color: {{ section.settings.bg_color }};">
+  <div class="sensol-video__inner">
+    <div class="sensol-video__text">
+      {%- if section.settings.label != blank -%}
+        <p class="sensol-video__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sensol-video__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <p class="sensol-video__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+    
+    <div class="sensol-video__media">
+      {%- if section.settings.video != blank -%}
+        <div class="sensol-video__container">
+          {{ section.settings.video | video_tag: controls: true, autoplay: false, loop: section.settings.loop_video, muted: true, class: 'sensol-video__video' }}
+        </div>
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: width: section.settings.image.width, height: section.settings.image.height, alt: section.settings.image.alt, class: 'sensol-video__image', loading: 'lazy' }}
+      {%- else -%}
+        {{ 'collection-apparel-1' | placeholder_svg_tag: 'sensol-video__image' }}
+      {%- endif -%}
+    </div>
+    
+    {%- if section.settings.specs != blank -%}
+      <div class="sensol-video__specs">
+        {%- assign specs = section.settings.specs | split: '|' -%}
+        {%- for spec in specs -%}
+          {%- assign parts = spec | split: '::' -%}
+          <div class="sensol-video__spec">
+            <span class="sensol-video__spec-value">{{ parts[0] }}</span>
+            <span class="sensol-video__spec-label">{{ parts[1] }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .sensol-video {
+    padding: 80px 0;
+  }
+  
+  .sensol-video__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .sensol-video__text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+  
+  .sensol-video__label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin: 0 0 1rem 0;
+  }
+  
+  .sensol-video__heading {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    color: #1A1816;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+  }
+  
+  .sensol-video__description {
+    font-size: 15px;
+    color: #5A5249;
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  .sensol-video__media {
+    margin-bottom: 3rem;
+  }
+  
+  .sensol-video__container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: #1A1816;
+  }
+  
+  .sensol-video__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sensol-video__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .sensol-video__specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #D4CEC6;
+  }
+  
+  .sensol-video__spec {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .sensol-video__spec-value {
+    font-size: 28px;
+    font-weight: 200;
+    color: #1A1816;
+    letter-spacing: 0.05em;
+  }
+  
+  .sensol-video__spec-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+  
+  @media (max-width: 749px) {
+    .sensol-video__specs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .sensol-video__container {
+      aspect-ratio: 16/9;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "SENSOl Video Showcase",
+  "tag": "section",
+  "class": "sensol-video-wrapper",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景色",
+      "default": "#F7F4F0"
+    },
+    {
+      "type": "header",
+      "content": "媒体"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "视频"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片（无视频时显示）"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop_video",
+      "label": "循环播放",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "文字内容"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "标签",
+      "default": "THE FIRST ALL-IN-ONE SMART TRAINING REFORMER"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "See how Sensol works in real movement"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "描述",
+      "default": "Simple, precise, and intuitive."
+    },
+    {
+      "type": "textarea",
+      "id": "specs",
+      "label": "技术规格（用 | 分隔，每项用 :: 分隔数值和标签）",
+      "default": "360°::Full Range of Motion|<8ms::Response Time|0-100%::Adaptive Resistance|<25dB::Whisper Quiet"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SENSOl Video Showcase"
+    }
+  ]
+}
+{% endschema %}

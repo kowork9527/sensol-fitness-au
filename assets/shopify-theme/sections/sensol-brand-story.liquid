@@ -1,0 +1,190 @@
+<section class="sensol-brand-story" style="background-color: {{ section.settings.bg_color }};">
+  <div class="sensol-brand-story__inner">
+    <div class="sensol-brand-story__text">
+      {%- if section.settings.label != blank -%}
+        <p class="sensol-brand-story__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sensol-brand-story__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <div class="sensol-brand-story__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+      
+      {%- if section.settings.features != blank -%}
+        <div class="sensol-brand-story__features">
+          {%- assign features = section.settings.features | split: '|' -%}
+          {%- for feature in features -%}
+            {%- assign parts = feature | split: '::' -%}
+            <div class="sensol-brand-story__feature">
+              <span class="sensol-brand-story__feature-title">{{ parts[0] }}</span>
+              <span class="sensol-brand-story__feature-desc">{{ parts[1] }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    
+    <div class="sensol-brand-story__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: width: section.settings.image.width, height: section.settings.image.height, alt: section.settings.image.alt, class: 'sensol-brand-story__image', loading: 'lazy' }}
+      {%- else -%}
+        {{ 'collection-apparel-1' | placeholder_svg_tag: 'sensol-brand-story__image' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sensol-brand-story {
+    padding: 80px 0;
+  }
+  
+  .sensol-brand-story__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .sensol-brand-story__label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin: 0 0 1rem 0;
+    font-weight: 400;
+  }
+  
+  .sensol-brand-story__heading {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    color: #1A1816;
+    margin: 0 0 2rem 0;
+    line-height: 1.2;
+  }
+  
+  .sensol-brand-story__description {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5A5249;
+    margin-bottom: 2.5rem;
+  }
+  
+  .sensol-brand-story__description p {
+    margin: 0 0 1rem 0;
+  }
+  
+  .sensol-brand-story__features {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .sensol-brand-story__feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  
+  .sensol-brand-story__feature-title {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1A1816;
+    font-weight: 500;
+  }
+  
+  .sensol-brand-story__feature-desc {
+    font-size: 14px;
+    color: #8A8279;
+    line-height: 1.6;
+  }
+  
+  .sensol-brand-story__media {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sensol-brand-story__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  @media (max-width: 991px) {
+    .sensol-brand-story__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .sensol-brand-story__media {
+      order: -1;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "SENSOl Brand Story",
+  "tag": "section",
+  "class": "sensol-brand-story-wrapper",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景色",
+      "default": "#F7F4F0"
+    },
+    {
+      "type": "header",
+      "content": "图片"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "header",
+      "content": "文字内容"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "标签",
+      "default": "01 — The Philosophy"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "Engineered for those who see movement as a craft."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "描述",
+      "default": "<p>Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space.</p><p>Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "features",
+      "label": "特色功能（用 | 分隔，每项用 :: 分隔标题和描述）",
+      "default": "Adaptive Resistance::Intelligent resistance that responds to your body in real time, adjusting from 0 to 100% with zero latency.|Spatial Design::Every Sensol product is designed to enhance, not dominate, the spaces it inhabits.|Intelligent Motion::Precision engineering that translates intention into movement with surgical accuracy."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SENSOl Brand Story"
+    }
+  ]
+}
+{% endschema %}

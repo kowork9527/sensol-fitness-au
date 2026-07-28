@@ -1,0 +1,102 @@
+{
+  "sections": {
+    "hero": {
+      "type": "sensol-hero",
+      "settings": {
+        "bg_color": "#1A1816",
+        "overlay_color": "#1A181640",
+        "label": "A NEW LANGUAGE OF TRAINING",
+        "heading": "SENSOL",
+        "subheading": "Where strength meets precision, and movement becomes design.",
+        "button_label": "SHOP ALL",
+        "button_link": "/collections/all",
+        "button_bg_color": "#F7F4F0",
+        "button_text_color": "#1A1816"
+      }
+    },
+    "brand-story": {
+      "type": "sensol-brand-story",
+      "settings": {
+        "bg_color": "#F7F4F0",
+        "label": "01 — The Philosophy",
+        "heading": "Engineered for those who see movement as a craft.",
+        "description": "<p>Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space.</p><p>Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.</p>",
+        "features": "Adaptive Resistance::Intelligent resistance that responds to your body in real time, adjusting from 0 to 100% with zero latency.|Spatial Design::Every Sensol product is designed to enhance, not dominate, the spaces it inhabits.|Intelligent Motion::Precision engineering that translates intention into movement with surgical accuracy."
+      }
+    },
+    "marquee": {
+      "type": "sensol-marquee",
+      "settings": {
+        "bg_color": "#F7F4F0",
+        "text_color": "#1A1816",
+        "text": "Make it easy · Do it real"
+      }
+    },
+    "video": {
+      "type": "sensol-video",
+      "settings": {
+        "bg_color": "#F7F4F0",
+        "label": "THE FIRST ALL-IN-ONE SMART TRAINING REFORMER",
+        "heading": "See how Sensol works in real movement",
+        "description": "Simple, precise, and intuitive.",
+        "specs": "360°::Full Range of Motion|<8ms::Response Time|0-100%::Adaptive Resistance|<25dB::Whisper Quiet"
+      }
+    },
+    "senzine": {
+      "type": "sensol-senzine",
+      "settings": {
+        "bg_color": "#F7F4F0",
+        "label": "SENZINE",
+        "heading": "Senzine",
+        "description": "<p>Senzine is Sensol's internal publication, distills a single idea—control, resistance, stillness—into a tactile experience, designed to be felt as much as it is read.</p><p>Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.</p>",
+        "button_label": "JOIN US",
+        "button_link": "/pages/contact",
+        "button_bg_color": "#1A1816",
+        "button_text_color": "#F7F4F0"
+      }
+    },
+    "product-list": {
+      "type": "product-list",
+      "settings": {
+        "layout": "grid",
+        "columns_desktop": 3,
+        "columns_tablet": 2,
+        "columns_mobile": 1,
+        "collection": "all",
+        "products_to_show": 3,
+        "show_product_badge": true,
+        "badge_type": "sale",
+        "show_vendor": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_color_swatches": false,
+        "color_swatches_shape": "circle",
+        "enable_quick_add": false,
+        "quick_add_style": "button",
+        "quick_add_text": "Quick add",
+        "enable_color_swatches": false,
+        "color_swatches_position": "under-title",
+        "color_swatches_count": 3,
+        "swatch_shape": "circle",
+        "enable_sticky_info": true,
+        "content_alignment": "left",
+        "image_ratio": "adapt",
+        "image_fit": "cover",
+        "image_width": "full",
+        "text_alignment": "left",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_desktop_fallback": 3
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brand-story",
+    "marquee",
+    "video",
+    "senzine",
+    "product-list"
+  ]
+}
