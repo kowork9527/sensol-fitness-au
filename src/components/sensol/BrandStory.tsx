@@ -108,7 +108,7 @@ export function BrandStory() {
             }`}
           >
             <img
-              src="/site-reformer.jpeg"
+              src="/section-1.webp"
               alt="Sensol precision engineering"
               className="w-full aspect-[3/2] md:aspect-[16/10] object-cover img-zoom"
             />

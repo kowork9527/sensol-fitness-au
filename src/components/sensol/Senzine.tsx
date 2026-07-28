@@ -39,7 +39,7 @@ export function Senzine() {
             }`}
           >
             <img
-              src="/site-senzine-1.jpeg"
+              src="/section-2.webp"
               alt="SENZINE Publication"
               className="w-full aspect-[16/10] object-cover img-zoom"
             />
@@ -99,14 +99,14 @@ export function Senzine() {
         >
           <div className="relative overflow-hidden">
             <img
-              src="/site-senzine-2.jpeg"
+              src="/editorial-1.webp"
               alt="SENZINE detail"
               className="w-full aspect-[16/9] object-cover img-zoom"
             />
           </div>
           <div className="relative overflow-hidden">
             <img
-              src="/site-engineered.jpeg"
+              src="/editorial-2.webp"
               alt="Precision engineering detail"
               className="w-full aspect-[16/9] object-cover img-zoom"
             />

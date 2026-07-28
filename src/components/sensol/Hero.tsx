@@ -2,94 +2,114 @@
 
 import { useEffect, useState } from 'react';
 
+const SLIDES = [
+  { image: '/banner-1.webp', label: 'A new language of training', heading: 'SENSOL', sub: 'Where strength meets precision, and movement becomes design.' },
+  { image: '/banner-2.webp', label: 'Engineered movement', heading: 'PRECISION', sub: 'Adaptive resistance and fluid motion, tailored to your body.' },
+  { image: '/banner-3.webp', label: 'Where strength meets pilates', heading: 'CONTROL', sub: 'Control begins within. Train with intention.' },
+];
+
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % SLIDES.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const slide = SLIDES[current];
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="/site-engineered.jpeg"
-          alt="SENSOL — Intelligent Training"
-          className={`w-full h-full object-cover transition-all duration-[2.5s] ease-out ${
-            loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-          }`}
-        />
-        {/* Strong dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
-      </div>
+      {/* Background Images - crossfade */}
+      {SLIDES.map((s, i) => (
+        <div key={i} className="absolute inset-0 transition-opacity duration-[1.5s] ease-in-out" style={{ opacity: i === current ? 1 : 0 }}>
+          <img
+            src={s.image}
+            alt={s.heading}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
 
-      {/* Top Content - Brand Statement */}
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center">
-        {/* Small label */}
         <p
-          className={`text-white/60 text-[9px] md:text-[10px] tracking-brand-lg uppercase mb-8 transition-all duration-1000 delay-300 ${
+          className={`text-white/60 text-[9px] md:text-[10px] tracking-[0.2em] uppercase mb-8 transition-all duration-1000 delay-300 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          A new language of training
+          {slide.label}
         </p>
 
-        {/* Main Headline */}
         <h1
-          className={`text-white text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extralight leading-[0.9] tracking-[0.08em] uppercase transition-all duration-1200 delay-500 ${
+          className={`text-white text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extralight leading-[0.9] tracking-[0.08em] uppercase transition-all duration-1000 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
+          key={`h-${current}`}
         >
-          SENSOL
+          {slide.heading}
         </h1>
 
-        {/* Tagline */}
         <p
-          className={`text-white/80 text-sm md:text-base font-light mt-6 max-w-md leading-relaxed tracking-wide transition-all duration-1000 delay-700 ${
+          className={`text-white/80 text-sm md:text-base font-light mt-6 max-w-md leading-relaxed tracking-wide transition-all duration-1000 delay-200 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
+          key={`p-${current}`}
         >
-          Where strength meets precision,
-          <br />
-          and movement becomes design.
+          {slide.sub}
         </p>
 
-        {/* CTA */}
         <div
-          className={`mt-12 transition-all duration-1000 delay-1000 ${
+          className={`mt-12 transition-all duration-1000 delay-500 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           <a
             href="#collection"
-            className="inline-block text-[10px] tracking-brand-lg uppercase text-[#1A1816] bg-[#F7F4F0] px-10 py-4 hover:bg-[#F7F4F0]/90 transition-colors duration-500"
+            className="inline-block text-[10px] tracking-[0.2em] uppercase text-[#1A1816] bg-[#F7F4F0] px-10 py-4 hover:bg-[#F7F4F0]/90 transition-colors duration-500"
           >
             Shop All
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Slide indicators */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-6 z-20">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-8 h-[1px] transition-all duration-500 ${
+              i === current ? 'bg-white' : 'bg-white/30'
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Scroll indicator */}
       <div
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-all duration-1000 delay-[1400ms] ${
+        className={`absolute bottom-10 right-10 flex flex-col items-center gap-2 transition-all duration-1000 delay-[1400ms] ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="w-[1px] h-10 bg-white/15 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/3 bg-white/50 animate-[scrollPulse_2.5s_ease-in-out_infinite]" />
+        <span className="text-white/40 text-[8px] tracking-[0.3em] uppercase">Scroll</span>
+        <div className="w-[1px] h-8 bg-white/30 relative overflow-hidden">
+          <div className="w-full h-full bg-white animate-pulse origin-top" />
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scrollPulse {
-          0% { transform: translateY(-100%); }
-          50% { transform: translateY(400%); }
-          100% { transform: translateY(-100%); }
-        }
-      `}</style>
     </section>
   );
 }

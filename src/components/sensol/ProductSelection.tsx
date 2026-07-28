@@ -30,19 +30,19 @@ const products = [
     name: 'Sensol RS02',
     model: 'RS02',
     price: '$2,000',
-    image: '/site-product-rs02.jpeg',
+    image: '/square-2.webp',
   },
   {
     name: 'Sensol RS02 PRO',
     model: 'RS02 PRO',
     price: '$2,400',
-    image: '/site-product-rs02pro.jpeg',
+    image: '/square-3.webp',
   },
   {
     name: 'Sensol FLEX AIR',
     model: 'FLEX AIR',
     price: '$650',
-    image: '/site-product-flex.jpeg',
+    image: '/square-4.webp',
   },
 ];
 
