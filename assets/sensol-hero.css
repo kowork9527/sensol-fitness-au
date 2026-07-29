@@ -20,7 +20,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 1.5s ease-in-out;
 }
 
 .sensol-hero__slide--active {
@@ -40,81 +40,89 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(26,24,22,0.3) 0%, rgba(26,24,22,0.5) 50%, rgba(26,24,22,0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
 }
 
 .sensol-hero__content {
   position: absolute;
-  bottom: 15%;
-  left: 8%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  max-width: 700px;
+  text-align: center;
   color: #F7F4F0;
+  width: 90%;
+  max-width: 800px;
 }
 
 .sensol-hero__label {
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 16px;
-  opacity: 0.8;
+  margin-bottom: 32px;
+  opacity: 0.6;
   font-weight: 300;
 }
 
 .sensol-hero__title {
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(48px, 10vw, 160px);
   font-weight: 200;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: 20px;
+  line-height: 0.9;
+  margin-bottom: 24px;
 }
 
 .sensol-hero__subtitle {
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 300;
-  line-height: 1.7;
-  opacity: 0.85;
-  margin-bottom: 32px;
-  max-width: 500px;
+  line-height: 1.8;
+  opacity: 0.8;
+  max-width: 450px;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
 }
 
 .sensol-hero__btn {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
   display: inline-block;
-  padding: 14px 40px;
+  padding: 16px 40px;
   background: #F7F4F0;
   color: #1A1816;
-  font-size: 12px;
-  letter-spacing: 0.15em;
+  font-size: 10px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 400;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .sensol-hero__btn:hover {
-  background: #1A1816;
-  color: #F7F4F0;
-  outline: 1px solid #F7F4F0;
+  background: rgba(247,244,240,0.9);
 }
 
 .sensol-hero__dots {
   position: absolute;
-  bottom: 6%;
-  left: 8%;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   display: flex;
-  gap: 10px;
+  gap: 24px;
 }
 
 .sensol-hero__dot {
   width: 32px;
-  height: 2px;
+  height: 1px;
   background: rgba(247,244,240,0.3);
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease;
 }
 
 .sensol-hero__dot--active {
@@ -125,13 +133,50 @@
   background: rgba(247,244,240,0.6);
 }
 
+.sensol-hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sensol-hero__scroll span {
+  color: rgba(247,244,240,0.4);
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sensol-hero__scroll-line {
+  width: 1px;
+  height: 32px;
+  background: rgba(247,244,240,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.sensol-hero__scroll-pulse {
+  width: 100%;
+  height: 100%;
+  background: #F7F4F0;
+  animation: hero-scroll-pulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes hero-scroll-pulse {
+  0%, 100% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
 @media (max-width: 768px) {
   .sensol-hero__content {
-    left: 5%;
-    bottom: 12%;
-    max-width: 90%;
+    width: 90%;
   }
-  .sensol-hero__title {
-    font-size: clamp(36px, 10vw, 56px);
+  .sensol-hero__scroll {
+    display: none;
   }
 }

@@ -1,36 +1,44 @@
 {{ 'sensol-hero.css' | asset_url | stylesheet_tag }}
 
-{%- assign banners = 'banner-1,banner-2,banner-3' | split: ',' -%}
-{%- assign headings = 'A NEW LANGUAGE OF TRAINING,WHERE STRENGTH MEETS PILATES,THE FUTURE OF MODERN TRAINING' | split: ',' -%}
-{%- assign subtexts = 'Where strength meets precision, and movement becomes design.,Precision. Control. Redefined.,Smart training for the modern space.' | split: ',' -%}
+{%- assign slide_images = 'banner-1.webp,banner-2.webp,banner-3.webp' | split: ',' -%}
+{%- assign slide_labels = 'A new language of training,Engineered movement,Where strength meets pilates' | split: ',' -%}
+{%- assign slide_headings = 'SENSOL,PRECISION,CONTROL' | split: ',' -%}
+{%- assign slide_subs = 'Where strength meets precision, and movement becomes design.,Adaptive resistance and fluid motion, tailored to your body.,Control begins within. Train with intention.' | split: ',' -%}
 
 <section class="sensol-hero" id="sensol-hero">
   <div class="sensol-hero__slider">
     {%- for i in (0..2) -%}
     <div class="sensol-hero__slide{% if forloop.first %} sensol-hero__slide--active{% endif %}" data-slide="{{ forloop.index0 }}">
-      <img src="{{ banners[forloop.index0] | append: '.webp' | asset_url }}" alt="{{ headings[forloop.index0] | strip }}" class="sensol-hero__image" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+      {%- if section.settings[slide_image_setting] -%}
+      {%- else -%}
+      <img src="{{ slide_images[forloop.index0] | asset_url }}" alt="{{ slide_headings[forloop.index0] | strip }}" class="sensol-hero__image" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+      {%- endif -%}
       <div class="sensol-hero__overlay"></div>
       <div class="sensol-hero__content">
-        <p class="sensol-hero__label">{{ section.settings.label | default: headings[forloop.index0] | strip }}</p>
-        <h1 class="sensol-hero__title">{{ section.settings.heading | default: 'SENSOL' }}</h1>
-        <p class="sensol-hero__subtitle">{{ section.settings.subtitle | default: subtexts[forloop.index0] | strip }}</p>
-        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="sensol-hero__btn">{{ section.settings.button_text | default: 'SHOP ALL' }}</a>
+        <p class="sensol-hero__label">{{ slide_labels[forloop.index0] | strip }}</p>
+        <h1 class="sensol-hero__title">{{ slide_headings[forloop.index0] | strip }}</h1>
+        <p class="sensol-hero__subtitle">{{ slide_subs[forloop.index0] | strip }}</p>
       </div>
     </div>
     {%- endfor -%}
   </div>
+  <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="sensol-hero__btn">{{ section.settings.button_text | default: 'SHOP ALL' }}</a>
   <div class="sensol-hero__dots">
-    <button class="sensol-hero__dot sensol-hero__dot--active" data-dot="0"></button>
-    <button class="sensol-hero__dot" data-dot="1"></button>
-    <button class="sensol-hero__dot" data-dot="2"></button>
+    <button class="sensol-hero__dot sensol-hero__dot--active" data-dot="0" aria-label="Slide 1"></button>
+    <button class="sensol-hero__dot" data-dot="1" aria-label="Slide 2"></button>
+    <button class="sensol-hero__dot" data-dot="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="sensol-hero__scroll">
+    <span>Scroll</span>
+    <div class="sensol-hero__scroll-line"><div class="sensol-hero__scroll-pulse"></div></div>
   </div>
 </section>
 
 <script>
 (function(){
-  const slides=document.querySelectorAll('.sensol-hero__slide');
-  const dots=document.querySelectorAll('.sensol-hero__dot');
-  let current=0,interval;
+  var slides=document.querySelectorAll('.sensol-hero__slide');
+  var dots=document.querySelectorAll('.sensol-hero__dot');
+  var current=0,interval;
   function go(n){
     slides[current].classList.remove('sensol-hero__slide--active');
     dots[current].classList.remove('sensol-hero__dot--active');
@@ -41,7 +49,7 @@
   function next(){go((current+1)%slides.length)}
   function start(){interval=setInterval(next,6000)}
   function stop(){clearInterval(interval)}
-  dots.forEach(d=>d.addEventListener('click',()=>{stop();go(+d.dataset.dot);start()}));
+  dots.forEach(function(d){d.addEventListener('click',function(){stop();go(+d.dataset.dot);start()})});
   start();
 })();
 </script>
@@ -52,11 +60,11 @@
   "tag": "section",
   "class": "sensol-hero-section",
   "settings": [
-    {"type":"text","id":"label","label":"Label","default":"A NEW LANGUAGE OF TRAINING"},
-    {"type":"text","id":"heading","label":"Heading","default":"SENSOL"},
-    {"type":"text","id":"subtitle","label":"Subtitle","default":"Where strength meets precision, and movement becomes design."},
     {"type":"text","id":"button_text","label":"Button Text","default":"SHOP ALL"},
-    {"type":"url","id":"button_link","label":"Button Link"}
+    {"type":"url","id":"button_link","label":"Button Link"},
+    {"type":"image_picker","id":"slide_1_image","label":"Slide 1 Image"},
+    {"type":"image_picker","id":"slide_2_image","label":"Slide 2 Image"},
+    {"type":"image_picker","id":"slide_3_image","label":"Slide 3 Image"}
   ],
   "presets":[{"name":"SENSOL Hero"}]
 }

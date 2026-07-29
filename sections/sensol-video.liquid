@@ -1,32 +1,44 @@
 {{ 'sensol-video.css' | asset_url | stylesheet_tag }}
 
 <section class="sensol-video">
-  <div class="sensol-video__container">
-    <div class="sensol-video__content">
-      <p class="sensol-video__label">{{ section.settings.label | default: 'THE FIRST ALL-IN-ONE SMART TRAINING REFORMER' }}</p>
-      <h2 class="sensol-video__title">{{ section.settings.title | default: 'See how Sensol works in real movement' }}</h2>
+  <div class="sensol-video__inner">
+    <!-- Section Label -->
+    <p class="sensol-video__label">{{ section.settings.label | default: 'See how Sensol works' }}</p>
+
+    <!-- Headline -->
+    <div class="sensol-video__header">
+      <h2 class="sensol-video__title">{{ section.settings.title | default: 'The first All-in-one<br>smart training reformer.' }}</h2>
       <p class="sensol-video__subtitle">{{ section.settings.subtitle | default: 'See how Sensol works in real movement — simple, precise, and intuitive.' }}</p>
-      <div class="sensol-video__specs">
-        <div class="sensol-video__spec">
-          <span class="sensol-video__spec-value">360°</span>
-          <span class="sensol-video__spec-label">Motion Range</span>
-        </div>
-        <div class="sensol-video__spec">
-          <span class="sensol-video__spec-value">&lt;8ms</span>
-          <span class="sensol-video__spec-label">Response</span>
-        </div>
-        <div class="sensol-video__spec">
-          <span class="sensol-video__spec-value">0–100%</span>
-          <span class="sensol-video__spec-label">Resistance</span>
-        </div>
-        <div class="sensol-video__spec">
-          <span class="sensol-video__spec-value">&lt;25dB</span>
-          <span class="sensol-video__spec-label">Quiet</span>
-        </div>
-      </div>
     </div>
+
+    <!-- Video / Image Container -->
     <div class="sensol-video__media">
-      <img src="{{ 'banner-4.webp' | asset_url }}" alt="SENSOL Smart Reformer" loading="lazy">
+      {%- if section.settings.video != blank -%}
+      <video class="sensol-video__player" playsinline preload="metadata" poster="{{ section.settings.image | image_url: width: 1600 }}">
+        <source src="{{ section.settings.video }}" type="video/mp4">
+      </video>
+      <div class="sensol-video__play-overlay" onclick="this.style.display='none';this.previousElementSibling.play();">
+        <div class="sensol-video__play-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span class="sensol-video__play-text">Play video</span>
+      </div>
+      {%- elsif section.settings.image != blank -%}
+      <img src="{{ section.settings.image | image_url: width: 1600 }}" alt="SENSOL Smart Reformer" class="sensol-video__player" loading="lazy">
+      {%- else -%}
+      <img src="{{ 'banner-4.webp' | asset_url }}" alt="SENSOL Smart Reformer" class="sensol-video__player" loading="lazy">
+      {%- endif -%}
+    </div>
+
+    <!-- Specs Row -->
+    <div class="sensol-video__specs">
+      {%- for block in section.blocks -%}
+      <div class="sensol-video__spec" {{ block.shopify_attributes }}>
+        <p class="sensol-video__spec-value">{{ block.settings.value | default: '—' }}</p>
+        <p class="sensol-video__spec-label">{{ block.settings.label | default: 'Spec' }}</p>
+        <p class="sensol-video__spec-desc">{{ block.settings.description }}</p>
+      </div>
+      {%- endfor -%}
     </div>
   </div>
 </section>
@@ -37,11 +49,23 @@
   "tag": "section",
   "class": "sensol-video-section",
   "settings": [
-    {"type":"text","id":"label","label":"Label","default":"THE FIRST ALL-IN-ONE SMART TRAINING REFORMER"},
-    {"type":"text","id":"title","label":"Title","default":"See how Sensol works in real movement"},
+    {"type":"text","id":"label","label":"Section Label","default":"See how Sensol works"},
+    {"type":"text","id":"title","label":"Title","default":"The first All-in-one<br>smart training reformer."},
     {"type":"textarea","id":"subtitle","label":"Subtitle","default":"See how Sensol works in real movement — simple, precise, and intuitive."},
-    {"type":"image_picker","id":"image","label":"Image (overrides default)"}
+    {"type":"image_picker","id":"image","label":"Video Poster / Fallback Image"},
+    {"type":"url","id":"video","label":"Video URL (mp4)"}
   ],
-  "presets":[{"name":"SENSOL Video Showcase"}]
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec",
+      "settings": [
+        {"type":"text","id":"value","label":"Value","default":"360°"},
+        {"type":"text","id":"label","label":"Label","default":"Motion Range"},
+        {"type":"text","id":"description","label":"Description","default":"Full-spectrum movement freedom for unrestricted training."}
+      ]
+    }
+  ],
+  "presets":[{"name":"SENSOL Video Showcase","blocks":[{"type":"spec","settings":{"value":"360°","label":"Motion Range","description":"Full-spectrum movement freedom for unrestricted training."}},{"type":"spec","settings":{"value":"<8ms","label":"Response Time","description":"Near-instantaneous feedback between input and resistance."}},{"type":"spec","settings":{"value":"0–100%","label":"Resistance","description":"Precision-tuned resistance that adapts to your strength curve."}},{"type":"spec","settings":{"value":"<25dB","label":"Noise Level","description":"Whisper-quiet operation that preserves the stillness of your space."}}]}]
 }
 {% endschema %}

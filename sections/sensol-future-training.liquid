@@ -1,0 +1,46 @@
+{{ 'sensol-future-training.css' | asset_url | stylesheet_tag }}
+
+<section class="sensol-future">
+  <div class="sensol-future__inner">
+    <!-- Label -->
+    <p class="sensol-future__label">{{ section.settings.label | default: 'Where strength meets pilates' }}</p>
+
+    <!-- Full-width image -->
+    <div class="sensol-future__image-wrap">
+      {%- if section.settings.image != blank -%}
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.title | default: 'The future of modern training' }}" class="sensol-future__img" loading="lazy">
+      {%- else -%}
+      <img src="{{ 'banner-4.webp' | asset_url }}" alt="{{ section.settings.title | default: 'The future of modern training' }}" class="sensol-future__img" loading="lazy">
+      {%- endif -%}
+      <div class="sensol-future__image-overlay"></div>
+      <div class="sensol-future__image-caption">
+        <p>{{ section.settings.image_caption | default: 'Designed for modern living' }}</p>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <div class="sensol-future__headline">
+      <h2 class="sensol-future__title">{{ section.settings.title | default: 'The Future Of<br>Modern Training.' }}</h2>
+      <div class="sensol-future__cta">
+        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="sensol-future__btn">{{ section.settings.button_text | default: 'SHOP ALL' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Future of Training",
+  "tag": "section",
+  "class": "sensol-future-section",
+  "settings": [
+    {"type":"text","id":"label","label":"Section Label","default":"Where strength meets pilates"},
+    {"type":"text","id":"title","label":"Title","default":"The Future Of<br>Modern Training."},
+    {"type":"text","id":"image_caption","label":"Image Caption","default":"Designed for modern living"},
+    {"type":"image_picker","id":"image","label":"Full-width Image"},
+    {"type":"text","id":"button_text","label":"Button Text","default":"SHOP ALL"},
+    {"type":"url","id":"button_link","label":"Button Link"}
+  ],
+  "presets":[{"name":"SENSOL Future of Training"}]
+}
+{% endschema %}

@@ -1,86 +1,186 @@
 .sensol-brand-story {
-  padding: 100px 8%;
+  padding: 96px 0;
   background: #F7F4F0;
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
 }
 
-.sensol-brand-story__text {
-  flex: 1;
-  max-width: 520px;
+.sensol-brand-story__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story {
+    padding: 160px 0;
+  }
+  .sensol-brand-story__inner {
+    padding: 0 64px;
+  }
 }
 
 .sensol-brand-story__number {
-  font-size: 12px;
+  color: #8A8279;
+  font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #8A8279;
-  margin-bottom: 20px;
+  margin-bottom: 64px;
   font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story__number {
+    margin-bottom: 80px;
+  }
+}
+
+.sensol-brand-story__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+  }
+}
+
+.sensol-brand-story__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sensol-brand-story__title {
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  line-height: 1.3;
   color: #1A1816;
-  margin-bottom: 32px;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 200;
+  line-height: 1.12;
+  letter-spacing: 0.05em;
+  margin-bottom: 40px;
 }
 
-.sensol-brand-story__desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #8A8279;
-  margin-bottom: 48px;
-}
-
-.sensol-brand-story__features {
+.sensol-brand-story__paragraphs {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
-.sensol-brand-story__feature {
-  padding-top: 24px;
+.sensol-brand-story__para {
+  color: #8A8279;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story__para {
+    font-size: 16px;
+  }
+}
+
+.sensol-brand-story__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 40px;
   border-top: 1px solid #D4CEC6;
 }
 
-.sensol-brand-story__feature-title {
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 400;
+.sensol-brand-story__stat-value {
   color: #1A1816;
-  margin-bottom: 8px;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 200;
+}
+
+.sensol-brand-story__stat-label {
+  color: #8A8279;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.sensol-brand-story__image-col {
+  position: relative;
+  overflow: hidden;
+}
+
+.sensol-brand-story__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-brand-story__image-col:hover .sensol-brand-story__img {
+  transform: scale(1.03);
+}
+
+.sensol-brand-story__image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(26,24,22,0.3), transparent);
+}
+
+.sensol-brand-story__image-caption {
+  color: rgba(247,244,240,0.7);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sensol-brand-story__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: #D4CEC6;
+  margin-top: 96px;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story__features {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 128px;
+  }
+}
+
+.sensol-brand-story__feature {
+  background: #F7F4F0;
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .sensol-brand-story__feature {
+    padding: 48px;
+  }
+}
+
+.sensol-brand-story__feature-num {
+  color: #1A1816;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sensol-brand-story__feature-title {
+  color: #1A1816;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
 }
 
 .sensol-brand-story__feature-desc {
-  font-size: 14px;
-  line-height: 1.7;
   color: #8A8279;
-}
-
-.sensol-brand-story__image {
-  flex: 1;
-  max-width: 560px;
-}
-
-.sensol-brand-story__image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .sensol-brand-story {
-    flex-direction: column;
-    padding: 60px 5%;
-    gap: 40px;
-  }
-  .sensol-brand-story__image {
-    max-width: 100%;
-  }
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
 }

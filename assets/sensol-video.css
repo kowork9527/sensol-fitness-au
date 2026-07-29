@@ -1,124 +1,174 @@
 .sensol-video {
-  padding: 100px 8%;
+  padding: 80px 0;
   background: #1A1816;
-  color: #F7F4F0;
-  display: flex;
-  gap: 60px;
-  align-items: center;
 }
 
-.sensol-video__left {
-  flex: 1.2;
-  max-width: 640px;
+@media (min-width: 768px) {
+  .sensol-video {
+    padding: 128px 0;
+  }
+}
+
+.sensol-video__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__inner {
+    padding: 0 64px;
+  }
 }
 
 .sensol-video__label {
-  font-size: 12px;
+  color: #8A8279;
+  font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #B5ADA4;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-weight: 300;
+}
+
+.sensol-video__header {
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__header {
+    margin-bottom: 64px;
+  }
 }
 
 .sensol-video__title {
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  line-height: 1.3;
-  margin-bottom: 28px;
-}
-
-.sensol-video__desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(247,244,240,0.7);
-  margin-bottom: 40px;
-}
-
-.sensol-video__specs {
-  display: flex;
-  gap: 40px;
-}
-
-.sensol-video__spec {
-  padding-top: 16px;
-  border-top: 1px solid rgba(247,244,240,0.12);
-}
-
-.sensol-video__spec-value {
-  font-size: 28px;
-  font-weight: 200;
-  letter-spacing: 0.05em;
   color: #F7F4F0;
-  margin-bottom: 4px;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 200;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
 }
 
-.sensol-video__spec-label {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #B5ADA4;
+.sensol-video__subtitle {
+  color: #8A8279;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-top: 24px;
+  max-width: 480px;
 }
 
-.sensol-video__right {
-  flex: 1;
+.sensol-video__media {
   position: relative;
-}
-
-.sensol-video__wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: rgba(247,244,240,0.05);
+  aspect-ratio: 21 / 9;
+  background: #0d0d0b;
 }
 
-.sensol-video__wrapper video,
-.sensol-video__wrapper img {
+.sensol-video__player {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.sensol-video__play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  background: rgba(26,24,22,0.4);
+  transition: background 0.5s ease;
+}
+
+.sensol-video__play-overlay:hover {
+  background: rgba(26,24,22,0.2);
 }
 
 .sensol-video__play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 64px;
   height: 64px;
-  background: rgba(247,244,240,0.9);
-  border: none;
-  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(247,244,240,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease, transform 0.3s ease;
+  color: #F7F4F0;
+  transition: all 0.5s ease;
 }
 
-.sensol-video__play-btn:hover {
-  background: #F7F4F0;
-  transform: translate(-50%, -50%) scale(1.08);
-}
-
-.sensol-video__play-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: #1A1816;
-  margin-left: 3px;
-}
-
-@media (max-width: 768px) {
-  .sensol-video {
-    flex-direction: column;
-    padding: 60px 5%;
-    gap: 40px;
+@media (min-width: 768px) {
+  .sensol-video__play-btn {
+    width: 80px;
+    height: 80px;
   }
-  .sensol-video__left {
-    max-width: 100%;
-  }
+}
+
+.sensol-video__play-overlay:hover .sensol-video__play-btn {
+  border-color: #F7F4F0;
+  transform: scale(1.05);
+}
+
+.sensol-video__play-text {
+  color: rgba(247,244,240,0.7);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+
+.sensol-video__play-overlay:hover .sensol-video__play-text {
+  color: #F7F4F0;
+}
+
+.sensol-video__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(247,244,240,0.06);
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
   .sensol-video__specs {
-    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 64px;
   }
+}
+
+.sensol-video__spec {
+  background: #1A1816;
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__spec {
+    padding: 40px;
+  }
+}
+
+.sensol-video__spec-value {
+  color: #F7F4F0;
+  font-size: 28px;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.sensol-video__spec-label {
+  color: #B5ADA4;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sensol-video__spec-desc {
+  color: rgba(247,244,240,0.5);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.6;
 }

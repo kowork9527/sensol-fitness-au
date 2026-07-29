@@ -1,28 +1,61 @@
 {{ 'sensol-brand-story.css' | asset_url | stylesheet_tag }}
 
 <section class="sensol-brand-story">
-  <div class="sensol-brand-story__container">
-    <div class="sensol-brand-story__text">
-      <p class="sensol-brand-story__number">01 — The Philosophy</p>
-      <h2 class="sensol-brand-story__title">{{ section.settings.title | default: 'Engineered for those who see movement as a craft.' }}</h2>
-      <p class="sensol-brand-story__body">{{ section.settings.body | default: 'Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space. Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.' }}</p>
-      <div class="sensol-brand-story__features">
-        <div class="sensol-brand-story__feature">
-          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature1_title | default: 'Adaptive Resistance' }}</h3>
-          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature1_desc | default: 'Fluid resistance that adapts to your strength curve — progressive, regressive, or constant.' }}</p>
+  <div class="sensol-brand-story__inner">
+    <!-- Section Number -->
+    <p class="sensol-brand-story__number">{{ section.settings.label | default: '01 — The Philosophy' }}</p>
+
+    <!-- Main Grid: Text Left, Image Right -->
+    <div class="sensol-brand-story__grid">
+      <!-- Text Column -->
+      <div class="sensol-brand-story__text">
+        <h2 class="sensol-brand-story__title">{{ section.settings.title | default: 'Designed around<br>the human form.' }}</h2>
+
+        <div class="sensol-brand-story__paragraphs">
+          <p class="sensol-brand-story__para">{{ section.settings.para1 | default: 'Sensol is redefining the role of fitness in modern living. Founded in 2022, we design intelligent training systems that merge performance, technology, and spatial aesthetics — building a new vision of the future fitness lifestyle.' }}</p>
+          <p class="sensol-brand-story__para">{{ section.settings.para2 | default: 'Our machines are not merely equipment. They are engineered instruments — each component machined to precision, each resistance curve calibrated for the human body. The result is a training experience that feels less like a workout and more like a practice in control.' }}</p>
+          <p class="sensol-brand-story__para">{{ section.settings.para3 | default: 'We believe that strength is not about how much you can lift, but how precisely you can move. Every Sensol system is built to help you discover that precision — in your own space, at your own pace, on your own terms.' }}</p>
         </div>
-        <div class="sensol-brand-story__feature">
-          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature2_title | default: 'Spatial Design' }}</h3>
-          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature2_desc | default: 'Engineered to be a considered object in a considered space — not an afterthought in a garage.' }}</p>
+
+        <!-- Key Values / Stats -->
+        <div class="sensol-brand-story__stats">
+          <div class="sensol-brand-story__stat">
+            <p class="sensol-brand-story__stat-value">{{ section.settings.stat1_value | default: '2022' }}</p>
+            <p class="sensol-brand-story__stat-label">{{ section.settings.stat1_label | default: 'Founded' }}</p>
+          </div>
+          <div class="sensol-brand-story__stat">
+            <p class="sensol-brand-story__stat-value">{{ section.settings.stat2_value | default: '7' }}</p>
+            <p class="sensol-brand-story__stat-label">{{ section.settings.stat2_label | default: 'Products' }}</p>
+          </div>
+          <div class="sensol-brand-story__stat">
+            <p class="sensol-brand-story__stat-value">{{ section.settings.stat3_value | default: '∞' }}</p>
+            <p class="sensol-brand-story__stat-label">{{ section.settings.stat3_label | default: 'Possibilities' }}</p>
+          </div>
         </div>
-        <div class="sensol-brand-story__feature">
-          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature3_title | default: 'Intelligent Motion' }}</h3>
-          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature3_desc | default: 'Precision mechanics that respond in under 8ms — seamless, intuitive, and imperceptible.' }}</p>
+      </div>
+
+      <!-- Image Column -->
+      <div class="sensol-brand-story__image-col">
+        {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="Sensol precision engineering" class="sensol-brand-story__img" loading="lazy">
+        {%- else -%}
+        <img src="{{ 'section-1.webp' | asset_url }}" alt="Sensol precision engineering" class="sensol-brand-story__img" loading="lazy">
+        {%- endif -%}
+        <div class="sensol-brand-story__image-overlay">
+          <p class="sensol-brand-story__image-caption">Engineered movement</p>
         </div>
       </div>
     </div>
-    <div class="sensol-brand-story__image">
-      <img src="{{ 'section-1.webp' | asset_url }}" alt="SENSOL Brand Story" loading="lazy">
+
+    <!-- Bottom Feature Row — 3 features -->
+    <div class="sensol-brand-story__features">
+      {%- for block in section.blocks -%}
+      <div class="sensol-brand-story__feature" {{ block.shopify_attributes }}>
+        <p class="sensol-brand-story__feature-num">{{ block.settings.number | default: '0' | prepend: '0' }}</p>
+        <h3 class="sensol-brand-story__feature-title">{{ block.settings.title | default: 'Feature' }}</h3>
+        <p class="sensol-brand-story__feature-desc">{{ block.settings.description | default: 'Feature description goes here.' }}</p>
+      </div>
+      {%- endfor -%}
     </div>
   </div>
 </section>
@@ -33,16 +66,30 @@
   "tag": "section",
   "class": "sensol-brand-story-section",
   "settings": [
-    {"type":"text","id":"title","label":"Title","default":"Engineered for those who see movement as a craft."},
-    {"type":"textarea","id":"body","label":"Body Text","default":"Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design."},
-    {"type":"text","id":"feature1_title","label":"Feature 1 Title","default":"Adaptive Resistance"},
-    {"type":"text","id":"feature1_desc","label":"Feature 1 Description","default":"Fluid resistance that adapts to your strength curve."},
-    {"type":"text","id":"feature2_title","label":"Feature 2 Title","default":"Spatial Design"},
-    {"type":"text","id":"feature2_desc","label":"Feature 2 Description","default":"Engineered to be a considered object in a considered space."},
-    {"type":"text","id":"feature3_title","label":"Feature 3 Title","default":"Intelligent Motion"},
-    {"type":"text","id":"feature3_desc","label":"Feature 3 Description","default":"Precision mechanics that respond in under 8ms."},
-    {"type":"image_picker","id":"image","label":"Image (overrides default)"}
+    {"type":"text","id":"label","label":"Section Label","default":"01 — The Philosophy"},
+    {"type":"text","id":"title","label":"Title","default":"Designed around<br>the human form."},
+    {"type":"textarea","id":"para1","label":"Paragraph 1","default":"Sensol is redefining the role of fitness in modern living. Founded in 2022, we design intelligent training systems that merge performance, technology, and spatial aesthetics — building a new vision of the future fitness lifestyle."},
+    {"type":"textarea","id":"para2","label":"Paragraph 2","default":"Our machines are not merely equipment. They are engineered instruments — each component machined to precision, each resistance curve calibrated for the human body."},
+    {"type":"textarea","id":"para3","label":"Paragraph 3","default":"We believe that strength is not about how much you can lift, but how precisely you can move."},
+    {"type":"text","id":"stat1_value","label":"Stat 1 Value","default":"2022"},
+    {"type":"text","id":"stat1_label","label":"Stat 1 Label","default":"Founded"},
+    {"type":"text","id":"stat2_value","label":"Stat 2 Value","default":"7"},
+    {"type":"text","id":"stat2_label","label":"Stat 2 Label","default":"Products"},
+    {"type":"text","id":"stat3_value","label":"Stat 3 Value","default":"∞"},
+    {"type":"text","id":"stat3_label","label":"Stat 3 Label","default":"Possibilities"},
+    {"type":"image_picker","id":"image","label":"Section Image"}
   ],
-  "presets":[{"name":"SENSOL Brand Story"}]
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {"type":"text","id":"number","label":"Number","default":"1"},
+        {"type":"text","id":"title","label":"Title","default":"Adaptive Resistance"},
+        {"type":"textarea","id":"description","label":"Description","default":"Our magnetic resistance system responds in real time to your movement patterns."}
+      ]
+    }
+  ],
+  "presets":[{"name":"SENSOL Brand Story","blocks":[{"type":"feature","settings":{"number":"1","title":"Adaptive Resistance","description":"Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate."}},{"type":"feature","settings":{"number":"2","title":"Spatial Design","description":"Every Sensol machine is designed to live in your space — not dominate it. Clean lines, premium materials, and a footprint that respects the architecture of your home or studio."}},{"type":"feature","settings":{"number":"3","title":"Intelligent Motion","description":"From 360-degree range of motion to whisper-quiet operation at under 25dB, every technical detail serves one purpose: to let you focus entirely on the movement."}}]}]
 }
 {% endschema %}

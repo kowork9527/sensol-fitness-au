@@ -1,16 +1,43 @@
 {{ 'sensol-senzine.css' | asset_url | stylesheet_tag }}
 
 <section class="sensol-senzine">
-  <div class="sensol-senzine__container">
-    <div class="sensol-senzine__text">
-      <p class="sensol-senzine__label">SENZINE</p>
-      <h2 class="sensol-senzine__title">{{ section.settings.title | default: 'Senzine' }}</h2>
-      <p class="sensol-senzine__body">{{ section.settings.body | default: 'Senzine is Sensol\'s internal publication, distills a single idea—control, resistance, stillness—into a tactile experience, designed to be felt as much as it is read. Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.' }}</p>
-      <a href="{{ section.settings.button_link | default: '/pages/contact' }}" class="sensol-senzine__btn">{{ section.settings.button_text | default: 'JOIN US' }}</a>
+  <div class="sensol-senzine__inner">
+    <div class="sensol-senzine__grid">
+      <!-- Large Image -->
+      <div class="sensol-senzine__image-col">
+        {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="SENZINE Publication" class="sensol-senzine__img" loading="lazy">
+        {%- else -%}
+        <img src="{{ 'section-2.webp' | asset_url }}" alt="SENZINE Publication" class="sensol-senzine__img" loading="lazy">
+        {%- endif -%}
+      </div>
+
+      <!-- Text -->
+      <div class="sensol-senzine__text">
+        <p class="sensol-senzine__label">{{ section.settings.label | default: 'Internal Publication' }}</p>
+        <h2 class="sensol-senzine__title">{{ section.settings.title | default: 'SENZINE' }}</h2>
+        <div class="sensol-senzine__body">
+          <p class="sensol-senzine__para">{{ section.settings.para1 | default: 'Senzine is Sensol\'s internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read.' }}</p>
+          <p class="sensol-senzine__para">{{ section.settings.para2 | default: 'Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.' }}</p>
+        </div>
+        <div class="sensol-senzine__cta">
+          <a href="{{ section.settings.button_link | default: '#' }}" class="sensol-senzine__btn">{{ section.settings.button_text | default: 'JOIN US' }}</a>
+        </div>
+      </div>
     </div>
-    <div class="sensol-senzine__images">
-      <img src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE Issue" class="sensol-senzine__img" loading="lazy">
-      <img src="{{ 'editorial-2.webp' | asset_url }}" alt="SENZINE Issue" class="sensol-senzine__img" loading="lazy">
+
+    <!-- Secondary image row -->
+    <div class="sensol-senzine__secondary">
+      {%- if section.settings.image2 != blank -%}
+      <img src="{{ section.settings.image2 | image_url: width: 800 }}" alt="SENZINE" class="sensol-senzine__secondary-img" loading="lazy">
+      {%- else -%}
+      <img src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE" class="sensol-senzine__secondary-img" loading="lazy">
+      {%- endif -%}
+      {%- if section.settings.image3 != blank -%}
+      <img src="{{ section.settings.image3 | image_url: width: 800 }}" alt="SENZINE" class="sensol-senzine__secondary-img" loading="lazy">
+      {%- else -%}
+      <img src="{{ 'editorial-2.webp' | asset_url }}" alt="SENZINE" class="sensol-senzine__secondary-img" loading="lazy">
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -21,12 +48,15 @@
   "tag": "section",
   "class": "sensol-senzine-section",
   "settings": [
-    {"type":"text","id":"title","label":"Title","default":"Senzine"},
-    {"type":"textarea","id":"body","label":"Body Text","default":"Senzine is Sensol's internal publication."},
+    {"type":"text","id":"label","label":"Section Label","default":"Internal Publication"},
+    {"type":"text","id":"title","label":"Title","default":"SENZINE"},
+    {"type":"textarea","id":"para1","label":"Paragraph 1","default":"Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read."},
+    {"type":"textarea","id":"para2","label":"Paragraph 2","default":"Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention."},
     {"type":"text","id":"button_text","label":"Button Text","default":"JOIN US"},
     {"type":"url","id":"button_link","label":"Button Link"},
-    {"type":"image_picker","id":"image1","label":"Image 1 (overrides default)"},
-    {"type":"image_picker","id":"image2","label":"Image 2 (overrides default)"}
+    {"type":"image_picker","id":"image","label":"Main Image"},
+    {"type":"image_picker","id":"image2","label":"Secondary Image 1"},
+    {"type":"image_picker","id":"image3","label":"Secondary Image 2"}
   ],
   "presets":[{"name":"SENSOL Senzine"}]
 }
