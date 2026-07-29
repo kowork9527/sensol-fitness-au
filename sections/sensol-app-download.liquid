@@ -262,11 +262,13 @@
 /* Content Column */
 .sensol-app__content-col {
   padding-left: 0;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .sensol-app__content-col {
     padding-left: 2rem;
+    text-align: left;
   }
 }
 
@@ -294,6 +296,15 @@
   font-weight: 300;
   margin-bottom: 2.5rem;
   max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .sensol-app__desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Features — matching Next.js: left border decoration */
@@ -329,6 +340,13 @@
 .sensol-app__stores {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-app__stores {
+    justify-content: flex-start;
+  }
 }
 
 .sensol-app__store-btn {

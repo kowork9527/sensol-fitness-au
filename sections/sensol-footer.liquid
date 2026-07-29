@@ -1,0 +1,461 @@
+<section class="sensol-footer-section">
+  <div class="sensol-footer">
+    <!-- Main Footer Grid -->
+    <div class="sensol-footer__grid">
+      <!-- Brand Column -->
+      <div class="sensol-footer__brand">
+        <p class="sensol-footer__brand-name">Sensol</p>
+        <p class="sensol-footer__brand-desc">
+          Redefining the role of fitness in modern living. Intelligent
+          training systems that merge performance, technology, and spatial
+          aesthetics. Founded 2022.
+        </p>
+        <div class="sensol-footer__social">
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" class="sensol-footer__social-link" target="_blank" rel="noopener">Instagram</a>
+          {%- else -%}
+            <a href="#" class="sensol-footer__social-link">Instagram</a>
+          {%- endif -%}
+          {%- if section.settings.social_youtube != blank -%}
+            <a href="{{ section.settings.social_youtube }}" class="sensol-footer__social-link" target="_blank" rel="noopener">YouTube</a>
+          {%- else -%}
+            <a href="#" class="sensol-footer__social-link">YouTube</a>
+          {%- endif -%}
+          {%- if section.settings.social_linkedin != blank -%}
+            <a href="{{ section.settings.social_linkedin }}" class="sensol-footer__social-link" target="_blank" rel="noopener">LinkedIn</a>
+          {%- else -%}
+            <a href="#" class="sensol-footer__social-link">LinkedIn</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Products Column -->
+      <div class="sensol-footer__col">
+        <p class="sensol-footer__col-heading">Products</p>
+        <ul class="sensol-footer__col-list">
+          {%- for link in linklists[section.settings.product_menu].links -%}
+            <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS02</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS02 PRO</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS03</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX AIR</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX PRO</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="sensol-footer__col">
+        <p class="sensol-footer__col-heading">Company</p>
+        <ul class="sensol-footer__col-list">
+          {%- for link in linklists[section.settings.company_menu].links -%}
+            <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/pages/about" class="sensol-footer__col-link">About</a></li>
+            <li><a href="/pages/philosophy" class="sensol-footer__col-link">Senzine</a></li>
+            <li><a href="/pages/contact" class="sensol-footer__col-link">Contact</a></li>
+            <li><a href="/pages/careers" class="sensol-footer__col-link">Careers</a></li>
+            <li><a href="/pages/press" class="sensol-footer__col-link">Press</a></li>
+            <li><a href="/pages/app" class="sensol-footer__col-link">App</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="sensol-footer__newsletter">
+        <p class="sensol-footer__col-heading">Newsletter</p>
+        <p class="sensol-footer__newsletter-desc">
+          Subscribe for exclusive updates, early access to new products,
+          and stories from the world of Sensol.
+        </p>
+        {%- form 'customer', id: 'SensolFooter', class: 'sensol-footer__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="sensol-footer__form-row">
+            <input
+              type="email"
+              name="contact[email]"
+              class="sensol-footer__input"
+              placeholder="Your email address"
+              required
+              aria-label="Email for newsletter"
+            >
+            <button type="submit" class="sensol-footer__submit">Subscribe</button>
+          </div>
+        {%- endform -%}
+
+        <div class="sensol-footer__contact">
+          <p class="sensol-footer__col-heading">Contact</p>
+          {%- if section.settings.contact_email != blank -%}
+            <p class="sensol-footer__contact-email">{{ section.settings.contact_email }}</p>
+          {%- else -%}
+            <p class="sensol-footer__contact-email">app.sensol@gmail.com</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="sensol-footer__bottom">
+    <div class="sensol-footer__bottom-inner">
+      <p class="sensol-footer__copyright">&copy; {{ 'now' | date: '%Y' }} Sensol. All rights reserved.</p>
+      <div class="sensol-footer__bottom-links">
+        {%- for link in linklists[section.settings.legal_menu].links -%}
+          <a href="{{ link.url }}" class="sensol-footer__bottom-link">{{ link.title }}</a>
+        {%- else -%}
+          <a href="/policies/privacy-policy" class="sensol-footer__bottom-link">Privacy Policy</a>
+          <a href="/policies/terms-of-service" class="sensol-footer__bottom-link">Terms of Service</a>
+          <a href="/policies/shipping-policy" class="sensol-footer__bottom-link">Shipping</a>
+          <a href="/policies/refund-policy" class="sensol-footer__bottom-link">Returns</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Footer",
+  "tag": "section",
+  "class": "sensol-footer-section",
+  "settings": [
+    { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "social_youtube", "label": "YouTube URL" },
+    { "type": "url", "id": "social_linkedin", "label": "LinkedIn URL" },
+    { "type": "link_list", "id": "product_menu", "label": "Products Menu", "default": "footer" },
+    { "type": "link_list", "id": "company_menu", "label": "Company Menu", "default": "footer" },
+    { "type": "link_list", "id": "legal_menu", "label": "Legal Menu", "default": "footer" },
+    { "type": "text", "id": "contact_email", "label": "Contact Email", "default": "app.sensol@gmail.com" }
+  ],
+  "presets": [{ "name": "SENSOL Footer" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Footer — matching Next.js preview ===== */
+.sensol-footer-section {
+  margin: 0;
+  padding: 0;
+  background: #1A1816 !important;
+}
+
+.sensol-footer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer {
+    padding: 7rem 4rem;
+  }
+}
+
+/* Main Grid — matching Next.js: grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 */
+.sensol-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__grid {
+    grid-template-columns: 4fr 2fr 2fr 4fr;
+    gap: 2rem;
+  }
+}
+
+/* Brand Column — matching Next.js: md:col-span-4 */
+.sensol-footer__brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F7F4F0;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.sensol-footer__brand-desc {
+  font-size: 12px;
+  color: #8A8279;
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 20rem;
+  text-align: left;
+}
+
+/* Social Links — matching Next.js: flex gap-6 */
+.sensol-footer__social {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__social {
+    justify-content: flex-start;
+  }
+}
+
+.sensol-footer__social-link {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+  text-decoration: none;
+  transition: color 0.5s;
+  position: relative;
+}
+
+.sensol-footer__social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-footer__social-link:hover {
+  color: rgba(247,244,240,0.6);
+}
+
+.sensol-footer__social-link:hover::after {
+  width: 100%;
+}
+
+/* Column — matching Next.js: md:col-span-2 */
+.sensol-footer__col {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__col {
+    text-align: left;
+  }
+}
+
+/* Column Heading — matching: text-[#8A8279] text-[9px] tracking-brand-lg uppercase mb-6 */
+.sensol-footer__col-heading {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__col-heading {
+    text-align: left;
+  }
+}
+
+/* Column Links — matching: text-[#F7F4F0]/50 text-xs font-light */
+.sensol-footer__col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__col-list {
+    text-align: left;
+  }
+}
+
+.sensol-footer__col-link {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(247,244,240,0.5);
+  text-decoration: none;
+  transition: color 0.5s;
+  position: relative;
+}
+
+.sensol-footer__col-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-footer__col-link:hover {
+  color: rgba(247,244,240,0.8);
+}
+
+.sensol-footer__col-link:hover::after {
+  width: 100%;
+}
+
+/* Newsletter — matching Next.js: md:col-span-4 */
+.sensol-footer__newsletter {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__newsletter {
+    text-align: left;
+  }
+}
+
+.sensol-footer__newsletter-desc {
+  font-size: 12px;
+  color: rgba(247,244,240,0.4);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__newsletter-desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Newsletter Form — matching Next.js: flex max-w-sm */
+.sensol-footer__form {
+  margin-bottom: 0;
+}
+
+.sensol-footer__form-row {
+  display: flex;
+  max-width: 24rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__form-row {
+    margin: 0;
+  }
+}
+
+.sensol-footer__input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #2a2724;
+  color: rgba(247,244,240,0.6);
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  padding: 0.875rem 1rem;
+  outline: none;
+  transition: border-color 0.5s;
+}
+
+.sensol-footer__input::placeholder {
+  color: rgba(138,130,121,0.4);
+}
+
+.sensol-footer__input:focus {
+  border-color: #8A8279;
+}
+
+.sensol-footer__submit {
+  background: #F7F4F0;
+  color: #1A1816;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  padding: 0.875rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.sensol-footer__submit:hover {
+  background: rgba(247,244,240,0.9);
+}
+
+/* Contact in newsletter column */
+.sensol-footer__contact {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2724;
+}
+
+.sensol-footer__contact-email {
+  font-size: 12px;
+  color: rgba(247,244,240,0.4);
+  font-weight: 300;
+}
+
+/* Bottom Bar — matching Next.js: border-t border-[#2a2724] */
+.sensol-footer__bottom {
+  border-top: 1px solid #2a2724;
+}
+
+.sensol-footer__bottom-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__bottom-inner {
+    padding: 1.5rem 4rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.sensol-footer__copyright {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(138,130,121,0.6);
+}
+
+.sensol-footer__bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sensol-footer__bottom-link {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(138,130,121,0.6);
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.sensol-footer__bottom-link:hover {
+  color: rgba(247,244,240,0.4);
+}
+
+/* Override global transparent bg for footer section wrapper */
+#shopify-section-sensol-footer,
+.shopify-section.sensol-footer-section {
+  background: #1A1816 !important;
+}
+{%- endstyle -%}

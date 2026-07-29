@@ -104,11 +104,13 @@
 /* Text column */
 .sensol-senzine__text-col {
   padding-top: 0;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .sensol-senzine__text-col {
     padding-left: 2rem;
+    text-align: left;
   }
 }
 
@@ -147,6 +149,15 @@
   font-weight: 300;
   max-width: 24rem;
   margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine__desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Button — matching: text-[10px] tracking-brand-lg uppercase text-[#F7F4F0] bg-[#1A1816] px-10 py-4 */
