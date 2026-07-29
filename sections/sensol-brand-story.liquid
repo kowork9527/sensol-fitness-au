@@ -1,43 +1,49 @@
-<section class="sensol-brand" style="background-color: {{ section.settings.bg_color }};">
-  <div class="sensol-brand__container">
-    <div class="sensol-brand__text">
+<section class="sensol-brand-story" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+  <div class="sensol-brand-story__inner">
+    <div class="sensol-brand-story__text">
       {%- if section.settings.label != blank -%}
-        <p class="sensol-brand__label">{{ section.settings.label }}</p>
+        <p class="sensol-brand-story__label">{{ section.settings.label }}</p>
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="sensol-brand__heading">{{ section.settings.heading }}</h2>
+        <h2 class="sensol-brand-story__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
 
       {%- if section.settings.description != blank -%}
-        <p class="sensol-brand__description">{{ section.settings.description }}</p>
+        <div class="sensol-brand-story__description">{{ section.settings.description }}</div>
       {%- endif -%}
 
-      <div class="sensol-brand__features">
+      <div class="sensol-brand-story__features">
         {%- for block in section.blocks -%}
-          <div class="sensol-brand__feature" {{ block.shopify_attributes }}>
-            <h3 class="sensol-brand__feature-title">{{ block.settings.title }}</h3>
-            <p class="sensol-brand__feature-desc">{{ block.settings.description }}</p>
+          <div class="sensol-brand-story__feature" {{ block.shopify_attributes }}>
+            {%- if block.settings.feature_title != blank -%}
+              <h3 class="sensol-brand-story__feature-title">{{ block.settings.feature_title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.feature_desc != blank -%}
+              <p class="sensol-brand-story__feature-desc">{{ block.settings.feature_desc }}</p>
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
     </div>
 
-    <div class="sensol-brand__image">
+    <div class="sensol-brand-story__image">
       {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', class: 'sensol-brand__img' }}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', class: 'sensol-brand-story__img' }}
       {%- else -%}
-        <img src="{{ 'section-1.webp' | asset_url }}" alt="SENSOL" class="sensol-brand__img" loading="lazy">
+        <div class="sensol-brand-story__placeholder">
+          <span>Upload brand image</span>
+        </div>
       {%- endif -%}
     </div>
   </div>
 </section>
 
 <style>
-  .sensol-brand {
-    padding: 100px 5%;
+  .sensol-brand-story {
+    padding: 120px 60px;
   }
-  .sensol-brand__container {
+  .sensol-brand-story__inner {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
@@ -45,56 +51,82 @@
     gap: 80px;
     align-items: center;
   }
-  .sensol-brand__label {
-    font-size: 10px;
-    letter-spacing: 0.3em;
+  .sensol-brand-story__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #8A8279;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
   }
-  .sensol-brand__heading {
-    font-size: clamp(32px, 4vw, 48px);
+  .sensol-brand-story__heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
     font-weight: 300;
-    letter-spacing: 0.1em;
-    color: #1A1816;
-    margin: 0 0 2rem 0;
-    line-height: 1.2;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    margin-bottom: 32px;
   }
-  .sensol-brand__description {
+  .sensol-brand-story__description {
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 300;
+    line-height: 1.8;
     color: #8A8279;
-    line-height: 1.7;
-    margin: 0 0 3rem 0;
+    margin-bottom: 48px;
   }
-  .sensol-brand__features {
-    display: grid;
-    gap: 2rem;
-    border-top: 1px solid #D4CEC6;
-    padding-top: 2rem;
+  .sensol-brand-story__features {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
-  .sensol-brand__feature-title {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #1A1816;
-    margin: 0 0 0.5rem 0;
-  }
-  .sensol-brand__feature-desc {
+  .sensol-brand-story__feature-title {
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #8A8279;
-    line-height: 1.6;
-    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
   }
-  .sensol-brand__img {
+  .sensol-brand-story__feature-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+  }
+  .sensol-brand-story__image {
+    position: relative;
+  }
+  .sensol-brand-story__img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
   }
-  @media (max-width: 749px) {
-    .sensol-brand { padding: 60px 5%; }
-    .sensol-brand__container { grid-template-columns: 1fr; gap: 40px; }
+  .sensol-brand-story__placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, #D4CEC6 0%, #B5ADA4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8A8279;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .sensol-brand-story {
+      padding: 80px 24px;
+    }
+    .sensol-brand-story__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
   }
 </style>
 
@@ -102,22 +134,59 @@
 {
   "name": "SENSOL Brand Story",
   "tag": "section",
-  "class": "sensol-brand-section",
+  "class": "sensol-brand-story-section",
   "settings": [
-    { "type": "text", "id": "label", "label": "Label", "default": "01 — THE PHILOSOPHY" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Where strength meets precision" },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Founded in 2022, Sensol redefines the role of fitness in modern living. We design intelligent training systems that merge performance, technology, and spatial aesthetics — building a new vision of the future fitness lifestyle." },
-    { "type": "image_picker", "id": "image", "label": "Image (leave empty for default)" },
-    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F7F4F0" }
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Brand Image"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "01 — The Philosophy"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered for those who see movement as a craft."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space.</p><p>Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.</p>"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F7F4F0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1A1816"
+    }
   ],
   "blocks": [
     {
       "type": "feature",
       "name": "Feature",
-      "limit": 6,
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Feature" },
-        { "type": "textarea", "id": "description", "label": "Description", "default": "Feature description" }
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "feature_desc",
+          "label": "Feature Description"
+        }
       ]
     }
   ],
@@ -125,9 +194,27 @@
     {
       "name": "SENSOL Brand Story",
       "blocks": [
-        { "type": "feature", "settings": { "title": "ADAPTIVE RESISTANCE", "description": "Intelligent resistance that adapts to your body in real-time, providing the perfect challenge at every level." } },
-        { "type": "feature", "settings": { "title": "SPATIAL DESIGN", "description": "Every Sensol is designed as an object of beauty — engineered to belong in your living space, not hidden away." } },
-        { "type": "feature", "settings": { "title": "INTELLIGENT MOTION", "description": "Precision sensors and smart guidance ensure every movement is controlled, measured, and purposeful." } }
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Adaptive Resistance",
+            "feature_desc": "Dynamic resistance that responds to your body in real time — no pins, no guesswork."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Spatial Design",
+            "feature_desc": "Designed to belong in your space, not hidden away. A machine worthy of its room."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Intelligent Motion",
+            "feature_desc": "Precision sensors and guided programming that make every rep count."
+          }
+        }
       ]
     }
   ]

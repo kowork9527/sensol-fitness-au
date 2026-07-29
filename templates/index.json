@@ -1,6 +1,6 @@
 {
   "sections": {
-    "hero": {
+    "sensol-hero": {
       "type": "sensol-hero",
       "settings": {
         "label": "A NEW LANGUAGE OF TRAINING",
@@ -9,7 +9,7 @@
         "button_label": "SHOP ALL",
         "button_link": "/collections/all",
         "bg_color": "#1A1816",
-        "overlay_color": "rgba(26, 24, 22, 0.3)",
+        "overlay_color": "rgba(26, 24, 22, 0.35)",
         "button_bg_color": "#F7F4F0",
         "button_text_color": "#1A1816"
       },
@@ -20,91 +20,80 @@
       },
       "block_order": ["slide_1", "slide_2", "slide_3"]
     },
-    "brand-story": {
+    "sensol-brand-story": {
       "type": "sensol-brand-story",
       "settings": {
-        "label": "01 — THE PHILOSOPHY",
-        "heading": "Engineered for those who see movement as a craft",
-        "description": "Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space. Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.",
-        "bg_color": "#F7F4F0"
+        "label": "01 — The Philosophy",
+        "heading": "Engineered for those who see movement as a craft.",
+        "description": "<p>Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space.</p><p>Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.</p>",
+        "bg_color": "#F7F4F0",
+        "text_color": "#1A1816"
       },
       "blocks": {
-        "feature_1": { "type": "feature", "settings": { "title": "ADAPTIVE RESISTANCE", "description": "Intelligent resistance that adapts to your body in real-time, providing the perfect challenge at every level." } },
-        "feature_2": { "type": "feature", "settings": { "title": "SPATIAL DESIGN", "description": "Every Sensol is designed as an object of beauty — engineered to belong in your living space, not hidden away." } },
-        "feature_3": { "type": "feature", "settings": { "title": "INTELLIGENT MOTION", "description": "Precision sensors and smart guidance ensure every movement is controlled, measured, and purposeful." } }
+        "feature_1": { "type": "feature", "settings": { "feature_title": "Adaptive Resistance", "feature_desc": "Dynamic resistance that responds to your body in real time — no pins, no guesswork." } },
+        "feature_2": { "type": "feature", "settings": { "feature_title": "Spatial Design", "feature_desc": "Designed to belong in your space, not hidden away. A machine worthy of its room." } },
+        "feature_3": { "type": "feature", "settings": { "feature_title": "Intelligent Motion", "feature_desc": "Precision sensors and guided programming that make every rep count." } }
       },
       "block_order": ["feature_1", "feature_2", "feature_3"]
     },
-    "marquee": {
+    "sensol-marquee": {
       "type": "sensol-marquee",
       "settings": {
-        "text": "MAKE IT EASY · DO IT REAL",
+        "text": "Make it easy · Do it real",
         "bg_color": "#1A1816",
         "text_color": "#F7F4F0"
       }
     },
-    "video": {
+    "sensol-video": {
       "type": "sensol-video",
       "settings": {
-        "label": "ENGINEERED MOVEMENT",
-        "heading": "The first All-in-one smart training reformer",
+        "label": "THE FIRST ALL-IN-ONE SMART TRAINING REFORMER",
+        "heading": "See how Sensol works in real movement",
         "subheading": "See how Sensol works in real movement — simple, precise, and intuitive.",
-        "video_url": "",
-        "bg_color": "#F7F4F0"
+        "bg_color": "#1A1816",
+        "text_color": "#F7F4F0"
       },
       "blocks": {
-        "spec_1": { "type": "spec", "settings": { "value": "360°", "label": "Motion Range" } },
-        "spec_2": { "type": "spec", "settings": { "value": "<8ms", "label": "Response Time" } },
-        "spec_3": { "type": "spec", "settings": { "value": "0–100%", "label": "Resistance" } },
-        "spec_4": { "type": "spec", "settings": { "value": "<25dB", "label": "Silent Operation" } }
+        "spec_1": { "type": "spec", "settings": { "spec_value": "360°", "spec_label": "Range of Motion" } },
+        "spec_2": { "type": "spec", "settings": { "spec_value": "<8ms", "spec_label": "Response Time" } },
+        "spec_3": { "type": "spec", "settings": { "spec_value": "0–100%", "spec_label": "Resistance Range" } },
+        "spec_4": { "type": "spec", "settings": { "spec_value": "<25dB", "spec_label": "Noise Level" } }
       },
       "block_order": ["spec_1", "spec_2", "spec_3", "spec_4"]
     },
-    "senzine": {
+    "sensol-senzine": {
       "type": "sensol-senzine",
       "settings": {
         "label": "SENZINE",
-        "heading": "Distilled ideas, tactile moments",
-        "description": "Senzine is Sensol's internal publication, distills a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read. Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.",
+        "heading": "Senzine",
+        "description": "<p>Senzine is Sensol's internal publication, distills a single idea—control, resistance, stillness—into a tactile experience, designed to be felt as much as it is read.</p><p>Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.</p>",
         "button_label": "JOIN US",
         "button_link": "/pages/contact",
         "bg_color": "#F7F4F0",
         "text_color": "#1A1816"
       }
     },
-    "app-download": {
+    "sensol-app-download": {
       "type": "sensol-app-download",
       "settings": {
         "label": "SENSOL APP",
         "heading": "Your training companion",
-        "description": "Control your Sensol reformer from your phone. Track progress, follow guided workouts, and adjust resistance in real-time.",
-        "features": "Real-time resistance control | 100+ guided workouts | Progress tracking & analytics | Custom training programs",
-        "appstore_link": "https://apps.apple.com",
-        "playstore_link": "https://play.google.com",
+        "description": "Track your progress, access guided workouts, and control your Sensol machine — all from one app. Available on iOS and Android.",
+        "feature_1": "Real-time resistance control",
+        "feature_2": "100+ guided workouts",
+        "feature_3": "Progress tracking",
+        "feature_4": "Personalized training plans",
         "bg_color": "#1A1816",
         "text_color": "#F7F4F0"
-      }
-    },
-    "product-list": {
-      "type": "product-list",
-      "settings": {
-        "layout": "grid",
-        "columns_desktop": 3,
-        "columns_tablet": 2,
-        "columns_mobile": 1,
-        "collection": "all",
-        "show_vendor": true,
-        "show_price": true
       }
     }
   },
   "order": [
-    "hero",
-    "brand-story",
-    "marquee",
-    "video",
-    "senzine",
-    "app-download",
-    "product-list"
+    "sensol-hero",
+    "sensol-brand-story",
+    "sensol-marquee",
+    "sensol-video",
+    "sensol-senzine",
+    "sensol-app-download"
   ]
 }

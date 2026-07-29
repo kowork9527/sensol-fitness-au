@@ -1,96 +1,218 @@
-<section class="sensol-video" style="background-color: {{ section.settings.bg_color }};">
-  <div class="sensol-video__container">
-    <div class="sensol-video__header">
-      {%- if section.settings.label != blank -%}
-        <p class="sensol-video__label">{{ section.settings.label }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="sensol-video__heading">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.subheading != blank -%}
-        <p class="sensol-video__subheading">{{ section.settings.subheading }}</p>
-      {%- endif -%}
-    </div>
+<section class="sensol-video" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+  <div class="sensol-video__inner">
+    {%- if section.settings.label != blank -%}
+      <p class="sensol-video__label">{{ section.settings.label }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="sensol-video__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="sensol-video__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
 
     <div class="sensol-video__player">
-      {%- if section.settings.video_url != blank -%}
-        <video class="sensol-video__el" autoplay muted loop playsinline>
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
+      {%- if section.settings.video != blank -%}
+        <video class="sensol-video__vid" autoplay loop muted playsinline>
+          <source src="{{ section.settings.video }}" type="video/mp4">
         </video>
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy', class: 'sensol-video__img' }}
       {%- else -%}
         <div class="sensol-video__placeholder">
-          <img src="{{ 'banner-4.webp' | asset_url }}" alt="SENSOL" class="sensol-video__placeholder-img">
-          <div class="sensol-video__play-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="#F7F4F0"/></svg>
-          </div>
+          <span>Upload video or image</span>
         </div>
       {%- endif -%}
     </div>
 
-    {%- if section.blocks.size > 0 -%}
-      <div class="sensol-video__specs">
-        {%- for block in section.blocks -%}
-          <div class="sensol-video__spec" {{ block.shopify_attributes }}>
-            <p class="sensol-video__spec-value">{{ block.settings.value }}</p>
-            <p class="sensol-video__spec-label">{{ block.settings.label }}</p>
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+    <div class="sensol-video__specs">
+      {%- for block in section.blocks -%}
+        <div class="sensol-video__spec" {{ block.shopify_attributes }}>
+          {%- if block.settings.spec_value != blank -%}
+            <span class="sensol-video__spec-value">{{ block.settings.spec_value }}</span>
+          {%- endif -%}
+          {%- if block.settings.spec_label != blank -%}
+            <span class="sensol-video__spec-label">{{ block.settings.spec_label }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
 <style>
-  .sensol-video { padding: 100px 5%; }
-  .sensol-video__container { max-width: 1400px; margin: 0 auto; }
-  .sensol-video__header { text-align: center; margin-bottom: 3rem; }
-  .sensol-video__label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8279; margin-bottom: 1rem; }
-  .sensol-video__heading { font-size: clamp(28px, 3vw, 40px); font-weight: 300; letter-spacing: 0.1em; color: #1A1816; margin: 0 0 1rem 0; }
-  .sensol-video__subheading { font-size: 15px; color: #8A8279; line-height: 1.6; max-width: 600px; margin: 0 auto; }
-  .sensol-video__player { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1A1816; }
-  .sensol-video__el, .sensol-video__placeholder-img { width: 100%; height: 100%; object-fit: cover; }
-  .sensol-video__placeholder { position: relative; width: 100%; height: 100%; }
-  .sensol-video__play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-  .sensol-video__play-btn svg { opacity: 0.8; }
-  .sensol-video__specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; text-align: center; }
-  .sensol-video__spec-value { font-size: 28px; font-weight: 200; color: #1A1816; margin: 0 0 0.5rem 0; letter-spacing: 0.05em; }
-  .sensol-video__spec-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; margin: 0; }
-  @media (max-width: 749px) {
-    .sensol-video { padding: 60px 5%; }
-    .sensol-video__specs { grid-template-columns: repeat(2, 1fr); }
+  .sensol-video {
+    padding: 120px 60px;
+  }
+  .sensol-video__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sensol-video__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 16px;
+  }
+  .sensol-video__heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .sensol-video__subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+  .sensol-video__player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: #1A1816;
+    margin-bottom: 48px;
+  }
+  .sensol-video__vid, .sensol-video__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sensol-video__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8A8279;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .sensol-video__specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .sensol-video__spec {
+    text-align: center;
+  }
+  .sensol-video__spec-value {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .sensol-video__spec-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+
+  @media (max-width: 768px) {
+    .sensol-video {
+      padding: 80px 24px;
+    }
+    .sensol-video__specs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sensol-video__player {
+      aspect-ratio: 16/9;
+    }
   }
 </style>
 
 {% schema %}
 {
-  "name": "SENSOL Video",
+  "name": "SENSOL Video Showcase",
   "tag": "section",
+  "class": "sensol-video-section",
   "settings": [
-    { "type": "text", "id": "label", "label": "Label", "default": "ENGINEERED MOVEMENT" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "The first All-in-one smart training reformer" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "See how Sensol works in real movement — simple, precise, and intuitive." },
-    { "type": "url", "id": "video_url", "label": "Video URL (MP4)", "info": "Leave empty for default image" },
-    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F7F4F0" }
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Cover Image (shown if no video)"
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Video URL (mp4)"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "THE FIRST ALL-IN-ONE SMART TRAINING REFORMER"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See how Sensol works in real movement"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "See how Sensol works in real movement — simple, precise, and intuitive."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1A1816"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#F7F4F0"
+    }
   ],
   "blocks": [
     {
       "type": "spec",
       "name": "Specification",
-      "limit": 4,
       "settings": [
-        { "type": "text", "id": "value", "label": "Value", "default": "360°" },
-        { "type": "text", "id": "label", "label": "Label", "default": "Motion Range" }
+        {
+          "type": "text",
+          "id": "spec_value",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "spec_label",
+          "label": "Label"
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "SENSOL Video",
+      "name": "SENSOL Video Showcase",
       "blocks": [
-        { "type": "spec", "settings": { "value": "360°", "label": "Motion Range" } },
-        { "type": "spec", "settings": { "value": "<8ms", "label": "Response Time" } },
-        { "type": "spec", "settings": { "value": "0–100%", "label": "Resistance" } },
-        { "type": "spec", "settings": { "value": "<25dB", "label": "Silent Operation" } }
+        { "type": "spec", "settings": { "spec_value": "360°", "spec_label": "Range of Motion" } },
+        { "type": "spec", "settings": { "spec_value": "<8ms", "spec_label": "Response Time" } },
+        { "type": "spec", "settings": { "spec_value": "0–100%", "spec_label": "Resistance Range" } },
+        { "type": "spec", "settings": { "spec_value": "<25dB", "spec_label": "Noise Level" } }
       ]
     }
   ]
