@@ -1,192 +1,33 @@
-<section class="sensol-senzine" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
-  <div class="sensol-senzine__inner">
-    <div class="sensol-senzine__header">
-      {%- if section.settings.label != blank -%}
-        <p class="sensol-senzine__label">{{ section.settings.label }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="sensol-senzine__heading">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.description != blank -%}
-        <div class="sensol-senzine__description">{{ section.settings.description }}</div>
-      {%- endif -%}
-      {%- if section.settings.button_label != blank -%}
-        <a href="{{ section.settings.button_link }}" class="sensol-senzine__button">{{ section.settings.button_label }}</a>
-      {%- endif -%}
-    </div>
+{{ 'sensol-senzine.css' | asset_url | stylesheet_tag }}
 
+<section class="sensol-senzine">
+  <div class="sensol-senzine__container">
+    <div class="sensol-senzine__text">
+      <p class="sensol-senzine__label">SENZINE</p>
+      <h2 class="sensol-senzine__title">{{ section.settings.title | default: 'Senzine' }}</h2>
+      <p class="sensol-senzine__body">{{ section.settings.body | default: 'Senzine is Sensol\'s internal publication, distills a single idea—control, resistance, stillness—into a tactile experience, designed to be felt as much as it is read. Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.' }}</p>
+      <a href="{{ section.settings.button_link | default: '/pages/contact' }}" class="sensol-senzine__btn">{{ section.settings.button_text | default: 'JOIN US' }}</a>
+    </div>
     <div class="sensol-senzine__images">
-      <div class="sensol-senzine__image-wrap">
-        {%- if section.settings.image_1 != blank -%}
-          {{ section.settings.image_1 | image_url: width: 800 | image_tag: loading: 'lazy', class: 'sensol-senzine__img' }}
-        {%- else -%}
-          <div class="sensol-senzine__placeholder">
-            <span>Upload image 1</span>
-          </div>
-        {%- endif -%}
-      </div>
-      <div class="sensol-senzine__image-wrap">
-        {%- if section.settings.image_2 != blank -%}
-          {{ section.settings.image_2 | image_url: width: 800 | image_tag: loading: 'lazy', class: 'sensol-senzine__img' }}
-        {%- else -%}
-          <div class="sensol-senzine__placeholder">
-            <span>Upload image 2</span>
-          </div>
-        {%- endif -%}
-      </div>
+      <img src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE Issue" class="sensol-senzine__img" loading="lazy">
+      <img src="{{ 'editorial-2.webp' | asset_url }}" alt="SENZINE Issue" class="sensol-senzine__img" loading="lazy">
     </div>
   </div>
 </section>
 
-<style>
-  .sensol-senzine {
-    padding: 120px 60px;
-  }
-  .sensol-senzine__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .sensol-senzine__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #8A8279;
-    margin-bottom: 16px;
-  }
-  .sensol-senzine__heading {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 300;
-    letter-spacing: 0.08em;
-    margin-bottom: 24px;
-  }
-  .sensol-senzine__description {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #8A8279;
-    margin-bottom: 32px;
-  }
-  .sensol-senzine__button {
-    display: inline-block;
-    padding: 14px 36px;
-    border: 1px solid #1A1816;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #1A1816;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  .sensol-senzine__button:hover {
-    background: #1A1816;
-    color: #F7F4F0;
-  }
-  .sensol-senzine__images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .sensol-senzine__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .sensol-senzine__placeholder {
-    aspect-ratio: 3/4;
-    background: linear-gradient(135deg, #D4CEC6 0%, #B5ADA4 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #8A8279;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 768px) {
-    .sensol-senzine {
-      padding: 80px 24px;
-    }
-    .sensol-senzine__inner {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-  }
-</style>
-
 {% schema %}
 {
-  "name": "SENSOL SENZINE",
+  "name": "SENSOL Senzine",
   "tag": "section",
   "class": "sensol-senzine-section",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image_1",
-      "label": "Image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Image 2"
-    },
-    {
-      "type": "text",
-      "id": "label",
-      "label": "Label",
-      "default": "SENZINE"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Senzine"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>Senzine is Sensol's internal publication, distills a single idea—control, resistance, stillness—into a tactile experience, designed to be felt as much as it is read.</p><p>Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "JOIN US"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#F7F4F0"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#1A1816"
-    }
+    {"type":"text","id":"title","label":"Title","default":"Senzine"},
+    {"type":"textarea","id":"body","label":"Body Text","default":"Senzine is Sensol's internal publication."},
+    {"type":"text","id":"button_text","label":"Button Text","default":"JOIN US"},
+    {"type":"url","id":"button_link","label":"Button Link"},
+    {"type":"image_picker","id":"image1","label":"Image 1 (overrides default)"},
+    {"type":"image_picker","id":"image2","label":"Image 2 (overrides default)"}
   ],
-  "presets": [
-    {
-      "name": "SENSOL SENZINE"
-    }
-  ]
+  "presets":[{"name":"SENSOL Senzine"}]
 }
 {% endschema %}

@@ -1,134 +1,31 @@
-<section class="sensol-brand-story" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
-  <div class="sensol-brand-story__inner">
+{{ 'sensol-brand-story.css' | asset_url | stylesheet_tag }}
+
+<section class="sensol-brand-story">
+  <div class="sensol-brand-story__container">
     <div class="sensol-brand-story__text">
-      {%- if section.settings.label != blank -%}
-        <p class="sensol-brand-story__label">{{ section.settings.label }}</p>
-      {%- endif -%}
-
-      {%- if section.settings.heading != blank -%}
-        <h2 class="sensol-brand-story__heading">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-
-      {%- if section.settings.description != blank -%}
-        <div class="sensol-brand-story__description">{{ section.settings.description }}</div>
-      {%- endif -%}
-
+      <p class="sensol-brand-story__number">01 — The Philosophy</p>
+      <h2 class="sensol-brand-story__title">{{ section.settings.title | default: 'Engineered for those who see movement as a craft.' }}</h2>
+      <p class="sensol-brand-story__body">{{ section.settings.body | default: 'Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space. Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.' }}</p>
       <div class="sensol-brand-story__features">
-        {%- for block in section.blocks -%}
-          <div class="sensol-brand-story__feature" {{ block.shopify_attributes }}>
-            {%- if block.settings.feature_title != blank -%}
-              <h3 class="sensol-brand-story__feature-title">{{ block.settings.feature_title }}</h3>
-            {%- endif -%}
-            {%- if block.settings.feature_desc != blank -%}
-              <p class="sensol-brand-story__feature-desc">{{ block.settings.feature_desc }}</p>
-            {%- endif -%}
-          </div>
-        {%- endfor -%}
+        <div class="sensol-brand-story__feature">
+          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature1_title | default: 'Adaptive Resistance' }}</h3>
+          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature1_desc | default: 'Fluid resistance that adapts to your strength curve — progressive, regressive, or constant.' }}</p>
+        </div>
+        <div class="sensol-brand-story__feature">
+          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature2_title | default: 'Spatial Design' }}</h3>
+          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature2_desc | default: 'Engineered to be a considered object in a considered space — not an afterthought in a garage.' }}</p>
+        </div>
+        <div class="sensol-brand-story__feature">
+          <h3 class="sensol-brand-story__feature-title">{{ section.settings.feature3_title | default: 'Intelligent Motion' }}</h3>
+          <p class="sensol-brand-story__feature-desc">{{ section.settings.feature3_desc | default: 'Precision mechanics that respond in under 8ms — seamless, intuitive, and imperceptible.' }}</p>
+        </div>
       </div>
     </div>
-
     <div class="sensol-brand-story__image">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', class: 'sensol-brand-story__img' }}
-      {%- else -%}
-        <div class="sensol-brand-story__placeholder">
-          <span>Upload brand image</span>
-        </div>
-      {%- endif -%}
+      <img src="{{ 'section-1.webp' | asset_url }}" alt="SENSOL Brand Story" loading="lazy">
     </div>
   </div>
 </section>
-
-<style>
-  .sensol-brand-story {
-    padding: 120px 60px;
-  }
-  .sensol-brand-story__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .sensol-brand-story__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #8A8279;
-    margin-bottom: 24px;
-  }
-  .sensol-brand-story__heading {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 300;
-    letter-spacing: 0.08em;
-    line-height: 1.3;
-    margin-bottom: 32px;
-  }
-  .sensol-brand-story__description {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #8A8279;
-    margin-bottom: 48px;
-  }
-  .sensol-brand-story__features {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-  .sensol-brand-story__feature-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .sensol-brand-story__feature-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: #8A8279;
-  }
-  .sensol-brand-story__image {
-    position: relative;
-  }
-  .sensol-brand-story__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-  .sensol-brand-story__placeholder {
-    width: 100%;
-    aspect-ratio: 16/10;
-    background: linear-gradient(135deg, #D4CEC6 0%, #B5ADA4 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #8A8279;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 768px) {
-    .sensol-brand-story {
-      padding: 80px 24px;
-    }
-    .sensol-brand-story__inner {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-  }
-</style>
 
 {% schema %}
 {
@@ -136,87 +33,16 @@
   "tag": "section",
   "class": "sensol-brand-story-section",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Brand Image"
-    },
-    {
-      "type": "text",
-      "id": "label",
-      "label": "Label",
-      "default": "01 — The Philosophy"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Engineered for those who see movement as a craft."
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space.</p><p>Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train.</p>"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#F7F4F0"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#1A1816"
-    }
+    {"type":"text","id":"title","label":"Title","default":"Engineered for those who see movement as a craft."},
+    {"type":"textarea","id":"body","label":"Body Text","default":"Sensol was founded on a simple conviction: fitness equipment should belong in the same conversation as architecture and design."},
+    {"type":"text","id":"feature1_title","label":"Feature 1 Title","default":"Adaptive Resistance"},
+    {"type":"text","id":"feature1_desc","label":"Feature 1 Description","default":"Fluid resistance that adapts to your strength curve."},
+    {"type":"text","id":"feature2_title","label":"Feature 2 Title","default":"Spatial Design"},
+    {"type":"text","id":"feature2_desc","label":"Feature 2 Description","default":"Engineered to be a considered object in a considered space."},
+    {"type":"text","id":"feature3_title","label":"Feature 3 Title","default":"Intelligent Motion"},
+    {"type":"text","id":"feature3_desc","label":"Feature 3 Description","default":"Precision mechanics that respond in under 8ms."},
+    {"type":"image_picker","id":"image","label":"Image (overrides default)"}
   ],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Feature",
-      "settings": [
-        {
-          "type": "text",
-          "id": "feature_title",
-          "label": "Feature Title"
-        },
-        {
-          "type": "text",
-          "id": "feature_desc",
-          "label": "Feature Description"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "SENSOL Brand Story",
-      "blocks": [
-        {
-          "type": "feature",
-          "settings": {
-            "feature_title": "Adaptive Resistance",
-            "feature_desc": "Dynamic resistance that responds to your body in real time — no pins, no guesswork."
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "feature_title": "Spatial Design",
-            "feature_desc": "Designed to belong in your space, not hidden away. A machine worthy of its room."
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "feature_title": "Intelligent Motion",
-            "feature_desc": "Precision sensors and guided programming that make every rep count."
-          }
-        }
-      ]
-    }
-  ]
+  "presets":[{"name":"SENSOL Brand Story"}]
 }
 {% endschema %}
