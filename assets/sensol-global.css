@@ -3,7 +3,7 @@
    ============================================ */
 
 /* --- Font Override --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
 
 :root {
   --font-heading--family: 'Inter', sans-serif;
@@ -25,19 +25,18 @@ body {
   z-index: 100;
 }
 
-header-component {
-  --header-background: transparent;
-}
-
+/* Force transparent header text to be WHITE (Horizon uses foreground color which is dark) */
 header-component[transparent] {
-  background: transparent !important;
+  --color-transparent-text: #F7F4F0 !important;
+  --color-transparent-text-rgb: 247 244 240 !important;
+  --color-transparent-text-contrast: #1A1816 !important;
 }
 
 header-component[transparent] .header__row--top {
   background: transparent !important;
 }
 
-/* When transparent header is active, make text white */
+/* When transparent header is active, make ALL text white */
 header-component[transparent] .header__logo-link,
 header-component[transparent] .header__logo-text,
 header-component[transparent] .header__link,
@@ -45,8 +44,15 @@ header-component[transparent] .header__icon,
 header-component[transparent] .header__link-list a,
 header-component[transparent] overflow-list a,
 header-component[transparent] .header__localization button,
-header-component[transparent] .header__search button {
+header-component[transparent] .header__search button,
+header-component[transparent] .header__cart-button,
+header-component[transparent] .header__icon-button,
+header-component[transparent] [data-header-icon],
+header-component[transparent] .header__menu-toggle,
+header-component[transparent] svg {
   color: rgba(247,244,240,0.85) !important;
+  fill: rgba(247,244,240,0.85) !important;
+  stroke: rgba(247,244,240,0.85) !important;
 }
 
 header-component[transparent] .header__logo-text {
