@@ -279,9 +279,11 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     {%- style -%}
       /* ---- SENSOL Global Override — inlined ---- */
-      @import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
       :root {
         --sensol-bg: #F7F4F0;
         --sensol-bg-dark: #1A1816;
