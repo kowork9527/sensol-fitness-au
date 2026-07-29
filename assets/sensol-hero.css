@@ -1,0 +1,137 @@
+.sensol-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #1A1816;
+}
+
+.sensol-hero__slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sensol-hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.sensol-hero__slide--active {
+  opacity: 1;
+}
+
+.sensol-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sensol-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(26,24,22,0.3) 0%, rgba(26,24,22,0.5) 50%, rgba(26,24,22,0.7) 100%);
+}
+
+.sensol-hero__content {
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+  z-index: 2;
+  max-width: 700px;
+  color: #F7F4F0;
+}
+
+.sensol-hero__label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.sensol-hero__title {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.sensol-hero__subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+
+.sensol-hero__btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #F7F4F0;
+  color: #1A1816;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 400;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sensol-hero__btn:hover {
+  background: #1A1816;
+  color: #F7F4F0;
+  outline: 1px solid #F7F4F0;
+}
+
+.sensol-hero__dots {
+  position: absolute;
+  bottom: 6%;
+  left: 8%;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+
+.sensol-hero__dot {
+  width: 32px;
+  height: 2px;
+  background: rgba(247,244,240,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.sensol-hero__dot--active {
+  background: #F7F4F0;
+}
+
+.sensol-hero__dot:hover {
+  background: rgba(247,244,240,0.6);
+}
+
+@media (max-width: 768px) {
+  .sensol-hero__content {
+    left: 5%;
+    bottom: 12%;
+    max-width: 90%;
+  }
+  .sensol-hero__title {
+    font-size: clamp(36px, 10vw, 56px);
+  }
+}
