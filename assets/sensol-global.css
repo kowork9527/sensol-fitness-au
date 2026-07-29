@@ -40,6 +40,26 @@ h1, h2, h3, h4, h5, h6,
 .shopify-section {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  background: transparent !important;
+}
+
+/* Critical: header wrapper must be fully transparent */
+#shopify-section-sensol-header,
+.shopify-section.sensol-header-section-wrapper {
+  background: transparent !important;
+  margin: 0 !important;
+}
+
+/* Critical: hero wrapper must be fully transparent */
+#shopify-section-sensol-hero,
+.shopify-section.sensol-hero-section {
+  background: transparent !important;
+  margin: 0 !important;
+}
+
+/* All sensol sections: transparent wrapper by default */
+[id^="shopify-section-sensol-"] {
+  background: transparent !important;
 }
 
 /* ---- Full-width sections ---- */

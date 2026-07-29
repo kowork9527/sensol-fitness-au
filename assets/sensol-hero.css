@@ -1,6 +1,14 @@
 /* ===== SENsol Hero — matching Next.js preview exactly ===== */
 @import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
 
+/* CRITICAL: Force wrapper to be transparent */
+#shopify-section-sensol-hero,
+.shopify-section.sensol-hero-section {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .sensol-hero-section {
   margin: 0;
   padding: 0;

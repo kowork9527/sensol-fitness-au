@@ -3,6 +3,14 @@
    Matching Next.js: transparent→scrolled transition
    ========================================== */
 
+/* CRITICAL: Force wrapper to be transparent — Dawn adds bg to .shopify-section */
+#shopify-section-sensol-header,
+.shopify-section.sensol-header-section-wrapper {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .sensol-header__inner {
   display: flex;
   align-items: center;
@@ -70,7 +78,7 @@
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
+  color: #ffffff !important;
   text-decoration: none;
   transition: color 0.7s ease, opacity 0.3s ease;
   position: relative;
@@ -126,7 +134,7 @@
 }
 
 .sensol-header__icon {
-  color: #ffffff;
+  color: #ffffff !important;
   transition: color 0.7s ease;
 }
 
@@ -156,7 +164,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   transition: all 0.5s ease;
 }
 
