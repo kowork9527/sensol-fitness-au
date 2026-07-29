@@ -279,7 +279,35 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'sensol-global.css' | asset_url | stylesheet_tag }}
+    {%- style -%}
+      /* ---- SENSOL Global Override — inlined ---- */
+      @import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
+      :root {
+        --sensol-bg: #F7F4F0;
+        --sensol-bg-dark: #1A1816;
+        --sensol-text: #1A1816;
+        --sensol-text-light: #F7F4F0;
+        --sensol-text-muted: #8A8279;
+        --sensol-border: #D4CEC6;
+        --sensol-accent: #B5ADA4;
+        --sensol-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --sensol-transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      body, .shopify-section { font-family: var(--sensol-font) !important; }
+      h1, h2, h3, h4, h5, h6, .heading-font, .header__heading, .banner__heading { font-family: var(--sensol-font) !important; }
+      .section-spacing, .shopify-section + .shopify-section { margin-top: 0 !important; }
+      .shopify-section { padding-top: 0 !important; padding-bottom: 0 !important; background: transparent !important; }
+      #shopify-section-sensol-header, .shopify-section.sensol-header-section-wrapper { background: transparent !important; margin: 0 !important; }
+      #shopify-section-sensol-hero, .shopify-section.sensol-hero-section { background: transparent !important; margin: 0 !important; }
+      [id^="shopify-section-sensol-"] { background: transparent !important; }
+      .section-full-width .page-width { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+      body { background-color: var(--sensol-bg) !important; color: var(--sensol-text) !important; }
+      .announcement-bar-section { display: none !important; }
+      .footer { background-color: var(--sensol-bg-dark) !important; color: var(--sensol-text-light) !important; }
+      .footer * { color: var(--sensol-text-light) !important; border-color: rgba(247,244,240,0.1) !important; }
+      @media (max-width: 749px) { .sensol-hide-mobile { display: none !important; } }
+      @media (min-width: 750px) { .sensol-hide-desktop { display: none !important; } }
+    {%- endstyle -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
