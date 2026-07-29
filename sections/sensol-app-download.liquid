@@ -3,6 +3,18 @@
     <div class="sensol-app__grid">
       <!-- Left: Phone Mockup (5 cols) — matching Next.js layout -->
       <div class="sensol-app__phone-col">
+        {%- if section.settings.phone_image != blank -%}
+          <div class="sensol-app__phone-image-wrap">
+            <img 
+              src="{{ section.settings.phone_image | image_url: width: 600 }}"
+              alt="Sensol App"
+              class="sensol-app__phone-image"
+              loading="lazy"
+              width="600"
+              height="800"
+            />
+          </div>
+        {%- else -%}
         <div class="sensol-app__phone-mockup">
           <!-- SVG Ring -->
           <svg class="sensol-app__ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -31,6 +43,7 @@
             </div>
           </div>
         </div>
+        {%- endif -%}
       </div>
 
       <!-- Right: Content (7 cols) -->
@@ -77,6 +90,7 @@
   "tag": "section",
   "class": "sensol-app-section",
   "settings": [
+    { "type": "image_picker", "id": "phone_image", "label": "App Screenshot Image" },
     { "type": "text", "id": "title", "label": "Title", "default": "Your intelligent training companion" },
     { "type": "textarea", "id": "description", "label": "Description", "default": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone." },
     { "type": "text", "id": "feature1_name", "label": "Feature 1 Name", "default": "Real-time Resistance Control" },
@@ -132,6 +146,25 @@
 .sensol-app__phone-col {
   display: flex;
   justify-content: center;
+}
+
+/* Phone Image (when uploaded) */
+.sensol-app__phone-image-wrap {
+  width: 280px;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sensol-app__phone-image-wrap {
+    width: 340px;
+  }
+}
+
+.sensol-app__phone-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
 }
 
 .sensol-app__phone-mockup {
@@ -262,13 +295,12 @@
 /* Content Column */
 .sensol-app__content-col {
   padding-left: 0;
-  text-align: center;
+  text-align: left;
 }
 
 @media (min-width: 768px) {
   .sensol-app__content-col {
     padding-left: 2rem;
-    text-align: left;
   }
 }
 
@@ -296,14 +328,12 @@
   font-weight: 300;
   margin-bottom: 2.5rem;
   max-width: 28rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media (min-width: 768px) {
   .sensol-app__desc {
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 
@@ -340,12 +370,11 @@
 .sensol-app__stores {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 @media (min-width: 768px) {
   .sensol-app__stores {
-    justify-content: flex-start;
   }
 }
 
