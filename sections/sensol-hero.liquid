@@ -1,109 +1,99 @@
-<section class="sensol-hero" style="background-color: {{ section.settings.bg_color }};">
-  <div class="sensol-hero__slider" id="sensol-hero-slider">
+{{ 'section-sensol-hero.css' | asset_url | stylesheet_tag }}
+
+{%- assign slide_count = 0 -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'slide' -%}
+    {%- assign slide_count = slide_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<section class="sensol-hero" id="sensol-hero-{{ section.id }}" data-slide-count="{{ slide_count }}">
+  
+  {%- comment -%} Slides {%- endcomment -%}
+  <div class="sensol-hero__slides">
     {%- for block in section.blocks -%}
-      <div class="sensol-hero__slide{% if forloop.first %} sensol-hero__slide--active{% endif %}" {{ block.shopify_attributes }}>
-        <div class="sensol-hero__media">
+      {%- if block.type == 'slide' -%}
+        <div class="sensol-hero__slide {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'eager', fetchpriority: 'high', class: 'sensol-hero__image' }}
+            <img src="{{ block.settings.image | image_url: width: 3840 }}" 
+                 alt="{{ block.settings.image.alt | escape }}" 
+                 loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                 fetchpriority="{% if forloop.first %}high{% endif %}"
+                 class="sensol-hero__image"
+                 width="{{ block.settings.image.width }}"
+                 height="{{ block.settings.image.height }}">
           {%- else -%}
             <div class="sensol-hero__placeholder">
-              <span>Upload banner image</span>
+              <span>Click "Add slide" and upload a banner image</span>
             </div>
           {%- endif -%}
         </div>
-      </div>
+      {%- endif -%}
     {%- endfor -%}
   </div>
 
+  {%- comment -%} Only show overlay and text if there are slides {%- endcomment -%}
   <div class="sensol-hero__overlay" style="background: {{ section.settings.overlay_color }};"></div>
-
+  
   <div class="sensol-hero__content">
     {%- if section.settings.label != blank -%}
-      <p class="sensol-hero__label">{{ section.settings.label }}</p>
+      <span class="sensol-hero__label">{{ section.settings.label }}</span>
     {%- endif -%}
-
     {%- if section.settings.heading != blank -%}
       <h1 class="sensol-hero__heading">{{ section.settings.heading }}</h1>
     {%- endif -%}
-
     {%- if section.settings.subheading != blank -%}
       <p class="sensol-hero__subheading">{{ section.settings.subheading }}</p>
     {%- endif -%}
-
     {%- if section.settings.button_label != blank -%}
-      <a href="{{ section.settings.button_link }}" class="sensol-hero__button" style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }};">
+      <a href="{{ section.settings.button_link }}" class="sensol-hero__button">
         {{ section.settings.button_label }}
       </a>
     {%- endif -%}
-
-    {%- if section.blocks.size > 1 -%}
-      <div class="sensol-hero__dots">
-        {%- for block in section.blocks -%}
-          <button class="sensol-hero__dot{% if forloop.first %} sensol-hero__dot--active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
   </div>
+
+  {%- if slide_count > 1 -%}
+    <div class="sensol-hero__dots">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'slide' -%}
+          <button class="sensol-hero__dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
 </section>
-
-<script>
-  (function(){
-    var slides = document.querySelectorAll('.sensol-hero__slide');
-    var dots = document.querySelectorAll('.sensol-hero__dot');
-    var current = 0;
-    var total = slides.length;
-    if (total <= 1) return;
-
-    function goTo(idx) {
-      slides[current].classList.remove('sensol-hero__slide--active');
-      dots[current].classList.remove('sensol-hero__dot--active');
-      current = idx;
-      slides[current].classList.add('sensol-hero__slide--active');
-      dots[current].classList.add('sensol-hero__dot--active');
-    }
-
-    dots.forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        goTo(parseInt(this.dataset.index));
-      });
-    });
-
-    setInterval(function() {
-      goTo((current + 1) % total);
-    }, 6000);
-  })();
-</script>
 
 <style>
   .sensol-hero {
     position: relative;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
+    background: #1A1816;
   }
-  .sensol-hero__slider {
+
+  .sensol-hero__slides {
     position: absolute;
     inset: 0;
   }
+
   .sensol-hero__slide {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 1s ease;
   }
-  .sensol-hero__slide--active {
+
+  .sensol-hero__slide.active {
     opacity: 1;
   }
-  .sensol-hero__media {
-    width: 100%;
-    height: 100%;
-  }
+
   .sensol-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
   }
+
   .sensol-hero__placeholder {
     width: 100%;
     height: 100%;
@@ -112,75 +102,84 @@
     align-items: center;
     justify-content: center;
     color: #8A8279;
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+
   .sensol-hero__overlay {
     position: absolute;
     inset: 0;
-    pointer-events: none;
+    z-index: 1;
   }
+
   .sensol-hero__content {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
     text-align: center;
-    color: #F7F4F0;
     padding: 0 24px;
-    z-index: 2;
+    color: #F7F4F0;
   }
+
   .sensol-hero__label {
-    font-family: 'Inter', sans-serif;
     font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 20px;
     opacity: 0.8;
+    margin-bottom: 24px;
   }
+
   .sensol-hero__heading {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(48px, 10vw, 96px);
+    font-size: clamp(48px, 10vw, 120px);
     font-weight: 200;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin: 0 0 24px;
     line-height: 1;
   }
+
   .sensol-hero__subheading {
-    font-family: 'Inter', sans-serif;
     font-size: clamp(14px, 2vw, 18px);
     font-weight: 300;
     letter-spacing: 0.05em;
-    max-width: 600px;
-    margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.85;
+    max-width: 540px;
+    margin: 0 auto 40px;
     line-height: 1.7;
   }
+
   .sensol-hero__button {
     display: inline-block;
-    padding: 16px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    padding: 14px 40px;
+    background: #F7F4F0;
+    color: #1A1816;
     text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
     transition: opacity 0.3s ease;
   }
+
   .sensol-hero__button:hover {
     opacity: 0.85;
   }
+
   .sensol-hero__dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
     display: flex;
-    gap: 12px;
-    margin-top: 40px;
+    gap: 8px;
   }
+
   .sensol-hero__dot {
     width: 8px;
     height: 8px;
@@ -191,19 +190,48 @@
     padding: 0;
     transition: background 0.3s ease;
   }
-  .sensol-hero__dot--active {
+
+  .sensol-hero__dot.active {
     background: #F7F4F0;
   }
 
   @media (max-width: 768px) {
-    .sensol-hero {
-      height: 100svh;
+    .sensol-hero__content {
+      padding: 0 20px;
     }
-    .sensol-hero__heading {
-      font-size: clamp(36px, 12vw, 56px);
+    .sensol-hero__button {
+      padding: 12px 32px;
     }
   }
 </style>
+
+<script>
+  (function() {
+    var section = document.getElementById('sensol-hero-{{ section.id }}');
+    if (!section) return;
+    var slides = section.querySelectorAll('.sensol-hero__slide');
+    var dots = section.querySelectorAll('.sensol-hero__dot');
+    var current = 0;
+    var count = parseInt(section.dataset.slideCount) || 0;
+    if (count <= 1) return;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { goTo(i); });
+    });
+
+    setInterval(function() {
+      goTo((current + 1) % count);
+    }, 6000);
+  })();
+</script>
 
 {% schema %}
 {
@@ -232,48 +260,31 @@
     {
       "type": "text",
       "id": "button_label",
-      "label": "Button Label",
+      "label": "Button label",
       "default": "SHOP ALL"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#1A1816"
+      "label": "Button link"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "Overlay Color",
+      "label": "Overlay color",
       "default": "rgba(26, 24, 22, 0.35)"
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
-      "label": "Button Background",
-      "default": "#F7F4F0"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button Text Color",
-      "default": "#1A1816"
     }
   ],
   "blocks": [
     {
       "type": "slide",
       "name": "Banner Slide",
+      "limit": 5,
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Banner Image"
+          "label": "Banner image"
         }
       ]
     }
