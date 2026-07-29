@@ -1,30 +1,9 @@
 {{ 'sensol-future-training.css' | asset_url | stylesheet_tag }}
 
-<section class="sensol-future-section" id="future">
+<section class="sensol-future-section">
   <div class="sensol-future">
-    <!-- Full-bleed Background Image -->
-    {%- if section.settings.image != blank -%}
-      <img
-        class="sensol-future__bg"
-        src="{{ section.settings.image | image_url: width: 1920 }}"
-        alt="{{ section.settings.image_alt | escape }}"
-        loading="lazy"
-        width="1920"
-        height="1080"
-      >
-    {%- else -%}
-      <img
-        class="sensol-future__bg"
-        src="{{ 'landscape-2.webp' | asset_url }}"
-        alt="{{ section.settings.image_alt | escape }}"
-        loading="lazy"
-        width="1920"
-        height="1080"
-      >
-    {%- endif -%}
+    <img class="sensol-future__img" src="{{ 'landscape-1.webp' | asset_url }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="1080">
     <div class="sensol-future__overlay"></div>
-
-    <!-- Content overlay -->
     <div class="sensol-future__content">
       <p class="sensol-future__label">{{ section.settings.label }}</p>
       <h2 class="sensol-future__title">{{ section.settings.title }}</h2>
@@ -35,17 +14,15 @@
 
 {% schema %}
 {
-  "name": "SENSOL Future Training",
+  "name": "SENSOL Future of Training",
   "tag": "section",
   "class": "sensol-future-section",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Background Image" },
-    { "type": "text", "id": "image_alt", "label": "Image Alt", "default": "Sensol future training" },
     { "type": "text", "id": "label", "label": "Label", "default": "Designed for modern living" },
     { "type": "text", "id": "title", "label": "Title", "default": "The Future Of Modern Training." },
     { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop All" }
   ],
-  "presets": [{ "name": "SENSOL Future Training" }]
+  "presets": [{ "name": "SENSOL Future of Training" }]
 }
 {% endschema %}

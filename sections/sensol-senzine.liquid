@@ -1,33 +1,11 @@
 {{ 'sensol-senzine.css' | asset_url | stylesheet_tag }}
 
-<section class="sensol-senzine-section" id="senzine">
+<section class="sensol-senzine-section">
   <div class="sensol-senzine">
-    <!-- 7-col image + 5-col text — matching Next.js grid -->
-    <div class="sensol-senzine__grid">
-      <!-- Left: Main Image (7 cols) -->
+    <div class="sensol-senzine__main">
       <div class="sensol-senzine__image-col">
-        {%- if section.settings.main_image != blank -%}
-          <img
-            class="sensol-senzine__main-img"
-            src="{{ section.settings.main_image | image_url: width: 1200 }}"
-            alt="{{ section.settings.title | escape }}"
-            loading="lazy"
-            width="1200"
-            height="1600"
-          >
-        {%- else -%}
-          <img
-            class="sensol-senzine__main-img"
-            src="{{ 'editorial-1.webp' | asset_url }}"
-            alt="{{ section.settings.title | escape }}"
-            loading="lazy"
-            width="1200"
-            height="1600"
-          >
-        {%- endif -%}
+        <img class="sensol-senzine__image" src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE" loading="lazy" width="600" height="800">
       </div>
-
-      <!-- Right: Text (5 cols) -->
       <div class="sensol-senzine__text-col">
         <p class="sensol-senzine__label">{{ section.settings.label }}</p>
         <h2 class="sensol-senzine__title">{{ section.settings.title }}</h2>
@@ -35,51 +13,9 @@
         <a href="{{ section.settings.cta_link }}" class="sensol-senzine__btn">{{ section.settings.cta_text }}</a>
       </div>
     </div>
-
-    <!-- Bottom: 2 secondary images -->
     <div class="sensol-senzine__secondary">
-      <div class="sensol-senzine__secondary-item">
-        {%- if section.settings.image_2 != blank -%}
-          <img
-            class="sensol-senzine__secondary-img"
-            src="{{ section.settings.image_2 | image_url: width: 600 }}"
-            alt="Senzine issue"
-            loading="lazy"
-            width="600"
-            height="800"
-          >
-        {%- else -%}
-          <img
-            class="sensol-senzine__secondary-img"
-            src="{{ 'editorial-2.webp' | asset_url }}"
-            alt="Senzine issue"
-            loading="lazy"
-            width="600"
-            height="800"
-          >
-        {%- endif -%}
-      </div>
-      <div class="sensol-senzine__secondary-item">
-        {%- if section.settings.image_3 != blank -%}
-          <img
-            class="sensol-senzine__secondary-img"
-            src="{{ section.settings.image_3 | image_url: width: 600 }}"
-            alt="Senzine issue"
-            loading="lazy"
-            width="600"
-            height="800"
-          >
-        {%- else -%}
-          <img
-            class="sensol-senzine__secondary-img"
-            src="{{ 'editorial-3.webp' | asset_url }}"
-            alt="Senzine issue"
-            loading="lazy"
-            width="600"
-            height="800"
-          >
-        {%- endif -%}
-      </div>
+      <img class="sensol-senzine__secondary-img" src="{{ 'editorial-2.webp' | asset_url }}" alt="SENZINE Issue" loading="lazy" width="400" height="500">
+      <img class="sensol-senzine__secondary-img" src="{{ 'editorial-3.webp' | asset_url }}" alt="SENZINE Detail" loading="lazy" width="400" height="500">
     </div>
   </div>
 </section>
@@ -93,9 +29,6 @@
     { "type": "text", "id": "label", "label": "Label", "default": "Internal Publication" },
     { "type": "text", "id": "title", "label": "Title", "default": "SENZINE" },
     { "type": "textarea", "id": "description", "label": "Description", "default": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read.\n\nReleased in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention." },
-    { "type": "image_picker", "id": "main_image", "label": "Main Image (override default)" },
-    { "type": "image_picker", "id": "image_2", "label": "Secondary Image 1 (override default)" },
-    { "type": "image_picker", "id": "image_3", "label": "Secondary Image 2 (override default)" },
     { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/" },
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Join us" }
   ],
