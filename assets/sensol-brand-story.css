@@ -1,186 +1,169 @@
+/* ===== SENsol Brand Story — matching Next.js preview ===== */
+.sensol-brand-story-section {
+  margin: 0;
+  padding: 0;
+}
+
 .sensol-brand-story {
-  padding: 96px 0;
-  background: #F7F4F0;
-}
-
-.sensol-brand-story__inner {
-  max-width: 1600px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 8rem 2rem;
+  font-family: 'Inter', sans-serif;
+  color: #1A1816;
 }
 
-@media (min-width: 768px) {
-  .sensol-brand-story {
-    padding: 160px 0;
-  }
-  .sensol-brand-story__inner {
-    padding: 0 64px;
-  }
-}
-
+/* Section Number — matching: text-[10px] tracking-[0.2em] text-[#8A8279] */
 .sensol-brand-story__number {
-  color: #8A8279;
   font-size: 10px;
   letter-spacing: 0.2em;
+  color: #8A8279;
   text-transform: uppercase;
-  margin-bottom: 64px;
-  font-weight: 300;
+  margin-bottom: 3rem;
 }
 
-@media (min-width: 768px) {
-  .sensol-brand-story__number {
-    margin-bottom: 80px;
-  }
-}
-
+/* Grid: 7/5 split — matching Next.js lg:col-span-7 / lg:col-span-5 */
 .sensol-brand-story__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 64px;
+  gap: 4rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .sensol-brand-story__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 96px;
+    grid-template-columns: 7fr 5fr;
+    gap: 4rem;
   }
 }
 
-.sensol-brand-story__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
+/* Title — matching: text-[2.5rem] md:text-[3rem] font-light tracking-[0.1em] */
 .sensol-brand-story__title {
-  color: #1A1816;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 200;
-  line-height: 1.12;
-  letter-spacing: 0.05em;
-  margin-bottom: 40px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+  margin-bottom: 3rem;
 }
 
+/* Paragraphs — matching: text-[#8A8279] leading-[1.8] */
 .sensol-brand-story__paragraphs {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .sensol-brand-story__para {
   color: #8A8279;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 400;
 }
 
-@media (min-width: 768px) {
-  .sensol-brand-story__para {
-    font-size: 16px;
-  }
-}
-
+/* Stats Row — matching: 3 stats in a row with 1px border */
 .sensol-brand-story__stats {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
-  margin-top: 48px;
-  padding-top: 40px;
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid #D4CEC6;
 }
 
+.sensol-brand-story__stat {
+  padding: 2rem 1.5rem 0;
+  border-right: 1px solid #D4CEC6;
+}
+
+.sensol-brand-story__stat:last-child {
+  border-right: none;
+}
+
 .sensol-brand-story__stat-value {
-  color: #1A1816;
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: 2rem;
   font-weight: 200;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
 }
 
 .sensol-brand-story__stat-label {
-  color: #8A8279;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-top: 8px;
+  color: #8A8279;
 }
 
+/* Image Column */
 .sensol-brand-story__image-col {
   position: relative;
-  overflow: hidden;
 }
 
-.sensol-brand-story__img {
+.sensol-brand-story__image {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: auto;
   object-fit: cover;
+  aspect-ratio: 16 / 10;
   display: block;
-  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.sensol-brand-story__image-col:hover .sensol-brand-story__img {
-  transform: scale(1.03);
-}
-
-.sensol-brand-story__image-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px;
-  background: linear-gradient(to top, rgba(26,24,22,0.3), transparent);
 }
 
 .sensol-brand-story__image-caption {
-  color: rgba(247,244,240,0.7);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
 }
 
+.sensol-brand-story__image-caption p {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Features Row — matching: 3 cards in a row with 1px gap */
 .sensol-brand-story__features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1px;
-  background: #D4CEC6;
-  margin-top: 96px;
+  border-top: 1px solid #D4CEC6;
+  margin-top: 6rem;
 }
 
 @media (min-width: 768px) {
   .sensol-brand-story__features {
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 128px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .sensol-brand-story__feature {
-  background: #F7F4F0;
-  padding: 32px;
+  padding: 2.5rem 2rem;
+  border-right: 1px solid #D4CEC6;
 }
 
-@media (min-width: 768px) {
+.sensol-brand-story__feature:last-child {
+  border-right: none;
+}
+
+@media (max-width: 767px) {
   .sensol-brand-story__feature {
-    padding: 48px;
+    border-right: none;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sensol-brand-story__feature:last-child {
+    border-bottom: none;
   }
 }
 
 .sensol-brand-story__feature-num {
-  color: #1A1816;
   font-size: 10px;
+  color: #8A8279;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .sensol-brand-story__feature-title {
-  color: #1A1816;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 1.25rem;
+  font-weight: 400;
   letter-spacing: 0.05em;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .sensol-brand-story__feature-desc {
+  font-size: 0.875rem;
   color: #8A8279;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.9;
+  line-height: 1.7;
 }

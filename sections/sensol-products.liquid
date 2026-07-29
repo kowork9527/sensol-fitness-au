@@ -1,37 +1,66 @@
 {{ 'sensol-products.css' | asset_url | stylesheet_tag }}
 
-<section class="sensol-products" id="collection">
-  <div class="sensol-products__inner">
+<section class="sensol-products-section" id="collection">
+  <div class="sensol-products">
     <!-- Header -->
     <div class="sensol-products__header">
-      <div>
-        <p class="sensol-products__label">{{ section.settings.label | default: '2026 Selection' }}</p>
-        <h2 class="sensol-products__title">{{ section.settings.title | default: 'Products' }}</h2>
-      </div>
-      <a href="{{ section.settings.view_all_link | default: '/collections/all' }}" class="sensol-products__view-all">{{ section.settings.view_all_text | default: 'View all →' }}</a>
+      <p class="sensol-products__label">{{ section.settings.label }}</p>
+      <h2 class="sensol-products__title">{{ section.settings.title }}</h2>
+      <a href="{{ section.settings.view_all_link }}" class="sensol-products__view-all">View all →</a>
     </div>
 
-    <!-- Product Grid -->
+    <!-- 3 Product Cards -->
     <div class="sensol-products__grid">
-      {%- for block in section.blocks -%}
-      <div class="sensol-products__card" {{ block.shopify_attributes }}>
-        <div class="sensol-products__card-image">
-          {%- if block.settings.image != blank -%}
-          <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" class="sensol-products__card-img" loading="lazy">
-          {%- else -%}
-          {%- assign default_images = 'square-2.webp,square-3.webp,square-4.webp' | split: ',' -%}
-          <img src="{{ default_images[forloop.index0] | asset_url }}" alt="{{ block.settings.title | escape }}" class="sensol-products__card-img" loading="lazy">
-          {%- endif -%}
+      <!-- Product 1 -->
+      <div class="sensol-products__card">
+        <div class="sensol-products__card-img-wrap">
+          <img
+            class="sensol-products__card-img"
+            src="{{ section.settings.product1_image | image_url: width: 600 }}"
+            alt="{{ section.settings.product1_name | escape }}"
+            loading="lazy"
+            width="600"
+            height="600"
+          >
         </div>
-        <div class="sensol-products__card-info">
-          <p class="sensol-products__card-brand">{{ block.settings.brand | default: 'sensol fitness' }}</p>
-          <div class="sensol-products__card-row">
-            <h3 class="sensol-products__card-title">{{ block.settings.title | default: 'Product' }}</h3>
-            <p class="sensol-products__card-price">{{ block.settings.price | default: '' }}</p>
-          </div>
-        </div>
+        <p class="sensol-products__card-vendor">{{ section.settings.product1_vendor }}</p>
+        <p class="sensol-products__card-name">{{ section.settings.product1_name }}</p>
+        <p class="sensol-products__card-price">{{ section.settings.product1_price }}</p>
       </div>
-      {%- endfor -%}
+
+      <!-- Product 2 -->
+      <div class="sensol-products__card">
+        <div class="sensol-products__card-img-wrap">
+          <img
+            class="sensol-products__card-img"
+            src="{{ section.settings.product2_image | image_url: width: 600 }}"
+            alt="{{ section.settings.product2_name | escape }}"
+            loading="lazy"
+            width="600"
+            height="600"
+          >
+        </div>
+        <p class="sensol-products__card-vendor">{{ section.settings.product2_vendor }}</p>
+        <p class="sensol-products__card-name">{{ section.settings.product2_name }}</p>
+        <p class="sensol-products__card-price">{{ section.settings.product2_price }}</p>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="sensol-products__card">
+        <div class="sensol-products__card-img-wrap">
+          <img
+            class="sensol-products__card-img"
+            src="{{ section.settings.product3_image | image_url: width: 600 }}"
+            alt="{{ section.settings.product3_name | escape }}"
+            loading="lazy"
+            width="600"
+            height="600"
+          >
+        </div>
+        <p class="sensol-products__card-vendor">{{ section.settings.product3_vendor }}</p>
+        <p class="sensol-products__card-name">{{ section.settings.product3_name }}</p>
+        <p class="sensol-products__card-price">{{ section.settings.product3_price }}</p>
+      </div>
     </div>
   </div>
 </section>
@@ -42,23 +71,22 @@
   "tag": "section",
   "class": "sensol-products-section",
   "settings": [
-    {"type":"text","id":"label","label":"Section Label","default":"2026 Selection"},
-    {"type":"text","id":"title","label":"Title","default":"Products"},
-    {"type":"text","id":"view_all_text","label":"View All Text","default":"View all →"},
-    {"type":"url","id":"view_all_link","label":"View All Link"}
+    { "type": "text", "id": "label", "label": "Label", "default": "2026 Selection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Products" },
+    { "type": "url", "id": "view_all_link", "label": "View All Link", "default": "/collections/all" },
+    { "type": "image_picker", "id": "product1_image", "label": "Product 1 Image" },
+    { "type": "text", "id": "product1_vendor", "label": "Product 1 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product1_name", "label": "Product 1 Name", "default": "Sensol RS02" },
+    { "type": "text", "id": "product1_price", "label": "Product 1 Price", "default": "$2,000" },
+    { "type": "image_picker", "id": "product2_image", "label": "Product 2 Image" },
+    { "type": "text", "id": "product2_vendor", "label": "Product 2 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product2_name", "label": "Product 2 Name", "default": "Sensol RS02 PRO" },
+    { "type": "text", "id": "product2_price", "label": "Product 2 Price", "default": "$2,400" },
+    { "type": "image_picker", "id": "product3_image", "label": "Product 3 Image" },
+    { "type": "text", "id": "product3_vendor", "label": "Product 3 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product3_name", "label": "Product 3 Name", "default": "Sensol FLEX AIR" },
+    { "type": "text", "id": "product3_price", "label": "Product 3 Price", "default": "$650" }
   ],
-  "blocks": [
-    {
-      "type": "product",
-      "name": "Product",
-      "settings": [
-        {"type":"image_picker","id":"image","label":"Product Image"},
-        {"type":"text","id":"brand","label":"Brand Text","default":"sensol fitness"},
-        {"type":"text","id":"title","label":"Product Name","default":"Sensol RS02"},
-        {"type":"text","id":"price","label":"Price","default":"$2,000"}
-      ]
-    }
-  ],
-  "presets":[{"name":"SENSOL Products","blocks":[{"type":"product","settings":{"title":"Sensol RS02","price":"$2,000"}},{"type":"product","settings":{"title":"Sensol RS02 PRO","price":"$2,400"}},{"type":"product","settings":{"title":"Sensol FLEX AIR","price":"$650"}}]}]
+  "presets": [{ "name": "SENSOL Products" }]
 }
 {% endschema %}

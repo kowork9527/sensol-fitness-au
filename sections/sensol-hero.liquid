@@ -1,56 +1,85 @@
 {{ 'sensol-hero.css' | asset_url | stylesheet_tag }}
 
-{%- assign slide_images = 'banner-1.webp,banner-2.webp,banner-3.webp' | split: ',' -%}
-{%- assign slide_labels = 'A new language of training,Engineered movement,Where strength meets pilates' | split: ',' -%}
-{%- assign slide_headings = 'SENSOL,PRECISION,CONTROL' | split: ',' -%}
-{%- assign slide_subs = 'Where strength meets precision, and movement becomes design.,Adaptive resistance and fluid motion, tailored to your body.,Control begins within. Train with intention.' | split: ',' -%}
+<section class="sensol-hero-section" id="hero">
+  <div class="sensol-hero">
+    {%- for i in (1..3) -%}
+      {%- capture img_key -%}slide_{{ i }}_image{%- endcapture -%}
+      {%- capture label_key -%}slide_{{ i }}_label{%- endcapture -%}
+      {%- capture heading_key -%}slide_{{ i }}_heading{%- endcapture -%}
+      {%- capture sub_key -%}slide_{{ i }}_sub{%- endcapture -%}
+      <div class="sensol-hero__slide" data-slide="{{ forloop.index0 }}" style="opacity:{% if forloop.first %}1{% else %}0{% endif %}">
+        <img
+          class="sensol-hero__image"
+          src="{{ section.settings[img_key] | image_url: width: 1920 }}"
+          alt="{{ section.settings[heading_key] | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}"
+          width="1920"
+          height="1024"
+        >
+      </div>
+    {%- endfor -%}
 
-<section class="sensol-hero" id="sensol-hero">
-  <div class="sensol-hero__slider">
-    {%- for i in (0..2) -%}
-    <div class="sensol-hero__slide{% if forloop.first %} sensol-hero__slide--active{% endif %}" data-slide="{{ forloop.index0 }}">
-      {%- if section.settings[slide_image_setting] -%}
-      {%- else -%}
-      <img src="{{ slide_images[forloop.index0] | asset_url }}" alt="{{ slide_headings[forloop.index0] | strip }}" class="sensol-hero__image" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
-      {%- endif -%}
-      <div class="sensol-hero__overlay"></div>
-      <div class="sensol-hero__content">
-        <p class="sensol-hero__label">{{ slide_labels[forloop.index0] | strip }}</p>
-        <h1 class="sensol-hero__title">{{ slide_headings[forloop.index0] | strip }}</h1>
-        <p class="sensol-hero__subtitle">{{ slide_subs[forloop.index0] | strip }}</p>
+    <div class="sensol-hero__overlay"></div>
+    <div class="sensol-hero__overlay-right"></div>
+
+    <div class="sensol-hero__content">
+      {%- for i in (1..3) -%}
+        {%- capture label_key -%}slide_{{ i }}_label{%- endcapture -%}
+        {%- capture heading_key -%}slide_{{ i }}_heading{%- endcapture -%}
+        {%- capture sub_key -%}slide_{{ i }}_sub{%- endcapture -%}
+        <div class="sensol-hero__text" data-slide="{{ forloop.index0 }}" style="display:{% if forloop.first %}block{% else %}none{% endif %}">
+          <p class="sensol-hero__label">{{ section.settings[label_key] }}</p>
+          <h1 class="sensol-hero__title">{{ section.settings[heading_key] }}</h1>
+          <p class="sensol-hero__subtitle">{{ section.settings[sub_key] }}</p>
+        </div>
+      {%- endfor -%}
+
+      <div class="sensol-hero__cta">
+        <a href="{{ section.settings.cta_link }}" class="sensol-hero__btn">{{ section.settings.cta_text }}</a>
       </div>
     </div>
-    {%- endfor -%}
-  </div>
-  <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="sensol-hero__btn">{{ section.settings.button_text | default: 'SHOP ALL' }}</a>
-  <div class="sensol-hero__dots">
-    <button class="sensol-hero__dot sensol-hero__dot--active" data-dot="0" aria-label="Slide 1"></button>
-    <button class="sensol-hero__dot" data-dot="1" aria-label="Slide 2"></button>
-    <button class="sensol-hero__dot" data-dot="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="sensol-hero__scroll">
-    <span>Scroll</span>
-    <div class="sensol-hero__scroll-line"><div class="sensol-hero__scroll-pulse"></div></div>
+
+    <div class="sensol-hero__indicators">
+      {%- for i in (1..3) -%}
+        <button class="sensol-hero__dot{% if forloop.first %} sensol-hero__dot--active{% endif %}" data-slide="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+      {%- endfor -%}
+    </div>
+
+    <div class="sensol-hero__scroll">
+      <span>Scroll</span>
+      <div class="sensol-hero__scroll-line"><div class="sensol-hero__scroll-pulse"></div></div>
+    </div>
   </div>
 </section>
 
 <script>
 (function(){
-  var slides=document.querySelectorAll('.sensol-hero__slide');
-  var dots=document.querySelectorAll('.sensol-hero__dot');
-  var current=0,interval;
-  function go(n){
-    slides[current].classList.remove('sensol-hero__slide--active');
-    dots[current].classList.remove('sensol-hero__dot--active');
-    current=n;
-    slides[current].classList.add('sensol-hero__slide--active');
-    dots[current].classList.add('sensol-hero__dot--active');
+  var section = document.querySelector('.sensol-hero-section');
+  if(!section) return;
+  var slides = section.querySelectorAll('[data-slide]');
+  var dots = section.querySelectorAll('.sensol-hero__dot');
+  var current = 0;
+  var total = 3;
+
+  function goTo(idx){
+    current = idx;
+    slides.forEach(function(s){
+      s.style.opacity = s.dataset.slide == idx ? '1' : '0';
+      if(s.classList.contains('sensol-hero__text')){
+        s.style.display = s.dataset.slide == idx ? 'block' : 'none';
+      }
+    });
+    dots.forEach(function(d,i){
+      d.classList.toggle('sensol-hero__dot--active', d.dataset.slide == idx);
+    });
   }
-  function next(){go((current+1)%slides.length)}
-  function start(){interval=setInterval(next,6000)}
-  function stop(){clearInterval(interval)}
-  dots.forEach(function(d){d.addEventListener('click',function(){stop();go(+d.dataset.dot);start()})});
-  start();
+
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ goTo(parseInt(d.dataset.slide)); });
+  });
+
+  setInterval(function(){ goTo((current+1)%total); }, 6000);
 })();
 </script>
 
@@ -60,12 +89,21 @@
   "tag": "section",
   "class": "sensol-hero-section",
   "settings": [
-    {"type":"text","id":"button_text","label":"Button Text","default":"SHOP ALL"},
-    {"type":"url","id":"button_link","label":"Button Link"},
-    {"type":"image_picker","id":"slide_1_image","label":"Slide 1 Image"},
-    {"type":"image_picker","id":"slide_2_image","label":"Slide 2 Image"},
-    {"type":"image_picker","id":"slide_3_image","label":"Slide 3 Image"}
+    { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop All" },
+    { "type": "image_picker", "id": "slide_1_image", "label": "Slide 1 Image" },
+    { "type": "text", "id": "slide_1_label", "label": "Slide 1 Label", "default": "A new language of training" },
+    { "type": "text", "id": "slide_1_heading", "label": "Slide 1 Heading", "default": "SENSOL" },
+    { "type": "text", "id": "slide_1_sub", "label": "Slide 1 Subtitle", "default": "Where strength meets precision, and movement becomes design." },
+    { "type": "image_picker", "id": "slide_2_image", "label": "Slide 2 Image" },
+    { "type": "text", "id": "slide_2_label", "label": "Slide 2 Label", "default": "Engineered movement" },
+    { "type": "text", "id": "slide_2_heading", "label": "Slide 2 Heading", "default": "PRECISION" },
+    { "type": "text", "id": "slide_2_sub", "label": "Slide 2 Subtitle", "default": "Adaptive resistance and fluid motion, tailored to your body." },
+    { "type": "image_picker", "id": "slide_3_image", "label": "Slide 3 Image" },
+    { "type": "text", "id": "slide_3_label", "label": "Slide 3 Label", "default": "Where strength meets pilates" },
+    { "type": "text", "id": "slide_3_heading", "label": "Slide 3 Heading", "default": "CONTROL" },
+    { "type": "text", "id": "slide_3_sub", "label": "Slide 3 Subtitle", "default": "Control begins within. Train with intention." }
   ],
-  "presets":[{"name":"SENSOL Hero"}]
+  "presets": [{ "name": "SENSOL Hero" }]
 }
 {% endschema %}

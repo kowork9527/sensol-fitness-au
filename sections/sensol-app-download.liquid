@@ -1,95 +1,73 @@
 {{ 'sensol-app-download.css' | asset_url | stylesheet_tag }}
 
-<section class="sensol-app">
-  <div class="sensol-app__inner">
-    <!-- Left — Phone Mockup -->
-    <div class="sensol-app__phone">
-      {%- if section.settings.phone_image != blank -%}
-      <img src="{{ section.settings.phone_image | image_url: width: 600 }}" alt="Sensol App" class="sensol-app__phone-img" loading="lazy">
-      {%- else -%}
-      <div class="sensol-app__phone-mockup">
-        <div class="sensol-app__screen">
-          <!-- Status Bar -->
-          <div class="sensol-app__status">
-            <span class="sensol-app__status-time">9:41</span>
-            <div class="sensol-app__status-notch"></div>
-            <div class="sensol-app__status-icons">
-              <div class="sensol-app__status-signal"></div>
-              <div class="sensol-app__status-dot"></div>
+<section class="sensol-app-section" id="app">
+  <div class="sensol-app">
+    <div class="sensol-app__grid">
+      <!-- Left: Phone Mockup (5 cols) — matching Next.js layout -->
+      <div class="sensol-app__phone-col">
+        <div class="sensol-app__phone-mockup">
+          <!-- SVG Ring -->
+          <svg class="sensol-app__ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#D4CEC6" stroke-width="0.5"/>
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#1A1816" stroke-width="2" stroke-dasharray="565.48" stroke-dashoffset="197.92" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+          </svg>
+          <!-- Phone Image -->
+          <div class="sensol-app__phone-frame">
+            <div class="sensol-app__phone-status">
+              <span>9:41</span>
+            </div>
+            <div class="sensol-app__phone-content">
+              <p class="sensol-app__phone-brand">Sensol</p>
+              <div class="sensol-app__phone-stats">
+                <div class="sensol-app__phone-stat">
+                  <span class="sensol-app__phone-stat-value">65</span>
+                  <span class="sensol-app__phone-stat-label">Resistance</span>
+                </div>
+              </div>
+              <div class="sensol-app__phone-info">
+                <p>Mode</p><span>Pilates</span>
+                <p>Time</p><span>32:00</span>
+                <p>Cal</p><span>186</span>
+              </div>
+              <div class="sensol-app__phone-start">Start Session</div>
             </div>
           </div>
-          <!-- App Header -->
-          <div class="sensol-app__app-header">
-            <span class="sensol-app__app-name">Sensol</span>
-            <div class="sensol-app__app-icons">
-              <div class="sensol-app__app-icon-circle"></div>
-              <div class="sensol-app__app-icon-circle"></div>
-            </div>
-          </div>
-          <!-- Resistance Ring -->
-          <div class="sensol-app__ring-wrap">
-            <svg class="sensol-app__ring-svg" viewBox="0 0 160 160">
-              <circle cx="80" cy="80" r="70" fill="none" stroke="#2a2724" stroke-width="6"/>
-              <circle cx="80" cy="80" r="70" fill="none" stroke="#8A8279" stroke-width="6" stroke-linecap="round" stroke-dasharray="330 440"/>
-            </svg>
-            <div class="sensol-app__ring-center">
-              <span class="sensol-app__ring-value">65</span>
-              <span class="sensol-app__ring-label">Resistance</span>
-            </div>
-          </div>
-          <!-- Quick Controls -->
-          <div class="sensol-app__controls">
-            <div class="sensol-app__control">
-              <p class="sensol-app__control-label">Mode</p>
-              <p class="sensol-app__control-value">Pilates</p>
-            </div>
-            <div class="sensol-app__control">
-              <p class="sensol-app__control-label">Time</p>
-              <p class="sensol-app__control-value">32:00</p>
-            </div>
-            <div class="sensol-app__control">
-              <p class="sensol-app__control-label">Cal</p>
-              <p class="sensol-app__control-value">186</p>
-            </div>
-          </div>
-          <!-- Session Button -->
-          <div class="sensol-app__start-btn">Start Session</div>
         </div>
       </div>
-      {%- endif -%}
-    </div>
 
-    <!-- Right — Content -->
-    <div class="sensol-app__content">
-      <p class="sensol-app__label">{{ section.settings.label | default: 'Sensol App' }}</p>
-      <h2 class="sensol-app__heading">{{ section.settings.heading | default: 'Your intelligent<br>training companion' }}</h2>
-      <p class="sensol-app__description">{{ section.settings.description | default: 'The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone.' }}</p>
+      <!-- Right: Content (7 cols) -->
+      <div class="sensol-app__content-col">
+        <p class="sensol-app__label">Sensol App</p>
+        <h2 class="sensol-app__title">{{ section.settings.title }}</h2>
+        <p class="sensol-app__desc">{{ section.settings.description }}</p>
 
-      <div class="sensol-app__features">
-        {%- for block in section.blocks -%}
-        <div class="sensol-app__feature" {{ block.shopify_attributes }}>
-          <div class="sensol-app__feature-line"></div>
-          <div>
-            <p class="sensol-app__feature-title">{{ block.settings.title }}</p>
-            <p class="sensol-app__feature-desc">{{ block.settings.description }}</p>
+        <!-- 3 Feature Blocks -->
+        <div class="sensol-app__features">
+          <div class="sensol-app__feature">
+            <p class="sensol-app__feature-name">{{ section.settings.feature1_name }}</p>
+            <p class="sensol-app__feature-desc">{{ section.settings.feature1_desc }}</p>
+          </div>
+          <div class="sensol-app__feature">
+            <p class="sensol-app__feature-name">{{ section.settings.feature2_name }}</p>
+            <p class="sensol-app__feature-desc">{{ section.settings.feature2_desc }}</p>
+          </div>
+          <div class="sensol-app__feature">
+            <p class="sensol-app__feature-name">{{ section.settings.feature3_name }}</p>
+            <p class="sensol-app__feature-desc">{{ section.settings.feature3_desc }}</p>
           </div>
         </div>
-        {%- endfor -%}
-      </div>
 
-      <div class="sensol-app__buttons">
-        {%- if section.settings.ios_link != blank -%}
-        <a href="{{ section.settings.ios_link }}" class="sensol-app__store-btn">
-          <span class="sensol-app__store-small">Download on the</span>
-          <span class="sensol-app__store-big">App Store</span>
-        </a>
-        {%- endif -%}
-        {%- if section.settings.android_link != blank -%}
-        <a href="{{ section.settings.android_link }}" class="sensol-app__store-btn">
-          <span class="sensol-app__store-small">Get it on</span>
-          <span class="sensol-app__store-big">Google Play</span>
-        </a>
-        {%- endif -%}
+        <!-- Store Buttons -->
+        <div class="sensol-app__stores">
+          <a href="{{ section.settings.appstore_link }}" class="sensol-app__store-btn">
+            <span class="sensol-app__store-small">Download on the</span>
+            <span class="sensol-app__store-big">App Store</span>
+          </a>
+          <a href="{{ section.settings.playstore_link }}" class="sensol-app__store-btn">
+            <span class="sensol-app__store-small">Get it on</span>
+            <span class="sensol-app__store-big">Google Play</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -101,23 +79,17 @@
   "tag": "section",
   "class": "sensol-app-section",
   "settings": [
-    {"type":"text","id":"label","label":"Section Label","default":"Sensol App"},
-    {"type":"text","id":"heading","label":"Heading","default":"Your intelligent<br>training companion"},
-    {"type":"textarea","id":"description","label":"Description","default":"The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone."},
-    {"type":"image_picker","id":"phone_image","label":"Phone Image (overrides mockup)"},
-    {"type":"url","id":"ios_link","label":"iOS App Store Link"},
-    {"type":"url","id":"android_link","label":"Google Play Link"}
+    { "type": "text", "id": "title", "label": "Title", "default": "Your intelligent training companion" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone." },
+    { "type": "text", "id": "feature1_name", "label": "Feature 1 Name", "default": "Real-time Resistance Control" },
+    { "type": "text", "id": "feature1_desc", "label": "Feature 1 Description", "default": "Adjust resistance levels instantly during your session" },
+    { "type": "text", "id": "feature2_name", "label": "Feature 2 Name", "default": "100+ Guided Workouts" },
+    { "type": "text", "id": "feature2_desc", "label": "Feature 2 Description", "default": "Expert-led pilates and strength programs for every level" },
+    { "type": "text", "id": "feature3_name", "label": "Feature 3 Name", "default": "Performance Analytics" },
+    { "type": "text", "id": "feature3_desc", "label": "Feature 3 Description", "default": "Track your progress with detailed session insights" },
+    { "type": "url", "id": "appstore_link", "label": "App Store Link", "default": "/" },
+    { "type": "url", "id": "playstore_link", "label": "Google Play Link", "default": "/" }
   ],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "App Feature",
-      "settings": [
-        {"type":"text","id":"title","label":"Title","default":"Real-time Resistance Control"},
-        {"type":"text","id":"description","label":"Description","default":"Adjust resistance levels instantly during your session"}
-      ]
-    }
-  ],
-  "presets":[{"name":"SENSOL App Download","blocks":[{"type":"feature","settings":{"title":"Real-time Resistance Control","description":"Adjust resistance levels instantly during your session"}},{"type":"feature","settings":{"title":"100+ Guided Workouts","description":"Expert-led pilates and strength programs for every level"}},{"type":"feature","settings":{"title":"Performance Analytics","description":"Track your progress with detailed session insights"}}]}]
+  "presets": [{ "name": "SENSOL App Download" }]
 }
 {% endschema %}

@@ -1,304 +1,229 @@
+/* ===== SENsol App Download — matching Next.js preview ===== */
+.sensol-app-section {
+  margin: 0;
+  padding: 0;
+  background: #F7F4F0;
+}
+
 .sensol-app {
-  padding: 96px 0;
-  background: #1A1816;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .sensol-app {
-    padding: 144px 0;
-  }
-}
-
-.sensol-app__inner {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.sensol-app__grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 64px;
+  grid-template-columns: 5fr 7fr;
+  gap: 4rem;
   align-items: center;
 }
 
-@media (min-width: 768px) {
-  .sensol-app__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    padding: 0 64px;
+@media (max-width: 768px) {
+  .sensol-app__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }
 
 /* Phone Mockup */
-.sensol-app__phone {
+.sensol-app__phone-col {
   display: flex;
   justify-content: center;
-}
-
-.sensol-app__phone-img {
-  max-width: 300px;
-  height: auto;
 }
 
 .sensol-app__phone-mockup {
+  position: relative;
   width: 280px;
-  background: #2a2724;
-  border-radius: 40px;
-  padding: 12px;
-  position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-}
-
-.sensol-app__screen {
-  width: 100%;
-  background: #1A1816;
-  border-radius: 28px;
-  overflow: hidden;
-  aspect-ratio: 9 / 19.5;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-
-.sensol-app__status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px 8px;
-}
-
-.sensol-app__status-time {
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
-}
-
-.sensol-app__status-notch {
-  width: 80px;
-  height: 20px;
-  background: #1A1816;
-  border-radius: 10px;
-}
-
-.sensol-app__status-icons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.sensol-app__status-signal {
-  width: 12px;
-  height: 8px;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 2px;
-}
-
-.sensol-app__status-dot {
-  width: 4px;
-  height: 4px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 50%;
-}
-
-.sensol-app__app-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px 24px;
-}
-
-.sensol-app__app-name {
-  color: white;
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.sensol-app__app-icons {
-  display: flex;
-  gap: 8px;
-}
-
-.sensol-app__app-icon-circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.sensol-app__ring-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 24px;
-  position: relative;
 }
 
 .sensol-app__ring-svg {
-  width: 160px;
-  height: 160px;
-  transform: rotate(-90deg);
-}
-
-.sensol-app__ring-center {
   position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  top: -30px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+  animation: sensol-ring-spin 20s linear infinite;
 }
 
-.sensol-app__ring-value {
-  color: white;
-  font-size: 30px;
-  font-weight: 200;
+@keyframes sensol-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.sensol-app__ring-label {
-  color: #8A8279;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 4px;
+.sensol-app__phone-frame {
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  background: #1A1816;
+  border-radius: 30px;
+  padding: 0.75rem;
+  margin: 0 auto;
 }
 
-.sensol-app__controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
-
-.sensol-app__control {
-  background: #2a2724;
-  border-radius: 8px;
-  padding: 10px 8px;
+.sensol-app__phone-status {
   text-align: center;
-}
-
-.sensol-app__control-label {
-  color: #8A8279;
-  font-size: 7px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.sensol-app__control-value {
-  color: white;
+  color: #F7F4F0;
   font-size: 11px;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.sensol-app__phone-content {
+  background: #1A1816;
+  padding: 1.5rem 1rem;
+  border-radius: 0 0 22px 22px;
+}
+
+.sensol-app__phone-brand {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #F7F4F0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-app__phone-stats {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-app__phone-stat-value {
+  display: block;
+  font-size: 3rem;
+  font-weight: 200;
+  color: #F7F4F0;
+  line-height: 1;
+}
+
+.sensol-app__phone-stat-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-top: 0.25rem;
+}
+
+.sensol-app__phone-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 12px;
+  color: #8A8279;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-app__phone-info p {
+  margin: 0;
+  color: #8A8279;
+}
+
+.sensol-app__phone-info span {
+  color: #F7F4F0;
   font-weight: 300;
 }
 
-.sensol-app__start-btn {
-  background: #8A8279;
-  border-radius: 12px;
-  padding: 12px;
+.sensol-app__phone-start {
   text-align: center;
+  background: #F7F4F0;
   color: #1A1816;
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  padding: 0.75rem;
+  border-radius: 8px;
   font-weight: 500;
-  margin: 0 20px;
 }
 
 /* Content */
+.sensol-app__content-col {
+  padding-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sensol-app__content-col {
+    padding-left: 0;
+  }
+}
+
 .sensol-app__label {
-  color: #8A8279;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 24px;
-  font-weight: 300;
-}
-
-.sensol-app__heading {
-  color: #F7F4F0;
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 200;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  margin-bottom: 24px;
-}
-
-.sensol-app__description {
   color: #8A8279;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  max-width: 420px;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
 }
 
+.sensol-app__title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #1A1816;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-app__desc {
+  font-size: 15px;
+  color: #8A8279;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Features */
 .sensol-app__features {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 48px;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.sensol-app__feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.sensol-app__feature-line {
-  width: 1px;
-  height: 40px;
-  background: rgba(138,130,121,0.3);
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-.sensol-app__feature-title {
-  color: #F7F4F0;
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+.sensol-app__feature-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1816;
+  margin-bottom: 0.25rem;
 }
 
 .sensol-app__feature-desc {
-  color: rgba(138,130,121,0.7);
-  font-size: 11px;
-  font-weight: 300;
-  line-height: 1.6;
+  font-size: 13px;
+  color: #8A8279;
+  line-height: 1.5;
 }
 
-.sensol-app__buttons {
+/* Store Buttons */
+.sensol-app__stores {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .sensol-app__store-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 24px;
-  background: #F7F4F0;
-  border-radius: 8px;
+  justify-content: center;
+  background: #1A1816;
+  color: #F7F4F0;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: opacity 0.3s;
+  min-width: 140px;
 }
 
 .sensol-app__store-btn:hover {
-  background: rgba(247,244,240,0.9);
+  opacity: 0.85;
 }
 
 .sensol-app__store-small {
-  color: #1A1816;
   font-size: 9px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 .sensol-app__store-big {
-  color: #1A1816;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }

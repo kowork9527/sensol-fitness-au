@@ -1,151 +1,156 @@
+/* ===== SENsol Hero — matching Next.js preview exactly ===== */
+@import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+.sensol-hero-section {
+  margin: 0;
+  padding: 0;
+}
+
 .sensol-hero {
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
   overflow: hidden;
-  background: #1A1816;
+  font-family: 'Inter', sans-serif;
 }
 
-.sensol-hero__slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
+/* Slides */
 .sensol-hero__slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  inset: 0;
   transition: opacity 1.5s ease-in-out;
-}
-
-.sensol-hero__slide--active {
-  opacity: 1;
 }
 
 .sensol-hero__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  display: block;
 }
 
+/* Overlays — matching Next.js: from-black/50 via-black/30 to-black/60 + from-black/20 to-transparent */
 .sensol-hero__overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6));
+  z-index: 1;
+  pointer-events: none;
 }
 
-.sensol-hero__content {
+.sensol-hero__overlay-right {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content */
+.sensol-hero__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2rem;
   text-align: center;
-  color: #F7F4F0;
-  width: 90%;
-  max-width: 800px;
+}
+
+.sensol-hero__text {
+  text-align: center;
 }
 
 .sensol-hero__label {
+  color: rgba(255,255,255,0.6);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 32px;
-  opacity: 0.6;
-  font-weight: 300;
+  margin-bottom: 2rem;
 }
 
 .sensol-hero__title {
-  font-size: clamp(48px, 10vw, 160px);
+  color: #ffffff;
+  font-size: clamp(3.5rem, 10vw, 10rem);
   font-weight: 200;
+  line-height: 0.9;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 0.9;
-  margin-bottom: 24px;
 }
 
 .sensol-hero__subtitle {
-  font-size: clamp(14px, 1.5vw, 16px);
+  color: rgba(255,255,255,0.8);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 300;
-  line-height: 1.8;
-  opacity: 0.8;
-  max-width: 450px;
-  margin: 0 auto;
+  margin-top: 1.5rem;
+  max-width: 28rem;
+  line-height: 1.7;
   letter-spacing: 0.05em;
 }
 
+/* CTA Button — matching Next.js: text-[10px] tracking-[0.2em] uppercase text-[#1A1816] bg-[#F7F4F0] px-10 py-4 */
+.sensol-hero__cta {
+  margin-top: 3rem;
+}
+
 .sensol-hero__btn {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
   display: inline-block;
-  padding: 16px 40px;
-  background: #F7F4F0;
-  color: #1A1816;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: #1A1816;
+  background: #F7F4F0;
+  padding: 1rem 2.5rem;
   text-decoration: none;
-  font-weight: 400;
-  transition: background 0.5s ease, color 0.5s ease;
+  transition: background 0.5s;
 }
 
 .sensol-hero__btn:hover {
   background: rgba(247,244,240,0.9);
 }
 
-.sensol-hero__dots {
+/* Indicators — matching Next.js: w-8 h-[1px] bg-white / bg-white/30 */
+.sensol-hero__indicators {
   position: absolute;
-  bottom: 40px;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 20;
 }
 
 .sensol-hero__dot {
-  width: 32px;
+  width: 2rem;
   height: 1px;
-  background: rgba(247,244,240,0.3);
+  background: rgba(255,255,255,0.3);
   border: none;
-  cursor: pointer;
   padding: 0;
-  transition: background 0.5s ease;
+  cursor: pointer;
+  transition: background 0.5s;
 }
 
 .sensol-hero__dot--active {
-  background: #F7F4F0;
+  background: #ffffff;
 }
 
-.sensol-hero__dot:hover {
-  background: rgba(247,244,240,0.6);
-}
-
+/* Scroll indicator — matching Next.js exactly */
 .sensol-hero__scroll {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
-  z-index: 3;
+  bottom: 2.5rem;
+  right: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
+  z-index: 20;
 }
 
 .sensol-hero__scroll span {
-  color: rgba(247,244,240,0.4);
+  color: rgba(255,255,255,0.4);
   font-size: 8px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -153,8 +158,8 @@
 
 .sensol-hero__scroll-line {
   width: 1px;
-  height: 32px;
-  background: rgba(247,244,240,0.3);
+  height: 2rem;
+  background: rgba(255,255,255,0.3);
   position: relative;
   overflow: hidden;
 }
@@ -162,19 +167,25 @@
 .sensol-hero__scroll-pulse {
   width: 100%;
   height: 100%;
-  background: #F7F4F0;
-  animation: hero-scroll-pulse 2s ease-in-out infinite;
+  background: #ffffff;
+  animation: sensol-scroll-pulse 2s ease-in-out infinite;
   transform-origin: top;
 }
 
-@keyframes hero-scroll-pulse {
-  0%, 100% { transform: scaleY(0); opacity: 0; }
-  50% { transform: scaleY(1); opacity: 1; }
+@keyframes sensol-scroll-pulse {
+  0% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .sensol-hero__content {
-    width: 90%;
+  .sensol-hero__label {
+    font-size: 9px;
+    margin-bottom: 1.5rem;
+  }
+  .sensol-hero__subtitle {
+    font-size: 0.875rem;
   }
   .sensol-hero__scroll {
     display: none;
