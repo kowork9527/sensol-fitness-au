@@ -41,6 +41,7 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
+    {{ 'sensol-global.css' | asset_url | stylesheet_tag }}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
@@ -58,6 +59,29 @@
       <div id="header-group">
         {% sections 'header-group' %}
       </div>
+
+      <script>
+        // Sensol: Scroll-based header transparency
+        (function() {
+          var header = document.querySelector('header-component');
+          if (!header) return;
+          var scrolled = false;
+          function onScroll() {
+            var isScrolled = window.scrollY > 60;
+            if (isScrolled !== scrolled) {
+              scrolled = isScrolled;
+              if (isScrolled) {
+                header.classList.add('scrolled');
+                header.removeAttribute('transparent');
+              } else if (document.body.dataset.template === 'index' || document.querySelector('.sensol-hero')) {
+                header.classList.remove('scrolled');
+                header.setAttribute('transparent', '');
+              }
+            }
+          }
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        })();
 
       <script>
         // Inline header height and menu style calculations to prevent layout shift

@@ -127,10 +127,10 @@
       }
     },
     "color_palette": {
-      "background": "#ffffff",
-      "foreground": "#000000",
-      "color1": "#333333",
-      "color2": "#DFDFDF"
+      "background": "#F7F4F0",
+      "foreground": "#1A1816",
+      "color1": "#8A8279",
+      "color2": "#D4CEC6"
     }
   },
   "presets": {

@@ -1,0 +1,256 @@
+/* ============================================
+   SENSOl Global Overrides for Horizon Theme
+   ============================================ */
+
+/* --- Font Override --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+:root {
+  --font-heading--family: 'Inter', sans-serif;
+  --font-body--family: 'Inter', sans-serif;
+  --font-subheading--family: 'Inter', sans-serif;
+  --font-accent--family: 'Inter', sans-serif;
+}
+
+/* --- Global Color Overrides --- */
+body {
+  background: #F7F4F0;
+  color: #1A1816;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Header: Transparent + Minimal --- */
+#header-group {
+  position: relative;
+  z-index: 100;
+}
+
+header-component {
+  --header-background: transparent;
+}
+
+header-component[transparent] {
+  background: transparent !important;
+}
+
+header-component[transparent] .header__row--top {
+  background: transparent !important;
+}
+
+/* When transparent header is active, make text white */
+header-component[transparent] .header__logo-link,
+header-component[transparent] .header__logo-text,
+header-component[transparent] .header__link,
+header-component[transparent] .header__icon,
+header-component[transparent] .header__link-list a,
+header-component[transparent] overflow-list a,
+header-component[transparent] .header__localization button,
+header-component[transparent] .header__search button {
+  color: rgba(247,244,240,0.85) !important;
+}
+
+header-component[transparent] .header__logo-text {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #F7F4F0 !important;
+}
+
+/* Sticky header after scroll - warm ivory background */
+header-component:not([transparent]) .header__row--top,
+header-component.scrolled .header__row--top {
+  background: rgba(247,244,240,0.95) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+header-component:not([transparent]) .header__logo-text,
+header-component:not([transparent]) .header__link,
+header-component:not([transparent]) .header__icon,
+header-component:not([transparent]) overflow-list a {
+  color: #1A1816 !important;
+}
+
+/* Logo text styling */
+.header__logo-text {
+  font-size: 20px !important;
+  font-weight: 200 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Nav links - small uppercase with letter-spacing */
+overflow-list a,
+.header__link-list a {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Shop All button in header */
+.header__link--button,
+.header__link--cta {
+  font-size: 11px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  padding: 12px 24px !important;
+  background: rgba(247,244,240,0.1) !important;
+  border: none !important;
+  transition: background 0.5s ease !important;
+}
+
+header-component[transparent] .header__link--button,
+header-component[transparent] .header__link--cta {
+  background: rgba(255,255,255,0.1) !important;
+  color: rgba(247,244,240,0.85) !important;
+}
+
+header-component:not([transparent]) .header__link--button,
+header-component:not([transparent]) .header__link--cta {
+  background: #1A1816 !important;
+  color: #F7F4F0 !important;
+}
+
+/* Remove header border/shadow */
+header-component .header__row--top {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Announcement Bar: Hidden --- */
+.header-announcements {
+  display: none !important;
+}
+
+/* --- Page Background --- */
+.page-wrapper {
+  background: #F7F4F0;
+}
+
+/* --- Footer Overrides --- */
+footer {
+  background: #1A1816 !important;
+  color: #F7F4F0 !important;
+}
+
+footer * {
+  border-color: rgba(247,244,240,0.08) !important;
+}
+
+footer .footer__heading,
+footer h2,
+footer h3,
+footer h4 {
+  color: #8A8279 !important;
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-weight: 300 !important;
+}
+
+footer a {
+  color: rgba(247,244,240,0.5) !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  transition: color 0.5s ease !important;
+}
+
+footer a:hover {
+  color: rgba(247,244,240,0.8) !important;
+}
+
+/* --- Button Overrides --- */
+.btn--primary,
+.button--primary {
+  background: #1A1816 !important;
+  color: #F7F4F0 !important;
+  border: none !important;
+  font-size: 10px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  padding: 16px 40px !important;
+  border-radius: 0 !important;
+  transition: background 0.5s ease !important;
+}
+
+.btn--primary:hover,
+.button--primary:hover {
+  background: #2a2724 !important;
+}
+
+/* --- Remove default card/section rounded corners --- */
+.card,
+.product-card,
+.collection-card {
+  border-radius: 0 !important;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F4F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4CEC6;
+}
+
+/* --- Selection Color --- */
+::selection {
+  background: rgba(138,130,121,0.3);
+  color: #1A1816;
+}
+
+/* --- Main Content area: remove extra padding --- */
+#MainContent {
+  padding: 0 !important;
+}
+
+#MainContent .shopify-section {
+  margin: 0 !important;
+}
+
+/* --- Sensol Sections: remove Shopify section wrapper spacing --- */
+.sensol-hero-section .shopify-section-inner,
+.sensol-brand-story-section .shopify-section-inner,
+.sensol-marquee-section .shopify-section-inner,
+.sensol-future-section .shopify-section-inner,
+.sensol-video-section .shopify-section-inner,
+.sensol-senzine-section .shopify-section-inner,
+.sensol-app-section .shopify-section-inner,
+.sensol-products-section .shopify-section-inner {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Ensure sensol sections span full width */
+.sensol-hero,
+.sensol-brand-story,
+.sensol-marquee,
+.sensol-future,
+.sensol-video,
+.sensol-senzine,
+.sensol-app,
+.sensol-products {
+  width: 100%;
+}
+
+/* --- Remove default section spacing/padding that Horizon adds --- */
+.shopify-section.sensol-hero-section,
+.shopify-section.sensol-brand-story-section,
+.shopify-section.sensol-marquee-section,
+.shopify-section.sensol-future-section,
+.shopify-section.sensol-video-section,
+.shopify-section.sensol-senzine-section,
+.shopify-section.sensol-app-section,
+.shopify-section.sensol-products-section {
+  padding: 0 !important;
+  margin: 0 !important;
+}
