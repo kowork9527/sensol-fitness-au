@@ -1,81 +1,60 @@
 <section class="sensol-marquee" style="background-color: {{ section.settings.bg_color }};">
   <div class="sensol-marquee__track">
-    <div class="sensol-marquee__content">
-      {%- assign text = section.settings.text | default: 'Make it easy · Do it real' -%}
-      <span class="sensol-marquee__text">{{ text }}</span>
-      <span class="sensol-marquee__text">{{ text }}</span>
-      <span class="sensol-marquee__text">{{ text }}</span>
-      <span class="sensol-marquee__text">{{ text }}</span>
+    <div class="sensol-marquee__inner">
+      {%- for i in (1..8) -%}
+        <span class="sensol-marquee__text" style="color: {{ section.settings.text_color }};">{{ section.settings.text }}</span>
+        <span class="sensol-marquee__dot" style="background-color: {{ section.settings.text_color }};"></span>
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
 <style>
   .sensol-marquee {
-    padding: 24px 0;
     overflow: hidden;
-    white-space: nowrap;
+    padding: 28px 0;
   }
-  
   .sensol-marquee__track {
     display: flex;
-    animation: sensol-marquee-scroll 30s linear infinite;
+    width: max-content;
   }
-  
-  .sensol-marquee__content {
+  .sensol-marquee__inner {
     display: flex;
-    flex-shrink: 0;
+    align-items: center;
+    gap: 3rem;
+    animation: sensol-scroll 20s linear infinite;
   }
-  
   .sensol-marquee__text {
     font-size: 14px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: {{ section.settings.text_color }};
     font-weight: 300;
-    padding: 0 2rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sensol-marquee__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
     flex-shrink: 0;
   }
-  
-  @keyframes sensol-marquee-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  @keyframes sensol-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sensol-marquee__inner { animation: none; }
   }
 </style>
 
 {% schema %}
 {
-  "name": "SENSOl Marquee",
+  "name": "SENSOL Marquee",
   "tag": "section",
-  "class": "sensol-marquee-wrapper",
   "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "背景色",
-      "default": "#F7F4F0"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "文字颜色",
-      "default": "#1A1816"
-    },
-    {
-      "type": "text",
-      "id": "text",
-      "label": "滚动文字",
-      "default": "Make it easy · Do it real"
-    }
+    { "type": "text", "id": "text", "label": "Scrolling text", "default": "MAKE IT EASY · DO IT REAL" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#1A1816" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#F7F4F0" }
   ],
-  "presets": [
-    {
-      "name": "SENSOl Marquee"
-    }
-  ]
+  "presets": [{ "name": "SENSOL Marquee" }]
 }
 {% endschema %}

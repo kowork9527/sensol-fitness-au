@@ -1,34 +1,77 @@
 <section class="sensol-hero" style="background-color: {{ section.settings.bg_color }};">
-  <div class="sensol-hero__media">
-    {%- if section.settings.image != blank -%}
-      {{ section.settings.image | image_url: width: 3840 | image_tag: width: section.settings.image.width, height: section.settings.image.height, alt: section.settings.image.alt, class: 'sensol-hero__image', loading: 'eager', fetchpriority: 'high' }}
-    {%- else -%}
-      {{ 'hero-apparel-1' | placeholder_svg_tag: 'sensol-hero__image' }}
-    {%- endif -%}
+  <div class="sensol-hero__slider" id="sensol-hero-slider">
+    {%- for block in section.blocks -%}
+      <div class="sensol-hero__slide{% if forloop.first %} sensol-hero__slide--active{% endif %}" {{ block.shopify_attributes }}>
+        <div class="sensol-hero__media">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'eager', fetchpriority: 'high', class: 'sensol-hero__image' }}
+          {%- else -%}
+            {%- assign default_img = 'banner-' | append: forloop.index | append: '.webp' -%}
+            <img src="{{ default_img | asset_url }}" alt="{{ block.settings.heading | escape }}" class="sensol-hero__image" loading="eager" fetchpriority="high">
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
-  
+
   <div class="sensol-hero__overlay" style="background: {{ section.settings.overlay_color }};"></div>
-  
+
   <div class="sensol-hero__content">
     {%- if section.settings.label != blank -%}
       <p class="sensol-hero__label">{{ section.settings.label }}</p>
     {%- endif -%}
-    
+
     {%- if section.settings.heading != blank -%}
       <h1 class="sensol-hero__heading">{{ section.settings.heading }}</h1>
     {%- endif -%}
-    
+
     {%- if section.settings.subheading != blank -%}
       <p class="sensol-hero__subheading">{{ section.settings.subheading }}</p>
     {%- endif -%}
-    
+
     {%- if section.settings.button_label != blank -%}
       <a href="{{ section.settings.button_link }}" class="sensol-hero__button" style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }};">
         {{ section.settings.button_label }}
       </a>
     {%- endif -%}
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="sensol-hero__dots">
+        {%- for block in section.blocks -%}
+          <button class="sensol-hero__dot{% if forloop.first %} sensol-hero__dot--active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
+
+<script>
+  (function(){
+    var slides = document.querySelectorAll('.sensol-hero__slide');
+    var dots = document.querySelectorAll('.sensol-hero__dot');
+    var current = 0;
+    var total = slides.length;
+    if (total <= 1) return;
+
+    function goTo(idx) {
+      slides[current].classList.remove('sensol-hero__slide--active');
+      dots[current].classList.remove('sensol-hero__dot--active');
+      current = idx;
+      slides[current].classList.add('sensol-hero__slide--active');
+      dots[current].classList.add('sensol-hero__dot--active');
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(this.dataset.index));
+      });
+    });
+
+    setInterval(function() {
+      goTo((current + 1) % total);
+    }, 6000);
+  })();
+</script>
 
 <style>
   .sensol-hero {
@@ -41,25 +84,41 @@
     align-items: center;
     justify-content: center;
   }
-  
-  .sensol-hero__media {
+
+  .sensol-hero__slider {
     position: absolute;
     inset: 0;
     z-index: 0;
   }
-  
+
+  .sensol-hero__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .sensol-hero__slide--active {
+    opacity: 1;
+  }
+
+  .sensol-hero__media {
+    width: 100%;
+    height: 100%;
+  }
+
   .sensol-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
+
   .sensol-hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
   }
-  
+
   .sensol-hero__content {
     position: relative;
     z-index: 2;
@@ -67,7 +126,7 @@
     padding: 0 2rem;
     max-width: 900px;
   }
-  
+
   .sensol-hero__label {
     font-size: 10px;
     letter-spacing: 0.3em;
@@ -76,7 +135,7 @@
     margin-bottom: 1.5rem;
     font-weight: 400;
   }
-  
+
   .sensol-hero__heading {
     font-size: clamp(48px, 8vw, 96px);
     font-weight: 200;
@@ -86,7 +145,7 @@
     margin: 0 0 1.5rem 0;
     line-height: 1.1;
   }
-  
+
   .sensol-hero__subheading {
     font-size: 16px;
     font-weight: 300;
@@ -95,7 +154,7 @@
     line-height: 1.6;
     letter-spacing: 0.02em;
   }
-  
+
   .sensol-hero__button {
     display: inline-block;
     padding: 14px 36px;
@@ -107,102 +166,75 @@
     cursor: pointer;
     transition: opacity 0.3s ease;
   }
-  
+
   .sensol-hero__button:hover {
     opacity: 0.8;
   }
-  
+
+  .sensol-hero__dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .sensol-hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(247, 244, 240, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    padding: 0;
+  }
+
+  .sensol-hero__dot--active {
+    background: #F7F4F0;
+  }
+
   @media (max-width: 749px) {
-    .sensol-hero {
-      min-height: 500px;
-    }
-    
-    .sensol-hero__content {
-      padding: 0 1.5rem;
-    }
+    .sensol-hero { min-height: 500px; }
+    .sensol-hero__content { padding: 0 1.5rem; }
+    .sensol-hero__label { font-size: 9px; }
+    .sensol-hero__subheading { font-size: 14px; }
   }
 </style>
 
 {% schema %}
 {
-  "name": "SENSOl Hero",
+  "name": "SENSOL Hero",
   "tag": "section",
-  "class": "sensol-hero-wrapper",
+  "class": "sensol-hero-section",
   "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "A NEW LANGUAGE OF TRAINING" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "SENSOL" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Where strength meets precision, and movement becomes design." },
+    { "type": "text", "id": "button_label", "label": "Button text", "default": "SHOP ALL" },
+    { "type": "url", "id": "button_link", "label": "Button link", "default": "/collections/all" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#1A1816" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "rgba(26, 24, 22, 0.3)" },
+    { "type": "color", "id": "button_bg_color", "label": "Button background", "default": "#F7F4F0" },
+    { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#1A1816" }
+  ],
+  "blocks": [
     {
-      "type": "header",
-      "content": "背景图片"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "图片"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "背景色",
-      "default": "#1A1816"
-    },
-    {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "遮罩颜色",
-      "default": "#1A181640"
-    },
-    {
-      "type": "header",
-      "content": "文字内容"
-    },
-    {
-      "type": "text",
-      "id": "label",
-      "label": "标签文字",
-      "default": "A NEW LANGUAGE OF TRAINING"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "主标题",
-      "default": "SENSOL"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "副标题",
-      "default": "Where strength meets precision, and movement becomes design."
-    },
-    {
-      "type": "header",
-      "content": "按钮"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "按钮文字",
-      "default": "SHOP ALL"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "按钮链接"
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
-      "label": "按钮背景色",
-      "default": "#F7F4F0"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "按钮文字色",
-      "default": "#1A1816"
+      "type": "slide",
+      "name": "Hero Slide",
+      "limit": 5,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Slide image (leave empty for default)" }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "SENSOl Hero"
+      "name": "SENSOL Hero",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
     }
   ]
 }
