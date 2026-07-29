@@ -62,8 +62,8 @@
       },
       "block_order": ["spec_1", "spec_2", "spec_3", "spec_4"]
     },
-    "sensol-senzine": {
-      "type": "sensol-senzine",
+    "sensol-senzine-v2": {
+      "type": "sensol-senzine-v2",
       "settings": {
         "label": "Internal Publication",
         "title": "SENZINE",
@@ -109,7 +109,7 @@
     "sensol-marquee",
     "sensol-future-training",
     "sensol-video",
-    "sensol-senzine",
+    "sensol-senzine-v2",
     "sensol-app-download",
     "sensol-products"
   ]
