@@ -2,20 +2,30 @@
 
 <section class="sensol-senzine-section">
   <div class="sensol-senzine">
+    <!-- Main grid: 7/5 — matching Next.js: md:col-span-7 / md:col-span-5 -->
     <div class="sensol-senzine__main">
       <div class="sensol-senzine__image-col">
-        <img class="sensol-senzine__image" src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE" loading="lazy" width="600" height="800">
+        <img class="sensol-senzine__image" src="{{ 'section-2.webp' | asset_url }}" alt="SENZINE Publication" loading="lazy" width="1600" height="1000">
       </div>
       <div class="sensol-senzine__text-col">
         <p class="sensol-senzine__label">{{ section.settings.label }}</p>
         <h2 class="sensol-senzine__title">{{ section.settings.title }}</h2>
-        <p class="sensol-senzine__desc">{{ section.settings.description }}</p>
+        <div class="sensol-senzine__desc-wrap">
+          <p class="sensol-senzine__desc">{{ section.settings.desc1 }}</p>
+          <p class="sensol-senzine__desc">{{ section.settings.desc2 }}</p>
+        </div>
         <a href="{{ section.settings.cta_link }}" class="sensol-senzine__btn">{{ section.settings.cta_text }}</a>
       </div>
     </div>
+
+    <!-- Secondary image row — matching Next.js: grid-cols-2 gap-[2px] md:gap-4 aspect-[16/9] -->
     <div class="sensol-senzine__secondary">
-      <img class="sensol-senzine__secondary-img" src="{{ 'editorial-2.webp' | asset_url }}" alt="SENZINE Issue" loading="lazy" width="400" height="500">
-      <img class="sensol-senzine__secondary-img" src="{{ 'editorial-3.webp' | asset_url }}" alt="SENZINE Detail" loading="lazy" width="400" height="500">
+      <div class="sensol-senzine__secondary-item">
+        <img class="sensol-senzine__secondary-img" src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE detail" loading="lazy" width="800" height="450">
+      </div>
+      <div class="sensol-senzine__secondary-item">
+        <img class="sensol-senzine__secondary-img" src="{{ 'editorial-2.webp' | asset_url }}" alt="Precision engineering detail" loading="lazy" width="800" height="450">
+      </div>
     </div>
   </div>
 </section>
@@ -28,7 +38,8 @@
   "settings": [
     { "type": "text", "id": "label", "label": "Label", "default": "Internal Publication" },
     { "type": "text", "id": "title", "label": "Title", "default": "SENZINE" },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read.\n\nReleased in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention." },
+    { "type": "textarea", "id": "desc1", "label": "Description 1", "default": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read." },
+    { "type": "textarea", "id": "desc2", "label": "Description 2", "default": "Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention." },
     { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/" },
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Join us" }
   ],

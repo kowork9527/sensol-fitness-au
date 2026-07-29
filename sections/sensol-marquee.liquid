@@ -3,20 +3,20 @@
 <section class="sensol-marquee-section">
   <div class="sensol-marquee">
     <div class="sensol-marquee__track">
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
+      {% for i in (1..6) %}
+        <span class="sensol-marquee__left">{{ section.settings.text }}</span>
+        <span class="sensol-marquee__dot">·</span>
+        <span class="sensol-marquee__right">{{ section.settings.text_right }}</span>
+        <span class="sensol-marquee__dot">·</span>
+      {% endfor %}
     </div>
     <div class="sensol-marquee__track" aria-hidden="true">
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
-      <span class="sensol-marquee__item">{{ section.settings.text }}&ensp;·&ensp;{{ section.settings.text_right }}</span>
+      {% for i in (1..6) %}
+        <span class="sensol-marquee__left">{{ section.settings.text }}</span>
+        <span class="sensol-marquee__dot">·</span>
+        <span class="sensol-marquee__right">{{ section.settings.text_right }}</span>
+        <span class="sensol-marquee__dot">·</span>
+      {% endfor %}
     </div>
   </div>
 </section>

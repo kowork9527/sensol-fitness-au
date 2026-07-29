@@ -1,82 +1,120 @@
-/* ===== SENsol Future of Training — matching Next.js preview ===== */
+/* ===== SENsol Future of Training — matching Next.js: image block + centered text ===== */
 .sensol-future-section {
   margin: 0;
   padding: 0;
+  background: #F7F4F0;
 }
 
 .sensol-future {
-  position: relative;
-  width: 100%;
-  min-height: 80vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
   font-family: 'Inter', sans-serif;
 }
 
-.sensol-future__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.sensol-future__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(26,24,22,0.2), rgba(26,24,22,0.7));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.sensol-future__content {
-  position: relative;
-  z-index: 10;
-  padding: 5rem;
-  max-width: 700px;
-}
-
-@media (max-width: 768px) {
-  .sensol-future__content {
-    padding: 2rem;
-  }
+@media (min-width: 768px) {
   .sensol-future {
-    min-height: 60vh;
+    padding: 8rem 4rem;
   }
 }
 
+/* Label — matching: text-[#8A8279] text-[10px] tracking-brand-lg uppercase mb-12 md:mb-16 */
 .sensol-future__label {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 1.5rem;
+  color: #8A8279;
+  margin-bottom: 3rem;
 }
 
+@media (min-width: 768px) {
+  .sensol-future__label {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Image wrap — matching: relative overflow-hidden mb-12 md:mb-16 */
+.sensol-future__image-wrap {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-future__image-wrap {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Image — matching: w-full aspect-[21/9] object-cover */
+.sensol-future__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 21/9;
+}
+
+/* Overlay — matching: bg-gradient-to-t from-[#1A1816]/30 via-transparent to-transparent */
+.sensol-future__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,24,22,0.3), transparent, transparent);
+  pointer-events: none;
+}
+
+/* Image label — matching: absolute bottom-8 left-8 md:bottom-12 md:left-12 text-[#F7F4F0]/50 text-[9px] tracking-brand-lg uppercase */
+.sensol-future__image-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,244,240,0.5);
+}
+
+@media (min-width: 768px) {
+  .sensol-future__image-label {
+    bottom: 3rem;
+    left: 3rem;
+  }
+}
+
+/* Centered content — matching: text-center */
+.sensol-future__content {
+  text-align: center;
+}
+
+/* Title — matching: text-3xl md:text-4xl lg:text-5xl font-extralight tracking-wide */
 .sensol-future__title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  line-height: 1.2;
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  color: #1A1816;
+  line-height: 1.15;
   margin-bottom: 2.5rem;
 }
 
+@media (min-width: 768px) {
+  .sensol-future__title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+  }
+}
+
+/* Button — matching: text-[10px] tracking-brand-lg uppercase text-[#F7F4F0] bg-[#1A1816] px-10 py-4 */
 .sensol-future__btn {
   display: inline-block;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #1A1816;
-  background: #F7F4F0;
+  color: #F7F4F0;
+  background: #1A1816;
   padding: 1rem 2.5rem;
   text-decoration: none;
   transition: background 0.5s;
 }
 
 .sensol-future__btn:hover {
-  background: rgba(247,244,240,0.9);
+  background: #2a2724;
 }
