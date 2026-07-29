@@ -36,14 +36,25 @@
 
       <!-- Image Column -->
       <div class="sensol-brand-story__image-col">
-        <img
-          class="sensol-brand-story__image"
-          src="{{ section.settings.image | image_url: width: 1200 }}"
-          alt="{{ section.settings.image_alt | escape }}"
-          loading="lazy"
-          width="1200"
-          height="750"
-        >
+        {%- if section.settings.image != blank -%}
+          <img
+            class="sensol-brand-story__image"
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="{{ section.settings.image_alt | escape }}"
+            loading="lazy"
+            width="1200"
+            height="750"
+          >
+        {%- else -%}
+          <img
+            class="sensol-brand-story__image"
+            src="{{ 'section-1.webp' | asset_url }}"
+            alt="{{ section.settings.image_alt | escape }}"
+            loading="lazy"
+            width="1200"
+            height="750"
+          >
+        {%- endif -%}
         <div class="sensol-brand-story__image-caption">
           <p>{{ section.settings.image_caption }}</p>
         </div>

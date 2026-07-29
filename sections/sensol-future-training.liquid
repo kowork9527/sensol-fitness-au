@@ -3,14 +3,25 @@
 <section class="sensol-future-section" id="future">
   <div class="sensol-future">
     <!-- Full-bleed Background Image -->
-    <img
-      class="sensol-future__bg"
-      src="{{ section.settings.image | image_url: width: 1920 }}"
-      alt="{{ section.settings.image_alt | escape }}"
-      loading="lazy"
-      width="1920"
-      height="1080"
-    >
+    {%- if section.settings.image != blank -%}
+      <img
+        class="sensol-future__bg"
+        src="{{ section.settings.image | image_url: width: 1920 }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        loading="lazy"
+        width="1920"
+        height="1080"
+      >
+    {%- else -%}
+      <img
+        class="sensol-future__bg"
+        src="{{ 'landscape-2.webp' | asset_url }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        loading="lazy"
+        width="1920"
+        height="1080"
+      >
+    {%- endif -%}
     <div class="sensol-future__overlay"></div>
 
     <!-- Content overlay -->
