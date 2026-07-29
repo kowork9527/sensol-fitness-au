@@ -7,17 +7,23 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background-color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: background-color 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+                backdrop-filter 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
     background-color: transparent;
   }
 
   .sensol-header-section.scrolled {
-    background-color: #F7F4F0;
+    background-color: rgba(247,244,240,0.95);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     box-shadow: 0 1px 0 #D4CEC6;
   }
 
-  .sensol-header-section.scrolled .sensol-header__link,
+  .sensol-header-section.scrolled .sensol-header__link {
+    color: #1A1816;
+  }
+
   .sensol-header-section.scrolled .sensol-header__icon {
     color: #1A1816;
   }
@@ -25,18 +31,31 @@
   .sensol-header-section.scrolled .sensol-header__logo-img {
     filter: none;
   }
+
+  .sensol-header-section.scrolled .sensol-header__hamburger span {
+    background-color: #1A1816;
+  }
+
+  .sensol-header-section.scrolled .sensol-header__shop-btn {
+    color: #F7F4F0;
+    background-color: #1A1816;
+  }
+
+  .sensol-header-section.scrolled .sensol-header__shop-btn:hover {
+    background-color: #2a2724;
+  }
 {%- endstyle -%}
 
 <header class="sensol-header-section" id="sensolHeader">
   <div class="sensol-header__inner">
-    {%- comment -%} Hamburger menu for mobile {%- endcomment -%}
+    {%- comment -%} Hamburger menu for mobile {%- endcomment -}
     <button class="sensol-header__hamburger" id="sensolHamburger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    {%- comment -%} Logo {%- endcomment -%}
+    {%- comment -%} Logo {%- endcomment -}
     <a href="/" class="sensol-header__logo">
       {%- if section.settings.logo_image != blank -%}
         <img
@@ -59,14 +78,15 @@
       {%- endif -%}
     </a>
 
-    {%- comment -%} Desktop Navigation {%- endcomment -%}
+    {%- comment -%} Desktop Navigation {%- endcomment -}
     <nav class="sensol-header__nav">
       {%- for link in linklists[section.settings.menu].links -%}
         <a href="{{ link.url }}" class="sensol-header__link">{{ link.title | upcase }}</a>
       {%- endfor -%}
+      <a href="/collections/all" class="sensol-header__shop-btn">SHOP ALL</a>
     </nav>
 
-    {%- comment -%} Right icons {%- endcomment -%}
+    {%- comment -%} Right icons {%- endcomment -}
     <div class="sensol-header__actions">
       {%- if section.settings.show_search -%}
         <a href="/search" class="sensol-header__icon-link" aria-label="Search">
@@ -82,12 +102,13 @@
     </div>
   </div>
 
-  {%- comment -%} Mobile drawer {%- endcomment -%}
+  {%- comment -%} Mobile drawer {%- endcomment -}
   <div class="sensol-header__drawer" id="sensolDrawer">
     <div class="sensol-header__drawer-inner">
       {%- for link in linklists[section.settings.menu].links -%}
         <a href="{{ link.url }}" class="sensol-header__drawer-link">{{ link.title | upcase }}</a>
       {%- endfor -%}
+      <a href="/collections/all" class="sensol-header__drawer-shop-btn">SHOP ALL</a>
       <div class="sensol-header__drawer-actions">
         <a href="/account" class="sensol-header__drawer-link">ACCOUNT</a>
         <a href="/cart" class="sensol-header__drawer-link">CART</a>
@@ -96,8 +117,6 @@
   </div>
 </header>
 
-{%- comment -%} Spacer to push content below fixed header {%- endcomment -%}
-<div class="sensol-header__spacer"></div>
 
 <script>
   (function() {
@@ -126,35 +145,13 @@
 {% schema %}
 {
   "name": "SENSOL Header",
+  "tag": "section",
   "class": "sensol-header-section-wrapper",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo_image",
-      "label": "Logo image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "min": 60,
-      "max": 200,
-      "step": 10,
-      "unit": "px",
-      "label": "Logo width",
-      "default": 120
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Navigation menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_search",
-      "label": "Show search icon",
-      "default": true
-    }
+    { "type": "image_picker", "id": "logo_image", "label": "Logo Image" },
+    { "type": "range", "id": "logo_width", "min": 60, "max": 200, "step": 10, "default": 120, "unit": "px", "label": "Logo Width" },
+    { "type": "link_list", "id": "menu", "label": "Navigation Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_search", "label": "Show Search Icon", "default": true }
   ]
 }
 {% endschema %}
