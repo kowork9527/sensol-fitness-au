@@ -250,6 +250,7 @@
       .au-grid { grid-template-columns: 1fr; gap: 2rem; }
       .au-city-grid { grid-template-columns: repeat(3, 1fr); }
       .company-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      #product-line div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -482,81 +483,58 @@
         <div class="reveal">
           <p class="label" style="margin-bottom: 1rem;">03 — The Line</p>
           <h2 class="heading-lg" style="max-width: 600px;">
-            Two series. One philosophy.
+            Three expressions. One philosophy.
           </h2>
           <p class="body-text" style="margin-top: 1.5rem; max-width: 600px;">
             The original TB02 proved that the concept worked. The next
             challenge was making SENSOL accessible to more people, at more
-            fitness levels, in more spaces.
+            fitness levels, in more spaces &mdash; from motor-driven precision
+            to spring-based flow.
           </p>
         </div>
-        <div class="series-grid" style="margin-top: 3rem;">
-          <!-- Smart Series -->
-          <div class="series-card reveal">
-            <h3>Smart Series</h3>
-            <p class="body-text" style="font-size: 13px; margin-bottom: 1.5rem;">
-              Dual-servo digital weight platform &mdash; motor-driven, software-controlled, AI-enhanced.
-            </p>
-            <div class="series-item">
-              <span class="series-item-name">RS02</span>
-              <span class="series-item-price">from $2,000</span>
+        <div style="margin-top: 3rem;">
+          <!-- Product cards -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; border-top: 1px solid var(--cream); padding-top: 2rem;">
+            <!-- RS02 -->
+            <div class="reveal" style="border-top: 1px solid var(--cream); padding-top: 1.5rem;">
+              <p class="label" style="margin-bottom: 1rem;">Smart Series</p>
+              <h3 style="font-size: 20px; font-weight: 200; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">RS02</h3>
+              <p class="body-text" style="font-size: 13px;">
+                The refined dual-servo digital weight platform. Motor-driven,
+                software-controlled, AI-enhanced. The foundation of the
+                SENSOL training experience.
+              </p>
             </div>
-            <div class="series-item">
-              <span class="series-item-name">RS02 PRO</span>
-              <span class="series-item-price">from $2,400</span>
+            <!-- RS02 PRO -->
+            <div class="reveal" style="border-top: 1px solid var(--cream); padding-top: 1.5rem;">
+              <p class="label" style="margin-bottom: 1rem;">Smart Series</p>
+              <h3 style="font-size: 20px; font-weight: 200; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">RS02 PRO</h3>
+              <p class="body-text" style="font-size: 13px;">
+                Premium features and expanded resistance programming.
+                For those who demand the most from every rep &mdash; more
+                data, more control, more precision.
+              </p>
             </div>
-            <div class="series-item">
-              <span class="series-item-name">RS03</span>
-              <span class="series-item-price">&mdash;</span>
+            <!-- FLEX AIR -->
+            <div class="reveal" style="border-top: 1px solid var(--cream); padding-top: 1.5rem;">
+              <p class="label" style="margin-bottom: 1rem;">Flex Series</p>
+              <h3 style="font-size: 20px; font-weight: 200; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">FLEX AIR</h3>
+              <p class="body-text" style="font-size: 13px;">
+                Spring-based resistance in the same iconic form. The
+                SENSOL design philosophy without the motor system &mdash;
+                lighter, more accessible, Pilates-inspired.
+              </p>
             </div>
-            <div class="series-item">
-              <span class="series-item-name">RS03 PRO</span>
-              <span class="series-item-price">&mdash;</span>
-            </div>
-            <p class="series-desc">
-              The RS02 refined the TB02's dual-servo digital weight platform.
-              The RS02 PRO added premium features and expanded resistance
-              programming. The RS03 and RS03 PRO pushed the system further
-              &mdash; larger frame, more advanced motor tuning, and a wider
-              range of supported movements for athletes who demanded maximum
-              resistance and data-driven precision.
+          </div>
+          <div class="reveal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--cream);">
+            <p class="body-text" style="max-width: 700px;">
+              Every product shares the same design DNA &mdash; compact,
+              intentional, and built around the human body. From the
+              motor-driven precision of the Smart Series to the
+              spring-based flow of the Flex Series, the same conviction
+              runs through every curve, every material, every mechanism.
             </p>
           </div>
-          <!-- Flex Series -->
-          <div class="series-card reveal">
-            <h3>Flex Series</h3>
-            <p class="body-text" style="font-size: 13px; margin-bottom: 1.5rem;">
-              Spring-based &amp; elastic resistance in the same iconic form &mdash; lighter, more accessible.
-            </p>
-            <div class="series-item">
-              <span class="series-item-name">FLEX AIR</span>
-              <span class="series-item-price">from $650</span>
-            </div>
-            <div class="series-item">
-              <span class="series-item-name">FLEX</span>
-              <span class="series-item-price">&mdash;</span>
-            </div>
-            <div class="series-item">
-              <span class="series-item-name">FLEX PRO</span>
-              <span class="series-item-price">&mdash;</span>
-            </div>
-            <p class="series-desc">
-              The Flex Series was born from a different question: what if
-              you want the SENSOL design philosophy without the motor
-              system? Particularly suited to Pilates-inspired movement,
-              rehabilitation, and progressive strength building.
-            </p>
-          </div>
-        </div>
-        <div class="reveal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--cream);">
-          <p class="body-text" style="max-width: 700px;">
-            Together, the two series cover the full spectrum: from
-            <strong style="font-weight: 400; color: var(--carbon);">$650</strong> entry-level
-            to
-            <strong style="font-weight: 400; color: var(--carbon);">$2,800</strong>
-            professional-grade, every product shares the same design DNA
-            &mdash; compact, intentional, and built around the human body.
-          </p>
         </div>
       </div>
     </section>
