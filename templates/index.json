@@ -92,6 +92,7 @@
     },
     "sensol-senzine": {
       "type": "sensol-senzine",
+      "disabled": true,
       "settings": {
         "label": "Internal Publication",
         "title": "SENZINE",
@@ -99,21 +100,6 @@
         "desc2": "Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.",
         "cta_link": "/",
         "cta_text": "Join us"
-      }
-    },
-    "sensol-app-download": {
-      "type": "sensol-app-download",
-      "settings": {
-        "title": "Your intelligent training companion",
-        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone.",
-        "feature1_name": "Real-time Resistance Control",
-        "feature1_desc": "Adjust resistance levels instantly during your session",
-        "feature2_name": "100+ Guided Workouts",
-        "feature2_desc": "Expert-led pilates and strength programs for every level",
-        "feature3_name": "Performance Analytics",
-        "feature3_desc": "Track your progress with detailed session insights",
-        "appstore_link": "/",
-        "playstore_link": "/"
       }
     },
     "sensol-products": {
@@ -133,22 +119,59 @@
         "product3_price": "$650"
       }
     },
-    "sensol-reviews": {
+    "sensol-app-download": {
+      "type": "sensol-app-download",
+      "settings": {
+        "title": "Your intelligent training companion",
+        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone.",
+        "feature1_name": "Real-time Resistance Control",
+        "feature1_desc": "Adjust resistance levels instantly during your session",
+        "feature2_name": "100+ Guided Workouts",
+        "feature2_desc": "Expert-led pilates and strength programs for every level",
+        "feature3_name": "Performance Analytics",
+        "feature3_desc": "Track your progress with detailed session insights",
+        "appstore_link": "/",
+        "playstore_link": "/"
+      }
+    },
+    "sensol_reviews_cRTDJM": {
       "type": "sensol-reviews",
+      "blocks": {
+        "review_ime9TU": {
+          "type": "review",
+          "settings": {
+            "text": "The precision of this machine is unlike anything I've used before. It feels like it was designed specifically for how my body moves.",
+            "name": "Sarah M.",
+            "role": "Pilates Instructor"
+          }
+        },
+        "review_GxUa7A": {
+          "type": "review",
+          "settings": {
+            "text": "I didn't expect a piece of fitness equipment to change my entire morning routine. The quiet operation means I can train before anyone wakes up.",
+            "name": "James L.",
+            "role": "Architect"
+          }
+        },
+        "review_NQUTTi": {
+          "type": "review",
+          "settings": {
+            "text": "Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it.",
+            "name": "Elena K.",
+            "role": "Creative Director"
+          }
+        }
+      },
+      "block_order": [
+        "review_ime9TU",
+        "review_GxUa7A",
+        "review_NQUTTi"
+      ],
+      "name": "SENSOL Reviews",
       "settings": {
         "show_section": true,
         "label": "What they say",
         "title": "Trained by design."
-      }
-    },
-    "sensol-instagram": {
-      "type": "sensol-instagram",
-      "settings": {
-        "label": "Community",
-        "title": "Trained by you.",
-        "handle_text": "@sensol.fitness",
-        "handle_url": "https://www.instagram.com/sensol.fitness/",
-        "cta_text": "Follow us on Instagram"
       }
     }
   },
@@ -160,9 +183,8 @@
     "sensol-future-training",
     "sensol-video",
     "sensol-senzine",
-    "sensol-app-download",
     "sensol-products",
-    "sensol-reviews",
-    "sensol-instagram"
+    "sensol-app-download",
+    "sensol_reviews_cRTDJM"
   ]
 }
