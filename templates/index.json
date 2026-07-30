@@ -58,6 +58,7 @@
     "sensol-future-training": {
       "type": "sensol-future-training",
       "settings": {
+        "image": "shopify://shop_images/imgi_319_Frame_110_7043ba29-42c0-48c4-ba89-84d8c41150c3.webp",
         "label": "Where strength meets pilates",
         "title": "The Future Of Modern Training.",
         "cta_link": "shopify://collections/all",
