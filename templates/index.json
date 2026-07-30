@@ -1,32 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "sensol-header": {
       "type": "sensol-header",
       "settings": {
         "logo_image": "shopify://shop_images/imgi_46_sensol.png",
-        "link_1_text": "Collection",
-        "link_1_url": "/collections/all",
-        "link_2_text": "About",
-        "link_2_url": "/pages/about",
-        "link_3_text": "Contact",
-        "link_3_url": "/pages/contact"
+        "logo_width": 120,
+        "menu": "main-menu",
+        "show_search": true
       }
     },
     "sensol-hero": {
       "type": "sensol-hero",
       "settings": {
-        "slide1_image": "shopify://shop_images/banner-1.webp",
-        "slide1_label": "A new language of training",
-        "slide1_title": "SENSOL",
-        "slide1_subtitle": "Where strength meets precision, and movement becomes design.",
-        "slide2_image": "shopify://shop_images/banner-2.webp",
-        "slide2_label": "Precision in every detail",
-        "slide2_title": "PRECISION",
-        "slide2_subtitle": "Engineered instruments, not merely equipment.",
-        "slide3_image": "shopify://shop_images/banner-3.webp",
-        "slide3_label": "Control the movement",
-        "slide3_title": "CONTROL",
-        "slide3_subtitle": "Strength is not about how much you can lift, but how precisely you can move."
+        "cta_link": "shopify://collections/all",
+        "cta_text": "Shop All",
+        "slide_1_label": "A new language of training",
+        "slide_1_heading": "SENSOL",
+        "slide_1_sub": "Where strength meets precision, and movement becomes design.",
+        "slide_2_label": "Engineered movement",
+        "slide_2_heading": "PRECISION",
+        "slide_2_sub": "Adaptive resistance and fluid motion, tailored to your body.",
+        "slide_3_label": "Where strength meets pilates",
+        "slide_3_heading": "CONTROL",
+        "slide_3_sub": "Control begins within. Train with intention."
       }
     },
     "sensol-brand-story": {
@@ -37,38 +42,34 @@
         "para1": "Sensol is redefining the role of fitness in modern living. Founded in 2022, we design intelligent training systems that merge performance, technology, and spatial aesthetics — building a new vision of the future fitness lifestyle.",
         "para2": "Our machines are not merely equipment. They are engineered instruments — each component machined to precision, each resistance curve calibrated for the human body. The result is a training experience that feels less like a workout and more like a practice in control.",
         "para3": "We believe that strength is not about how much you can lift, but how precisely you can move. Every Sensol system is built to help you discover that precision — in your own space, at your own pace, on your own terms.",
-        "image": "shopify://shop_images/section-1.webp",
-        "stat1_number": "2022",
+        "stat1_num": "2022",
         "stat1_label": "Founded",
-        "stat2_number": "7",
+        "stat2_num": "7",
         "stat2_label": "Products",
-        "stat3_number": "∞",
+        "stat3_num": "∞",
         "stat3_label": "Possibilities",
-        "feature1_label": "Engineered movement",
-        "feature1_title": "Adaptive Resistance",
-        "feature1_desc": "Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate.",
-        "feature2_title": "Spatial Design",
-        "feature2_desc": "Every Sensol machine is designed to live in your space — not dominate it. Clean lines, premium materials, and a footprint that respects the architecture of your home or studio.",
-        "feature3_title": "Intelligent Motion",
-        "feature3_desc": "From 360-degree range of motion to whisper-quiet operation at under 25dB, every technical detail serves one purpose: to let you focus entirely on the movement."
+        "feat1_title": "Adaptive Resistance",
+        "feat1_desc": "Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate.",
+        "feat2_title": "Spatial Design",
+        "feat2_desc": "Every Sensol machine is designed to live in your space — not dominate it. Clean lines, premium materials, and a footprint that respects the architecture of your home or studio.",
+        "feat3_title": "Intelligent Motion",
+        "feat3_desc": "From 360-degree range of motion to whisper-quiet operation at under 25dB, every technical detail serves one purpose: to let you focus entirely on the movement."
       }
     },
     "sensol-marquee": {
       "type": "sensol-marquee",
       "settings": {
         "text": "Make it easy·Do it real",
-        "speed": 40
+        "text_right": "Do it real"
       }
     },
     "sensol-future-training": {
       "type": "sensol-future-training",
       "settings": {
-        "image": "shopify://shop_images/section-2.webp",
-        "tag": "Where strength meets pilates",
-        "tag_small": "Designed for modern living",
+        "label": "Where strength meets pilates",
         "title": "The Future Of Modern Training.",
-        "button_text": "Shop All",
-        "button_link": "/collections/all"
+        "cta_link": "shopify://collections/all",
+        "cta_text": "Shop All"
       }
     },
     "sensol-video": {
@@ -77,17 +78,14 @@
         "label": "See how Sensol works",
         "title": "The first All-in-one smart training reformer.",
         "subtitle": "See how Sensol works in real movement — simple, precise, and intuitive.",
-        "image": "shopify://shop_images/section-3.webp",
-        "spec1_label": "Motion Range",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/9abe98f1f71e4b98a52301ee1ecc5dc4.mp4",
+        "caption": "Sensol RS02 — Precision in motion",
         "spec1_value": "360°",
         "spec1_desc": "Full-spectrum movement freedom for unrestricted training.",
-        "spec2_label": "Response Time",
         "spec2_value": "<8ms",
         "spec2_desc": "Near-instantaneous feedback between input and resistance.",
-        "spec3_label": "Resistance",
         "spec3_value": "0–100%",
         "spec3_desc": "Precision-tuned resistance that adapts to your strength curve.",
-        "spec4_label": "Noise Level",
         "spec4_value": "<25dB",
         "spec4_desc": "Whisper-quiet operation that preserves the stillness of your space."
       }
@@ -97,12 +95,10 @@
       "settings": {
         "label": "Internal Publication",
         "title": "SENZINE",
-        "description": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read.\n\nReleased in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.",
-        "image": "shopify://shop_images/editorial-1.webp",
-        "image2": "shopify://shop_images/editorial-2.webp",
-        "image3": "shopify://shop_images/editorial-3.webp",
-        "button_text": "Join us",
-        "button_link": "/pages/contact"
+        "desc1": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read.",
+        "desc2": "Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention.",
+        "cta_link": "/",
+        "cta_text": "Join us"
       }
     },
     "sensol-app-download": {
