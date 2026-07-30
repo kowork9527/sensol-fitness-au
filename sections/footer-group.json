@@ -15,6 +15,7 @@
       "type": "sensol-footer",
       "settings": {
         "logo": "shopify://shop_images/imgi_46_sensol_1.png",
+        "logo_width": 200,
         "brand_desc": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022.",
         "social_instagram": "",
         "social_youtube": "",
