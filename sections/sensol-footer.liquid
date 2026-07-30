@@ -35,7 +35,7 @@
 
       <!-- Products Column -->
       <div class="sensol-footer__col">
-        <p class="sensol-footer__col-heading">Products</p>
+        <button class="sensol-footer__col-heading" aria-expanded="false" onclick="this.parentElement.classList.toggle('sensol-footer__col--open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('sensol-footer__col--open'));">Products<svg class="sensol-footer__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 4 6 8 10 4"/></svg></button>
         <ul class="sensol-footer__col-list">
           {%- for link in linklists[section.settings.product_menu].links -%}
             <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
@@ -52,7 +52,7 @@
 
       <!-- Company Column -->
       <div class="sensol-footer__col">
-        <p class="sensol-footer__col-heading">Company</p>
+        <button class="sensol-footer__col-heading" aria-expanded="false" onclick="this.parentElement.classList.toggle('sensol-footer__col--open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('sensol-footer__col--open'));">Company<svg class="sensol-footer__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 4 6 8 10 4"/></svg></button>
         <ul class="sensol-footer__col-list">
           {%- for link in linklists[section.settings.company_menu].links -%}
             <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
@@ -240,6 +240,46 @@
   color: #8A8279;
   margin-bottom: 1.5rem;
   text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Chevron — only visible on mobile */
+.sensol-footer__chevron {
+  display: none;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Mobile: collapsible columns */
+@media (max-width: 767px) {
+  .sensol-footer__col-heading {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #2a2724;
+    margin-bottom: 0;
+  }
+  .sensol-footer__chevron {
+    display: block;
+  }
+  .sensol-footer__col-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.3s;
+    padding: 0;
+  }
+  .sensol-footer__col--open .sensol-footer__col-list {
+    max-height: 500px;
+    padding: 0.75rem 0;
+  }
+  .sensol-footer__col--open .sensol-footer__chevron {
+    transform: rotate(180deg);
+  }
 }
 
 /* Column Links — matching: text-[#F7F4F0]/50 text-xs font-light */
