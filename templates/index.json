@@ -87,21 +87,6 @@
         "cta_text": "Join us"
       }
     },
-    "sensol-app-download": {
-      "type": "sensol-app-download",
-      "settings": {
-        "title": "Your intelligent training companion",
-        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking \u2014 all from your phone.",
-        "feature1_name": "Real-time Resistance Control",
-        "feature1_desc": "Adjust resistance levels instantly during your session",
-        "feature2_name": "100+ Guided Workouts",
-        "feature2_desc": "Expert-led pilates and strength programs for every level",
-        "feature3_name": "Performance Analytics",
-        "feature3_desc": "Track your progress with detailed session insights",
-        "appstore_link": "/",
-        "playstore_link": "/"
-      }
-    },
     "sensol-products": {
       "type": "sensol-products",
       "settings": {
@@ -123,7 +108,7 @@
       "type": "sensol-app-download",
       "settings": {
         "title": "Your intelligent training companion",
-        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone.",
+        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking \u2014 all from your phone.",
         "feature1_name": "Real-time Resistance Control",
         "feature1_desc": "Adjust resistance levels instantly during your session",
         "feature2_name": "100+ Guided Workouts",
@@ -134,7 +119,7 @@
         "playstore_link": "/"
       }
     },
-    "sensol_reviews_cRTDJM": {
+    "sensol-reviews": {
       "type": "sensol-reviews",
       "blocks": {
         "review_ime9TU": {
@@ -156,7 +141,7 @@
         "review_NQUTTi": {
           "type": "review",
           "settings": {
-            "text": "Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it.",
+            "text": "Sensol lives in my living room like a piece of sculpture. Guests always ask about it \u2014 and then they try it.",
             "name": "Elena K.",
             "role": "Creative Director"
           }
@@ -173,6 +158,11 @@
         "label": "What they say",
         "title": "Trained by design."
       }
+    },
+    "sensol-instagram": {
+      "type": "sensol-instagram",
+      "blocks": {},
+      "settings": {}
     }
   },
   "order": [
@@ -184,6 +174,7 @@
     "sensol-senzine",
     "sensol-products",
     "sensol-app-download",
-    "sensol_reviews_cRTDJM"
+    "sensol-reviews",
+    "sensol-instagram"
   ]
 }
