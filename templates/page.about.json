@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "about": {
+      "type": "sensol-about",
+      "settings": {}
+    }
+  },
+  "order": [
+    "about"
+  ]
+}

@@ -5,12 +5,12 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background-color 0.7s ease;
-    background-color: transparent;
+    background-color: #F7F4F0;
+    transition: box-shadow 0.5s ease;
   }
 
   .sensol-header-section.scrolled {
-    background-color: #F7F4F0;
+    box-shadow: 0 1px 0 #E3DFD9;
   }
 
   [id^="shopify-section-sensol-header"] {
@@ -38,39 +38,15 @@
     max-height: 32px;
     max-width: 120px;
     object-fit: contain;
-    transition: opacity 0.3s ease;
   }
 
-  .sensol-header__logo-img--light {
-    display: block;
-  }
-
-  .sensol-header__logo-img--dark {
-    display: none;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__logo-img--light {
-    display: none;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__logo-img--dark {
-    display: block;
-  }
-
-  .sensol-header__logo-text--light {
-    display: inline;
-  }
-
-  .sensol-header__logo-text--dark {
-    display: none;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__logo-text--light {
-    display: none;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__logo-text--dark {
-    display: inline;
+  .sensol-header__logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1A1816;
   }
 
   .sensol-header__nav {
@@ -85,13 +61,13 @@
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #ffffff !important;
+    color: #1A1816;
     text-decoration: none;
-    transition: color 0.7s ease;
+    transition: color 0.3s ease;
   }
 
-  .sensol-header-section.scrolled .sensol-header__link {
-    color: #1A1816 !important;
+  .sensol-header__link:hover {
+    color: #8A8279;
   }
 
   .sensol-header__shop-btn {
@@ -104,13 +80,12 @@
     background-color: #1A1816;
     padding: 10px 24px;
     text-decoration: none;
-    transition: all 0.7s ease;
+    transition: background-color 0.3s ease;
     margin-left: 16px;
   }
 
-  .sensol-header-section.scrolled .sensol-header__shop-btn {
-    background-color: #1A1816;
-    color: #F7F4F0;
+  .sensol-header__shop-btn:hover {
+    background-color: #2A2826;
   }
 
   .sensol-header__actions {
@@ -127,12 +102,12 @@
   }
 
   .sensol-header__icon {
-    color: #ffffff !important;
-    transition: color 0.7s ease;
+    color: #1A1816;
+    transition: color 0.3s ease;
   }
 
-  .sensol-header-section.scrolled .sensol-header__icon {
-    color: #1A1816 !important;
+  .sensol-header__icon-link:hover .sensol-header__icon {
+    color: #8A8279;
   }
 
   .sensol-header__hamburger {
@@ -154,12 +129,8 @@
     display: block;
     width: 100%;
     height: 1.5px;
-    background-color: #ffffff;
-    transition: all 0.4s ease;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__hamburger span {
     background-color: #1A1816;
+    transition: all 0.4s ease;
   }
 
   .sensol-header__hamburger.active span:nth-child(1) {
@@ -274,30 +245,17 @@
     </button>
 
     <a href="/" class="sensol-header__logo">
-      {%- if section.settings.logo_light != blank -%}
+      {%- if section.settings.logo != blank -%}
         <img
-          src="{{ section.settings.logo_light | image_url: width: 200 }}"
+          src="{{ section.settings.logo | image_url: width: 200 }}"
           alt="{{ shop.name | escape }}"
-          class="sensol-header__logo-img sensol-header__logo-img--light"
+          class="sensol-header__logo-img"
           width="{{ section.settings.logo_width }}"
           height="32"
           loading="eager"
         >
       {%- else -%}
-        <span class="sensol-header__logo-text sensol-header__logo-text--light" style="font-family:'Inter',sans-serif;font-size:18px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;">SENSOL</span>
-      {%- endif -%}
-
-      {%- if section.settings.logo_dark != blank -%}
-        <img
-          src="{{ section.settings.logo_dark | image_url: width: 200 }}"
-          alt="{{ shop.name | escape }}"
-          class="sensol-header__logo-img sensol-header__logo-img--dark"
-          width="{{ section.settings.logo_width }}"
-          height="32"
-          loading="eager"
-        >
-      {%- else -%}
-        <span class="sensol-header__logo-text sensol-header__logo-text--dark" style="font-family:'Inter',sans-serif;font-size:18px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#1A1816;">SENSOL</span>
+        <span class="sensol-header__logo-text">SENSOL</span>
       {%- endif -%}
     </a>
 
@@ -345,9 +303,9 @@
 
     if (!header) return;
 
-    /* Scroll: toggle scrolled class */
+    /* Scroll: add subtle bottom border */
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 60) {
+      if (window.scrollY > 10) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
@@ -396,13 +354,8 @@
   "settings": [
     {
       "type": "image_picker",
-      "id": "logo_light",
-      "label": "Logo (light/white — for transparent header over hero)"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo_dark",
-      "label": "Logo (dark/black — for scrolled header)"
+      "id": "logo",
+      "label": "Logo"
     },
     {
       "type": "range",
