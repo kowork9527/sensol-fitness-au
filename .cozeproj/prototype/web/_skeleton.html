@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 字体（按需，系统字体时省略；只能用 Google 字体，CSS 地址前缀：https://lf-code-agent.coze.cn/obj/x-ai-cn/fonts/google） -->
+  <!-- <link href="https://lf-code-agent.coze.cn/obj/x-ai-cn/fonts/google/google-all-fonts.css" rel="stylesheet"/> -->
+
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/jquery/jquery-3.7.1.min.js"></script>
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/lucide/lucide-1.11.0.min.js"></script>
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/tailwindcss/tailwindcss-browser-4.2.4.min.js"></script>
+
+  <link href="https://lf-code-agent.coze.cn/obj/x-ai-cn/fonts/google/google-all-fonts.css" rel="stylesheet"/>
+  <style type="text/tailwindcss">
+    @theme {
+      /* === 品牌色 (Sensol Fitness - Architectural Elegance) === */
+      --color-primary:              #1A1816;
+      --color-primary-container:    #D4CEC6;
+      --color-on-primary:           #F7F4F0;
+      /* === 背景 / 表面 === */
+      --color-background:                 #F7F4F0;
+      --color-surface-container-lowest:   #FFFFFF;
+      --color-surface:                    #F7F4F0;
+      --color-surface-container:          #EDEAE5;
+      --color-surface-container-high:     #E3DFD9;
+      --color-surface-container-highest:  #D4CEC6;
+      /* === 文字 === */
+      --color-on-surface:           #1A1816;
+      --color-on-surface-variant:   #8A8279;
+      /* === 功能色 === */
+      --color-success:  #22c55e;
+      --color-error:    #ef4444;
+      --color-warning:  #f59e0b;
+      /* === 边框 === */
+      --color-outline:          #D4CEC6;
+      --color-outline-variant:  #E3DFD9;
+      /* === 圆角 === */
+      --radius-sm:   0.0625rem;
+      --radius-md:   0.125rem;
+      --radius-lg:   0.25rem;
+      --radius-xl:   0.5rem;
+      --radius-2xl:  1rem;
+      --radius-full: 9999px;
+      /* === 阴影 === */
+      --shadow-card:   0 1px 3px rgba(26,24,22,0.08);
+      --shadow-float:  0 4px 12px rgba(26,24,22,0.08);
+      --shadow-dialog: 0 12px 32px rgba(26,24,22,0.12);
+      /* === 字体 === */
+      --font-sans: "Inter", system-ui, sans-serif;
+    }
+  </style>
+
+  <!-- 图片兜底 -->
+  <script>
+    document.addEventListener('error', function (e) {
+      const img = e.target;
+      if (img.tagName !== 'IMG' || img.dataset.fallback) return;
+      img.dataset.fallback = '1';
+      const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const cat = img.getAttribute('data-category') || '其他';
+      const alt = img.getAttribute('alt') || '';
+      const label = esc(alt.length > 8 ? alt.slice(0, 8) + '…' : alt);
+      const icons = { '人物': '👤', '自然风景': '🏞', '动物': '🐾', '建筑城市': '🏙', '运动体育': '⚽', '交通工具': '🚗', '食物': '🍽', '服饰时尚': '👗', '商业科技': '💼', '游戏娱乐': '🎮', '艺术': '🎨', '其他': '🖼' };
+      const icon = icons[cat] || '🖼';
+      const w = img.width || 400, h = img.height || 300;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="45%" text-anchor="middle" font-size="${Math.min(w, h) * 0.18}" dominant-baseline="central">${icon}</text><text x="50%" y="68%" text-anchor="middle" font-size="${Math.min(w, h) * 0.07}" fill="%239ca3af" font-family="system-ui,sans-serif" dominant-baseline="central">${label}</text></svg>`;
+      img.src = 'data:image/svg+xml,' + svg;
+    }, true);
+  </script>
+</head>
+
+<body class="bg-background text-on-surface font-sans">
+
+  <!-- @nav:start 导航组件 -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="mainNav">
+    <div class="max-w-[1600px] mx-auto px-6 md:px-10 flex items-center justify-between h-20">
+      <a href="home.html" class="text-lg tracking-[0.2em] font-light uppercase transition-colors duration-300" id="navLogo">SENSOL</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="home.html" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink1">Philosophy</a>
+        <a href="about.html" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink2">About</a>
+        <a href="home.html#products" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink3">Products</a>
+        <a href="home.html#engineering" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink4">Engineering</a>
+      </nav>
+      <a href="home.html#collection" class="hidden md:inline-block bg-on-surface text-background text-[11px] tracking-[0.15em] uppercase px-5 py-2 hover:opacity-80 transition-opacity">Shop All</a>
+      <button class="md:hidden" id="menuToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+    </div>
+  </header>
+  <!-- @nav:end 导航组件 -->
+
+  <!--
+    ⚠️ <main> 的 class 由主 Agent 根据步骤 4.5 的布局决策与实际设计需要填写，约束如下：
+      - 有侧边栏布局：必须用 flex-1（可加 min-w-0 / overflow-y-auto 等），禁止使用 max-w
+      - 无侧边栏布局：必须用 max-w-4xl ~ max-w-7xl 之一 + mx-auto
+      - 其他样式按实际设计需要自由组合
+    如无特殊需求，禁止使用  小于 max-w-4xl 的设置（过窄，桌面端会大量留白）。
+  -->
+  <main class="max-w-[1600px] mx-auto w-full">
+    <!-- @main-content:start -->
+    <!-- @main-content:end -->
+  </main>
+
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
