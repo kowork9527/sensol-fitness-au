@@ -14,7 +14,11 @@
       <!-- Product 1 -->
       <div class="sensol-products__card">
         <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product1_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product1_image | image_url: width: 600 }}" alt="{{ section.settings.product1_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
           <img class="sensol-products__card-img" src="{{ 'square-1.webp' | asset_url }}" alt="{{ section.settings.product1_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
         </div>
         <div class="sensol-products__card-info">
           <p class="sensol-products__card-vendor">{{ section.settings.product1_vendor }}</p>
@@ -26,7 +30,11 @@
       <!-- Product 2 -->
       <div class="sensol-products__card">
         <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product2_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product2_image | image_url: width: 600 }}" alt="{{ section.settings.product2_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
           <img class="sensol-products__card-img" src="{{ 'square-2.webp' | asset_url }}" alt="{{ section.settings.product2_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
         </div>
         <div class="sensol-products__card-info">
           <p class="sensol-products__card-vendor">{{ section.settings.product2_vendor }}</p>
@@ -38,7 +46,11 @@
       <!-- Product 3 -->
       <div class="sensol-products__card">
         <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product3_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product3_image | image_url: width: 600 }}" alt="{{ section.settings.product3_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
           <img class="sensol-products__card-img" src="{{ 'square-3.webp' | asset_url }}" alt="{{ section.settings.product3_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
         </div>
         <div class="sensol-products__card-info">
           <p class="sensol-products__card-vendor">{{ section.settings.product3_vendor }}</p>
@@ -59,12 +71,15 @@
     { "type": "text", "id": "label", "label": "Label", "default": "2026 Selection" },
     { "type": "text", "id": "title", "label": "Title", "default": "Products" },
     { "type": "url", "id": "view_all_link", "label": "View All Link", "default": "/collections/all" },
+    { "type": "image_picker", "id": "product1_image", "label": "Product 1 Image" },
     { "type": "text", "id": "product1_vendor", "label": "Product 1 Vendor", "default": "sensol fitness" },
     { "type": "text", "id": "product1_name", "label": "Product 1 Name", "default": "Sensol RS02" },
     { "type": "text", "id": "product1_price", "label": "Product 1 Price", "default": "$2,000" },
+    { "type": "image_picker", "id": "product2_image", "label": "Product 2 Image" },
     { "type": "text", "id": "product2_vendor", "label": "Product 2 Vendor", "default": "sensol fitness" },
     { "type": "text", "id": "product2_name", "label": "Product 2 Name", "default": "Sensol RS02 PRO" },
     { "type": "text", "id": "product2_price", "label": "Product 2 Price", "default": "$2,400" },
+    { "type": "image_picker", "id": "product3_image", "label": "Product 3 Image" },
     { "type": "text", "id": "product3_vendor", "label": "Product 3 Vendor", "default": "sensol fitness" },
     { "type": "text", "id": "product3_name", "label": "Product 3 Name", "default": "Sensol FLEX AIR" },
     { "type": "text", "id": "product3_price", "label": "Product 3 Price", "default": "$650" }

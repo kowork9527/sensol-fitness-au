@@ -5,7 +5,11 @@
 
     <!-- Full-width image block — matching Next.js: separate image + overlay -->
     <div class="sensol-future__image-wrap">
+      {%- if section.settings.image != blank -%}
+      <img class="sensol-future__img" src="{{ section.settings.image | image_url: width: 1920 }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="823">
+      {%- else -%}
       <img class="sensol-future__img" src="{{ 'landscape-1.webp' | asset_url }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="823">
+      {%- endif -%}
       <div class="sensol-future__image-overlay"></div>
       <p class="sensol-future__image-label">Designed for modern living</p>
     </div>
@@ -24,6 +28,7 @@
   "tag": "section",
   "class": "sensol-future-section",
   "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
     { "type": "text", "id": "label", "label": "Label", "default": "Where strength meets pilates" },
     { "type": "text", "id": "title", "label": "Title", "default": "The Future Of Modern Training." },
     { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },

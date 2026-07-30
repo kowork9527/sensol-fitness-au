@@ -28,7 +28,11 @@
       </div>
 
       <div class="sensol-brand-story__image-col">
+        {%- if section.settings.image != blank -%}
+        <img class="sensol-brand-story__image" src="{{ section.settings.image | image_url: width: 800 }}" alt="Sensol Philosophy" loading="lazy" width="800" height="600">
+        {%- else -%}
         <img class="sensol-brand-story__image" src="{{ 'section-1.webp' | asset_url }}" alt="Sensol Philosophy" loading="lazy" width="800" height="600">
+        {%- endif -%}
       </div>
     </div>
 
@@ -69,6 +73,7 @@
     { "type": "text", "id": "stat2_label", "label": "Stat 2 Label", "default": "Products" },
     { "type": "text", "id": "stat3_num", "label": "Stat 3 Number", "default": "∞" },
     { "type": "text", "id": "stat3_label", "label": "Stat 3 Label", "default": "Possibilities" },
+    { "type": "image_picker", "id": "image", "label": "Brand Story Image" },
     { "type": "text", "id": "feat1_title", "label": "Feature 1 Title", "default": "Adaptive Resistance" },
     { "type": "textarea", "id": "feat1_desc", "label": "Feature 1 Description", "default": "Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate." },
     { "type": "text", "id": "feat2_title", "label": "Feature 2 Title", "default": "Spatial Design" },

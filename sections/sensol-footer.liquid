@@ -4,27 +4,31 @@
     <div class="sensol-footer__grid">
       <!-- Brand Column -->
       <div class="sensol-footer__brand">
-        <p class="sensol-footer__brand-name">Sensol</p>
+        {%- if section.settings.logo != blank -%}
+        <a href="/" class="sensol-footer__logo-link">
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="Sensol" class="sensol-footer__logo-img" width="200" height="60">
+        </a>
+        {%- else -%}
+        <a href="/" class="sensol-footer__brand-name">SENSOL</a>
+        {%- endif -%}
         <p class="sensol-footer__brand-desc">
-          Redefining the role of fitness in modern living. Intelligent
-          training systems that merge performance, technology, and spatial
-          aesthetics. Founded 2022.
+          {{ section.settings.brand_desc }}
         </p>
         <div class="sensol-footer__social">
           {%- if section.settings.social_instagram != blank -%}
-            <a href="{{ section.settings.social_instagram }}" class="sensol-footer__social-link" target="_blank" rel="noopener">Instagram</a>
-          {%- else -%}
-            <a href="#" class="sensol-footer__social-link">Instagram</a>
+            <a href="{{ section.settings.social_instagram }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
           {%- endif -%}
           {%- if section.settings.social_youtube != blank -%}
-            <a href="{{ section.settings.social_youtube }}" class="sensol-footer__social-link" target="_blank" rel="noopener">YouTube</a>
-          {%- else -%}
-            <a href="#" class="sensol-footer__social-link">YouTube</a>
+            <a href="{{ section.settings.social_youtube }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+            </a>
           {%- endif -%}
           {%- if section.settings.social_linkedin != blank -%}
-            <a href="{{ section.settings.social_linkedin }}" class="sensol-footer__social-link" target="_blank" rel="noopener">LinkedIn</a>
-          {%- else -%}
-            <a href="#" class="sensol-footer__social-link">LinkedIn</a>
+            <a href="{{ section.settings.social_linkedin }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           {%- endif -%}
         </div>
       </div>
@@ -67,8 +71,7 @@
       <div class="sensol-footer__newsletter">
         <p class="sensol-footer__col-heading">Newsletter</p>
         <p class="sensol-footer__newsletter-desc">
-          Subscribe for exclusive updates, early access to new products,
-          and stories from the world of Sensol.
+          {{ section.settings.newsletter_desc }}
         </p>
         {%- form 'customer', id: 'SensolFooter', class: 'sensol-footer__form' -%}
           <input type="hidden" name="contact[tags]" value="newsletter">
@@ -87,11 +90,7 @@
 
         <div class="sensol-footer__contact">
           <p class="sensol-footer__col-heading">Contact</p>
-          {%- if section.settings.contact_email != blank -%}
-            <p class="sensol-footer__contact-email">{{ section.settings.contact_email }}</p>
-          {%- else -%}
-            <p class="sensol-footer__contact-email">app.sensol@gmail.com</p>
-          {%- endif -%}
+          <p class="sensol-footer__contact-email">{{ section.settings.contact_email }}</p>
         </div>
       </div>
     </div>
@@ -121,12 +120,15 @@
   "tag": "section",
   "class": "sensol-footer-section",
   "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Footer Logo" },
+    { "type": "textarea", "id": "brand_desc", "label": "Brand Description", "default": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022." },
     { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
     { "type": "url", "id": "social_youtube", "label": "YouTube URL" },
     { "type": "url", "id": "social_linkedin", "label": "LinkedIn URL" },
-    { "type": "link_list", "id": "product_menu", "label": "Products Menu", "default": "footer" },
-    { "type": "link_list", "id": "company_menu", "label": "Company Menu", "default": "footer" },
-    { "type": "link_list", "id": "legal_menu", "label": "Legal Menu", "default": "footer" },
+    { "type": "link_list", "id": "product_menu", "label": "Products Menu" },
+    { "type": "link_list", "id": "company_menu", "label": "Company Menu" },
+    { "type": "link_list", "id": "legal_menu", "label": "Legal Menu" },
+    { "type": "text", "id": "newsletter_desc", "label": "Newsletter Description", "default": "Subscribe for exclusive updates, early access to new products, and stories from the world of Sensol." },
     { "type": "text", "id": "contact_email", "label": "Contact Email", "default": "app.sensol@gmail.com" }
   ],
   "presets": [{ "name": "SENSOL Footer" }]
@@ -169,6 +171,17 @@
 }
 
 /* Brand Column — matching Next.js: md:col-span-4 */
+.sensol-footer__logo-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-footer__logo-img {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}
+
 .sensol-footer__brand-name {
   font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
@@ -177,7 +190,8 @@
   text-transform: uppercase;
   color: #F7F4F0;
   margin-bottom: 1.5rem;
-  text-align: left;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .sensol-footer__brand-desc {
@@ -189,59 +203,31 @@
   text-align: left;
 }
 
-/* Social Links — matching Next.js: flex gap-6 */
+/* Social Links — matching Next.js: flex gap-6 with icons */
 .sensol-footer__social {
   margin-top: 2rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__social {
-    justify-content: flex-start;
-  }
+  gap: 1.25rem;
+  justify-content: flex-start;
 }
 
 .sensol-footer__social-link {
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: #8A8279;
   text-decoration: none;
   transition: color 0.5s;
-  position: relative;
-}
-
-.sensol-footer__social-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sensol-footer__social-link:hover {
   color: rgba(247,244,240,0.6);
 }
 
-.sensol-footer__social-link:hover::after {
-  width: 100%;
-}
-
 /* Column — matching Next.js: md:col-span-2 */
 .sensol-footer__col {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__col {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 /* Column Heading — matching: text-[#8A8279] text-[9px] tracking-brand-lg uppercase mb-6 */
@@ -251,13 +237,7 @@
   text-transform: uppercase;
   color: #8A8279;
   margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__col-heading {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 /* Column Links — matching: text-[#F7F4F0]/50 text-xs font-light */
@@ -268,13 +248,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__col-list {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 .sensol-footer__col-link {
@@ -307,13 +281,7 @@
 
 /* Newsletter — matching Next.js: md:col-span-4 */
 .sensol-footer__newsletter {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__newsletter {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 .sensol-footer__newsletter-desc {
@@ -323,15 +291,6 @@
   font-weight: 300;
   margin-bottom: 1.5rem;
   max-width: 20rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__newsletter-desc {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 /* Newsletter Form — matching Next.js: flex max-w-sm */
@@ -342,13 +301,6 @@
 .sensol-footer__form-row {
   display: flex;
   max-width: 24rem;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .sensol-footer__form-row {
-    margin: 0;
-  }
 }
 
 .sensol-footer__input {
@@ -413,7 +365,7 @@
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -422,6 +374,7 @@
     padding: 1.5rem 4rem;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -437,7 +390,7 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .sensol-footer__bottom-link {

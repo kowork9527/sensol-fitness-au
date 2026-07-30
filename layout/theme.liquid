@@ -279,9 +279,9 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <link rel="preconnect" href="https://fonts.googleapis.cn">
-    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
-    <link href="https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     {%- style -%}
       /* ---- SENSOL Global Override — inlined ---- */
       :root {
@@ -305,7 +305,15 @@
       .section-full-width .page-width { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
       body { background-color: var(--sensol-bg) !important; color: var(--sensol-text) !important; }
       .announcement-bar-section { display: none !important; }
-      @media (max-width: 749px) { .sensol-hide-mobile { display: none !important; } }
+      /* Ensure minimum font sizes on mobile for Sensol sections */
+      @media (max-width: 749px) {
+        .sensol-hide-mobile { display: none !important; }
+        [id^="shopify-section-sensol-"] h1 { font-size: 2.25rem !important; }
+        [id^="shopify-section-sensol-"] h2 { font-size: 1.625rem !important; }
+        [id^="shopify-section-sensol-"] h3 { font-size: 1.125rem !important; }
+        [id^="shopify-section-sensol-"] p { font-size: 0.9375rem !important; }
+        [id^="shopify-section-sensol-"] .sensol-label { font-size: 0.6875rem !important; }
+      }
       @media (min-width: 750px) { .sensol-hide-desktop { display: none !important; } }
     {%- endstyle -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
