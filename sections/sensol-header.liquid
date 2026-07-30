@@ -1,43 +1,30 @@
 {%- style -%}
-  /* CRITICAL: Force wrapper transparent — Dawn adds bg to .shopify-section */
-  #shopify-section-sensol-header,
-  .shopify-section.sensol-header-section-wrapper {
-    background: transparent !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
   .sensol-header-section {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background-color 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
-                box-shadow 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: background-color 0.7s ease;
     background-color: transparent;
   }
 
   .sensol-header-section.scrolled {
     background-color: #F7F4F0;
-    box-shadow: 0 1px 0 #D4CEC6;
+  }
+
+  [id^="shopify-section-sensol-header"] {
+    background: transparent !important;
   }
 
   .sensol-header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 4rem;
     max-width: 1600px;
     margin: 0 auto;
+    padding: 0 48px;
     height: 80px;
-  }
-
-  @media (min-width: 768px) {
-    .sensol-header__inner {
-      height: 96px;
-      padding: 0 4rem;
-    }
   }
 
   .sensol-header__logo {
@@ -45,41 +32,35 @@
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
-    position: relative;
-    z-index: 10;
   }
 
   .sensol-header__logo-img {
-    height: auto;
-    width: auto;
-    max-height: 28px;
-    max-width: 100px;
+    max-height: 32px;
+    max-width: 120px;
     object-fit: contain;
-    transition: filter 0.7s ease;
+    transition: opacity 0.3s ease;
   }
 
-  @media (min-width: 768px) {
-    .sensol-header__logo-img {
-      max-height: 36px;
-      max-width: 120px;
-    }
+  .sensol-header__logo-img--light {
+    display: block;
   }
 
-  /* White logo on hero (transparent), normal on scroll */
-  .sensol-header-section:not(.scrolled) .sensol-header__logo-img {
-    filter: brightness(0) invert(1);
+  .sensol-header__logo-img--dark {
+    display: none;
+  }
+
+  .sensol-header-section.scrolled .sensol-header__logo-img--light {
+    display: none;
+  }
+
+  .sensol-header-section.scrolled .sensol-header__logo-img--dark {
+    display: block;
   }
 
   .sensol-header__nav {
-    display: none;
+    display: flex;
     align-items: center;
-    gap: 48px;
-  }
-
-  @media (min-width: 768px) {
-    .sensol-header__nav {
-      display: flex;
-    }
+    gap: 32px;
   }
 
   .sensol-header__link {
@@ -90,23 +71,7 @@
     text-transform: uppercase;
     color: #ffffff !important;
     text-decoration: none;
-    transition: color 0.7s ease, opacity 0.3s ease;
-    position: relative;
-  }
-
-  .sensol-header__link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-
-  .sensol-header__link:hover::after {
-    width: 100%;
+    transition: color 0.7s ease;
   }
 
   .sensol-header-section.scrolled .sensol-header__link {
@@ -119,32 +84,23 @@
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #ffffff;
-    background-color: rgba(255,255,255,0.1);
-    padding: 12px 24px;
+    color: #F7F4F0;
+    background-color: #1A1816;
+    padding: 10px 24px;
     text-decoration: none;
-    transition: background-color 0.5s ease, color 0.7s ease;
-  }
-
-  .sensol-header__shop-btn:hover {
-    background-color: rgba(255,255,255,0.2);
+    transition: all 0.7s ease;
+    margin-left: 16px;
   }
 
   .sensol-header-section.scrolled .sensol-header__shop-btn {
-    color: #F7F4F0;
     background-color: #1A1816;
-  }
-
-  .sensol-header-section.scrolled .sensol-header__shop-btn:hover {
-    background-color: #2a2724;
+    color: #F7F4F0;
   }
 
   .sensol-header__actions {
     display: flex;
     align-items: center;
     gap: 20px;
-    position: relative;
-    z-index: 10;
   }
 
   .sensol-header__icon-link {
@@ -164,7 +120,7 @@
   }
 
   .sensol-header__hamburger {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -175,25 +131,19 @@
     cursor: pointer;
     padding: 0;
     position: relative;
-    z-index: 10;
-  }
-
-  @media (min-width: 768px) {
-    .sensol-header__hamburger {
-      display: none;
-    }
+    z-index: 1010;
   }
 
   .sensol-header__hamburger span {
     display: block;
     width: 100%;
-    height: 1px;
-    background-color: #ffffff !important;
-    transition: all 0.5s ease;
+    height: 1.5px;
+    background-color: #ffffff;
+    transition: all 0.4s ease;
   }
 
   .sensol-header-section.scrolled .sensol-header__hamburger span {
-    background-color: #1A1816 !important;
+    background-color: #1A1816;
   }
 
   .sensol-header__hamburger.active span:nth-child(1) {
@@ -219,8 +169,9 @@
     z-index: 999;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), visibility 0.5s;
     padding: 100px 48px 48px;
+    overflow-y: auto;
   }
 
   .sensol-header__drawer.open {
@@ -228,24 +179,18 @@
     visibility: visible;
   }
 
-  @media (min-width: 769px) {
-    .sensol-header__drawer {
-      display: none;
-    }
-  }
-
   .sensol-header__drawer-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 36px;
     height: 100%;
   }
 
   .sensol-header__drawer-link {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -255,15 +200,31 @@
 
   .sensol-header__drawer-shop-btn {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #F7F4F0;
     background-color: #1A1816;
-    padding: 12px 32px;
+    padding: 14px 40px;
     text-decoration: none;
     margin-top: 16px;
+  }
+
+  .sensol-header__drawer-actions {
+    display: flex;
+    gap: 32px;
+    margin-top: 8px;
+  }
+
+  .sensol-header__drawer-actions a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+    text-decoration: none;
   }
 
   body.drawer-open {
@@ -290,31 +251,37 @@
 
 <header class="sensol-header-section" id="sensolHeader">
   <div class="sensol-header__inner">
-    <button class="sensol-header__hamburger" id="sensolHamburger" aria-label="Menu">
+    <button type="button" class="sensol-header__hamburger" id="sensolHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <a href="/" class="sensol-header__logo">
-      {%- if section.settings.logo_image != blank -%}
+      {%- if section.settings.logo_light != blank -%}
         <img
-          src="{{ section.settings.logo_image | image_url: width: 200 }}"
+          src="{{ section.settings.logo_light | image_url: width: 200 }}"
           alt="{{ shop.name | escape }}"
-          class="sensol-header__logo-img"
+          class="sensol-header__logo-img sensol-header__logo-img--light"
           width="{{ section.settings.logo_width }}"
-          height="auto"
+          height="32"
           loading="eager"
         >
       {%- else -%}
+        <span class="sensol-header__logo-text sensol-header__logo-text--light" style="font-family:'Inter',sans-serif;font-size:18px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;">SENSOL</span>
+      {%- endif -%}
+
+      {%- if section.settings.logo_dark != blank -%}
         <img
-          src="https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_46_sensol.png?v=1785228479"
-          alt="SENSOL"
-          class="sensol-header__logo-img"
+          src="{{ section.settings.logo_dark | image_url: width: 200 }}"
+          alt="{{ shop.name | escape }}"
+          class="sensol-header__logo-img sensol-header__logo-img--dark"
           width="{{ section.settings.logo_width }}"
-          height="auto"
+          height="32"
           loading="eager"
         >
+      {%- else -%}
+        <span class="sensol-header__logo-text sensol-header__logo-text--dark" style="font-family:'Inter',sans-serif;font-size:18px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#1A1816;">SENSOL</span>
       {%- endif -%}
     </a>
 
@@ -340,15 +307,15 @@
     </div>
   </div>
 
-  <div class="sensol-header__drawer" id="sensolDrawer">
+  <div class="sensol-header__drawer" id="sensolDrawer" aria-hidden="true">
     <div class="sensol-header__drawer-inner">
       {%- for link in linklists[section.settings.menu].links -%}
         <a href="{{ link.url }}" class="sensol-header__drawer-link">{{ link.title | upcase }}</a>
       {%- endfor -%}
       <a href="/collections/all" class="sensol-header__drawer-shop-btn">SHOP ALL</a>
       <div class="sensol-header__drawer-actions">
-        <a href="/account" class="sensol-header__drawer-link">ACCOUNT</a>
-        <a href="/cart" class="sensol-header__drawer-link">CART</a>
+        <a href="/account">ACCOUNT</a>
+        <a href="/cart">CART</a>
       </div>
     </div>
   </div>
@@ -360,19 +327,46 @@
     var hamburger = document.getElementById('sensolHamburger');
     var drawer = document.getElementById('sensolDrawer');
 
+    if (!header) return;
+
+    /* Scroll: toggle scrolled class */
     window.addEventListener('scroll', function() {
       if (window.scrollY > 60) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-    });
+    }, { passive: true });
 
+    /* Hamburger: toggle mobile menu */
     if (hamburger && drawer) {
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        drawer.classList.toggle('open');
-        document.body.classList.toggle('drawer-open');
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = drawer.classList.contains('open');
+        if (isOpen) {
+          drawer.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          drawer.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('drawer-open');
+        } else {
+          drawer.classList.add('open');
+          hamburger.classList.add('active');
+          hamburger.setAttribute('aria-expanded', 'true');
+          drawer.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('drawer-open');
+        }
+      });
+
+      /* Close drawer when clicking a link inside */
+      drawer.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          drawer.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          drawer.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('drawer-open');
+        }
       });
     }
   })();
@@ -386,8 +380,13 @@
   "settings": [
     {
       "type": "image_picker",
-      "id": "logo_image",
-      "label": "Logo image"
+      "id": "logo_light",
+      "label": "Logo (light/white — for transparent header over hero)"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_dark",
+      "label": "Logo (dark/black — for scrolled header)"
     },
     {
       "type": "range",
