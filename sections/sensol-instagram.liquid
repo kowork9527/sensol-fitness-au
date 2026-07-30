@@ -1,0 +1,305 @@
+{%- style -%}
+  .sensol-instagram {
+    padding: 100px 24px;
+    background: #F7F4F0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .sensol-instagram__inner {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .sensol-instagram__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+  }
+
+  .sensol-instagram__header-left {
+    text-align: left;
+  }
+
+  .sensol-instagram__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 12px;
+  }
+
+  .sensol-instagram__title {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 200;
+    letter-spacing: 0.08em;
+    color: #1A1816;
+    line-height: 1.2;
+  }
+
+  .sensol-instagram__handle {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #8A8279;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sensol-instagram__handle:hover {
+    color: #1A1816;
+  }
+
+  .sensol-instagram__handle-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sensol-instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+
+  @media (max-width: 1024px) {
+    .sensol-instagram__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sensol-instagram__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sensol-instagram {
+      padding: 60px 20px;
+    }
+    .sensol-instagram__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .sensol-instagram__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  .sensol-instagram__item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .sensol-instagram__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .sensol-instagram__item:hover img {
+    transform: scale(1.05);
+  }
+
+  .sensol-instagram__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 24, 22, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.4s ease;
+  }
+
+  .sensol-instagram__item:hover .sensol-instagram__overlay {
+    background: rgba(26, 24, 22, 0.3);
+  }
+
+  .sensol-instagram__overlay-icon {
+    width: 24px;
+    height: 24px;
+    color: #F7F4F0;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .sensol-instagram__item:hover .sensol-instagram__overlay-icon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sensol-instagram__cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .sensol-instagram__cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1A1816;
+    text-decoration: none;
+    padding: 14px 36px;
+    border: 1px solid #1A1816;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .sensol-instagram__cta-link:hover {
+    background: #1A1816;
+    color: #F7F4F0;
+  }
+
+  .sensol-instagram__cta-icon {
+    width: 16px;
+    height: 16px;
+  }
+{%- endstyle -%}
+
+<section class="sensol-instagram" id="sensol-instagram-{{ section.id }}">
+  <div class="sensol-instagram__inner">
+    <div class="sensol-instagram__header">
+      <div class="sensol-instagram__header-left">
+        {%- if section.settings.label != blank -%}
+        <p class="sensol-instagram__label">{{ section.settings.label }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+        <h2 class="sensol-instagram__title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.handle_text != blank -%}
+      <a class="sensol-instagram__handle" href="{{ section.settings.handle_url }}" target="_blank" rel="noopener">
+        <svg class="sensol-instagram__handle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        {{ section.settings.handle_text }}
+      </a>
+      {%- endif -%}
+    </div>
+
+    <div class="sensol-instagram__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'post' -%}
+        <a class="sensol-instagram__item" href="{{ block.settings.link }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.alt | default: 'Instagram post' }}" loading="lazy" width="600" height="600">
+          {%- else -%}
+          <div style="width:100%;height:100%;background:#D4CEC6;"></div>
+          {%- endif -%}
+          <div class="sensol-instagram__overlay">
+            <svg class="sensol-instagram__overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_text != blank -%}
+    <div class="sensol-instagram__cta">
+      <a class="sensol-instagram__cta-link" href="{{ section.settings.handle_url }}" target="_blank" rel="noopener">
+        <svg class="sensol-instagram__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        {{ section.settings.cta_text }}
+      </a>
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Instagram",
+  "tag": "section",
+  "class": "sensol-instagram-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Community"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Trained by you."
+    },
+    {
+      "type": "text",
+      "id": "handle_text",
+      "label": "Instagram handle text",
+      "default": "@sensol.fitness"
+    },
+    {
+      "type": "url",
+      "id": "handle_url",
+      "label": "Instagram profile URL",
+      "default": "https://www.instagram.com/sensol.fitness/"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Follow us on Instagram"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Post",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Post image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Instagram post URL"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SENSOL Instagram",
+      "blocks": [
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" }
+      ]
+    }
+  ]
+}
+{% endschema %}
