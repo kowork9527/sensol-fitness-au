@@ -4,202 +4,350 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Sensol Fitness</title>
 
-  <link href="https://lf-code-agent.coze.cn/obj/x-ai-cn/fonts/google/google-all-fonts.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
 
-  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/jquery/jquery-3.7.1.min.js"></script>
   <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/lucide/lucide-1.11.0.min.js"></script>
-  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/tailwindcss/tailwindcss-browser-4.2.4.min.js"></script>
-
-  <style type="text/tailwindcss">
-    @theme {
-      /* === 品牌色 (Sensol Fitness - Architectural Elegance) === */
-      --color-primary:              #1A1816;
-      --color-primary-container:    #D4CEC6;
-      --color-on-primary:           #F7F4F0;
-      /* === 背景 / 表面 === */
-      --color-background:                 #F7F4F0;
-      --color-surface-container-lowest:   #FFFFFF;
-      --color-surface:                    #F7F4F0;
-      --color-surface-container:          #EDEAE5;
-      --color-surface-container-high:     #E3DFD9;
-      --color-surface-container-highest:  #D4CEC6;
-      /* === 文字 === */
-      --color-on-surface:           #1A1816;
-      --color-on-surface-variant:   #8A8279;
-      /* === 功能色 === */
-      --color-success:  #22c55e;
-      --color-error:    #ef4444;
-      --color-warning:  #f59e0b;
-      /* === 边框 === */
-      --color-outline:          #D4CEC6;
-      --color-outline-variant:  #E3DFD9;
-      /* === 圆角 === */
-      --radius-sm:   0.0625rem;
-      --radius-md:   0.125rem;
-      --radius-lg:   0.25rem;
-      --radius-xl:   0.5rem;
-      --radius-2xl:  1rem;
-      --radius-full: 9999px;
-      /* === 阴影 === */
-      --shadow-card:   0 1px 3px rgba(26,24,22,0.08);
-      --shadow-float:  0 4px 12px rgba(26,24,22,0.08);
-      --shadow-dialog: 0 12px 32px rgba(26,24,22,0.12);
-      /* === 字体 === */
-      --font-sans: "Inter", system-ui, sans-serif;
-    }
-  </style>
-
-  <!-- 图片兜底 -->
-  <script>
-    document.addEventListener('error', function (e) {
-      const img = e.target;
-      if (img.tagName !== 'IMG' || img.dataset.fallback) return;
-      img.dataset.fallback = '1';
-      const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      const cat = img.getAttribute('data-category') || '其他';
-      const alt = img.getAttribute('alt') || '';
-      const label = esc(alt.length > 8 ? alt.slice(0, 8) + '…' : alt);
-      const icons = { '人物': '👤', '自然风景': '🏞', '动物': '🐾', '建筑城市': '🏙', '运动体育': '⚽', '交通工具': '🚗', '食物': '🍽', '服饰时尚': '👗', '商业科技': '💼', '游戏娱乐': '🎮', '艺术': '🎨', '其他': '🖼' };
-      const icon = icons[cat] || '🖼';
-      const w = img.width || 400, h = img.height || 300;
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="45%" text-anchor="middle" font-size="${Math.min(w, h) * 0.18}" dominant-baseline="central">${icon}</text><text x="50%" y="68%" text-anchor="middle" font-size="${Math.min(w, h) * 0.07}" fill="%239ca3af" font-family="system-ui,sans-serif" dominant-baseline="central">${label}</text></svg>`;
-      img.src = 'data:image/svg+xml,' + svg;
-    }, true);
-  </script>
 
   <style>
-    /* Navigation scroll states */
-    #mainNav.nav-transparent { background: transparent; }
-    #mainNav.nav-transparent #navLogo,
-    #mainNav.nav-transparent nav a,
-    #mainNav.nav-transparent #menuToggle,
-    #mainNav.nav-transparent #menuToggle i { color: #F7F4F0; }
-    #mainNav.nav-transparent .nav-shop-btn { background: #F7F4F0; color: #1A1816; }
-    #mainNav.nav-solid { background: #F7F4F0; border-bottom: 1px solid #E3DFD9; }
-    #mainNav.nav-solid #navLogo,
-    #mainNav.nav-solid nav a,
-    #mainNav.nav-solid #menuToggle,
-    #mainNav.nav-solid #menuToggle i { color: #1A1816; }
-    #mainNav.nav-solid .nav-shop-btn { background: #1A1816; color: #F7F4F0; }
-    #mainNav.nav-solid nav a[aria-current="page"] { color: #1A1816; opacity: 1; }
-    #mainNav.nav-transparent nav a[aria-current="page"] { color: #F7F4F0; opacity: 1; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Mobile menu overlay */
-    #mobileMenu {
-      position: fixed; inset: 0; z-index: 60;
-      background: #F7F4F0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 2rem;
-      transform: translateY(-100%);
-      transition: transform 0.4s ease;
+    :root {
+      --ivory:   #F7F4F0;
+      --carbon:  #1A1816;
+      --stone:   #8A8279;
+      --linen:   #D4CEC6;
+      --dove:    #B5ADA4;
+      --sand:    #EDEAE5;
+      --cream:   #E3DFD9;
     }
-    #mobileMenu.open { transform: translateY(0); }
-    #mobileMenu a {
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--ivory);
+      color: var(--carbon);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ───── Nav ───── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 80px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    .nav--transparent { background: transparent; }
+    .nav--solid { background: var(--ivory); border-bottom: 1px solid var(--cream); }
+    .nav-inner {
+      max-width: 1600px; width: 100%; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav--transparent .nav-logo,
+    .nav--transparent .nav-link,
+    .nav--transparent .nav-btn { color: var(--ivory); }
+    .nav--solid .nav-logo,
+    .nav--solid .nav-link,
+    .nav--solid .nav-btn { color: var(--carbon); }
+    .nav-logo {
+      font-size: 15px; letter-spacing: 0.2em; font-weight: 300; text-transform: uppercase;
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-link {
+      font-size: 11px; letter-spacing: 0.15em; font-weight: 300; text-transform: uppercase;
+      text-decoration: none; transition: color 0.3s, opacity 0.3s;
+    }
+    .nav-link:hover { opacity: 0.6; }
+    .nav-link[aria-current="page"] { opacity: 1; }
+    .nav-btn {
+      font-size: 11px; letter-spacing: 0.15em; font-weight: 300; text-transform: uppercase;
+      text-decoration: none; padding: 0.5rem 1.25rem;
+      transition: all 0.3s;
+    }
+    .nav--transparent .nav-btn { background: var(--ivory); color: var(--carbon); }
+    .nav--solid .nav-btn { background: var(--carbon); color: var(--ivory); }
+
+    /* ───── Typography ───── */
+    .label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 300; color: var(--stone);
+    }
+    .heading-xl {
+      font-size: clamp(32px, 5vw, 64px); font-weight: 200;
+      letter-spacing: 0.05em; line-height: 1.15;
+    }
+    .heading-lg {
+      font-size: clamp(24px, 3.5vw, 40px); font-weight: 200;
+      letter-spacing: 0.05em; line-height: 1.2;
+    }
+    .heading-md {
+      font-size: clamp(18px, 2vw, 24px); font-weight: 300;
+      letter-spacing: 0.05em; line-height: 1.3;
+    }
+    .body-text {
+      font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--stone);
+    }
+    .body-text-dark {
+      font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--carbon);
+    }
+    .caption {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 300;
+    }
+
+    /* ───── Section ───── */
+    .section { padding: 6rem 0; }
+    .container { max-width: 1600px; margin: 0 auto; padding: 0 2.5rem; }
+    .container--narrow { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .container--text { max-width: 800px; margin: 0 auto; padding: 0 2.5rem; }
+
+    /* ───── Opening ───── */
+    .opening {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      padding: 8rem 0;
+    }
+    .opening-content {
+      max-width: 900px; text-align: center; padding: 0 2.5rem;
+    }
+    .opening-title {
+      font-size: clamp(36px, 6vw, 80px); font-weight: 200;
+      letter-spacing: 0.08em; line-height: 1.1; text-transform: uppercase;
+    }
+    .opening-rule {
+      width: 60px; height: 1px; background: var(--stone); margin: 2.5rem auto;
+    }
+    .opening-subtitle {
+      font-size: clamp(15px, 1.2vw, 18px); font-weight: 300;
+      letter-spacing: 0.06em; color: var(--stone); max-width: 560px; margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ───── Story ───── */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: start;
+    }
+
+    /* ───── Timeline ───── */
+    .timeline { position: relative; padding-left: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--cream);
+    }
+    .timeline-year {
+      font-size: 32px; font-weight: 200; letter-spacing: 0.05em;
+      color: var(--carbon); padding-top: 0.2rem;
+    }
+    .timeline-content h3 {
       font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
-      font-weight: 300; color: #1A1816; transition: opacity 0.3s;
+      font-weight: 300; margin-bottom: 1rem;
     }
-    #mobileMenu a:hover { opacity: 0.6; }
-    #mobileMenuClose {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: none; border: none; cursor: pointer; color: #1A1816;
+    .timeline-content p {
+      font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--stone);
     }
+    .timeline-stat {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      margin-right: 2rem; margin-top: 1rem;
+    }
+    .timeline-stat-value {
+      font-size: 24px; font-weight: 200; letter-spacing: 0.02em;
+    }
+    .timeline-stat-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 300; color: var(--stone);
+    }
+
+    /* ───── Product Series ───── */
+    .series-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .series-card {
+      border-top: 1px solid var(--cream); padding-top: 2rem;
+    }
+    .series-card h3 {
+      font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 400; margin-bottom: 1.5rem;
+    }
+    .series-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.75rem 0; border-bottom: 1px solid var(--cream);
+    }
+    .series-item-name {
+      font-size: 14px; font-weight: 300; letter-spacing: 0.04em;
+    }
+    .series-item-price {
+      font-size: 12px; font-weight: 300; color: var(--stone);
+    }
+    .series-desc {
+      font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--stone);
+      margin-top: 1.5rem;
+    }
+
+    /* ───── Australia ───── */
+    .au-section { background: var(--carbon); color: var(--ivory); }
+    .au-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: start;
+    }
+    .au-city-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .au-city {
+      text-align: center; padding: 1.5rem 0;
+      border: 1px solid rgba(247,244,240,0.12);
+    }
+    .au-city-name {
+      font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    /* ───── Commitment ───── */
+    .commitment-quote {
+      font-size: clamp(24px, 3vw, 40px); font-weight: 200;
+      letter-spacing: 0.08em; line-height: 1.3; text-transform: uppercase;
+    }
+    .commitment-body {
+      font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--stone);
+      max-width: 640px;
+    }
+
+    /* ───── Company Info ───── */
+    .company-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      border-top: 1px solid var(--cream); padding-top: 3rem; margin-top: 4rem;
+    }
+    .company-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 300; color: var(--stone); margin-bottom: 0.75rem;
+    }
+    .company-value {
+      font-size: 13px; font-weight: 300; line-height: 1.6;
+    }
+
+    /* ───── Image ───── */
+    .img-fill {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    /* ───── Responsive ───── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-btn { display: none; }
+      .section { padding: 4rem 0; }
+      .container, .container--narrow, .container--text { padding: 0 1.5rem; }
+      .opening { min-height: 80vh; padding: 6rem 0; }
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+      .timeline-year { font-size: 24px; }
+      .series-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .au-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .au-city-grid { grid-template-columns: repeat(3, 1fr); }
+      .company-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container { padding: 0 2rem; }
+      .story-grid { gap: 3rem; }
+      .series-grid { gap: 2rem; }
+    }
+
+    /* ───── Scroll reveal ───── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
-<body class="bg-background text-on-surface font-sans">
+<body>
 
-  <!-- @nav:start 导航组件 -->
-  <header class="fixed top-0 left-0 right-0 z-50 nav-transparent transition-all duration-500" id="mainNav">
-    <div class="max-w-[1600px] mx-auto px-6 md:px-10 flex items-center justify-between h-20">
-      <a href="home.html" class="text-lg tracking-[0.2em] font-light uppercase transition-colors duration-300" id="navLogo">SENSOL</a>
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="home.html" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink1">Philosophy</a>
-        <a href="about.html" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" aria-current="page" id="navLink2">About</a>
-        <a href="home.html#products" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink3">Products</a>
-        <a href="home.html#engineering" class="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-300 hover:opacity-70" id="navLink4">Engineering</a>
-      </nav>
-      <a href="home.html#collection" class="hidden md:inline-block nav-shop-btn bg-on-surface text-background text-[11px] tracking-[0.15em] uppercase px-5 py-2 hover:opacity-80 transition-opacity" id="navShopBtn">Shop All</a>
-      <button class="md:hidden" id="menuToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+  <!-- ═══════════ Navigation ═══════════ -->
+  <header class="nav nav--transparent" id="mainNav">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">SENSOL</a>
+      <div class="nav-links">
+        <a href="home.html" class="nav-link">Philosophy</a>
+        <a href="about.html" class="nav-link" aria-current="page">About</a>
+        <a href="home.html#products" class="nav-link">Products</a>
+        <a href="home.html#engineering" class="nav-link">Engineering</a>
+      </div>
+      <a href="home.html#collection" class="nav-btn">Shop All</a>
     </div>
   </header>
-  <!-- @nav:end 导航组件 -->
 
-  <!-- Mobile menu -->
-  <div id="mobileMenu">
-    <button id="mobileMenuClose"><i data-lucide="x" class="w-6 h-6"></i></button>
-    <a href="home.html">Philosophy</a>
-    <a href="about.html">About</a>
-    <a href="home.html#products">Products</a>
-    <a href="home.html#engineering">Engineering</a>
-    <a href="home.html#collection" class="mt-4 bg-on-surface text-background text-[11px] tracking-[0.15em] uppercase px-6 py-3">Shop All</a>
-  </div>
+  <main>
 
-  <main class="w-full">
-    <!-- @main-content:start -->
-
-    <!-- ============================== -->
-    <!-- SECTION 1 — HERO              -->
-    <!-- ============================== -->
-    <section id="heroSection" class="relative w-full min-h-[85vh] flex items-end overflow-hidden">
-      <img
-        src="/about-img/banner-1.webp"
-        alt="Atmospheric fitness space"
-        data-category="运动体育"
-        class="absolute inset-0 w-full h-full object-cover"
-        id="heroImage"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#1A1816]/70 via-[#1A1816]/20 to-transparent"></div>
-      <div class="relative z-10 max-w-[1600px] mx-auto w-full px-6 md:px-10 pb-20 md:pb-28">
-        <h1 class="text-[#F7F4F0] text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.2em] uppercase leading-tight" id="heroTitle">
-          ABOUT SENSOL
-        </h1>
-        <p class="text-[#F7F4F0]/80 text-base md:text-lg font-light tracking-[0.08em] mt-6 max-w-xl" id="heroSubtitle">
-          Redefining the role of fitness in modern living.
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 1 — OPENING STATEMENT                    -->
+    <!-- Pure text, no hero image. Editorial, intimate.   -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="opening" id="opening">
+      <div class="opening-content">
+        <p class="label" style="margin-bottom: 2rem;">About Sensol</p>
+        <h1 class="opening-title">A New Language<br>of Training</h1>
+        <div class="opening-rule"></div>
+        <p class="opening-subtitle">
+          Where strength meets precision, and movement becomes design.
+          Founded in 2022, we design intelligent training systems that
+          merge performance, technology, and spatial aesthetics.
         </p>
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- SECTION 2 — BRAND STORY        -->
-    <!-- ============================== -->
-    <section id="brandStorySection" class="py-24 md:py-32">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <!-- Left column (7 cols) -->
-          <div class="lg:col-span-7">
-            <span class="text-[11px] tracking-[0.15em] uppercase font-light text-on-surface-variant" id="storyLabel">01 — OUR STORY</span>
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.05em] leading-snug mt-6 max-w-2xl" id="storyTitle">
-              Founded on the conviction that fitness equipment should belong in the same conversation as architecture and design.
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 2 — THE BEGINNING                        -->
+    <!-- Origin story — text-driven with supporting image  -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="origin">
+      <div class="container">
+        <div class="reveal">
+          <p class="label" style="margin-bottom: 3rem;">01 — The Beginning</p>
+        </div>
+        <div class="story-grid">
+          <div class="reveal">
+            <h2 class="heading-lg" style="margin-bottom: 2rem;">
+              The story starts with a question that had no good answer
             </h2>
-            <p class="text-sm md:text-base font-light leading-relaxed text-on-surface-variant mt-8 max-w-2xl" id="storyBody">
-              Sensol was founded in 2022 with a simple conviction: fitness equipment should belong in the same conversation as architecture and design. Not as an afterthought in a garage, but as a considered object in a considered space. Every curve, every material, every mechanism is shaped by the belief that how you train is inseparable from where you train. We believe that strength is not about how much you can lift, but how precisely you can move. Every Sensol system is built to help you discover that precision — in your own space, at your own pace, on your own terms.
+            <p class="body-text">
+              Why does serious strength training demand an entire room,
+              a wall of weights, and a tolerance for noise?
             </p>
-            <!-- Stats row -->
-            <div class="flex items-center gap-8 md:gap-12 mt-12 pt-8 border-t border-outline-variant/30" id="storyStats">
-              <div class="text-center">
-                <span class="text-3xl md:text-4xl font-extralight tracking-wide text-on-surface">2022</span>
-                <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-on-surface-variant mt-2">Founded</span>
-              </div>
-              <div class="text-center">
-                <span class="text-3xl md:text-4xl font-extralight tracking-wide text-on-surface">7</span>
-                <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-on-surface-variant mt-2">Products</span>
-              </div>
-              <div class="text-center">
-                <span class="text-3xl md:text-4xl font-extralight tracking-wide text-on-surface">&infin;</span>
-                <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-on-surface-variant mt-2">Possibilities</span>
-              </div>
-            </div>
+            <p class="body-text" style="margin-top: 1.5rem;">
+              For over a decade, the engineering team behind SENSOL
+              &mdash; based in Shanghai and operating under Thunderbird
+              Tech Limited &mdash; worked quietly at the intersection of
+              robotics, motor control, and fitness biomechanics.
+            </p>
+            <p class="body-text" style="margin-top: 1.5rem;">
+              Their goal was deceptively simple: compress the function of
+              an entire gym into a single piece of furniture. Not a
+              multi-station cable machine. Not a foldable bench with
+              plates. Something fundamentally new.
+            </p>
+            <p class="body-text" style="margin-top: 1.5rem;">
+              That vision became the <strong style="font-weight: 400; color: var(--carbon);">Digital Weight System</strong>
+              &mdash; a motor-driven resistance engine controlled by
+              software, replacing iron plates with precise, instant,
+              silent load. It was a concept that had been attempted
+              before, but never in a form this compact, this quiet, and
+              this precise.
+            </p>
           </div>
-          <!-- Right column (5 cols) -->
-          <div class="lg:col-span-5">
-            <div class="aspect-[3/4] overflow-hidden" id="storyImageWrapper">
+          <div class="reveal">
+            <div style="aspect-ratio: 3/4; overflow: hidden; background: var(--sand);">
               <img
                 src="/about-img/section-1.webp"
-                alt="Fitness equipment in architectural space"
-                data-category="运动体育"
-                class="w-full h-full object-cover"
-                id="storyImage"
+                alt="Sensol Digital Weight System — precise, silent, compact"
+                class="img-fill"
               />
             </div>
           </div>
@@ -207,199 +355,418 @@
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- SECTION 3 — PHILOSOPHY         -->
-    <!-- ============================== -->
-    <section id="philosophySection" class="py-24 md:py-32 bg-surface-container/50">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-10">
-        <span class="text-[11px] tracking-[0.15em] uppercase font-light text-on-surface-variant" id="philosophyLabel">OUR PHILOSOPHY</span>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 mt-12">
-          <!-- Philosophy card 1 -->
-          <div class="border-t border-outline-variant/30 pt-8" id="philosophyCard1">
-            <div class="flex items-center gap-3 mb-5">
-              <i data-lucide="zap" class="w-4 h-4 text-on-surface-variant"></i>
-              <h3 class="text-sm tracking-[0.15em] uppercase font-light text-on-surface">ADAPTIVE RESISTANCE</h3>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 3 — TIMELINE / JOURNEY                   -->
+    <!-- Chronological narrative — not product features    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="journey" style="background: var(--sand);">
+      <div class="container--narrow">
+        <div class="reveal">
+          <p class="label" style="margin-bottom: 3rem;">02 — The Journey</p>
+        </div>
+        <div class="timeline">
+          <!-- 2023 -->
+          <div class="timeline-item reveal">
+            <span class="timeline-year">2023</span>
+            <div class="timeline-content">
+              <h3>Going Public</h3>
+              <p>
+                After years of prototyping and iteration, SENSOL made its
+                public debut. The first product, the TB02 Smart Fitness
+                Bench, launched simultaneously on Kickstarter and
+                Indiegogo. The response was immediate &mdash; backers from
+                the United States, Europe, and Asia pledged support, drawn
+                to the promise of an all-in-one smart gym that could
+                replace racks of equipment with a single sleek bench.
+              </p>
+              <p style="margin-top: 1rem;">
+                That same month, SENSOL was featured on Product Hunt,
+                earning recognition as one of the most innovative new
+                products in the smart home fitness space.
+              </p>
+              <div>
+                <span class="timeline-stat">
+                  <span class="timeline-stat-value">HK$550K</span>
+                  <span class="timeline-stat-label">Raised</span>
+                </span>
+                <span class="timeline-stat">
+                  <span class="timeline-stat-value">2</span>
+                  <span class="timeline-stat-label">Platforms</span>
+                </span>
+              </div>
             </div>
-            <p class="text-sm font-light leading-relaxed text-on-surface-variant">
-              Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate.
+          </div>
+
+          <!-- 2024 -->
+          <div class="timeline-item reveal">
+            <span class="timeline-year">2024</span>
+            <div class="timeline-content">
+              <h3>Shipping, Refining, Listening</h3>
+              <p>
+                By January 2024, all crowdfunding units had been shipped.
+                Deliveries reached backers across the western and eastern
+                United States, Europe, and Asia. But shipping was only the
+                beginning.
+              </p>
+              <p style="margin-top: 1rem;">
+                The real work started when people started training on
+                SENSOL in their homes &mdash; and started telling us what
+                worked, what confused them, and what they wished the
+                system could do. That feedback drove rapid iteration. The
+                SENSOL Smart App evolved through multiple updates, adding
+                Bluetooth direct control, weight unit switching, custom
+                workout creation, real-time performance analytics, and an
+                expanding library of guided classes. The AI coaching
+                engine became smarter with every session.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2025 -->
+          <div class="timeline-item reveal">
+            <span class="timeline-year">2025</span>
+            <div class="timeline-content">
+              <h3>Senzine: Where Movement Meets Thought</h3>
+              <p>
+                Beyond the hardware, SENSOL has always been about a
+                philosophy of training. In 2025, we launched Senzine
+                &mdash; SENSOL's internal publication. Each issue distills
+                a single idea &mdash; control, resistance, stillness
+                &mdash; into a tactile experience, designed to be felt as
+                much as it is read.
+              </p>
+              <p style="margin-top: 1rem;">
+                Released in quiet intervals, Senzine carries fragments of
+                movement philosophy, reflections on design, and moments of
+                attention. It is not a catalogue. It is not a manual. It
+                is an invitation to think differently about why you train.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2026 -->
+          <div class="timeline-item reveal">
+            <span class="timeline-year">2026</span>
+            <div class="timeline-content">
+              <h3>Crossing to Australia</h3>
+              <p>
+                As SENSOL's reputation grew, one market kept surfacing in
+                community feedback, media inquiries, and direct customer
+                requests: Australia. Australian fitness culture is distinct
+                &mdash; it values quality, it values design, and it has
+                zero patience for equipment that can't be delivered quickly
+                or supported locally.
+              </p>
+              <p style="margin-top: 1rem;">
+                That's why Dute Fitness (Australia) Pty. Ltd. was
+                established. Registered in Victoria in July 2026, Dute
+                Fitness is the exclusive Australian distributor for
+                SENSOL. Every unit sold through sensolfitness.com.au is
+                covered by local warranty, supported by a local team, and
+                shipped from a local warehouse.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 4 — PRODUCT LINE                         -->
+    <!-- Product evolution, not product showcase           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="product-line">
+      <div class="container--narrow">
+        <div class="reveal">
+          <p class="label" style="margin-bottom: 1rem;">03 — The Line</p>
+          <h2 class="heading-lg" style="max-width: 600px;">
+            Two series. One philosophy.
+          </h2>
+          <p class="body-text" style="margin-top: 1.5rem; max-width: 600px;">
+            The original TB02 proved that the concept worked. The next
+            challenge was making SENSOL accessible to more people, at more
+            fitness levels, in more spaces.
+          </p>
+        </div>
+        <div class="series-grid" style="margin-top: 3rem;">
+          <!-- Smart Series -->
+          <div class="series-card reveal">
+            <h3>Smart Series</h3>
+            <p class="body-text" style="font-size: 13px; margin-bottom: 1.5rem;">
+              Dual-servo digital weight platform &mdash; motor-driven, software-controlled, AI-enhanced.
+            </p>
+            <div class="series-item">
+              <span class="series-item-name">RS02</span>
+              <span class="series-item-price">from $2,000</span>
+            </div>
+            <div class="series-item">
+              <span class="series-item-name">RS02 PRO</span>
+              <span class="series-item-price">from $2,400</span>
+            </div>
+            <div class="series-item">
+              <span class="series-item-name">RS03</span>
+              <span class="series-item-price">&mdash;</span>
+            </div>
+            <div class="series-item">
+              <span class="series-item-name">RS03 PRO</span>
+              <span class="series-item-price">&mdash;</span>
+            </div>
+            <p class="series-desc">
+              The RS02 refined the TB02's dual-servo digital weight platform.
+              The RS02 PRO added premium features and expanded resistance
+              programming. The RS03 and RS03 PRO pushed the system further
+              &mdash; larger frame, more advanced motor tuning, and a wider
+              range of supported movements for athletes who demanded maximum
+              resistance and data-driven precision.
             </p>
           </div>
-          <!-- Philosophy card 2 -->
-          <div class="border-t border-outline-variant/30 pt-8" id="philosophyCard2">
-            <div class="flex items-center gap-3 mb-5">
-              <i data-lucide="layout" class="w-4 h-4 text-on-surface-variant"></i>
-              <h3 class="text-sm tracking-[0.15em] uppercase font-light text-on-surface">SPATIAL DESIGN</h3>
+          <!-- Flex Series -->
+          <div class="series-card reveal">
+            <h3>Flex Series</h3>
+            <p class="body-text" style="font-size: 13px; margin-bottom: 1.5rem;">
+              Spring-based &amp; elastic resistance in the same iconic form &mdash; lighter, more accessible.
+            </p>
+            <div class="series-item">
+              <span class="series-item-name">FLEX AIR</span>
+              <span class="series-item-price">from $650</span>
             </div>
-            <p class="text-sm font-light leading-relaxed text-on-surface-variant">
-              Every Sensol machine is designed to live in your space — not dominate it. Clean lines, premium materials, and a footprint that respects the architecture of your home or studio.
+            <div class="series-item">
+              <span class="series-item-name">FLEX</span>
+              <span class="series-item-price">&mdash;</span>
+            </div>
+            <div class="series-item">
+              <span class="series-item-name">FLEX PRO</span>
+              <span class="series-item-price">&mdash;</span>
+            </div>
+            <p class="series-desc">
+              The Flex Series was born from a different question: what if
+              you want the SENSOL design philosophy without the motor
+              system? Particularly suited to Pilates-inspired movement,
+              rehabilitation, and progressive strength building.
             </p>
           </div>
-          <!-- Philosophy card 3 -->
-          <div class="border-t border-outline-variant/30 pt-8" id="philosophyCard3">
-            <div class="flex items-center gap-3 mb-5">
-              <i data-lucide="brain" class="w-4 h-4 text-on-surface-variant"></i>
-              <h3 class="text-sm tracking-[0.15em] uppercase font-light text-on-surface">INTELLIGENT MOTION</h3>
+        </div>
+        <div class="reveal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--cream);">
+          <p class="body-text" style="max-width: 700px;">
+            Together, the two series cover the full spectrum: from
+            <strong style="font-weight: 400; color: var(--carbon);">$650</strong> entry-level
+            to
+            <strong style="font-weight: 400; color: var(--carbon);">$2,800</strong>
+            professional-grade, every product shares the same design DNA
+            &mdash; compact, intentional, and built around the human body.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 5 — GROWING IN THE US                    -->
+    <!-- Market expansion story with supporting image      -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="us-growth">
+      <div class="container">
+        <div class="story-grid">
+          <div class="reveal">
+            <div style="aspect-ratio: 4/5; overflow: hidden; background: var(--sand);">
+              <img
+                src="/about-img/banner-1.webp"
+                alt="Sensol training in a modern living space"
+                class="img-fill"
+              />
             </div>
-            <p class="text-sm font-light leading-relaxed text-on-surface-variant">
-              From 360-degree range of motion to whisper-quiet operation at under 25dB, every technical detail serves one purpose: to let you focus entirely on the movement.
+          </div>
+          <div class="reveal">
+            <p class="label" style="margin-bottom: 1rem;">04 — Growing in the US</p>
+            <h2 class="heading-lg" style="margin-bottom: 2rem;">
+              From crowdfunding to retail shelves
+            </h2>
+            <p class="body-text">
+              SENSOL's presence in the US market grew steadily after the
+              initial crowdfunding deliveries. The brand established
+              sensolfitness.com as its direct-to-consumer channel, and in
+              2026 partnered with Vesta Fitness as its official retail
+              partner &mdash; making SENSOL the first smart fitness bench
+              available for hands-on trial and in-stock purchase through a
+              US retailer.
+            </p>
+            <p class="body-text" style="margin-top: 1.5rem;">
+              By 2026, SENSOL had become a recognised name in the smart
+              home gym category &mdash; listed alongside Tonal, Speediance,
+              and Oxefit in major product roundups and buyer's guides.
+            </p>
+            <p class="body-text" style="margin-top: 1.5rem;">
+              The SENSOL Smart App continued to serve the North American
+              user base with AI-driven coaching, a growing library of
+              on-demand classes, and seamless integration across the
+              entire product line.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- SECTION 4 — TEAM / LEADERSHIP  -->
-    <!-- ============================== -->
-    <section id="teamSection" class="py-24 md:py-32">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-10">
-        <span class="text-[11px] tracking-[0.15em] uppercase font-light text-on-surface-variant" id="teamLabel">02 — LEADERSHIP</span>
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.05em] leading-snug mt-6" id="teamTitle">
-          The people behind the precision
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 lg:gap-10 mt-14">
-          <!-- Team member 1 -->
-          <div id="teamMember1">
-            <div class="aspect-[3/4] overflow-hidden bg-surface-container">
-              <img
-                src="/about-img/editorial-1.webp"
-                alt="James Chen, Founder and CEO"
-                data-category="人物"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-sm tracking-[0.1em] uppercase font-light mt-5 text-on-surface">James Chen</h3>
-            <p class="text-[11px] tracking-[0.1em] uppercase font-light text-on-surface-variant mt-1">Founder &amp; CEO</p>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 6 — AUSTRALIA                            -->
+    <!-- Local commitment — dark section                   -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section au-section" id="australia">
+      <div class="container">
+        <div class="au-grid">
+          <div class="reveal">
+            <p class="label" style="color: rgba(247,244,240,0.4); margin-bottom: 1rem;">
+              05 — Australia
+            </p>
+            <h2 class="heading-lg" style="color: var(--ivory); margin-bottom: 2rem;">
+              Built for Australia.<br>Backed locally.
+            </h2>
+            <p style="font-size: 14px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.55);">
+              This isn't a grey-market import operation. Every unit sold
+              through sensolfitness.com.au is covered by local warranty,
+              supported by a local team, and shipped from a local
+              warehouse.
+            </p>
+            <p style="font-size: 14px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.55); margin-top: 1rem;">
+              We believe Australian fitness enthusiasts deserve the same
+              seamless, design-forward training experience that SENSOL
+              delivers worldwide &mdash; backed by inventory you can count
+              on and people who answer the phone.
+            </p>
           </div>
-          <!-- Team member 2 -->
-          <div id="teamMember2">
-            <div class="aspect-[3/4] overflow-hidden bg-surface-container">
-              <img
-                src="/about-img/editorial-2.webp"
-                alt="Sarah Mitchell, Head of Design"
-                data-category="人物"
-                class="w-full h-full object-cover"
-              />
+          <div class="reveal">
+            <p class="label" style="color: rgba(247,244,240,0.4); margin-bottom: 1rem;">
+              Local Warehousing
+            </p>
+            <div class="au-city-grid">
+              <div class="au-city">
+                <span class="au-city-name">Melbourne</span>
+              </div>
+              <div class="au-city">
+                <span class="au-city-name">Brisbane</span>
+              </div>
+              <div class="au-city">
+                <span class="au-city-name">Sydney</span>
+              </div>
             </div>
-            <h3 class="text-sm tracking-[0.1em] uppercase font-light mt-5 text-on-surface">Sarah Mitchell</h3>
-            <p class="text-[11px] tracking-[0.1em] uppercase font-light text-on-surface-variant mt-1">Head of Design</p>
-          </div>
-          <!-- Team member 3 -->
-          <div id="teamMember3">
-            <div class="aspect-[3/4] overflow-hidden bg-surface-container">
-              <img
-                src="/about-img/editorial-3.webp"
-                alt="Marcus Weber, CTO"
-                data-category="人物"
-                class="w-full h-full object-cover"
-              />
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(247,244,240,0.12);">
+              <p class="label" style="color: rgba(247,244,240,0.4); margin-bottom: 0.75rem;">
+                Distributor
+              </p>
+              <p style="font-size: 14px; font-weight: 300; color: rgba(247,244,240,0.7); line-height: 1.6;">
+                Dute Fitness (Australia) Pty. Ltd.<br>
+                ACN 700 632 337<br>
+                Registered in Victoria, Australia
+              </p>
             </div>
-            <h3 class="text-sm tracking-[0.1em] uppercase font-light mt-5 text-on-surface">Marcus Weber</h3>
-            <p class="text-[11px] tracking-[0.1em] uppercase font-light text-on-surface-variant mt-1">CTO</p>
-          </div>
-          <!-- Team member 4 -->
-          <div id="teamMember4">
-            <div class="aspect-[3/4] overflow-hidden bg-surface-container">
-              <img
-                src="/about-img/landscape-1.webp"
-                alt="Elena Rodriguez, VP of Operations"
-                data-category="人物"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-sm tracking-[0.1em] uppercase font-light mt-5 text-on-surface">Elena Rodriguez</h3>
-            <p class="text-[11px] tracking-[0.1em] uppercase font-light text-on-surface-variant mt-1">VP of Operations</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- SECTION 5 — GLOBAL PRESENCE    -->
-    <!-- ============================== -->
-    <section id="globalSection" class="py-24 md:py-32 bg-[#1A1816]">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-10">
-        <span class="text-[11px] tracking-[0.15em] uppercase font-light text-[#F7F4F0]/50" id="globalLabel">03 — GLOBAL PRESENCE</span>
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.05em] leading-snug mt-6 text-[#F7F4F0]" id="globalTitle">
-          From Sydney to the world
-        </h2>
-        <p class="text-sm md:text-base font-light leading-relaxed text-[#F7F4F0]/60 mt-8 max-w-2xl" id="globalBody">
-          What began in a Sydney workshop has grown into a global movement. Sensol systems are now found in homes, studios, and wellness spaces across three continents — each one a testament to the idea that precision and beauty are not mutually exclusive.
-        </p>
-        <!-- Stats -->
-        <div class="flex items-center gap-8 md:gap-12 mt-14 pt-8 border-t border-[#F7F4F0]/15" id="globalStats">
-          <div class="text-center">
-            <span class="text-3xl md:text-4xl font-extralight tracking-wide text-[#F7F4F0]">3</span>
-            <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-[#F7F4F0]/50 mt-2">Continents</span>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 7 — COMMITMENT                           -->
+    <!-- Mission statement — editorial, intimate           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="commitment">
+      <div class="container--text" style="text-align: center;">
+        <div class="reveal">
+          <p class="label" style="margin-bottom: 3rem;">Our Commitment</p>
+        </div>
+        <div class="reveal">
+          <p class="commitment-quote" style="margin-bottom: 3rem;">
+            Make it easy.<br>Do it real.
+          </p>
+        </div>
+        <div class="reveal">
+          <p class="commitment-body" style="margin: 0 auto; text-align: left;">
+            From the first prototype in Shanghai to crowdfunding backers
+            in California, from retail shelves in the United States to
+            warehouses in Melbourne &mdash; SENSOL's mission has never
+            changed: make serious strength training more precise, more
+            accessible, and more beautiful.
+          </p>
+          <p class="commitment-body" style="margin: 1.5rem auto 0; text-align: left;">
+            Every product we build, every app update we ship, every
+            Senzine issue we publish is driven by that conviction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 8 — CONTACT / COMPANY INFO               -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="contact" style="padding-top: 0;">
+      <div class="container--narrow">
+        <div class="company-grid reveal">
+          <div>
+            <p class="company-label">Company</p>
+            <p class="company-value">
+              Dute Fitness (Australia) Pty. Ltd.<br>
+              ACN 700 632 337<br>
+              Registered in Victoria, Australia
+            </p>
           </div>
-          <div class="text-center">
-            <span class="text-3xl md:text-4xl font-extralight tracking-wide text-[#F7F4F0]">12</span>
-            <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-[#F7F4F0]/50 mt-2">Countries</span>
+          <div>
+            <p class="company-label">Contact</p>
+            <p class="company-value">
+              <a href="mailto:support@sensolfitness.com.au" style="color: var(--carbon); text-decoration: none; border-bottom: 1px solid var(--linen);">support@sensolfitness.com.au</a>
+            </p>
           </div>
-          <div class="text-center">
-            <span class="text-3xl md:text-4xl font-extralight tracking-wide text-[#F7F4F0]">1,000+</span>
-            <span class="block text-[10px] tracking-[0.15em] uppercase font-light text-[#F7F4F0]/50 mt-2">Studios</span>
+          <div>
+            <p class="company-label">Follow</p>
+            <p class="company-value">
+              <a href="https://instagram.com/sensol_fitness" target="_blank" style="color: var(--carbon); text-decoration: none; border-bottom: 1px solid var(--linen);">Instagram</a><br>
+              <a href="https://youtube.com" target="_blank" style="color: var(--carbon); text-decoration: none; border-bottom: 1px solid var(--linen);">YouTube</a>
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================== -->
-    <!-- SECTION 6 — CTA               -->
-    <!-- ============================== -->
-    <section id="ctaSection" class="py-24 md:py-32">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-10 text-center">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.05em] leading-snug text-on-surface" id="ctaTitle">
-          Ready to experience Sensol?
-        </h2>
-        <a
-          href="home.html#collection"
-          class="inline-block bg-on-surface text-background text-[11px] tracking-[0.15em] uppercase px-8 py-3.5 mt-10 hover:opacity-80 transition-opacity font-light"
-          id="ctaButton"
-        >SHOP ALL</a>
-      </div>
-    </section>
-
-    <!-- @main-content:end -->
   </main>
 
-  <script>lucide.createIcons();</script>
 
   <script>
-    $(function () {
-      // ---- Navigation scroll behavior ----
-      var $nav = $('#mainNav');
-      var $hero = $('#heroSection');
-
+    // ── Navigation scroll ──
+    (function() {
+      var nav = document.getElementById('mainNav');
+      var opening = document.getElementById('opening');
       function updateNav() {
-        var scrollY = $(window).scrollTop();
-        var heroBottom = $hero.length ? $hero.offset().top + $hero.outerHeight() - 100 : 400;
-        if (scrollY > heroBottom) {
-          $nav.removeClass('nav-transparent').addClass('nav-solid');
+        var scrollY = window.scrollY || window.pageYOffset;
+        var threshold = opening ? opening.offsetHeight - 100 : 400;
+        if (scrollY > threshold) {
+          nav.classList.remove('nav--transparent');
+          nav.classList.add('nav--solid');
         } else {
-          $nav.removeClass('nav-solid').addClass('nav-transparent');
+          nav.classList.remove('nav--solid');
+          nav.classList.add('nav--transparent');
         }
       }
-
-      // Initial state
       updateNav();
-      $(window).on('scroll', updateNav);
+      window.addEventListener('scroll', updateNav, { passive: true });
+    })();
 
-      // ---- Mobile menu toggle ----
-      $('#menuToggle').on('click', function () {
-        $('#mobileMenu').addClass('open');
-      });
-
-      $('#mobileMenuClose').on('click', function () {
-        $('#mobileMenu').removeClass('open');
-      });
-
-      $('#mobileMenu a').on('click', function () {
-        $('#mobileMenu').removeClass('open');
-      });
-    });
+    // ── Scroll reveal ──
+    (function() {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function(el) { observer.observe(el); });
+    })();
   </script>
 
 </body>
-
 </html>
