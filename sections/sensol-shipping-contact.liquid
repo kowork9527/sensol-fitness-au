@@ -1,0 +1,33 @@
+<section class="sensol-shipping-contact-section">
+  <div class="sensol-shipping-contact">
+    <p class="sensol-shipping-contact__label">{{ section.settings.label }}</p>
+    <h2 class="sensol-shipping-contact__title">{{ section.settings.title }}</h2>
+    <p class="sensol-shipping-contact__text">{{ section.settings.text }}</p>
+    <a class="sensol-shipping-contact__email" href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+    <div class="sensol-shipping-contact__info">{{ section.settings.company_info | newline_to_br }}</div>
+  </div>
+</section>
+
+<section class="sensol-shipping-footer">
+  <p class="sensol-shipping-footer__text">
+    Last updated: July 2026 &middot;
+    See also: <a class="sensol-shipping-footer__link" href="/pages/warranty">Warranty Policy</a> &middot; <a class="sensol-shipping-footer__link" href="/pages/refund-policy">Refund Policy</a> &middot; <a class="sensol-shipping-footer__link" href="/pages/terms-of-service">Terms of Service</a>
+  </p>
+</section>
+
+{% schema %}{"name":"SENSOL Shipping Contact","tag":"section","class":"sensol-shipping-contact-section","settings":[{"type":"text","id":"label","label":"Label","default":"Questions about delivery?"},{"type":"text","id":"title","label":"Title","default":"We're here to help."},{"type":"text","id":"text","label":"Text","default":"Monday - Friday, 9:00 AM - 6:00 PM AEST"},{"type":"text","id":"email","label":"Email","default":"support@sensolfitness.com.au"},{"type":"textarea","id":"company_info","label":"Company Info","default":"Dute Fitness (Australia) Pty. Ltd.\nsensolfitness.com.au  /  sensolfitness.com"}],"presets":[{"name":"SENSOL Shipping Contact"}]}{% endschema %}
+
+{%- style -%}
+.sensol-shipping-contact-section{margin:0;padding:0;background:#F7F4F0}
+.sensol-shipping-contact-section .sensol-shipping-contact{background:#1A1816;color:#F7F4F0;padding:100px 2rem;text-align:center;font-family:'Inter',sans-serif}
+.sensol-shipping-contact-section .sensol-shipping-contact__label{font-size:1.125rem;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
+.sensol-shipping-contact-section .sensol-shipping-contact__title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:500;letter-spacing:-0.01em;margin-bottom:1rem}
+.sensol-shipping-contact-section .sensol-shipping-contact__text{font-size:1.5rem;font-weight:500;color:#8A8279;margin-bottom:2.5rem}
+.sensol-shipping-contact-section .sensol-shipping-contact__email{display:inline-block;font-size:1.25rem;font-weight:500;color:#F7F4F0;text-decoration:none;border-bottom:1px solid rgba(247,244,240,0.3);padding-bottom:2px}
+.sensol-shipping-contact-section .sensol-shipping-contact__email:hover{border-color:#F7F4F0}
+.sensol-shipping-contact-section .sensol-shipping-contact__info{margin-top:2.5rem;font-size:1rem;color:#8A8279;font-weight:500;line-height:1.8}
+.sensol-shipping-contact-section .sensol-shipping-footer{text-align:center;padding:80px 2rem;border-top:1px solid #D4CEC6;background:#F7F4F0;font-family:'Inter',sans-serif}
+.sensol-shipping-contact-section .sensol-shipping-footer__text{font-size:1.25rem;font-weight:500;color:#8A8279;max-width:650px;margin:0 auto;line-height:1.8}
+.sensol-shipping-contact-section .sensol-shipping-footer__link{color:#1A1816;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:0.5px;text-decoration-color:#B5ADA4}
+@media(max-width:749px){.sensol-shipping-contact-section .sensol-shipping-contact{padding:80px 1.5rem}.sensol-shipping-contact-section .sensol-shipping-contact__text{font-size:1.25rem}}
+{%- endstyle -%}

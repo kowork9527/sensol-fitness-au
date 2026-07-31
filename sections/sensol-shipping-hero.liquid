@@ -1,0 +1,31 @@
+<section class="sensol-shipping-hero-section">
+  <div class="sensol-shipping-hero">
+    <p class="sensol-shipping-hero__label">{{ section.settings.label }}</p>
+    <h1 class="sensol-shipping-hero__title">{{ section.settings.title }}</h1>
+    <p class="sensol-shipping-hero__subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+</section>
+
+{% schema %}{"name":"SENSOL Shipping Hero","tag":"section","class":"sensol-shipping-hero-section","settings":[{"type":"text","id":"label","label":"Label","default":"Delivery & Returns"},{"type":"text","id":"title","label":"Title","default":"Shipping Policy"},{"type":"textarea","id":"subtitle","label":"Subtitle","default":"We deliver precision. Every Sensol system ships fully insured with real-time tracking from our Australian fulfilment centre."}],"presets":[{"name":"SENSOL Shipping Hero"}]}{% endschema %}
+
+{%- style -%}
+.sensol-shipping-hero-section .sensol-shipping-hero-section{margin:0;padding:0;background:#1A1816}
+.sensol-shipping-hero-section .sensol-shipping-hero{padding:140px 2rem 100px;text-align:center;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+.sensol-shipping-hero-section .sensol-shipping-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%,rgba(181,173,164,0.08) 0%,transparent 70%);pointer-events:none}
+.sensol-shipping-hero-section .sensol-shipping-hero__label{font-size:1rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1.5rem;position:relative}
+.sensol-shipping-hero-section .sensol-shipping-hero__title{font-size:clamp(2rem,5vw,3.5rem);font-weight:300;letter-spacing:-0.02em;line-height:1.15;color:#F7F4F0;position:relative;max-width:900px;margin:0 auto 1rem}
+.sensol-shipping-hero-section .sensol-shipping-hero__subtitle{font-size:1.375rem;font-weight:500;color:#8A8279;position:relative;max-width:650px;margin:0 auto;line-height:1.6}
+@media(max-width:749px){.sensol-shipping-hero-section .sensol-shipping-hero{padding:120px 1.5rem 80px}}
+{%- endstyle -%}
+
+{% comment %}Fix header text visibility on dark hero{% endcomment %}
+{%- style -%}
+[id*="sensol-header"] .sensol-header__logo-text,
+[id*="sensol-header"] .sensol-header__link,
+[id*="sensol-header"] .sensol-header__menu-btn{color:#F7F4F0!important}
+[id*="sensol-header"] .sensol-header__link:hover,
+[id*="sensol-header"] .sensol-header__menu-btn:hover{color:#B5ADA4!important}
+[id*="sensol-header"].scrolled .sensol-header__logo-text,
+[id*="sensol-header"].scrolled .sensol-header__link,
+[id*="sensol-header"].scrolled .sensol-header__menu-btn{color:#1A1816!important}
+{%- endstyle -%}
