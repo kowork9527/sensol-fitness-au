@@ -14,8 +14,7 @@
     "sensol-header": {
       "type": "sensol-header",
       "settings": {
-        "logo_light": "shopify://shop_images/imgi_46_sensol.png",
-        "logo_dark": "shopify://shop_images/imgi_46_sensol.png",
+        "logo": "shopify://shop_images/imgi_46_sensol.png",
         "logo_width": 120,
         "menu": "main-menu",
         "show_search": true
