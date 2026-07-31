@@ -1,0 +1,54 @@
+<section class="sensol-shipping-issues-section">
+  <div class="sensol-shipping-issues">
+    <div class="sensol-shipping-issues__divider"></div>
+    <p class="sensol-shipping-issues__label">05</p>
+    <h2 class="sensol-shipping-issues__title">Delivery Issues</h2>
+    <div class="sensol-shipping-issues__cards">
+      <div class="sensol-shipping-issues__card">
+        <div class="sensol-shipping-issues__card-title">Missed Delivery</div>
+        <ol class="sensol-shipping-issues__steps">
+          <li>Attempt redelivery within the next 1&ndash;2 business days</li>
+          <li>If redelivery fails, hold the item at a local depot for collection</li>
+        </ol>
+        <p class="sensol-shipping-issues__note">Contact the courier directly using your tracking number to arrange redelivery or depot collection.</p>
+      </div>
+      <div class="sensol-shipping-issues__card">
+        <div class="sensol-shipping-issues__card-title">Damaged Delivery</div>
+        <ol class="sensol-shipping-issues__steps">
+          <li>Take photographs of the damage immediately</li>
+          <li>Contact us within 48 hours of receiving the delivery</li>
+          <li>Keep all original packaging materials</li>
+          <li>Do not attempt to use the damaged product</li>
+        </ol>
+        <p class="sensol-shipping-issues__note">We will arrange a replacement or repair based on the nature of the damage.</p>
+      </div>
+      <div class="sensol-shipping-issues__card">
+        <div class="sensol-shipping-issues__card-title">Lost Delivery</div>
+        <ol class="sensol-shipping-issues__steps">
+          <li>Check with neighbours or building management</li>
+          <li>Contact the courier directly to investigate</li>
+          <li>If unresolved after 5 business days, contact us and we will file a carrier investigation</li>
+        </ol>
+        <p class="sensol-shipping-issues__note">Note: For heavy-goods courier services, compensation for lost shipments is limited. We will work with you and the carrier to resolve any delivery issues as quickly as possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}{"name":"SENSOL Shipping Issues","tag":"section","class":"sensol-shipping-issues-section","settings":[],"presets":[{"name":"SENSOL Shipping Issues"}]}{% endschema %}
+{%- style -%}
+.sensol-shipping-issues-section{background:#F7F4F0;padding:0}
+.sensol-shipping-issues-section .sensol-shipping-issues{max-width:1040px;margin:0 auto;padding:80px 2rem 0}
+.sensol-shipping-issues-section .sensol-shipping-issues__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
+.sensol-shipping-issues-section .sensol-shipping-issues__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
+.sensol-shipping-issues-section .sensol-shipping-issues__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:32px;color:#1A1816}
+.sensol-shipping-issues-section .sensol-shipping-issues__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D4CEC6}
+.sensol-shipping-issues-section .sensol-shipping-issues__card{background:#F7F4F0;padding:40px 32px}
+.sensol-shipping-issues-section .sensol-shipping-issues__card-title{font-size:1.25rem;font-weight:500;color:#1A1816;margin-bottom:1rem}
+.sensol-shipping-issues-section .sensol-shipping-issues__steps{list-style:none;counter-reset:step}
+.sensol-shipping-issues-section .sensol-shipping-issues__steps li{counter-increment:step;font-size:1rem;color:#8A8279;line-height:1.7;padding:0.5rem 0 0.5rem 2rem;position:relative;border-bottom:1px solid #D4CEC6}
+.sensol-shipping-issues-section .sensol-shipping-issues__steps li:last-child{border-bottom:none}
+.sensol-shipping-issues-section .sensol-shipping-issues__steps li::before{content:counter(step);position:absolute;left:0;top:0.5rem;font-size:0.75rem;font-weight:600;color:#B5ADA4}
+.sensol-shipping-issues-section .sensol-shipping-issues__note{margin-top:1rem;font-size:0.875rem;color:#8A8279;line-height:1.6}
+@media(max-width:900px){.sensol-shipping-issues-section .sensol-shipping-issues__cards{grid-template-columns:1fr}}
+@media(max-width:749px){.sensol-shipping-issues-section .sensol-shipping-issues{padding:56px 1.5rem 0}.sensol-shipping-issues-section .sensol-shipping-issues__title{font-size:1.75rem}}
+{%- endstyle -%}

@@ -1,0 +1,39 @@
+<section class="sensol-shipping-dim-section">
+  <div class="sensol-shipping-dim">
+    <div class="sensol-shipping-dim__divider"></div>
+    <p class="sensol-shipping-dim__label">04</p>
+    <h2 class="sensol-shipping-dim__title">Product Dimensions &amp; Weight</h2>
+    <div class="sensol-shipping-dim__table-wrap">
+      <table class="sensol-shipping-dim__table">
+        <thead><tr><th>Product</th><th>Dimensions (L&times;W&times;H)</th><th>Weight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sensol FLEX AIR</strong></td><td>65" &times; 24" &times; 17"</td><td>55 lb (25 kg)</td></tr>
+          <tr><td><strong>Sensol FLEX</strong></td><td>72.8" &times; 24.3" &times; 17.3"</td><td>70.5 lb (32 kg)</td></tr>
+          <tr><td><strong>Sensol FLEX PRO</strong></td><td>75.6" &times; 25.2" &times; 17.8"</td><td>81.6 lb (37 kg)</td></tr>
+          <tr><td><strong>Sensol RS02</strong></td><td>75" &times; 25" &times; 18"</td><td>100 lb (45 kg)</td></tr>
+          <tr><td><strong>Sensol RS02 PRO</strong></td><td>75" &times; 25" &times; 18"</td><td>100 lb (45 kg)</td></tr>
+          <tr><td><strong>Sensol RS03</strong></td><td>75" &times; 25" &times; 18"</td><td>100 lb (45 kg)</td></tr>
+          <tr><td><strong>Sensol RS03 PRO</strong></td><td>75" &times; 25" &times; 18"</td><td>100 lb (45 kg)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sensol-shipping-dim__note">If you order more than one product, each item will be shipped separately with its own tracking number. We do not combine shipments for multiple orders.</p>
+  </div>
+</section>
+{% schema %}{"name":"SENSOL Shipping Dimensions","tag":"section","class":"sensol-shipping-dim-section","settings":[],"presets":[{"name":"SENSOL Shipping Dimensions"}]}{% endschema %}
+{%- style -%}
+.sensol-shipping-dim-section{background:#F7F4F0;padding:0}
+.sensol-shipping-dim-section .sensol-shipping-dim{max-width:1040px;margin:0 auto;padding:80px 2rem 0}
+.sensol-shipping-dim-section .sensol-shipping-dim__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
+.sensol-shipping-dim-section .sensol-shipping-dim__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
+.sensol-shipping-dim-section .sensol-shipping-dim__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:32px;color:#1A1816}
+.sensol-shipping-dim-section .sensol-shipping-dim__table{width:100%;border-collapse:collapse}
+.sensol-shipping-dim-section .sensol-shipping-dim__table thead{border-bottom:2px solid #1A1816}
+.sensol-shipping-dim-section .sensol-shipping-dim__table th{text-align:left;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A1816;padding:0 0 16px}
+.sensol-shipping-dim-section .sensol-shipping-dim__table td{padding:20px 0;border-bottom:1px solid #D4CEC6;font-size:1.25rem;color:#8A8279;line-height:1.6}
+.sensol-shipping-dim-section .sensol-shipping-dim__table td strong{color:#1A1816;font-weight:500}
+.sensol-shipping-dim-section .sensol-shipping-dim__table tr:last-child td{border-bottom:none}
+.sensol-shipping-dim-section .sensol-shipping-dim__note{font-size:1.5rem;font-weight:400;color:#8A8279;line-height:1.75;margin-top:24px}
+.sensol-shipping-dim-section .sensol-shipping-dim__table-wrap{overflow-x:auto}
+@media(max-width:749px){.sensol-shipping-dim-section .sensol-shipping-dim{padding:56px 1.5rem 0}.sensol-shipping-dim-section .sensol-shipping-dim__title{font-size:1.75rem}.sensol-shipping-dim-section .sensol-shipping-dim__table td,.sensol-shipping-dim-section .sensol-shipping-dim__table th{font-size:1rem;padding:12px 0}.sensol-shipping-dim-section .sensol-shipping-dim__note{font-size:1.25rem}}
+{%- endstyle -%}
