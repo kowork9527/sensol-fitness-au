@@ -1,23 +1,36 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "sensol-warranty-hero": {
+      "type": "sensol-warranty-hero",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "label": "Coverage & Care",
+        "title": "Warranty Policy",
+        "subtitle": "Every Sensol system is built to endure. This policy outlines what we cover, how we cover it, and how to reach us when you need us."
+      }
+    },
+    "sensol-warranty-coverage": {
+      "type": "sensol-warranty-coverage",
+      "settings": {}
+    },
+    "sensol-warranty-detail": {
+      "type": "sensol-warranty-detail",
+      "settings": {}
+    },
+    "sensol-warranty-contact": {
+      "type": "sensol-warranty-contact",
+      "settings": {
+        "label": "Need assistance?",
+        "title": "We're here to help.",
+        "text": "Monday - Friday, 9:00 AM - 6:00 PM AEST",
+        "email": "support@sensolfitness.com.au",
+        "company_info": "Dute Fitness (Australia) Pty. Ltd.\nsensolfitness.com.au  /  sensolfitness.com"
       }
     }
   },
   "order": [
-    "main"
+    "sensol-warranty-hero",
+    "sensol-warranty-coverage",
+    "sensol-warranty-detail",
+    "sensol-warranty-contact"
   ]
 }
