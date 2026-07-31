@@ -1,0 +1,27 @@
+<section class="sensol-shipping-req-section">
+  <div class="sensol-shipping-req">
+    <div class="sensol-shipping-req__divider"></div>
+    <p class="sensol-shipping-req__label">03</p>
+    <h2 class="sensol-shipping-req__title">Delivery Requirements</h2>
+    <div class="sensol-shipping-req__cards">
+      <div class="sensol-shipping-req__card"><div class="sensol-shipping-req__card-icon">&#127968;</div><div class="sensol-shipping-req__card-name">Physical address required</div><div class="sensol-shipping-req__card-detail">We cannot deliver to PO boxes or parcel lockers. Please provide a valid street address at checkout.</div></div>
+      <div class="sensol-shipping-req__card"><div class="sensol-shipping-req__card-icon">&#128100;</div><div class="sensol-shipping-req__card-name">Recipient availability</div><div class="sensol-shipping-req__card-detail">Our products are heavy and require someone to receive the delivery. Arrange delivery for when you or a trusted person will be home.</div></div>
+      <div class="sensol-shipping-req__card"><div class="sensol-shipping-req__card-icon">&#9997;</div><div class="sensol-shipping-req__card-name">Signature option</div><div class="sensol-shipping-req__card-detail">If you require a mandatory signature on delivery, please contact us before placing your order ($5 surcharge applies per order).</div></div>
+    </div>
+  </div>
+</section>
+{% schema %}{"name":"SENSOL Shipping Requirements","tag":"section","class":"sensol-shipping-req-section","settings":[],"presets":[{"name":"SENSOL Shipping Requirements"}]}{% endschema %}
+{%- style -%}
+.sensol-shipping-req-section{background:#F7F4F0;padding:0}
+.sensol-shipping-req-section .sensol-shipping-req{max-width:1040px;margin:0 auto;padding:80px 2rem 0}
+.sensol-shipping-req-section .sensol-shipping-req__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
+.sensol-shipping-req-section .sensol-shipping-req__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
+.sensol-shipping-req-section .sensol-shipping-req__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:32px;color:#1A1816}
+.sensol-shipping-req-section .sensol-shipping-req__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D4CEC6}
+.sensol-shipping-req-section .sensol-shipping-req__card{background:#F7F4F0;padding:40px 32px}
+.sensol-shipping-req-section .sensol-shipping-req__card-icon{font-size:1.5rem;margin-bottom:1rem;opacity:0.5}
+.sensol-shipping-req-section .sensol-shipping-req__card-name{font-size:1.125rem;font-weight:500;color:#1A1816;margin-bottom:0.5rem}
+.sensol-shipping-req-section .sensol-shipping-req__card-detail{font-size:0.875rem;color:#8A8279;line-height:1.6}
+@media(max-width:900px){.sensol-shipping-req-section .sensol-shipping-req-section .sensol-shipping-req__cards{grid-template-columns:1fr}}
+@media(max-width:749px){.sensol-shipping-req-section .sensol-shipping-req-section .sensol-shipping-req{padding:56px 1.5rem 0}.sensol-shipping-req-section .sensol-shipping-req__title{font-size:1.75rem}}
+{%- endstyle -%}
