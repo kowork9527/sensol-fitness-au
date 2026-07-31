@@ -48,18 +48,18 @@
 
 {% comment %}FIX #1: Force header light text on this dark-bg page{% endcomment %}
 {%- style -%}
-#shopify-section-sensol-header .sensol-header__logo-text,
-#shopify-section-sensol-header .sensol-header__link,
-#shopify-section-sensol-header .sensol-header__menu-btn {
+[id*="sensol-header"] .sensol-header__logo-text,
+[id*="sensol-header"] .sensol-header__link,
+[id*="sensol-header"] .sensol-header__menu-btn {
   color: #F7F4F0 !important;
 }
-#shopify-section-sensol-header .sensol-header__link:hover,
-#shopify-section-sensol-header .sensol-header__menu-btn:hover {
+[id*="sensol-header"] .sensol-header__link:hover,
+[id*="sensol-header"] .sensol-header__menu-btn:hover {
   color: #B5ADA4 !important;
 }
-#shopify-section-sensol-header.scrolled .sensol-header__logo-text,
-#shopify-section-sensol-header.scrolled .sensol-header__link,
-#shopify-section-sensol-header.scrolled .sensol-header__menu-btn {
+[id*="sensol-header"].scrolled .sensol-header__logo-text,
+[id*="sensol-header"].scrolled .sensol-header__link,
+[id*="sensol-header"].scrolled .sensol-header__menu-btn {
   color: #1A1816 !important;
 }
 {%- endstyle -%}
