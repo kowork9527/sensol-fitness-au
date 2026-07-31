@@ -1,0 +1,65 @@
+<section class="sensol-warranty-hero-section">
+  <div class="sensol-warranty-hero">
+    <p class="sensol-warranty-hero__label">{{ section.settings.label }}</p>
+    <h1 class="sensol-warranty-hero__title">{{ section.settings.title }}</h1>
+    <p class="sensol-warranty-hero__subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Warranty Hero",
+  "tag": "section",
+  "class": "sensol-warranty-hero-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Coverage & Care" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Warranty Policy" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Every Sensol system is built to endure. This policy outlines what we cover, how we cover it, and how to reach us when you need us." }
+  ],
+  "presets": [{ "name": "SENSOL Warranty Hero" }]
+}
+{% endschema %}
+
+{%- style -%}
+.sensol-warranty-hero-section { margin: 0; padding: 0; background: #1A1816; }
+.sensol-warranty-hero {
+  padding: 120px 2rem 80px; text-align: center; position: relative; overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+.sensol-warranty-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(181,173,164,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.sensol-warranty-hero__label {
+  font-size: 0.875rem; font-weight: 400; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.25rem; position: relative;
+}
+.sensol-warranty-hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300;
+  letter-spacing: -0.02em; line-height: 1.15; color: #F7F4F0;
+  position: relative; max-width: 800px; margin: 0 auto 1rem;
+}
+.sensol-warranty-hero__subtitle {
+  font-size: 1.125rem; font-weight: 300; color: #8A8279;
+  position: relative; max-width: 560px; margin: 0 auto; line-height: 1.6;
+}
+{%- endstyle -%}
+
+{% comment %}FIX #1: Force header light text on this dark-bg page{% endcomment %}
+{%- style -%}
+#shopify-section-sensol-header .sensol-header__logo-text,
+#shopify-section-sensol-header .sensol-header__link,
+#shopify-section-sensol-header .sensol-header__menu-btn {
+  color: #F7F4F0 !important;
+}
+#shopify-section-sensol-header .sensol-header__link:hover,
+#shopify-section-sensol-header .sensol-header__menu-btn:hover {
+  color: #B5ADA4 !important;
+}
+#shopify-section-sensol-header.scrolled .sensol-header__logo-text,
+#shopify-section-sensol-header.scrolled .sensol-header__link,
+#shopify-section-sensol-header.scrolled .sensol-header__menu-btn {
+  color: #1A1816 !important;
+}
+{%- endstyle -%}
