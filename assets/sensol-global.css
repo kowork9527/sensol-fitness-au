@@ -153,3 +153,28 @@ body {
     display: none !important;
   }
 }
+
+/* ============================================
+   Shipping Policy — Sensol Brand Override
+   Targets .sp-section / .sp-tbl in page content
+   ============================================ */
+.rte .sp-section{margin:0 0 56px!important}
+.rte .sp-section h2{font-size:clamp(2rem,3vw,2.75rem)!important;font-weight:300!important;letter-spacing:-0.01em!important;color:#1A1816!important;margin:0 0 24px!important;line-height:1.2!important}
+.rte .sp-section h3{font-size:1.5rem!important;font-weight:500!important;color:#1A1816!important;margin:36px 0 16px!important}
+.rte .sp-section p,.rte .sp-section ul,.rte .sp-section ol{font-size:1.5rem!important;font-weight:400!important;color:#8A8279!important;line-height:1.75!important;margin:0 0 16px!important}
+.rte .sp-section li{font-size:1.5rem!important;font-weight:400!important;color:#8A8279!important;margin:0 0 10px!important;line-height:1.75!important}
+.rte .sp-section strong{color:#1A1816;font-weight:500}
+.rte .sp-section a{color:#1A1816;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:.5px;text-decoration-color:#B5ADA4}
+.rte .sp-section hr{margin:56px 0;border:none;border-top:1px solid #D4CEC6}
+.rte .sp-tbl-wrap{margin:24px 0 36px;overflow-x:auto}
+.rte .sp-tbl{width:100%;border-collapse:collapse;font-size:1.25rem!important}
+.rte .sp-tbl th{text-align:left;font-weight:600!important;font-size:.9375rem!important;letter-spacing:.1em;text-transform:uppercase;color:#1A1816!important;padding:16px 16px!important;border:none!important;border-bottom:2px solid #1A1816!important;background:transparent!important}
+.rte .sp-tbl td{padding:16px 16px!important;border:none!important;border-bottom:1px solid #D4CEC6!important;color:#8A8279!important;font-size:1.25rem!important;line-height:1.6!important}
+.rte .sp-tbl tr:last-child td{border-bottom:none!important}
+@media(max-width:749px){
+  .rte .sp-section h2{font-size:1.75rem!important}
+  .rte .sp-section h3{font-size:1.25rem!important}
+  .rte .sp-section p,.rte .sp-section ul,.rte .sp-section ol,.rte .sp-section li{font-size:1.25rem!important}
+  .rte .sp-tbl,.rte .sp-tbl td{font-size:1rem!important}
+  .rte .sp-tbl th,.rte .sp-tbl td{padding:12px 12px!important}
+}
