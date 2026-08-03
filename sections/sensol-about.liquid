@@ -473,16 +473,31 @@
 
       <div class="sensol-about__product-grid">
         <div class="sensol-about__product-card">
+          {%- if section.settings.rs02_image != blank -%}
+            <div style="aspect-ratio:1/1;overflow:hidden;margin-bottom:1.5rem;background:#F0EDE8;">
+              <img src="{{ section.settings.rs02_image | image_url: width: 600 }}" alt="SENSOL RS02" loading="lazy" width="600" height="600" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+          {%- endif -%}
           <p class="sensol-about__product-series-label">Smart Series</p>
           <h3 class="sensol-about__product-name">RS02</h3>
           <p class="sensol-about__product-desc">{{ section.settings.rs02_desc }}</p>
         </div>
         <div class="sensol-about__product-card">
+          {%- if section.settings.rs02_pro_image != blank -%}
+            <div style="aspect-ratio:1/1;overflow:hidden;margin-bottom:1.5rem;background:#F0EDE8;">
+              <img src="{{ section.settings.rs02_pro_image | image_url: width: 600 }}" alt="SENSOL RS02 PRO" loading="lazy" width="600" height="600" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+          {%- endif -%}
           <p class="sensol-about__product-series-label">Smart Series</p>
           <h3 class="sensol-about__product-name">RS02 PRO</h3>
           <p class="sensol-about__product-desc">{{ section.settings.rs02_pro_desc }}</p>
         </div>
         <div class="sensol-about__product-card">
+          {%- if section.settings.flex_air_image != blank -%}
+            <div style="aspect-ratio:1/1;overflow:hidden;margin-bottom:1.5rem;background:#F0EDE8;">
+              <img src="{{ section.settings.flex_air_image | image_url: width: 600 }}" alt="SENSOL FLEX AIR" loading="lazy" width="600" height="600" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+          {%- endif -%}
           <p class="sensol-about__product-series-label">Flex Series</p>
           <h3 class="sensol-about__product-name">FLEX AIR</h3>
           <p class="sensol-about__product-desc">{{ section.settings.flex_air_desc }}</p>
@@ -641,8 +656,11 @@
     { "type": "text", "id": "line_label", "label": "Section label", "default": "03 — The Line" },
     { "type": "text", "id": "line_title", "label": "Title", "default": "Three expressions. One philosophy." },
     { "type": "textarea", "id": "line_intro", "label": "Intro", "default": "The original TB02 proved that the concept worked. The next challenge was making SENSOL accessible to more people, at more fitness levels, in more spaces — from motor-driven precision to spring-based flow." },
+    { "type": "image_picker", "id": "rs02_image", "label": "RS02 product image" },
     { "type": "textarea", "id": "rs02_desc", "label": "RS02 description", "default": "The refined dual-servo digital weight platform. Motor-driven, software-controlled, AI-enhanced. The foundation of the SENSOL training experience." },
+    { "type": "image_picker", "id": "rs02_pro_image", "label": "RS02 PRO product image" },
     { "type": "textarea", "id": "rs02_pro_desc", "label": "RS02 PRO description", "default": "Premium features and expanded resistance programming. For those who demand the most from every rep — more data, more control, more precision." },
+    { "type": "image_picker", "id": "flex_air_image", "label": "FLEX AIR product image" },
     { "type": "textarea", "id": "flex_air_desc", "label": "FLEX AIR description", "default": "Spring-based resistance in the same iconic form. The SENSOL design philosophy without the motor system — lighter, more accessible, Pilates-inspired." },
     { "type": "textarea", "id": "line_closing", "label": "Closing paragraph", "default": "Every product shares the same design DNA — compact, intentional, and built around the human body. From the motor-driven precision of the Smart Series to the spring-based flow of the Flex Series, the same conviction runs through every curve, every material, every mechanism." },
 
