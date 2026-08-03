@@ -20,7 +20,19 @@
     <p class="sensol-shipping-dim__note">If you order more than one product, each item will be shipped separately with its own tracking number. We do not combine shipments for multiple orders.</p>
   </div>
 </section>
-{% schema %}{"name":"SENSOL Shipping Dimensions","tag":"section","class":"sensol-shipping-dim-section","settings":[],"presets":[{"name":"SENSOL Shipping Dimensions"}]}{% endschema %}
+{% schema %}
+{
+  "name": "Shipping Dimensions",
+  "tag": "section",
+  "class": "sensol-shipping-dimensions",
+  "settings": [],
+  "presets": [
+    {
+      "name": "SENSOL Shipping Dimensions"
+    }
+  ]
+}
+{% endschema %}
 {%- style -%}
 .sensol-shipping-dim-section{background:#F7F4F0;padding:0}
 .sensol-shipping-dim-section .sensol-shipping-dim{max-width:1040px;margin:0 auto;padding:80px 2rem 0}
