@@ -300,7 +300,17 @@
   }
 {%- endstyle -%}
 
-<header class="sensol-header-section{% if section.settings.text_mode == 'light' %} sensol-header-section--light-text{% endif %}" id="sensolHeader">
+{%- assign use_light = false -%}
+{%- if section.settings.text_mode == 'light' -%}
+  {%- assign use_light = true -%}
+{%- elsif section.settings.text_mode == 'auto' -%}
+  {%- if template.name == 'index' -%}
+    {%- assign use_light = true -%}
+  {%- elsif template.name == 'page' and template.suffix == 'about' -%}
+    {%- assign use_light = true -%}
+  {%- endif -%}
+{%- endif -%}
+<header class="sensol-header-section{% if use_light %} sensol-header-section--light-text{% endif %}" id="sensolHeader">
   <div class="sensol-header__inner">
     <button type="button" class="sensol-header__hamburger" id="sensolHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -449,10 +459,11 @@
       "label": "Text color mode",
       "info": "Use 'Light text' for pages with dark hero sections (e.g. About page). Scrolled state always uses dark text on ivory background.",
       "options": [
-        { "value": "dark", "label": "Dark text (default, for light backgrounds)" },
-        { "value": "light", "label": "Light text (for dark hero sections)" }
+        { "value": "auto", "label": "Auto (detect by page template)" },
+        { "value": "dark", "label": "Dark text (force, for light backgrounds)" },
+        { "value": "light", "label": "Light text (force, for dark hero sections)" }
       ],
-      "default": "dark"
+      "default": "auto"
     }
   ],
   "presets": [
