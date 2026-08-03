@@ -9,11 +9,37 @@
         <div class="sensol-shipping-hero__stat"><span class="sensol-shipping-hero__stat-num">Insured</span><span class="sensol-shipping-hero__stat-label">Every Shipment</span></div>
       </div>
     </div>
-    <div class="sensol-shipping-hero__image"><span class="sensol-shipping-hero__image-text">SENSOL</span></div>
+    <div class="sensol-shipping-hero__image">
+      {% if section.settings.hero_image != blank %}
+        <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="Sensol shipping" loading="lazy" width="600" height="800">
+      {% else %}
+        <img src="{{ 'shipping-hero-bg.jpg' | asset_url }}" alt="Sensol reformer unboxing in warehouse" loading="lazy" width="600" height="800">
+      {% endif %}
+      <span class="sensol-shipping-hero__image-text">SENSOL</span>
+    </div>
   </div>
 </section>
 
-{% schema %}{"name":"SENSOL Shipping Hero","tag":"section","class":"sensol-shipping-hero-section","settings":[],"presets":[{"name":"SENSOL Shipping Hero"}]}{% endschema %}
+{% schema %}
+{
+  "name": "Shipping Hero",
+  "tag": "section",
+  "class": "sensol-shipping-hero-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image",
+      "info": "Recommended: 800x1000px (4:5 portrait). If empty, default warehouse image is used."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping Hero"
+    }
+  ]
+}
+{% endschema %}
 
 {%- style -%}
 .sensol-shipping-hero-section{margin:0;padding:0;background:#1A1816}
@@ -25,9 +51,10 @@
 .sensol-shipping-hero-section .sensol-shipping-hero__stat-num{font-size:2rem;font-weight:300;color:#F7F4F0;display:block;line-height:1}
 .sensol-shipping-hero-section .sensol-shipping-hero__stat-label{font-size:0.6875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#8A8279;margin-top:0.5rem;display:block}
 .sensol-shipping-hero-section .sensol-shipping-hero__image{background:#2A2622;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.sensol-shipping-hero-section .sensol-shipping-hero__image-text{font-size:8rem;color:rgba(247,244,240,0.04);font-weight:200;user-select:none}
-.sensol-shipping-hero-section .sensol-shipping-hero__image::after{content:'';position:absolute;left:0;top:0;bottom:0;width:40%;background:linear-gradient(to right,#1A1816,transparent)}
-@media(max-width:900px){.sensol-shipping-hero-section .sensol-shipping-hero-section .sensol-shipping-hero{grid-template-columns:1fr;min-height:auto}.sensol-shipping-hero-section .sensol-shipping-hero__text{padding:80px 2rem 48px}.sensol-shipping-hero-section .sensol-shipping-hero__image{height:350px}.sensol-shipping-hero-section .sensol-shipping-hero__image::after{width:100%;height:40%;top:auto;bottom:0;background:linear-gradient(to top,#1A1816,transparent)}}
+.sensol-shipping-hero-section .sensol-shipping-hero__image img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0}
+.sensol-shipping-hero-section .sensol-shipping-hero__image-text{font-size:8rem;color:rgba(247,244,240,0.04);font-weight:200;user-select:none;position:relative;z-index:1}
+.sensol-shipping-hero-section .sensol-shipping-hero__image::after{content:'';position:absolute;left:0;top:0;bottom:0;width:40%;background:linear-gradient(to right,#1A1816,transparent);z-index:2}
+@media(max-width:900px){.sensol-shipping-hero-section .sensol-shipping-hero{grid-template-columns:1fr;min-height:auto}.sensol-shipping-hero-section .sensol-shipping-hero__text{padding:80px 2rem 48px}.sensol-shipping-hero-section .sensol-shipping-hero__image{height:350px}.sensol-shipping-hero-section .sensol-shipping-hero__image::after{width:100%;height:40%;top:auto;bottom:0;background:linear-gradient(to top,#1A1816,transparent)}}
 {%- endstyle -%}
 
 {%- style -%}
