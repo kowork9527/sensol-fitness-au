@@ -50,6 +50,60 @@
     color: #1A1816;
   }
 
+  /* Light text mode — for pages with dark hero sections */
+  .sensol-header-section--light-text .sensol-header__logo-text {
+    color: #F7F4F0;
+  }
+  .sensol-header-section--light-text .sensol-header__link {
+    color: #F7F4F0;
+  }
+  .sensol-header-section--light-text .sensol-header__link:hover {
+    color: #B5ADA4;
+  }
+  .sensol-header-section--light-text .sensol-header__icon {
+    color: #F7F4F0;
+  }
+  .sensol-header-section--light-text .sensol-header__icon-link:hover .sensol-header__icon {
+    color: #B5ADA4;
+  }
+  .sensol-header-section--light-text .sensol-header__hamburger span {
+    background-color: #F7F4F0;
+  }
+  .sensol-header-section--light-text .sensol-header__shop-btn {
+    color: #1A1816;
+    background-color: #F7F4F0;
+  }
+  .sensol-header-section--light-text .sensol-header__shop-btn:hover {
+    background-color: #E3DFD9;
+  }
+
+  /* When scrolled, always switch to dark text on ivory background */
+  .sensol-header-section--light-text.scrolled .sensol-header__logo-text {
+    color: #1A1816;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__link {
+    color: #1A1816;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__link:hover {
+    color: #8A8279;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__icon {
+    color: #1A1816;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__icon-link:hover .sensol-header__icon {
+    color: #8A8279;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__hamburger span {
+    background-color: #1A1816;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__shop-btn {
+    color: #F7F4F0;
+    background-color: #1A1816;
+  }
+  .sensol-header-section--light-text.scrolled .sensol-header__shop-btn:hover {
+    background-color: #2A2826;
+  }
+
   .sensol-header__nav {
     display: flex;
     align-items: center;
@@ -105,6 +159,15 @@
   .sensol-header__icon {
     color: #1A1816;
     transition: color 0.3s ease;
+  }
+
+  /* Light text mode: white text/icons when transparent */
+  .sensol-header-section--light-text:not(.sensol-header--scrolled) .sensol-header__icon {
+    color: #F7F4F0;
+  }
+
+  .sensol-header-section--light-text:not(.sensol-header--scrolled) .sensol-header__hamburger span {
+    background-color: #F7F4F0;
   }
 
   .sensol-header__icon-link:hover .sensol-header__icon {
@@ -237,7 +300,7 @@
   }
 {%- endstyle -%}
 
-<header class="sensol-header-section" id="sensolHeader">
+<header class="sensol-header-section{% if section.settings.text_mode == 'light' %} sensol-header-section--light-text{% endif %}" id="sensolHeader">
   <div class="sensol-header__inner">
     <button type="button" class="sensol-header__hamburger" id="sensolHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -379,6 +442,17 @@
       "id": "show_search",
       "default": true,
       "label": "Show search icon"
+    },
+    {
+      "type": "select",
+      "id": "text_mode",
+      "label": "Text color mode",
+      "info": "Use 'Light text' for pages with dark hero sections (e.g. About page). Scrolled state always uses dark text on ivory background.",
+      "options": [
+        { "value": "dark", "label": "Dark text (default, for light backgrounds)" },
+        { "value": "light", "label": "Light text (for dark hero sections)" }
+      ],
+      "default": "dark"
     }
   ],
   "presets": [
