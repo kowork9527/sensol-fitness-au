@@ -140,6 +140,69 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
 .cta__sub { font-size: 15px; color: #8A8279; margin-bottom: 48px; letter-spacing: 0.05em; }
 .cta__price { font-size: 24px; font-weight: 200; color: #F7F4F0; margin-bottom: 40px; letter-spacing: 0.05em; }
 
+/* ============ VIDEO ============ */
+.video { padding: 140px 80px; background: #1A1816; }
+.video__head { text-align: center; margin-bottom: 64px; }
+.video__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; color: #F7F4F0; }
+.video__sub { font-size: 14px; color: #8A8279; margin-top: 16px; letter-spacing: 0.05em; }
+.video__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 1400px; margin: 0 auto; }
+.video__item { position: relative; aspect-ratio: 16/9; background: #2A2826; overflow: hidden; cursor: pointer; }
+.video__item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: all 0.6s ease; }
+.video__item:hover img { opacity: 0.5; }
+.video__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border: 1px solid #F7F4F0; display: flex; align-items: center; justify-content: center; transition: all 0.4s ease; }
+.video__item:hover .video__play { background: #F7F4F0; }
+.video__play::before { content: ''; width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #F7F4F0; margin-left: 4px; transition: border-color 0.4s ease; }
+.video__item:hover .video__play::before { border-color: transparent transparent transparent #1A1816; }
+.video__label { position: absolute; bottom: 20px; left: 24px; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F4F0; }
+.video__duration { position: absolute; bottom: 20px; right: 24px; font-size: 10px; letter-spacing: 0.15em; color: #B5ADA4; background: rgba(26,24,22,0.8); padding: 4px 10px; }
+
+/* ============ REVIEWS ============ */
+.reviews { padding: 140px 80px; background: #F7F4F0; }
+.reviews__head { text-align: center; margin-bottom: 80px; }
+.reviews__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; margin-bottom: 32px; }
+.reviews__summary { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; }
+.reviews__stars { display: flex; gap: 4px; }
+.star { width: 18px; height: 18px; background: #1A1816; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.reviews__count { font-size: 12px; letter-spacing: 0.2em; color: #8A8279; text-transform: uppercase; }
+.reviews__write { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding: 14px 32px; border: 1px solid #1A1816; color: #1A1816; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; transition: all 0.4s ease; }
+.reviews__write:hover { background: #1A1816; color: #F7F4F0; }
+.reviews__list { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.review-card { padding: 40px 32px; border-bottom: 1px solid #D4CEC6; border-right: 1px solid #D4CEC6; }
+.review-card:nth-child(2n) { border-right: none; }
+.review-card__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.review-card__author { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+.review-card__verified { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; }
+.review-card__stars { display: flex; gap: 2px; margin-bottom: 12px; }
+.review-card__stars .star { width: 12px; height: 12px; background: #1A1816; }
+.review-card__title { font-size: 14px; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.02em; }
+.review-card__text { font-size: 13px; line-height: 1.7; color: #8A8279; margin-bottom: 12px; }
+.review-card__date { font-size: 10px; letter-spacing: 0.15em; color: #8A8279; text-transform: uppercase; }
+
+/* ============ Q&A ============ */
+.qa { padding: 140px 80px; background: #1A1816; }
+.qa__head { text-align: center; margin-bottom: 80px; }
+.qa__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; color: #F7F4F0; margin-bottom: 16px; }
+.qa__sub { font-size: 14px; color: #8A8279; letter-spacing: 0.05em; }
+.qa__list { max-width: 1000px; margin: 0 auto; }
+.qa__item { padding: 32px 0; border-bottom: 1px solid #2A2826; }
+.qa__question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.qa__q { font-size: 16px; color: #F7F4F0; font-weight: 400; letter-spacing: 0.02em; flex: 1; padding-right: 24px; }
+.qa__q::before { content: 'Q.'; color: #8A8279; margin-right: 16px; font-size: 12px; letter-spacing: 0.2em; }
+.qa__icon { font-size: 20px; color: #B5ADA4; transition: transform 0.3s ease; }
+.qa__answer { margin-top: 20px; padding-left: 32px; }
+.qa__answer::before { content: 'A.'; color: #8A8279; margin-right: 16px; font-size: 12px; letter-spacing: 0.2em; }
+.qa__a { font-size: 14px; line-height: 1.8; color: #B5ADA4; display: inline; }
+.qa__ask { text-align: center; margin-top: 64px; }
+
+/* ============ PAYMENT + SHARE ============ */
+.cta__pay { display: flex; justify-content: center; gap: 16px; margin: 40px 0; flex-wrap: wrap; }
+.pay-icon { padding: 10px 20px; border: 1px solid #2A2826; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; min-width: 100px; text-align: center; }
+.cta__share { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 40px; padding-top: 40px; border-top: 1px solid #2A2826; }
+.cta__share-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #8A8279; }
+.share-btn { width: 40px; height: 40px; border: 1px solid #2A2826; display: flex; align-items: center; justify-content: center; color: #B5ADA4; text-decoration: none; font-size: 14px; transition: all 0.4s ease; }
+.share-btn:hover { border-color: #F7F4F0; color: #F7F4F0; }
+.share-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
 /* ============ IMAGE PLACEHOLDERS ============ */
 .placeholder { background: #D4CEC6; display: flex; align-items: center; justify-content: center; color: #8A8279; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
 .placeholder--dark { background: #2A2826; color: #8A8279; }
@@ -164,6 +227,9 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
   .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
   .gallery__item--main { grid-row: span 1; grid-column: span 2; height: 50vh; }
   .gallery__item { height: 30vh; }
+  .video__grid { grid-template-columns: 1fr; }
+  .reviews__list { grid-template-columns: 1fr; }
+  .review-card { border-right: none; }
   .specs__row { grid-template-columns: 1fr; gap: 8px; }
   .overview { padding: 100px 32px; }
   .system, .gallery, .specs, .cta { padding: 80px 32px; }
@@ -374,29 +440,163 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
   </div>
 </section>
 
-<!-- ============ 10. GALLERY ============ -->
-<section class="gallery">
-  <div class="gallery__head">
-    <div class="label" style="color:#B5ADA4;">Gallery</div>
-    <h2 class="gallery__heading">Every detail considered.</h2>
+<!-- ============ 10. VIDEO ============ -->
+<section class="video">
+  <div class="video__head">
+    <div class="label" style="color:#B5ADA4;">In Motion</div>
+    <h2 class="video__heading">See RS03 in action.</h2>
+    <p class="video__sub">Movement, control, and the precision that defines every Sensol system.</p>
   </div>
-  <div class="gallery__grid">
-    <div class="gallery__item gallery__item--main">
-      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #5 — Main Gallery</div>
-      <div class="gallery__item-label">Lifestyle</div>
+  <div class="video__grid">
+    <div class="video__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Video #1 — Product Walkthrough</div>
+      <div class="video__play"></div>
+      <div class="video__label">01 — Walkthrough</div>
+      <div class="video__duration">2:14</div>
     </div>
-    <div class="gallery__item">
-      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #6</div>
+    <div class="video__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Video #2 — Resistance Modes</div>
+      <div class="video__play"></div>
+      <div class="video__label">02 — Resistance</div>
+      <div class="video__duration">1:48</div>
     </div>
-    <div class="gallery__item">
-      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #7</div>
+    <div class="video__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Video #3 — Pilates Sessions</div>
+      <div class="video__play"></div>
+      <div class="video__label">03 — Pilates</div>
+      <div class="video__duration">3:22</div>
     </div>
-    <div class="gallery__item">
-      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #8</div>
+    <div class="video__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Video #4 — App Integration</div>
+      <div class="video__play"></div>
+      <div class="video__label">04 — App</div>
+      <div class="video__duration">1:36</div>
     </div>
-    <div class="gallery__item">
-      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #9</div>
+  </div>
+</section>
+
+<!-- ============ 10.5 REVIEWS (Judge.me style) ============ -->
+<section class="reviews">
+  <div class="reviews__head">
+    <div class="label">Customer Reviews · Powered by Judge.me</div>
+    <h2 class="reviews__heading">Trained by design.</h2>
+    <div class="reviews__summary">
+      <div class="reviews__stars">
+        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+      </div>
+      <div class="reviews__count">4.9 / 5 · Based on 128 reviews</div>
     </div>
+    <a href="#" class="reviews__write">Write a Review</a>
+  </div>
+  <div class="reviews__list">
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">Sarah M.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__title">Feels like it was built for my body.</div>
+      <p class="review-card__text">The precision of this machine is unlike anything I've used. The digital resistance is so smooth I forget I'm working against anything — until I try a more challenging setting. Three months in and it's still the first thing I do every morning.</p>
+      <div class="review-card__date">Posted 3 days ago</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">James L.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__title">Quieter than my refrigerator.</div>
+      <p class="review-card__text">I didn't expect a piece of fitness equipment to change my entire morning routine. The quiet operation means I can train before anyone wakes up. The app integration is seamless — it knows my preferences better than I do.</p>
+      <div class="review-card__date">Posted 1 week ago</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">Elena K.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__title">A sculpture that happens to be a reformer.</div>
+      <p class="review-card__text">Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it. The foldable design means I can keep my space clean when I want it to. I haven't found another machine that respects architecture this much.</p>
+      <div class="review-card__date">Posted 2 weeks ago</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">Michael R.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__title">Best investment I've made in my home.</div>
+      <p class="review-card__text">Replaced my gym membership and three different pieces of equipment. The RS03 does everything — strength, Pilates, mobility — and the quality of construction is genuinely professional. Lifetime warranty on the frame is no joke.</p>
+      <div class="review-card__date">Posted 1 month ago</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10.7 Q&A (for GEO) ============ -->
+<section class="qa">
+  <div class="qa__head">
+    <div class="label" style="color:#B5ADA4;">Questions & Answers</div>
+    <h2 class="qa__heading">Frequently asked.</h2>
+    <p class="qa__sub">Real questions from real buyers. Ask your own — we respond within 24 hours.</p>
+  </div>
+  <div class="qa__list">
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">Is the RS03 suitable for someone with no Pilates experience?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">Yes. The Sensol app includes 300+ guided courses ranging from complete beginner to advanced. The Sensol Control Dial™ allows you to start with zero resistance and progress at your own pace. Most beginners complete their first full workout within 30 minutes of setup.</span>
+      </div>
+    </div>
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">How much space do I need, and does it fold for storage?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">RS03 occupies approximately 0.2 m² (190cm × 64cm) when in use, and can be stored upright against a wall when not in use. The folded footprint is roughly 64cm × 46cm — small enough to live in an apartment.</span>
+      </div>
+    </div>
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">What is the difference between RS03 and Sensol One?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">RS03 is the most advanced model in the Sensol range. It features a higher maximum resistance (45 kg vs 30 kg on Sensol One), the enhanced dual-pulley Pilates cable system, and compatibility with the full Sensol accessory suite including the pull-down bar.</span>
+      </div>
+    </div>
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">Does RS03 come with a warranty?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">Yes. The frame carries a lifetime warranty. All other components — including the digital resistance system, carriage, and cables — carry a 2-year comprehensive warranty. We also include a 30-day satisfaction guarantee on the full purchase.</span>
+      </div>
+    </div>
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">What does the Sensol App include?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">Every Sensol machine includes complimentary access to the Vesta Sensol App (iOS and Android). The app provides 300+ guided classes across Pilates, strength, yoga, and hybrid training — all led by certified instructors. It also tracks your sessions, resistance progression, and offers real-time form feedback via the machine's Bluetooth connection.</span>
+      </div>
+    </div>
+    <div class="qa__item">
+      <div class="qa__question">
+        <div class="qa__q">Is assembly required? Can I set it up myself?</div>
+        <div class="qa__icon">+</div>
+      </div>
+      <div class="qa__answer">
+        <span class="qa__a">Minimal assembly required — approximately 15 minutes out of the box. All tools are included. We also offer a white-glove assembly and setup service in metropolitan areas of Australia for an additional fee.</span>
+      </div>
+    </div>
+  </div>
+  <div class="qa__ask">
+    <a href="#" class="btn btn--outline">Ask a Question</a>
   </div>
 </section>
 
@@ -429,6 +629,34 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
   <p class="cta__sub">Engineered movement, designed for life.</p>
   <div class="cta__price">A$2,400</div>
   <a href="#" class="btn btn--light">Order Now</a>
+  <div class="cta__pay">
+    <div class="pay-icon">PayPal</div>
+    <div class="pay-icon">Afterpay</div>
+    <div class="pay-icon">Shop Pay</div>
+    <div class="pay-icon">Apple Pay</div>
+    <div class="pay-icon">Google Pay</div>
+    <div class="pay-icon">Visa · Mastercard</div>
+  </div>
+  <p style="font-size:11px;letter-spacing:0.15em;color:#8A8279;text-transform:uppercase;margin-top:8px;">4 interest-free payments of A$600 with Afterpay</p>
+
+  <div class="cta__share">
+    <div class="cta__share-label">Share</div>
+    <a href="#" class="share-btn" aria-label="Share on Facebook">
+      <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+    </a>
+    <a href="#" class="share-btn" aria-label="Share on Instagram">
+      <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+    </a>
+    <a href="#" class="share-btn" aria-label="Share on X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="#" class="share-btn" aria-label="Share on Pinterest">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.21 2.61 7.81 6.32 9.29-.09-.79-.17-2 .03-2.86.19-.78 1.21-4.97 1.21-4.97s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.86 3.47-.25 1.04.52 1.88 1.54 1.88 1.85 0 3.27-1.95 3.27-4.77 0-2.49-1.79-4.24-4.35-4.24-2.96 0-4.7 2.22-4.7 4.52 0 .89.34 1.85.77 2.37.08.1.1.19.07.29-.08.34-.27 1.07-.31 1.22-.05.2-.16.24-.37.14-1.39-.65-2.26-2.69-2.26-4.33 0-3.52 2.56-6.76 7.38-6.76 3.87 0 6.89 2.76 6.89 6.45 0 3.85-2.43 6.95-5.8 6.95-1.13 0-2.2-.59-2.56-1.29l-.7 2.66c-.25.97-.93 2.19-1.38 2.93.99.31 2.05.47 3.14.47 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+    </a>
+    <a href="#" class="share-btn" aria-label="Copy link">
+      <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 1 0 0 10h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 0-10z"/></svg>
+    </a>
+  </div>
 </section>
 
 </body>
