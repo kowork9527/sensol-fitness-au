@@ -308,6 +308,10 @@
     {%- assign use_light = true -%}
   {%- elsif template.name == 'page' and template.suffix == 'about' -%}
     {%- assign use_light = true -%}
+  {%- elsif template.name == 'product' -%}
+    {%- assign use_light = true -%}
+  {%- else -%}
+    {%- assign use_light = false -%}
   {%- endif -%}
 {%- endif -%}
 <header class="sensol-header-section{% if use_light %} sensol-header-section--light-text{% endif %}" id="sensolHeader">
