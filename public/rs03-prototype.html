@@ -239,37 +239,214 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
 .placeholder { background: #D4CEC6; display: flex; align-items: center; justify-content: center; color: #8A8279; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
 .placeholder--dark { background: #2A2826; color: #8A8279; }
 
-/* ============ RESPONSIVE ============ */
+/* ============ RESPONSIVE — TABLET ============ */
 @media (max-width: 968px) {
-  .section { padding: 80px 32px; }
+  /* Section padding */
+  .section { padding: 64px 24px; }
+  .overview { padding: 72px 24px; }
+
+  /* Typography scaling */
+  .hero__title { font-size: 48px; }
+  .hero__title span { font-size: 18px; }
+  .hero__sub { font-size: 15px; }
+  .feature__title { font-size: 32px; }
+  .specs__heading, .system__heading, .reviews__heading, .qa__heading { font-size: 32px; }
+  .cta__title { font-size: 64px; }
+
+  /* Hero */
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero__image { height: 60vh; }
-  .hero__content { padding: 60px 32px; }
-  .feature { grid-template-columns: 1fr; min-height: auto; }
-  .feature--reverse { grid-template-columns: 1fr; }
-  .feature--reverse .feature__image { order: 0; }
-  .feature__image { height: 50vh; }
-  .feature__content { padding: 60px 32px; }
+  .hero__image { height: 50vh; min-height: 360px; }
+  .hero__content { padding: 48px 24px; }
+  .hero__cta-row { flex-direction: column; align-items: stretch; }
+  .hero__cta-row .btn { width: 100%; text-align: center; }
+  .hero__price { font-size: 40px; }
+
+  /* Stats */
   .stats-bar { grid-template-columns: 1fr 1fr; }
-  .stat-cell { border-bottom: 1px solid #2A2826; }
-  .included__grid { grid-template-columns: 1fr 1fr; }
+  .stat-cell:nth-child(odd) { border-right: 1px solid #2A2826; }
+  .stat-cell:nth-child(-n+2) { border-bottom: 1px solid #2A2826; }
+  .stat-cell__num { font-size: 36px; }
+  .stat-cell__label { font-size: 10px; }
+
+  /* Features */
+  .feature { grid-template-columns: 1fr; min-height: auto; }
+  .feature--reverse .feature__image { order: 0; }
+  .feature__image { height: 45vh; min-height: 320px; }
+  .feature__content { padding: 48px 24px; }
+  .feature__num { font-size: 40px; }
+  .feature__desc { font-size: 15px; }
+
+  /* Included */
+  .included__grid { grid-template-columns: 1fr 1fr; gap: 0; }
+  .included__item { padding: 24px 20px; }
+  .included__item-name { font-size: 13px; }
+
+  /* Spec strip */
   .spec-strip { grid-template-columns: 1fr; }
-  .spec-strip__cell { border-right: none; border-bottom: 1px solid #D4CEC6; }
-  .system__grid { grid-template-columns: 1fr 1fr; }
-  .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
-  .gallery__item--main { grid-row: span 1; grid-column: span 2; height: 50vh; }
-  .gallery__item { height: 30vh; }
-  .video__grid { grid-template-columns: 1fr; }
-  .reviews { padding: 80px 24px; }
+  .spec-strip__cell { border-right: none; border-bottom: 1px solid #D4CEC6; padding: 32px 24px; }
+  .spec-strip__cell:last-child { border-bottom: none; }
+  .spec-strip__num { font-size: 48px; }
+
+  /* System */
+  .system__grid { grid-template-columns: 1fr; gap: 0; }
+  .system__card { padding: 48px 24px; border-right: none; border-bottom: 1px solid #2A2826; }
+  .system__card:last-child { border-bottom: none; }
+  .system__card-num { font-size: 48px; }
+
+  /* Videos */
+  .video__grid { grid-template-columns: 1fr; gap: 16px; }
+  .video__item { aspect-ratio: 16 / 9; }
+  .video__item-label { font-size: 11px; padding: 12px 16px; }
+  .video__heading { font-size: 32px; }
+
+  /* Reviews */
+  .reviews { padding: 72px 24px; }
   .reviews__summary { grid-template-columns: 1fr; gap: 32px; }
-  .reviews__list { grid-template-columns: 1fr; }
-  .review-card { border-right: none; padding: 32px 24px; }
-  .reviews__filters { overflow-x: auto; flex-wrap: nowrap; }
-  .filter-chip { white-space: nowrap; }
-  .specs__row { grid-template-columns: 1fr; gap: 8px; }
-  .overview { padding: 100px 32px; }
-  .system, .gallery, .specs, .cta { padding: 80px 32px; }
-  .cta { padding: 100px 32px; }
+  .reviews__score { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .reviews__score-num { font-size: 56px; }
+  .reviews__filters { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 8px; }
+  .reviews__filters::-webkit-scrollbar { display: none; }
+  .filter-chip { white-space: nowrap; flex-shrink: 0; padding: 10px 16px; font-size: 11px; }
+  .reviews__list { grid-template-columns: 1fr; gap: 0; }
+  .review-card { border-right: none; border-bottom: 1px solid #2A2826; padding: 32px 0; }
+  .review-card:last-child { border-bottom: none; }
+  .review-card__media { grid-template-columns: repeat(3, 70px); gap: 8px; }
+  .review-card__media-item { width: 70px; height: 70px; font-size: 10px; }
+
+  /* Q&A */
+  .qa { padding: 72px 24px; }
+  .qa__q { font-size: 15px; padding: 24px 0; }
+  .qa__a { font-size: 14px; }
+  .qa__ask .btn { width: 100%; }
+
+  /* Specs */
+  .specs { padding: 64px 24px; }
+  .specs__row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+  .specs__row-label { font-size: 10px; }
+
+  /* CTA */
+  .cta { padding: 80px 24px; }
+  .cta__title { font-size: 56px; letter-spacing: 0.1em; }
+  .cta__sub { font-size: 14px; }
+  .cta__price { font-size: 36px; }
+  .cta__btn { width: 100%; padding: 18px 24px; }
+  .cta__payments { flex-wrap: wrap; gap: 8px; }
+  .payment-chip { font-size: 10px; padding: 8px 12px; }
+  .cta__afterpay { font-size: 12px; }
+  .cta__share-label { font-size: 10px; }
+  .share-btn { width: 44px; height: 44px; }
+  .share-btn svg { width: 18px; height: 18px; }
+}
+
+/* ============ RESPONSIVE — MOBILE ============ */
+@media (max-width: 640px) {
+  .prototype-nav { padding: 12px 16px; }
+  .prototype-nav__logo { font-size: 13px; }
+  .prototype-nav__hint { display: none; }
+
+  .section { padding: 48px 16px; }
+  .overview { padding: 56px 16px; }
+  .reviews, .qa, .system, .specs, .video, .cta { padding-left: 16px; padding-right: 16px; }
+
+  .label { font-size: 9px; letter-spacing: 0.15em; }
+
+  /* Hero mobile */
+  .hero__image { height: 40vh; min-height: 280px; }
+  .hero__content { padding: 32px 16px; }
+  .hero__tag { font-size: 9px; margin-bottom: 16px; }
+  .hero__title { font-size: 36px; letter-spacing: 0.12em; margin-bottom: 20px; }
+  .hero__title span { font-size: 14px; letter-spacing: 0.06em; margin-top: 16px; }
+  .hero__sub { font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+  .hero__price { font-size: 32px; }
+  .hero__price-note { font-size: 11px; margin-bottom: 24px; }
+  .hero__cta-row { gap: 12px; }
+  .hero__cta-row .btn { padding: 16px 20px; font-size: 12px; }
+
+  /* Stats mobile */
+  .stat-cell { padding: 24px 16px; }
+  .stat-cell__num { font-size: 28px; }
+  .stat-cell__label { font-size: 9px; }
+
+  /* Feature mobile */
+  .feature__image { height: 35vh; min-height: 240px; }
+  .feature__content { padding: 40px 16px; }
+  .feature__num { font-size: 32px; margin-bottom: 20px; }
+  .feature__title { font-size: 26px; margin-bottom: 16px; }
+  .feature__desc { font-size: 14px; line-height: 1.6; }
+  .feature__specs { padding: 16px; gap: 8px; }
+  .feature__specs-row { grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 0; font-size: 11px; }
+  .feature__specs-label { font-size: 9px; }
+  .feature__specs-value { font-size: 12px; }
+
+  /* Overview mobile */
+  .overview__title { font-size: 28px; }
+  .overview__text { font-size: 14px; }
+
+  /* Included mobile */
+  .included__grid { grid-template-columns: 1fr; }
+  .included__item { padding: 20px 0; border-right: none; border-bottom: 1px solid #D4CEC6; }
+  .included__item:last-child { border-bottom: none; }
+  .included__item-num { font-size: 10px; }
+  .included__item-name { font-size: 13px; }
+
+  /* Spec strip mobile */
+  .spec-strip__cell { padding: 28px 16px; }
+  .spec-strip__num { font-size: 40px; }
+  .spec-strip__label { font-size: 9px; }
+
+  /* System mobile */
+  .system__card { padding: 40px 16px; }
+  .system__card-num { font-size: 40px; }
+  .system__card-title { font-size: 18px; }
+  .system__card-desc { font-size: 13px; }
+
+  /* Video mobile */
+  .video__heading { font-size: 26px; }
+  .video__sub { font-size: 13px; }
+  .video__item { aspect-ratio: 16 / 10; }
+  .video__item-label { font-size: 10px; padding: 10px 12px; letter-spacing: 0.1em; }
+  .video__play { width: 48px; height: 48px; }
+  .video__play svg { width: 14px; height: 14px; }
+
+  /* Reviews mobile */
+  .reviews__heading, .qa__heading, .specs__heading, .system__heading { font-size: 26px; }
+  .reviews__score-num { font-size: 48px; }
+  .reviews__count { font-size: 12px; }
+  .reviews__media-text { font-size: 13px; }
+  .reviews__media-sub { font-size: 11px; }
+  .reviews__write { width: 100%; text-align: center; padding: 16px; font-size: 12px; }
+  .review-card { padding: 24px 0; }
+  .review-card__author { font-size: 14px; }
+  .review-card__title { font-size: 15px; }
+  .review-card__text { font-size: 13px; line-height: 1.6; }
+  .review-card__media { grid-template-columns: repeat(3, 64px); gap: 6px; }
+  .review-card__media-item { width: 64px; height: 64px; font-size: 9px; }
+  .review-card__reply { padding: 16px; }
+  .review-card__reply p { font-size: 12px; }
+  .reviews__loadmore .btn { width: 100%; }
+
+  /* Q&A mobile */
+  .qa__q { font-size: 14px; padding: 20px 0; }
+  .qa__a { font-size: 13px; line-height: 1.6; }
+
+  /* Specs mobile */
+  .specs__heading { font-size: 26px; }
+  .specs__row-label { font-size: 9px; }
+  .specs__row-value { font-size: 13px; }
+
+  /* CTA mobile */
+  .cta { padding: 64px 16px; }
+  .cta__title { font-size: 40px; letter-spacing: 0.08em; }
+  .cta__sub { font-size: 13px; }
+  .cta__price { font-size: 32px; }
+  .cta__btn { width: 100%; padding: 18px 20px; font-size: 12px; }
+  .cta__payments { gap: 6px; }
+  .payment-chip { font-size: 9px; padding: 7px 10px; }
+  .cta__afterpay { font-size: 11px; }
+  .cta__share { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta__share-label { text-align: center; }
+  .cta__share-icons { justify-content: center; }
+  .share-btn { width: 40px; height: 40px; }
 }
 </style>
 </head>
