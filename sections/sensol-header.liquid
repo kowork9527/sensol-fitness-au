@@ -42,14 +42,14 @@
 
   /* Light text mode: white text when transparent */
   .sensol-header-section--light-text:not(.scrolled) .sensol-header__logo-text {
-    color: #F7F4F0;
+    color: #F7F4F0 !important;
   }
   .sensol-header-section--light-text:not(.scrolled) .sensol-header__link {
-    color: #F7F4F0;
+    color: #F7F4F0 !important;
   }
   .sensol-header-section--light-text:not(.scrolled) .sensol-header__shop-btn {
-    color: #F7F4F0;
-    background-color: #1A1816;
+    color: #F7F4F0 !important;
+    background-color: #1A1816 !important;
   }
   .sensol-header-section--light-text.scrolled .sensol-header__shop-btn:hover {
     background-color: #2A2826;
@@ -66,7 +66,7 @@
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #1A1816;
+    color: #1A1816 !important;
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -106,11 +106,11 @@
   }
 
   /* Light text mode: white text/icons when transparent */
-  .sensol-header-section--light-text:not(.sensol-header--scrolled) .sensol-header__icon {
-    color: #F7F4F0;
+  .sensol-header-section--light-text:not(.scrolled) .sensol-header__icon {
+    color: #F7F4F0 !important;
   }
-  .sensol-header-section--light-text:not(.sensol-header--scrolled) .sensol-header__hamburger span {
-    background-color: #F7F4F0;
+  .sensol-header-section--light-text:not(.scrolled) .sensol-header__hamburger span {
+    background-color: #F7F4F0 !important;
   }
   .sensol-header__icon-link:hover .sensol-header__icon {
     color: #8A8279;
@@ -267,10 +267,10 @@
     </a>
 
     <nav class="sensol-header__nav" style="display: flex !important; align-items: center; gap: 32px;">
-      <a href="/pages/about" class="sensol-header__link" style="color: inherit; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">ABOUT</a>
-      <a href="/collections/all" class="sensol-header__link" style="color: inherit; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">PRODUCTS</a>
-      <a href="/pages/shipping-policy" class="sensol-header__link" style="color: inherit; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">SHIPPING</a>
-      <a href="/pages/contact" class="sensol-header__link" style="color: inherit; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">CONTACT</a>
+      <a href="/pages/about" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">ABOUT</a>
+      <a href="/collections/all" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">PRODUCTS</a>
+      <a href="/pages/shipping-policy" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">SHIPPING</a>
+      <a href="/pages/contact" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">CONTACT</a>
       <a href="/collections/all" class="sensol-header__shop-btn" style="color: #F7F4F0; background-color: #1A1816; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">SHOP ALL</a>
     </nav>
 
