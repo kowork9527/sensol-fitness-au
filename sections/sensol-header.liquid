@@ -325,6 +325,13 @@
       }
     }, { passive: true });
 
+    /* Force parent header-group z-index above hero (Dawn base.css sets it to 4) */
+    var parentGroup = header.closest('.shopify-section-group-header-group');
+    if (parentGroup) {
+      parentGroup.style.zIndex = '1000';
+      parentGroup.style.position = 'relative';
+    }
+
     /* Hamburger: toggle mobile menu */
     if (hamburger && drawer) {
       hamburger.addEventListener('click', function(e) {
