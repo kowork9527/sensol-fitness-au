@@ -1,26 +1,56 @@
-{%- comment -%}RS03 Landing v1 - MINIMAL{%- endcomment -%}
-<div style="font-family:sans-serif;color:#1A1816">
-  <h1>{{ section.settings.title }}</h1>
-  <p>{{ section.settings.subtitle }}</p>
-  {%- if section.settings.image != blank -%}
-    <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="" style="max-width:100%">
-  {%- else -%}
-    <p>No image set</p>
-  {%- endif -%}
-</div>
+{%- comment -%}RS03 Landing v1 - Hero block with proper styling{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+  #shopify-section-{{ section.id }} .rs03-hero { background: #1A1816; color: #F7F4F0; padding: 120px 24px 80px; }
+  #shopify-section-{{ section.id }} .rs03-hero__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  #shopify-section-{{ section.id }} .rs03-hero__eyebrow { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 24px; }
+  #shopify-section-{{ section.id }} .rs03-hero__title { font-size: 56px; font-weight: 300; letter-spacing: 0.12em; line-height: 1.1; margin: 0 0 24px; }
+  #shopify-section-{{ section.id }} .rs03-hero__subtitle { font-size: 18px; font-weight: 400; line-height: 1.6; color: #D4CEC6; margin: 0 0 40px; max-width: 480px; }
+  #shopify-section-{{ section.id }} .rs03-hero__cta { display: inline-block; padding: 16px 40px; background: #F7F4F0; color: #1A1816; text-decoration: none; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
+  #shopify-section-{{ section.id }} .rs03-hero__image { width: 100%; aspect-ratio: 4/5; background: #2A2826; overflow: hidden; }
+  #shopify-section-{{ section.id }} .rs03-hero__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 968px) {
+    #shopify-section-{{ section.id }} .rs03-hero { padding: 80px 20px 60px; }
+    #shopify-section-{{ section.id }} .rs03-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+    #shopify-section-{{ section.id }} .rs03-hero__title { font-size: 36px; }
+  }
+</style>
+
+<section class="rs03-hero">
+  <div class="rs03-hero__inner">
+    <div class="rs03-hero__text">
+      {%- if s.eyebrow != blank -%}<div class="rs03-hero__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      <h1 class="rs03-hero__title">{{ s.title }}</h1>
+      {%- if s.subtitle != blank -%}<p class="rs03-hero__subtitle">{{ s.subtitle }}</p>{%- endif -%}
+      {%- if s.cta_text != blank -%}
+        <a href="{{ s.cta_link }}" class="rs03-hero__cta">{{ s.cta_text }}</a>
+      {%- endif -%}
+    </div>
+    <div class="rs03-hero__image">
+      {%- if s.image != blank -%}
+        {{ s.image | image_url: width: 1200 | image_tag: loading: 'eager', widths: '600, 1200' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "RS03 Landing v1",
+  "name": "RS03 Hero v1",
   "tag": "section",
-  "class": "rs03-v1",
+  "class": "rs03-hero-section",
   "settings": [
-    { "type": "text", "id": "title", "label": "Title", "default": "SENSOL RS03" },
-    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Maximum Control. Expanded Movement." },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "SENSOL RS03" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Maximum Control." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Expanded movement, refined engineering. A precision instrument for the modern home." },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop RS03" },
+    { "type": "text", "id": "cta_link", "label": "CTA Link", "default": "/products/sensol-one-plus" },
+    { "type": "image_picker", "id": "image", "label": "Hero Image" }
   ],
   "presets": [
-    { "name": "RS03 Landing v1" }
+    { "name": "RS03 Hero v1" }
   ]
 }
 {% endschema %}
