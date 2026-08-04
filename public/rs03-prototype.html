@@ -157,26 +157,58 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
 .video__duration { position: absolute; bottom: 20px; right: 24px; font-size: 10px; letter-spacing: 0.15em; color: #B5ADA4; background: rgba(26,24,22,0.8); padding: 4px 10px; }
 
 /* ============ REVIEWS ============ */
-.reviews { padding: 140px 80px; background: #F7F4F0; }
-.reviews__head { text-align: center; margin-bottom: 80px; }
-.reviews__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; margin-bottom: 32px; }
-.reviews__summary { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; }
-.reviews__stars { display: flex; gap: 4px; }
-.star { width: 18px; height: 18px; background: #1A1816; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
-.reviews__count { font-size: 12px; letter-spacing: 0.2em; color: #8A8279; text-transform: uppercase; }
-.reviews__write { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding: 14px 32px; border: 1px solid #1A1816; color: #1A1816; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; transition: all 0.4s ease; }
-.reviews__write:hover { background: #1A1816; color: #F7F4F0; }
-.reviews__list { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.review-card { padding: 40px 32px; border-bottom: 1px solid #D4CEC6; border-right: 1px solid #D4CEC6; }
+.reviews { padding: 140px 80px; background: #F7F4F0; color: #1A1816; }
+.reviews__head { max-width: 1280px; margin: 0 auto 60px; }
+.reviews__head .label { color: #8A8279; }
+.reviews__heading { font-size: 48px; font-weight: 300; letter-spacing: 0.1em; margin: 12px 0 0; }
+.reviews__summary { max-width: 1280px; margin: 0 auto 60px; display: grid; grid-template-columns: 280px 1fr 320px; gap: 60px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid #D4CEC6; }
+.reviews__score { display: flex; align-items: center; gap: 20px; }
+.reviews__score-num { font-size: 64px; font-weight: 200; line-height: 1; letter-spacing: -0.02em; }
+.reviews__stars { display: flex; gap: 2px; }
+.star { width: 14px; height: 14px; background: #1A1816; clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+.star--empty { background: #D4CEC6; }
+.reviews__count { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #8A8279; margin-top: 6px; }
+.reviews__breakdown { display: flex; flex-direction: column; gap: 8px; }
+.breakdown-row { display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.1em; }
+.breakdown-label { width: 28px; color: #8A8279; }
+.breakdown-bar { flex: 1; height: 4px; background: #D4CEC6; position: relative; }
+.breakdown-fill { position: absolute; left: 0; top: 0; height: 100%; background: #1A1816; }
+.breakdown-num { width: 24px; text-align: right; color: #1A1816; }
+.reviews__media-link { display: flex; align-items: center; gap: 16px; padding: 20px; border: 1px solid #D4CEC6; cursor: pointer; transition: background 0.2s; text-decoration: none; color: inherit; }
+.reviews__media-link:hover { background: rgba(212,206,198,0.2); }
+.reviews__media-icon { font-size: 24px; line-height: 1; }
+.reviews__media-text { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.reviews__media-sub { font-size: 10px; color: #8A8279; margin-top: 2px; }
+.reviews__media-arrow { margin-left: auto; font-size: 18px; }
+.reviews__write { display: inline-block; padding: 16px 32px; background: #1A1816; color: #F7F4F0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; margin-top: 20px; transition: opacity 0.2s; }
+.reviews__write:hover { opacity: 0.85; }
+.reviews__filters { max-width: 1280px; margin: 0 auto 40px; display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-chip { padding: 10px 18px; border: 1px solid #D4CEC6; background: transparent; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #1A1816; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.filter-chip:hover { border-color: #1A1816; }
+.filter-chip--active { background: #1A1816; color: #F7F4F0; border-color: #1A1816; }
+.reviews__list { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #D4CEC6; }
+.review-card { padding: 40px; border-bottom: 1px solid #D4CEC6; border-right: 1px solid #D4CEC6; }
 .review-card:nth-child(2n) { border-right: none; }
-.review-card__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.review-card__head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .review-card__author { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
-.review-card__verified { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; }
-.review-card__stars { display: flex; gap: 2px; margin-bottom: 12px; }
-.review-card__stars .star { width: 12px; height: 12px; background: #1A1816; }
-.review-card__title { font-size: 14px; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.02em; }
-.review-card__text { font-size: 13px; line-height: 1.7; color: #8A8279; margin-bottom: 12px; }
-.review-card__date { font-size: 10px; letter-spacing: 0.15em; color: #8A8279; text-transform: uppercase; }
+.review-card__verified { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #8A8279; padding: 4px 8px; border: 1px solid #D4CEC6; }
+.review-card__meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.review-card__meta .review-card__stars { gap: 2px; }
+.review-card__meta .star { width: 12px; height: 12px; }
+.review-card__date { font-size: 10px; color: #8A8279; letter-spacing: 0.1em; text-transform: uppercase; }
+.review-card__title { font-size: 16px; font-weight: 500; margin: 0 0 12px; }
+.review-card__text { font-size: 14px; line-height: 1.7; color: #1A1816; margin: 0 0 16px; }
+.review-card__media { display: flex; gap: 8px; margin-bottom: 16px; }
+.review-card__media-item { width: 72px; height: 72px; background: #1A1816; color: #8A8279; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+.review-card__media-item:hover { opacity: 0.8; }
+.review-card__reply { background: #1A1816; color: #F7F4F0; padding: 20px; margin: 16px 0; border-left: 2px solid #B5ADA4; }
+.review-card__reply-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #B5ADA4; }
+.review-card__reply-date { font-size: 10px; color: #8A8279; margin-bottom: 8px; }
+.review-card__reply p { margin: 0; font-size: 13px; line-height: 1.7; }
+.review-card__foot { display: flex; gap: 16px; padding-top: 12px; border-top: 1px solid #D4CEC6; }
+.review-card__helpful, .review-card__share-mini { background: none; border: none; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #8A8279; cursor: pointer; padding: 0; transition: color 0.2s; font-family: inherit; }
+.review-card__helpful:hover, .review-card__share-mini:hover { color: #1A1816; }
+.reviews__loadmore { max-width: 1280px; margin: 60px auto 0; text-align: center; }
 
 /* ============ Q&A ============ */
 .qa { padding: 140px 80px; background: #1A1816; }
@@ -228,8 +260,12 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
   .gallery__item--main { grid-row: span 1; grid-column: span 2; height: 50vh; }
   .gallery__item { height: 30vh; }
   .video__grid { grid-template-columns: 1fr; }
+  .reviews { padding: 80px 24px; }
+  .reviews__summary { grid-template-columns: 1fr; gap: 32px; }
   .reviews__list { grid-template-columns: 1fr; }
-  .review-card { border-right: none; }
+  .review-card { border-right: none; padding: 32px 24px; }
+  .reviews__filters { overflow-x: auto; flex-wrap: nowrap; }
+  .filter-chip { white-space: nowrap; }
   .specs__row { grid-template-columns: 1fr; gap: 8px; }
   .overview { padding: 100px 32px; }
   .system, .gallery, .specs, .cta { padding: 80px 32px; }
@@ -480,55 +516,185 @@ body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -w
   <div class="reviews__head">
     <div class="label">Customer Reviews · Powered by Judge.me</div>
     <h2 class="reviews__heading">Trained by design.</h2>
-    <div class="reviews__summary">
-      <div class="reviews__stars">
-        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+  </div>
+  <div class="reviews__summary">
+    <div class="reviews__score">
+      <div class="reviews__score-num">4.8</div>
+      <div>
+        <div class="reviews__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <div class="reviews__count">Based on 128 reviews</div>
       </div>
-      <div class="reviews__count">4.9 / 5 · Based on 128 reviews</div>
     </div>
+    <div class="reviews__breakdown">
+      <div class="breakdown-row"><span class="breakdown-label">5 ★</span><div class="breakdown-bar"><div class="breakdown-fill" style="width:78%;"></div></div><span class="breakdown-num">100</span></div>
+      <div class="breakdown-row"><span class="breakdown-label">4 ★</span><div class="breakdown-bar"><div class="breakdown-fill" style="width:15%;"></div></div><span class="breakdown-num">19</span></div>
+      <div class="breakdown-row"><span class="breakdown-label">3 ★</span><div class="breakdown-bar"><div class="breakdown-fill" style="width:4%;"></div></div><span class="breakdown-num">5</span></div>
+      <div class="breakdown-row"><span class="breakdown-label">2 ★</span><div class="breakdown-bar"><div class="breakdown-fill" style="width:2%;"></div></div><span class="breakdown-num">3</span></div>
+      <div class="breakdown-row"><span class="breakdown-label">1 ★</span><div class="breakdown-bar"><div class="breakdown-fill" style="width:1%;"></div></div><span class="breakdown-num">1</span></div>
+    </div>
+    <a href="#" class="reviews__media-link">
+      <div class="reviews__media-icon">▦</div>
+      <div>
+        <div class="reviews__media-text">Customer Photos & Videos</div>
+        <div class="reviews__media-sub">24 photos · 6 videos</div>
+      </div>
+      <div class="reviews__media-arrow">→</div>
+    </a>
     <a href="#" class="reviews__write">Write a Review</a>
   </div>
+
+  <div class="reviews__filters">
+    <button class="filter-chip filter-chip--active">All Reviews (128)</button>
+    <button class="filter-chip">With Photo (24)</button>
+    <button class="filter-chip">With Video (6)</button>
+    <button class="filter-chip">5 Star (100)</button>
+    <button class="filter-chip">Verified (118)</button>
+  </div>
+
   <div class="reviews__list">
+
     <div class="review-card">
       <div class="review-card__head">
         <div class="review-card__author">Sarah M.</div>
         <div class="review-card__verified">✓ Verified Buyer</div>
       </div>
-      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <div class="review-card__date">Posted 3 days ago</div>
+      </div>
       <div class="review-card__title">Feels like it was built for my body.</div>
       <p class="review-card__text">The precision of this machine is unlike anything I've used. The digital resistance is so smooth I forget I'm working against anything — until I try a more challenging setting. Three months in and it's still the first thing I do every morning.</p>
-      <div class="review-card__date">Posted 3 days ago</div>
+      <div class="review-card__media">
+        <div class="review-card__media-item">Photo 1</div>
+        <div class="review-card__media-item">Photo 2</div>
+        <div class="review-card__media-item">Video</div>
+        <div class="review-card__media-item">+2</div>
+      </div>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>12</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
     </div>
+
     <div class="review-card">
       <div class="review-card__head">
         <div class="review-card__author">James L.</div>
         <div class="review-card__verified">✓ Verified Buyer</div>
       </div>
-      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-      <div class="review-card__title">Quieter than my refrigerator.</div>
-      <p class="review-card__text">I didn't expect a piece of fitness equipment to change my entire morning routine. The quiet operation means I can train before anyone wakes up. The app integration is seamless — it knows my preferences better than I do.</p>
-      <div class="review-card__date">Posted 1 week ago</div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <div class="review-card__date">Posted 1 week ago</div>
+      </div>
+      <p class="review-card__text">Quieter than my refrigerator. I didn't expect a piece of fitness equipment to change my entire morning routine — the silent operation means I can train at 5am without waking anyone. The app integration is seamless.</p>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>8</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
     </div>
+
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">David K.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+          <div class="star star--empty"></div>
+        </div>
+        <div class="review-card__date">Posted 2 weeks ago</div>
+      </div>
+      <div class="review-card__title">Great machine, but delivery took a while.</div>
+      <p class="review-card__text">The RS03 itself is fantastic — the resistance, the build, the design. My only gripe is the delivery: it took 3 weeks to arrive in Melbourne. Worth the wait, but worth noting. Sensol support was responsive throughout.</p>
+      <div class="review-card__media">
+        <div class="review-card__media-item">Photo</div>
+      </div>
+      <div class="review-card__reply">
+        <div class="review-card__reply-label">Sensol Team</div>
+        <div class="review-card__reply-date">2 weeks ago</div>
+        <p>Thanks David — we're expanding our AU logistics partnership in Q1 to cut delivery times to 5-7 business days metro. Glad you're enjoying the machine.</p>
+      </div>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>5</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
+    </div>
+
     <div class="review-card">
       <div class="review-card__head">
         <div class="review-card__author">Elena K.</div>
         <div class="review-card__verified">✓ Verified Buyer</div>
       </div>
-      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <div class="review-card__date">Posted 1 month ago</div>
+      </div>
       <div class="review-card__title">A sculpture that happens to be a reformer.</div>
       <p class="review-card__text">Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it. The foldable design means I can keep my space clean when I want it to. I haven't found another machine that respects architecture this much.</p>
-      <div class="review-card__date">Posted 2 weeks ago</div>
+      <div class="review-card__media">
+        <div class="review-card__media-item">Photo 1</div>
+        <div class="review-card__media-item">Photo 2</div>
+        <div class="review-card__media-item">Photo 3</div>
+        <div class="review-card__media-item">Photo 4</div>
+      </div>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>15</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
     </div>
+
     <div class="review-card">
       <div class="review-card__head">
         <div class="review-card__author">Michael R.</div>
         <div class="review-card__verified">✓ Verified Buyer</div>
       </div>
-      <div class="review-card__stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <div class="review-card__date">Posted 1 month ago</div>
+      </div>
       <div class="review-card__title">Best investment I've made in my home.</div>
       <p class="review-card__text">Replaced my gym membership and three different pieces of equipment. The RS03 does everything — strength, Pilates, mobility — and the quality of construction is genuinely professional. Lifetime warranty on the frame is no joke.</p>
-      <div class="review-card__date">Posted 1 month ago</div>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>9</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
     </div>
+
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__author">Anna P.</div>
+        <div class="review-card__verified">✓ Verified Buyer</div>
+      </div>
+      <div class="review-card__meta">
+        <div class="review-card__stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <div class="review-card__date">Posted 2 months ago</div>
+      </div>
+      <div class="review-card__title">A$2,400 well spent.</div>
+      <p class="review-card__text">Six weeks in. The app classes are exceptional and the machine is so quiet I sometimes forget it's on. The folding is the real winner though — I store it behind my couch and the apartment looks untouched.</p>
+      <div class="review-card__media">
+        <div class="review-card__media-item">Photo</div>
+        <div class="review-card__media-item">Video</div>
+      </div>
+      <div class="review-card__foot">
+        <button class="review-card__helpful">Helpful · <span>7</span></button>
+        <button class="review-card__share-mini">Share</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reviews__loadmore">
+    <button class="btn btn--outline">Load More Reviews</button>
   </div>
 </section>
 
