@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENSOL RS03 — Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* ============ TOP NAV (filler) ============ */
+.prototype-nav { position: fixed; top: 0; left: 0; right: 0; height: 64px; background: #1A1816; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-bottom: 1px solid #2A2826; }
+.prototype-nav__logo { font-size: 16px; font-weight: 500; letter-spacing: 0.3em; color: #F7F4F0; text-transform: uppercase; }
+.prototype-nav__hint { font-size: 10px; letter-spacing: 0.2em; color: #8A8279; text-transform: uppercase; }
+
+/* ============ HERO ============ */
+.hero { position: relative; min-height: 100vh; background: #1A1816; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+.hero__image { position: relative; overflow: hidden; }
+.hero__image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+.hero__image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, #1A1816 100%); }
+.hero__content { display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 80px 60px; position: relative; z-index: 2; }
+.hero__tag { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 32px; }
+.hero__title { font-size: clamp(56px, 7vw, 96px); font-weight: 200; letter-spacing: 0.05em; color: #F7F4F0; line-height: 0.95; margin-bottom: 32px; }
+.hero__title span { display: block; font-weight: 400; font-size: 0.4em; letter-spacing: 0.3em; color: #B5ADA4; margin-top: 16px; }
+.hero__sub { font-size: 16px; font-weight: 300; color: #B5ADA4; line-height: 1.7; max-width: 480px; margin-bottom: 48px; }
+.hero__price-row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+.hero__price { font-size: 28px; font-weight: 300; color: #F7F4F0; letter-spacing: 0.05em; }
+.hero__price-original { font-size: 16px; color: #8A8279; text-decoration: line-through; }
+.hero__price-note { font-size: 11px; color: #8A8279; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 40px; }
+.hero__cta-row { display: flex; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; text-decoration: none; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); border: none; }
+.btn--light { background: #F7F4F0; color: #1A1816; }
+.btn--light:hover { background: #D4CEC6; }
+.btn--outline { background: transparent; color: #F7F4F0; border: 1px solid #F7F4F0; }
+.btn--outline:hover { background: #F7F4F0; color: #1A1816; }
+.hero__scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 0.3em; color: #8A8279; text-transform: uppercase; z-index: 3; }
+
+/* ============ STATS BAR ============ */
+.stats-bar { background: #1A1816; border-top: 1px solid #2A2826; display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-cell { padding: 40px 32px; text-align: center; border-right: 1px solid #2A2826; }
+.stat-cell:last-child { border-right: none; }
+.stat-value { font-size: 32px; font-weight: 200; color: #F7F4F0; letter-spacing: 0.05em; margin-bottom: 6px; }
+.stat-label { font-size: 10px; letter-spacing: 0.2em; color: #8A8279; text-transform: uppercase; }
+
+/* ============ COMMON ============ */
+.section { padding: 140px 80px; }
+.section--dark { background: #1A1816; color: #F7F4F0; }
+.section--ivory { background: #F7F4F0; color: #1A1816; }
+.label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8279; margin-bottom: 24px; }
+.heading { font-size: clamp(36px, 5vw, 64px); font-weight: 200; letter-spacing: 0.05em; line-height: 1.1; margin-bottom: 24px; }
+.text { font-size: 16px; line-height: 1.8; color: #8A8279; max-width: 560px; }
+.text--center { text-align: center; margin-left: auto; margin-right: auto; }
+.divider { width: 40px; height: 1px; background: #D4CEC6; margin: 24px 0; }
+.section--dark .divider { background: #2A2826; }
+
+/* ============ OVERVIEW ============ */
+.overview { background: #F7F4F0; text-align: center; padding: 180px 80px; }
+.overview__label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8279; margin-bottom: 32px; }
+.overview__heading { font-size: clamp(40px, 6vw, 72px); font-weight: 200; letter-spacing: 0.05em; line-height: 1.15; max-width: 1000px; margin: 0 auto 32px; }
+.overview__heading em { font-style: normal; font-weight: 400; color: #8A8279; }
+.overview__text { font-size: 17px; line-height: 1.8; color: #8A8279; max-width: 720px; margin: 0 auto; }
+
+/* ============ FEATURE BLOCK (alternating) ============ */
+.feature { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 700px; }
+.feature--reverse { grid-template-columns: 1fr 1.1fr; }
+.feature--reverse .feature__image { order: 2; }
+.feature__image { position: relative; overflow: hidden; background: #1A1816; }
+.feature__image img { width: 100%; height: 100%; object-fit: cover; }
+.feature__content { display: flex; flex-direction: column; justify-content: center; padding: 100px 80px; }
+.feature__num { font-size: 11px; letter-spacing: 0.3em; color: #8A8279; margin-bottom: 24px; }
+.feature__heading { font-size: clamp(32px, 4vw, 48px); font-weight: 200; letter-spacing: 0.05em; line-height: 1.15; margin-bottom: 24px; }
+.feature__text { font-size: 15px; line-height: 1.8; color: #8A8279; margin-bottom: 32px; }
+.feature__points { list-style: none; }
+.feature__points li { padding: 14px 0; border-bottom: 1px solid #D4CEC6; font-size: 13px; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
+.section--dark .feature__points li { border-bottom-color: #2A2826; }
+.feature__points li span:last-child { color: #1A1816; font-weight: 500; }
+.section--dark .feature__points li span:last-child { color: #F7F4F0; }
+
+/* ============ EVERYTHING INCLUDED ============ */
+.included { background: #1A1816; padding: 120px 80px; }
+.included__label { text-align: center; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 64px; }
+.included__grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; border-top: 1px solid #2A2826; border-left: 1px solid #2A2826; }
+.included__item { padding: 36px 24px; text-align: center; border-right: 1px solid #2A2826; border-bottom: 1px solid #2A2826; }
+.included__num { font-size: 10px; letter-spacing: 0.2em; color: #8A8279; margin-bottom: 12px; }
+.included__name { font-size: 13px; color: #F7F4F0; letter-spacing: 0.05em; }
+
+/* ============ SPEC STRIP ============ */
+.spec-strip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
+.spec-strip__cell { padding: 64px 40px; text-align: center; border-right: 1px solid #D4CEC6; }
+.spec-strip__cell:last-child { border-right: none; }
+.spec-strip__value { font-size: 48px; font-weight: 200; letter-spacing: 0.05em; margin-bottom: 8px; }
+.spec-strip__label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #8A8279; }
+.spec-strip__sub { font-size: 12px; color: #8A8279; margin-top: 8px; }
+
+/* ============ SYSTEM 4-FEATURE ============ */
+.system { padding: 140px 80px; background: #F7F4F0; }
+.system__head { text-align: center; max-width: 720px; margin: 0 auto 80px; }
+.system__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; margin-bottom: 16px; }
+.system__sub { font-size: 15px; color: #8A8279; line-height: 1.7; }
+.system__grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1400px; margin: 0 auto; }
+.system-card { padding: 56px 36px; background: #F7F4F0; border: 1px solid #D4CEC6; margin: -0.5px; position: relative; min-height: 320px; display: flex; flex-direction: column; }
+.system-card--dark { background: #1A1816; border-color: #1A1816; }
+.system-card--dark .system-card__num { color: #B5ADA4; }
+.system-card--dark .system-card__title { color: #F7F4F0; }
+.system-card--dark .system-card__text { color: #B5ADA4; }
+.system-card__num { font-size: 10px; letter-spacing: 0.3em; color: #8A8279; margin-bottom: auto; }
+.system-card__title { font-size: 20px; font-weight: 400; letter-spacing: 0.03em; color: #1A1816; margin-bottom: 12px; margin-top: 32px; }
+.system-card__text { font-size: 13px; line-height: 1.7; color: #8A8279; }
+.system-card__highlight { font-size: 24px; font-weight: 200; color: #1A1816; margin: 16px 0 8px; letter-spacing: 0.02em; }
+.system-card--dark .system-card__highlight { color: #F7F4F0; }
+
+/* ============ GALLERY ============ */
+.gallery { padding: 140px 80px; background: #1A1816; }
+.gallery__head { text-align: center; margin-bottom: 64px; }
+.gallery__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; color: #F7F4F0; }
+.gallery__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; max-width: 1400px; margin: 0 auto; height: 800px; }
+.gallery__item { overflow: hidden; background: #2A2826; position: relative; }
+.gallery__item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.gallery__item:hover img { opacity: 1; transform: scale(1.05); }
+.gallery__item--main { grid-row: span 2; }
+.gallery__item-label { position: absolute; bottom: 16px; left: 16px; font-size: 9px; letter-spacing: 0.3em; color: #F7F4F0; text-transform: uppercase; background: rgba(26, 24, 22, 0.7); padding: 6px 12px; }
+
+/* ============ SPECS TABLE ============ */
+.specs { padding: 140px 80px; background: #1A1816; }
+.specs__head { text-align: center; margin-bottom: 80px; }
+.specs__heading { font-size: clamp(36px, 5vw, 56px); font-weight: 200; letter-spacing: 0.05em; color: #F7F4F0; }
+.specs__table { max-width: 900px; margin: 0 auto; }
+.specs__row { display: grid; grid-template-columns: 1fr 2fr; padding: 24px 0; border-bottom: 1px solid #2A2826; align-items: center; }
+.specs__row:last-child { border-bottom: none; }
+.specs__row-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #8A8279; }
+.specs__row-value { font-size: 15px; color: #F7F4F0; font-weight: 300; letter-spacing: 0.03em; }
+
+/* ============ CTA ============ */
+.cta { padding: 180px 80px; background: #1A1816; text-align: center; border-top: 1px solid #2A2826; }
+.cta__heading { font-size: clamp(48px, 7vw, 88px); font-weight: 200; letter-spacing: 0.08em; color: #F7F4F0; margin-bottom: 24px; }
+.cta__sub { font-size: 15px; color: #8A8279; margin-bottom: 48px; letter-spacing: 0.05em; }
+.cta__price { font-size: 24px; font-weight: 200; color: #F7F4F0; margin-bottom: 40px; letter-spacing: 0.05em; }
+
+/* ============ IMAGE PLACEHOLDERS ============ */
+.placeholder { background: #D4CEC6; display: flex; align-items: center; justify-content: center; color: #8A8279; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
+.placeholder--dark { background: #2A2826; color: #8A8279; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 968px) {
+  .section { padding: 80px 32px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero__image { height: 60vh; }
+  .hero__content { padding: 60px 32px; }
+  .feature { grid-template-columns: 1fr; min-height: auto; }
+  .feature--reverse { grid-template-columns: 1fr; }
+  .feature--reverse .feature__image { order: 0; }
+  .feature__image { height: 50vh; }
+  .feature__content { padding: 60px 32px; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat-cell { border-bottom: 1px solid #2A2826; }
+  .included__grid { grid-template-columns: 1fr 1fr; }
+  .spec-strip { grid-template-columns: 1fr; }
+  .spec-strip__cell { border-right: none; border-bottom: 1px solid #D4CEC6; }
+  .system__grid { grid-template-columns: 1fr 1fr; }
+  .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
+  .gallery__item--main { grid-row: span 1; grid-column: span 2; height: 50vh; }
+  .gallery__item { height: 30vh; }
+  .specs__row { grid-template-columns: 1fr; gap: 8px; }
+  .overview { padding: 100px 32px; }
+  .system, .gallery, .specs, .cta { padding: 80px 32px; }
+  .cta { padding: 100px 32px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="prototype-nav">
+  <div class="prototype-nav__logo">SENSOL</div>
+  <div class="prototype-nav__hint">RS03 Landing Page — Prototype Preview</div>
+</nav>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero__image">
+    <img src="" alt="" style="display:none">
+    <div class="placeholder" style="width:100%;height:100%;">Product Image #1 — Main Shot</div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__tag">SENSOL · Smart Pilates Machine</div>
+    <h1 class="hero__title">RS03<span>Maximum Control. Expanded Movement.</span></h1>
+    <p class="hero__sub">The most advanced expression of the Sensol system — engineered for those who demand greater range, deeper engagement, and uncompromising precision. Pilates, yoga, and strength unified in one instrument.</p>
+    <div class="hero__price-row">
+      <span class="hero__price">A$2,400</span>
+    </div>
+    <div class="hero__price-note">Free domestic shipping · 30-day guarantee · Lifetime frame warranty</div>
+    <div class="hero__cta-row">
+      <a href="#" class="btn btn--light">Order Now</a>
+      <a href="#overview" class="btn btn--outline">Explore RS03</a>
+    </div>
+  </div>
+  <div class="hero__scroll">↓ Scroll</div>
+</section>
+
+<!-- ============ 2. STATS BAR ============ -->
+<div class="stats-bar">
+  <div class="stat-cell">
+    <div class="stat-value">45<small style="font-size:16px;color:#8A8279;">kg</small></div>
+    <div class="stat-label">Digital Resistance</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-value">360<small style="font-size:16px;color:#8A8279;">°</small></div>
+    <div class="stat-label">Motion Range</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-value">0.2<small style="font-size:16px;color:#8A8279;">m²</small></div>
+    <div class="stat-label">Footprint</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-value">&lt;25<small style="font-size:16px;color:#8A8279;">dB</small></div>
+    <div class="stat-label">Operation</div>
+  </div>
+</div>
+
+<!-- ============ 3. OVERVIEW ============ -->
+<section class="overview" id="overview">
+  <div class="overview__label">Overview</div>
+  <h2 class="overview__heading">Maximum Control. <em>Expanded Movement.</em></h2>
+  <p class="overview__text">Built on the same foundation as the Sensol One, RS03 unites Pilates, yoga, and strength training into one high-performance machine. At its center is the Sensol Control Dial™ — allowing seamless transitions between regular and resistance modes while maintaining continuous tension and focus. Store it upright when not in use. Perform at the highest level when it is.</p>
+</section>
+
+<!-- ============ 4. FEATURE 1: DIGITAL WEIGHT ============ -->
+<section class="feature">
+  <div class="feature__image">
+    <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #2 — Detail / Control Dial</div>
+  </div>
+  <div class="feature__content section--ivory" style="background:#F7F4F0;">
+    <div class="feature__num">01 — Digital Weight</div>
+    <h2 class="feature__heading">Up to 45 kg of adjustable resistance, controlled by a single dial.</h2>
+    <div class="divider"></div>
+    <p class="feature__text">The Sensol Control Dial™ delivers up to 45 kg (99 lb) of digital resistance, supporting progressive, low-impact strength training with absolute control and stability. Adjust mid-movement without breaking the rhythm of your practice.</p>
+    <ul class="feature__points">
+      <li><span>Resistance Range</span><span>0 — 45 kg</span></li>
+      <li><span>Levels</span><span>16 increments</span></li>
+      <li><span>Response Time</span><span>&lt; 8ms</span></li>
+      <li><span>Mode</span><span>Regular · Resistance</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5. FEATURE 2: WHY SENSOL ============ -->
+<section class="feature feature--reverse section--dark">
+  <div class="feature__image">
+    <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #3 — Cable System / Movement</div>
+  </div>
+  <div class="feature__content" style="background:#1A1816;color:#F7F4F0;">
+    <div class="feature__num">02 — Why Sensol</div>
+    <h2 class="feature__heading" style="color:#F7F4F0;">An enhanced Pilates cable system. A studio-grade experience at home.</h2>
+    <div class="divider"></div>
+    <p class="feature__text" style="color:#B5ADA4;">What sets RS03 apart is its enhanced Pilates cable system — designed to expand movement pathways and increase freedom through every exercise. Smoother transitions, greater range of motion, more advanced sequencing.</p>
+    <ul class="feature__points">
+      <li><span>Cable System</span><span>Enhanced dual-pulley</span></li>
+      <li><span>Carriage Travel</span><span>Fluid & continuous</span></li>
+      <li><span>Accessories</span><span>Tricep rope · D-handle · Ankle strap</span></li>
+      <li><span>Sequencing</span><span>Studio-level range</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 6. FEATURE 3: DUAL FUNCTION ============ -->
+<section class="feature">
+  <div class="feature__image">
+    <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #4 — Folded / Stored</div>
+  </div>
+  <div class="feature__content" style="background:#F7F4F0;">
+    <div class="feature__num">03 — Dual-Function Design</div>
+    <h2 class="feature__heading">Two systems. One machine. Zero compromise.</h2>
+    <div class="divider"></div>
+    <p class="feature__text">A modular strength training system compatible with a full accessory suite — combined with a true Pilates reformer base engineered for fluid carriage travel and full-body engagement. Like every Sensol machine, RS03 can be stored upright when not in use.</p>
+    <ul class="feature__points">
+      <li><span>System 1</span><span>Modular Strength</span></li>
+      <li><span>System 2</span><span>Pilates Reformer Base</span></li>
+      <li><span>Storage</span><span>Folds upright</span></li>
+      <li><span>App</span><span>Vesta Sensol included</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 7. EVERYTHING INCLUDED ============ -->
+<section class="included">
+  <div class="included__label">Everything Included</div>
+  <div class="included__grid">
+    <div class="included__item">
+      <div class="included__num">01</div>
+      <div class="included__name">SENSOL RS03 Reformer</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">02</div>
+      <div class="included__name">Smart Training App</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">03</div>
+      <div class="included__name">Tricep Ropes</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">04</div>
+      <div class="included__name">D-Handle</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">05</div>
+      <div class="included__name">Ankle Strap</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">06</div>
+      <div class="included__name">Pull-Down Bar</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">07</div>
+      <div class="included__name">Free Domestic Shipping</div>
+    </div>
+    <div class="included__item">
+      <div class="included__num">08</div>
+      <div class="included__name">Lifetime Frame Warranty</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. SPEC STRIP ============ -->
+<div class="spec-strip">
+  <div class="spec-strip__cell">
+    <div class="spec-strip__value">48<small style="font-size:18px;color:#8A8279;">kg</small></div>
+    <div class="spec-strip__label">Machine Weight</div>
+  </div>
+  <div class="spec-strip__cell">
+    <div class="spec-strip__value">120<small style="font-size:18px;color:#8A8279;">kg</small></div>
+    <div class="spec-strip__label">Max User Weight</div>
+  </div>
+  <div class="spec-strip__cell">
+    <div class="spec-strip__value">13<small style="font-size:18px;color:#8A8279;">cm</small></div>
+    <div class="spec-strip__label">Ground Clearance</div>
+  </div>
+</div>
+
+<!-- ============ 9. SYSTEM 4-FEATURE ============ -->
+<section class="system">
+  <div class="system__head">
+    <div class="label">The Sensol System</div>
+    <h2 class="system__heading">More than a product. A complete system.</h2>
+    <p class="system__sub">Sensol is a mature home training solution — not just a machine. Four principles define every decision we make.</p>
+  </div>
+  <div class="system__grid">
+    <div class="system-card">
+      <div class="system-card__num">01 — More Complete</div>
+      <div class="system-card__highlight">4</div>
+      <h3 class="system-card__title">Training Systems</h3>
+      <p class="system-card__text">Pilates, yoga, strength, and rehab integrated into a single machine for a more comprehensive workout experience.</p>
+    </div>
+    <div class="system-card system-card--dark">
+      <div class="system-card__num">02 — Safer</div>
+      <div class="system-card__highlight">13<small style="font-size:14px;color:#8A8279;">cm</small></div>
+      <h3 class="system-card__title">Ground Clearance</h3>
+      <p class="system-card__text">A low 13 cm height from the floor for easier access and greater stability during every movement.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-card__num">03 — Simpler</div>
+      <div class="system-card__highlight">300+</div>
+      <h3 class="system-card__title">Guided Courses</h3>
+      <p class="system-card__text">300+ guided training courses accessible through the Sensol app. No complex setup required — just begin.</p>
+    </div>
+    <div class="system-card system-card--dark">
+      <div class="system-card__num">04 — More Convenient</div>
+      <div class="system-card__highlight">0.2<small style="font-size:14px;color:#8A8279;">m²</small></div>
+      <h3 class="system-card__title">Footprint</h3>
+      <p class="system-card__text">Compact and foldable. Designed to fit easily into any space — apartment, studio, or home gym.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. GALLERY ============ -->
+<section class="gallery">
+  <div class="gallery__head">
+    <div class="label" style="color:#B5ADA4;">Gallery</div>
+    <h2 class="gallery__heading">Every detail considered.</h2>
+  </div>
+  <div class="gallery__grid">
+    <div class="gallery__item gallery__item--main">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #5 — Main Gallery</div>
+      <div class="gallery__item-label">Lifestyle</div>
+    </div>
+    <div class="gallery__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #6</div>
+    </div>
+    <div class="gallery__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #7</div>
+    </div>
+    <div class="gallery__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #8</div>
+    </div>
+    <div class="gallery__item">
+      <div class="placeholder placeholder--dark" style="width:100%;height:100%;">Product Image #9</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FULL SPECS ============ -->
+<section class="specs">
+  <div class="specs__head">
+    <div class="label" style="color:#B5ADA4;">Technical</div>
+    <h2 class="specs__heading">Full specifications.</h2>
+  </div>
+  <div class="specs__table">
+    <div class="specs__row"><div class="specs__row-label">Dimensions</div><div class="specs__row-value">L 190cm × W 64cm × H 46cm</div></div>
+    <div class="specs__row"><div class="specs__row-label">Folded Storage</div><div class="specs__row-value">Stored upright against wall</div></div>
+    <div class="specs__row"><div class="specs__row-label">Machine Weight</div><div class="specs__row-value">48 kg</div></div>
+    <div class="specs__row"><div class="specs__row-label">Max User Weight</div><div class="specs__row-value">120 kg</div></div>
+    <div class="specs__row"><div class="specs__row-label">Digital Resistance</div><div class="specs__row-value">0 — 45 kg, 16 levels</div></div>
+    <div class="specs__row"><div class="specs__row-label">Motion Range</div><div class="specs__row-value">360° full-spectrum</div></div>
+    <div class="specs__row"><div class="specs__row-label">Noise Level</div><div class="specs__row-value">&lt; 25 dB</div></div>
+    <div class="specs__row"><div class="specs__row-label">Connectivity</div><div class="specs__row-value">Bluetooth 5.0</div></div>
+    <div class="specs__row"><div class="specs__row-label">App Compatibility</div><div class="specs__row-value">iOS · Android (Vesta Sensol)</div></div>
+    <div class="specs__row"><div class="specs__row-label">Frame Warranty</div><div class="specs__row-value">Lifetime</div></div>
+    <div class="specs__row"><div class="specs__row-label">Components Warranty</div><div class="specs__row-value">2-year comprehensive</div></div>
+    <div class="specs__row"><div class="specs__row-label">In the Box</div><div class="specs__row-value">RS03 Reformer · Tricep Rope · D-Handle · Ankle Strap · Pull-Down Bar · App Access</div></div>
+  </div>
+</section>
+
+<!-- ============ 12. CTA ============ -->
+<section class="cta">
+  <div class="label" style="color:#8A8279;">Ready to Begin</div>
+  <h2 class="cta__heading">RS03</h2>
+  <p class="cta__sub">Engineered movement, designed for life.</p>
+  <div class="cta__price">A$2,400</div>
+  <a href="#" class="btn btn--light">Order Now</a>
+</section>
+
+</body>
+</html>
