@@ -267,27 +267,10 @@
     </a>
 
     <nav class="sensol-header__nav">
-      {%- if section.settings.menu != blank -%}
-        {%- for link in linklists[section.settings.menu].links -%}
-          <a href="{{ link.url }}" class="sensol-header__link">{{ link.title | upcase }}</a>
-        {%- endfor -%}
-      {%- else -%}
-        {%- if section.settings.nav_link_1_text != blank -%}
-          <a href="{{ section.settings.nav_link_1_url }}" class="sensol-header__link">{{ section.settings.nav_link_1_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_2_text != blank -%}
-          <a href="{{ section.settings.nav_link_2_url }}" class="sensol-header__link">{{ section.settings.nav_link_2_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_3_text != blank -%}
-          <a href="{{ section.settings.nav_link_3_url }}" class="sensol-header__link">{{ section.settings.nav_link_3_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_4_text != blank -%}
-          <a href="{{ section.settings.nav_link_4_url }}" class="sensol-header__link">{{ section.settings.nav_link_4_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_5_text != blank -%}
-          <a href="{{ section.settings.nav_link_5_url }}" class="sensol-header__link">{{ section.settings.nav_link_5_text | upcase }}</a>
-        {%- endif -%}
-      {%- endif -%}
+      <a href="/pages/about" class="sensol-header__link">ABOUT</a>
+      <a href="/collections/all" class="sensol-header__link">PRODUCTS</a>
+      <a href="/pages/shipping-policy" class="sensol-header__link">SHIPPING</a>
+      <a href="/pages/contact" class="sensol-header__link">CONTACT</a>
       <a href="/collections/all" class="sensol-header__shop-btn">SHOP ALL</a>
     </nav>
 
@@ -308,27 +291,10 @@
 
   <div class="sensol-header__drawer" id="sensolDrawer" aria-hidden="true">
     <div class="sensol-header__drawer-inner">
-      {%- if section.settings.menu != blank -%}
-        {%- for link in linklists[section.settings.menu].links -%}
-          <a href="{{ link.url }}" class="sensol-header__drawer-link">{{ link.title | upcase }}</a>
-        {%- endfor -%}
-      {%- else -%}
-        {%- if section.settings.nav_link_1_text != blank -%}
-          <a href="{{ section.settings.nav_link_1_url }}" class="sensol-header__drawer-link">{{ section.settings.nav_link_1_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_2_text != blank -%}
-          <a href="{{ section.settings.nav_link_2_url }}" class="sensol-header__drawer-link">{{ section.settings.nav_link_2_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_3_text != blank -%}
-          <a href="{{ section.settings.nav_link_3_url }}" class="sensol-header__drawer-link">{{ section.settings.nav_link_3_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_4_text != blank -%}
-          <a href="{{ section.settings.nav_link_4_url }}" class="sensol-header__drawer-link">{{ section.settings.nav_link_4_text | upcase }}</a>
-        {%- endif -%}
-        {%- if section.settings.nav_link_5_text != blank -%}
-          <a href="{{ section.settings.nav_link_5_url }}" class="sensol-header__drawer-link">{{ section.settings.nav_link_5_text | upcase }}</a>
-        {%- endif -%}
-      {%- endif -%}
+      <a href="/pages/about" class="sensol-header__drawer-link">ABOUT</a>
+      <a href="/collections/all" class="sensol-header__drawer-link">PRODUCTS</a>
+      <a href="/pages/shipping-policy" class="sensol-header__drawer-link">SHIPPING</a>
+      <a href="/pages/contact" class="sensol-header__drawer-link">CONTACT</a>
       <a href="/collections/all" class="sensol-header__drawer-shop-btn">SHOP ALL</a>
       <div class="sensol-header__drawer-actions">
         <a href="/account">ACCOUNT</a>
@@ -409,74 +375,6 @@
       "unit": "px",
       "default": 120,
       "label": "Logo width"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "Navigation menu (leave empty to use custom links below)"
-    },
-    {
-      "type": "header",
-      "content": "Custom navigation links"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_1_text",
-      "default": "About",
-      "label": "Link 1 text"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_1_url",
-      "default": "/pages/about",
-      "label": "Link 1 URL"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_2_text",
-      "default": "Products",
-      "label": "Link 2 text"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_2_url",
-      "default": "/collections/all",
-      "label": "Link 2 URL"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_3_text",
-      "default": "Shipping",
-      "label": "Link 3 text"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_3_url",
-      "default": "/pages/shipping-policy",
-      "label": "Link 3 URL"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_4_text",
-      "default": "Contact",
-      "label": "Link 4 text"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_4_url",
-      "default": "/pages/contact",
-      "label": "Link 4 URL"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_5_text",
-      "label": "Link 5 text"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_5_url",
-      "label": "Link 5 URL"
     },
     {
       "type": "checkbox",
