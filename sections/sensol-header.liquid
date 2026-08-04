@@ -4,9 +4,13 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1000 !important;
     transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     background-color: transparent;
+  }
+  .shopify-section-group-header-group:has(.sensol-header-section) {
+    z-index: 1000 !important;
+    position: relative;
   }
   .sensol-header-section.scrolled {
     background-color: #F7F4F0;
