@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensol RS03 - Product Page (Dawn Modified)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F7F4F0;
+  color: #1A1816;
+  line-height: 1.6;
+}
+
+/* ===== HEADER (keep existing Sensol header) ===== */
+.site-header {
+  background: #1A1816;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header__logo {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: #F7F4F0;
+  text-transform: uppercase;
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 32px;
+}
+
+.site-header__nav a {
+  color: #F7F4F0;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ===== PRODUCT SECTION (Dawn structure, Sensol styling) ===== */
+.product-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+/* Product Media Gallery (Dawn product-media-gallery) */
+.product__media-wrapper {
+  position: sticky;
+  top: 100px;
+}
+
+.product__media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product__media-item {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #D4CEC6;
+}
+
+.product__media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product__media-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Product Info (Dawn product__info-wrapper) */
+.product__info-wrapper {
+  padding: 20px 0;
+}
+
+.product__vendor {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.product__title {
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #1A1816;
+}
+
+.product__price {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  color: #1A1816;
+}
+
+.product__price s {
+  color: #8A8279;
+  margin-right: 12px;
+  font-size: 22px;
+}
+
+.product__tax {
+  font-size: 12px;
+  color: #8A8279;
+  margin-bottom: 32px;
+}
+
+/* Variant Picker (Dawn variant_picker) */
+.product__variants {
+  margin-bottom: 32px;
+}
+
+.variant-option {
+  margin-bottom: 20px;
+}
+
+.variant-option__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 12px;
+  font-weight: 500;
+  display: block;
+}
+
+.variant-option__values {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.variant-option__value {
+  padding: 10px 20px;
+  border: 1px solid #D4CEC6;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.variant-option__value:hover {
+  border-color: #1A1816;
+}
+
+.variant-option__value.selected {
+  background: #1A1816;
+  color: #F7F4F0;
+  border-color: #1A1816;
+}
+
+/* Quantity Selector (Dawn quantity_selector) */
+.product__quantity {
+  margin-bottom: 24px;
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #D4CEC6;
+  background: #fff;
+}
+
+.quantity__button {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #1A1816;
+}
+
+.quantity__input {
+  width: 60px;
+  height: 44px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+}
+
+/* Buy Buttons (Dawn buy_buttons) - KEEP PayPal/Afterpay functionality */
+.product__buy-buttons {
+  margin-bottom: 24px;
+}
+
+.product-form__submit {
+  width: 100%;
+  padding: 18px;
+  background: #1A1816;
+  color: #F7F4F0;
+  border: none;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 16px;
+}
+
+.product-form__submit:hover {
+  background: #2A2826;
+}
+
+.dynamic-checkout {
+  width: 100%;
+  min-height: 50px;
+  background: #fff;
+  border: 1px solid #D4CEC6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+}
+
+/* Product Description (Dawn description) */
+.product__description {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #D4CEC6;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1A1816;
+}
+
+.product__description p {
+  margin-bottom: 16px;
+}
+
+/* Share Buttons (Dawn share) */
+.product__share {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #D4CEC6;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product__share-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  font-weight: 500;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.share-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #D4CEC6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8A8279;
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.share-button:hover {
+  background: #1A1816;
+  color: #F7F4F0;
+  border-color: #1A1816;
+}
+
+/* ===== ADDITIONAL SECTIONS (below product) ===== */
+
+/* Description Section */
+.section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section--full {
+  max-width: 100%;
+  padding: 80px 0;
+}
+
+.section--dark {
+  background: #1A1816;
+  color: #F7F4F0;
+}
+
+.section--dark .section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.section--dark .section__eyebrow {
+  color: #B5ADA4;
+}
+
+.section__title {
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.description-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.description-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.feature {
+  padding: 48px 32px;
+  border: 1px solid #D4CEC6;
+  background: #fff;
+  text-align: center;
+}
+
+.feature__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  background: #1A1816;
+  color: #F7F4F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.feature__title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  color: #1A1816;
+}
+
+.feature__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #8A8279;
+}
+
+/* Included */
+.included {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.included__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #D4CEC6;
+}
+
+.included__check {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #1A1816;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.included__check::after {
+  content: '✓';
+  font-size: 14px;
+  color: #1A1816;
+}
+
+.included__name {
+  font-size: 15px;
+}
+
+/* Specifications */
+.specs {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.specs__row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid #2A2826;
+  font-size: 15px;
+  gap: 24px;
+}
+
+.specs__label {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #B5ADA4;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.specs__value {
+  color: #F7F4F0;
+}
+
+/* Reviews */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.review {
+  padding: 32px;
+  border: 1px solid #D4CEC6;
+  background: #fff;
+}
+
+.review__stars {
+  color: #B5ADA4;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.review__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #1A1816;
+}
+
+.review__body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1A1816;
+  margin-bottom: 20px;
+}
+
+.review__author {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8A8279;
+}
+
+/* Q&A */
+.qa-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.qa-item {
+  padding: 28px 0;
+  border-bottom: 1px solid #2A2826;
+}
+
+.qa-item__question {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #F7F4F0;
+}
+
+.qa-item__answer {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #B5ADA4;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 968px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  
+  .product__media-wrapper {
+    position: static;
+  }
+  
+  .product__title {
+    font-size: 32px;
+  }
+  
+  .section {
+    padding: 60px 20px;
+  }
+  
+  .section__title {
+    font-size: 32px;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .included {
+    grid-template-columns: 1fr;
+  }
+  
+  .specs__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .product__title {
+    font-size: 28px;
+  }
+  
+  .product__price {
+    font-size: 24px;
+  }
+  
+  .section__title {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Site Header (existing Sensol header) -->
+<header class="site-header">
+  <a href="/" class="site-header__logo">SENSOL</a>
+  <nav class="site-header__nav">
+    <a href="/about">About</a>
+    <a href="/products">Products</a>
+    <a href="/shipping">Shipping</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Product Section (modified Dawn main-product) -->
+<section class="product-section">
+  <!-- Product Media Gallery (Dawn product-media-gallery) -->
+  <div class="product__media-wrapper">
+    <div class="product__media-list">
+      <div class="product__media-item">
+        <img src="https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_46_sensol.png?v=1785228479" alt="Sensol RS03 - Front View">
+      </div>
+      <div class="product__media-item">
+        <img src="https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_46_sensol.png?v=1785228479" alt="Sensol RS03 - Side View">
+      </div>
+      <div class="product__media-item">
+        <img src="https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_46_sensol.png?v=1785228479" alt="Sensol RS03 - Detail">
+      </div>
+      <div class="product__media-item">
+        <img src="https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_46_sensol.png?v=1785228479" alt="Sensol RS03 - In Use">
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Info (Dawn product__info-wrapper) -->
+  <div class="product__info-wrapper">
+    <div class="product__vendor">SENSOL FITNESS</div>
+    <h1 class="product__title">Sensol RS03</h1>
+    
+    <div class="product__price">
+      <s>$4,200.00</s>
+      $3,500.00 AUD
+    </div>
+
+    <div class="product__tax">Tax included. Shipping calculated at checkout.</div>
+
+    <!-- Variant Picker (Dawn variant_picker) -->
+    <div class="product__variants">
+      <div class="variant-option">
+        <label class="variant-option__label">Color</label>
+        <div class="variant-option__values">
+          <div class="variant-option__value selected">Carbon Black</div>
+          <div class="variant-option__value">Ivory White</div>
+          <div class="variant-option__value">Maple Natural</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quantity Selector (Dawn quantity_selector) -->
+    <div class="product__quantity">
+      <label class="variant-option__label">Quantity</label>
+      <div class="quantity">
+        <button class="quantity__button" type="button">−</button>
+        <input class="quantity__input" type="number" value="1" min="1">
+        <button class="quantity__button" type="button">+</button>
+      </div>
+    </div>
+
+    <!-- Buy Buttons (Dawn buy_buttons) - KEEPS PayPal/Afterpay -->
+    <div class="product__buy-buttons">
+      <button class="product-form__submit" type="submit">Add to Cart</button>
+      <div class="dynamic-checkout">
+        [PayPal / Afterpay / Shop Pay buttons render here]
+      </div>
+    </div>
+
+    <!-- Product Description (Dawn description) -->
+    <div class="product__description">
+      <p>The Sensol RS03 is the most advanced expression of the Sensol system—engineered for those who demand greater range, deeper engagement, and uncompromising precision.</p>
+      <p>Built on the same patented-pending foundation as Sensol One, RS03 unites Pilates, yoga, and strength training into one high-performance machine.</p>
+    </div>
+
+    <!-- Share (Dawn share) -->
+    <div class="product__share">
+      <span class="product__share-label">Share</span>
+      <div class="share-buttons">
+        <a href="#" class="share-button">f</a>
+        <a href="#" class="share-button">ig</a>
+        <a href="#" class="share-button">x</a>
+        <a href="#" class="share-button">p</a>
+        <a href="#" class="share-button">link</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Description Section -->
+<section class="section">
+  <div class="section__header">
+    <div class="section__eyebrow">Overview</div>
+    <h2 class="section__title">Maximum Control. Expanded Movement.</h2>
+  </div>
+  <div class="description-content">
+    <p>The Sensol RS03 is the most advanced expression of the Sensol system—engineered for those who demand greater range, deeper engagement, and uncompromising precision.</p>
+    <p>At its center is the Sensol Control Dial™, allowing seamless transitions between regular and resistance modes while maintaining continuous tension and focus.</p>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section--full section--dark">
+  <div class="section__inner">
+    <div class="section__header">
+      <div class="section__eyebrow">Why Sensol</div>
+      <h2 class="section__title">Engineered for Excellence</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature__icon">01</div>
+        <h3 class="feature__title">Digital Weight</h3>
+        <p class="feature__desc">Delivering up to 45 kg of adjustable resistance, RS03 supports progressive, low-impact strength training with absolute control and stability.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">02</div>
+        <h3 class="feature__title">Enhanced Cable System</h3>
+        <p class="feature__desc">Additional Pilates cables enable smoother transitions, greater range of motion, and more advanced sequencing—bringing a studio-level reformer experience into the home.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">03</div>
+        <h3 class="feature__title">Dual-Function Design</h3>
+        <p class="feature__desc">A modular strength training system compatible with accessories such as tricep ropes, D-handles, ankle straps, and more. A true Pilates reformer base.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Included Section -->
+<section class="section">
+  <div class="section__header">
+    <div class="section__eyebrow">Everything Included</div>
+    <h2 class="section__title">What's in the Box</h2>
+  </div>
+  <div class="included">
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">SENSOL Reformer</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">Smart Training App Access</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">One (1) Tricep Ropes</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">One (1) D-handle</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">One (1) Ankle Strap</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">One (1) Pull-Down Bar</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">Bonus Gift: Training Resources</div>
+    </div>
+    <div class="included__item">
+      <div class="included__check"></div>
+      <div class="included__name">10-Year Frame Warranty</div>
+    </div>
+  </div>
+</section>
+
+<!-- Specifications Section -->
+<section class="section--full section--dark">
+  <div class="section__inner">
+    <div class="section__header">
+      <div class="section__eyebrow">Specifications</div>
+      <h2 class="section__title">Technical Details</h2>
+    </div>
+    <div class="specs">
+      <div class="specs__row">
+        <div class="specs__label">Dimensions</div>
+        <div class="specs__value">L75" x W25" x H18" (190 x 64 x 46 cm)</div>
+      </div>
+      <div class="specs__row">
+        <div class="specs__label">Weight</div>
+        <div class="specs__value">100 lbs (45 kg)</div>
+      </div>
+      <div class="specs__row">
+        <div class="specs__label">Max User Weight</div>
+        <div class="specs__value">330 lbs (150 kg)</div>
+      </div>
+      <div class="specs__row">
+        <div class="specs__label">Resistance</div>
+        <div class="specs__value">Up to 99 lbs (45 kg) digital weight</div>
+      </div>
+      <div class="specs__row">
+        <div class="specs__label">Frame Material</div>
+        <div class="specs__value">Aircraft-grade aluminum with hardwood maple accents</div>
+      </div>
+      <div class="specs__row">
+        <div class="specs__label">Warranty</div>
+        <div class="specs__value">10-year frame, 2-year components</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="section">
+  <div class="section__header">
+    <div class="section__eyebrow">Customer Reviews</div>
+    <h2 class="section__title">What Our Customers Say</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <h3 class="review__title">Studio quality at home</h3>
+      <p class="review__body">I've used commercial reformers for years and the RS03 is genuinely on par. The build is incredible and the carriage is whisper quiet. Worth every cent.</p>
+      <div class="review__author">— Sarah M. | Verified Buyer</div>
+    </div>
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <h3 class="review__title">Beautiful piece of equipment</h3>
+      <p class="review__body">It looks like furniture, not gym equipment. My partner didn't even realize it was a reformer at first. The aluminium finish is gorgeous.</p>
+      <div class="review__author">— James L. | Verified Buyer</div>
+    </div>
+    <div class="review">
+      <div class="review__stars">★★★★☆</div>
+      <h3 class="review__title">Solid but heavy</h3>
+      <p class="review__body">The build quality is exceptional. Just be aware it's 45kg - you'll want a dedicated spot for it. Once placed, it's a dream to use.</p>
+      <div class="review__author">— Michael T. | Verified Buyer</div>
+    </div>
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <h3 class="review__title">Changed my practice</h3>
+      <p class="review__body">After 6 months of daily use I can say the spring system is the real standout. Smooth, progressive resistance that just feels right.</p>
+      <div class="review__author">— Emma R. | Verified Buyer</div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A Section -->
+<section class="section--full section--dark">
+  <div class="section__inner">
+    <div class="section__header">
+      <div class="section__eyebrow">Questions & Answers</div>
+      <h2 class="section__title">Common Questions</h2>
+    </div>
+    <div class="qa-list">
+      <div class="qa-item">
+        <h3 class="qa-item__question">How long does shipping take?</h3>
+        <p class="qa-item__answer">We ship within 2-3 business days from our Sydney warehouse. Standard delivery takes 5-7 business days to metro areas across Australia and 7-10 days to NZ.</p>
+      </div>
+      <div class="qa-item">
+        <h3 class="qa-item__question">Do you offer Afterpay?</h3>
+        <p class="qa-item__answer">Yes. We support Afterpay (4 interest-free payments), PayPal Pay in 4, Shop Pay Installments, and all major credit cards.</p>
+      </div>
+      <div class="qa-item">
+        <h3 class="qa-item__question">What's the warranty?</h3>
+        <p class="qa-item__answer">The frame carries a 10-year warranty covering structural defects. All springs, ropes, wheels, and upholstery carry a 2-year warranty.</p>
+      </div>
+      <div class="qa-item">
+        <h3 class="qa-item__question">Is the RS03 suitable for beginners?</h3>
+        <p class="qa-item__answer">Yes. The 4-spring system lets you adjust resistance from very light to very heavy. Most beginners start with 1-2 springs and progress as their strength builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

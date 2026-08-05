@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensol RS03 - Product Page Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F7F4F0; color: #1A1816; line-height: 1.6; }
+
+/* Product Section */
+.product { max-width: 1400px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+
+/* Gallery */
+.gallery { position: sticky; top: 40px; }
+.gallery__main { aspect-ratio: 1/1; background: #fff; overflow: hidden; margin-bottom: 16px; border: 1px solid #D4CEC6; }
+.gallery__main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery__thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.gallery__thumb { aspect-ratio: 1/1; background: #fff; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s; }
+.gallery__thumb:hover, .gallery__thumb.active { border-color: #1A1816; }
+.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Product Info */
+.info { padding: 20px 0; }
+.info__badge { display: inline-block; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #8A8279; margin-bottom: 16px; padding: 6px 12px; border: 1px solid #D4CEC6; }
+.info__title { font-size: 48px; font-weight: 200; letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 24px; }
+.info__price { font-size: 32px; font-weight: 300; margin-bottom: 32px; letter-spacing: 0.02em; }
+.info__price s { color: #8A8279; font-size: 24px; margin-right: 16px; }
+.info__stock { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 40px; padding: 10px 20px; }
+.info__stock--in { background: #E8F5E9; color: #2E7D32; }
+.info__stock--out { background: #FFEBEE; color: #C62828; }
+.info__stock::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+/* Quantity & Add to Cart */
+.purchase { margin-bottom: 48px; }
+.qty { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+.qty__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color:
