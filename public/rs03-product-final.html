@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensol RS03 — Product | Sensol Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     SENSOl — Brand Tokens (from DESIGN.md)
+     ============================================ */
+  :root {
+    --ivory: #F7F4F0;
+    --carbon: #1A1816;
+    --stone: #8A8279;
+    --linen: #D4CEC6;
+    --dove: #B5ADA4;
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--carbon);
+    background: var(--ivory);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============================================
+     NAV (matches site nav rules)
+     ============================================ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    z-index: 100;
+    background: transparent;
+    transition: background 0.5s var(--ease), border-color 0.5s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: var(--ivory);
+    border-bottom-color: var(--linen);
+  }
+  .nav__logo {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--carbon);
+    text-decoration: none;
+  }
+  .nav__links { display: flex; gap: 40px; }
+  .nav__link {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--carbon);
+    text-decoration: none;
+    position: relative;
+  }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--carbon);
+    transition: width 0.5s var(--ease);
+  }
+  .nav__link:hover::after { width: 100%; }
+  .nav__actions { display: flex; gap: 24px; align-items: center; }
+  .nav__icon {
+    width: 20px; height: 20px;
+    stroke: var(--carbon); fill: none; stroke-width: 1;
+  }
+
+  /* ============================================
+     PRODUCT BUY BLOCK (top section, light)
+     ============================================ */
+  .product {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 140px 48px 100px;
+    align-items: start;
+  }
+
+  .gallery { position: sticky; top: 100px; }
+  .gallery__main {
+    aspect-ratio: 4/5;
+    background: var(--linen);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .gallery__main img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s var(--ease);
+  }
+  .gallery__main:hover img { transform: scale(1.03); }
+  .gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .gallery__thumb {
+    aspect-ratio: 1/1;
+    background: var(--linen);
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color 0.4s var(--ease);
+  }
+  .gallery__thumb:hover { border-color: var(--carbon); }
+  .gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .info { padding-top: 8px; }
+  .info__vendor {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+  .info__title {
+    font-size: 56px;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    color: var(--carbon);
+    margin-bottom: 16px;
+  }
+  .info__model {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--stone);
+    margin-bottom: 32px;
+  }
+  .info__price {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .info__price-current {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--carbon);
+  }
+  .info__price-original {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--stone);
+    text-decoration: line-through;
+  }
+  .info__price-note {
+    font-size: 12px;
+    color: var(--stone);
+    margin-bottom: 40px;
+  }
+  .info__stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--carbon);
+    margin-bottom: 48px;
+  }
+  .info__stock::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--carbon);
+    border-radius: 50%;
+  }
+
+  .variant { margin-bottom: 40px; }
+  .variant__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .variant__options { display: flex; gap: 12px; }
+  .variant__option {
+    padding: 12px 24px;
+    border: 1px solid var(--linen);
+    background: transparent;
+    color: var(--carbon);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: border-color 0.4s var(--ease);
+  }
+  .variant__option:hover, .variant__option--active { border-color: var(--carbon); }
+
+  .form-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .qty {
+    width: 64px;
+    height: 56px;
+    border: 1px solid var(--linen);
+    background: transparent;
+    text-align: center;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--carbon);
+    -moz-appearance: textfield;
+  }
+  .qty::-webkit-outer-spin-button,
+  .qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .qty:focus { outline: none; border-color: var(--carbon); }
+
+  .btn-primary {
+    flex: 1;
+    height: 56px;
+    background: var(--carbon);
+    color: var(--ivory);
+    border: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.4s var(--ease);
+  }
+  .btn-primary:hover { background: #2A2826; }
+
+  .dynamic-checkout { margin-bottom: 32px; }
+  .dynamic-checkout__shim {
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--linen);
+  }
+  .dynamic-checkout__shim span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .info__features {
+    border-top: 1px solid var(--linen);
+    padding-top: 32px;
+  }
+  .info__feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    font-size: 13px;
+    color: var(--carbon);
+    letter-spacing: 0.02em;
+  }
+  .info__feature-dot {
+    width: 4px; height: 4px;
+    background: var(--carbon);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .share {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--linen);
+  }
+  .share__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .share__icons { display: flex; gap: 12px; }
+  .share__icon {
+    width: 20px; height: 20px;
+    stroke: var(--carbon);
+    fill: none;
+    stroke-width: 1;
+    cursor: pointer;
+    transition: opacity 0.3s var(--ease);
+  }
+  .share__icon:hover { opacity: 0.6; }
+
+  /* ============================================
+     SECTION HELPER
+     ============================================ */
+  .section {
+    padding: 120px 48px;
+  }
+  .section--dark {
+    background: var(--carbon);
+    color: var(--ivory);
+  }
+  .section__inner { max-width: 1200px; margin: 0 auto; }
+  .section__eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+  .section--dark .section__eyebrow { color: var(--dove); }
+  .section__title {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    margin-bottom: 48px;
+    max-width: 720px;
+  }
+  .section--dark .section__title { color: var(--ivory); }
+
+  /* ============================================
+     OVERVIEW
+     ============================================ */
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .overview__img {
+    aspect-ratio: 4/5;
+    background: var(--linen);
+    overflow: hidden;
+  }
+  .overview__img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .overview__text p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    color: var(--carbon);
+  }
+  .overview__text p:last-child { margin-bottom: 0; }
+
+  /* ============================================
+     INCLUDED
+     ============================================ */
+  .included {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid var(--linen);
+  }
+  .included__item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--linen);
+  }
+  .included__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+  .included__name {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ivory);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============================================
+     SPECS
+     ============================================ */
+  .specs {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .specs__row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--linen);
+    align-items: baseline;
+  }
+  .specs__label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .specs__value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--ivory);
+  }
+
+  /* ============================================
+     WHY (3 features, dark)
+     ============================================ */
+  .why {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--linen);
+    border: 1px solid var(--linen);
+  }
+  .why__cell {
+    padding: 48px 32px;
+    background: var(--carbon);
+  }
+  .why__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--dove);
+    letter-spacing: 0.15em;
+    margin-bottom: 32px;
+  }
+  .why__heading {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--ivory);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .why__body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--dove);
+  }
+
+  /* ============================================
+     REVIEWS
+     ============================================ */
+  .reviews-summary {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 64px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--linen);
+  }
+  .reviews-summary__score {
+    font-size: 64px;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    color: var(--carbon);
+    line-height: 1;
+  }
+  .reviews-summary__score sup {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--stone);
+    margin-left: 4px;
+  }
+  .reviews-summary__meta { flex: 1; }
+  .reviews-summary__stars {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--carbon);
+    margin-bottom: 8px;
+  }
+  .reviews-summary__count {
+    font-size: 12px;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+  }
+
+  .review {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--linen);
+  }
+  .review__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .review__author {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--carbon);
+    letter-spacing: 0.05em;
+  }
+  .review__date {
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+  .review__stars {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--carbon);
+    margin-bottom: 16px;
+  }
+  .review__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--carbon);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .review__body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--carbon);
+    max-width: 720px;
+  }
+  .review__photos {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .review__photo {
+    width: 80px; height: 80px;
+    background: var(--linen);
+    overflow: hidden;
+  }
+  .review__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .review__reply {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: var(--ivory);
+    border-left: 1px solid var(--carbon);
+    max-width: 600px;
+  }
+  .review__reply-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--carbon);
+    margin-bottom: 8px;
+  }
+  .review__reply-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--stone);
+  }
+
+  /* ============================================
+     Q&A
+     ============================================ */
+  .qa { max-width: 800px; margin: 0 auto; }
+  .qa__item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--linen);
+  }
+  .qa__q {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .qa__a {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--dove);
+  }
+
+  /* ============================================
+     CTA
+     ============================================ */
+  .cta { text-align: center; }
+  .cta__title {
+    font-size: 56px;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 24px;
+  }
+  .cta__body {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--dove);
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+
+  /* ============================================
+     FOOTER (simple)
+     ============================================ */
+  footer {
+    background: var(--carbon);
+    color: var(--dove);
+    padding: 64px 48px 32px;
+    text-align: center;
+  }
+  footer .section__eyebrow { color: var(--stone); }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 968px) {
+    .nav { padding: 0 24px; }
+    .nav__links { display: none; }
+    .product {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding: 100px 24px 60px;
+    }
+    .gallery { position: static; }
+    .info__title { font-size: 36px; }
+    .section { padding: 64px 24px; }
+    .section__title { font-size: 28px; }
+    .overview { grid-template-columns: 1fr; gap: 32px; }
+    .why { grid-template-columns: 1fr; }
+    .included { grid-template-columns: 1fr; }
+    .specs__row { grid-template-columns: 1fr; gap: 8px; }
+    .cta__title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAV (white on dark, switches to dark on light)
+     ============================================ -->
+<nav class="nav scrolled" id="nav">
+  <a href="/" class="nav__logo">Sensol</a>
+  <div class="nav__links">
+    <a href="#" class="nav__link">About</a>
+    <a href="#" class="nav__link">Products</a>
+    <a href="#" class="nav__link">Engineering</a>
+    <a href="#" class="nav__link">Shipping</a>
+    <a href="#" class="nav__link">Contact</a>
+  </div>
+  <div class="nav__actions">
+    <svg class="nav__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <svg class="nav__icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+    <svg class="nav__icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+  </div>
+</nav>
+
+<!-- ============================================
+     PRODUCT BUY (light section, top of page)
+     ============================================ -->
+<section class="product">
+  <div class="gallery">
+    <div class="gallery__main">
+      <img src="https://placehold.co/800x1000/2A2826/F7F4F0?text=Sensol+RS03" alt="Sensol RS03 Reformer">
+    </div>
+    <div class="gallery__thumbs">
+      <div class="gallery__thumb"><img src="https://placehold.co/200x200/2A2826/F7F4F0?text=1" alt=""></div>
+      <div class="gallery__thumb"><img src="https://placehold.co/200x200/2A2826/F7F4F0?text=2" alt=""></div>
+      <div class="gallery__thumb"><img src="https://placehold.co/200x200/2A2826/F7F4F0?text=3" alt=""></div>
+      <div class="gallery__thumb"><img src="https://placehold.co/200x200/2A2826/F7F4F0?text=4" alt=""></div>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="info__vendor">Sensol Fitness</div>
+    <h1 class="info__title">Sensol RS03</h1>
+    <div class="info__model">Model RS03 / Smart Reformer</div>
+
+    <div class="info__price">
+      <span class="info__price-current">$3,500.00 AUD</span>
+      <span class="info__price-original">$3,900.00 AUD</span>
+    </div>
+    <div class="info__price-note">or 4 interest-free payments of $875 with Afterpay</div>
+
+    <div class="info__stock">In Stock — Ships in 2–3 business days</div>
+
+    <div class="variant">
+      <div class="variant__label">Frame Finish</div>
+      <div class="variant__options">
+        <button class="variant__option variant__option--active">Carbon</button>
+        <button class="variant__option">Ivory</button>
+        <button class="variant__option">Maple</button>
+      </div>
+    </div>
+
+    <form class="form-row" onsubmit="event.preventDefault()">
+      <input type="number" class="qty" value="1" min="1" aria-label="Quantity">
+      <button type="submit" class="btn-primary">Add to Cart</button>
+    </form>
+
+    <div class="dynamic-checkout">
+      <div class="dynamic-checkout__shim">
+        <span>Buy with</span>
+        <span>Shop Pay</span>
+        <span>·</span>
+        <span>PayPal</span>
+        <span>·</span>
+        <span>Afterpay</span>
+      </div>
+    </div>
+
+    <div class="info__features">
+      <div class="info__feature"><span class="info__feature-dot"></span>10-year frame warranty</div>
+      <div class="info__feature"><span class="info__feature-dot"></span>Free shipping Australia & NZ</div>
+      <div class="info__feature"><span class="info__feature-dot"></span>30-day at-home trial</div>
+    </div>
+
+    <div class="share">
+      <span class="share__label">Share</span>
+      <div class="share__icons">
+        <svg class="share__icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        <svg class="share__icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     OVERVIEW
+     ============================================ -->
+<section class="section">
+  <div class="section__inner overview">
+    <div class="overview__img">
+      <img src="https://placehold.co/600x750/2A2826/F7F4F0?text=Overview" alt="Sensol RS03 in space">
+    </div>
+    <div class="overview__text">
+      <div class="section__eyebrow">Overview</div>
+      <h2 class="section__title">Maximum control.<br>Expanded movement.</h2>
+      <p>The Sensol Pro is the most advanced expression of the Sensol system — engineered for those who demand greater range, deeper engagement, and uncompromising precision.</p>
+      <p>Built on the same patented foundation as Sensol One, Sensol Pro unites Pilates, yoga, and strength training into one high-performance machine. At its center is the Sensol Control Dial™, allowing seamless transitions between regular and resistance modes while maintaining continuous tension and focus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     WHY SENSOL (3 features, dark)
+     ============================================ -->
+<section class="section section--dark">
+  <div class="section__inner">
+    <div class="section__eyebrow">Why Sensol</div>
+    <h2 class="section__title">Three systems.<br>One instrument.</h2>
+    <div class="why">
+      <div class="why__cell">
+        <div class="why__num">01</div>
+        <div class="why__heading">Digital Weight</div>
+        <p class="why__body">Delivering up to 45 kg of adjustable resistance, Sensol supports progressive, low-impact strength training with absolute control.</p>
+      </div>
+      <div class="why__cell">
+        <div class="why__num">02</div>
+        <div class="why__heading">Dual-Function Design</div>
+        <p class="why__body">A modular strength training system compatible with tricep ropes, D-handles, ankle straps, and more — and a true Pilates reformer base.</p>
+      </div>
+      <div class="why__cell">
+        <div class="why__num">03</div>
+        <div class="why__heading">Compact Footprint</div>
+        <p class="why__body">Only 0.2 m². Stores upright when not in use. Professional-grade performance without demanding permanent space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     INCLUDED (dark, with mono numbers)
+     ============================================ -->
+<section class="section section--dark">
+  <div class="section__inner">
+    <div class="section__eyebrow">In the box</div>
+    <h2 class="section__title">Everything included.</h2>
+    <div class="included">
+      <div class="included__item"><span class="included__num">01</span><span class="included__name">Sensol RS03 Reformer Frame</span></div>
+      <div class="included__item"><span class="included__num">02</span><span class="included__name">Smart Training App Access</span></div>
+      <div class="included__item"><span class="included__num">03</span><span class="included__name">Tricep Rope (1×)</span></div>
+      <div class="included__item"><span class="included__num">04</span><span class="included__name">D-Handle (1×)</span></div>
+      <div class="included__item"><span class="included__num">05</span><span class="included__name">Ankle Strap (1×)</span></div>
+      <div class="included__item"><span class="included__num">06</span><span class="included__name">Pull-Down Bar (1×)</span></div>
+      <div class="included__item"><span class="included__num">07</span><span class="included__name">Owner Manual & Quick Start</span></div>
+      <div class="included__item"><span class="included__num">08</span><span class="included__name">Bonus: Training Resources</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SPECS (dark, mono values)
+     ============================================ -->
+<section class="section section--dark">
+  <div class="section__inner">
+    <div class="section__eyebrow">Specifications</div>
+    <h2 class="section__title">Every detail.</h2>
+    <div class="specs">
+      <div class="specs__row"><div class="specs__label">Frame Material</div><div class="specs__value">Aircraft-Grade Aluminium & Hardwood Maple</div></div>
+      <div class="specs__row"><div class="specs__label">Dimensions (L × W × H)</div><div class="specs__value">190 × 64 × 46 cm</div></div>
+      <div class="specs__row"><div class="specs__label">Weight</div><div class="specs__value">68 kg</div></div>
+      <div class="specs__row"><div class="specs__label">Resistance</div><div class="specs__value">Up to 45 kg · 4-spring system</div></div>
+      <div class="specs__row"><div class="specs__label">Carriage Travel</div><div class="specs__value">100 cm</div></div>
+      <div class="specs__row"><div class="specs__label">Footprint in Use</div><div class="specs__value">0.2 m²</div></div>
+      <div class="specs__row"><div class="specs__label">Max User Weight</div><div class="specs__value">150 kg</div></div>
+      <div class="specs__row"><div class="specs__label">Warranty — Frame</div><div class="specs__value">10 years</div></div>
+      <div class="specs__row"><div class="specs__label">Warranty — Components</div><div class="specs__value">2 years</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     REVIEWS (light)
+     ============================================ -->
+<section class="section">
+  <div class="section__inner">
+    <div class="section__eyebrow">Customer Reviews</div>
+    <h2 class="section__title">Trusted by pilatists.</h2>
+
+    <div class="reviews-summary">
+      <div class="reviews-summary__score">4.8<sup>/5</sup></div>
+      <div class="reviews-summary__meta">
+        <div class="reviews-summary__stars">★ ★ ★ ★ ★</div>
+        <div class="reviews-summary__count">Based on 47 verified reviews · Judge.me</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="review__head">
+        <div class="review__author">Sarah M.</div>
+        <div class="review__date">Verified · 12 Mar 2026</div>
+      </div>
+      <div class="review__stars">★ ★ ★ ★ ★</div>
+      <h4 class="review__title">Studio quality at home</h4>
+      <p class="review__body">I've used commercial reformers for years and the RS03 is genuinely on par. The build is incredible and the carriage is whisper quiet. Worth every cent. The aluminium finish and the precision of the adjustments make it feel like a piece of equipment designed by people who actually use one.</p>
+      <div class="review__photos">
+        <div class="review__photo"><img src="https://placehold.co/80x80/2A2826/F7F4F0?text=P1" alt=""></div>
+        <div class="review__photo"><img src="https://placehold.co/80x80/2A2826/F7F4F0?text=P2" alt=""></div>
+      </div>
+      <div class="review__reply">
+        <div class="review__reply-label">Sensol — Seller</div>
+        <p class="review__reply-body">Thank you Sarah. The team spent 18 months on the spring assembly alone — your feedback means a lot to the engineers.</p>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="review__head">
+        <div class="review__author">James L.</div>
+        <div class="review__date">Verified · 04 Mar 2026</div>
+      </div>
+      <div class="review__stars">★ ★ ★ ★ ★</div>
+      <h4 class="review__title">A piece of furniture, not gym equipment</h4>
+      <p class="review__body">It looks like furniture. My partner didn't even realise it was a reformer at first. The matte carbon finish and the way the frame sits in our living room — it's changed the way we think about home fitness.</p>
+    </div>
+
+    <div class="review">
+      <div class="review__head">
+        <div class="review__author">Michael T.</div>
+        <div class="review__date">Verified · 21 Feb 2026</div>
+      </div>
+      <div class="review__stars">★ ★ ★ ★ ☆</div>
+      <h4 class="review__title">Solid, but heavy</h4>
+      <p class="review__body">The build quality is exceptional. Just be aware it's 68 kg — you'll want a dedicated spot for it. Once placed, it's a dream to use. Took a star off only because the manual could be clearer on the spring tension settings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Q&A (dark)
+     ============================================ -->
+<section class="section section--dark">
+  <div class="section__inner">
+    <div class="section__eyebrow">Questions</div>
+    <h2 class="section__title">Common questions.</h2>
+    <div class="qa">
+      <div class="qa__item">
+        <h3 class="qa__q">How long does shipping take?</h3>
+        <p class="qa__a">We ship within 2–3 business days from our Sydney warehouse. Standard delivery takes 5–7 business days to metro areas across Australia and 7–10 days to NZ. You'll receive a tracking link via email once dispatched.</p>
+      </div>
+      <div class="qa__item">
+        <h3 class="qa__q">Do you offer Afterpay?</h3>
+        <p class="qa__a">Yes. We support Afterpay (4 interest-free payments), PayPal Pay in 4, Shop Pay Installments, and all major credit cards. All financing options are visible at checkout.</p>
+      </div>
+      <div class="qa__item">
+        <h3 class="qa__q">What's the warranty?</h3>
+        <p class="qa__a">The frame carries a 10-year warranty covering structural defects. All springs, ropes, wheels, and upholstery carry a 2-year warranty. Full terms are in the owner's manual included with every unit.</p>
+      </div>
+      <div class="qa__item">
+        <h3 class="qa__q">Is the RS03 suitable for beginners?</h3>
+        <p class="qa__a">Yes. The 4-spring system lets you adjust resistance from very light (beginner / rehab) to very heavy (advanced). Most beginners start with 1–2 springs and progress as their strength builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CTA (dark)
+     ============================================ -->
+<section class="section section--dark">
+  <div class="section__inner cta">
+    <div class="section__eyebrow">Begin</div>
+    <h2 class="cta__title">Bring the studio home.</h2>
+    <p class="cta__body">Free shipping Australia-wide. 10-year frame warranty. 30-day at-home trial. Pay in 4 with Afterpay.</p>
+    <button class="btn-primary" style="margin:0 auto;max-width:320px;display:block">Add to Cart — $3,500</button>
+  </div>
+</section>
+
+<footer>
+  <div class="section__eyebrow">© 2026 Sensol Fitness</div>
+</footer>
+
+<script>
+  // Nav scroll effect (already scrolled on this page since content is light)
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
