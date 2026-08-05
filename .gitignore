@@ -162,3 +162,24 @@ Desktop.ini
 # Misc
 .coze-logs
 .codegraph/
+
+# Non-theme files (keep only Shopify theme structure)
+public/
+src/
+scripts/
+.coze
+.cozeproj/
+.babelrc
+.npmrc
+AGENTS.md
+DESIGN.md
+README.md
+components.json
+eslint.config.mjs
+next-env.d.ts
+next.config.ts
+package.json
+pnpm-lock.yaml
+postcss.config.mjs
+stylelint.config.mjs
+tsconfig.json
