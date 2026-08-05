@@ -1,6 +1,1313 @@
+{% doc %}
+  @prompt
+    Create a premium fitness/Pilates equipment product page section with a luxury, minimalist aesthetic. The design should feature: 1) A full-width hero banner with dark overlay and large product title text in elegant serif font; 2) Alternating image-text rows with generous white space - left image/right text, then right image/left text layout; 3) Full-width lifestyle photography sections showing people using the equipment in beautiful studio settings; 4) A clean product specifications/features list with minimal typography; 5) An accessories showcase section with small product images and descriptions; 6) A bottom CTA section with product image and purchase button. Color palette: off-white/cream background (#F5F0EB), near-black text (#1A1A1A), with dark accent sections. Typography should be elegant with serif headings and clean sans-serif body text. Overall feel: high-end, editorial, lots of breathing room between elements.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-premium-product-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-premium-product-hero-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    min-height: {{ block.settings.hero_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .ai-premium-product-hero-image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-premium-product-hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ block.settings.hero_overlay_opacity }});
+  }
+
+  .ai-premium-product-hero-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 900px;
+  }
+
+  .ai-premium-product-hero-title-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.hero_title_size }}px;
+    color: {{ block.settings.hero_text_color }};
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .ai-premium-product-hero-subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.hero_subtitle_size }}px;
+    color: {{ block.settings.hero_text_color }};
+    margin-top: 20px;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .ai-premium-product-section-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_spacing }}px 0;
+  }
+
+  .ai-premium-product-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ block.settings.side_padding }}px;
+  }
+
+  .ai-premium-product-image-text-row-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.row_gap }}px;
+    align-items: center;
+    margin-bottom: {{ block.settings.row_spacing }}px;
+  }
+
+  .ai-premium-product-image-text-row-reverse-{{ ai_gen_id }} {
+    direction: rtl;
+  }
+
+  .ai-premium-product-image-text-row-reverse-{{ ai_gen_id }} > * {
+    direction: ltr;
+  }
+
+  .ai-premium-product-row-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-premium-product-row-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-premium-product-row-image-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    background-color: #e8e8e8;
+  }
+
+  .ai-premium-product-row-text-{{ ai_gen_id }} {
+    padding: 0 {{ block.settings.text_padding }}px;
+  }
+
+  .ai-premium-product-row-heading-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.row_heading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 24px 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-premium-product-row-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.body_text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
+  .ai-premium-product-lifestyle-{{ ai_gen_id }} {
+    width: 100%;
+    margin: {{ block.settings.lifestyle_spacing }}px 0;
+  }
+
+  .ai-premium-product-lifestyle-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-premium-product-lifestyle-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-premium-product-lifestyle-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    background-color: #e8e8e8;
+  }
+
+  .ai-premium-product-specs-{{ ai_gen_id }} {
+    background-color: {{ block.settings.specs_bg_color }};
+    padding: {{ block.settings.specs_padding }}px {{ block.settings.side_padding }}px;
+  }
+
+  .ai-premium-product-specs-title-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.specs_title_size }}px;
+    color: {{ block.settings.text_color }};
+    text-align: center;
+    margin: 0 0 {{ block.settings.specs_title_margin }}px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-premium-product-specs-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: {{ block.settings.specs_gap }}px;
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-premium-product-spec-item-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .ai-premium-product-spec-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.spec_label_size }}px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.6;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .ai-premium-product-spec-value-{{ ai_gen_id }} {
+    font-size: {{ block.settings.spec_value_size }}px;
+    color: {{ block.settings.text_color }};
+    font-weight: 400;
+  }
+
+  .ai-premium-product-accessories-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_spacing }}px {{ block.settings.side_padding }}px;
+  }
+
+  .ai-premium-product-accessories-title-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.accessories_title_size }}px;
+    color: {{ block.settings.text_color }};
+    text-align: center;
+    margin: 0 0 {{ block.settings.accessories_title_margin }}px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-premium-product-accessories-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: {{ block.settings.accessories_gap }}px;
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-premium-product-accessory-item-{{ ai_gen_id }} {
+    text-align: center;
+  }
+
+  .ai-premium-product-accessory-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .ai-premium-product-accessory-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .ai-premium-product-accessory-image-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    background-color: #e8e8e8;
+  }
+
+  .ai-premium-product-accessory-name-{{ ai_gen_id }} {
+    font-size: {{ block.settings.accessory_name_size }}px;
+    color: {{ block.settings.text_color }};
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .ai-premium-product-accessory-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.accessory_desc_size }}px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  .ai-premium-product-cta-{{ ai_gen_id }} {
+    background-color: {{ block.settings.cta_bg_color }};
+    padding: {{ block.settings.cta_padding }}px {{ block.settings.side_padding }}px;
+  }
+
+  .ai-premium-product-cta-content-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.cta_gap }}px;
+    align-items: center;
+  }
+
+  .ai-premium-product-cta-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-premium-product-cta-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-premium-product-cta-image-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    background-color: #e8e8e8;
+  }
+
+  .ai-premium-product-cta-text-{{ ai_gen_id }} {
+    padding: 0 40px;
+  }
+
+  .ai-premium-product-cta-heading-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.cta_heading_size }}px;
+    color: {{ block.settings.cta_text_color }};
+    margin: 0 0 24px 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-premium-product-cta-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.body_text_size }}px;
+    color: {{ block.settings.cta_text_color }};
+    line-height: 1.8;
+    opacity: 0.85;
+    margin-bottom: 32px;
+  }
+
+  .ai-premium-product-cta-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.button_text_size }}px;
+    font-weight: 500;
+    border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .ai-premium-product-cta-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-premium-product-hero-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.hero_title_size }}px * 0.7);
+    }
+
+    .ai-premium-product-hero-subtitle-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.hero_subtitle_size }}px * 0.9);
+    }
+
+    .ai-premium-product-image-text-row-{{ ai_gen_id }},
+    .ai-premium-product-image-text-row-reverse-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      direction: ltr;
+    }
+
+    .ai-premium-product-row-text-{{ ai_gen_id }} {
+      padding: 0;
+    }
+
+    .ai-premium-product-row-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.row_heading_size }}px * 0.85);
+    }
+
+    .ai-premium-product-cta-content-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .ai-premium-product-cta-text-{{ ai_gen_id }} {
+      padding: 0;
+    }
+
+    .ai-premium-product-cta-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.cta_heading_size }}px * 0.85);
+    }
+
+    .ai-premium-product-specs-grid-{{ ai_gen_id }},
+    .ai-premium-product-accessories-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+<premium-product-{{ ai_gen_id }} class="ai-premium-product-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.show_hero %}
+    <div class="ai-premium-product-hero-{{ ai_gen_id }}">
+      {% if block.settings.hero_image %}
+        <img
+          src="{{ block.settings.hero_image | image_url: width: 2400 }}"
+          alt="{{ block.settings.hero_image.alt | escape }}"
+          class="ai-premium-product-hero-image-{{ ai_gen_id }}"
+          loading="lazy"
+          width="{{ block.settings.hero_image.width }}"
+          height="{{ block.settings.hero_image.height }}"
+        >
+      {% else %}
+        <div class="ai-premium-product-hero-image-{{ ai_gen_id }}">
+          {{ 'lifestyle-1' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+      <div class="ai-premium-product-hero-overlay-{{ ai_gen_id }}"></div>
+      <div class="ai-premium-product-hero-content-{{ ai_gen_id }}">
+        {% if block.settings.hero_title != blank %}
+          <h1 class="ai-premium-product-hero-title-{{ ai_gen_id }}">{{ block.settings.hero_title }}</h1>
+        {% endif %}
+        {% if block.settings.hero_subtitle != blank %}
+          <div class="ai-premium-product-hero-subtitle-{{ ai_gen_id }}">{{ block.settings.hero_subtitle }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_row_1 %}
+    <div class="ai-premium-product-section-{{ ai_gen_id }}">
+      <div class="ai-premium-product-container-{{ ai_gen_id }}">
+        <div class="ai-premium-product-image-text-row-{{ ai_gen_id }}">
+          <div class="ai-premium-product-row-image-wrapper-{{ ai_gen_id }}">
+            {% if block.settings.row_1_image %}
+              <img
+                src="{{ block.settings.row_1_image | image_url: width: 1200 }}"
+                alt="{{ block.settings.row_1_image.alt | escape }}"
+                class="ai-premium-product-row-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="{{ block.settings.row_1_image.width }}"
+                height="{{ block.settings.row_1_image.height }}"
+              >
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="ai-premium-product-row-text-{{ ai_gen_id }}">
+            {% if block.settings.row_1_heading != blank %}
+              <h2 class="ai-premium-product-row-heading-{{ ai_gen_id }}">{{ block.settings.row_1_heading }}</h2>
+            {% endif %}
+            {% if block.settings.row_1_description != blank %}
+              <div class="ai-premium-product-row-description-{{ ai_gen_id }}">{{ block.settings.row_1_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_row_2 %}
+    <div class="ai-premium-product-section-{{ ai_gen_id }}">
+      <div class="ai-premium-product-container-{{ ai_gen_id }}">
+        <div class="ai-premium-product-image-text-row-{{ ai_gen_id }} ai-premium-product-image-text-row-reverse-{{ ai_gen_id }}">
+          <div class="ai-premium-product-row-image-wrapper-{{ ai_gen_id }}">
+            {% if block.settings.row_2_image %}
+              <img
+                src="{{ block.settings.row_2_image | image_url: width: 1200 }}"
+                alt="{{ block.settings.row_2_image.alt | escape }}"
+                class="ai-premium-product-row-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="{{ block.settings.row_2_image.width }}"
+                height="{{ block.settings.row_2_image.height }}"
+              >
+            {% else %}
+              {{ 'product-2' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="ai-premium-product-row-text-{{ ai_gen_id }}">
+            {% if block.settings.row_2_heading != blank %}
+              <h2 class="ai-premium-product-row-heading-{{ ai_gen_id }}">{{ block.settings.row_2_heading }}</h2>
+            {% endif %}
+            {% if block.settings.row_2_description != blank %}
+              <div class="ai-premium-product-row-description-{{ ai_gen_id }}">{{ block.settings.row_2_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_lifestyle %}
+    <div class="ai-premium-product-lifestyle-{{ ai_gen_id }}">
+      {% if block.settings.lifestyle_image %}
+        <img
+          src="{{ block.settings.lifestyle_image | image_url: width: 2400 }}"
+          alt="{{ block.settings.lifestyle_image.alt | escape }}"
+          class="ai-premium-product-lifestyle-image-{{ ai_gen_id }}"
+          loading="lazy"
+          width="{{ block.settings.lifestyle_image.width }}"
+          height="{{ block.settings.lifestyle_image.height }}"
+        >
+      {% else %}
+        <div class="ai-premium-product-lifestyle-wrapper-{{ ai_gen_id }}">
+          {{ 'lifestyle-2' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_specs %}
+    <div class="ai-premium-product-specs-{{ ai_gen_id }}">
+      {% if block.settings.specs_title != blank %}
+        <h2 class="ai-premium-product-specs-title-{{ ai_gen_id }}">{{ block.settings.specs_title }}</h2>
+      {% endif %}
+      <div class="ai-premium-product-specs-grid-{{ ai_gen_id }}">
+        {% if block.settings.spec_1_label != blank %}
+          <div class="ai-premium-product-spec-item-{{ ai_gen_id }}">
+            <div class="ai-premium-product-spec-label-{{ ai_gen_id }}">{{ block.settings.spec_1_label }}</div>
+            <div class="ai-premium-product-spec-value-{{ ai_gen_id }}">{{ block.settings.spec_1_value }}</div>
+          </div>
+        {% endif %}
+        {% if block.settings.spec_2_label != blank %}
+          <div class="ai-premium-product-spec-item-{{ ai_gen_id }}">
+            <div class="ai-premium-product-spec-label-{{ ai_gen_id }}">{{ block.settings.spec_2_label }}</div>
+            <div class="ai-premium-product-spec-value-{{ ai_gen_id }}">{{ block.settings.spec_2_value }}</div>
+          </div>
+        {% endif %}
+        {% if block.settings.spec_3_label != blank %}
+          <div class="ai-premium-product-spec-item-{{ ai_gen_id }}">
+            <div class="ai-premium-product-spec-label-{{ ai_gen_id }}">{{ block.settings.spec_3_label }}</div>
+            <div class="ai-premium-product-spec-value-{{ ai_gen_id }}">{{ block.settings.spec_3_value }}</div>
+          </div>
+        {% endif %}
+        {% if block.settings.spec_4_label != blank %}
+          <div class="ai-premium-product-spec-item-{{ ai_gen_id }}">
+            <div class="ai-premium-product-spec-label-{{ ai_gen_id }}">{{ block.settings.spec_4_label }}</div>
+            <div class="ai-premium-product-spec-value-{{ ai_gen_id }}">{{ block.settings.spec_4_value }}</div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_accessories %}
+    <div class="ai-premium-product-accessories-{{ ai_gen_id }}">
+      {% if block.settings.accessories_title != blank %}
+        <h2 class="ai-premium-product-accessories-title-{{ ai_gen_id }}">{{ block.settings.accessories_title }}</h2>
+      {% endif %}
+      <div class="ai-premium-product-accessories-grid-{{ ai_gen_id }}">
+        {% if block.settings.accessory_1_name != blank %}
+          <div class="ai-premium-product-accessory-item-{{ ai_gen_id }}">
+            {% if block.settings.accessory_1_image %}
+              <img
+                src="{{ block.settings.accessory_1_image | image_url: width: 400 }}"
+                alt="{{ block.settings.accessory_1_image.alt | escape }}"
+                class="ai-premium-product-accessory-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="{{ block.settings.accessory_1_image.width }}"
+                height="{{ block.settings.accessory_1_image.height }}"
+              >
+            {% else %}
+              <div class="ai-premium-product-accessory-image-wrapper-{{ ai_gen_id }}">
+                {{ 'product-3' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+            <div class="ai-premium-product-accessory-name-{{ ai_gen_id }}">{{ block.settings.accessory_1_name }}</div>
+            {% if block.settings.accessory_1_description != blank %}
+              <div class="ai-premium-product-accessory-description-{{ ai_gen_id }}">{{ block.settings.accessory_1_description }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if block.settings.accessory_2_name != blank %}
+          <div class="ai-premium-product-accessory-item-{{ ai_gen_id }}">
+            {% if block.settings.accessory_2_image %}
+              <img
+                src="{{ block.settings.accessory_2_image | image_url: width: 400 }}"
+                alt="{{ block.settings.accessory_2_image.alt | escape }}"
+                class="ai-premium-product-accessory-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="{{ block.settings.accessory_2_image.width }}"
+                height="{{ block.settings.accessory_2_image.height }}"
+              >
+            {% else %}
+              <div class="ai-premium-product-accessory-image-wrapper-{{ ai_gen_id }}">
+                {{ 'product-4' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+            <div class="ai-premium-product-accessory-name-{{ ai_gen_id }}">{{ block.settings.accessory_2_name }}</div>
+            {% if block.settings.accessory_2_description != blank %}
+              <div class="ai-premium-product-accessory-description-{{ ai_gen_id }}">{{ block.settings.accessory_2_description }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if block.settings.accessory_3_name != blank %}
+          <div class="ai-premium-product-accessory-item-{{ ai_gen_id }}">
+            {% if block.settings.accessory_3_image %}
+              <img
+                src="{{ block.settings.accessory_3_image | image_url: width: 400 }}"
+                alt="{{ block.settings.accessory_3_image.alt | escape }}"
+                class="ai-premium-product-accessory-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="{{ block.settings.accessory_3_image.width }}"
+                height="{{ block.settings.accessory_3_image.height }}"
+              >
+            {% else %}
+              <div class="ai-premium-product-accessory-image-wrapper-{{ ai_gen_id }}">
+                {{ 'product-5' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+            <div class="ai-premium-product-accessory-name-{{ ai_gen_id }}">{{ block.settings.accessory_3_name }}</div>
+            {% if block.settings.accessory_3_description != blank %}
+              <div class="ai-premium-product-accessory-description-{{ ai_gen_id }}">{{ block.settings.accessory_3_description }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_cta %}
+    <div class="ai-premium-product-cta-{{ ai_gen_id }}">
+      <div class="ai-premium-product-cta-content-{{ ai_gen_id }}">
+        <div class="ai-premium-product-cta-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.cta_image %}
+            <img
+              src="{{ block.settings.cta_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.cta_image.alt | escape }}"
+              class="ai-premium-product-cta-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.cta_image.width }}"
+              height="{{ block.settings.cta_image.height }}"
+            >
+          {% else %}
+            {{ 'product-6' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+        <div class="ai-premium-product-cta-text-{{ ai_gen_id }}">
+          {% if block.settings.cta_heading != blank %}
+            <h2 class="ai-premium-product-cta-heading-{{ ai_gen_id }}">{{ block.settings.cta_heading }}</h2>
+          {% endif %}
+          {% if block.settings.cta_description != blank %}
+            <div class="ai-premium-product-cta-description-{{ ai_gen_id }}">{{ block.settings.cta_description }}</div>
+          {% endif %}
+          {% if block.settings.cta_button_text != blank %}
+            <a href="{{ block.settings.cta_button_link }}" class="ai-premium-product-cta-button-{{ ai_gen_id }}">
+              {{ block.settings.cta_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</premium-product-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PremiumProduct{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('premium-product-{{ ai_gen_id }}', PremiumProduct{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Premium product page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Content max width",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Side padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_spacing",
+      "min": 60,
+      "max": 200,
+      "step": 20,
+      "unit": "px",
+      "label": "Section spacing",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Hero banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hero",
+      "label": "Show hero banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "hero_overlay_opacity",
+      "min": 0,
+      "max": 0.8,
+      "step": 0.1,
+      "label": "Overlay opacity",
+      "default": 0.4
+    },
+    {
+      "type": "inline_richtext",
+      "id": "hero_title",
+      "label": "Title",
+      "default": "Premium Pilates Reformer"
+    },
+    {
+      "type": "range",
+      "id": "hero_title_size",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Title size",
+      "default": 70
+    },
+    {
+      "type": "richtext",
+      "id": "hero_subtitle",
+      "label": "Subtitle",
+      "default": "<p>Elevate your practice with precision-engineered equipment</p>"
+    },
+    {
+      "type": "range",
+      "id": "hero_subtitle_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Subtitle size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "hero_text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Image-text row 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_row_1",
+      "label": "Show row 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "row_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "row_1_heading",
+      "label": "Heading",
+      "default": "Precision Engineering"
+    },
+    {
+      "type": "richtext",
+      "id": "row_1_description",
+      "label": "Description",
+      "default": "<p>Crafted with meticulous attention to detail, our reformer combines traditional Pilates principles with modern innovation. Each component is designed to provide smooth, controlled resistance for optimal muscle engagement.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image-text row 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_row_2",
+      "label": "Show row 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "row_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "row_2_heading",
+      "label": "Heading",
+      "default": "Studio Quality"
+    },
+    {
+      "type": "richtext",
+      "id": "row_2_description",
+      "label": "Description",
+      "default": "<p>Bring the professional studio experience home. Our equipment meets the highest standards used by elite instructors worldwide, ensuring durability and performance that lasts.</p>"
+    },
+    {
+      "type": "range",
+      "id": "row_heading_size",
+      "min": 24,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Row heading size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "body_text_size",
+      "min": 14,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Body text size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Row gap",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "row_spacing",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Row spacing",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "text_padding",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Text padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Lifestyle image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_lifestyle",
+      "label": "Show lifestyle image",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "lifestyle_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "lifestyle_spacing",
+      "min": 60,
+      "max": 200,
+      "step": 20,
+      "unit": "px",
+      "label": "Spacing",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Specifications"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_specs",
+      "label": "Show specifications",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "specs_bg_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "specs_title",
+      "label": "Title",
+      "default": "Specifications"
+    },
+    {
+      "type": "range",
+      "id": "specs_title_size",
+      "min": 24,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Title size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "specs_title_margin",
+      "min": 30,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Title margin",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "specs_padding",
+      "min": 60,
+      "max": 200,
+      "step": 20,
+      "unit": "px",
+      "label": "Padding",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "specs_gap",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "spec_1_label",
+      "label": "Spec 1 label",
+      "default": "Dimensions"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_value",
+      "label": "Spec 1 value",
+      "default": "230 × 70 × 35 cm"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_label",
+      "label": "Spec 2 label",
+      "default": "Weight"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_value",
+      "label": "Spec 2 value",
+      "default": "45 kg"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_label",
+      "label": "Spec 3 label",
+      "default": "Material"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_value",
+      "label": "Spec 3 value",
+      "default": "Maple wood & steel"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_label",
+      "label": "Spec 4 label",
+      "default": "Resistance"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_value",
+      "label": "Spec 4 value",
+      "default": "5 spring levels"
+    },
+    {
+      "type": "range",
+      "id": "spec_label_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Label size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "spec_value_size",
+      "min": 14,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Value size",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Accessories"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_accessories",
+      "label": "Show accessories",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "accessories_title",
+      "label": "Title",
+      "default": "Complete Your Studio"
+    },
+    {
+      "type": "range",
+      "id": "accessories_title_size",
+      "min": 24,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Title size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "accessories_title_margin",
+      "min": 30,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Title margin",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "accessories_gap",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap",
+      "default": 40
+    },
+    {
+      "type": "image_picker",
+      "id": "accessory_1_image",
+      "label": "Accessory 1 image"
+    },
+    {
+      "type": "text",
+      "id": "accessory_1_name",
+      "label": "Accessory 1 name",
+      "default": "Resistance Bands"
+    },
+    {
+      "type": "text",
+      "id": "accessory_1_description",
+      "label": "Accessory 1 description",
+      "default": "Premium latex bands"
+    },
+    {
+      "type": "image_picker",
+      "id": "accessory_2_image",
+      "label": "Accessory 2 image"
+    },
+    {
+      "type": "text",
+      "id": "accessory_2_name",
+      "label": "Accessory 2 name",
+      "default": "Pilates Ring"
+    },
+    {
+      "type": "text",
+      "id": "accessory_2_description",
+      "label": "Accessory 2 description",
+      "default": "Dual-grip design"
+    },
+    {
+      "type": "image_picker",
+      "id": "accessory_3_image",
+      "label": "Accessory 3 image"
+    },
+    {
+      "type": "text",
+      "id": "accessory_3_name",
+      "label": "Accessory 3 name",
+      "default": "Exercise Mat"
+    },
+    {
+      "type": "text",
+      "id": "accessory_3_description",
+      "label": "Accessory 3 description",
+      "default": "Non-slip surface"
+    },
+    {
+      "type": "range",
+      "id": "accessory_name_size",
+      "min": 14,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Name size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "accessory_desc_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA section",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Background",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Text",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cta_heading",
+      "label": "Heading",
+      "default": "Transform Your Practice"
+    },
+    {
+      "type": "range",
+      "id": "cta_heading_size",
+      "min": 24,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 40
+    },
+    {
+      "type": "richtext",
+      "id": "cta_description",
+      "label": "Description",
+      "default": "<p>Experience the difference that professional-grade equipment makes in your Pilates journey.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "cta_padding",
+      "min": 60,
+      "max": 200,
+      "step": 20,
+      "unit": "px",
+      "label": "Padding",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "cta_gap",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Border",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Hover border",
+      "default": "#F5F0EB"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium product page"
+    }
+  ]
+}
 {% endschema %}
