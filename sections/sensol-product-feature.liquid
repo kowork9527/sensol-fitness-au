@@ -1,0 +1,95 @@
+{%- liquid
+  assign s = section.settings
+  assign is_dark = false
+  if s.color_scheme == 'dark'
+    assign is_dark = true
+  endif
+-%}
+<style>
+#shopify-section-{{ section.id }} .sp-feature{font-family:'Inter',sans-serif;padding:0;background:{% if is_dark %}#1A1816{% else %}#F7F4F0{% endif %};color:{% if is_dark %}#F7F4F0{% else %}#1A1816{% endif %}}
+#shopify-section-{{ section.id }} .sp-feature__grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;max-width:1400px;margin:0 auto}
+#shopify-section-{{ section.id }} .sp-feature__img{aspect-ratio:4/5;overflow:hidden;background:#D4CEC6}
+#shopify-section-{{ section.id }} .sp-feature__img img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-feature__content{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+#shopify-section-{{ section.id }} .sp-feature__eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#8A8279;margin-bottom:20px}
+#shopify-section-{{ section.id }} .sp-feature__title{font-size:clamp(28px,4vw,40px);font-weight:300;letter-spacing:0.04em;line-height:1.15;margin-bottom:32px;max-width:480px}
+#shopify-section-{{ section.id }} .sp-feature__text{font-size:16px;line-height:1.8;margin-bottom:20px}
+#shopify-section-{{ section.id }} .sp-feature__text:last-of-type{margin-bottom:0}
+#shopify-section-{{ section.id }} .sp-feature__stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:32px;padding-top:32px;border-top:1px solid {% if is_dark %}#2A2826{% else %}#D4CEC6{% endif %}}
+#shopify-section-{{ section.id }} .sp-feature__stat-num{font-size:clamp(28px,4vw,36px);font-weight:200;line-height:1}
+#shopify-section-{{ section.id }} .sp-feature__stat-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:{% if is_dark %}#B5ADA4{% else %}#8A8279{% endif %};margin-top:8px}
+#shopify-section-{{ section.id }} .sp-feature--reverse .sp-feature__grid{direction:rtl}
+#shopify-section-{{ section.id }} .sp-feature--reverse .sp-feature__grid > *{direction:ltr}
+@media(max-width:968px){
+#shopify-section-{{ section.id }} .sp-feature__grid{grid-template-columns:1fr}
+#shopify-section-{{ section.id }} .sp-feature--reverse .sp-feature__grid{direction:ltr}
+#shopify-section-{{ section.id }} .sp-feature__content{padding:48px 24px}
+#shopify-section-{{ section.id }} .sp-feature__stats{grid-template-columns:1fr}
+}
+</style>
+
+<section class="sp-feature{% if s.image_position == 'right' %} sp-feature--reverse{% endif %}">
+  <div class="sp-feature__grid">
+    <div class="sp-feature__img">
+      {%- if s.image != blank -%}
+        <img src="{{ s.image | image_url: width: 1000 }}" alt="{{ s.title | escape }}" loading="lazy" width="1000" height="1250">
+      {%- else -%}
+        <img src="{{ 'studio-wide.jpeg' | asset_url }}" alt="{{ s.title | escape }}" loading="lazy" width="1000" height="1250">
+      {%- endif -%}
+    </div>
+    <div class="sp-feature__content">
+      {%- if s.eyebrow != blank -%}
+      <div class="sp-feature__eyebrow">{{ s.eyebrow }}</div>
+      {%- endif -%}
+      {%- if s.title != blank -%}
+      <h2 class="sp-feature__title">{{ s.title }}</h2>
+      {%- endif -%}
+      {%- if s.text_1 != blank -%}
+      <p class="sp-feature__text">{{ s.text_1 }}</p>
+      {%- endif -%}
+      {%- if s.text_2 != blank -%}
+      <p class="sp-feature__text">{{ s.text_2 }}</p>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+      <div class="sp-feature__stats">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'stat' -%}
+          <div {{ block.shopify_attributes }}>
+            <div class="sp-feature__stat-num">{{ block.settings.number }}</div>
+            <div class="sp-feature__stat-label">{{ block.settings.label }}</div>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP Feature Split",
+  "tag": "section",
+  "class": "sp-feature-section",
+  "settings": [
+    { "type": "select", "id": "color_scheme", "label": "Color scheme", "options": [{ "value": "light", "label": "Light" }, { "value": "dark", "label": "Dark" }], "default": "light" },
+    { "type": "select", "id": "image_position", "label": "Image position", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "left" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Product Overview" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Double the Power. Twice the Possibility." },
+    { "type": "textarea", "id": "text_1", "label": "Paragraph 1" },
+    { "type": "textarea", "id": "text_2", "label": "Paragraph 2" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "3000W" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Combined Motor Output" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SP Feature Split", "blocks": [{ "type": "stat" }, { "type": "stat" }] }]
+}
+{% endschema %}

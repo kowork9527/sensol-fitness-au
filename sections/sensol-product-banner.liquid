@@ -1,0 +1,49 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+#shopify-section-{{ section.id }} .sp-banner{position:relative;width:100%;height:{{ s.height }}vh;min-height:380px;overflow:hidden;font-family:'Inter',sans-serif}
+#shopify-section-{{ section.id }} .sp-banner img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-banner__overlay{position:absolute;inset:0;background:rgba(26,24,22,{{ s.overlay_opacity | divided_by: 100.0 }});display:flex;align-items:flex-end;padding:60px 40px}
+#shopify-section-{{ section.id }} .sp-banner__text{color:#F7F4F0;max-width:600px}
+#shopify-section-{{ section.id }} .sp-banner__eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#B5ADA4;margin-bottom:16px}
+#shopify-section-{{ section.id }} .sp-banner__title{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:0.04em;line-height:1.1}
+@media(max-width:768px){
+#shopify-section-{{ section.id }} .sp-banner{height:50vh;min-height:300px}
+#shopify-section-{{ section.id }} .sp-banner__overlay{padding:40px 20px}
+}
+</style>
+
+<section class="sp-banner">
+  {%- if s.image != blank -%}
+    <img src="{{ s.image | image_url: width: 1920 }}" alt="{{ s.title | escape }}" loading="lazy" width="1920" height="1080">
+  {%- else -%}
+    <img src="{{ 'australia-home.jpeg' | asset_url }}" alt="{{ s.title | escape }}" loading="lazy" width="1920" height="1080">
+  {%- endif -%}
+  <div class="sp-banner__overlay">
+    <div class="sp-banner__text">
+      {%- if s.eyebrow != blank -%}
+      <div class="sp-banner__eyebrow">{{ s.eyebrow }}</div>
+      {%- endif -%}
+      {%- if s.title != blank -%}
+      <div class="sp-banner__title">{{ s.title }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP Banner",
+  "tag": "section",
+  "class": "sp-banner-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Banner image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Make it easy, Do it real" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Where strength meets precision, and movement becomes design." },
+    { "type": "range", "id": "height", "label": "Height (vh)", "min": 30, "max": 90, "step": 5, "default": 70 },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity (%)", "min": 0, "max": 80, "step": 5, "default": 35 }
+  ],
+  "presets": [{ "name": "SP Banner" }]
+}
+{% endschema %}
