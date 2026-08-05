@@ -3,9 +3,19 @@
     "sensol-rs03-landing": {
       "type": "sensol-rs03-landing",
       "settings": {}
+    },
+    "sp_banner": {
+      "type": "sensol-product-banner",
+      "settings": {
+        "eyebrow": "Make it easy, Do it real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
     }
   },
   "order": [
-    "sensol-rs03-landing"
+    "sensol-rs03-landing",
+    "sp_banner"
   ]
 }
