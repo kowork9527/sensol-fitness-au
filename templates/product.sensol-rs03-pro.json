@@ -82,6 +82,15 @@
         "padding_bottom": 12
       }
     },
+    "sp_banner": {
+      "type": "sensol-product-banner",
+      "settings": {
+        "eyebrow": "Make it easy, Do it real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
+    },
     "disclosures": {
       "type": "disclosures",
       "settings": {
@@ -134,6 +143,7 @@
   },
   "order": [
     "main",
+    "sp_banner",
     "disclosures",
     "178537778718aba56f",
     "related-products"
