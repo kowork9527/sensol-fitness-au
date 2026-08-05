@@ -1,486 +1,95 @@
 {%- liquid
-  assign s = section.settings
   assign p = product
-  assign hero_img = s.hero_image
-  if hero_img == blank and p and p.featured_image
-    assign hero_img = p.featured_image
-  endif
-  assign ov_img = s.ov_image
-  if ov_img == blank and p and p.images.size > 1
-    assign ov_img = p.images[1]
-  endif
+  assign s = section.settings
 -%}
 <style>
-#shopify-section-{{ section.id }}{font-family:'Inter',sans-serif;color:#1A1816;background:#F7F4F0;display:block;width:100%}
-#shopify-section-{{ section.id }} *{box-sizing:border-box}
-#shopify-section-{{ section.id }} .rs03-hero{position:relative;min-height:90vh;background:#1A1816;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
-#shopify-section-{{ section.id }} .rs03-hero__img{position:relative;overflow:hidden;background:#2A2826;min-height:500px}
-#shopify-section-{{ section.id }} .rs03-hero__img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
-#shopify-section-{{ section.id }} .rs03-hero__content{display:flex;flex-direction:column;justify-content:center;padding:100px 80px;color:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#B5ADA4;margin-bottom:32px}
-#shopify-section-{{ section.id }} .rs03-title{font-size:clamp(48px,6vw,80px);font-weight:200;letter-spacing:.04em;line-height:1;margin:0 0 24px;color:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-sub{font-size:16px;font-weight:300;color:#B5ADA4;line-height:1.7;max-width:480px;margin-bottom:40px}
-#shopify-section-{{ section.id }} .rs03-cta{display:inline-block;padding:18px 48px;background:#F7F4F0;color:#1A1816;text-decoration:none;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;transition:.4s;cursor:pointer}
-#shopify-section-{{ section.id }} .rs03-cta:hover{background:#B5ADA4}
-#shopify-section-{{ section.id }} .rs03-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #D4CEC6;border-bottom:1px solid #D4CEC6;background:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-stat{padding:48px 32px;text-align:center;border-right:1px solid #D4CEC6}
-#shopify-section-{{ section.id }} .rs03-stat:last-child{border-right:none}
-#shopify-section-{{ section.id }} .rs03-stat__num{font-size:48px;font-weight:200;letter-spacing:.05em;color:#1A1816;line-height:1;margin-bottom:8px}
-#shopify-section-{{ section.id }} .rs03-stat__lbl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#8A8279}
-#shopify-section-{{ section.id }} .rs03-section{padding:120px 60px}
-#shopify-section-{{ section.id }} .rs03-section--dark{background:#1A1816;color:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-section__head{text-align:center;margin-bottom:80px;max-width:800px;margin-left:auto;margin-right:auto}
-#shopify-section-{{ section.id }} .rs03-section__eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#8A8279;margin-bottom:20px}
-#shopify-section-{{ section.id }} .rs03-section--dark .rs03-section__eyebrow{color:#B5ADA4}
-#shopify-section-{{ section.id }} .rs03-section__title{font-size:clamp(32px,4vw,48px);font-weight:300;letter-spacing:.06em;line-height:1.1;margin:0}
-#shopify-section-{{ section.id }} .rs03-overview{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-overview__img{aspect-ratio:4/5;background:#D4CEC6;overflow:hidden}
-#shopify-section-{{ section.id }} .rs03-overview__img img{width:100%;height:100%;object-fit:cover}
-#shopify-section-{{ section.id }} .rs03-overview__text h2{font-size:36px;font-weight:300;letter-spacing:.04em;margin:0 0 24px}
-#shopify-section-{{ section.id }} .rs03-overview__text p{font-size:16px;line-height:1.8;color:#1A1816;margin:0 0 16px}
-#shopify-section-{{ section.id }} .rs03-features{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:1400px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-feature{padding:48px 32px;border:1px solid #D4CEC6;background:#fff}
-#shopify-section-{{ section.id }} .rs03-feature__num{font-size:12px;letter-spacing:.2em;color:#8A8279;margin-bottom:24px}
-#shopify-section-{{ section.id }} .rs03-feature__title{font-size:22px;font-weight:400;letter-spacing:.05em;margin:0 0 16px;color:#1A1816}
-#shopify-section-{{ section.id }} .rs03-feature__desc{font-size:14px;line-height:1.7;color:#8A8279;margin:0}
-#shopify-section-{{ section.id }} .rs03-included{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1000px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-included__item{display:flex;align-items:center;gap:16px;padding:20px;border-bottom:1px solid #D4CEC6}
-#shopify-section-{{ section.id }} .rs03-included__check{width:20px;height:20px;border:1px solid #1A1816;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-#shopify-section-{{ section.id }} .rs03-included__check::after{content:'';width:8px;height:8px;background:#1A1816;border-radius:50%}
-#shopify-section-{{ section.id }} .rs03-included__name{font-size:14px;letter-spacing:.05em;color:#1A1816}
-#shopify-section-{{ section.id }} .rs03-specstrip{display:grid;grid-template-columns:repeat(4,1fr);background:#2A2826;padding:60px 0}
-#shopify-section-{{ section.id }} .rs03-specstrip__item{text-align:center;border-right:1px solid #1A1816;padding:0 24px}
-#shopify-section-{{ section.id }} .rs03-specstrip__item:last-child{border-right:none}
-#shopify-section-{{ section.id }} .rs03-specstrip__label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#8A8279;margin-bottom:12px}
-#shopify-section-{{ section.id }} .rs03-specstrip__value{font-size:18px;font-weight:300;letter-spacing:.05em;color:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-systems{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;max-width:1400px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-system{padding:48px;border:1px solid #D4CEC6;background:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-system__num{width:48px;height:48px;background:#1A1816;color:#F7F4F0;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:24px;letter-spacing:.05em}
-#shopify-section-{{ section.id }} .rs03-system__title{font-size:20px;font-weight:400;letter-spacing:.05em;margin:0 0 12px;color:#1A1816}
-#shopify-section-{{ section.id }} .rs03-system__desc{font-size:14px;line-height:1.7;color:#8A8279;margin:0}
-#shopify-section-{{ section.id }} .rs03-videos{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:1200px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-video{aspect-ratio:16/9;background:#1A1816;overflow:hidden}
-#shopify-section-{{ section.id }} .rs03-video video,#shopify-section-{{ section.id }} .rs03-video iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
-#shopify-section-{{ section.id }} .rs03-video__label{padding:16px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A8279}
-#shopify-section-{{ section.id }} .rs03-specs{max-width:900px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-specs__row{display:grid;grid-template-columns:200px 1fr;padding:20px 0;border-bottom:1px solid #D4CEC6;font-size:14px;gap:24px}
-#shopify-section-{{ section.id }} .rs03-specs__lbl{letter-spacing:.1em;text-transform:uppercase;color:#8A8279;font-size:11px}
-#shopify-section-{{ section.id }} .rs03-specs__val{color:#1A1816;letter-spacing:.03em}
-#shopify-section-{{ section.id }} .rs03-reviews{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
-#shopify-section-{{ section.id }} .rs03-review{padding:32px;border:1px solid #D4CEC6;background:#fff}
-#shopify-section-{{ section.id }} .rs03-review__stars{color:#B5ADA4;letter-spacing:2px;margin-bottom:12px;font-size:14px}
-#shopify-section-{{ section.id }} .rs03-review__title{font-size:16px;font-weight:500;margin:0 0 8px;color:#1A1816}
-#shopify-section-{{ section.id }} .rs03-review__body{font-size:14px;line-height:1.7;color:#1A1816;margin:0 0 16px}
-#shopify-section-{{ section.id }} .rs03-review__author{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8A8279}
-#shopify-section-{{ section.id }} .rs03-qa{max-width:800px;margin:0 auto}
-#shopify-section-{{ section.id }} .rs03-qa__item{padding:24px 0;border-bottom:1px solid #D4CEC6}
-#shopify-section-{{ section.id }} .rs03-qa__q{font-size:16px;font-weight:500;color:#1A1816;margin:0 0 12px;letter-spacing:.03em}
-#shopify-section-{{ section.id }} .rs03-qa__a{font-size:14px;line-height:1.7;color:#8A8279;margin:0}
-#shopify-section-{{ section.id }} .rs03-cta-block{text-align:center;padding:120px 40px;background:#1A1816;color:#F7F4F0}
-#shopify-section-{{ section.id }} .rs03-cta-block h2{font-size:48px;font-weight:200;letter-spacing:.04em;margin:0 0 24px}
-#shopify-section-{{ section.id }} .rs03-cta-block p{font-size:16px;color:#B5ADA4;margin:0 0 40px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
-#shopify-section-{{ section.id }} .rs03-payments{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
-#shopify-section-{{ section.id }} .rs03-payments__item{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#B5ADA4;padding:8px 16px;border:1px solid #2A2826}
-#shopify-section-{{ section.id }} .rs03-share{display:flex;justify-content:center;gap:16px;margin-top:40px}
-#shopify-section-{{ section.id }} .rs03-share a{width:40px;height:40px;border:1px solid #2A2826;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#B5ADA4;text-decoration:none;font-size:12px}
-@media(max-width:968px){
-  #shopify-section-{{ section.id }} .rs03-hero{grid-template-columns:1fr;min-height:auto}
-  #shopify-section-{{ section.id }} .rs03-hero__content{padding:60px 24px}
-  #shopify-section-{{ section.id }} .rs03-hero__img{aspect-ratio:4/3;min-height:300px}
-  #shopify-section-{{ section.id }} .rs03-stats{grid-template-columns:repeat(2,1fr)}
-  #shopify-section-{{ section.id }} .rs03-stat{border-bottom:1px solid #D4CEC6}
-  #shopify-section-{{ section.id }} .rs03-section{padding:60px 20px}
-  #shopify-section-{{ section.id }} .rs03-overview{grid-template-columns:1fr;gap:40px}
-  #shopify-section-{{ section.id }} .rs03-features{grid-template-columns:1fr;gap:24px}
-  #shopify-section-{{ section.id }} .rs03-included{grid-template-columns:1fr}
-  #shopify-section-{{ section.id }} .rs03-specstrip{grid-template-columns:repeat(2,1fr);padding:40px 20px}
-  #shopify-section-{{ section.id }} .rs03-specstrip__item{padding:20px;border-bottom:1px solid #1A1816}
-  #shopify-section-{{ section.id }} .rs03-systems{grid-template-columns:1fr;gap:24px}
-  #shopify-section-{{ section.id }} .rs03-videos{grid-template-columns:1fr}
-  #shopify-section-{{ section.id }} .rs03-specs__row{grid-template-columns:1fr;gap:8px}
-  #shopify-section-{{ section.id }} .rs03-reviews{grid-template-columns:1fr}
-  #shopify-section-{{ section.id }} .rs03-cta-block{padding:60px 20px}
-  #shopify-section-{{ section.id }} .rs03-cta-block h2{font-size:32px}
+#shopify-section-{{ section.id }}{font-family:'Inter',sans-serif;color:#1A1816;background:#F7F4F0;padding:40px 20px}
+#shopify-section-{{ section.id }} .rs03-product{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+#shopify-section-{{ section.id }} .rs03-gallery{position:sticky;top:100px}
+#shopify-section-{{ section.id }} .rs03-gallery__main{aspect-ratio:1/1;background:#fff;overflow:hidden;margin-bottom:16px}
+#shopify-section-{{ section.id }} .rs03-gallery__main img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .rs03-gallery__thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+#shopify-section-{{ section.id }} .rs03-gallery__thumb{aspect-ratio:1/1;background:#fff;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:.2s}
+#shopify-section-{{ section.id }} .rs03-gallery__thumb:hover{border-color:#1A1816}
+#shopify-section-{{ section.id }} .rs03-gallery__thumb img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .rs03-info{padding:20px 0}
+#shopify-section-{{ section.id }} .rs03-info__title{font-size:32px;font-weight:300;letter-spacing:.04em;margin:0 0 16px;color:#1A1816}
+#shopify-section-{{ section.id }} .rs03-info__price{font-size:24px;font-weight:400;color:#1A1816;margin-bottom:24px;letter-spacing:.02em}
+#shopify-section-{{ section.id }} .rs03-info__price s{color:#8A8279;margin-right:12px;font-size:18px}
+#shopify-section-{{ section.id }} .rs03-info__stock{font-size:12px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px;padding:8px 16px;display:inline-block}
+#shopify-section-{{ section.id }} .rs03-info__stock--in{background:#E8F5E9;color:#2E7D32}
+#shopify-section-{{ section.id }} .rs03-info__stock--out{background:#FFEBEE;color:#C62828}
+#shopify-section-{{ section.id }} .rs03-qty{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+#shopify-section-{{ section.id }} .rs03-qty__label{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#8A8279}
+#shopify-section-{{ section.id }} .rs03-qty__input{width:80px;padding:12px;border:1px solid #D4CEC6;background:#fff;font-size:16px;text-align:center}
+#shopify-section-{{ section.id }} .rs03-add{width:100%;padding:20px;background:#1A1816;color:#F7F4F0;border:none;font-size:14px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s;font-weight:500}
+#shopify-section-{{ section.id }} .rs03-add:hover{background:#2A2826}
+#shopify-section-{{ section.id }} .rs03-add:disabled{background:#8A8279;cursor:not-allowed}
+@media(max-width:768px){
+  #shopify-section-{{ section.id }} .rs03-product{grid-template-columns:1fr;gap:32px}
+  #shopify-section-{{ section.id }} .rs03-gallery{position:static}
+  #shopify-section-{{ section.id }} .rs03-info__title{font-size:24px}
+  #shopify-section-{{ section.id }} .rs03-info__price{font-size:20px}
 }
 </style>
 
-{%- comment -%}HERO{%- endcomment -%}
-<section class="rs03-hero">
-  <div class="rs03-hero__content">
-    {%- if s.hero_eyebrow != blank -%}<div class="rs03-tag">{{ s.hero_eyebrow }}</div>{%- endif -%}
-    <h1 class="rs03-title">{{ s.hero_title }}</h1>
-    {%- if s.hero_subtitle != blank -%}<p class="rs03-sub">{{ s.hero_subtitle }}</p>{%- endif -%}
-    {%- if s.hero_cta_text != blank -%}
-      <div><a href="{{ s.hero_cta_link | default: '/products/sensol-one-plus' }}" class="rs03-cta">{{ s.hero_cta_text }}</a></div>
-    {%- endif -%}
-  </div>
-  <div class="rs03-hero__img">
-    {%- if hero_img != blank -%}
-      {{ hero_img | image_url: width: 1400 | image_tag: loading: 'eager', widths: '700, 1400' }}
-    {%- endif -%}
-  </div>
-</section>
-
-{%- comment -%}STATS{%- endcomment -%}
-<section class="rs03-stats">
-  {%- for i in (1..4) -%}
-    {%- assign num_key = 'stat_' | append: i | append: '_num' -%}
-    {%- assign lbl_key = 'stat_' | append: i | append: '_lbl' -%}
-    <div class="rs03-stat">
-      <div class="rs03-stat__num">{{ s[num_key] }}</div>
-      <div class="rs03-stat__lbl">{{ s[lbl_key] }}</div>
-    </div>
-  {%- endfor -%}
-</section>
-
-{%- comment -%}OVERVIEW{%- endcomment -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    {%- if s.ov_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.ov_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title">{{ s.ov_title }}</h2>
-  </div>
-  <div class="rs03-overview">
-    <div class="rs03-overview__img">
-      {%- if ov_img != blank -%}
-        {{ ov_img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450, 900' }}
+<div class="rs03-product">
+  <div class="rs03-gallery">
+    <div class="rs03-gallery__main">
+      {%- if p.featured_image -%}
+        {{ p.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', widths: '600, 1200' }}
+      {%- else -%}
+        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279">No image</div>
       {%- endif -%}
     </div>
-    <div class="rs03-overview__text">
-      {%- if s.ov_body != blank -%}{{ s.ov_body }}{%- else -%}
-        <h2>Engineered for the Modern Home</h2>
-        <p>The RS03 is built on a precision aluminum frame, finished in our Sydney workshop. Every component is selected for its material integrity, its acoustic profile, and the quality of movement it produces.</p>
-        <p>This is not a fitness machine. It is a piece of spatial design, made to perform.</p>
-      {%- endif -%}
-    </div>
-  </div>
-</section>
-
-{%- comment -%}FEATURES 3 cards{%- endcomment -%}
-<section class="rs03-section rs03-section--dark">
-  <div class="rs03-section__head">
-    {%- if s.feat_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.feat_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title" style="color:#F7F4F0">{{ s.feat_title }}</h2>
-  </div>
-  <div class="rs03-features">
-    {%- for i in (1..3) -%}
-      {%- assign t_key = 'feat_' | append: i | append: '_title' -%}
-      {%- assign d_key = 'feat_' | append: i | append: '_desc' -%}
-      {%- assign n_key = 'feat_' | append: i | append: '_num' -%}
-      <div class="rs03-feature">
-        <div class="rs03-feature__num">{{ s[n_key] }}</div>
-        <h3 class="rs03-feature__title">{{ s[t_key] }}</h3>
-        <p class="rs03-feature__desc">{{ s[d_key] }}</p>
+    {%- if p.images.size > 1 -%}
+      <div class="rs03-gallery__thumbs">
+        {%- for img in p.images limit: 4 -%}
+          <div class="rs03-gallery__thumb">
+            {{ img | image_url: width: 300 | image_tag: loading: 'lazy', widths: '150, 300' }}
+          </div>
+        {%- endfor -%}
       </div>
-    {%- endfor -%}
+    {%- endif -%}
   </div>
-</section>
 
-{%- comment -%}INCLUDED{%- endcomment -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    {%- if s.inc_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.inc_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title">{{ s.inc_title }}</h2>
-  </div>
-  <div class="rs03-included">
-    {%- for i in (1..8) -%}
-      {%- assign n_key = 'inc_' | append: i | append: '_name' -%}
-      {%- if s[n_key] != blank -%}
-        <div class="rs03-included__item">
-          <div class="rs03-included__check"></div>
-          <div class="rs03-included__name">{{ s[n_key] }}</div>
-        </div>
+  <div class="rs03-info">
+    <h1 class="rs03-info__title">{{ p.title | default: 'Sensol RS03' }}</h1>
+    
+    <div class="rs03-info__price">
+      {%- if p.compare_at_price > p.price -%}
+        <s>{{ p.compare_at_price | money }}</s>
       {%- endif -%}
-    {%- endfor -%}
-  </div>
-</section>
-
-{%- comment -%}SPEC STRIP{%- endcomment -%}
-<section class="rs03-specstrip">
-  {%- for i in (1..4) -%}
-    {%- assign l_key = 'spec_' | append: i | append: '_label' -%}
-    {%- assign v_key = 'spec_' | append: i | append: '_value' -%}
-    <div class="rs03-specstrip__item">
-      <div class="rs03-specstrip__label">{{ s[l_key] }}</div>
-      <div class="rs03-specstrip__value">{{ s[v_key] }}</div>
+      {{ p.price | money }}
     </div>
-  {%- endfor -%}
-</section>
 
-{%- comment -%}SYSTEMS 4 cards{%- endcomment -%}
-<section class="rs03-section rs03-section--dark">
-  <div class="rs03-section__head">
-    {%- if s.sys_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.sys_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title" style="color:#F7F4F0">{{ s.sys_title }}</h2>
-  </div>
-  <div class="rs03-systems">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'system' -%}
-        <div class="rs03-system">
-          <div class="rs03-system__num">{{ block.settings.number }}</div>
-          <h3 class="rs03-system__title">{{ block.settings.title }}</h3>
-          <p class="rs03-system__desc">{{ block.settings.desc }}</p>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-</section>
+    {%- if p.available -%}
+      <div class="rs03-info__stock rs03-info__stock--in">In Stock</div>
+    {%- else -%}
+      <div class="rs03-info__stock rs03-info__stock--out">Sold Out</div>
+    {%- endif -%}
 
-{%- comment -%}VIDEOS{%- endcomment -%}
-{%- assign has_videos = false -%}
-{%- for block in section.blocks -%}
-  {%- if block.type == 'video' and block.settings.video != blank -%}
-    {%- assign has_videos = true -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- if has_videos -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    {%- if s.vid_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.vid_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title">{{ s.vid_title }}</h2>
+    {%- form 'product', p -%}
+      <div class="rs03-qty">
+        <label class="rs03-qty__label" for="qty">Quantity</label>
+        <input class="rs03-qty__input" type="number" id="qty" name="quantity" value="1" min="1">
+      </div>
+      
+      <button class="rs03-add" type="submit" name="add" {%- unless p.available -%}disabled{%- endunless -%}>
+        {%- if p.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+      </button>
+    {%- endform -%}
   </div>
-  <div class="rs03-videos">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'video' -%}
-        <div>
-          <div class="rs03-video">
-            {%- if block.settings.video != blank -%}
-              {{ block.settings.video | video_tag: autoplay: false, loop: false, controls: true }}
-            {%- elsif block.settings.video_url != blank -%}
-              <iframe src="{{ block.settings.video_url }}" allowfullscreen></iframe>
-            {%- endif -%}
-          </div>
-          {%- if block.settings.label != blank -%}<div class="rs03-video__label">{{ block.settings.label }}</div>{%- endif -%}
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-</section>
-{%- endif -%}
-
-{%- comment -%}FULL SPECS{%- endcomment -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    {%- if s.full_eyebrow != blank -%}<div class="rs03-section__eyebrow">{{ s.full_eyebrow }}</div>{%- endif -%}
-    <h2 class="rs03-section__title">{{ s.full_title }}</h2>
-  </div>
-  <div class="rs03-specs">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'fullspec' -%}
-        <div class="rs03-specs__row">
-          <div class="rs03-specs__lbl">{{ block.settings.label }}</div>
-          <div class="rs03-specs__val">{{ block.settings.value }}</div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-</section>
-
-{%- comment -%}REVIEWS{%- endcomment -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    <div class="rs03-section__eyebrow">{{ s.rev_eyebrow }}</div>
-    <h2 class="rs03-section__title">{{ s.rev_title }}</h2>
-  </div>
-  <div class="rs03-reviews">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'review' -%}
-        <div class="rs03-review">
-          <div class="rs03-review__stars">
-            {%- assign r = block.settings.rating | at_least: 1 -%}
-            {%- for star in (1..r) -%}★{%- endfor -%}
-          </div>
-          {%- if block.settings.title != blank -%}<h4 class="rs03-review__title">{{ block.settings.title }}</h4>{%- endif -%}
-          {%- if block.settings.body != blank -%}<p class="rs03-review__body">{{ block.settings.body }}</p>{%- endif -%}
-          <div class="rs03-review__author">— {{ block.settings.author }} | {{ block.settings.date }}</div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-  {%- if p -%}
-    <div id="judgeme_product_reviews" data-product-id="{{ p.id }}" class="jdgm-widget jdgm-reviews-widget" style="margin-top:60px"></div>
-  {%- endif -%}
-</section>
-
-{%- comment -%}Q&A{%- endcomment -%}
-<section class="rs03-section">
-  <div class="rs03-section__head">
-    <div class="rs03-section__eyebrow">{{ s.qa_eyebrow }}</div>
-    <h2 class="rs03-section__title">{{ s.qa_title }}</h2>
-  </div>
-  <div class="rs03-qa">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'qa' -%}
-        <div class="rs03-qa__item">
-          <h3 class="rs03-qa__q">{{ block.settings.q }}</h3>
-          <p class="rs03-qa__a">{{ block.settings.a }}</p>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-</section>
-
-{%- comment -%}CTA BLOCK{%- endcomment -%}
-<section class="rs03-cta-block">
-  {%- if s.cta_eyebrow != blank -%}<div class="rs03-section__eyebrow" style="color:#B5ADA4;margin-bottom:20px">{{ s.cta_eyebrow }}</div>{%- endif -%}
-  <h2>{{ s.cta_title }}</h2>
-  {%- if s.cta_text != blank -%}<p>{{ s.cta_text }}</p>{%- endif -%}
-  {%- if s.cta_btn_text != blank -%}
-    <a href="{{ s.cta_btn_link | default: '/products/sensol-one-plus' }}" class="rs03-cta">{{ s.cta_btn_text }}</a>
-  {%- endif -%}
-  <div class="rs03-payments">
-    <div class="rs03-payments__item">PayPal</div>
-    <div class="rs03-payments__item">Afterpay</div>
-    <div class="rs03-payments__item">Shop Pay</div>
-    <div class="rs03-payments__item">Apple Pay</div>
-    <div class="rs03-payments__item">Google Pay</div>
-  </div>
-  <div class="rs03-share">
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ p.url | default: '/products/sensol-one-plus' }}" target="_blank" rel="noopener">f</a>
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener">ig</a>
-    <a href="https://twitter.com/intent/tweet?url={{ shop.url }}{{ p.url | default: '/products/sensol-one-plus' }}" target="_blank" rel="noopener">x</a>
-    <a href="https://pinterest.com/pin/create/button/?url={{ shop.url }}{{ p.url | default: '/products/sensol-one-plus' }}" target="_blank" rel="noopener">p</a>
-    <a href="#" onclick="navigator.clipboard.writeText(window.location.href);return false">link</a>
-  </div>
-</section>
+</div>
 
 {% schema %}
 {
-  "name": "RS03 Landing",
+  "name": "RS03 Product v1",
   "tag": "section",
-  "class": "rs03-section-wrap",
-  "settings": [
-    {"type":"header","content":"HERO"},
-    {"type":"text","id":"hero_eyebrow","label":"Eyebrow","default":"SENSOL RS03"},
-    {"type":"text","id":"hero_title","label":"Title","default":"Maximum Control."},
-    {"type":"textarea","id":"hero_subtitle","label":"Subtitle","default":"Expanded movement, refined engineering. A precision instrument for the modern home."},
-    {"type":"text","id":"hero_cta_text","label":"CTA Text","default":"Shop RS03"},
-    {"type":"text","id":"hero_cta_link","label":"CTA Link","default":"/products/sensol-one-plus"},
-    {"type":"image_picker","id":"hero_image","label":"Hero Image"},
-    {"type":"header","content":"STATS"},
-    {"type":"text","id":"stat_1_num","label":"Stat 1 Number","default":"1,000+"},
-    {"type":"text","id":"stat_1_lbl","label":"Stat 1 Label","default":"Pilates Studios"},
-    {"type":"text","id":"stat_2_num","label":"Stat 2 Number","default":"4"},
-    {"type":"text","id":"stat_2_lbl","label":"Stat 2 Label","default":"Resistance Systems"},
-    {"type":"text","id":"stat_3_num","label":"Stat 3 Number","default":"100%"},
-    {"type":"text","id":"stat_3_lbl","label":"Stat 3 Label","default":"Engineered Wood"},
-    {"type":"text","id":"stat_4_num","label":"Stat 4 Number","default":"10yr"},
-    {"type":"text","id":"stat_4_lbl","label":"Stat 4 Label","default":"Frame Warranty"},
-    {"type":"header","content":"OVERVIEW"},
-    {"type":"text","id":"ov_eyebrow","label":"Eyebrow","default":"Overview"},
-    {"type":"text","id":"ov_title","label":"Title","default":"Designed Around Movement."},
-    {"type":"richtext","id":"ov_body","label":"Body"},
-    {"type":"image_picker","id":"ov_image","label":"Image"},
-    {"type":"header","content":"FEATURES"},
-    {"type":"text","id":"feat_eyebrow","label":"Eyebrow","default":"Engineering"},
-    {"type":"text","id":"feat_title","label":"Title","default":"Three Pillars of Precision."},
-    {"type":"text","id":"feat_1_num","label":"Feature 1 Number","default":"01"},
-    {"type":"text","id":"feat_1_title","label":"Feature 1 Title","default":"Precision Frame"},
-    {"type":"textarea","id":"feat_1_desc","label":"Feature 1 Desc","default":"Aircraft-grade aluminum rails, hand-finished in our Sydney workshop."},
-    {"type":"text","id":"feat_2_num","label":"Feature 2 Number","default":"02"},
-    {"type":"text","id":"feat_2_title","label":"Feature 2 Title","default":"Adaptive Springs"},
-    {"type":"textarea","id":"feat_2_desc","label":"Feature 2 Desc","default":"Four independent resistance systems tuned for smooth, silent travel."},
-    {"type":"text","id":"feat_3_num","label":"Feature 3 Number","default":"03"},
-    {"type":"text","id":"feat_3_title","label":"Feature 3 Title","default":"Quiet Operation"},
-    {"type":"textarea","id":"feat_3_desc","label":"Feature 3 Desc","default":"Engineered for low-noise environments, suitable for any room in the home."},
-    {"type":"header","content":"INCLUDED"},
-    {"type":"text","id":"inc_eyebrow","label":"Eyebrow","default":"What's Included"},
-    {"type":"text","id":"inc_title","label":"Title","default":"Everything You Need."},
-    {"type":"text","id":"inc_1_name","label":"Item 1","default":"RS03 Reformer Frame"},
-    {"type":"text","id":"inc_2_name","label":"Item 2","default":"4 Spring Resistance System"},
-    {"type":"text","id":"inc_3_name","label":"Item 3","default":"Adjustable Footbar"},
-    {"type":"text","id":"inc_4_name","label":"Item 4","default":"Padded Carriage and Headrest"},
-    {"type":"text","id":"inc_5_name","label":"Item 5","default":"Strap Set (Pair)"},
-    {"type":"text","id":"inc_6_name","label":"Item 6","default":"Owner Manual and Quick Start"},
-    {"type":"text","id":"inc_7_name","label":"Item 7","default":"10-Year Frame Warranty"},
-    {"type":"text","id":"inc_8_name","label":"Item 8","default":"Free Shipping (AU and NZ)"},
-    {"type":"header","content":"SPEC STRIP"},
-    {"type":"text","id":"spec_1_label","label":"Spec 1 Label","default":"Length"},
-    {"type":"text","id":"spec_1_value","label":"Spec 1 Value","default":"240 cm"},
-    {"type":"text","id":"spec_2_label","label":"Spec 2 Label","default":"Width"},
-    {"type":"text","id":"spec_2_value","label":"Spec 2 Value","default":"65 cm"},
-    {"type":"text","id":"spec_3_label","label":"Spec 3 Label","default":"Weight"},
-    {"type":"text","id":"spec_3_value","label":"Spec 3 Value","default":"68 kg"},
-    {"type":"text","id":"spec_4_label","label":"Spec 4 Label","default":"Carriage Travel"},
-    {"type":"text","id":"spec_4_value","label":"Spec 4 Value","default":"100 cm"},
-    {"type":"header","content":"SYSTEMS"},
-    {"type":"text","id":"sys_eyebrow","label":"Eyebrow","default":"The Four Systems"},
-    {"type":"text","id":"sys_title","label":"Title","default":"Built To Outlast."},
-    {"type":"header","content":"VIDEOS"},
-    {"type":"text","id":"vid_eyebrow","label":"Eyebrow","default":"In Motion"},
-    {"type":"text","id":"vid_title","label":"Title","default":"See It Move."},
-    {"type":"header","content":"FULL SPECS"},
-    {"type":"text","id":"full_eyebrow","label":"Eyebrow","default":"Specifications"},
-    {"type":"text","id":"full_title","label":"Title","default":"Every Detail."},
-    {"type":"header","content":"REVIEWS"},
-    {"type":"text","id":"rev_eyebrow","label":"Eyebrow","default":"Reviews"},
-    {"type":"text","id":"rev_title","label":"Title","default":"Trusted by Pilatists."},
-    {"type":"header","content":"QUESTIONS"},
-    {"type":"text","id":"qa_eyebrow","label":"Eyebrow","default":"Questions"},
-    {"type":"text","id":"qa_title","label":"Title","default":"Common Questions."},
-    {"type":"header","content":"CTA"},
-    {"type":"text","id":"cta_eyebrow","label":"Eyebrow","default":"Begin"},
-    {"type":"text","id":"cta_title","label":"Title","default":"Bring The Studio Home."},
-    {"type":"textarea","id":"cta_text","label":"Description","default":"Free shipping Australia-wide. 10-year frame warranty. Pay in 4 with Afterpay."},
-    {"type":"text","id":"cta_btn_text","label":"Button Text","default":"Add to Cart"},
-    {"type":"text","id":"cta_btn_link","label":"Button Link","default":"/products/sensol-one-plus"}
-  ],
-  "blocks": [
-    {"type":"system","name":"System","settings":[
-      {"type":"text","id":"number","label":"Number","default":"1"},
-      {"type":"text","id":"title","label":"Title","default":"Frame System"},
-      {"type":"textarea","id":"desc","label":"Description","default":"Hand-finished maple and aircraft aluminum. Built once, built right."}
-    ]},
-    {"type":"video","name":"Video","settings":[
-      {"type":"video","id":"video","label":"Video File"},
-      {"type":"text","id":"video_url","label":"Or Embed URL"},
-      {"type":"text","id":"label","label":"Label"}
-    ]},
-    {"type":"fullspec","name":"Spec","settings":[
-      {"type":"text","id":"label","label":"Label"},
-      {"type":"text","id":"value","label":"Value"}
-    ]},
-    {"type":"review","name":"Review","settings":[
-      {"type":"range","id":"rating","label":"Rating","min":1,"max":5,"step":1,"default":5},
-      {"type":"text","id":"title","label":"Title"},
-      {"type":"textarea","id":"body","label":"Body"},
-      {"type":"text","id":"author","label":"Author"},
-      {"type":"text","id":"date","label":"Date"}
-    ]},
-    {"type":"qa","name":"QandA","settings":[
-      {"type":"text","id":"q","label":"Question"},
-      {"type":"textarea","id":"a","label":"Answer"}
-    ]}
-  ],
+  "class": "rs03-product-section",
+  "settings": [],
   "presets": [
-    {"name":"RS03 Landing","blocks":[
-      {"type":"system","settings":{"number":"1","title":"Frame System","desc":"Hand-finished maple and aircraft aluminum. Built once, built right."}},
-      {"type":"system","settings":{"number":"2","title":"Spring System","desc":"Four independently tuned springs deliver progressive resistance."}},
-      {"type":"system","settings":{"number":"3","title":"Carriage System","desc":"Whisper-quiet wheels on precision-machined rails."}},
-      {"type":"system","settings":{"number":"4","title":"Adjustment System","desc":"Tool-free adjustability. Move from beginner to advanced in seconds."}},
-      {"type":"fullspec","settings":{"label":"Frame Material","value":"Aircraft-Grade Aluminum and Hardwood Maple"}},
-      {"type":"fullspec","settings":{"label":"Finish","value":"Hand-Applied Matte Lacquer"}},
-      {"type":"fullspec","settings":{"label":"Dimensions (L x W x H)","value":"240 x 65 x 28 cm"}},
-      {"type":"fullspec","settings":{"label":"Carriage Travel","value":"100 cm"}},
-      {"type":"fullspec","settings":{"label":"Weight","value":"68 kg"}},
-      {"type":"fullspec","settings":{"label":"Spring System","value":"4 x Independently Tuned Resistance Springs"}},
-      {"type":"fullspec","settings":{"label":"Max User Weight","value":"150 kg"}},
-      {"type":"fullspec","settings":{"label":"Carriage","value":"Closed-Cell EVA Padded with Anti-Slip Surface"}},
-      {"type":"fullspec","settings":{"label":"Wheels","value":"Precision-Machined Polymer (whisper quiet)"}},
-      {"type":"fullspec","settings":{"label":"Footbar","value":"3-Position Adjustable, Tool-Free"}},
-      {"type":"fullspec","settings":{"label":"Rope System","value":"Quick-Adjust with 5 Length Settings"}},
-      {"type":"fullspec","settings":{"label":"Warranty (Frame)","value":"10 Years"}},
-      {"type":"fullspec","settings":{"label":"Warranty (Components)","value":"2 Years"}},
-      {"type":"review","settings":{"rating":5,"title":"Studio quality at home","body":"I've used commercial reformers for years and the RS03 is genuinely on par. The build is incredible and the carriage is whisper quiet. Worth every cent.","author":"Sarah M.","date":"Verified Buyer"}},
-      {"type":"review","settings":{"rating":5,"title":"Beautiful piece of equipment","body":"It looks like furniture, not gym equipment. My partner didn't even realize it was a reformer at first. The aluminium finish is gorgeous.","author":"James L.","date":"Verified Buyer"}},
-      {"type":"review","settings":{"rating":4,"title":"Solid but heavy","body":"The build quality is exceptional. Just be aware it's 68kg - you'll want a dedicated spot for it. Once placed, it's a dream to use.","author":"Michael T.","date":"Verified Buyer"}},
-      {"type":"review","settings":{"rating":5,"title":"Changed my practice","body":"After 6 months of daily use I can say the spring system is the real standout. Smooth, progressive resistance that just feels right.","author":"Emma R.","date":"Verified Buyer"}},
-      {"type":"qa","settings":{"q":"How long does shipping take?","a":"We ship within 2-3 business days from our Sydney warehouse. Standard delivery takes 5-7 business days to metro areas across Australia and 7-10 days to NZ. You'll receive a tracking link via email once dispatched."}},
-      {"type":"qa","settings":{"q":"Do you offer Afterpay?","a":"Yes. We support Afterpay (4 interest-free payments), PayPal Pay in 4, Shop Pay Installments, and all major credit cards. All financing options are visible at checkout."}},
-      {"type":"qa","settings":{"q":"What's the warranty?","a":"The frame carries a 10-year warranty covering structural defects. All springs, ropes, wheels, and upholstery carry a 2-year warranty. Full terms are in the owner's manual included with every unit."}},
-      {"type":"qa","settings":{"q":"Is the RS03 suitable for beginners?","a":"Yes. The 4-spring system lets you adjust resistance from very light (beginner/rehab) to very heavy (advanced). Most beginners start with 1-2 springs and progress as their strength builds. We include a Quick Start guide with your first 10 exercises."}},
-      {"type":"qa","settings":{"q":"What space do I need?","a":"The RS03 is 240 x 65 cm. Allow an extra 30cm of clearance at each end for the carriage travel and rope system. Total recommended space is approximately 240 x 125 cm with ceiling height of 220cm+ for standing exercises."}},
-      {"type":"qa","settings":{"q":"Can I try it in a showroom first?","a":"We have display units at selected partner studios in Sydney, Melbourne, Brisbane, and Auckland. Contact us at support@sensolfitness.com and we'll arrange a complimentary trial session at the studio nearest you."}}
-    ]}
+    {"name": "RS03 Product v1"}
   ]
 }
 {% endschema %}
