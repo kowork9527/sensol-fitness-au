@@ -12,10 +12,29 @@
         "height": 70,
         "overlay_opacity": 35
       }
+    },
+    "sp_feature_1": {
+      "type": "sensol-product-feature",
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Product Overview",
+        "title": "Double the Power. Twice the Possibility.",
+        "text_1": "The Sensol RS03 represents a generational leap in home fitness technology. Where the RS02 pioneered the concept of a digital weight reformer, the RS03 doubles the motor output from 750W to 1500W per arm, delivering the kind of instantaneous, precise resistance that was previously only possible in commercial studio settings.",
+        "text_2": "With 120 kg of total resistance adjustable in 0.5 kg increments, every movement is measured, controlled, and repeatable."
+      },
+      "blocks": {
+        "stat_1": { "type": "stat", "settings": { "number": "3000W", "label": "Combined Motor Output" } },
+        "stat_2": { "type": "stat", "settings": { "number": "120 kg", "label": "Max Resistance" } },
+        "stat_3": { "type": "stat", "settings": { "number": "0.5 kg", "label": "Adjustment Precision" } },
+        "stat_4": { "type": "stat", "settings": { "number": "200+", "label": "Movements" } }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"]
     }
   },
   "order": [
     "sensol-rs03-landing",
-    "sp_banner"
+    "sp_banner",
+    "sp_feature_1"
   ]
 }
