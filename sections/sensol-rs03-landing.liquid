@@ -76,7 +76,7 @@
       </div>
       
       <button class="rs03-add" type="submit" name="add" {%- unless p.available -%}disabled{%- endunless -%}>
-        {%- if p.available -%}Add to Cart &rarr;{%- else -%}Sold Out{%- endif -%}
+        {%- if p.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
       </button>
     {%- endform -%}
   </div>
