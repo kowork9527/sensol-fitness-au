@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sensol RS03 — Power Meets Precision | Sensol Fitness</title>
+<title>Sensol RS03 — Product Page Sections (no nav, no footer)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -25,18 +25,6 @@ body {
 }
 img { display: block; max-width: 100%; }
 
-/* NAV */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px; z-index: 100;
-  background: var(--ivory); border-bottom: 1px solid var(--linen);
-}
-.nav__logo { font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--carbon); text-decoration: none; }
-.nav__links { display: flex; gap: 36px; }
-.nav__link { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carbon); text-decoration: none; }
-.nav__cart { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carbon); text-decoration: none; }
-
 /* SECTION HELPERS */
 .section { padding: 100px 40px; }
 .section--dark { background: var(--carbon); color: var(--ivory); }
@@ -49,7 +37,7 @@ img { display: block; max-width: 100%; }
 /* PRODUCT BUY BLOCK */
 .product {
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px;
-  max-width: 1400px; margin: 0 auto; padding: 100px 40px 80px; align-items: start;
+  max-width: 1400px; margin: 0 auto; padding: 60px 40px 80px; align-items: start;
 }
 .gallery { position: sticky; top: 80px; }
 .gallery__main { aspect-ratio: 4/5; background: var(--linen); overflow: hidden; margin-bottom: 12px; }
@@ -81,7 +69,7 @@ img { display: block; max-width: 100%; }
 .info__trust-item { display: flex; align-items: center; gap: 14px; padding: 10px 0; font-size: 13px; color: var(--carbon); }
 .info__trust-dot { width: 4px; height: 4px; background: var(--carbon); border-radius: 50%; flex-shrink: 0; }
 
-/* FULL-BLEED IMAGE BANNER */
+/* FULL-BLEED BANNER */
 .banner { position: relative; width: 100%; height: 70vh; min-height: 480px; overflow: hidden; }
 .banner img { width: 100%; height: 100%; object-fit: cover; }
 .banner__overlay { position: absolute; inset: 0; background: rgba(26,24,22,0.35); display: flex; align-items: flex-end; padding: 60px 40px; }
@@ -89,7 +77,7 @@ img { display: block; max-width: 100%; }
 .banner__eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dove); margin-bottom: 16px; }
 .banner__title { font-size: 44px; font-weight: 200; letter-spacing: 0.04em; line-height: 1.1; }
 
-/* SPLIT SECTION (image + text alternating) */
+/* SPLIT SECTION */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; }
 .split--reverse { direction: rtl; }
 .split--reverse > * { direction: ltr; }
@@ -105,39 +93,65 @@ img { display: block; max-width: 100%; }
 .split__stat-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-top: 8px; }
 .section--dark .split__stat-label { color: var(--dove); }
 
-/* FEATURE CARDS (dark, with images) */
-.feature-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
-.feature-card { position: relative; overflow: hidden; }
-.feature-card__img { aspect-ratio: 3/2; overflow: hidden; }
-.feature-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-.feature-card:hover .feature-card__img img { transform: scale(1.04); }
-.feature-card__body { padding: 40px 32px; background: var(--carbon); }
-.feature-card__num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dove); letter-spacing: 0.15em; margin-bottom: 20px; }
-.feature-card__heading { font-size: 22px; font-weight: 300; letter-spacing: 0.03em; color: var(--ivory); margin-bottom: 14px; line-height: 1.2; }
-.feature-card__body-text { font-size: 14px; line-height: 1.7; color: var(--dove); }
+/* VIDEO CAROUSEL — horizontal swipe, vertical cards */
+.video-carousel { background: var(--carbon); padding: 100px 0 100px; overflow: hidden; }
+.video-carousel__header { max-width: 1200px; margin: 0 auto 48px; padding: 0 40px; text-align: center; }
+.video-carousel__track {
+  display: flex; gap: 24px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 40px 20px;
+  scrollbar-width: none; -ms-overflow-style: none;
+  cursor: grab;
+}
+.video-carousel__track::-webkit-scrollbar { display: none; }
+.video-carousel__track:active { cursor: grabbing; }
+.video-card {
+  flex: 0 0 auto;
+  width: 340px;
+  scroll-snap-align: center;
+  position: relative;
+}
+.video-card__frame {
+  aspect-ratio: 9/16;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.video-card__frame img,
+.video-card__frame video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.video-card__overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.2);
+  transition: background 0.4s var(--ease);
+}
+.video-card__overlay:hover { background: rgba(0,0,0,0.05); }
+.video-card__play {
+  width: 56px; height: 56px;
+  border: 1px solid var(--ivory);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s var(--ease);
+}
+.video-card__play svg { width: 18px; height: 18px; fill: var(--ivory); margin-left: 3px; }
+.video-card:hover .video-card__play { transform: scale(1.1); }
+.video-card__caption {
+  padding: 16px 0 0;
+  text-align: center;
+}
+.video-card__title { font-size: 13px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dove); }
+.video-card__duration { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--stone); margin-top: 4px; }
+.video-carousel__hint {
+  text-align: center;
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--stone); margin-top: 32px;
+}
 
-/* VIDEO SECTION */
-.video-section { padding: 100px 40px; background: var(--carbon); }
-.video-section__inner { max-width: 1000px; margin: 0 auto; text-align: center; }
-.video-wrap { margin-top: 40px; aspect-ratio: 16/9; background: #000; overflow: hidden; }
-.video-wrap video { width: 100%; height: 100%; object-fit: cover; }
-
-/* COMPARISON CARDS (dark, stacked not table) */
-.compare-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #2A2826; border: 1px solid #2A2826; }
-.compare-card { background: var(--carbon); padding: 36px 32px; }
-.compare-card--highlight { background: #1A1816; border: 1px solid var(--dove); }
-.compare-card__brand { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dove); margin-bottom: 4px; }
-.compare-card--highlight .compare-card__brand { color: var(--ivory); }
-.compare-card__price { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--stone); margin-bottom: 24px; }
-.compare-card--highlight .compare-card__price { color: var(--dove); }
-.compare-card__row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #2A2826; font-size: 13px; }
-.compare-card__row:last-child { border-bottom: none; }
-.compare-card__row-label { color: var(--dove); }
-.compare-card__row-value { color: var(--ivory); font-weight: 500; text-align: right; }
-.compare-card__row-value--no { color: var(--stone); }
-.compare-card--highlight .compare-card__row-value { color: var(--ivory); }
-
-/* WHAT'S INCLUDED (with image) */
+/* WHAT'S INCLUDED */
 .included-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .included__img { aspect-ratio: 1/1; overflow: hidden; background: var(--linen); }
 .included__img img { width: 100%; height: 100%; object-fit: cover; }
@@ -146,16 +160,15 @@ img { display: block; max-width: 100%; }
 .included__num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; }
 .included__name { font-size: 14px; color: var(--ivory); }
 
-/* SPECS (with image) */
+/* SPECS */
 .specs-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
 .specs__img { aspect-ratio: 4/5; overflow: hidden; background: var(--linen); }
 .specs__img img { width: 100%; height: 100%; object-fit: cover; }
-.specs__list { }
 .specs__row { display: grid; grid-template-columns: 180px 1fr; padding: 16px 0; border-bottom: 1px solid #2A2826; align-items: baseline; }
 .specs__label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); }
 .specs__value { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ivory); letter-spacing: 0.03em; }
 
-/* ROI (light, with image) */
+/* ROI */
 .roi-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .roi__img { aspect-ratio: 4/3; overflow: hidden; }
 .roi__img img { width: 100%; height: 100%; object-fit: cover; }
@@ -168,39 +181,44 @@ img { display: block; max-width: 100%; }
 .roi__highlight-num { font-size: 32px; font-weight: 200; color: var(--ivory); line-height: 1; }
 .roi__highlight-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dove); margin-top: 8px; }
 
-/* REVIEWS */
-.reviews-summary { display: flex; align-items: center; gap: 32px; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--linen); }
-.reviews-summary__score { font-size: 56px; font-weight: 200; color: var(--carbon); line-height: 1; }
-.reviews-summary__score sup { font-size: 16px; font-weight: 300; color: var(--stone); }
-.reviews-summary__meta { flex: 1; }
-.reviews-summary__stars { font-size: 14px; letter-spacing: 4px; color: var(--carbon); margin-bottom: 6px; }
-.reviews-summary__count { font-size: 12px; color: var(--stone); }
-.review { padding: 36px 0; border-bottom: 1px solid var(--linen); }
-.review__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
-.review__author { font-size: 13px; font-weight: 500; color: var(--carbon); }
-.review__date { font-size: 11px; color: var(--stone); letter-spacing: 0.1em; }
-.review__stars { font-size: 12px; letter-spacing: 3px; color: var(--carbon); margin-bottom: 12px; }
-.review__title { font-size: 17px; font-weight: 500; color: var(--carbon); margin-bottom: 10px; }
-.review__body { font-size: 14px; line-height: 1.7; color: var(--carbon); max-width: 680px; }
-.review__photos { display: flex; gap: 8px; margin-top: 16px; }
-.review__photo { width: 72px; height: 72px; background: var(--linen); overflow: hidden; }
-.review__photo img { width: 100%; height: 100%; object-fit: cover; }
-.review__reply { margin-top: 20px; padding: 18px 20px; background: rgba(26,24,22,0.02); border-left: 1px solid var(--carbon); max-width: 580px; }
-.review__reply-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carbon); margin-bottom: 6px; }
-.review__reply-body { font-size: 13px; line-height: 1.6; color: var(--stone); }
+/* JUDGE.ME PLACEHOLDER */
+.judgeme-placeholder {
+  text-align: center; padding: 100px 40px; background: var(--ivory);
+}
+.judgeme-placeholder__label { font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone); margin-bottom: 20px; }
+.judgeme-placeholder__title { font-size: 40px; font-weight: 300; letter-spacing: 0.04em; color: var(--carbon); margin-bottom: 32px; }
+.judgeme-placeholder__box {
+  max-width: 800px; margin: 0 auto; padding: 48px; border: 1px dashed var(--linen);
+  text-align: center;
+}
+.judgeme-placeholder__box p { font-size: 14px; color: var(--stone); }
 
 /* Q&A */
 .qa { max-width: 800px; margin: 0 auto; }
-.qa__item { padding: 28px 0; border-bottom: 1px solid #2A2826; }
+.qa__item { border-bottom: 1px solid #2A2826; }
 .qa__item:first-child { border-top: 1px solid #2A2826; }
-.qa__q { font-size: 17px; font-weight: 500; color: var(--ivory); margin-bottom: 10px; }
-.qa__a { font-size: 14px; line-height: 1.7; color: var(--dove); }
+.qa__summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 0; cursor: pointer;
+  list-style: none; user-select: none;
+}
+.qa__summary::-webkit-details-marker { display: none; }
+.qa__q { font-size: 17px; font-weight: 500; color: var(--ivory); letter-spacing: 0.02em; }
+.qa__toggle {
+  width: 20px; height: 20px; position: relative; flex-shrink: 0; margin-left: 16px;
+}
+.qa__toggle::before, .qa__toggle::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  background: var(--dove); transition: transform 0.4s var(--ease);
+}
+.qa__toggle::before { width: 12px; height: 1px; transform: translate(-50%, -50%); }
+.qa__toggle::after { width: 1px; height: 12px; transform: translate(-50%, -50%); }
+.qa__item[open] .qa__toggle::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+.qa__a { font-size: 14px; line-height: 1.7; color: var(--dove); padding: 0 0 24px; }
 
 /* RESPONSIVE */
 @media (max-width: 968px) {
-  .nav { padding: 0 20px; }
-  .nav__links { display: none; }
-  .product { grid-template-columns: 1fr; gap: 40px; padding: 80px 20px 60px; }
+  .product { grid-template-columns: 1fr; gap: 40px; padding: 40px 20px 60px; }
   .gallery { position: static; }
   .info__title { font-size: 36px; }
   .section { padding: 60px 20px; }
@@ -208,32 +226,19 @@ img { display: block; max-width: 100%; }
   .split, .split--reverse { grid-template-columns: 1fr; direction: ltr; }
   .split__content { padding: 48px 24px; }
   .split__stats { grid-template-columns: 1fr; }
-  .feature-cards { grid-template-columns: 1fr; }
-  .compare-cards { grid-template-columns: 1fr; }
+  .video-card { width: 280px; }
   .included-wrap, .specs-wrap, .roi-wrap { grid-template-columns: 1fr; gap: 32px; }
   .specs__row { grid-template-columns: 1fr; gap: 4px; }
   .roi__highlight { grid-template-columns: 1fr; gap: 20px; }
   .banner { height: 50vh; min-height: 320px; }
   .banner__title { font-size: 28px; }
+  .judgeme-placeholder__title { font-size: 28px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="/" class="nav__logo">Sensol</a>
-  <div class="nav__links">
-    <a href="#" class="nav__link">About</a>
-    <a href="#" class="nav__link">Products</a>
-    <a href="#" class="nav__link">Engineering</a>
-    <a href="#" class="nav__link">Shipping</a>
-    <a href="#" class="nav__link">Contact</a>
-  </div>
-  <a href="#" class="nav__cart">Cart (0)</a>
-</nav>
-
-<!-- 1. PRODUCT BUY BLOCK (no variants — RS03 is single SKU) -->
+<!-- ====== 1. PRODUCT BUY BLOCK (no nav, no variants) ====== -->
 <section class="product">
   <div class="gallery">
     <div class="gallery__main">
@@ -278,7 +283,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 2. FULL-BLEED LIFESTYLE BANNER (transition from buy to content) -->
+<!-- ====== 2. FULL-BLEED LIFESTYLE BANNER ====== -->
 <div class="banner">
   <img src="/australia-home.jpeg" alt="Sensol RS03 in a home by the ocean">
   <div class="banner__overlay">
@@ -289,7 +294,7 @@ img { display: block; max-width: 100%; }
   </div>
 </div>
 
-<!-- 3. OVERVIEW (image right, text left) -->
+<!-- ====== 3. OVERVIEW ====== -->
 <section class="section">
   <div class="section__inner split">
     <div class="split__content">
@@ -310,7 +315,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 4. FEATURE 1: Digital Weight (image left, text right, dark) -->
+<!-- ====== 4. FEATURE 1: Digital Weight (dark) ====== -->
 <section class="section section--dark" style="padding:0">
   <div class="split">
     <div class="split__img">
@@ -320,7 +325,7 @@ img { display: block; max-width: 100%; }
       <div class="eyebrow">01 — Digital Weight</div>
       <h2 class="section__title">0.5 kg precision.<br>No springs. No guesswork.</h2>
       <p>Every rep is powered by Sensol's patent-pending digital weight system. Resistance is generated electronically, measured to within 0.5 kg, and adjusted instantly via the Sensol Control Dial™ or the Vesta Sensol App.</p>
-      <p>No manual spring changes, no stopping mid-set to swap hardware. Just dial it up or down and keep moving. This is the single feature that no competitor offers — even the $15,650 Technogym Reform uses spring resistance.</p>
+      <p>No manual spring changes, no stopping mid-set to swap hardware. Just dial it up or down and keep moving.</p>
       <div class="split__stats">
         <div><div class="split__stat-num">0.5 kg</div><div class="split__stat-label">Increment Step</div></div>
         <div><div class="split__stat-num">120 kg</div><div class="split__stat-label">Max Resistance</div></div>
@@ -329,7 +334,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 5. FEATURE 2: Arm Range + Training Modes (text left, image right, light) -->
+<!-- ====== 5. FEATURE 2: Arm Range & Modes (light) ====== -->
 <section class="section" style="padding:0">
   <div class="split split--reverse">
     <div class="split__img">
@@ -348,7 +353,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 6. FEATURE 3: Dual-Function (image left, text right, dark) -->
+<!-- ====== 6. FEATURE 3: Dual Function (dark) ====== -->
 <section class="section section--dark" style="padding:0">
   <div class="split">
     <div class="split__img">
@@ -358,7 +363,7 @@ img { display: block; max-width: 100%; }
       <div class="eyebrow">03 — Dual Function</div>
       <h2 class="section__title">Pilates reformer.<br>Strength station.<br>One machine.</h2>
       <p>The RS03 is not just a reformer, and it is not just a strength bench. It is both. Switch between Pilates reformer mode and modular strength training mode using the Sensol Control Dial™.</p>
-      <p>The same machine that takes you through a flowing footwork series can become a pressing, pulling, and squatting station — 200+ movements in total, covering every major muscle group. Compatible with tricep ropes, D-handles, ankle straps, and pull-down bars — all included.</p>
+      <p>The same machine that takes you through a flowing footwork series can become a pressing, pulling, and squatting station — 200+ movements in total, covering every major muscle group. All accessories included.</p>
       <div class="split__stats">
         <div><div class="split__stat-num">200+</div><div class="split__stat-label">Total Movements</div></div>
         <div><div class="split__stat-num">4</div><div class="split__stat-label">Included Accessories</div></div>
@@ -367,7 +372,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 7. FEATURE 4: Compact + App (text left, image right, light) -->
+<!-- ====== 7. FEATURE 4: Compact & Connected (light) ====== -->
 <section class="section" style="padding:0">
   <div class="split split--reverse">
     <div class="split__img">
@@ -388,86 +393,96 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 8. VIDEO SECTION (dark) -->
-<section class="video-section">
-  <div class="video-section__inner">
+<!-- ====== 8. VIDEO CAROUSEL (swipeable, vertical cards) ====== -->
+<section class="video-carousel">
+  <div class="video-carousel__header">
     <div class="eyebrow" style="text-align:center">See It Move</div>
     <h2 class="section__title" style="margin:0 auto;max-width:600px;text-align:center">Precision in motion.</h2>
-    <div class="video-wrap">
-      <video controls muted poster="/site-product-rs02pro.jpeg" style="width:100%;height:100%;object-fit:cover">
-        <source src="/sensol-showcase.mp4" type="video/mp4">
-      </video>
-    </div>
   </div>
-</section>
-
-<!-- 9. COMPARISON CARDS (dark, card-based not table) -->
-<section class="section section--dark">
-  <div class="section__inner">
-    <div class="eyebrow">Head to Head</div>
-    <h2 class="section__title">How the RS03 compares.</h2>
-    <div class="compare-cards">
-      <!-- RS03 (highlighted) -->
-      <div class="compare-card compare-card--highlight">
-        <div class="compare-card__brand">Sensol RS03</div>
-        <div class="compare-card__price">$2,400 AUD</div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Resistance</span><span class="compare-card__row-value">Digital Weight</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Max Resistance</span><span class="compare-card__row-value">120 kg</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Precision</span><span class="compare-card__row-value">0.5 kg steps</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Adjustable Arms</span><span class="compare-card__row-value">0–145°, 8 positions</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Training Modes</span><span class="compare-card__row-value">3 modes</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Pilates + Strength</span><span class="compare-card__row-value">Both</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">App Coaching</span><span class="compare-card__row-value">Free (300+ classes)</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Foldable</span><span class="compare-card__row-value">Yes (109 × 35 cm)</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Warranty</span><span class="compare-card__row-value">Lifetime</span></div>
+  <div class="video-carousel__track" id="videoTrack">
+    <!-- Card 1: actual video -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('video').play(); this.querySelector('.video-card__overlay').style.display='none'">
+        <video src="/sensol-showcase.mp4" poster="/site-product-rs02pro.jpeg" preload="none" playsinline muted></video>
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
       </div>
-      <!-- Your Reformer -->
-      <div class="compare-card">
-        <div class="compare-card__brand">Your Reformer</div>
-        <div class="compare-card__price">$2,795 AUD</div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Resistance</span><span class="compare-card__row-value">Springs</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Max Resistance</span><span class="compare-card__row-value">~40 kg (5 springs)</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Precision</span><span class="compare-card__row-value compare-card__row-value--no">5 fixed levels</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Adjustable Arms</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Training Modes</span><span class="compare-card__row-value compare-card__row-value--no">None</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Pilates + Strength</span><span class="compare-card__row-value compare-card__row-value--no">Pilates only</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">App Coaching</span><span class="compare-card__row-value compare-card__row-value--no">No app</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Foldable</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Warranty</span><span class="compare-card__row-value">2 years</span></div>
-      </div>
-      <!-- Technogym -->
-      <div class="compare-card">
-        <div class="compare-card__brand">Technogym Reform</div>
-        <div class="compare-card__price">$15,650 AUD</div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Resistance</span><span class="compare-card__row-value">Springs (luxury frame)</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Max Resistance</span><span class="compare-card__row-value">~50 kg</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Precision</span><span class="compare-card__row-value compare-card__row-value--no">5 fixed levels</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Adjustable Arms</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Training Modes</span><span class="compare-card__row-value compare-card__row-value--no">None</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Pilates + Strength</span><span class="compare-card__row-value compare-card__row-value--no">Pilates only</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">App Coaching</span><span class="compare-card__row-value">Paid subscription</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Foldable</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Warranty</span><span class="compare-card__row-value">3 years</span></div>
-      </div>
-      <!-- NordicTrack -->
-      <div class="compare-card">
-        <div class="compare-card__brand">NordicTrack Ultra 1</div>
-        <div class="compare-card__price">$17,000+ AUD</div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Resistance</span><span class="compare-card__row-value">Motorised</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Max Resistance</span><span class="compare-card__row-value">Adjustable</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Precision</span><span class="compare-card__row-value">1 kg steps</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Adjustable Arms</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Training Modes</span><span class="compare-card__row-value compare-card__row-value--no">None</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Pilates + Strength</span><span class="compare-card__row-value compare-card__row-value--no">Pilates only</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">App Coaching</span><span class="compare-card__row-value">$34/month iFIT</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Foldable</span><span class="compare-card__row-value compare-card__row-value--no">No</span></div>
-        <div class="compare-card__row"><span class="compare-card__row-label">Warranty</span><span class="compare-card__row-value">1 year</span></div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Full Showcase</div>
+        <div class="video-card__duration">0:21</div>
       </div>
     </div>
+    <!-- Card 2 -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('.video-card__overlay').style.display='none'">
+        <img src="/editorial-1.webp" alt="Movement video 2">
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Arm Range Demo</div>
+        <div class="video-card__duration">0:15</div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('.video-card__overlay').style.display='none'">
+        <img src="/editorial-3.webp" alt="Movement video 3">
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Pilates Flow</div>
+        <div class="video-card__duration">0:18</div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('.video-card__overlay').style.display='none'">
+        <img src="/editorial-6.webp" alt="Movement video 4">
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Strength Training</div>
+        <div class="video-card__duration">0:22</div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('.video-card__overlay').style.display='none'">
+        <img src="/editorial-2.webp" alt="Movement video 5">
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Digital Weight</div>
+        <div class="video-card__duration">0:12</div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="video-card">
+      <div class="video-card__frame" onclick="this.querySelector('.video-card__overlay').style.display='none'">
+        <img src="/pilates-side.jpeg" alt="Movement video 6">
+        <div class="video-card__overlay">
+          <div class="video-card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="video-card__caption">
+        <div class="video-card__title">Studio Session</div>
+        <div class="video-card__duration">0:30</div>
+      </div>
+    </div>
   </div>
+  <div class="video-carousel__hint">Swipe to explore →</div>
 </section>
 
-<!-- 10. WHAT'S INCLUDED (dark, with flat-lay image) -->
+<!-- ====== 9. WHAT'S INCLUDED (dark, with flat-lay image) ====== -->
 <section class="section section--dark">
   <div class="section__inner">
     <div class="eyebrow">In the Box</div>
@@ -490,7 +505,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 11. SPECS (dark, with mechanism image) -->
+<!-- ====== 10. SPECS (dark, with mechanism image) ====== -->
 <section class="section section--dark">
   <div class="section__inner">
     <div class="eyebrow">Specifications</div>
@@ -517,7 +532,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 12. ROI / STUDIO COST (light, with studio image) -->
+<!-- ====== 11. ROI (light, with image) ====== -->
 <section class="section">
   <div class="section__inner">
     <div class="eyebrow">The Math</div>
@@ -529,18 +544,9 @@ img { display: block; max-width: 100%; }
       <div class="roi__content">
         <p>Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships.</p>
         <div class="roi__cards">
-          <div class="roi__card">
-            <span class="roi__card-label">vs unlimited membership ($220/mo)</span>
-            <span class="roi__card-value">~11 months</span>
-          </div>
-          <div class="roi__card">
-            <span class="roi__card-label">vs casual classes ($42.50 avg, 2×/week)</span>
-            <span class="roi__card-value">~6.5 months</span>
-          </div>
-          <div class="roi__card">
-            <span class="roi__card-label">vs private sessions ($120 avg, 2×/week)</span>
-            <span class="roi__card-value">~2.3 months</span>
-          </div>
+          <div class="roi__card"><span class="roi__card-label">vs unlimited membership ($220/mo)</span><span class="roi__card-value">~11 months</span></div>
+          <div class="roi__card"><span class="roi__card-label">vs casual classes ($42.50 avg, 2×/week)</span><span class="roi__card-value">~6.5 months</span></div>
+          <div class="roi__card"><span class="roi__card-label">vs private sessions ($120 avg, 2×/week)</span><span class="roi__card-value">~2.3 months</span></div>
         </div>
         <div class="roi__highlight">
           <div><div class="roi__highlight-num">$10,800</div><div class="roi__highlight-label">5-Year Savings</div></div>
@@ -552,76 +558,90 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 13. REVIEWS (light, with review photos) -->
-<section class="section" id="reviews">
-  <div class="section__inner">
-    <div class="eyebrow">Customer Reviews</div>
-    <h2 class="section__title">Trusted by Australian pilatists.</h2>
-    <div class="reviews-summary">
-      <div class="reviews-summary__score">4.8<sup>/5</sup></div>
-      <div class="reviews-summary__meta">
-        <div class="reviews-summary__stars">★ ★ ★ ★ ★</div>
-        <div class="reviews-summary__count">Based on 47 verified reviews · Judge.me</div>
-      </div>
-    </div>
-    <div class="review">
-      <div class="review__head"><div class="review__author">Sarah M. — Sydney, NSW</div><div class="review__date">Verified · 12 Mar 2026</div></div>
-      <div class="review__stars">★ ★ ★ ★ ★</div>
-      <h4 class="review__title">Studio quality at home — genuinely on par</h4>
-      <p class="review__body">I've used commercial reformers for years and the RS03 is genuinely on par. The digital weight is a game-changer — being able to dial in exactly 12.5 kg for a shoulder series, then jump to 35 kg for presses without stopping to swap springs. The build is incredible and the carriage is whisper quiet.</p>
-      <div class="review__photos">
-        <div class="review__photo"><img src="/pilates-movement.jpeg" alt="Customer photo"></div>
-        <div class="review__photo"><img src="/pilates-side.jpeg" alt="Customer photo"></div>
-      </div>
-      <div class="review__reply">
-        <div class="review__reply-label">Sensol — Seller</div>
-        <p class="review__reply-body">Thank you Sarah. The team spent 18 months on the motor calibration alone — your feedback means a lot to the engineers.</p>
-      </div>
-    </div>
-    <div class="review">
-      <div class="review__head"><div class="review__author">James L. — Melbourne, VIC</div><div class="review__date">Verified · 04 Mar 2026</div></div>
-      <div class="review__stars">★ ★ ★ ★ ★</div>
-      <h4 class="review__title">A piece of furniture, not gym equipment</h4>
-      <p class="review__body">It looks like furniture. My partner didn't even realise it was a reformer at first. The matte carbon finish and the way the frame sits in our living room — it's changed the way we think about home fitness. The Vesta app classes are excellent too.</p>
-    </div>
-    <div class="review">
-      <div class="review__head"><div class="review__author">Michael T. — Brisbane, QLD</div><div class="review__date">Verified · 21 Feb 2026</div></div>
-      <div class="review__stars">★ ★ ★ ★ ☆</div>
-      <h4 class="review__title">Solid machine, but it's heavy</h4>
-      <p class="review__body">The build quality is exceptional and the digital weight system is far superior to springs. Just be aware it's 68 kg — you'll want a dedicated spot. Once placed, it's a dream to use. Took a star off only because the setup manual could be clearer.</p>
-      <div class="review__reply">
-        <div class="review__reply-label">Sensol — Seller</div>
-        <p class="review__reply-body">Hi Michael, thanks for the honest feedback. We've updated the quick start guide with clearer arm calibration steps. Reach out to support@sensolfitness.com.au if you need help.</p>
-      </div>
-    </div>
-    <div class="review">
-      <div class="review__head"><div class="review__author">Emma R. — Perth, WA</div><div class="review__date">Verified · 08 Feb 2026</div></div>
-      <div class="review__stars">★ ★ ★ ★ ★</div>
-      <h4 class="review__title">Replaced my studio membership in 3 months</h4>
-      <p class="review__body">I was paying $240/month for unlimited reformer classes. The RS03 paid for itself in 10 months and now every session is free. The Constant mode is my favourite — no more spring slack at the bottom of each rep. The fact the app is free with no subscription is remarkable.</p>
-    </div>
+<!-- ====== 12. JUDGE.ME REVIEWS (placeholder — plugin handles this) ====== -->
+<div class="judgeme-placeholder">
+  <div class="judgeme-placeholder__label">Customer Reviews</div>
+  <div class="judgeme-placeholder__title">Trusted by Australian pilatists.</div>
+  <div class="judgeme-placeholder__box">
+    <p>Judge.me review widget renders here automatically.<br>Reviews, ratings, photos, and seller replies are managed by the Judge.me app.</p>
   </div>
-</section>
+</div>
 
-<!-- 14. Q&A (dark) -->
-<section class="section section--dark" id="faq">
+<!-- ====== 13. Q&A (dark, collapsible accordion) ====== -->
+<section class="section section--dark">
   <div class="section__inner">
     <div class="eyebrow">Questions & Answers</div>
     <h2 class="section__title">Common questions.</h2>
     <div class="qa">
-      <div class="qa__item"><h3 class="qa__q">How long does shipping take?</h3><p class="qa__a">We ship within 2–3 business days from our Sydney warehouse. Standard delivery takes 5–7 business days to metro areas across Australia and 7–10 days to NZ. Free shipping to all Australian addresses, metro and regional.</p></div>
-      <div class="qa__item"><h3 class="qa__q">Do you offer Afterpay or payment plans?</h3><p class="qa__a">Yes. We support Afterpay (4 interest-free payments of $600), PayPal Pay in 4, Shop Pay Installments, and all major credit cards. All financing options are visible at checkout.</p></div>
-      <div class="qa__item"><h3 class="qa__q">What's the warranty coverage?</h3><p class="qa__a">Lifetime Warranty covering all manufacturing defects for the life of the product — including the frame, motors, electronics, and all included accessories.</p></div>
-      <div class="qa__item"><h3 class="qa__q">Is the Vesta Sensol App really free?</h3><p class="qa__a">Yes, genuinely free. No monthly fees, no locked content, no trial period. All 300+ guided classes, AI-driven coaching, progress tracking, and future updates are included with your RS03 purchase.</p></div>
-      <div class="qa__item"><h3 class="qa__q">Is the RS03 suitable for beginners?</h3><p class="qa__a">Absolutely. The digital weight system lets you start as low as 0.5 kg and adjust in 0.5 kg increments — far more granular than spring reformers. The Vesta app includes beginner programmes and Standard mode provides familiar progressive resistance.</p></div>
-      <div class="qa__item"><h3 class="qa__q">How noisy is it? Can I use it in an apartment?</h3><p class="qa__a">The RS03 operates at under 45 dB — quieter than a normal conversation. The motorised system eliminates the clanking and spring noise typical of traditional reformers. Designed specifically for apartment living.</p></div>
-      <div class="qa__item"><h3 class="qa__q">Can I use it for both Pilates and strength training?</h3><p class="qa__a">Yes — that's the core design principle. Switch between Pilates reformer mode and strength training mode using the Sensol Control Dial™. 200+ movements covering every major muscle group. All accessories included.</p></div>
-      <div class="qa__item"><h3 class="qa__q">What happens if I don't like it?</h3><p class="qa__a">30-Day Money-Back Guarantee. Return the RS03 within 30 days for a full refund. Local Australian support via support@sensolfitness.com.au, based in Sydney.</p></div>
+      <details class="qa__item" open>
+        <summary class="qa__summary">
+          <span class="qa__q">How long does shipping take?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">We ship within 2–3 business days from our Sydney warehouse. Standard delivery takes 5–7 business days to metro areas across Australia and 7–10 days to NZ. Free shipping to all Australian addresses, metro and regional.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">Do you offer Afterpay or payment plans?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">Yes. We support Afterpay (4 interest-free payments of $600), PayPal Pay in 4, Shop Pay Installments, and all major credit cards. All financing options are visible at checkout.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">What's the warranty coverage?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">Lifetime Warranty covering all manufacturing defects for the life of the product — including the frame, motors, electronics, and all included accessories.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">Is the Vesta Sensol App really free?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">Yes, genuinely free. No monthly fees, no locked content, no trial period. All 300+ guided classes, AI-driven coaching, progress tracking, and future updates are included with your RS03 purchase.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">Is the RS03 suitable for beginners?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">Absolutely. The digital weight system lets you start as low as 0.5 kg and adjust in 0.5 kg increments — far more granular than spring reformers. The Vesta app includes beginner programmes and Standard mode provides familiar progressive resistance.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">How noisy is it? Can I use it in an apartment?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">The RS03 operates at under 45 dB — quieter than a normal conversation. The motorised system eliminates the clanking and spring noise typical of traditional reformers. Designed specifically for apartment living.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">Can I use it for both Pilates and strength training?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">Yes — that's the core design principle. Switch between Pilates reformer mode and strength training mode using the Sensol Control Dial™. 200+ movements covering every major muscle group. All accessories included.</p>
+      </details>
+      <details class="qa__item">
+        <summary class="qa__summary">
+          <span class="qa__q">What happens if I don't like it?</span>
+          <span class="qa__toggle"></span>
+        </summary>
+        <p class="qa__a">30-Day Money-Back Guarantee. Return the RS03 within 30 days for a full refund. Local Australian support via support@sensolfitness.com.au, based in Sydney.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- NO custom footer — Shopify theme has sensol-footer.liquid -->
+<script>
+// Video carousel: drag-to-scroll
+const track = document.getElementById('videoTrack');
+let isDown = false, startX, scrollLeft;
+track.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+track.addEventListener('mouseleave', () => isDown = false);
+track.addEventListener('mouseup', () => isDown = false);
+track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX); });
+</script>
 
 </body>
 </html>
