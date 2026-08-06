@@ -225,7 +225,7 @@
           "type": "video_card",
           "settings": {
             "title": "Full Showcase",
-            "duration": "0:41",
+            "duration": "0:21",
             "poster_image": "shopify://shop_images/mq2_1.webp",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
           }
@@ -242,16 +242,16 @@
           "type": "video_card",
           "settings": {
             "title": "Pilates Flow",
-            "duration": "0:18",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/ghi789.mp4"
+            "duration": "0:26",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
           }
         },
         "card_4": {
           "type": "video_card",
           "settings": {
             "title": "Strength Training",
-            "duration": "0:22",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/jkl012.mp4"
+            "duration": "0:41",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
           }
         },
         "card_5": {
