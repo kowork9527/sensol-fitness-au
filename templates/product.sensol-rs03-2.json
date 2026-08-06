@@ -1,8 +1,313 @@
 /*
-  templates/product.sensol-rs03-2.json
-  
-  Sensol RS03 product template — 9 sections.
-  All specs / stats / reviews / video durations are empty placeholders.
-  Merchant fills via Shopify editor + Judge.me app handles live reviews.
-*/
-{"sections":{"sensol-rs03-landing":{"type":"sensol-rs03-landing","settings":{}},"sp_banner":{"type":"sensol-product-banner","settings":{"eyebrow":"Make it easy, Do it real","title":"Where strength meets precision, and movement becomes design.","height":70,"overlay_opacity":35}},"sp_feature_1":{"type":"sensol-product-feature","settings":{"color_scheme":"light","image_position":"right","eyebrow":"Design Philosophy","title":"Engineered to move.","text_1":"A precision instrument first, and a fitness machine second. Every component on the RS03 is tuned to disappear — so the only thing left in the room is your movement.","text_2":"Built to live in your home like a piece of furniture. Choose the materials, finish, and details that fit your space, and the machine becomes part of the architecture."},"blocks":{"stat_1":{"type":"stat","settings":{"number":"PRECISION","label":"Engineered to the gram"}},"stat_2":{"type":"stat","settings":{"number":"POWER","label":"Digital weight, instant response"}},"stat_3":{"type":"stat","settings":{"number":"SILENCE","label":"Quieter than conversation"}},"stat_4":{"type":"stat","settings":{"number":"DESIGN","label":"A piece of furniture, not a machine"}}},"block_order":["stat_1","stat_2","stat_3","stat_4"]},"sp_video":{"type":"sensol-product-video-carousel","settings":{"eyebrow":"See It Move","title":"Precision, in motion.","show_hint":true},"blocks":{},"block_order":["video_1","video_2","video_3","video_4"]},"sp_specs":{"type":"sensol-product-specs","settings":{"image_position":"right","eyebrow":"Engineering","title":"Every detail, considered."},"blocks":{"spec_1":{"type":"spec","settings":{"label":"Frame Material","value":"—"}},"spec_2":{"type":"spec","settings":{"label":"Finish","value":"—"}},"spec_3":{"type":"spec","settings":{"label":"Spring System","value":"—"}},"spec_4":{"type":"spec","settings":{"label":"Carriage","value":"—"}},"spec_5":{"type":"spec","settings":{"label":"Rope System","value":"—"}},"spec_6":{"type":"spec","settings":{"label":"Footbar","value":"—"}},"spec_7":{"type":"spec","settings":{"label":"Dimensions","value":"—"}},"spec_8":{"type":"spec","settings":{"label":"Weight","value":"—"}},"spec_9":{"type":"spec","settings":{"label":"User Capacity","value":"—"}},"spec_10":{"type":"spec","settings":{"label":"Warranty","value":"—"}}},"block_order":["spec_frame","spec_finish","spec_springs","spec_carriage","spec_rope","spec_footbar","spec_dimensions","spec_weight","spec_capacity","spec_warranty"]},"sp_included":{"type":"sensol-product-included","settings":{"eyebrow":"In the Box","title":"Everything, included."},"blocks":{"item_1":{"type":"item","settings":{"name":"RS03 Reformer Frame"}},"item_2":{"type":"item","settings":{"name":"Spring set"}},"item_3":{"type":"item","settings":{"name":"Adjustable footbar"}},"item_4":{"type":"item","settings":{"name":"Rope system with adjusters"}},"item_5":{"type":"item","settings":{"name":"Shoulder rests"}},"item_6":{"type":"item","settings":{"name":"Care kit"}}},"block_order":["item_1","item_2","item_3","item_4","item_5","item_6"]},"sp_roi":{"type":"sensol-product-roi","settings":{"eyebrow":"The Investment","title":"A studio, in your home.","text":"Owning an RS03 is a decision to invest in your practice — once. No recurring fees, no commute, no scheduling. Every session, on your terms, for as long as the machine is in your home."},"blocks":{"hi_1":{"type":"highlight","settings":{"number":"∞","label":"Unlimited use"}},"hi_2":{"type":"highlight","settings":{"number":"24/7","label":"On your schedule"}},"hi_3":{"type":"highlight","settings":{"number":"1×","label":"One-time investment"}}},"block_order":["comp_1","comp_2","comp_3","comp_4","hi_1","hi_2","hi_3"]},"sp_reviews":{"type":"sensol-reviews","settings":{"show_section":false,"label":"Verified Owners","title":"Trained by design."},"blocks":{},"block_order":["review_1","review_2","review_3"]},"sp_qa":{"type":"sensol-product-qa","settings":{"eyebrow":"Questions","title":"Common questions.","open_first":false},"blocks":{"qa_1":{"type":"qa","settings":{"question":"How long does delivery take?","answer":"—"}},"qa_2":{"type":"qa","settings":{"question":"Do I need to assemble it?","answer":"—"}},"qa_3":{"type":"qa","settings":{"question":"What warranty is included?","answer":"—"}},"qa_4":{"type":"qa","settings":{"question":"Is financing available?","answer":"—"}}},"block_order":["qa_1","qa_2","qa_3","qa_4","qa_5","qa_6"]}},"order":["sensol-rs03-landing","sp_banner","sp_feature_1","sp_video","sp_specs","sp_included","sp_roi","sp_reviews","sp_qa"]}
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sensol-rs03-landing": {
+      "type": "sensol-rs03-landing",
+      "settings": {}
+    },
+    "sp_banner": {
+      "type": "sensol-product-banner",
+      "settings": {
+        "eyebrow": "Make it easy, Do it real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
+    },
+    "sp_feature_1": {
+      "type": "sensol-product-feature",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "PRECISION",
+            "label": "Engineered to the gram"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "POWER",
+            "label": "Digital weight, instant response"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "SILENCE",
+            "label": "Quieter than conversation"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "DESIGN",
+            "label": "A piece of furniture, not a machine"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Design Philosophy",
+        "title": "Engineered to move.",
+        "text_1": "A precision instrument first, and a fitness machine second. Every component on the RS03 is tuned to disappear — so the only thing left in the room is your movement.",
+        "text_2": "Built to live in your home like a piece of furniture. Choose the materials, finish, and details that fit your space, and the machine becomes part of the architecture."
+      }
+    },
+    "sp_video": {
+      "type": "sensol-product-video-carousel",
+      "settings": {
+        "eyebrow": "See It Move",
+        "title": "Precision, in motion.",
+        "show_hint": true
+      }
+    },
+    "sp_specs": {
+      "type": "sensol-product-specs",
+      "blocks": {
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "label": "Frame Material",
+            "value": "—"
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "label": "Finish",
+            "value": "—"
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "label": "Spring System",
+            "value": "—"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Carriage",
+            "value": "—"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Rope System",
+            "value": "—"
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "label": "Footbar",
+            "value": "—"
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "label": "Dimensions",
+            "value": "—"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        },
+        "spec_9": {
+          "type": "spec",
+          "settings": {
+            "label": "User Capacity",
+            "value": "—"
+          }
+        },
+        "spec_10": {
+          "type": "spec",
+          "settings": {
+            "label": "Warranty",
+            "value": "—"
+          }
+        }
+      },
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, considered."
+      }
+    },
+    "sp_included": {
+      "type": "sensol-product-included",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "name": "RS03 Reformer Frame"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "name": "Spring set"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "name": "Adjustable footbar"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "name": "Rope system with adjusters"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "name": "Shoulder rests"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "name": "Care kit"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6"
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
+    },
+    "sp_roi": {
+      "type": "sensol-product-roi",
+      "blocks": {
+        "hi_1": {
+          "type": "highlight",
+          "settings": {
+            "number": "∞",
+            "label": "Unlimited use"
+          }
+        },
+        "hi_2": {
+          "type": "highlight",
+          "settings": {
+            "number": "24/7",
+            "label": "On your schedule"
+          }
+        },
+        "hi_3": {
+          "type": "highlight",
+          "settings": {
+            "number": "1×",
+            "label": "One-time investment"
+          }
+        }
+      },
+      "block_order": [
+        "hi_1",
+        "hi_2",
+        "hi_3"
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "A studio, in your home.",
+        "text": "Owning an RS03 is a decision to invest in your practice — once. No recurring fees, no commute, no scheduling. Every session, on your terms, for as long as the machine is in your home."
+      }
+    },
+    "sp_reviews": {
+      "type": "sensol-reviews",
+      "settings": {
+        "show_section": false,
+        "label": "Verified Owners",
+        "title": "Trained by design."
+      }
+    },
+    "sp_qa": {
+      "type": "sensol-product-qa",
+      "blocks": {
+        "qa_1": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "—"
+          }
+        },
+        "qa_2": {
+          "type": "qa",
+          "settings": {
+            "question": "Do I need to assemble it?",
+            "answer": "—"
+          }
+        },
+        "qa_3": {
+          "type": "qa",
+          "settings": {
+            "question": "What warranty is included?",
+            "answer": "—"
+          }
+        },
+        "qa_4": {
+          "type": "qa",
+          "settings": {
+            "question": "Is financing available?",
+            "answer": "—"
+          }
+        }
+      },
+      "block_order": [
+        "qa_1",
+        "qa_2",
+        "qa_3",
+        "qa_4"
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "title": "Common questions.",
+        "open_first": false
+      }
+    }
+  },
+  "order": [
+    "sensol-rs03-landing",
+    "sp_banner",
+    "sp_feature_1",
+    "sp_video",
+    "sp_specs",
+    "sp_included",
+    "sp_roi",
+    "sp_reviews",
+    "sp_qa"
+  ]
+}
