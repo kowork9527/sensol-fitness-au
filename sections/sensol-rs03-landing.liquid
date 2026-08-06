@@ -1,10 +1,9 @@
-<!-- cache-bust: 1786005068 -->
 {%- liquid
   assign p = product
 -%}
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | default: 40 }}px;
+    padding-top: 40px;
     padding-bottom: 80px;
     padding-left: 20px;
     padding-right: 20px;
@@ -14,7 +13,6 @@
   .rs03-breadcrumb-{{ section.id }} {
     max-width: 1200px;
     margin: 0 auto 24px;
-    margin-top: 60px;
     font-size: 12px;
     color: #8A8279;
     letter-spacing: 0.05em;
@@ -84,7 +82,7 @@
     object-fit: cover;
   }
   .rs03-info-{{ section.id }} {
-    padding: 10px 0;
+    padding: 20px 0;
   }
   .rs03-info-brand-{{ section.id }} {
     font-size: 11px;
@@ -98,20 +96,20 @@
     font-size: 36px;
     font-weight: 300;
     letter-spacing: 0.04em;
-    margin: 0 0 4px;
+    margin: 0 0 8px;
     color: #1A1816;
   }
   .rs03-info-subtitle-{{ section.id }} {
     font-size: 16px;
     color: #8A8279;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
   /* Judge.me Review Stars Placeholder */
   .rs03-info-reviews-{{ section.id }} {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     font-size: 13px;
     color: #8A8279;
   }
@@ -123,15 +121,15 @@
     font-size: 12px;
     color: #8A8279;
     letter-spacing: 0.05em;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid #D4CEC6;
   }
   .rs03-info-price-{{ section.id }} {
     font-size: 28px;
     font-weight: 400;
     color: #1A1816;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     letter-spacing: 0.02em;
   }
   .rs03-info-price-{{ section.id }} s {
@@ -142,7 +140,7 @@
   .rs03-info-afterpay-{{ section.id }} {
     font-size: 13px;
     color: #8A8279;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
   .rs03-info-badges-{{ section.id }} {
     display: flex;
@@ -152,16 +150,16 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #8A8279;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid #D4CEC6;
   }
   .rs03-info-stock-{{ section.id }} {
     font-size: 12px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 16px;
-    padding: 6px 12px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
     display: inline-block;
   }
   .rs03-info-stock-in-{{ section.id }} {
@@ -176,7 +174,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .rs03-qty-label-{{ section.id }} {
     font-size: 12px;
@@ -216,7 +214,7 @@
   /* Dynamic Payment Buttons Container - Modular for plugins */
   .rs03-payment-buttons-{{ section.id }} {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
   .rs03-payment-buttons-{{ section.id }} .shopify-payment-button {
     width: 100%;
@@ -292,9 +290,6 @@
     }
     .rs03-gallery-{{ section.id }} {
       position: static;
-    }
-    .rs03-breadcrumb-{{ section.id }} {
-      margin-top: 80px;
     }
     .rs03-info-title-{{ section.id }} {
       font-size: 28px;
