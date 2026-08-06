@@ -256,6 +256,7 @@
         },
         "card_5": {
           "type": "video_card",
+          "disabled": true,
           "settings": {
             "title": "Digital Weight",
             "duration": "0:12",
@@ -339,6 +340,7 @@
         "item_8"
       ],
       "settings": {
+        "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
         "eyebrow": "In the Box",
         "title": "Everything included."
       }
@@ -446,6 +448,7 @@
         "spec_12"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_28_bd949e28-7514-42bb-9b05-371c8ecc43f5_1.png",
         "image_position": "right",
         "eyebrow": "Specifications",
         "title": "Every detail, measured."
@@ -498,17 +501,30 @@
         "hl_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_35_Frame_120_1.png",
         "eyebrow": "The Math",
         "title": "Studio costs add up. The RS03 pays for itself.",
         "text": "Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships."
       }
     },
-    "reviews": {
-      "type": "sensol-reviews",
+    "1785994629c9c572e3": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_AkyNq7": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_AkyNq7"
+      ],
       "settings": {
-        "show_section": true,
-        "label": "What they say",
-        "title": "Trained by design."
+        "include_margins": true
       }
     },
     "qa": {
@@ -600,7 +616,7 @@
     "included",
     "specs",
     "roi",
-    "reviews",
+    "1785994629c9c572e3",
     "qa"
   ]
 }
