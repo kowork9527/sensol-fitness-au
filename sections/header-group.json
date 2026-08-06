@@ -16,8 +16,8 @@
       "settings": {
         "logo": "shopify://shop_images/imgi_46_sensol.png",
         "logo_width": 120,
-        "show_search": true,
-        "text_mode": "auto"
+        "menu": "main-menu",
+        "show_search": true
       }
     }
   },

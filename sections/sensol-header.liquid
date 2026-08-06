@@ -4,18 +4,20 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000 !important;
-    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 1000;
     background-color: transparent;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
   }
-  .shopify-section-group-header-group:has(.sensol-header-section) {
-    z-index: 1000 !important;
-    position: relative;
-  }
+
   .sensol-header-section.scrolled {
     background-color: #F7F4F0;
-    box-shadow: 0 1px 0 rgba(26, 24, 22, 0.08);
+    box-shadow: 0 1px 0 #E3DFD9;
   }
+
+  [id^="shopify-section-sensol-header"] {
+    background: transparent !important;
+  }
+
   .sensol-header__inner {
     display: flex;
     align-items: center;
@@ -25,38 +27,27 @@
     padding: 0 48px;
     height: 80px;
   }
+
   .sensol-header__logo {
-    text-decoration: none;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .sensol-header__logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    color: #1A1816;
-  }
+
   .sensol-header__logo-img {
-    max-height: 36px;
-    max-width: {{ section.settings.logo_width }}px;
-    width: auto;
+    max-height: 32px;
+    max-width: 120px;
     object-fit: contain;
   }
 
-  /* Light text mode: white text when transparent */
-  .sensol-header-section--light-text:not(.scrolled) .sensol-header__logo-text {
-    color: #F7F4F0 !important;
-  }
-  .sensol-header-section--light-text:not(.scrolled) .sensol-header__link {
-    color: #F7F4F0 !important;
-  }
-  .sensol-header-section--light-text:not(.scrolled) .sensol-header__shop-btn {
-    color: #F7F4F0 !important;
-    background-color: #1A1816 !important;
-  }
-  .sensol-header-section--light-text.scrolled .sensol-header__shop-btn:hover {
-    background-color: #2A2826;
+  .sensol-header__logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1A1816;
   }
 
   .sensol-header__nav {
@@ -64,19 +55,22 @@
     align-items: center;
     gap: 32px;
   }
+
   .sensol-header__link {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #1A1816 !important;
+    color: #1A1816;
     text-decoration: none;
     transition: color 0.3s ease;
   }
+
   .sensol-header__link:hover {
     color: #8A8279;
   }
+
   .sensol-header__shop-btn {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -90,35 +84,33 @@
     transition: background-color 0.3s ease;
     margin-left: 16px;
   }
+
   .sensol-header__shop-btn:hover {
     background-color: #2A2826;
   }
+
   .sensol-header__actions {
     display: flex;
     align-items: center;
     gap: 20px;
   }
+
   .sensol-header__icon-link {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
   }
+
   .sensol-header__icon {
     color: #1A1816;
     transition: color 0.3s ease;
   }
 
-  /* Light text mode: white text/icons when transparent */
-  .sensol-header-section--light-text:not(.scrolled) .sensol-header__icon {
-    color: #F7F4F0 !important;
-  }
-  .sensol-header-section--light-text:not(.scrolled) .sensol-header__hamburger span {
-    background-color: #F7F4F0 !important;
-  }
   .sensol-header__icon-link:hover .sensol-header__icon {
     color: #8A8279;
   }
+
   .sensol-header__hamburger {
     display: none;
     flex-direction: column;
@@ -133,6 +125,7 @@
     position: relative;
     z-index: 1010;
   }
+
   .sensol-header__hamburger span {
     display: block;
     width: 100%;
@@ -140,12 +133,15 @@
     background-color: #1A1816;
     transition: all 0.4s ease;
   }
+
   .sensol-header__hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(4px, 4px);
   }
+
   .sensol-header__hamburger.active span:nth-child(2) {
     opacity: 0;
   }
+
   .sensol-header__hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(4px, -4px);
   }
@@ -165,10 +161,12 @@
     padding: 100px 48px 48px;
     overflow-y: auto;
   }
+
   .sensol-header__drawer.open {
     opacity: 1;
     visibility: visible;
   }
+
   .sensol-header__drawer-inner {
     display: flex;
     flex-direction: column;
@@ -177,6 +175,7 @@
     gap: 36px;
     height: 100%;
   }
+
   .sensol-header__drawer-link {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
@@ -186,6 +185,7 @@
     color: #1A1816;
     text-decoration: none;
   }
+
   .sensol-header__drawer-shop-btn {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
@@ -198,11 +198,13 @@
     text-decoration: none;
     margin-top: 16px;
   }
+
   .sensol-header__drawer-actions {
     display: flex;
     gap: 32px;
     margin-top: 8px;
   }
+
   .sensol-header__drawer-actions a {
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -212,9 +214,11 @@
     color: #8A8279;
     text-decoration: none;
   }
+
   body.drawer-open {
     overflow: hidden;
   }
+
   @media screen and (max-width: 767px) {
     .sensol-header__inner {
       padding: 0 24px;
@@ -230,24 +234,10 @@
       max-height: 24px;
       max-width: 80px;
     }
+  }
 {%- endstyle -%}
 
-{%- assign use_light = false -%}
-{%- if section.settings.text_mode == 'light' -%}
-  {%- assign use_light = true -%}
-{%- elsif section.settings.text_mode == 'auto' -%}
-  {%- if template.name == 'index' -%}
-    {%- assign use_light = true -%}
-  {%- elsif template.name == 'page' and template.suffix == 'about' -%}
-    {%- assign use_light = true -%}
-  {%- elsif template.name == 'product' -%}
-    {%- assign use_light = true -%}
-  {%- else -%}
-    {%- assign use_light = false -%}
-  {%- endif -%}
-{%- endif -%}
-
-<header class="sensol-header-section{% if use_light %} sensol-header-section--light-text{% endif %}" id="sensolHeader">
+<header class="sensol-header-section" id="sensolHeader">
   <div class="sensol-header__inner">
     <button type="button" class="sensol-header__hamburger" id="sensolHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -270,12 +260,11 @@
       {%- endif -%}
     </a>
 
-    <nav class="sensol-header__nav" style="display: flex !important; align-items: center; gap: 32px;">
-      <a href="/pages/about" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">ABOUT</a>
-      <a href="/collections/all" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">PRODUCTS</a>
-      <a href="/pages/shipping-policy" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">SHIPPING</a>
-      <a href="/pages/contact" class="sensol-header__link" style="text-decoration: none; pointer-events: auto !important; display: inline-block !important;">CONTACT</a>
-      <a href="/collections/all" class="sensol-header__shop-btn" style="color: #F7F4F0; background-color: #1A1816; text-decoration: none; pointer-events: auto !important; display: inline-block !important;">SHOP ALL</a>
+    <nav class="sensol-header__nav">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}" class="sensol-header__link">{{ link.title | upcase }}</a>
+      {%- endfor -%}
+      <a href="/collections/all" class="sensol-header__shop-btn">SHOP ALL</a>
     </nav>
 
     <div class="sensol-header__actions">
@@ -295,10 +284,9 @@
 
   <div class="sensol-header__drawer" id="sensolDrawer" aria-hidden="true">
     <div class="sensol-header__drawer-inner">
-      <a href="/pages/about" class="sensol-header__drawer-link">ABOUT</a>
-      <a href="/collections/all" class="sensol-header__drawer-link">PRODUCTS</a>
-      <a href="/pages/shipping-policy" class="sensol-header__drawer-link">SHIPPING</a>
-      <a href="/pages/contact" class="sensol-header__drawer-link">CONTACT</a>
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}" class="sensol-header__drawer-link">{{ link.title | upcase }}</a>
+      {%- endfor -%}
       <a href="/collections/all" class="sensol-header__drawer-shop-btn">SHOP ALL</a>
       <div class="sensol-header__drawer-actions">
         <a href="/account">ACCOUNT</a>
@@ -324,13 +312,6 @@
         header.classList.remove('scrolled');
       }
     }, { passive: true });
-
-    /* Force parent header-group z-index above hero (Dawn base.css sets it to 4) */
-    var parentGroup = header.closest('.shopify-section-group-header-group');
-    if (parentGroup) {
-      parentGroup.style.zIndex = '1000';
-      parentGroup.style.position = 'relative';
-    }
 
     /* Hamburger: toggle mobile menu */
     if (hamburger && drawer) {
@@ -388,22 +369,16 @@
       "label": "Logo width"
     },
     {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Navigation menu"
+    },
+    {
       "type": "checkbox",
       "id": "show_search",
       "default": true,
       "label": "Show search icon"
-    },
-    {
-      "type": "select",
-      "id": "text_mode",
-      "label": "Text color mode",
-      "info": "Use 'Light text' for pages with dark hero sections. Scrolled state always uses dark text on ivory background.",
-      "options": [
-        { "value": "auto", "label": "Auto (detect by page template)" },
-        { "value": "dark", "label": "Dark text (force)" },
-        { "value": "light", "label": "Light text (force)" }
-      ],
-      "default": "auto"
     }
   ],
   "presets": [
