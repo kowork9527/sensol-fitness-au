@@ -16,6 +16,16 @@
         "padding_bottom": 60
       }
     },
+    "banner": {
+      "type": "sensol-product-banner",
+      "settings": {
+        "image": "shopify://shop_images/australia-home.jpg",
+        "eyebrow": "Make it easy, Do it real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
+    },
     "overview": {
       "type": "sensol-product-overview",
       "blocks": {
@@ -208,14 +218,63 @@
         "text_2": "The companion app unlocks 300+ classes, live metric tracking, and AI form coaching. Free for the life of the machine. No subscription. No upsell. No data lock-in."
       }
     },
-    "banner": {
-      "type": "sensol-product-banner",
+    "video": {
+      "type": "sensol-product-video-carousel",
+      "blocks": {
+        "card_1": {
+          "type": "video_card",
+          "settings": {
+            "title": "Full Showcase",
+            "duration": "0:21",
+            "poster_image": "shopify://shop_images/mq2_1.webp",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
+          }
+        },
+        "card_2": {
+          "type": "video_card",
+          "settings": {
+            "title": "Arm Range Demo",
+            "duration": "0:15",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
+          }
+        },
+        "card_3": {
+          "type": "video_card",
+          "settings": {
+            "title": "Pilates Flow",
+            "duration": "0:18",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
+          }
+        },
+        "card_4": {
+          "type": "video_card",
+          "settings": {
+            "title": "Strength Training",
+            "duration": "0:22",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
+          }
+        },
+        "card_5": {
+          "type": "video_card",
+          "disabled": true,
+          "settings": {
+            "title": "Digital Weight",
+            "duration": "0:12",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/mno345.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5"
+      ],
       "settings": {
-        "image": "shopify://shop_images/australia-home.jpg",
         "eyebrow": "See It Move",
         "title": "Precision in motion.",
-        "height": 70,
-        "overlay_opacity": 35
+        "show_hint": true
       }
     },
     "included": {
@@ -551,80 +610,21 @@
         "title": "Common questions.",
         "open_first": true
       }
-    },
-    "video": {
-      "type": "sensol-product-video-carousel",
-      "blocks": {
-        "card_1": {
-          "type": "video_card",
-          "settings": {
-            "title": "Full Showcase",
-            "duration": "0:21",
-            "poster_image": "shopify://shop_images/mq2_1.webp",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
-          }
-        },
-        "card_2": {
-          "type": "video_card",
-          "settings": {
-            "title": "Arm Range Demo",
-            "duration": "0:15",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
-          }
-        },
-        "card_3": {
-          "type": "video_card",
-          "settings": {
-            "title": "Pilates Flow",
-            "duration": "0:18",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
-          }
-        },
-        "card_4": {
-          "type": "video_card",
-          "settings": {
-            "title": "Strength Training",
-            "duration": "0:22",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
-          }
-        },
-        "card_5": {
-          "type": "video_card",
-          "disabled": true,
-          "settings": {
-            "title": "Digital Weight",
-            "duration": "0:12",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/mno345.mp4"
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4",
-        "card_5"
-      ],
-      "settings": {
-        "eyebrow": "Make It Easy, Do It Real",
-        "title": "Where strength meets precision, and movement becomes design.",
-        "show_hint": true
-      }
     }
   },
   "order": [
     "hero",
+    "banner",
     "overview",
     "feature_01",
     "feature_02",
     "feature_03",
     "feature_04",
-    "banner",
+    "video",
     "included",
     "specs",
     "roi",
     "1785994629c9c572e3",
-    "qa",
-    "video"
+    "qa"
   ]
 }
