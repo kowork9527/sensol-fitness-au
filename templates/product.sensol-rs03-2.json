@@ -2,9 +2,20 @@
   "sections": {
     "hero": {
       "type": "sensol-rs03-landing",
-      "blocks": {},
-      "block_order": [],
-      "settings": {}
+      "settings": {
+        "padding_top": 160,
+        "padding_bottom": 60
+      }
+    },
+    "banner": {
+      "type": "sensol-product-banner",
+      "settings": {
+        "image": "shopify://shop_images/australia-home.jpg",
+        "eyebrow": "Make it easy, Do it real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
     },
     "overview": {
       "type": "sensol-product-overview",
@@ -45,13 +56,13 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "Double the Power. Twice the Possibility.",
-        "text": "The Sensol RS03 represents a generational leap in home strength training. With 120 kg of total resistance adjustable in 0.5 kg increments, two independent motors deliver 3,000 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table.",
-        "background": "#F7F4F0",
-        "text_color": "#1A1816",
-        "accent_color": "#8A8279",
-        "divider_color": "#D4CEC6"
+        "text": "The Sensol RS03 represents a generational leap in home strength training. With 120 kg of total resistance adjustable in 0.5 kg increments, two independent motors deliver 3,000 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table."
       }
     },
     "feature_01": {
@@ -79,8 +90,8 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "left",
-        "image": "shopify://shop_images/rs03-feature-01-digital-weight.png",
-        "eyebrow": "01 \u2014 Digital Weight",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.12_PM.png",
+        "eyebrow": "01 — Digital Weight",
         "title": "0.5 kg precision. No springs. No guesswork.",
         "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with two digitally controlled motors. Cable tension is measured 1,000 times per second and adjusted in real time, so 0.5 kg is exactly 0.5 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
         "text_2": "Two motors, two cables, two independent forces. The left arm can pull at 14 kg while the right pushes at 22.5 - simultaneously, from one machine, without a single weight swap."
@@ -92,7 +103,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "145\u00b0",
+            "number": "145°",
             "label": "Arm range"
           }
         },
@@ -111,10 +122,10 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "right",
-        "image": "shopify://shop_images/rs03-feature-02-expanded-range.png",
-        "eyebrow": "02 \u2014 Expanded Range & Modes",
-        "title": "145\u00b0 of movement. Three ways to train.",
-        "text_1": "The RS03 arm rotates through 145\u00b0 - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90\u00b0 for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.28_PM.png",
+        "eyebrow": "02 — Expanded Range & Modes",
+        "title": "145° of movement. Three ways to train.",
+        "text_1": "The RS03 arm rotates through 145° - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90° for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
         "text_2": "Three training modes meet you where you are. Pilates Mode for classical reformer repertoire. Strength Mode for traditional cable-based hypertrophy. Free Mode for the movements no machine has ever let you do before."
       }
     },
@@ -131,7 +142,7 @@
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "1\u00d7",
+            "number": "1×",
             "label": "Footprint"
           }
         }
@@ -143,8 +154,8 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "left",
-        "image": "shopify://shop_images/rs03-feature-03-dual-function.png",
-        "eyebrow": "03 \u2014 Dual Function",
+        "image": "shopify://shop_images/one_9_fb3b91e1-149c-46eb-a4b0-94ea4662c173.jpg",
+        "eyebrow": "03 — Dual Function",
         "title": "A Pilates reformer. A strength station. One machine.",
         "text_1": "Studio reformers do one thing well. Strength machines do another. The RS03 is engineered to do both - with a moving carriage for classical reformer repertoire, and two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable movement you'd expect from a full commercial cable column.",
         "text_2": "One footprint. Two disciplines. Zero compromise on either."
@@ -156,7 +167,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "109\u00d735",
+            "number": "109×35",
             "label": "Footprint (cm)"
           }
         },
@@ -191,23 +202,11 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "right",
-        "image": "shopify://shop_images/rs03-feature-04-compact-connected.png",
-        "eyebrow": "04 \u2014 Compact & Connected",
+        "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
+        "eyebrow": "04 — Compact & Connected",
         "title": "Apartment-friendly. AI-coached. Subscription-free.",
-        "text_1": "109 \u00d7 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
+        "text_1": "109 × 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
         "text_2": "The companion app unlocks 300+ classes, live metric tracking, and AI form coaching. Free for the life of the machine. No subscription. No upsell. No data lock-in."
-      }
-    },
-    "banner": {
-      "type": "sensol-product-banner",
-      "blocks": {},
-      "block_order": [],
-      "settings": {
-        "image": "shopify://shop_images/rs03-banner-see-it-move.png",
-        "eyebrow": "See It Move",
-        "title": "Precision, in motion.",
-        "height": 70,
-        "overlay_opacity": 35
       }
     },
     "video": {
@@ -218,8 +217,8 @@
           "settings": {
             "title": "Full Showcase",
             "duration": "0:21",
-            "poster_image": "shopify://shop_images/rs03-video-1-full-showcase.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/abc123.mp4"
+            "poster_image": "shopify://shop_images/mq2_1.webp",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
           }
         },
         "card_2": {
@@ -227,8 +226,7 @@
           "settings": {
             "title": "Arm Range Demo",
             "duration": "0:15",
-            "poster_image": "shopify://shop_images/rs03-video-2-arm-range.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/def456.mp4"
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
           }
         },
         "card_3": {
@@ -236,8 +234,7 @@
           "settings": {
             "title": "Pilates Flow",
             "duration": "0:18",
-            "poster_image": "shopify://shop_images/rs03-video-3-pilates.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/ghi789.mp4"
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
           }
         },
         "card_4": {
@@ -245,16 +242,15 @@
           "settings": {
             "title": "Strength Training",
             "duration": "0:22",
-            "poster_image": "shopify://shop_images/rs03-video-4-strength.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/jkl012.mp4"
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
           }
         },
         "card_5": {
           "type": "video_card",
+          "disabled": true,
           "settings": {
             "title": "Digital Weight",
             "duration": "0:12",
-            "poster_image": "shopify://shop_images/rs03-video-5-digital-weight.jpg",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/mno345.mp4"
           }
         }
@@ -267,8 +263,8 @@
         "card_5"
       ],
       "settings": {
-        "eyebrow": "Make It Easy, Do It Real",
-        "title": "Where strength meets precision, and movement becomes design.",
+        "eyebrow": "See It Move",
+        "title": "Precision in motion.",
         "show_hint": true
       }
     },
@@ -284,43 +280,43 @@
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "Tricep Rope (\u00d72)"
+            "name": "1500W Dual Servo Motor System"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "D-Handle Attachment (\u00d72)"
+            "name": "Tricep Rope (1×)"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "Ankle Strap"
+            "name": "D-Handle (1×)"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Pull-Down Bar"
+            "name": "Ankle Strap (1×)"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Power Cable & Adapter"
+            "name": "Pull-Down Bar (1×)"
           }
         },
         "item_7": {
           "type": "item",
           "settings": {
-            "name": "Sensol App (Lifetime Access)"
+            "name": "Vesta Sensol App Access (Free)"
           }
         },
         "item_8": {
           "type": "item",
           "settings": {
-            "name": "Quick-Start Guide"
+            "name": "Owner Manual & Quick Start Guide"
           }
         }
       },
@@ -335,7 +331,7 @@
         "item_8"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-included-flat-lay.png",
+        "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
         "eyebrow": "In the Box",
         "title": "Everything included."
       }
@@ -347,84 +343,84 @@
           "type": "spec",
           "settings": {
             "label": "Motor System",
-            "value": "1500W \u00d7 2 (3000W combined)"
+            "value": "1500W × 2 (3000W combined)"
           }
         },
         "spec_2": {
           "type": "spec",
           "settings": {
             "label": "Max Resistance",
-            "value": "120 kg (240 kg per arm)"
+            "value": "120 kg (0.5 kg increments)"
           }
         },
         "spec_3": {
           "type": "spec",
           "settings": {
-            "label": "Adjustment Precision",
-            "value": "0.5 kg increments"
+            "label": "Arm Range",
+            "value": "0°–145° (8 positions)"
           }
         },
         "spec_4": {
           "type": "spec",
           "settings": {
-            "label": "Arm Range",
-            "value": "145\u00b0 rotation"
+            "label": "Dimensions",
+            "value": "190 × 64 × 46 cm"
           }
         },
         "spec_5": {
           "type": "spec",
           "settings": {
-            "label": "Dimensions (Open)",
-            "value": "198 \u00d7 109 \u00d7 145 cm"
+            "label": "Folded Size",
+            "value": "109 × 35 cm"
           }
         },
         "spec_6": {
           "type": "spec",
           "settings": {
-            "label": "Dimensions (Folded)",
-            "value": "109 \u00d7 35 \u00d7 145 cm"
+            "label": "Weight",
+            "value": "68 kg"
           }
         },
         "spec_7": {
-          "type": "spec",
-          "settings": {
-            "label": "Weight",
-            "value": "62 kg"
-          }
-        },
-        "spec_8": {
           "type": "spec",
           "settings": {
             "label": "Max User Weight",
             "value": "150 kg"
           }
         },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Noise Level",
+            "value": "Under 45 dB"
+          }
+        },
         "spec_9": {
           "type": "spec",
           "settings": {
-            "label": "Operating Noise",
-            "value": "45 dB at full load"
+            "label": "Connectivity",
+            "value": "Wi-Fi + Bluetooth"
           }
         },
         "spec_10": {
           "type": "spec",
           "settings": {
-            "label": "Connectivity",
-            "value": "Wi-Fi 6, Bluetooth 5.2"
+            "label": "Power Input",
+            "value": "100–230V (AU plug)"
           }
         },
         "spec_11": {
           "type": "spec",
           "settings": {
-            "label": "App Compatibility",
-            "value": "iOS 15+, Android 12+"
+            "label": "App",
+            "value": "iOS & Android (free)"
           }
         },
         "spec_12": {
           "type": "spec",
           "settings": {
             "label": "Warranty",
-            "value": "Lifetime on frame, 5 years on motors"
+            "value": "Lifetime"
           }
         }
       },
@@ -443,7 +439,7 @@
         "spec_12"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-specs-detail.png",
+        "image": "shopify://shop_images/imgi_28_bd949e28-7514-42bb-9b05-371c8ecc43f5_1.png",
         "image_position": "right",
         "eyebrow": "Specifications",
         "title": "Every detail, measured."
@@ -455,15 +451,22 @@
         "comp_1": {
           "type": "comparison",
           "settings": {
-            "label": "vs 10-class pack ($45/class)",
-            "value": "~5 classes"
+            "label": "vs unlimited membership ($220/mo)",
+            "value": "~11 months"
           }
         },
         "comp_2": {
           "type": "comparison",
           "settings": {
-            "label": "vs unlimited membership ($220/mo)",
-            "value": "~11 months"
+            "label": "vs casual classes ($42.50 avg, 2×/week)",
+            "value": "~6.5 months"
+          }
+        },
+        "comp_3": {
+          "type": "comparison",
+          "settings": {
+            "label": "vs private sessions ($120 avg, 2×/week)",
+            "value": "~2.3 months"
           }
         },
         "hl_1": {
@@ -476,38 +479,51 @@
         "hl_2": {
           "type": "highlight",
           "settings": {
-            "number": "\u221e",
-            "label": "Lifetime App Access"
+            "number": "~6.5 mo",
+            "label": "Avg Break-Even"
           }
         },
         "hl_3": {
           "type": "highlight",
           "settings": {
-            "number": "24/7",
-            "label": "Train Anytime"
+            "number": "$0",
+            "label": "Monthly App Fees"
           }
         }
       },
       "block_order": [
         "comp_1",
         "comp_2",
+        "comp_3",
         "hl_1",
         "hl_2",
         "hl_3"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-roi-image.png",
+        "image": "shopify://shop_images/imgi_35_Frame_120_1.png",
         "eyebrow": "The Math",
         "title": "Studio costs add up. The RS03 pays for itself.",
         "text": "Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships."
       }
     },
-    "reviews": {
-      "type": "sensol-reviews",
-      "blocks": {},
-      "block_order": [],
+    "1785994629c9c572e3": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_AkyNq7": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_AkyNq7"
+      ],
       "settings": {
-        "show_section": true
+        "include_margins": true
       }
     },
     "qa": {
@@ -517,56 +533,56 @@
           "type": "qa",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "We ship within 2-3 business days from our Sydney warehouse. Standard delivery to metro Australian addresses takes 3-7 business days. Regional and remote areas may take 5-10 business days. You'll receive a tracking link via email once your order is dispatched."
+            "answer": "We ship within 2–3 business days from our Sydney warehouse. Standard delivery takes 5–7 business days to metro areas across Australia and 7–10 days to NZ. Free shipping to all Australian addresses, metro and regional."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
             "question": "Do you offer Afterpay or payment plans?",
-            "answer": "Yes. We offer Afterpay (4 interest-free payments every 2 weeks), Klarna, Zip Pay, and traditional payment plans through our financing partner. You can select your preferred option at checkout. The RS03 is eligible for 6, 12, or 24-month plans with rates starting from 0% APR for qualified buyers."
+            "answer": "Yes. We support Afterpay, Shop Pay, and PayPal Pay-in-4. All four-payment plans are interest-free, with no fees when you pay on time."
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
             "question": "What's the warranty coverage?",
-            "answer": "Lifetime warranty on the steel frame and all structural components. 5-year warranty on the dual motors, digital control board, and electronic components. 2-year warranty on the carriage, pulleys, cables, and fabric/upholstery. The companion app and digital class library are included for the life of the machine with no subscription required."
+            "answer": "Lifetime on the frame, 5 years on the motors, and 2 years on electronics and accessories. Warranty is fully transferable if you sell or gift the unit."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
-            "question": "Is the Sensol app free?",
-            "answer": "Yes. The Sensol app is free for the life of your RS03 - no subscription, no upsell, no data lock-in. It includes 300+ on-demand classes (Pilates, strength, mobility), live metric tracking (force, range, time under tension), and AI form coaching via your phone camera. Available on iOS 15+ and Android 12+."
+            "question": "Is the Vesta Sensol App really free?",
+            "answer": "Yes. Every RS03 includes lifetime access to the Vesta Sensol App — 300+ classes, live tracking, and AI form coaching. No subscription, ever."
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "Is the RS03 suitable for beginners?",
-            "answer": "Absolutely. The 0.5 kg increment precision means you can start as light as 0.5 kg per arm and build up gradually. The app's Beginner Pathway walks you through 4 weeks of foundational movements before any strength work. Most users with no prior Pilates or strength training experience are comfortably training independently within their first week."
+            "answer": "Yes. Three training modes — Standard, Off-centre, and Constant — adapt to your level. Start with 0.5 kg increments and progress at your own pace."
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
-            "question": "How loud is it? Will it disturb my neighbours?",
-            "answer": "45 dB at full load - quieter than a normal conversation. The RS03 uses belt-driven motors rather than weight stacks or chains, so there's no clanking, no slamming, no impact noise. Apartment-friendly even in strata buildings with strict noise rules."
+            "question": "How noisy is it? Can I use it in an apartment?",
+            "answer": "The RS03 operates under 45 dB at full load — quieter than a normal conversation. Safe for apartment use at any hour."
           }
         },
         "qa_7": {
           "type": "qa",
           "settings": {
-            "question": "Can I do both Pilates and strength on it?",
-            "answer": "Yes. The RS03 is engineered as a dual-function machine: a moving carriage for classical Pilates reformer repertoire, plus two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable-based strength movement. Switch between modes via the app or the on-board display - no hardware swap required."
+            "question": "Can I use it for both Pilates and strength training?",
+            "answer": "Yes. Switch between Pilates reformer mode and modular strength training mode using the Sensol Control Dial. 200+ movements cover every major muscle group."
           }
         },
         "qa_8": {
           "type": "qa",
           "settings": {
-            "question": "What if I don't like it?",
-            "answer": "30-day money-back guarantee. Train with the RS03 in your home for 30 days. If it doesn't change the way you train, send it back and we'll arrange free pickup and a full refund. No restocking fee, no questions asked. We cover return shipping within Australia."
+            "question": "What happens if I don't like it?",
+            "answer": "30-day money-back guarantee. Free return shipping within Australia. No restocking fees, no questions asked."
           }
         }
       },
@@ -589,17 +605,17 @@
   },
   "order": [
     "hero",
+    "banner",
     "overview",
     "feature_01",
     "feature_02",
     "feature_03",
     "feature_04",
-    "banner",
     "video",
     "included",
     "specs",
     "roi",
-    "reviews",
+    "1785994629c9c572e3",
     "qa"
   ]
 }
