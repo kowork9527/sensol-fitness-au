@@ -1,47 +1,40 @@
 {
   "sections": {
-    "sensol-rs03-landing": {
+    "hero": {
       "type": "sensol-rs03-landing",
+      "blocks": {},
+      "block_order": [],
       "settings": {}
     },
-    "sp_banner": {
-      "type": "sensol-product-banner",
-      "settings": {
-        "eyebrow": "Make it easy, Do it real",
-        "title": "Where strength meets precision, and movement becomes design.",
-        "height": 70,
-        "overlay_opacity": 35
-      }
-    },
-    "sp_feature_1": {
-      "type": "sensol-product-feature",
+    "overview": {
+      "type": "sensol-product-overview",
       "blocks": {
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "PRECISION",
-            "label": "Engineered to the gram"
+            "number": "3000W",
+            "label": "Combined motor output"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "POWER",
-            "label": "Digital weight, instant response"
+            "number": "120 kg",
+            "label": "Max resistance"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "SILENCE",
-            "label": "Quieter than conversation"
+            "number": "0.5 kg",
+            "label": "Adjustment precision"
           }
         },
         "stat_4": {
           "type": "stat",
           "settings": {
-            "number": "DESIGN",
-            "label": "A piece of furniture, not a machine"
+            "number": "200+",
+            "label": "Movements"
           }
         }
       },
@@ -52,139 +45,282 @@
         "stat_4"
       ],
       "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Design Philosophy",
-        "title": "Engineered to move.",
-        "text_1": "A precision instrument first, and a fitness machine second. Every component on the RS03 is tuned to disappear \u2014 so the only thing left in the room is your movement.",
-        "text_2": "Built to live in your home like a piece of furniture. Choose the materials, finish, and details that fit your space, and the machine becomes part of the architecture."
+        "eyebrow": "Product Overview",
+        "title": "Double the Power. Twice the Possibility.",
+        "text": "The Sensol RS03 represents a generational leap in home strength training. With 120 kg of total resistance adjustable in 0.5 kg increments, two independent motors deliver 3,000 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table.",
+        "background": "#F7F4F0",
+        "text_color": "#1A1816",
+        "accent_color": "#8A8279",
+        "divider_color": "#D4CEC6"
       }
     },
-    "sp_video": {
-      "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It Move",
-        "title": "Precision, in motion.",
-        "show_hint": true
-      }
-    },
-    "sp_specs": {
-      "type": "sensol-product-specs",
+    "feature_01": {
+      "type": "sensol-product-feature",
       "blocks": {
-        "spec_1": {
-          "type": "spec",
+        "stat_1": {
+          "type": "stat",
           "settings": {
-            "label": "Frame Material",
-            "value": "\u2014"
+            "number": "0.5 kg",
+            "label": "Increment step"
           }
         },
-        "spec_2": {
-          "type": "spec",
+        "stat_2": {
+          "type": "stat",
           "settings": {
-            "label": "Finish",
-            "value": "\u2014"
-          }
-        },
-        "spec_3": {
-          "type": "spec",
-          "settings": {
-            "label": "Spring System",
-            "value": "\u2014"
-          }
-        },
-        "spec_4": {
-          "type": "spec",
-          "settings": {
-            "label": "Carriage",
-            "value": "\u2014"
-          }
-        },
-        "spec_5": {
-          "type": "spec",
-          "settings": {
-            "label": "Rope System",
-            "value": "\u2014"
-          }
-        },
-        "spec_6": {
-          "type": "spec",
-          "settings": {
-            "label": "Footbar",
-            "value": "\u2014"
-          }
-        },
-        "spec_7": {
-          "type": "spec",
-          "settings": {
-            "label": "Dimensions",
-            "value": "\u2014"
-          }
-        },
-        "spec_8": {
-          "type": "spec",
-          "settings": {
-            "label": "Weight",
-            "value": "\u2014"
-          }
-        },
-        "spec_9": {
-          "type": "spec",
-          "settings": {
-            "label": "User Capacity",
-            "value": "\u2014"
-          }
-        },
-        "spec_10": {
-          "type": "spec",
-          "settings": {
-            "label": "Warranty",
-            "value": "\u2014"
+            "number": "120 kg",
+            "label": "Max resistance"
           }
         }
       },
+      "block_order": [
+        "stat_1",
+        "stat_2"
+      ],
       "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, considered."
+        "color_scheme": "light",
+        "image_position": "left",
+        "image": "shopify://shop_images/rs03-feature-01-digital-weight.png",
+        "eyebrow": "01 \u2014 Digital Weight",
+        "title": "0.5 kg precision. No springs. No guesswork.",
+        "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with two digitally controlled motors. Cable tension is measured 1,000 times per second and adjusted in real time, so 0.5 kg is exactly 0.5 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
+        "text_2": "Two motors, two cables, two independent forces. The left arm can pull at 14 kg while the right pushes at 22.5 - simultaneously, from one machine, without a single weight swap."
       }
     },
-    "sp_included": {
+    "feature_02": {
+      "type": "sensol-product-feature",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "145\u00b0",
+            "label": "Arm range"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "3",
+            "label": "Training modes"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2"
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "right",
+        "image": "shopify://shop_images/rs03-feature-02-expanded-range.png",
+        "eyebrow": "02 \u2014 Expanded Range & Modes",
+        "title": "145\u00b0 of movement. Three ways to train.",
+        "text_1": "The RS03 arm rotates through 145\u00b0 - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90\u00b0 for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
+        "text_2": "Three training modes meet you where you are. Pilates Mode for classical reformer repertoire. Strength Mode for traditional cable-based hypertrophy. Free Mode for the movements no machine has ever let you do before."
+      }
+    },
+    "feature_03": {
+      "type": "sensol-product-feature",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "2",
+            "label": "Functions in 1"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "1\u00d7",
+            "label": "Footprint"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2"
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "left",
+        "image": "shopify://shop_images/rs03-feature-03-dual-function.png",
+        "eyebrow": "03 \u2014 Dual Function",
+        "title": "A Pilates reformer. A strength station. One machine.",
+        "text_1": "Studio reformers do one thing well. Strength machines do another. The RS03 is engineered to do both - with a moving carriage for classical reformer repertoire, and two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable movement you'd expect from a full commercial cable column.",
+        "text_2": "One footprint. Two disciplines. Zero compromise on either."
+      }
+    },
+    "feature_04": {
+      "type": "sensol-product-feature",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "109\u00d735",
+            "label": "Footprint (cm)"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "300+",
+            "label": "Free classes"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "$0",
+            "label": "Monthly subscription"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "45 dB",
+            "label": "Operating noise"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "right",
+        "image": "shopify://shop_images/rs03-feature-04-compact-connected.png",
+        "eyebrow": "04 \u2014 Compact & Connected",
+        "title": "Apartment-friendly. AI-coached. Subscription-free.",
+        "text_1": "109 \u00d7 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
+        "text_2": "The companion app unlocks 300+ classes, live metric tracking, and AI form coaching. Free for the life of the machine. No subscription. No upsell. No data lock-in."
+      }
+    },
+    "banner": {
+      "type": "sensol-product-banner",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "image": "shopify://shop_images/rs03-banner-see-it-move.png",
+        "eyebrow": "See It Move",
+        "title": "Precision, in motion.",
+        "height": 70,
+        "overlay_opacity": 35
+      }
+    },
+    "video": {
+      "type": "sensol-product-video-carousel",
+      "blocks": {
+        "card_1": {
+          "type": "video_card",
+          "settings": {
+            "title": "Full Showcase",
+            "duration": "0:21",
+            "poster_image": "shopify://shop_images/rs03-video-1-full-showcase.jpg",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/abc123.mp4"
+          }
+        },
+        "card_2": {
+          "type": "video_card",
+          "settings": {
+            "title": "Arm Range Demo",
+            "duration": "0:15",
+            "poster_image": "shopify://shop_images/rs03-video-2-arm-range.jpg",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/def456.mp4"
+          }
+        },
+        "card_3": {
+          "type": "video_card",
+          "settings": {
+            "title": "Pilates Flow",
+            "duration": "0:18",
+            "poster_image": "shopify://shop_images/rs03-video-3-pilates.jpg",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/ghi789.mp4"
+          }
+        },
+        "card_4": {
+          "type": "video_card",
+          "settings": {
+            "title": "Strength Training",
+            "duration": "0:22",
+            "poster_image": "shopify://shop_images/rs03-video-4-strength.jpg",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/jkl012.mp4"
+          }
+        },
+        "card_5": {
+          "type": "video_card",
+          "settings": {
+            "title": "Digital Weight",
+            "duration": "0:12",
+            "poster_image": "shopify://shop_images/rs03-video-5-digital-weight.jpg",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/mno345.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5"
+      ],
+      "settings": {
+        "eyebrow": "Make It Easy, Do It Real",
+        "title": "Where strength meets precision, and movement becomes design.",
+        "show_hint": true
+      }
+    },
+    "included": {
       "type": "sensol-product-included",
       "blocks": {
         "item_1": {
           "type": "item",
           "settings": {
-            "name": "RS03 Reformer Frame"
+            "name": "Sensol RS03 Reformer Frame"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "Spring set"
+            "name": "Tricep Rope (\u00d72)"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "Adjustable footbar"
+            "name": "D-Handle Attachment (\u00d72)"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "Rope system with adjusters"
+            "name": "Ankle Strap"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Shoulder rests"
+            "name": "Pull-Down Bar"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Care kit"
+            "name": "Power Cable & Adapter"
+          }
+        },
+        "item_7": {
+          "type": "item",
+          "settings": {
+            "name": "Sensol App (Lifetime Access)"
+          }
+        },
+        "item_8": {
+          "type": "item",
+          "settings": {
+            "name": "Quick-Start Guide"
           }
         }
       },
@@ -194,86 +330,243 @@
         "item_3",
         "item_4",
         "item_5",
-        "item_6"
+        "item_6",
+        "item_7",
+        "item_8"
       ],
       "settings": {
+        "image": "shopify://shop_images/rs03-included-flat-lay.png",
         "eyebrow": "In the Box",
-        "title": "Everything, included."
+        "title": "Everything included."
       }
     },
-    "sp_roi": {
-      "type": "sensol-product-roi",
+    "specs": {
+      "type": "sensol-product-specs",
       "blocks": {
-        "hi_1": {
-          "type": "highlight",
+        "spec_1": {
+          "type": "spec",
           "settings": {
-            "number": "\u221e",
-            "label": "Unlimited use"
+            "label": "Motor System",
+            "value": "1500W \u00d7 2 (3000W combined)"
           }
         },
-        "hi_2": {
-          "type": "highlight",
+        "spec_2": {
+          "type": "spec",
           "settings": {
-            "number": "24/7",
-            "label": "On your schedule"
+            "label": "Max Resistance",
+            "value": "120 kg (240 kg per arm)"
           }
         },
-        "hi_3": {
-          "type": "highlight",
+        "spec_3": {
+          "type": "spec",
           "settings": {
-            "number": "1\u00d7",
-            "label": "One-time investment"
+            "label": "Adjustment Precision",
+            "value": "0.5 kg increments"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Arm Range",
+            "value": "145\u00b0 rotation"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Dimensions (Open)",
+            "value": "198 \u00d7 109 \u00d7 145 cm"
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "label": "Dimensions (Folded)",
+            "value": "109 \u00d7 35 \u00d7 145 cm"
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "62 kg"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Max User Weight",
+            "value": "150 kg"
+          }
+        },
+        "spec_9": {
+          "type": "spec",
+          "settings": {
+            "label": "Operating Noise",
+            "value": "45 dB at full load"
+          }
+        },
+        "spec_10": {
+          "type": "spec",
+          "settings": {
+            "label": "Connectivity",
+            "value": "Wi-Fi 6, Bluetooth 5.2"
+          }
+        },
+        "spec_11": {
+          "type": "spec",
+          "settings": {
+            "label": "App Compatibility",
+            "value": "iOS 15+, Android 12+"
+          }
+        },
+        "spec_12": {
+          "type": "spec",
+          "settings": {
+            "label": "Warranty",
+            "value": "Lifetime on frame, 5 years on motors"
           }
         }
       },
       "block_order": [
-        "hi_1",
-        "hi_2",
-        "hi_3"
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6",
+        "spec_7",
+        "spec_8",
+        "spec_9",
+        "spec_10",
+        "spec_11",
+        "spec_12"
       ],
       "settings": {
-        "eyebrow": "The Investment",
-        "title": "A studio, in your home.",
-        "text": "Owning an RS03 is a decision to invest in your practice \u2014 once. No recurring fees, no commute, no scheduling. Every session, on your terms, for as long as the machine is in your home."
+        "image": "shopify://shop_images/rs03-specs-detail.png",
+        "image_position": "right",
+        "eyebrow": "Specifications",
+        "title": "Every detail, measured."
       }
     },
-    "sp_reviews": {
-      "type": "sensol-reviews",
+    "roi": {
+      "type": "sensol-product-roi",
+      "blocks": {
+        "comp_1": {
+          "type": "comparison",
+          "settings": {
+            "label": "vs 10-class pack ($45/class)",
+            "value": "~5 classes"
+          }
+        },
+        "comp_2": {
+          "type": "comparison",
+          "settings": {
+            "label": "vs unlimited membership ($220/mo)",
+            "value": "~11 months"
+          }
+        },
+        "hl_1": {
+          "type": "highlight",
+          "settings": {
+            "number": "$10,800",
+            "label": "5-Year Savings"
+          }
+        },
+        "hl_2": {
+          "type": "highlight",
+          "settings": {
+            "number": "\u221e",
+            "label": "Lifetime App Access"
+          }
+        },
+        "hl_3": {
+          "type": "highlight",
+          "settings": {
+            "number": "24/7",
+            "label": "Train Anytime"
+          }
+        }
+      },
+      "block_order": [
+        "comp_1",
+        "comp_2",
+        "hl_1",
+        "hl_2",
+        "hl_3"
+      ],
       "settings": {
-        "show_section": false,
-        "label": "Verified Owners",
-        "title": "Trained by design."
+        "image": "shopify://shop_images/rs03-roi-image.png",
+        "eyebrow": "The Math",
+        "title": "Studio costs add up. The RS03 pays for itself.",
+        "text": "Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships."
       }
     },
-    "sp_qa": {
+    "reviews": {
+      "type": "sensol-reviews",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "show_section": true
+      }
+    },
+    "qa": {
       "type": "sensol-product-qa",
       "blocks": {
         "qa_1": {
           "type": "qa",
           "settings": {
-            "question": "How long does delivery take?",
-            "answer": "\u2014"
+            "question": "How long does shipping take?",
+            "answer": "We ship within 2-3 business days from our Sydney warehouse. Standard delivery to metro Australian addresses takes 3-7 business days. Regional and remote areas may take 5-10 business days. You'll receive a tracking link via email once your order is dispatched."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
-            "question": "Do I need to assemble it?",
-            "answer": "\u2014"
+            "question": "Do you offer Afterpay or payment plans?",
+            "answer": "Yes. We offer Afterpay (4 interest-free payments every 2 weeks), Klarna, Zip Pay, and traditional payment plans through our financing partner. You can select your preferred option at checkout. The RS03 is eligible for 6, 12, or 24-month plans with rates starting from 0% APR for qualified buyers."
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
-            "question": "What warranty is included?",
-            "answer": "\u2014"
+            "question": "What's the warranty coverage?",
+            "answer": "Lifetime warranty on the steel frame and all structural components. 5-year warranty on the dual motors, digital control board, and electronic components. 2-year warranty on the carriage, pulleys, cables, and fabric/upholstery. The companion app and digital class library are included for the life of the machine with no subscription required."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
-            "question": "Is financing available?",
-            "answer": "\u2014"
+            "question": "Is the Sensol app free?",
+            "answer": "Yes. The Sensol app is free for the life of your RS03 - no subscription, no upsell, no data lock-in. It includes 300+ on-demand classes (Pilates, strength, mobility), live metric tracking (force, range, time under tension), and AI form coaching via your phone camera. Available on iOS 15+ and Android 12+."
+          }
+        },
+        "qa_5": {
+          "type": "qa",
+          "settings": {
+            "question": "Is the RS03 suitable for beginners?",
+            "answer": "Absolutely. The 0.5 kg increment precision means you can start as light as 0.5 kg per arm and build up gradually. The app's Beginner Pathway walks you through 4 weeks of foundational movements before any strength work. Most users with no prior Pilates or strength training experience are comfortably training independently within their first week."
+          }
+        },
+        "qa_6": {
+          "type": "qa",
+          "settings": {
+            "question": "How loud is it? Will it disturb my neighbours?",
+            "answer": "45 dB at full load - quieter than a normal conversation. The RS03 uses belt-driven motors rather than weight stacks or chains, so there's no clanking, no slamming, no impact noise. Apartment-friendly even in strata buildings with strict noise rules."
+          }
+        },
+        "qa_7": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I do both Pilates and strength on it?",
+            "answer": "Yes. The RS03 is engineered as a dual-function machine: a moving carriage for classical Pilates reformer repertoire, plus two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable-based strength movement. Switch between modes via the app or the on-board display - no hardware swap required."
+          }
+        },
+        "qa_8": {
+          "type": "qa",
+          "settings": {
+            "question": "What if I don't like it?",
+            "answer": "30-day money-back guarantee. Train with the RS03 in your home for 30 days. If it doesn't change the way you train, send it back and we'll arrange free pickup and a full refund. No restocking fee, no questions asked. We cover return shipping within Australia."
           }
         }
       },
@@ -281,24 +574,32 @@
         "qa_1",
         "qa_2",
         "qa_3",
-        "qa_4"
+        "qa_4",
+        "qa_5",
+        "qa_6",
+        "qa_7",
+        "qa_8"
       ],
       "settings": {
-        "eyebrow": "Questions",
+        "eyebrow": "Questions & Answers",
         "title": "Common questions.",
-        "open_first": false
+        "open_first": true
       }
     }
   },
   "order": [
-    "sensol-rs03-landing",
-    "sp_banner",
-    "sp_feature_1",
-    "sp_video",
-    "sp_specs",
-    "sp_included",
-    "sp_roi",
-    "sp_reviews",
-    "sp_qa"
+    "hero",
+    "overview",
+    "feature_01",
+    "feature_02",
+    "feature_03",
+    "feature_04",
+    "banner",
+    "video",
+    "included",
+    "specs",
+    "roi",
+    "reviews",
+    "qa"
   ]
 }
