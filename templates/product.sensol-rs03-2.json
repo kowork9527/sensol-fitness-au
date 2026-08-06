@@ -1,7 +1,7 @@
 {
   "sections": {
     "sensol-rs03-landing": {
-      "type": "sensol-rs03-landing-v2",
+      "type": "sensol-rs03-landing",
       "settings": {}
     },
     "sp_banner": {
