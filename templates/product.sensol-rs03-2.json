@@ -1,16 +1,7 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "sensol-rs03-landing": {
-      "type": "sensol-rs03-landing",
+      "type": "sensol-rs03-landing-v2",
       "settings": {}
     },
     "sp_banner": {
@@ -65,7 +56,7 @@
         "image_position": "right",
         "eyebrow": "Design Philosophy",
         "title": "Engineered to move.",
-        "text_1": "A precision instrument first, and a fitness machine second. Every component on the RS03 is tuned to disappear — so the only thing left in the room is your movement.",
+        "text_1": "A precision instrument first, and a fitness machine second. Every component on the RS03 is tuned to disappear \u2014 so the only thing left in the room is your movement.",
         "text_2": "Built to live in your home like a piece of furniture. Choose the materials, finish, and details that fit your space, and the machine becomes part of the architecture."
       }
     },
@@ -84,70 +75,70 @@
           "type": "spec",
           "settings": {
             "label": "Frame Material",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_2": {
           "type": "spec",
           "settings": {
             "label": "Finish",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_3": {
           "type": "spec",
           "settings": {
             "label": "Spring System",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_4": {
           "type": "spec",
           "settings": {
             "label": "Carriage",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_5": {
           "type": "spec",
           "settings": {
             "label": "Rope System",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_6": {
           "type": "spec",
           "settings": {
             "label": "Footbar",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_7": {
           "type": "spec",
           "settings": {
             "label": "Dimensions",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_8": {
           "type": "spec",
           "settings": {
             "label": "Weight",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_9": {
           "type": "spec",
           "settings": {
             "label": "User Capacity",
-            "value": "—"
+            "value": "\u2014"
           }
         },
         "spec_10": {
           "type": "spec",
           "settings": {
             "label": "Warranty",
-            "value": "—"
+            "value": "\u2014"
           }
         }
       },
@@ -216,7 +207,7 @@
         "hi_1": {
           "type": "highlight",
           "settings": {
-            "number": "∞",
+            "number": "\u221e",
             "label": "Unlimited use"
           }
         },
@@ -230,7 +221,7 @@
         "hi_3": {
           "type": "highlight",
           "settings": {
-            "number": "1×",
+            "number": "1\u00d7",
             "label": "One-time investment"
           }
         }
@@ -243,7 +234,7 @@
       "settings": {
         "eyebrow": "The Investment",
         "title": "A studio, in your home.",
-        "text": "Owning an RS03 is a decision to invest in your practice — once. No recurring fees, no commute, no scheduling. Every session, on your terms, for as long as the machine is in your home."
+        "text": "Owning an RS03 is a decision to invest in your practice \u2014 once. No recurring fees, no commute, no scheduling. Every session, on your terms, for as long as the machine is in your home."
       }
     },
     "sp_reviews": {
@@ -261,28 +252,28 @@
           "type": "qa",
           "settings": {
             "question": "How long does delivery take?",
-            "answer": "—"
+            "answer": "\u2014"
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
             "question": "Do I need to assemble it?",
-            "answer": "—"
+            "answer": "\u2014"
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
             "question": "What warranty is included?",
-            "answer": "—"
+            "answer": "\u2014"
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
             "question": "Is financing available?",
-            "answer": "—"
+            "answer": "\u2014"
           }
         }
       },
