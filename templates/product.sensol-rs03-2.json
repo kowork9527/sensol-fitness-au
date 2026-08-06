@@ -11,7 +11,10 @@
   "sections": {
     "hero": {
       "type": "sensol-rs03-landing",
-      "settings": {}
+      "settings": {
+        "padding_top": 160,
+        "padding_bottom": 60
+      }
     },
     "overview": {
       "type": "sensol-product-overview",
@@ -52,10 +55,10 @@
         "stat_4"
       ],
       "settings": {
-        "background": "#F7F4F0",
-        "text_color": "#1A1816",
-        "accent_color": "#8A8279",
-        "divider_color": "#D4CEC6",
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "Double the Power. Twice the Possibility.",
         "text": "The Sensol RS03 represents a generational leap in home strength training. With 120 kg of total resistance adjustable in 0.5 kg increments, two independent motors deliver 3,000 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table."
@@ -86,7 +89,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "left",
-        "image": "shopify://shop_images/rs03-feature-01-digital-weight.png",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.12_PM.png",
         "eyebrow": "01 — Digital Weight",
         "title": "0.5 kg precision. No springs. No guesswork.",
         "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with two digitally controlled motors. Cable tension is measured 1,000 times per second and adjusted in real time, so 0.5 kg is exactly 0.5 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
@@ -118,7 +121,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "right",
-        "image": "shopify://shop_images/rs03-feature-02-expanded-range.png",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.28_PM.png",
         "eyebrow": "02 — Expanded Range & Modes",
         "title": "145° of movement. Three ways to train.",
         "text_1": "The RS03 arm rotates through 145° - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90° for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
@@ -150,7 +153,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "left",
-        "image": "shopify://shop_images/rs03-feature-03-dual-function.png",
+        "image": "shopify://shop_images/one_9_fb3b91e1-149c-46eb-a4b0-94ea4662c173.jpg",
         "eyebrow": "03 — Dual Function",
         "title": "A Pilates reformer. A strength station. One machine.",
         "text_1": "Studio reformers do one thing well. Strength machines do another. The RS03 is engineered to do both - with a moving carriage for classical reformer repertoire, and two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable movement you'd expect from a full commercial cable column.",
@@ -198,7 +201,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "right",
-        "image": "shopify://shop_images/rs03-feature-04-compact-connected.png",
+        "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
         "eyebrow": "04 — Compact & Connected",
         "title": "Apartment-friendly. AI-coached. Subscription-free.",
         "text_1": "109 × 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
@@ -208,7 +211,7 @@
     "banner": {
       "type": "sensol-product-banner",
       "settings": {
-        "image": "shopify://shop_images/rs03-banner-see-it-move.png",
+        "image": "shopify://shop_images/australia-home.jpg",
         "eyebrow": "See It Move",
         "title": "Precision, in motion.",
         "height": 70,
@@ -222,18 +225,17 @@
           "type": "video_card",
           "settings": {
             "title": "Full Showcase",
-            "duration": "0:21",
-            "poster_image": "shopify://shop_images/rs03-video-1-full-showcase.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/abc123.mp4"
+            "duration": "0:41",
+            "poster_image": "shopify://shop_images/mq2_1.webp",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
           }
         },
         "card_2": {
           "type": "video_card",
           "settings": {
             "title": "Arm Range Demo",
-            "duration": "0:15",
-            "poster_image": "shopify://shop_images/rs03-video-2-arm-range.jpg",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/def456.mp4"
+            "duration": "0:38",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
           }
         },
         "card_3": {
@@ -241,7 +243,6 @@
           "settings": {
             "title": "Pilates Flow",
             "duration": "0:18",
-            "poster_image": "shopify://shop_images/rs03-video-3-pilates.jpg",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/ghi789.mp4"
           }
         },
@@ -250,7 +251,6 @@
           "settings": {
             "title": "Strength Training",
             "duration": "0:22",
-            "poster_image": "shopify://shop_images/rs03-video-4-strength.jpg",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/jkl012.mp4"
           }
         },
@@ -259,7 +259,6 @@
           "settings": {
             "title": "Digital Weight",
             "duration": "0:12",
-            "poster_image": "shopify://shop_images/rs03-video-5-digital-weight.jpg",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/mno345.mp4"
           }
         }
@@ -340,7 +339,6 @@
         "item_8"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-included-flat-lay.png",
         "eyebrow": "In the Box",
         "title": "Everything included."
       }
@@ -448,7 +446,6 @@
         "spec_12"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-specs-detail.png",
         "image_position": "right",
         "eyebrow": "Specifications",
         "title": "Every detail, measured."
@@ -501,7 +498,6 @@
         "hl_3"
       ],
       "settings": {
-        "image": "shopify://shop_images/rs03-roi-image.png",
         "eyebrow": "The Math",
         "title": "Studio costs add up. The RS03 pays for itself.",
         "text": "Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships."
@@ -510,7 +506,9 @@
     "reviews": {
       "type": "sensol-reviews",
       "settings": {
-        "show_section": true
+        "show_section": true,
+        "label": "What they say",
+        "title": "Trained by design."
       }
     },
     "qa": {
