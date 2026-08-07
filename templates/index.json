@@ -10,7 +10,7 @@
 {
   "sections": {
     "sensol-hero": {
-      "type": "sensol-hero",
+      "type": "sensol-hero-v2",
       "settings": {
         "cta_link": "shopify://collections/all",
         "cta_text": "Shop All",
