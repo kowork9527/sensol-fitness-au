@@ -94,13 +94,14 @@
 })();
 </script>
 
+
 {% schema %}
 {
   "name": "SENSOL Hero",
   "tag": "section",
   "class": "sensol-hero-section",
   "settings": [
-    { "type": "text", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop All" },
     { "type": "image_picker", "id": "slide_1_image", "label": "Slide 1 Image" },
     { "type": "text", "id": "slide_1_label", "label": "Slide 1 Label", "default": "A new language of training" },
@@ -321,3 +322,30 @@
   }
 }
 {%- endstyle -%}
+
+<style>
+/* HERO ZINDEX FIX - keep hero below header */
+#shopify-section-template--28523276173444__sensol-hero,
+.shopify-section.sensol-hero-section,
+.sensol-hero-section {
+  position: relative !important;
+  z-index: 1 !important;
+}
+</style>
+<script>
+(function() {
+  function fixHeroZIndex() {
+    var heroSection = document.querySelector('.sensol-hero-section');
+    if (heroSection && heroSection.tagName === 'SECTION') {
+      heroSection.style.setProperty('position', 'relative', 'important');
+      heroSection.style.setProperty('z-index', '1', 'important');
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixHeroZIndex);
+  } else {
+    fixHeroZIndex();
+  }
+  setTimeout(fixHeroZIndex, 500);
+})();
+</script>

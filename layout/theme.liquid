@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="cache-bust" content="1786005185">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
@@ -356,9 +358,40 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  </head>
+  
+  <!-- GLOBAL NAV ZINDEX FIX -->
+  <style>
+  .shopify-section-group-header-group,
+  .sensol-header-section-wrapper {
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+  .sensol-hero-section,
+  #shopify-section-template--28523276173444__sensol-hero {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  .sensol-header-section {
+    pointer-events: auto !important;
+  }
+  .sensol-header__nav,
+  .sensol-header__nav a,
+  .sensol-header__link,
+  .sensol-header__shop-btn,
+  .sensol-header__actions a,
+  .sensol-header__actions button,
+  .sensol-header__logo,
+  .sensol-header__hamburger {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 1002;
+  }
+  </style>
+</head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+{% render 'nav-fix' %}
+  
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
