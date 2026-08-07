@@ -225,7 +225,7 @@
           "settings": {
             "title": "Full Showcase",
             "duration": "0:21",
-            "poster_image": "shopify://shop_images/mq2_1.webp",
+            "poster_image": "shopify://shop_images/imgi_33_Frame_119_5aa94b3b-0210-4d99-8e21-ca292d69508b.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4"
           }
         },
@@ -234,6 +234,7 @@
           "settings": {
             "title": "Arm Range Demo",
             "duration": "0:15",
+            "poster_image": "shopify://shop_images/ScreenShot_2026-08-07_090136_932.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
           }
         },
@@ -242,6 +243,7 @@
           "settings": {
             "title": "Pilates Flow",
             "duration": "0:18",
+            "poster_image": "shopify://shop_images/ScreenShot_2026-08-07_090239_196.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
           }
         },
@@ -250,6 +252,7 @@
           "settings": {
             "title": "Strength Training",
             "duration": "0:22",
+            "poster_image": "shopify://shop_images/ScreenShot_2026-08-07_090045_740.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
           }
         },
