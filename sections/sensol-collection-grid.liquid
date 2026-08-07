@@ -1,0 +1,215 @@
+{%- style -%}
+  .sc-grid-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-grid-{{ section.id }}__filter-bar {
+    max-width: 1400px; margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+  .sc-grid-{{ section.id }}__tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid #D4CEC6;
+    overflow-x: auto;
+  }
+  .sc-grid-{{ section.id }}__tab {
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #8A8279; background: none; border: none;
+    padding: 16px 28px 16px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: relative;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .sc-grid-{{ section.id }}__tab:hover { color: #1A1816; }
+  .sc-grid-{{ section.id }}__tab.is-active {
+    color: #1A1816; font-weight: 500;
+  }
+  .sc-grid-{{ section.id }}__tab.is-active::after {
+    content: ''; position: absolute;
+    bottom: -1px; left: 0; right: 28px;
+    height: 1px; background: #1A1816;
+  }
+  .sc-grid-{{ section.id }}__tab-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 300;
+    margin-left: 6px; opacity: 0.6;
+  }
+  .sc-grid-{{ section.id }}__products {
+    max-width: 1400px; margin: 0 auto;
+    padding: 0 40px 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 28px;
+  }
+  .sc-grid-{{ section.id }}__products .sc-card-{{ section.id }}.is-hidden { display: none; }
+
+  /* Card */
+  .sc-card-{{ section.id }} {
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .sc-card-{{ section.id }}:hover { transform: translateY(-4px); }
+  .sc-card-{{ section.id }}__img-wrap {
+    aspect-ratio: 4/5;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .sc-card-{{ section.id }}__img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .sc-card-{{ section.id }}:hover .sc-card-{{ section.id }}__img-wrap img { transform: scale(1.04); }
+  .sc-card-{{ section.id }}__img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+  .sc-card-{{ section.id }}__series-tag {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 10px;
+    background: rgba(247,244,240,0.9); color: #1A1816;
+  }
+  .sc-card-{{ section.id }}__series-tag--mechanical {
+    background: rgba(26,24,22,0.85); color: #F7F4F0;
+  }
+  .sc-card-{{ section.id }}__badge {
+    position: absolute; top: 12px; right: 12px;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 10px;
+    background: #8A8279; color: #F7F4F0;
+  }
+  .sc-card-{{ section.id }}__vendor {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: #8A8279; margin-bottom: 4px;
+  }
+  .sc-card-{{ section.id }}__name {
+    font-size: 19px; font-weight: 300;
+    letter-spacing: 0.03em; margin: 0 0 4px;
+  }
+  .sc-card-{{ section.id }}__price {
+    font-size: 15px; font-weight: 400;
+    margin-top: auto; padding-top: 10px;
+  }
+  .sc-card-{{ section.id }}__price s {
+    color: #8A8279; font-size: 13px; margin-right: 8px;
+  }
+  .sc-card-{{ section.id }}__cta {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #1A1816; margin-top: 14px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.3s;
+  }
+  .sc-card-{{ section.id }}:hover .sc-card-{{ section.id }}__cta { gap: 12px; }
+
+  @media screen and (max-width: 1024px) {
+    .sc-grid-{{ section.id }}__products { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media screen and (max-width: 768px) {
+    .sc-grid-{{ section.id }}__filter-bar { padding: 0 20px 32px; }
+    .sc-grid-{{ section.id }}__products { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; padding: 0 20px 60px; }
+  }
+  @media screen and (max-width: 480px) {
+    .sc-grid-{{ section.id }}__products { grid-template-columns: 1fr; }
+  }
+{%- endstyle -%}
+
+<section class="sc-grid-{{ section.id }}">
+  <div class="sc-grid-{{ section.id }}__filter-bar">
+    <div class="sc-grid-{{ section.id }}__tabs" id="sc-tabs-{{ section.id }}">
+      <button class="sc-grid-{{ section.id }}__tab is-active" data-filter="all">All Products <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></button>
+      <button class="sc-grid-{{ section.id }}__tab" data-filter="smart">Smart Series <span class="sc-grid-{{ section.id }}__tab-count">{{ section.settings.smart_count | default: '04' }}</span></button>
+      <button class="sc-grid-{{ section.id }}__tab" data-filter="mechanical">Mechanical Series <span class="sc-grid-{{ section.id }}__tab-count">{{ section.settings.mech_count | default: '03' }}</span></button>
+    </div>
+  </div>
+
+  <div class="sc-grid-{{ section.id }}__products" id="sc-grid-products-{{ section.id }}">
+    {%- for product in collection.products -%}
+      {%- assign product_title_lower = product.title | downcase -%}
+      {%- assign card_series = 'smart' -%}
+      {%- if product_title_lower contains 'flex' -%}
+        {%- assign card_series = 'mechanical' -%}
+      {%- endif -%}
+
+      <a href="{{ product.url }}" class="sc-card-{{ section.id }}" data-series="{{ card_series }}">
+        <div class="sc-card-{{ section.id }}__img-wrap">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
+          {%- else -%}
+            <div class="sc-card-{{ section.id }}__img-placeholder">{{ product.title }}</div>
+          {%- endif -%}
+          {%- if card_series == 'mechanical' -%}
+            <span class="sc-card-{{ section.id }}__series-tag sc-card-{{ section.id }}__series-tag--mechanical">Mechanical</span>
+          {%- else -%}
+            <span class="sc-card-{{ section.id }}__series-tag">Smart</span>
+          {%- endif -%}
+          {%- unless product.available -%}
+            <span class="sc-card-{{ section.id }}__badge">Sold Out</span>
+          {%- endunless -%}
+        </div>
+        <p class="sc-card-{{ section.id }}__vendor">{{ product.vendor | default: 'Sensol' }}</p>
+        <h3 class="sc-card-{{ section.id }}__name">{{ product.title }}</h3>
+        <p class="sc-card-{{ section.id }}__price">
+          {%- if product.compare_at_price > product.price -%}
+            <s>{{ product.compare_at_price | money }}</s>
+          {%- endif -%}
+          {{ product.price | money }}
+        </p>
+        <span class="sc-card-{{ section.id }}__cta">View Product &rarr;</span>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var tabContainer = document.getElementById('sc-tabs-' + sectionId);
+  if (!tabContainer) return;
+  var tabs = tabContainer.querySelectorAll('.sc-grid-' + sectionId + '__tab');
+  var grid = document.getElementById('sc-grid-products-' + sectionId);
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.sc-card-' + sectionId);
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var filter = this.getAttribute('data-filter');
+      tabs.forEach(function(t) { t.classList.remove('is-active'); });
+      this.classList.add('is-active');
+      cards.forEach(function(card) {
+        if (filter === 'all') {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.toggle('is-hidden', card.getAttribute('data-series') !== filter);
+        }
+      });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Collection Product Grid",
+  "tag": "section",
+  "class": "sensol-collection-grid",
+  "settings": [
+    { "type": "text", "id": "smart_count", "label": "Smart Series Count", "default": "04" },
+    { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "03" }
+  ]
+}
+{% endschema %}

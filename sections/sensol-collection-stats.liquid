@@ -1,0 +1,75 @@
+{%- style -%}
+  .sc-stats-{{ section.id }} {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-stats-{{ section.id }}__inner {
+    max-width: 1400px; margin: 0 auto;
+    padding: 48px 40px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 64px; flex-wrap: wrap;
+  }
+  .sc-stats-{{ section.id }}__item { text-align: center; }
+  .sc-stats-{{ section.id }}__num {
+    font-size: 32px; font-weight: 200;
+    letter-spacing: 0.04em; margin-bottom: 2px;
+  }
+  .sc-stats-{{ section.id }}__label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: #8A8279;
+  }
+  .sc-stats-{{ section.id }}__divider {
+    width: 1px; height: 40px;
+    background: #D4CEC6;
+  }
+  @media screen and (max-width: 768px) {
+    .sc-stats-{{ section.id }}__inner { gap: 32px; padding: 32px 20px; }
+    .sc-stats-{{ section.id }}__divider { display: none; }
+  }
+{%- endstyle -%}
+
+<section class="sc-stats-{{ section.id }}">
+  <div class="sc-stats-{{ section.id }}__inner">
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat1_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat1_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat2_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat2_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat3_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat3_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat4_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat4_label }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Stats",
+  "tag": "section",
+  "class": "sensol-collection-stats",
+  "settings": [
+    { "type": "text", "id": "stat1_num", "label": "Stat 1 Number", "default": "7" },
+    { "type": "text", "id": "stat1_label", "label": "Stat 1 Label", "default": "Products" },
+    { "type": "text", "id": "stat2_num", "label": "Stat 2 Number", "default": "2" },
+    { "type": "text", "id": "stat2_label", "label": "Stat 2 Label", "default": "Series" },
+    { "type": "text", "id": "stat3_num", "label": "Stat 3 Number", "default": "$950-$4,100" },
+    { "type": "text", "id": "stat3_label", "label": "Stat 3 Label", "default": "Price Range AUD" },
+    { "type": "text", "id": "stat4_num", "label": "Stat 4 Number", "default": "200+" },
+    { "type": "text", "id": "stat4_label", "label": "Stat 4 Label", "default": "Movements" }
+  ],
+  "presets": [{ "name": "Collection Stats" }]
+}
+{% endschema %}
