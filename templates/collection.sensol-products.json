@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "sensol-collection-products",
+      "settings": {
+        "hero_title": "The Collection",
+        "hero_subtitle": "Precision-built Pilates reformers and strength training systems. Choose your series.",
+        "smart_title": "Smart Series",
+        "smart_desc": "Digital weight reformers with servo motor precision, AI coaching, and dual-function Pilates plus strength training. The RS line — built for the serious practitioner.",
+        "mech_title": "Mechanical Series",
+        "mech_desc": "Elastic band and servo-assisted reformers with foldable, apartment-friendly designs. The FLEX line — accessible pricing with professional-grade features."
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,425 @@
+{%- style -%}
+  .scp-wrap-{{ section.id }} {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+    background: #F7F4F0;
+  }
+  /* Hero */
+  .scp-hero-{{ section.id }} {
+    background: #1A1816;
+    color: #F7F4F0;
+    padding: 160px 24px 100px;
+    text-align: center;
+  }
+  .scp-hero-eyebrow-{{ section.id }} {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 20px;
+  }
+  .scp-hero-title-{{ section.id }} {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 200;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    line-height: 1.1;
+  }
+  .scp-hero-sub-{{ section.id }} {
+    font-size: 16px;
+    color: #B5ADA4;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Series Section */
+  .scp-series-{{ section.id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 24px;
+  }
+  .scp-series-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .scp-series-tag-{{ section.id }} {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8A8279;
+    border: 1px solid #D4CEC6;
+    padding: 6px 20px;
+    margin-bottom: 20px;
+  }
+  .scp-series-title-{{ section.id }} {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin: 0 0 16px;
+  }
+  .scp-series-desc-{{ section.id }} {
+    font-size: 15px;
+    color: #8A8279;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Product Grid */
+  .scp-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  @media screen and (max-width: 1024px) {
+    .scp-grid-{{ section.id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .scp-grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Product Card */
+  .scp-card-{{ section.id }} {
+    background: #fff;
+    text-decoration: none;
+    color: #1A1816;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1);
+    position: relative;
+  }
+  .scp-card-{{ section.id }}:hover {
+    transform: translateY(-4px);
+  }
+  .scp-card-img-{{ section.id }} {
+    aspect-ratio: 1 / 1;
+    background: #F7F4F0;
+    overflow: hidden;
+    position: relative;
+  }
+  .scp-card-img-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .scp-card-{{ section.id }}:hover .scp-card-img-{{ section.id }} img {
+    transform: scale(1.04);
+  }
+  .scp-card-badge-{{ section.id }} {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #1A1816;
+    color: #F7F4F0;
+    padding: 6px 14px;
+  }
+  .scp-card-soldout-{{ section.id }} {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #8A8279;
+    color: #F7F4F0;
+    padding: 6px 14px;
+  }
+  .scp-card-body-{{ section.id }} {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .scp-card-brand-{{ section.id }} {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 8px;
+  }
+  .scp-card-name-{{ section.id }} {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    margin: 0 0 6px;
+  }
+  .scp-card-model-{{ section.id }} {
+    font-size: 12px;
+    color: #8A8279;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+  }
+  .scp-card-specs-{{ section.id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    flex: 1;
+  }
+  .scp-card-specs-{{ section.id }} li {
+    font-size: 13px;
+    color: #8A8279;
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .scp-card-specs-{{ section.id }} li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 1px;
+    background: #B5ADA4;
+  }
+  .scp-card-footer-{{ section.id }} {
+    border-top: 1px solid #D4CEC6;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .scp-card-price-{{ section.id }} {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .scp-card-price-{{ section.id }} s {
+    font-size: 14px;
+    color: #8A8279;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+  .scp-card-cta-{{ section.id }} {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1A1816;
+    border-bottom: 1px solid #1A1816;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .scp-card-{{ section.id }}:hover .scp-card-cta-{{ section.id }} {
+    opacity: 0.6;
+  }
+
+  /* Divider */
+  .scp-divider-{{ section.id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .scp-divider-line-{{ section.id }} {
+    height: 1px;
+    background: #D4CEC6;
+  }
+
+  /* CTA Bottom */
+  .scp-cta-{{ section.id }} {
+    text-align: center;
+    padding: 80px 24px 120px;
+    background: #F7F4F0;
+  }
+  .scp-cta-title-{{ section.id }} {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+  }
+  .scp-cta-text-{{ section.id }} {
+    font-size: 15px;
+    color: #8A8279;
+    margin-bottom: 32px;
+  }
+  .scp-cta-btn-{{ section.id }} {
+    display: inline-block;
+    padding: 16px 48px;
+    background: #1A1816;
+    color: #F7F4F0;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.3s;
+  }
+  .scp-cta-btn-{{ section.id }}:hover {
+    background: #2A2826;
+  }
+
+  @media screen and (max-width: 640px) {
+    .scp-hero-{{ section.id }} {
+      padding: 120px 20px 60px;
+    }
+    .scp-series-{{ section.id }} {
+      padding: 60px 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="scp-wrap-{{ section.id }}">
+
+  <!-- Hero -->
+  <div class="scp-hero-{{ section.id }}">
+    <div class="scp-hero-eyebrow-{{ section.id }}">SENSOL FITNESS</div>
+    <h1 class="scp-hero-title-{{ section.id }}">{{ section.settings.hero_title | default: 'The Collection' }}</h1>
+    <p class="scp-hero-sub-{{ section.id }}">{{ section.settings.hero_subtitle | default: 'Precision-built Pilates reformers and strength training systems. Choose your series.' }}</p>
+  </div>
+
+  <!-- Smart Series -->
+  <div class="scp-series-{{ section.id }}" id="smart-series">
+    <div class="scp-series-header-{{ section.id }}">
+      <span class="scp-series-tag-{{ section.id }}">SERIES 01</span>
+      <h2 class="scp-series-title-{{ section.id }}">{{ section.settings.smart_title | default: 'Smart Series' }}</h2>
+      <p class="scp-series-desc-{{ section.id }}">{{ section.settings.smart_desc | default: 'Digital weight reformers with servo motor precision, AI coaching, and dual-function Pilates plus strength training. The RS line — built for the serious practitioner.' }}</p>
+    </div>
+    <div class="scp-grid-{{ section.id }}">
+      {%- assign smart_handles = 'sensol-rs02,sensol-rs02-pro,sensol-rs03,sensol-rs03-pro' | split: ',' -%}
+      {%- for handle in smart_handles -%}
+        {%- assign prod = all_products[handle] -%}
+        {%- if prod != blank -%}
+          <a href="{{ prod.url }}" class="scp-card-{{ section.id }}">
+            <div class="scp-card-img-{{ section.id }}">
+              {%- if prod.featured_image -%}
+                {{ prod.featured_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279;font-size:12px">No image</div>
+              {%- endif -%}
+              <span class="scp-card-badge-{{ section.id }}">SMART</span>
+              {%- unless prod.available -%}
+                <span class="scp-card-soldout-{{ section.id }}">Sold Out</span>
+              {%- endunless -%}
+            </div>
+            <div class="scp-card-body-{{ section.id }}">
+              <div class="scp-card-brand-{{ section.id }}">SENSOL</div>
+              <h3 class="scp-card-name-{{ section.id }}">{{ prod.title }}</h3>
+              <div class="scp-card-model-{{ section.id }}">{{ prod.metafields.custom.model_tag | default: prod.type | default: 'Smart Reformer' }}</div>
+              <ul class="scp-card-specs-{{ section.id }}">
+                <li>Digital Weight · Servo Motor</li>
+                <li>120 kg max resistance</li>
+                <li>0.5 kg precision increments</li>
+                <li>Dual-function: Pilates + Strength</li>
+              </ul>
+              <div class="scp-card-footer-{{ section.id }}">
+                <div class="scp-card-price-{{ section.id }}">
+                  {%- if prod.compare_at_price > prod.price -%}
+                    <s>{{ prod.compare_at_price | money }}</s>
+                  {%- endif -%}
+                  {{ prod.price | money }}
+                </div>
+                <span class="scp-card-cta-{{ section.id }}">View Product</span>
+              </div>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="scp-divider-{{ section.id }}">
+    <div class="scp-divider-line-{{ section.id }}"></div>
+  </div>
+
+  <!-- Mechanical Series -->
+  <div class="scp-series-{{ section.id }}" id="mechanical-series">
+    <div class="scp-series-header-{{ section.id }}">
+      <span class="scp-series-tag-{{ section.id }}">SERIES 02</span>
+      <h2 class="scp-series-title-{{ section.id }}">{{ section.settings.mech_title | default: 'Mechanical Series' }}</h2>
+      <p class="scp-series-desc-{{ section.id }}">{{ section.settings.mech_desc | default: 'Elastic band and servo-assisted reformers with foldable, apartment-friendly designs. The FLEX line — accessible pricing with professional-grade features.' }}</p>
+    </div>
+    <div class="scp-grid-{{ section.id }}">
+      {%- assign mech_handles = 'sensol-flex-air,sensol-flex,sensol-flex-pro' | split: ',' -%}
+      {%- for handle in mech_handles -%}
+        {%- assign prod = all_products[handle] -%}
+        {%- if prod != blank -%}
+          <a href="{{ prod.url }}" class="scp-card-{{ section.id }}">
+            <div class="scp-card-img-{{ section.id }}">
+              {%- if prod.featured_image -%}
+                {{ prod.featured_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279;font-size:12px">No image</div>
+              {%- endif -%}
+              <span class="scp-card-badge-{{ section.id }}" style="background:#8A8279;">MECHANICAL</span>
+              {%- unless prod.available -%}
+                <span class="scp-card-soldout-{{ section.id }}">Sold Out</span>
+              {%- endunless -%}
+            </div>
+            <div class="scp-card-body-{{ section.id }}">
+              <div class="scp-card-brand-{{ section.id }}">SENSOL</div>
+              <h3 class="scp-card-name-{{ section.id }}">{{ prod.title }}</h3>
+              <div class="scp-card-model-{{ section.id }}">{{ prod.metafields.custom.model_tag | default: prod.type | default: 'Reformer' }}</div>
+              <ul class="scp-card-specs-{{ section.id }}">
+                {%- if handle == 'sensol-flex-air' -%}
+                  <li>Elastic band · 60 kg max</li>
+                  <li>Foldable frame · 0.2 m² storage</li>
+                  <li>750W servo motor</li>
+                  <li>300+ free guided classes</li>
+                {%- elsif handle == 'sensol-flex' -%}
+                  <li>Digital weight · 90 kg max</li>
+                  <li>Dual 1000W servo motors</li>
+                  <li>Three training modes</li>
+                  <li>200+ movements</li>
+                {%- else -%}
+                  <li>Digital weight · 120 kg max</li>
+                  <li>Dual servo motors</li>
+                  <li>0–145° arm articulation</li>
+                  <li>Enhanced cable system</li>
+                {%- endif -%}
+              </ul>
+              <div class="scp-card-footer-{{ section.id }}">
+                <div class="scp-card-price-{{ section.id }}">
+                  {%- if prod.compare_at_price > prod.price -%}
+                    <s>{{ prod.compare_at_price | money }}</s>
+                  {%- endif -%}
+                  {{ prod.price | money }}
+                </div>
+                <span class="scp-card-cta-{{ section.id }}">View Product</span>
+              </div>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="scp-cta-{{ section.id }}">
+    <h2 class="scp-cta-title-{{ section.id }}">Not sure which model?</h2>
+    <p class="scp-cta-text-{{ section.id }}">Compare all models side by side, or contact our team for personalised advice.</p>
+    <a href="mailto:support@sensolfitness.com.au" class="scp-cta-btn-{{ section.id }}">Talk to Us</a>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Sensol Collection Products",
+  "tag": "section",
+  "class": "sensol-collection-products",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_title", "label": "Hero Title", "default": "The Collection" },
+    { "type": "textarea", "id": "hero_subtitle", "label": "Hero Subtitle", "default": "Precision-built Pilates reformers and strength training systems. Choose your series." },
+    { "type": "header", "content": "Smart Series" },
+    { "type": "text", "id": "smart_title", "label": "Smart Series Title", "default": "Smart Series" },
+    { "type": "textarea", "id": "smart_desc", "label": "Smart Series Description", "default": "Digital weight reformers with servo motor precision, AI coaching, and dual-function Pilates plus strength training. The RS line — built for the serious practitioner." },
+    { "type": "header", "content": "Mechanical Series" },
+    { "type": "text", "id": "mech_title", "label": "Mechanical Series Title", "default": "Mechanical Series" },
+    { "type": "textarea", "id": "mech_desc", "label": "Mechanical Series Description", "default": "Elastic band and servo-assisted reformers with foldable, apartment-friendly designs. The FLEX line — accessible pricing with professional-grade features." }
+  ],
+  "presets": [
+    { "name": "Sensol Collection Products" }
+  ]
+}
+{% endschema %}
