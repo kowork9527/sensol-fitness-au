@@ -21,6 +21,7 @@
   min-height: 600px;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
+  padding-top: 80px !important;
 }
 
 /* Slides */
