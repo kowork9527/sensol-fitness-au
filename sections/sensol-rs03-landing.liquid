@@ -370,6 +370,7 @@
       {%- endif -%}
 
       {%- form 'product', p, id: 'product-form-' -%}
+        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
         <div class="rs03-qty-{{ section.id }}">
           <label class="rs03-qty-label-{{ section.id }}" for="Quantity-{{ section.id }}">Quantity</label>
           <input class="rs03-qty-input-{{ section.id }}" type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1">
