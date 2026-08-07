@@ -10,76 +10,11 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
-      "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "vendor",
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "share"
-      ],
+      "type": "sensol-rs03-pro-landing",
       "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "subtitle": "The Studio. Reimagined for Home.",
+        "model_info": "Model RS03 PRO / Flagship Smart Reformer · SKU: SNSL-RS03-PRO-AU",
+        "padding_top": 40
       }
     },
     "sp_banner": {
@@ -91,43 +26,228 @@
         "overlay_opacity": 35
       }
     },
-    "sp_feature_1": {
-      "type": "sensol-product-feature",
+    "sp_overview": {
+      "type": "sensol-product-overview",
       "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Overview",
-        "title": "Engineered to disappear into the room.",
-        "text_1": "The RS03 is a precision instrument first and a fitness machine second. Every line is drawn for a reason, every material chosen for how it ages. It is the centerpiece of a room, not an interruption to one.",
-        "text_2": "Built on a hand-finished European Ash frame and tensioned German steel springs, the RS03 rewards consistent practice with measurable progress. The carriage moves the way a heavy door moves — by intention, not by force."
+        "eyebrow": "Product Overview",
+        "title": "The Flagship. Without Compromise.",
+        "text": "Maximum power, enhanced Pilates cables, and the widest arm range in the Sensol lineup — delivering a studio-grade experience in your home. The RS03 PRO is the pinnacle of the Sensol platform, taking everything that makes the RS03 exceptional and elevating it with an enhanced Pilates cable system that expands movement pathways, increases range of motion, and enables advanced sequencing that approaches the depth and complexity of a professional studio session."
       },
       "blocks": {
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "62kg",
-            "label": "Frame Mass"
+            "number": "3000W",
+            "label": "Dual Servo Motor"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "120kg",
+            "label": "Digital Resistance"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "0.5kg",
+            "label": "Precision Increments"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "300+",
+            "label": "Free Guided Classes"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ]
+    },
+    "sp_feature_cables": {
+      "type": "sensol-product-feature",
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "Enhanced Pilates Cable System — Studio-Grade Movement",
+        "text_1": "The defining feature of the RS03 PRO. Engineered with premium-grade materials and a redesigned routing architecture, these cables deliver smoother transitions between exercises, greater range of motion through every movement pattern, and a tactile responsiveness that serious Pilates practitioners will immediately appreciate.",
+        "text_2": "The cables reduce friction points, maintain consistent tension through complex sequences, and enable advanced movements that standard cable systems cannot accommodate. No spring reformer offers cable-based movement at all — the RS03 PRO's enhanced cables create a three-dimensional movement surface that traditional reformers cannot replicate."
+      },
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "3D",
+            "label": "Movement Surface"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "Premium",
+            "label": "Cable Grade"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "Reinforced",
+            "label": "End Fittings"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "Friction-Reduced",
+            "label": "Routing Architecture"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ]
+    },
+    "sp_feature_motor": {
+      "type": "sensol-product-feature",
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "1500W Dual Servo Motor — Maximum Power",
+        "text_1": "The RS03 PRO is powered by two 1500W servo motors — the most powerful motor system in the Sensol lineup. This combined 3000W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
+        "text_2": "Whether you are performing slow, controlled Pilates work or high-tempo strength circuits, the motors maintain perfect resistance throughout. The Your Reformer ($2,795 AUD) has no motors at all — it is entirely spring-based. The RS03 PRO delivers motorised precision at a fraction of the cost of any motorised competitor."
+      },
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "3000W",
+            "label": "Combined Power"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "120kg",
+            "label": "Max Resistance"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "0.5kg",
+            "label": "Precision Increments"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "Noiseless",
+            "label": "Motor Design"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ]
+    },
+    "sp_feature_arm": {
+      "type": "sensol-product-feature",
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "Widest Arm Range: 0–145°, Eight Positions",
+        "text_1": "The RS03 PRO features the widest arm adjustment range in the Sensol lineup: 0–145° across eight precisely engineered positions. This expansive arc, combined with the enhanced cables, creates a movement surface that accommodates everything from narrow-grip footwork to wide rotational pulls.",
+        "text_2": "Every angle is locked in with a quick-release mechanism that ensures stability under load. Traditional reformers have no adjustable arms whatsoever. Even within the smart reformer category, the RS03 PRO's 145° range exceeds what most competitors offer."
+      },
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "0–145°",
+            "label": "Arm Range"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
             "number": "8",
-            "label": "Spring Tensions"
+            "label": "Positions"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "120mm",
-            "label": "Quiet-Glide Carriage"
+            "number": "Quick-Release",
+            "label": "Locking Mechanism"
           }
         },
         "stat_4": {
           "type": "stat",
           "settings": {
-            "number": "10yr",
-            "label": "Structural Warranty"
+            "number": "Widest",
+            "label": "In Sensol Lineup"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ]
+    },
+    "sp_feature_modes": {
+      "type": "sensol-product-feature",
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Digital Weight with Three Training Modes",
+        "text_1": "The RS03 PRO delivers 120 kg of total resistance (60 kg per arm) adjustable in 0.5 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
+        "text_2": "Standard Mode — Progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode — Asymmetric resistance that challenges stabilisers and corrects imbalances. Constant Mode — Uniform resistance throughout the entire range, eliminating spring slack. No spring reformer in the world offers training modes."
+      },
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "3",
+            "label": "Training Modes"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "Standard",
+            "label": "Strength Building"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "Off-centre",
+            "label": "Stabiliser Training"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "Constant",
+            "label": "Uniform Resistance"
           }
         }
       },
@@ -142,36 +262,36 @@
       "type": "sensol-product-video-carousel",
       "settings": {
         "eyebrow": "See It Move",
-        "title": "Precision in motion.",
+        "title": "Flagship precision in motion.",
         "show_hint": true
       },
       "blocks": {
         "video_1": {
           "type": "video_card",
           "settings": {
-            "title": "Full Showcase",
-            "duration": "0:21"
+            "title": "Flagship Showcase",
+            "duration": "1:30"
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
-            "title": "Spring System",
-            "duration": "0:14"
+            "title": "Enhanced Cables",
+            "duration": "0:45"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
-            "title": "Quiet Glide",
-            "duration": "0:09"
+            "title": "Three Training Modes",
+            "duration": "0:38"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
-            "title": "Footbar Adjust",
-            "duration": "0:12"
+            "title": "145° Arm Range",
+            "duration": "0:22"
           }
         }
       },
@@ -194,83 +314,131 @@
           "type": "spec",
           "settings": {
             "label": "Frame Material",
-            "value": "FSC-certified European Ash"
+            "value": "Steel + Zinc Alloy, powder-coated matte black"
           }
         },
-        "spec_finish": {
+        "spec_motors": {
           "type": "spec",
           "settings": {
-            "label": "Finish",
-            "value": "Hand-applied matte oil, food-safe"
+            "label": "Motors",
+            "value": "2 × 1500W brushless servo (3000W total)"
           }
         },
-        "spec_springs": {
+        "spec_cables": {
           "type": "spec",
           "settings": {
-            "label": "Spring System",
-            "value": "8 × German steel, individually tuned"
+            "label": "Cable System",
+            "value": "Enhanced Pilates cables, premium-grade with reinforced fittings"
           }
         },
         "spec_carriage": {
           "type": "spec",
           "settings": {
             "label": "Carriage",
-            "value": "12-ply birch, 8 polyurethane wheels"
+            "value": "Precision rail system with low-friction bearings"
           }
         },
-        "spec_rope": {
+        "spec_arms": {
           "type": "spec",
           "settings": {
-            "label": "Rope System",
-            "value": "Woven polyester, 5-point adjustment"
+            "label": "Arm Range",
+            "value": "0–145°, 8 positions, quick-release locking"
           }
         },
-        "spec_footbar": {
+        "spec_resistance": {
           "type": "spec",
           "settings": {
-            "label": "Footbar",
-            "value": "4-position, stainless hardware"
+            "label": "Max Resistance",
+            "value": "120 kg (60 kg per arm)"
           }
         },
-        "spec_dimensions": {
+        "spec_precision": {
           "type": "spec",
           "settings": {
-            "label": "Dimensions",
-            "value": "2410 × 660 × 280mm (L×W×H)"
+            "label": "Adjustment Precision",
+            "value": "0.5 kg increments"
+          }
+        },
+        "spec_modes": {
+          "type": "spec",
+          "settings": {
+            "label": "Training Modes",
+            "value": "Standard, Off-centre, Constant"
+          }
+        },
+        "spec_finish": {
+          "type": "spec",
+          "settings": {
+            "label": "Finish",
+            "value": "Scratch-resistant powder coating, 10,000+ contact cycles"
+          }
+        },
+        "spec_clearance": {
+          "type": "spec",
+          "settings": {
+            "label": "Ground Clearance",
+            "value": "13 cm"
+          }
+        },
+        "spec_connectivity": {
+          "type": "spec",
+          "settings": {
+            "label": "Connectivity",
+            "value": "Wi-Fi, Bluetooth, included remote control"
+          }
+        },
+        "spec_app": {
+          "type": "spec",
+          "settings": {
+            "label": "App",
+            "value": "Vesta Sensol App — 300+ classes, AI coaching (Free)"
+          }
+        },
+        "spec_power": {
+          "type": "spec",
+          "settings": {
+            "label": "Power",
+            "value": "100–230V, Australian plug included"
+          }
+        },
+        "spec_storage": {
+          "type": "spec",
+          "settings": {
+            "label": "Storage",
+            "value": "Folds upright to 0.2 m² footprint"
           }
         },
         "spec_weight": {
           "type": "spec",
           "settings": {
             "label": "Weight",
-            "value": "62kg"
-          }
-        },
-        "spec_capacity": {
-          "type": "spec",
-          "settings": {
-            "label": "User Capacity",
-            "value": "150kg"
+            "value": "56 kg"
           }
         },
         "spec_warranty": {
           "type": "spec",
           "settings": {
             "label": "Warranty",
-            "value": "10 years structural / 2 years parts"
+            "value": "Lifetime Warranty (incl. enhanced cable system)"
           }
         }
       },
       "block_order": [
         "spec_frame",
-        "spec_finish",
-        "spec_springs",
+        "spec_motors",
+        "spec_cables",
         "spec_carriage",
-        "spec_rope",
-        "spec_footbar",
-        "spec_dimensions",
+        "spec_arms",
+        "spec_resistance",
+        "spec_precision",
+        "spec_modes",
+        "spec_finish",
+        "spec_clearance",
+        "spec_connectivity",
+        "spec_app",
+        "spec_power",
+        "spec_storage",
         "spec_weight",
-        "spec_capacity",
         "spec_warranty"
       ]
     },
@@ -284,37 +452,43 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "name": "Sensol RS03 Reformer Frame"
+            "name": "Sensol RS03 PRO Main Device × 1 (enhanced cables pre-installed)"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "8-piece spring set (pre-installed)"
+            "name": "Footboard × 1"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "Adjustable footbar with 4 positions"
+            "name": "Barbell Bar × 1"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "Rope system with 5-point adjusters"
+            "name": "Short Handles × 2"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Shoulder rests (pair)"
+            "name": "Remote Control × 1"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Care kit: microfiber cloth, oil, brush"
+            "name": "Power Cord × 1 (Australian plug, 100–230V compatible)"
+          }
+        },
+        "item_7": {
+          "type": "item",
+          "settings": {
+            "name": "Quick Start Guide & Safety Manual"
           }
         }
       },
@@ -324,64 +498,65 @@
         "item_3",
         "item_4",
         "item_5",
-        "item_6"
+        "item_6",
+        "item_7"
       ]
     },
     "sp_roi": {
       "type": "sensol-product-roi",
       "settings": {
         "eyebrow": "The Investment",
-        "title": "Studio costs add up. The RS03 pays for itself.",
-        "text": "Reformer Pilates is booming in Australia, but studio costs add up quickly. A single reformer class runs $35-50, and an unlimited membership sits at $180-260 per month. Over five years, the RS03 represents a fraction of the cost of regular studio practice — and it lives in your home."
+        "title": "Studio costs add up. The RS03 PRO pays for itself.",
+        "text": "At $2,800 AUD, the RS03 PRO is an investment that pays for itself remarkably quickly. Compared to a $220/month unlimited studio membership, the break-even is approximately 13 months. Over five years, the RS03 PRO delivers savings of $10,400–$16,400 compared to studio memberships — while providing both Pilates and strength training, AI-driven coaching, and the convenience of home."
       },
       "blocks": {
         "comp_1": {
           "type": "comparison",
           "settings": {
-            "label": "vs single class ($45 × 2/week)",
-            "value": "~$4,680 / 5yr"
+            "label": "vs casual classes ($42.50/session × 2/week)",
+            "value": "~$4,416 / yr"
           }
         },
         "comp_2": {
           "type": "comparison",
           "settings": {
-            "label": "vs unlimited membership ($220/mo)",
-            "value": "~$13,200 / 5yr"
+            "label": "vs unlimited membership ($220/month)",
+            "value": "~$2,640 / yr"
           }
         },
         "comp_3": {
           "type": "comparison",
           "settings": {
-            "label": "vs premium studio ($320/mo)",
-            "value": "~$19,200 / 5yr"
+            "label": "vs private sessions ($120/session × 2/week)",
+            "value": "~$12,480 / yr"
           }
         },
         "comp_4": {
           "type": "comparison",
           "settings": {
-            "label": "RS03 (one-time)",
-            "value": "$3,490"
+            "label": "RS03 PRO (one-time)",
+            "value": "$2,800"
           }
         },
         "hi_1": {
           "type": "highlight",
           "settings": {
-            "number": "$9,710",
-            "label": "5-Year Savings vs Unlimited"
+            "number": "$10,400+",
+            "label": "5-Year Savings vs Studio"
           }
         },
         "hi_2": {
           "type": "highlight",
           "settings": {
-            "number": "11mo",
-            "label": "Avg. Payback Period"
+            "number": "13mo",
+            "label": "Break-Even vs Membership"
           }
         },
         "hi_3": {
           "type": "highlight",
           "settings": {
-            "number": "∞",
-            "label": "Unlimited Use, Forever"
+            "number": "$0",
+            "label": "Monthly App Subscription"
           }
         }
       },
@@ -400,31 +575,31 @@
       "settings": {
         "show_section": true,
         "label": "Verified Owners",
-        "title": "Trained by design."
+        "title": "The flagship, trusted by professionals."
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "text": "The precision of this machine is unlike anything I've used before. It feels like it was designed specifically for how my body moves.",
-            "name": "Sarah M.",
-            "role": "Pilates Instructor"
+            "text": "I have been teaching Pilates for 15 years and have used every major reformer brand. The RS03 PRO is the first machine that made me question whether I need springs at all. The enhanced cables provide a smoothness and responsiveness that I have only felt on high-end studio equipment. The digital resistance is a revelation — I can set exactly 22.5 kg for a client and know it will not vary by a single gram.",
+            "name": "Elena M.",
+            "role": "Certified Pilates Instructor, Melbourne VIC"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "text": "I didn't expect a piece of fitness equipment to change my entire morning routine. The quiet operation means I can train before anyone wakes up.",
-            "name": "James L.",
-            "role": "Architect"
+            "text": "I was paying $280/month for an unlimited membership at a premium reformer studio. I bought the RS03 PRO and cancelled my membership. The enhanced cables genuinely feel like studio equipment — smoother and more consistent than springs. The 300+ classes in the app are excellent. The break-even is about 10 months. Best fitness decision I have ever made.",
+            "name": "Rachel D.",
+            "role": "Sydney NSW"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "text": "Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it.",
-            "name": "Emma T.",
-            "role": "Interior Designer"
+            "text": "I integrated the RS03 PRO into my physiotherapy practice six months ago. The 0.5 kg precision is critical for post-surgical rehabilitation. Constant Mode provides the uniform resistance that is safest for rebuilding strength. The enhanced cables accommodate the gentle, controlled movements my patients need. At $2,800, it cost less than two months of equipment leasing for my previous reformer.",
+            "name": "Dr. Lisa C.",
+            "role": "Physiotherapist, Brisbane QLD"
           }
         }
       },
@@ -445,43 +620,71 @@
         "qa_1": {
           "type": "qa",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "We ship from our Sydney warehouse within 2-3 business days. Metro delivery typically arrives within 5-7 business days; regional areas may take 7-14 days. You'll receive a tracking link by email once dispatched."
+            "question": "What is the difference between the RS03 and the RS03 PRO?",
+            "answer": "Both models share the same 1500W dual servo motor system, 120 kg maximum resistance, 0.5 kg precision, 0–145° arm range, and chassis. The RS03 PRO's defining upgrade is its enhanced Pilates cable system, which provides smoother transitions, greater range of motion, more advanced sequencing capability, and a studio-grade tactile quality. The price difference is $400 AUD ($2,400 for RS03 vs $2,800 for RS03 PRO)."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
-            "question": "Do I need to assemble it myself?",
-            "answer": "No. The RS03 arrives fully assembled and tuned by a Sensol technician. Our white-glove delivery service includes in-home placement, level adjustment, and a 15-minute walkthrough of the spring system and rope adjusters."
+            "question": "What makes the enhanced cables better than standard cables?",
+            "answer": "The enhanced Pilates cables in the RS03 PRO are constructed from premium-grade materials with reinforced end fittings and a redesigned routing architecture. This results in: reduced friction through the cable path, greater effective range of motion (especially during rotational and lateral movements), more consistent tension throughout complex sequences, and better tactile responsiveness. Experienced Pilates practitioners will notice the difference immediately."
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
-            "question": "What is the warranty?",
-            "answer": "The frame carries a 10-year structural warranty against defects in materials and workmanship. The spring set, ropes, and upholstery are covered for 2 years. Normal wear on grip surfaces and finishes is not covered."
+            "question": "Is the RS03 PRO worth the extra $400 over the RS03?",
+            "answer": "If you are a dedicated Pilates practitioner, certified instructor, or use the reformer for professional purposes, the enhanced cables are a meaningful upgrade that you will feel in every session. If you are primarily interested in strength training, the RS03 may be sufficient. We recommend the PRO for anyone who trains four or more times per week or who has experience with studio-grade equipment."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
-            "question": "Can it be used by multiple people at different heights?",
-            "answer": "Yes. The 5-point rope system accommodates users from approximately 150cm to 195cm without reconfiguration. The 4-position footbar covers most foot sizes and standing heights."
+            "question": "Can I use the RS03 PRO professionally in a studio or clinic?",
+            "answer": "Yes. The RS03 PRO is suitable for professional use in Pilates studios, physiotherapy practices, and personal training facilities. The enhanced cables, 1500W motors, and AI-driven app are designed to meet the demands of professional practitioners. The Lifetime Warranty covers professional use. Many of our early adopters are certified instructors who use the RS03 PRO as their primary teaching tool."
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
-            "question": "What is the recommended floor space?",
-            "answer": "Allow 2.5m × 1.0m of clear floor space for full range of motion. The RS03 itself is 2.41m long. A ceiling height of 2.4m is sufficient for most standing exercises."
+            "question": "Do I need a monthly subscription for the app?",
+            "answer": "No. The Vesta Sensol App is completely free with no monthly fees, no locked content, and no usage limits. All 300+ guided classes, AI-driven coaching, progress tracking, and firmware updates are included with your purchase. This saves you $408–$480 per year compared to NordicTrack's iFIT ($34/month) or Frame Fitness ($39.99/month)."
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
-            "question": "Is financing available?",
-            "answer": "Yes. We offer Afterpay, Zip, and a 12-month interest-free plan through our payment partner. Apply at checkout — approval typically takes under 60 seconds."
+            "question": "What is the warranty and return policy?",
+            "answer": "The RS03 PRO comes with a Lifetime Warranty covering all manufacturing defects in materials and workmanship, including the enhanced cable system. We also offer a 30-Day Money-Back Guarantee — if you are not completely satisfied, return the RS03 PRO within 30 days for a full refund. Free domestic shipping is included to all Australian addresses."
+          }
+        },
+        "qa_7": {
+          "type": "qa",
+          "settings": {
+            "question": "How does the RS03 PRO compare to the Technogym Reform ($15,650 AUD)?",
+            "answer": "The Technogym Reform is a luxury product with a solid wood frame and vegan leather. However, it uses spring resistance — no digital weight, no adjustable arms, no training modes, and no AI coaching. The RS03 PRO offers all of these technologies at less than one-fifth of the price. If you prioritise training technology and performance, the RS03 PRO is the superior choice."
+          }
+        },
+        "qa_8": {
+          "type": "qa",
+          "settings": {
+            "question": "How quickly will the RS03 PRO pay for itself?",
+            "answer": "At $2,800 AUD compared to a $220/month unlimited studio membership, the RS03 PRO pays for itself in approximately 13 months. Compared to casual classes at $42.50/session (twice weekly), the break-even is approximately 8 months. Compared to private sessions at $120/session, the break-even is approximately 3 months. Over five years, the RS03 PRO delivers savings of $10,400–$16,400."
+          }
+        },
+        "qa_9": {
+          "type": "qa",
+          "settings": {
+            "question": "What support is available in Australia?",
+            "answer": "The RS03 PRO is distributed by Dute Fitness (Australia) Pty. Ltd. (ACN 700 632 337) with local stock and local support. Contact our Australian team at support@sensolfitness.com.au for any assistance. The Lifetime Warranty is honoured locally — no need to ship internationally for warranty service. Australian-plug power cords are included with every unit."
+          }
+        },
+        "qa_10": {
+          "type": "qa",
+          "settings": {
+            "question": "How does the RS03 PRO compare to studio reformers?",
+            "answer": "The RS03 PRO was specifically designed to deliver a studio-grade experience at home. The enhanced cables match the smoothness and responsiveness of professional studio equipment. The digital weight system actually exceeds what studio reformers offer — no studio reformer provides 0.5 kg precision, three training modes, or AI-driven coaching. The RS03 PRO's 56 kg weight and 13 cm ground clearance provide a comparably stable platform."
           }
         }
       },
@@ -491,7 +694,11 @@
         "qa_3",
         "qa_4",
         "qa_5",
-        "qa_6"
+        "qa_6",
+        "qa_7",
+        "qa_8",
+        "qa_9",
+        "qa_10"
       ]
     },
     "sp_related": {
@@ -501,10 +708,10 @@
         "title": "Built for the same room.",
         "view_all_link": "/collections/all",
         "product1_image_index": 0,
-        "product1_name": "RS02",
+        "product1_name": "RS03",
         "product1_vendor": "Sensol",
-        "product1_price": "From $2,890",
-        "product1_url": "/products/sensol-rs02-pro",
+        "product1_price": "From $2,400",
+        "product1_url": "/products/sensol-rs03",
         "product2_name": "Flex Air",
         "product2_vendor": "Sensol",
         "product2_price": "From $1,490",
@@ -519,7 +726,11 @@
   "order": [
     "main",
     "sp_banner",
-    "sp_feature_1",
+    "sp_overview",
+    "sp_feature_cables",
+    "sp_feature_motor",
+    "sp_feature_arm",
+    "sp_feature_modes",
     "sp_video",
     "sp_specs",
     "sp_included",
