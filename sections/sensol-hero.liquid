@@ -94,6 +94,47 @@
 })();
 </script>
 
+
+<script>
+// Force navigation fix - bypasses CSS cache
+(function(){
+  function fixNav() {
+    // Ensure header is above everything
+    var header = document.querySelector('.sensol-header-section');
+    if (header) {
+      header.style.position = 'fixed';
+      header.style.top = '0';
+      header.style.left = '0';
+      header.style.right = '0';
+      header.style.zIndex = '9999';
+      header.style.pointerEvents = 'auto';
+    }
+    // Ensure header links are clickable
+    var navLinks = document.querySelectorAll('.sensol-header__nav a, .sensol-header__inner a');
+    navLinks.forEach(function(link) {
+      link.style.pointerEvents = 'auto';
+      link.style.position = 'relative';
+      link.style.zIndex = '10000';
+    });
+    // Add padding to body to prevent hero from covering header
+    if (!document.body.style.paddingTop || document.body.style.paddingTop === '0px') {
+      document.body.style.paddingTop = '80px';
+    }
+  }
+  // Run immediately
+  fixNav();
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixNav);
+  }
+  // Run on window load
+  window.addEventListener('load', fixNav);
+  // Run after a delay to ensure everything is loaded
+  setTimeout(fixNav, 1000);
+  setTimeout(fixNav, 3000);
+})();
+</script>
+
 {% schema %}
 {
   "name": "SENSOL Hero",
