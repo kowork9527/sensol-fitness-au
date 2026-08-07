@@ -322,3 +322,30 @@
   }
 }
 {%- endstyle -%}
+
+<style>
+/* HERO ZINDEX FIX - keep hero below header */
+#shopify-section-template--28523276173444__sensol-hero,
+.shopify-section.sensol-hero-section,
+.sensol-hero-section {
+  position: relative !important;
+  z-index: 1 !important;
+}
+</style>
+<script>
+(function() {
+  function fixHeroZIndex() {
+    var heroSection = document.querySelector('.sensol-hero-section');
+    if (heroSection && heroSection.tagName === 'SECTION') {
+      heroSection.style.setProperty('position', 'relative', 'important');
+      heroSection.style.setProperty('z-index', '1', 'important');
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixHeroZIndex);
+  } else {
+    fixHeroZIndex();
+  }
+  setTimeout(fixHeroZIndex, 500);
+})();
+</script>
