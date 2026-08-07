@@ -1,0 +1,492 @@
+{%- liquid
+  assign p = product
+-%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #F7F4F0;
+  }
+  /* Breadcrumb */
+  .flexair-breadcrumb-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    font-size: 12px;
+    color: #8A8279;
+    letter-spacing: 0.05em;
+  }
+  .flexair-breadcrumb-{{ section.id }} a {
+    color: #8A8279;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .flexair-breadcrumb-{{ section.id }} a:hover {
+    color: #1A1816;
+  }
+  .flexair-breadcrumb-{{ section.id }} span {
+    margin: 0 8px;
+  }
+  .flexair-product-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .flexair-gallery-{{ section.id }} {
+    position: sticky;
+    top: 100px;
+  }
+  .flexair-gallery-main-{{ section.id }} {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 16px;
+    cursor: zoom-in;
+    position: relative;
+  }
+  .flexair-gallery-main-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .flexair-gallery-main-{{ section.id }}:hover img {
+    transform: scale(1.02);
+  }
+  .flexair-gallery-thumbs-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .flexair-gallery-thumb-{{ section.id }} {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .flexair-gallery-thumb-{{ section.id }}:hover,
+  .flexair-gallery-thumb-{{ section.id }}.active {
+    border-color: #1A1816;
+  }
+  .flexair-gallery-thumb-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .flexair-info-{{ section.id }} {
+    padding: 20px 0;
+  }
+  .flexair-info-brand-{{ section.id }} {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 12px;
+  }
+  .flexair-info-title-{{ section.id }} {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+    color: #1A1816;
+  }
+  .flexair-info-subtitle-{{ section.id }} {
+    font-size: 16px;
+    color: #8A8279;
+    margin-bottom: 16px;
+  }
+  .flexair-info-reviews-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #8A8279;
+  }
+  .flexair-info-stars-{{ section.id }} {
+    color: #F5A623;
+    letter-spacing: 2px;
+  }
+  .flexair-info-model-{{ section.id }} {
+    font-size: 12px;
+    color: #8A8279;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .flexair-info-price-{{ section.id }} {
+    font-size: 28px;
+    font-weight: 400;
+    color: #1A1816;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .flexair-info-price-{{ section.id }} s {
+    color: #8A8279;
+    margin-right: 12px;
+    font-size: 18px;
+  }
+  .flexair-info-afterpay-{{ section.id }} {
+    font-size: 13px;
+    color: #8A8279;
+    margin-bottom: 24px;
+  }
+  .flexair-info-badges-{{ section.id }} {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .flexair-info-stock-{{ section.id }} {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    display: inline-block;
+  }
+  .flexair-info-stock-in-{{ section.id }} {
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  .flexair-info-stock-out-{{ section.id }} {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+  .flexair-qty-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .flexair-qty-label-{{ section.id }} {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+  .flexair-qty-input-{{ section.id }} {
+    width: 80px;
+    padding: 12px;
+    border: 1px solid #D4CEC6;
+    background: #fff;
+    font-size: 16px;
+    text-align: center;
+  }
+  .flexair-add-{{ section.id }} {
+    width: 100%;
+    padding: 20px;
+    background: #1A1816;
+    color: #F7F4F0;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .flexair-add-{{ section.id }}:hover {
+    background: #2A2826;
+  }
+  .flexair-add-{{ section.id }}:disabled {
+    background: #8A8279;
+    cursor: not-allowed;
+  }
+  .flexair-payment-buttons-{{ section.id }} {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .flexair-payment-buttons-{{ section.id }} .shopify-payment-button {
+    width: 100%;
+  }
+  .flexair-payment-buttons-{{ section.id }} .shopify-payment-button__button {
+    width: 100%;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #D4CEC6;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+    text-align: center;
+  }
+  .flexair-features-{{ section.id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .flexair-features-{{ section.id }} li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1A1816;
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .flexair-features-{{ section.id }} li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #8A8279;
+  }
+  /* Lightbox */
+  .flexair-lightbox-{{ section.id }} {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .flexair-lightbox-{{ section.id }}.active {
+    display: flex;
+  }
+  .flexair-lightbox-{{ section.id }} img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  .flexair-lightbox-close-{{ section.id }} {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width: 768px) {
+    .flexair-product-{{ section.id }} {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .flexair-gallery-{{ section.id }} {
+      position: static;
+    }
+    .flexair-info-title-{{ section.id }} {
+      font-size: 28px;
+    }
+    .flexair-info-price-{{ section.id }} {
+      font-size: 24px;
+    }
+    .flexair-info-badges-{{ section.id }} {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <!-- Breadcrumb Navigation -->
+  <nav class="flexair-breadcrumb-{{ section.id }}" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span>/</span>
+    <a href="/collections/all">Products</a>
+    <span>/</span>
+    <a href="/collections/reformers">Reformers</a>
+    <span>/</span>
+    <span style="color:#1A1816">{{ p.title | default: 'Sensol FLEX AIR' }}</span>
+  </nav>
+
+  <div class="flexair-product-{{ section.id }}">
+    <div class="flexair-gallery-{{ section.id }}">
+      <div class="flexair-gallery-main-{{ section.id }}" id="flexairMainImage-{{ section.id }}">
+        {%- if p.featured_image -%}
+          {{ p.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', id: 'flexairMainImg' }}
+        {%- else -%}
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279">No image</div>
+        {%- endif -%}
+      </div>
+      {%- if p.images.size > 1 -%}
+        <div class="flexair-gallery-thumbs-{{ section.id }}">
+          {%- for img in p.images limit: 4 -%}
+            <div class="flexair-gallery-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" data-image="{{ img | image_url: width: 1200 }}">
+              {{ img | image_url: width: 300 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="flexair-info-{{ section.id }}">
+      <div class="flexair-info-brand-{{ section.id }}">SENSOL FITNESS</div>
+      <h1 class="flexair-info-title-{{ section.id }}">{{ p.title | default: 'Sensol FLEX AIR' }}</h1>
+      <div class="flexair-info-subtitle-{{ section.id }}">{{ section.settings.subtitle | default: 'Your Pilates Journey Starts Here' }}</div>
+      
+      <!-- Judge.me Review Stars -->
+      <div class="flexair-info-reviews-{{ section.id }}">
+        <span class="flexair-info-stars-{{ section.id }}">★★★★★</span>
+        <span>4.8 (89 reviews)</span>
+      </div>
+      
+      <div class="flexair-info-model-{{ section.id }}">{{ section.settings.model_info | default: 'Model FLEX AIR / Smart Folding Reformer · SKU: SNSL-FLEX-AIR-AU' }}</div>
+
+      <div class="flexair-info-price-{{ section.id }}">
+        {%- if p.compare_at_price > p.price -%}
+          <s>{{ p.compare_at_price | money }}</s>
+        {%- endif -%}
+        {{ p.price | money }} AUD
+      </div>
+      <div class="flexair-info-afterpay-{{ section.id }}">or 4 interest-free payments of {{ p.price | divided_by: 4 | money }} with Afterpay</div>
+
+      <div class="flexair-info-badges-{{ section.id }}">
+        <span>LIFETIME WARRANTY</span>
+        <span>FREE DOMESTIC SHIPPING</span>
+        <span>30-DAY MONEY-BACK</span>
+      </div>
+
+      {%- if p.available -%}
+        <div class="flexair-info-stock-{{ section.id }} flexair-info-stock-in-{{ section.id }}">In Stock</div>
+      {%- else -%}
+        <div class="flexair-info-stock-{{ section.id }} flexair-info-stock-out-{{ section.id }}">Sold Out</div>
+      {%- endif -%}
+
+      {%- form 'product', p, id: 'product-form-' -%}
+        <div class="flexair-qty-{{ section.id }}">
+          <label class="flexair-qty-label-{{ section.id }}" for="Quantity-{{ section.id }}">Quantity</label>
+          <input class="flexair-qty-input-{{ section.id }}" type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1">
+        </div>
+
+        <button class="flexair-add-{{ section.id }}" type="submit" name="add" {%- unless p.available -%}disabled{%- endunless -%}>
+          {%- if p.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+        </button>
+        
+        <!-- Dynamic Payment Buttons -->
+        <div class="flexair-payment-buttons-{{ section.id }}">
+          {{ form | payment_button }}
+        </div>
+      {%- endform -%}
+
+      <ul class="flexair-features-{{ section.id }}">
+        <li>Foldable frame · 165 cm folded · 0.2 m² upright storage</li>
+        <li>Dual-level elastic band resistance · 60 kg max load</li>
+        <li>750W servo motor · 0.5 kg precision increments</li>
+        <li>Free Vesta Sensol App — 300+ classes, no subscription</li>
+        <li>Dual-function: Pilates + strength training</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="flexair-lightbox-{{ section.id }}" id="flexairLightbox-{{ section.id }}">
+  <button class="flexair-lightbox-close-{{ section.id }}" id="flexairLightboxClose-{{ section.id }}">×</button>
+  <img src="" alt="Product image" id="flexairLightboxImg-{{ section.id }}">
+</div>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var mainImg = document.getElementById('flexairMainImg');
+  var mainContainer = document.getElementById('flexairMainImage-' + sectionId);
+  var thumbs = document.querySelectorAll('.flexair-gallery-thumb-' + sectionId);
+  var lightbox = document.getElementById('flexairLightbox-' + sectionId);
+  var lightboxImg = document.getElementById('flexairLightboxImg-' + sectionId);
+  var lightboxClose = document.getElementById('flexairLightboxClose-' + sectionId);
+
+  // Thumbnail click - switch main image
+  thumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var newSrc = this.getAttribute('data-image');
+      if (mainImg && newSrc) {
+        mainImg.src = newSrc;
+      }
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // Main image click - open lightbox
+  if (mainContainer && mainImg) {
+    mainContainer.addEventListener('click', function() {
+      lightboxImg.src = mainImg.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // Close lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+  if (lightbox) {
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sensol FLEX AIR Landing",
+  "tag": "section",
+  "class": "flexair-landing-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product Landing Section"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Your Pilates Journey Starts Here"
+    },
+    {
+      "type": "text",
+      "id": "model_info",
+      "label": "Model Info",
+      "default": "Model FLEX AIR / Smart Folding Reformer · SKU: SNSL-FLEX-AIR-AU"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sensol FLEX AIR Landing"
+    }
+  ]
+}
+{% endschema %}
