@@ -42,7 +42,7 @@
     max-width: 1400px; margin: 0 auto;
     padding: 0 40px 80px;
     display: grid;
-    grid-template-columns: repeat({{ section.settings.columns | default: 4 }}, 1fr);
+    grid-template-columns: repeat({{ grid_cols | default: section.settings.columns | default: 4 }}, 1fr);
     gap: 32px 28px;
   }
   .sc-grid-{{ section.id }}__products .sc-card-{{ section.id }}.is-hidden { display: none; }
@@ -128,8 +128,28 @@
   }
 {%- endstyle -%}
 
+{%- assign grid_show_tabs = section.settings.show_filter_tabs -%}
+{%- assign grid_cols = section.settings.columns | default: 4 -%}
+{%- assign grid_label = section.settings.grid_label -%}
+{%- if grid_label == blank -%}{%- assign grid_label = collection.title -%}{%- endif -%}
+
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign grid_show_tabs = false -%}
+    {%- assign grid_cols = 4 -%}
+    {%- assign grid_label = 'Smart Series' -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign grid_show_tabs = false -%}
+    {%- assign grid_cols = 3 -%}
+    {%- assign grid_label = 'Mechanical Series' -%}
+  {%- when 'flex-series' -%}
+    {%- assign grid_show_tabs = false -%}
+    {%- assign grid_cols = 2 -%}
+    {%- assign grid_label = 'Flex Collection' -%}
+{%- endcase -%}
+
 <section class="sc-grid-{{ section.id }}">
-  {%- if section.settings.show_filter_tabs -%}
+  {%- if grid_show_tabs -%}
   <div class="sc-grid-{{ section.id }}__filter-bar">
     <div class="sc-grid-{{ section.id }}__tabs" id="sc-tabs-{{ section.id }}">
       <button class="sc-grid-{{ section.id }}__tab is-active" data-filter="all">All Products <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></button>
@@ -140,7 +160,7 @@
   {%- else -%}
   <div class="sc-grid-{{ section.id }}__filter-bar">
     <div class="sc-grid-{{ section.id }}__tabs" style="border-bottom: none;">
-      <span class="sc-grid-{{ section.id }}__tab is-active" style="cursor: default;">{{ section.settings.grid_label | default: collection.title }} <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></span>
+      <span class="sc-grid-{{ section.id }}__tab is-active" style="cursor: default;">{{ grid_label }} <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></span>
     </div>
   </div>
   {%- endif -%}

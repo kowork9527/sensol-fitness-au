@@ -24,12 +24,24 @@
   }
 {%- endstyle -%}
 
+{%- assign content_should_render = true -%}
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign content_should_render = false -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign content_should_render = false -%}
+  {%- when 'flex-series' -%}
+    {%- assign content_should_render = false -%}
+{%- endcase -%}
+
+{%- if content_should_render -%}
 <section class="sc-content-{{ section.id }}">
   <div class="sc-content-{{ section.id }}__inner">
     <h2 class="sc-content-{{ section.id }}__title">{{ section.settings.title }}</h2>
     <p class="sc-content-{{ section.id }}__text">{{ section.settings.text }}</p>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

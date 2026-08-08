@@ -118,6 +118,21 @@
   }
 {%- endstyle -%}
 
+{%- comment -%} Auto-detect: only render spotlight on relevant collection pages {%- endcomment -%}
+{%- assign spot_should_render = true -%}
+{%- assign spot_is_smart = false -%}
+{%- if section.settings.title contains 'Smart' -%}{%- assign spot_is_smart = true -%}{%- endif -%}
+
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- unless spot_is_smart -%}{%- assign spot_should_render = false -%}{%- endunless -%}
+  {%- when 'mechanical-series' -%}
+    {%- if spot_is_smart -%}{%- assign spot_should_render = false -%}{%- endif -%}
+  {%- when 'flex-series' -%}
+    {%- assign spot_should_render = false -%}
+{%- endcase -%}
+
+{%- if spot_should_render -%}
 <section class="sc-spot-{{ section.id }}">
   <div class="sc-spot-{{ section.id }}__inner">
     <div class="sc-spot-{{ section.id }}__content">
@@ -148,6 +163,7 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

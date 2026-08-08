@@ -32,10 +32,29 @@
   }
 {%- endstyle -%}
 
+{%- assign hero_eyebrow = section.settings.eyebrow -%}
+{%- assign hero_title = section.settings.title -%}
+{%- assign hero_subtitle = section.settings.subtitle -%}
+
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign hero_eyebrow = 'Series 01' -%}
+    {%- assign hero_title = 'Smart Series' -%}
+    {%- assign hero_subtitle = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.' -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign hero_eyebrow = 'Series 02' -%}
+    {%- assign hero_title = 'Mechanical Series' -%}
+    {%- assign hero_subtitle = 'Elastic band and spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.' -%}
+  {%- when 'flex-series' -%}
+    {%- assign hero_eyebrow = 'Mechanical Series' -%}
+    {%- assign hero_title = 'Flex Collection' -%}
+    {%- assign hero_subtitle = 'Foldable, lightweight reformers with elastic band resistance. Designed for home practice where space is at a premium.' -%}
+{%- endcase -%}
+
 <section class="sc-hero-{{ section.id }}">
-  <p class="sc-hero-{{ section.id }}__eyebrow">{{ section.settings.eyebrow }}</p>
-  <h1 class="sc-hero-{{ section.id }}__title">{{ section.settings.title }}</h1>
-  <p class="sc-hero-{{ section.id }}__subtitle">{{ section.settings.subtitle }}</p>
+  <p class="sc-hero-{{ section.id }}__eyebrow">{{ hero_eyebrow }}</p>
+  <h1 class="sc-hero-{{ section.id }}__title">{{ hero_title }}</h1>
+  <p class="sc-hero-{{ section.id }}__subtitle">{{ hero_subtitle }}</p>
   <div class="sc-hero-{{ section.id }}__divider"></div>
 </section>
 

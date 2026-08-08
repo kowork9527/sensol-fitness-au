@@ -31,26 +31,53 @@
   }
 {%- endstyle -%}
 
+{%- assign s1n = section.settings.stat1_num -%}
+{%- assign s1l = section.settings.stat1_label -%}
+{%- assign s2n = section.settings.stat2_num -%}
+{%- assign s2l = section.settings.stat2_label -%}
+{%- assign s3n = section.settings.stat3_num -%}
+{%- assign s3l = section.settings.stat3_label -%}
+{%- assign s4n = section.settings.stat4_num -%}
+{%- assign s4l = section.settings.stat4_label -%}
+
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign s1n = '4' -%}{%- assign s1l = 'Products' -%}
+    {%- assign s2n = '0.5 kg' -%}{%- assign s2l = 'Precision' -%}
+    {%- assign s3n = '$2,900-$4,100' -%}{%- assign s3l = 'Price Range AUD' -%}
+    {%- assign s4n = '200+' -%}{%- assign s4l = 'Movements' -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign s1n = '3' -%}{%- assign s1l = 'Products' -%}
+    {%- assign s2n = '0.2 m2' -%}{%- assign s2l = 'Storage Folded' -%}
+    {%- assign s3n = '$950-$2,600' -%}{%- assign s3l = 'Price Range AUD' -%}
+    {%- assign s4n = '25 kg' -%}{%- assign s4l = 'Lightest Weight' -%}
+  {%- when 'flex-series' -%}
+    {%- assign s1n = '2' -%}{%- assign s1l = 'Products' -%}
+    {%- assign s2n = '0.2 m2' -%}{%- assign s2l = 'Storage Folded' -%}
+    {%- assign s3n = '$950-$1,750' -%}{%- assign s3l = 'Price Range AUD' -%}
+    {%- assign s4n = '25 kg' -%}{%- assign s4l = 'Lightest Weight' -%}
+{%- endcase -%}
+
 <section class="sc-stats-{{ section.id }}">
   <div class="sc-stats-{{ section.id }}__inner">
     <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat1_num }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat1_label }}</p>
+      <p class="sc-stats-{{ section.id }}__num">{{ s1n }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ s1l }}</p>
     </div>
     <div class="sc-stats-{{ section.id }}__divider"></div>
     <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat2_num }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat2_label }}</p>
+      <p class="sc-stats-{{ section.id }}__num">{{ s2n }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ s2l }}</p>
     </div>
     <div class="sc-stats-{{ section.id }}__divider"></div>
     <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat3_num }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat3_label }}</p>
+      <p class="sc-stats-{{ section.id }}__num">{{ s3n }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ s3l }}</p>
     </div>
     <div class="sc-stats-{{ section.id }}__divider"></div>
     <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ section.settings.stat4_num }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ section.settings.stat4_label }}</p>
+      <p class="sc-stats-{{ section.id }}__num">{{ s4n }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ s4l }}</p>
     </div>
   </div>
 </section>
