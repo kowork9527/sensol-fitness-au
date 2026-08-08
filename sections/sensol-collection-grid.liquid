@@ -42,7 +42,7 @@
     max-width: 1400px; margin: 0 auto;
     padding: 0 40px 80px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat({{ section.settings.columns | default: 4 }}, 1fr);
     gap: 32px 28px;
   }
   .sc-grid-{{ section.id }}__products .sc-card-{{ section.id }}.is-hidden { display: none; }
@@ -124,11 +124,12 @@
     .sc-grid-{{ section.id }}__products { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; padding: 0 20px 60px; }
   }
   @media screen and (max-width: 480px) {
-    .sc-grid-{{ section.id }}__products { grid-template-columns: 1fr; }
+    .sc-grid-{{ section.id }}__products { grid-template-columns: {{ section.settings.columns_mobile | default: 1 }}; }
   }
 {%- endstyle -%}
 
 <section class="sc-grid-{{ section.id }}">
+  {%- if section.settings.show_filter_tabs -%}
   <div class="sc-grid-{{ section.id }}__filter-bar">
     <div class="sc-grid-{{ section.id }}__tabs" id="sc-tabs-{{ section.id }}">
       <button class="sc-grid-{{ section.id }}__tab is-active" data-filter="all">All Products <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></button>
@@ -136,6 +137,13 @@
       <button class="sc-grid-{{ section.id }}__tab" data-filter="mechanical">Mechanical Series <span class="sc-grid-{{ section.id }}__tab-count">{{ section.settings.mech_count | default: '03' }}</span></button>
     </div>
   </div>
+  {%- else -%}
+  <div class="sc-grid-{{ section.id }}__filter-bar">
+    <div class="sc-grid-{{ section.id }}__tabs" style="border-bottom: none;">
+      <span class="sc-grid-{{ section.id }}__tab is-active" style="cursor: default;">{{ section.settings.grid_label | default: collection.title }} <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></span>
+    </div>
+  </div>
+  {%- endif -%}
 
   <div class="sc-grid-{{ section.id }}__products" id="sc-grid-products-{{ section.id }}">
     {%- for product in collection.products -%}
@@ -208,6 +216,10 @@
   "tag": "section",
   "class": "sensol-collection-grid",
   "settings": [
+    { "type": "checkbox", "id": "show_filter_tabs", "label": "Show Filter Tabs", "default": true },
+    { "type": "text", "id": "grid_label", "label": "Grid Label (when tabs hidden)", "default": "" },
+    { "type": "range", "id": "columns", "label": "Desktop Columns", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "range", "id": "columns_mobile", "label": "Mobile Columns", "min": 1, "max": 2, "step": 1, "default": 1 },
     { "type": "text", "id": "smart_count", "label": "Smart Series Count", "default": "04" },
     { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "03" }
   ]
