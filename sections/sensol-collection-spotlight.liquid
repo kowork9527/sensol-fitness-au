@@ -118,7 +118,7 @@
   }
 {%- endstyle -%}
 
-{%- assign spot_show = true -%}
+{%- assign spot_hide = '' -%}
 {%- assign spot_is_smart = true -%}
 {%- if section.settings.dark_bg -%}
   {%- assign spot_is_smart = false -%}
@@ -126,19 +126,18 @@
 
 {%- case collection.handle -%}
   {%- when 'flex-series' -%}
-    {%- assign spot_show = false -%}
+    {%- assign spot_hide = 'display:none;' -%}
 {%- endcase -%}
 
 {%- if collection.handle == 'smart-series' and section.settings.dark_bg -%}
-  {%- assign spot_show = false -%}
+  {%- assign spot_hide = 'display:none;' -%}
 {%- endif -%}
 
 {%- if collection.handle == 'mechanical-series' and spot_is_smart -%}
-  {%- assign spot_show = false -%}
+  {%- assign spot_hide = 'display:none;' -%}
 {%- endif -%}
 
-{%- if spot_show -%}
-<section class="sc-spot-{{ section.id }}">
+<section class="sc-spot-{{ section.id }}" style="{{ spot_hide }}">
   <div class="sc-spot-{{ section.id }}__inner">
     <div class="sc-spot-{{ section.id }}__content">
       <p class="sc-spot-{{ section.id }}__label">{{ section.settings.label }}</p>
@@ -168,7 +167,6 @@
     </div>
   </div>
 </section>
-{%- endif -%}
 
 {% schema %}
 {
