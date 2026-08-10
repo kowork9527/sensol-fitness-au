@@ -16,34 +16,6 @@
         "mech_count": "03"
       }
     },
-    "smart-spotlight": {
-      "type": "sensol-spotlight",
-      "settings": {
-        "dark_bg": false,
-        "image_position": "right",
-        "label": "Series 01",
-        "title": "Smart Series",
-        "description": "Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.",
-        "feature_1": "Digital weight control - 0.5 kg increments",
-        "feature_2": "Dual-function: Pilates + Strength training",
-        "feature_3": "Servo motor driven resistance system",
-        "feature_4": "Vesta Sensol App with AI coaching"
-      }
-    },
-    "mech-spotlight": {
-      "type": "sensol-spotlight",
-      "settings": {
-        "dark_bg": true,
-        "image_position": "left",
-        "label": "Series 02",
-        "title": "Mechanical Series",
-        "description": "Elastic band and spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly.",
-        "feature_1": "Elastic band & spring resistance system",
-        "feature_2": "Foldable design - 0.2 m2 storage",
-        "feature_3": "Lightweight: from 25 kg",
-        "feature_4": "Full Vesta Sensol App compatibility"
-      }
-    },
     "stats": {
       "type": "sensol-collection-stats",
       "settings": {
@@ -68,8 +40,6 @@
   "order": [
     "hero",
     "main-grid",
-    "smart-spotlight",
-    "mech-spotlight",
     "stats",
     "bottom-content"
   ]
