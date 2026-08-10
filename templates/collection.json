@@ -25,7 +25,7 @@
       }
     },
     "smart-spotlight": {
-      "type": "sensol-collection-spotlight",
+      "type": "sensol-spotlight",
       "settings": {
         "dark_bg": false,
         "image_position": "right",
@@ -39,7 +39,7 @@
       }
     },
     "mech-spotlight": {
-      "type": "sensol-collection-spotlight",
+      "type": "sensol-spotlight",
       "settings": {
         "dark_bg": true,
         "image_position": "left",
