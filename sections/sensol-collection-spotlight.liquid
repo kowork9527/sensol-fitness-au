@@ -118,20 +118,16 @@
   }
 {%- endstyle -%}
 
-{%- assign spot_should_render = true -%}
-{%- assign spot_is_smart = false -%}
-{%- if section.settings.title contains 'Smart' -%}{%- assign spot_is_smart = true -%}{%- endif -%}
+{%- assign spot_show = true -%}
+{%- if collection.handle == 'smart-series' -%}
+  {%- if section.settings.dark_bg -%}{%- assign spot_show = false -%}{%- endif -%}
+{%- elsif collection.handle == 'mechanical-series' -%}
+  {%- unless section.settings.dark_bg -%}{%- assign spot_show = false -%}{%- endunless -%}
+{%- elsif collection.handle == 'flex-series' -%}
+  {%- assign spot_show = false -%}
+{%- endif -%}
 
-{%- case collection.handle -%}
-  {%- when 'smart-series' -%}
-    {%- if spot_is_smart == false -%}{%- assign spot_should_render = false -%}{%- endif -%}
-  {%- when 'mechanical-series' -%}
-    {%- if spot_is_smart == true -%}{%- assign spot_should_render = false -%}{%- endif -%}
-  {%- when 'flex-series' -%}
-    {%- assign spot_should_render = false -%}
-{%- endcase -%}
-
-{%- if spot_should_render -%}
+{%- if spot_show -%}
 <section class="sc-spot-{{ section.id }}">
   <div class="sc-spot-{{ section.id }}__inner">
     <div class="sc-spot-{{ section.id }}__content">
