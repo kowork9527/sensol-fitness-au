@@ -111,3 +111,7 @@ pnpm-lock.yaml
 postcss.config.mjs
 stylelint.config.mjs
 tsconfig.json
+
+# Prevent accidental screenshot commits
+assets/image_2026*.png
+assets/screenshot*.png
