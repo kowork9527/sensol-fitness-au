@@ -118,16 +118,15 @@
   }
 {%- endstyle -%}
 
-{%- comment -%} Auto-detect: only render spotlight on relevant collection pages {%- endcomment -%}
 {%- assign spot_should_render = true -%}
 {%- assign spot_is_smart = false -%}
 {%- if section.settings.title contains 'Smart' -%}{%- assign spot_is_smart = true -%}{%- endif -%}
 
 {%- case collection.handle -%}
   {%- when 'smart-series' -%}
-    {%- unless spot_is_smart -%}{%- assign spot_should_render = false -%}{%- endunless -%}
+    {%- if spot_is_smart == false -%}{%- assign spot_should_render = false -%}{%- endif -%}
   {%- when 'mechanical-series' -%}
-    {%- if spot_is_smart -%}{%- assign spot_should_render = false -%}{%- endif -%}
+    {%- if spot_is_smart == true -%}{%- assign spot_should_render = false -%}{%- endif -%}
   {%- when 'flex-series' -%}
     {%- assign spot_should_render = false -%}
 {%- endcase -%}
