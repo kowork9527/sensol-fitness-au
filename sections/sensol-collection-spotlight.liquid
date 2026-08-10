@@ -119,11 +119,21 @@
 {%- endstyle -%}
 
 {%- assign spot_show = true -%}
-{%- if collection.handle == 'smart-series' -%}
-  {%- if section.settings.dark_bg -%}{%- assign spot_show = false -%}{%- endif -%}
-{%- elsif collection.handle == 'mechanical-series' -%}
-  {%- unless section.settings.dark_bg -%}{%- assign spot_show = false -%}{%- endunless -%}
-{%- elsif collection.handle == 'flex-series' -%}
+{%- assign spot_is_smart = true -%}
+{%- if section.settings.dark_bg -%}
+  {%- assign spot_is_smart = false -%}
+{%- endif -%}
+
+{%- case collection.handle -%}
+  {%- when 'flex-series' -%}
+    {%- assign spot_show = false -%}
+{%- endcase -%}
+
+{%- if collection.handle == 'smart-series' and section.settings.dark_bg -%}
+  {%- assign spot_show = false -%}
+{%- endif -%}
+
+{%- if collection.handle == 'mechanical-series' and spot_is_smart -%}
   {%- assign spot_show = false -%}
 {%- endif -%}
 
