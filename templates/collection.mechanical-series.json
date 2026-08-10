@@ -1,0 +1,37 @@
+/* Mechanical Series template - only mech spotlight, no filter tabs, no content */
+{
+  "sections": {
+    "hero": {
+      "type": "sensol-collection-hero",
+      "settings": {
+        "label": "Series 02",
+        "title": "Mechanical Series",
+        "description": "Elastic band and spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality."
+      }
+    },
+    "main-grid": {
+      "type": "sensol-collection-grid",
+      "settings": {
+        "smart_count": "4",
+        "mech_count": "3"
+      }
+    },
+    "spotlight-mech": {
+      "type": "sensol-spotlight-mech"
+    },
+    "stats": {
+      "type": "sensol-collection-stats",
+      "settings": {
+        "stat_1_value": "3",
+        "stat_1_label": "Products",
+        "stat_2_value": "0.2 m2",
+        "stat_2_label": "Storage Folded",
+        "stat_3_value": "$950-$2,600",
+        "stat_3_label": "Price Range AUD",
+        "stat_4_value": "25 kg",
+        "stat_4_label": "Lightest Weight"
+      }
+    }
+  },
+  "order": ["hero", "main-grid", "spotlight-mech", "stats"]
+}

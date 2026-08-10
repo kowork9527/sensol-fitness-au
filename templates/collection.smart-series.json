@@ -1,0 +1,37 @@
+/* Smart Series template - only smart spotlight, no filter tabs, no content */
+{
+  "sections": {
+    "hero": {
+      "type": "sensol-collection-hero",
+      "settings": {
+        "label": "Series 01",
+        "title": "Smart Series",
+        "description": "Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching."
+      }
+    },
+    "main-grid": {
+      "type": "sensol-collection-grid",
+      "settings": {
+        "smart_count": "4",
+        "mech_count": "3"
+      }
+    },
+    "spotlight-smart": {
+      "type": "sensol-spotlight-smart"
+    },
+    "stats": {
+      "type": "sensol-collection-stats",
+      "settings": {
+        "stat_1_value": "4",
+        "stat_1_label": "Products",
+        "stat_2_value": "0.5 kg",
+        "stat_2_label": "Precision",
+        "stat_3_value": "$2,900-$4,100",
+        "stat_3_label": "Price Range AUD",
+        "stat_4_value": "200+",
+        "stat_4_label": "Movements"
+      }
+    }
+  },
+  "order": ["hero", "main-grid", "spotlight-smart", "stats"]
+}

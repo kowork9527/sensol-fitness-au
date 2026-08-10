@@ -1,0 +1,34 @@
+/* Flex Series template - no spotlights, no filter tabs, no content */
+{
+  "sections": {
+    "hero": {
+      "type": "sensol-collection-hero",
+      "settings": {
+        "label": "Mechanical Series",
+        "title": "Flex Collection",
+        "description": "Foldable, lightweight reformers with elastic band resistance. Designed for home practice where space is at a premium."
+      }
+    },
+    "main-grid": {
+      "type": "sensol-collection-grid",
+      "settings": {
+        "smart_count": "4",
+        "mech_count": "3"
+      }
+    },
+    "stats": {
+      "type": "sensol-collection-stats",
+      "settings": {
+        "stat_1_value": "2",
+        "stat_1_label": "Products",
+        "stat_2_value": "0.2 m2",
+        "stat_2_label": "Storage Folded",
+        "stat_3_value": "$950-$1,750",
+        "stat_3_label": "Price Range AUD",
+        "stat_4_value": "25 kg",
+        "stat_4_label": "Lightest Weight"
+      }
+    }
+  },
+  "order": ["hero", "main-grid", "stats"]
+}
