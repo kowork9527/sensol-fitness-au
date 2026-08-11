@@ -5,7 +5,8 @@
       "settings": {
         "eyebrow": "2026 Collection",
         "title": "All Reformers",
-        "subtitle": "Seven machines engineered for precision strength and Pilates training at home. Filter by series to find your match."
+        "subtitle": "Seven machines engineered for precision strength and Pilates training at home. Filter by series to find your match.",
+        "_cache_bust": "1"
       }
     },
     "main-grid": {
@@ -35,8 +36,8 @@
   },
   "order": [
     "hero",
-    "spotlight",
     "main-grid",
+    "spotlight",
     "stats",
     "bottom-content"
   ]
