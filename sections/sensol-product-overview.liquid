@@ -1,0 +1,88 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+#shopify-section-{{ section.id }}.sp-overview{font-family:'Inter',sans-serif;background:{{ s.background }};color:{{ s.text_color }};padding:160px 20px 120px}
+#shopify-section-{{ section.id }} .sp-overview__inner{max-width:1200px;margin:0 auto}
+#shopify-section-{{ section.id }} .sp-overview__eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:{{ s.accent_color }};margin-bottom:24px;text-align:center}
+#shopify-section-{{ section.id }} .sp-overview__title{font-size:clamp(36px,5vw,64px);font-weight:200;letter-spacing:0.04em;line-height:1.1;margin:0 auto 32px;max-width:900px;text-align:center}
+#shopify-section-{{ section.id }} .sp-overview__text{font-size:16px;line-height:1.8;margin:0 auto 64px;max-width:780px;text-align:center;color:{{ s.text_color }};opacity:0.85}
+#shopify-section-{{ section.id }} .sp-overview__stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid {{ s.divider_color }};border-bottom:1px solid {{ s.divider_color }};margin:0 auto;max-width:1100px}
+#shopify-section-{{ section.id }} .sp-overview__stat{padding:48px 24px;text-align:center;border-right:1px solid {{ s.divider_color }}}
+#shopify-section-{{ section.id }} .sp-overview__stat:last-child{border-right:none}
+#shopify-section-{{ section.id }} .sp-overview__stat-num{font-size:clamp(36px,5vw,56px);font-weight:200;line-height:1;letter-spacing:0.02em;margin-bottom:16px}
+#shopify-section-{{ section.id }} .sp-overview__stat-label{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:{{ s.accent_color }}}
+@media(max-width:768px){
+  #shopify-section-{{ section.id }}.sp-overview{padding:64px 20px}
+  #shopify-section-{{ section.id }} .sp-overview__stats{grid-template-columns:repeat(2,1fr)}
+  #shopify-section-{{ section.id }} .sp-overview__stat:nth-child(2){border-right:none}
+  #shopify-section-{{ section.id }} .sp-overview__stat:nth-child(1),#shopify-section-{{ section.id }} .sp-overview__stat:nth-child(2){border-bottom:1px solid {{ s.divider_color }}}
+  #shopify-section-{{ section.id }} .sp-overview__stat{padding:32px 16px}
+}
+</style>
+
+<section class="sp-overview">
+  <div class="sp-overview__inner">
+    {%- if s.eyebrow != blank -%}
+    <div class="sp-overview__eyebrow">{{ s.eyebrow }}</div>
+    {%- endif -%}
+    {%- if s.title != blank -%}
+    <h2 class="sp-overview__title">{{ s.title }}</h2>
+    {%- endif -%}
+    {%- if s.text != blank -%}
+    <p class="sp-overview__text">{{ s.text }}</p>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+    <div class="sp-overview__stats">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+        <div class="sp-overview__stat" {{ block.shopify_attributes }}>
+          <div class="sp-overview__stat-num">{{ block.settings.number }}</div>
+          <div class="sp-overview__stat-label">{{ block.settings.label }}</div>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP Product Overview",
+  "tag": "section",
+  "class": "sp-overview-section",
+  "settings": [
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#F7F4F0" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#1A1816" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#8A8279" },
+    { "type": "color", "id": "divider_color", "label": "Divider color", "default": "#D4CEC6" },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Product Overview" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Double the Power. Twice the Possibility." },
+    { "type": "textarea", "id": "text", "label": "Intro text" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "3000W" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Combined motor output" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Product Overview",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "3000W", "label": "Combined motor output" } },
+        { "type": "stat", "settings": { "number": "120 kg", "label": "Max resistance" } },
+        { "type": "stat", "settings": { "number": "0.5 kg", "label": "Adjustment precision" } },
+        { "type": "stat", "settings": { "number": "200+", "label": "Movements" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

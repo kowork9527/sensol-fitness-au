@@ -1,0 +1,225 @@
+<section class="sensol-senzine-section">
+  <div class="sensol-senzine">
+    <!-- Main grid: 7/5 — matching Next.js: md:col-span-7 / md:col-span-5 -->
+    <div class="sensol-senzine__main">
+      <div class="sensol-senzine__image-col">
+        {%- if section.settings.main_image != blank -%}
+        <img class="sensol-senzine__image" src="{{ section.settings.main_image | image_url: width: 1600 }}" alt="SENZINE Publication" loading="lazy" width="1600" height="1000">
+        {%- else -%}
+        <img class="sensol-senzine__image" src="{{ 'section-2.webp' | asset_url }}" alt="SENZINE Publication" loading="lazy" width="1600" height="1000">
+        {%- endif -%}
+      </div>
+      <div class="sensol-senzine__text-col">
+        <p class="sensol-senzine__label">{{ section.settings.label }}</p>
+        <h2 class="sensol-senzine__title">{{ section.settings.title }}</h2>
+        <div class="sensol-senzine__desc-wrap">
+          <p class="sensol-senzine__desc">{{ section.settings.desc1 }}</p>
+          <p class="sensol-senzine__desc">{{ section.settings.desc2 }}</p>
+        </div>
+        <a href="{{ section.settings.cta_link }}" class="sensol-senzine__btn">{{ section.settings.cta_text }}</a>
+      </div>
+    </div>
+
+    <!-- Secondary image row — matching Next.js: grid-cols-2 gap-[2px] md:gap-4 aspect-[16/9] -->
+    <div class="sensol-senzine__secondary">
+      <div class="sensol-senzine__secondary-item">
+        {%- if section.settings.secondary_image_1 != blank -%}
+        <img class="sensol-senzine__secondary-img" src="{{ section.settings.secondary_image_1 | image_url: width: 800 }}" alt="SENZINE detail" loading="lazy" width="800" height="450">
+        {%- else -%}
+        <img class="sensol-senzine__secondary-img" src="{{ 'editorial-1.webp' | asset_url }}" alt="SENZINE detail" loading="lazy" width="800" height="450">
+        {%- endif -%}
+      </div>
+      <div class="sensol-senzine__secondary-item">
+        {%- if section.settings.secondary_image_2 != blank -%}
+        <img class="sensol-senzine__secondary-img" src="{{ section.settings.secondary_image_2 | image_url: width: 800 }}" alt="Precision engineering detail" loading="lazy" width="800" height="450">
+        {%- else -%}
+        <img class="sensol-senzine__secondary-img" src="{{ 'editorial-2.webp' | asset_url }}" alt="Precision engineering detail" loading="lazy" width="800" height="450">
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Senzine",
+  "tag": "section",
+  "class": "sensol-senzine-section",
+  "settings": [
+    { "type": "image_picker", "id": "main_image", "label": "Main Image" },
+    { "type": "image_picker", "id": "secondary_image_1", "label": "Secondary Image 1" },
+    { "type": "image_picker", "id": "secondary_image_2", "label": "Secondary Image 2" },
+    { "type": "text", "id": "label", "label": "Label", "default": "Internal Publication" },
+    { "type": "text", "id": "title", "label": "Title", "default": "SENZINE" },
+    { "type": "textarea", "id": "desc1", "label": "Description 1", "default": "Senzine is Sensol's internal publication, distilling a single idea — control, resistance, stillness — into a tactile experience, designed to be felt as much as it is read." },
+    { "type": "textarea", "id": "desc2", "label": "Description 2", "default": "Released in quiet intervals, each issue carries a fragment of movement, a trace of scent, and a moment of attention." },
+    { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Join us" }
+  ],
+  "presets": [{ "name": "SENSOL Senzine" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Senzine — matching Next.js preview ===== */
+.sensol-senzine-section {
+  margin: 0;
+  padding: 0;
+  background: #F7F4F0;
+  border-top: 1px solid #D4CEC6;
+}
+
+.sensol-senzine {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine {
+    padding: 8rem 4rem;
+  }
+}
+
+/* Main Grid: 7/5 — matching Next.js: grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 */
+.sensol-senzine__main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine__main {
+    grid-template-columns: 7fr 5fr;
+    gap: 2rem;
+  }
+}
+
+/* Image — matching: aspect-[16/10] object-cover */
+.sensol-senzine__image-col {
+  overflow: hidden;
+}
+
+.sensol-senzine__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/10;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-senzine__image-col:hover .sensol-senzine__image {
+  transform: scale(1.03);
+}
+
+/* Text column */
+.sensol-senzine__text-col {
+  padding-top: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine__text-col {
+    padding-left: 2rem;
+    text-align: left;
+  }
+}
+
+/* Label — matching: text-[10px] tracking-brand-lg text-[#8A8279] uppercase mb-6 */
+.sensol-senzine__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1.5rem;
+}
+
+/* Title — matching: text-3xl md:text-4xl lg:text-5xl font-extralight tracking-wide */
+.sensol-senzine__title {
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1A1816;
+  margin-bottom: 2rem;
+  line-height: 1.15;
+}
+
+/* Description — matching: text-sm font-light leading-[1.9] max-w-sm */
+.sensol-senzine__desc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.sensol-senzine__desc {
+  font-size: 15px;
+  color: #8A8279;
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 24rem;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine__desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Button — matching: text-[10px] tracking-brand-lg uppercase text-[#F7F4F0] bg-[#1A1816] px-10 py-4 */
+.sensol-senzine__btn {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #F7F4F0;
+  background: #1A1816;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.sensol-senzine__btn:hover {
+  background: #2a2724;
+}
+
+/* Secondary Images — matching: grid-cols-2 gap-[2px] md:gap-4 */
+.sensol-senzine__secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-senzine__secondary {
+    gap: 1rem;
+  }
+}
+
+.sensol-senzine__secondary-item {
+  overflow: hidden;
+}
+
+.sensol-senzine__secondary-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-senzine__secondary-item:hover .sensol-senzine__secondary-img {
+  transform: scale(1.03);
+}
+{%- endstyle -%}

@@ -1,0 +1,268 @@
+<section class="sensol-products-section" id="collection">
+  <div class="sensol-products">
+    <!-- Header — matching Next.js: flex col/row, label above, title + view-all same row -->
+    <div class="sensol-products__header">
+      <p class="sensol-products__label">{{ section.settings.label }}</p>
+      <div class="sensol-products__header-row">
+        <h2 class="sensol-products__title">{{ section.settings.title }}</h2>
+        <a href="{{ section.settings.view_all_link }}" class="sensol-products__view-all">View all →</a>
+      </div>
+    </div>
+
+    <!-- 3 Product Cards -->
+    <div class="sensol-products__grid">
+      <!-- Product 1 -->
+      <a class="sensol-products__card" href="{{ section.settings.product1_url }}">
+        <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product1_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product1_image | image_url: width: 600 }}" alt="{{ section.settings.product1_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
+          <img class="sensol-products__card-img" src="{{ 'square-1.webp' | asset_url }}" alt="{{ section.settings.product1_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
+        </div>
+        <div class="sensol-products__card-info">
+          <p class="sensol-products__card-vendor">{{ section.settings.product1_vendor }}</p>
+          <p class="sensol-products__card-name">{{ section.settings.product1_name }}</p>
+          <p class="sensol-products__card-price">{{ section.settings.product1_price }}</p>
+        </div>
+      </a>
+
+      <!-- Product 2 -->
+      <a class="sensol-products__card" href="{{ section.settings.product2_url }}">
+        <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product2_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product2_image | image_url: width: 600 }}" alt="{{ section.settings.product2_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
+          <img class="sensol-products__card-img" src="{{ 'square-2.webp' | asset_url }}" alt="{{ section.settings.product2_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
+        </div>
+        <div class="sensol-products__card-info">
+          <p class="sensol-products__card-vendor">{{ section.settings.product2_vendor }}</p>
+          <p class="sensol-products__card-name">{{ section.settings.product2_name }}</p>
+          <p class="sensol-products__card-price">{{ section.settings.product2_price }}</p>
+        </div>
+      </a>
+
+      <!-- Product 3 -->
+      <a class="sensol-products__card" href="{{ section.settings.product3_url }}">
+        <div class="sensol-products__card-img-wrap">
+          {%- if section.settings.product3_image != blank -%}
+          <img class="sensol-products__card-img" src="{{ section.settings.product3_image | image_url: width: 600 }}" alt="{{ section.settings.product3_name | escape }}" loading="lazy" width="600" height="600">
+          {%- else -%}
+          <img class="sensol-products__card-img" src="{{ 'square-3.webp' | asset_url }}" alt="{{ section.settings.product3_name | escape }}" loading="lazy" width="600" height="600">
+          {%- endif -%}
+        </div>
+        <div class="sensol-products__card-info">
+          <p class="sensol-products__card-vendor">{{ section.settings.product3_vendor }}</p>
+          <p class="sensol-products__card-name">{{ section.settings.product3_name }}</p>
+          <p class="sensol-products__card-price">{{ section.settings.product3_price }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Products",
+  "tag": "section",
+  "class": "sensol-products-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "2026 Selection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Products" },
+    { "type": "url", "id": "view_all_link", "label": "View All Link", "default": "/collections/all" },
+    { "type": "image_picker", "id": "product1_image", "label": "Product 1 Image" },
+    { "type": "text", "id": "product1_vendor", "label": "Product 1 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product1_name", "label": "Product 1 Name", "default": "Sensol RS02" },
+    { "type": "text", "id": "product1_price", "label": "Product 1 Price", "default": "$2,000" },
+    { "type": "url", "id": "product1_url", "label": "Product 1 Link" },
+    { "type": "image_picker", "id": "product2_image", "label": "Product 2 Image" },
+    { "type": "text", "id": "product2_vendor", "label": "Product 2 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product2_name", "label": "Product 2 Name", "default": "Sensol RS02 PRO" },
+    { "type": "text", "id": "product2_price", "label": "Product 2 Price", "default": "$2,400" },
+    { "type": "url", "id": "product2_url", "label": "Product 2 Link" },
+    { "type": "image_picker", "id": "product3_image", "label": "Product 3 Image" },
+    { "type": "text", "id": "product3_vendor", "label": "Product 3 Vendor", "default": "sensol fitness" },
+    { "type": "text", "id": "product3_name", "label": "Product 3 Name", "default": "Sensol FLEX AIR" },
+    { "type": "text", "id": "product3_price", "label": "Product 3 Price", "default": "$650" },
+    { "type": "url", "id": "product3_url", "label": "Product 3 Link" }
+  ],
+  "presets": [{ "name": "SENSOL Products" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Products — matching Next.js preview ===== */
+.sensol-products-section {
+  margin: 0;
+  padding: 0;
+  background: #F7F4F0;
+  border-top: 1px solid #D4CEC6;
+}
+
+.sensol-products {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-products {
+    padding: 8rem 4rem;
+  }
+}
+
+/* Header — matching: flex flex-col md:flex-row md:items-end md:justify-between mb-16 md:mb-24 */
+.sensol-products__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+  }
+}
+
+.sensol-products__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1rem;
+}
+
+/* Header row — matching Next.js: flex items-end justify-between */
+.sensol-products__header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__header-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* Title — matching: text-3xl md:text-4xl lg:text-5xl font-extralight tracking-wide */
+.sensol-products__title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  color: #1A1816;
+  margin: 0;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+  }
+}
+
+/* View all — matching: link-underline text-[8A8279] text-[10px] tracking-brand uppercase */
+.sensol-products__view-all {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  text-decoration: none;
+  transition: color 0.3s;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__view-all {
+    margin-left: auto;
+  }
+}
+
+.sensol-products__view-all:hover {
+  color: #1A1816;
+}
+
+/* Grid — matching: grid-cols-1 md:grid-cols-3 gap-[1px] md:gap-8 */
+.sensol-products__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Card */
+.sensol-products__card {
+  cursor: pointer;
+  background: #F7F4F0;
+}
+
+.sensol-products__card-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #EDEAE5;
+  margin-bottom: 0;
+}
+
+.sensol-products__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-products__card:hover .sensol-products__card-img {
+  transform: scale(1.03);
+}
+
+/* Card info — matching: py-6 md:py-8 */
+.sensol-products__card-info {
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .sensol-products__card-info {
+    padding: 2rem 0;
+  }
+}
+
+.sensol-products__card-vendor {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-products__card-name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1A1816;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-products__card-price {
+  font-size: 15px;
+  font-weight: 300;
+  color: #8A8279;
+  letter-spacing: 0.05em;
+}
+{%- endstyle -%}

@@ -1,0 +1,152 @@
+<section class="sc-ship-dim-{{ section.id }}">
+  <div class="sc-ship-dim-{{ section.id }}__inner">
+    <div class="sc-ship-dim-{{ section.id }}__header">
+      <span class="sc-ship-dim-{{ section.id }}__num">04</span>
+      <div class="sc-ship-dim-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-dim-{{ section.id }}__title">Product Dimensions<br>&amp; Weight</h2>
+    <div class="sc-ship-dim-{{ section.id }}__table-wrap">
+      <table class="sc-ship-dim-{{ section.id }}__table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Dimensions (L &times; W &times; H)</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sensol FLEX AIR</strong></td>
+            <td>65" &times; 24" &times; 17"</td>
+            <td>55 lb (25 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol FLEX</strong></td>
+            <td>72.8" &times; 24.3" &times; 17.3"</td>
+            <td>70.5 lb (32 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol FLEX PRO</strong></td>
+            <td>75.6" &times; 25.2" &times; 17.8"</td>
+            <td>81.6 lb (37 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol RS02</strong></td>
+            <td>75" &times; 25" &times; 18"</td>
+            <td>100 lb (45 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol RS02 PRO</strong></td>
+            <td>75" &times; 25" &times; 18"</td>
+            <td>100 lb (45 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol RS03</strong></td>
+            <td>75" &times; 25" &times; 18"</td>
+            <td>100 lb (45 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Sensol RS03 PRO</strong></td>
+            <td>75" &times; 25" &times; 18"</td>
+            <td>100 lb (45 kg)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sc-ship-dim-{{ section.id }}__note">If you order more than one product, each item will be shipped separately with its own tracking number. We do not combine shipments for multiple orders.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping Dimensions",
+  "tag": "section",
+  "class": "sensol-shipping-dimensions-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Dimensions" }]
+}
+{% endschema %}
+
+{%- style -%}
+  .sc-ship-dim-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-dim-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 0;
+  }
+  .sc-ship-dim-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-dim-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-dim-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-dim-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+  .sc-ship-dim-{{ section.id }}__table-wrap {
+    overflow-x: auto;
+  }
+  .sc-ship-dim-{{ section.id }}__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .sc-ship-dim-{{ section.id }}__table thead {
+    border-bottom: 1px solid #1A1816;
+  }
+  .sc-ship-dim-{{ section.id }}__table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    padding: 0 0 1rem;
+  }
+  .sc-ship-dim-{{ section.id }}__table td {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #D4CEC6;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8A8279;
+    line-height: 1.5;
+  }
+  .sc-ship-dim-{{ section.id }}__table td strong {
+    color: #1A1816;
+    font-weight: 400;
+  }
+  .sc-ship-dim-{{ section.id }}__table tr:last-child td {
+    border-bottom: none;
+  }
+  .sc-ship-dim-{{ section.id }}__note {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+    margin-top: 2rem;
+    max-width: 700px;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-dim-{{ section.id }}__inner { padding: 4rem 1.5rem 0; }
+    .sc-ship-dim-{{ section.id }}__table td,
+    .sc-ship-dim-{{ section.id }}__table th { font-size: 13px; }
+  }
+{%- endstyle -%}

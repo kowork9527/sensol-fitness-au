@@ -1,0 +1,163 @@
+<section class="sensol-future-section">
+  <div class="sensol-future">
+    <!-- Label — matching Next.js: "Where strength meets pilates" -->
+    <p class="sensol-future__label">{{ section.settings.label }}</p>
+
+    <!-- Full-width image block — matching Next.js: separate image + overlay -->
+    <div class="sensol-future__image-wrap">
+      {%- if section.settings.image != blank -%}
+      <img class="sensol-future__img" src="{{ section.settings.image | image_url: width: 1920 }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="823">
+      {%- else -%}
+      <img class="sensol-future__img" src="{{ 'landscape-1.webp' | asset_url }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="823">
+      {%- endif -%}
+      <div class="sensol-future__image-overlay"></div>
+      <p class="sensol-future__image-label">Designed for modern living</p>
+    </div>
+
+    <!-- Centered headline + button — matching Next.js -->
+    <div class="sensol-future__content">
+      <h2 class="sensol-future__title">{{ section.settings.title }}</h2>
+      <a href="{{ section.settings.cta_link }}" class="sensol-future__btn">{{ section.settings.cta_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Future of Training",
+  "tag": "section",
+  "class": "sensol-future-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
+    { "type": "text", "id": "label", "label": "Label", "default": "Where strength meets pilates" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The Future Of Modern Training." },
+    { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop All" }
+  ],
+  "presets": [{ "name": "SENSOL Future of Training" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Future of Training — matching Next.js: image block + centered text ===== */
+.sensol-future-section {
+  margin: 0;
+  padding: 0;
+  background: #F7F4F0;
+}
+
+.sensol-future {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-future {
+    padding: 8rem 4rem;
+  }
+}
+
+/* Label — matching: text-[#8A8279] text-[10px] tracking-brand-lg uppercase mb-12 md:mb-16 */
+.sensol-future__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .sensol-future__label {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Image wrap — matching: relative overflow-hidden mb-12 md:mb-16 */
+.sensol-future__image-wrap {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-future__image-wrap {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Image — matching: w-full aspect-[21/9] object-cover */
+.sensol-future__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 21/9;
+}
+
+/* Overlay — matching: bg-gradient-to-t from-[#1A1816]/30 via-transparent to-transparent */
+.sensol-future__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,24,22,0.3), transparent, transparent);
+  pointer-events: none;
+}
+
+/* Image label — matching: absolute bottom-8 left-8 md:bottom-12 md:left-12 text-[#F7F4F0]/50 text-[9px] tracking-brand-lg uppercase */
+.sensol-future__image-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,244,240,0.5);
+}
+
+@media (min-width: 768px) {
+  .sensol-future__image-label {
+    bottom: 3rem;
+    left: 3rem;
+  }
+}
+
+/* Centered content — matching: text-center */
+.sensol-future__content {
+  text-align: center;
+}
+
+/* Title — matching: text-3xl md:text-4xl lg:text-5xl font-extralight tracking-wide */
+.sensol-future__title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  color: #1A1816;
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-future__title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+  }
+}
+
+/* Button — matching: text-[10px] tracking-brand-lg uppercase text-[#F7F4F0] bg-[#1A1816] px-10 py-4 */
+.sensol-future__btn {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #F7F4F0;
+  background: #1A1816;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.sensol-future__btn:hover {
+  background: #2a2724;
+}
+{%- endstyle -%}

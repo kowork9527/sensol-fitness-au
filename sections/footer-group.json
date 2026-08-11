@@ -1,0 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "sensol-footer": {
+      "type": "sensol-footer",
+      "settings": {
+        "logo": "shopify://shop_images/logo3_1_d3897fb6-e7f1-4b53-a585-80ac61be14c9.png",
+        "logo_width": 200,
+        "brand_desc": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022.",
+        "social_instagram": "",
+        "social_youtube": "",
+        "social_linkedin": "",
+        "product_menu": "footer",
+        "company_menu": "company",
+        "legal_menu": "",
+        "newsletter_desc": "Subscribe for exclusive updates, early access to new products, and stories from the world of Sensol.",
+        "contact_email": "support@sensolfitness.com"
+      }
+    }
+  },
+  "order": [
+    "sensol-footer"
+  ]
+}

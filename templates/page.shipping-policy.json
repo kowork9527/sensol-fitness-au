@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "sensol-shipping-hero": {"type": "sensol-shipping-hero", "settings": {}},
+    "sensol-shipping-domestic": {"type": "sensol-shipping-domestic", "settings": {}},
+    "sensol-shipping-fees": {"type": "sensol-shipping-fees", "settings": {}},
+    "sensol-shipping-requirements": {"type": "sensol-shipping-requirements", "settings": {}},
+    "sensol-shipping-dimensions": {"type": "sensol-shipping-dimensions", "settings": {}},
+    "sensol-shipping-international": {"type": "sensol-shipping-international", "settings": {}},
+    "sensol-shipping-issues": {"type": "sensol-shipping-issues", "settings": {}},
+    "sensol-shipping-returns": {"type": "sensol-shipping-returns", "settings": {}}
+  },
+  "order": ["sensol-shipping-hero","sensol-shipping-domestic","sensol-shipping-fees","sensol-shipping-requirements","sensol-shipping-dimensions","sensol-shipping-international","sensol-shipping-issues","sensol-shipping-returns"]
+}

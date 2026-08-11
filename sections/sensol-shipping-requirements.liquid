@@ -1,0 +1,115 @@
+<section class="sc-ship-req-{{ section.id }}">
+  <div class="sc-ship-req-{{ section.id }}__inner">
+    <div class="sc-ship-req-{{ section.id }}__header">
+      <span class="sc-ship-req-{{ section.id }}__num">03</span>
+      <div class="sc-ship-req-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-req-{{ section.id }}__title">Delivery<br>Requirements</h2>
+    <div class="sc-ship-req-{{ section.id }}__cards">
+      <div class="sc-ship-req-{{ section.id }}__card">
+        <span class="sc-ship-req-{{ section.id }}__card-num">01</span>
+        <h3 class="sc-ship-req-{{ section.id }}__card-title">Physical address required</h3>
+        <p class="sc-ship-req-{{ section.id }}__card-text">We cannot deliver to PO boxes or parcel lockers. Please provide a valid street address at checkout.</p>
+      </div>
+      <div class="sc-ship-req-{{ section.id }}__card">
+        <span class="sc-ship-req-{{ section.id }}__card-num">02</span>
+        <h3 class="sc-ship-req-{{ section.id }}__card-title">Recipient availability</h3>
+        <p class="sc-ship-req-{{ section.id }}__card-text">Our products are heavy and require someone to receive the delivery. Arrange delivery for when you or a trusted person will be home.</p>
+      </div>
+      <div class="sc-ship-req-{{ section.id }}__card">
+        <span class="sc-ship-req-{{ section.id }}__card-num">03</span>
+        <h3 class="sc-ship-req-{{ section.id }}__card-title">Signature option</h3>
+        <p class="sc-ship-req-{{ section.id }}__card-text">If you require a mandatory signature on delivery, please contact us before placing your order. A $5 surcharge applies per order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping Requirements",
+  "tag": "section",
+  "class": "sensol-shipping-requirements-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Requirements" }]
+}
+{% endschema %}
+
+{%- style -%}
+  .sc-ship-req-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-req-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 0;
+  }
+  .sc-ship-req-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-req-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-req-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-req-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+  .sc-ship-req-{{ section.id }}__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid #D4CEC6;
+  }
+  .sc-ship-req-{{ section.id }}__card {
+    padding: 2.5rem 2rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-ship-req-{{ section.id }}__card:last-child { border-right: none; }
+  .sc-ship-req-{{ section.id }}__card-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #B5ADA4;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+  .sc-ship-req-{{ section.id }}__card-title {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1A1816;
+    margin-bottom: 0.75rem;
+  }
+  .sc-ship-req-{{ section.id }}__card-text {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-req-{{ section.id }}__inner { padding: 4rem 1.5rem 0; }
+    .sc-ship-req-{{ section.id }}__cards { grid-template-columns: 1fr; }
+    .sc-ship-req-{{ section.id }}__card {
+      border-right: none;
+      border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 0;
+    }
+    .sc-ship-req-{{ section.id }}__card:last-child { border-bottom: none; }
+  }
+{%- endstyle -%}

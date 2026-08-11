@@ -1,0 +1,482 @@
+{%- liquid
+  assign p = product
+-%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #F7F4F0;
+  }
+  /* Breadcrumb */
+  .rs03-breadcrumb-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    font-size: 12px;
+    color: #8A8279;
+    letter-spacing: 0.05em;
+  }
+  .rs03-breadcrumb-{{ section.id }} a {
+    color: #8A8279;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .rs03-breadcrumb-{{ section.id }} a:hover {
+    color: #1A1816;
+  }
+  .rs03-breadcrumb-{{ section.id }} span {
+    margin: 0 8px;
+  }
+  .rs03-product-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .rs03-gallery-{{ section.id }} {
+    position: sticky;
+    top: 100px;
+  }
+  .rs03-gallery-main-{{ section.id }} {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 16px;
+    cursor: zoom-in;
+    position: relative;
+  }
+  .rs03-gallery-main-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .rs03-gallery-main-{{ section.id }}:hover img {
+    transform: scale(1.02);
+  }
+  .rs03-gallery-thumbs-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .rs03-gallery-thumb-{{ section.id }} {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .rs03-gallery-thumb-{{ section.id }}:hover,
+  .rs03-gallery-thumb-{{ section.id }}.active {
+    border-color: #1A1816;
+  }
+  .rs03-gallery-thumb-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rs03-info-{{ section.id }} {
+    padding: 20px 0;
+  }
+  .rs03-info-brand-{{ section.id }} {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 12px;
+  }
+  .rs03-info-title-{{ section.id }} {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+    color: #1A1816;
+  }
+  .rs03-info-subtitle-{{ section.id }} {
+    font-size: 16px;
+    color: #8A8279;
+    margin-bottom: 16px;
+  }
+  /* Judge.me Review Stars Placeholder */
+  .rs03-info-reviews-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #8A8279;
+  }
+  .rs03-info-stars-{{ section.id }} {
+    color: #F5A623;
+    letter-spacing: 2px;
+  }
+  .rs03-info-model-{{ section.id }} {
+    font-size: 12px;
+    color: #8A8279;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .rs03-info-price-{{ section.id }} {
+    font-size: 28px;
+    font-weight: 400;
+    color: #1A1816;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .rs03-info-price-{{ section.id }} s {
+    color: #8A8279;
+    margin-right: 12px;
+    font-size: 18px;
+  }
+  .rs03-info-afterpay-{{ section.id }} {
+    font-size: 13px;
+    color: #8A8279;
+    margin-bottom: 24px;
+  }
+  .rs03-info-badges-{{ section.id }} {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .rs03-info-stock-{{ section.id }} {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    display: inline-block;
+  }
+  .rs03-info-stock-in-{{ section.id }} {
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  .rs03-info-stock-out-{{ section.id }} {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+  .rs03-qty-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .rs03-qty-label-{{ section.id }} {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+  .rs03-qty-input-{{ section.id }} {
+    width: 80px;
+    padding: 12px;
+    border: 1px solid #D4CEC6;
+    background: #fff;
+    font-size: 16px;
+    text-align: center;
+  }
+  .rs03-add-{{ section.id }} {
+    width: 100%;
+    padding: 20px;
+    background: #1A1816;
+    color: #F7F4F0;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .rs03-add-{{ section.id }}:hover {
+    background: #2A2826;
+  }
+  .rs03-add-{{ section.id }}:disabled {
+    background: #8A8279;
+    cursor: not-allowed;
+  }
+  /* Dynamic Payment Buttons Container - Modular for plugins */
+  .rs03-payment-buttons-{{ section.id }} {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .rs03-payment-buttons-{{ section.id }} .shopify-payment-button {
+    width: 100%;
+  }
+  .rs03-payment-buttons-{{ section.id }} .shopify-payment-button__button {
+    width: 100%;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #D4CEC6;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8279;
+    text-align: center;
+  }
+  .rs03-features-{{ section.id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rs03-features-{{ section.id }} li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1A1816;
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .rs03-features-{{ section.id }} li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #8A8279;
+  }
+  /* Lightbox */
+  .rs03-lightbox-{{ section.id }} {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .rs03-lightbox-{{ section.id }}.active {
+    display: flex;
+  }
+  .rs03-lightbox-{{ section.id }} img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  .rs03-lightbox-close-{{ section.id }} {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width: 768px) {
+    .rs03-product-{{ section.id }} {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .rs03-gallery-{{ section.id }} {
+      position: static;
+    }
+    .rs03-info-title-{{ section.id }} {
+      font-size: 28px;
+    }
+    .rs03-info-price-{{ section.id }} {
+      font-size: 24px;
+    }
+    .rs03-info-badges-{{ section.id }} {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <!-- Breadcrumb Navigation -->
+  <nav class="rs03-breadcrumb-{{ section.id }}" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span>/</span>
+    <a href="/collections/all">Products</a>
+    <span>/</span>
+    <a href="/collections/reformers">Reformers</a>
+    <span>/</span>
+    <span style="color:#1A1816">{{ p.title | default: 'Sensol RS03' }}</span>
+  </nav>
+
+  <div class="rs03-product-{{ section.id }}">
+    <div class="rs03-gallery-{{ section.id }}">
+      <div class="rs03-gallery-main-{{ section.id }}" id="rs03MainImage-{{ section.id }}">
+        {%- if p.featured_image -%}
+          {{ p.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', id: 'rs03MainImg' }}
+        {%- else -%}
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279">No image</div>
+        {%- endif -%}
+      </div>
+      {%- if p.images.size > 1 -%}
+        <div class="rs03-gallery-thumbs-{{ section.id }}">
+          {%- for img in p.images limit: 4 -%}
+            <div class="rs03-gallery-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" data-image="{{ img | image_url: width: 1200 }}">
+              {{ img | image_url: width: 300 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="rs03-info-{{ section.id }}">
+      <div class="rs03-info-brand-{{ section.id }}">SENSOL FITNESS</div>
+      <h1 class="rs03-info-title-{{ section.id }}">{{ p.title | default: 'Sensol RS03' }}</h1>
+      <div class="rs03-info-subtitle-{{ section.id }}">Power Meets Precision</div>
+      
+      <!-- Judge.me Review Stars - Will be populated by Judge.me app -->
+      <div class="rs03-info-reviews-{{ section.id }}">
+        <span class="rs03-info-stars-{{ section.id }}">★★★★★</span>
+        <span>4.9 (127 reviews)</span>
+      </div>
+      
+      <div class="rs03-info-model-{{ section.id }}">Model RS03 / 1500W Smart Reformer · SKU: SNSL-RS03-AU</div>
+
+      <div class="rs03-info-price-{{ section.id }}">
+        {%- if p.compare_at_price > p.price -%}
+          <s>{{ p.compare_at_price | money }}</s>
+        {%- endif -%}
+        {{ p.price | money }} AUD
+      </div>
+      <div class="rs03-info-afterpay-{{ section.id }}">or 4 interest-free payments of {{ p.price | divided_by: 4 | money }} with Afterpay</div>
+
+      <div class="rs03-info-badges-{{ section.id }}">
+        <span>LIFETIME WARRANTY</span>
+        <span>FREE DOMESTIC SHIPPING</span>
+        <span>30-DAY MONEY-BACK</span>
+      </div>
+
+      {%- if p.available -%}
+        <div class="rs03-info-stock-{{ section.id }} rs03-info-stock-in-{{ section.id }}">In Stock</div>
+      {%- else -%}
+        <div class="rs03-info-stock-{{ section.id }} rs03-info-stock-out-{{ section.id }}">Sold Out</div>
+      {%- endif -%}
+
+      {%- form 'product', p, id: 'product-form-' -%}
+        <div class="rs03-qty-{{ section.id }}">
+          <label class="rs03-qty-label-{{ section.id }}" for="Quantity-{{ section.id }}">Quantity</label>
+          <input class="rs03-qty-input-{{ section.id }}" type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1">
+        </div>
+
+        <button class="rs03-add-{{ section.id }}" type="submit" name="add" {%- unless p.available -%}disabled{%- endunless -%}>
+          {%- if p.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+        </button>
+        
+        <!-- Dynamic Payment Buttons - Modular for Afterpay/Shop Pay/PayPal plugins -->
+        <div class="rs03-payment-buttons-{{ section.id }}">
+          {{ form | payment_button }}
+        </div>
+      {%- endform -%}
+
+      <ul class="rs03-features-{{ section.id }}">
+        <li>1500W dual servo motor · 120 kg digital resistance</li>
+        <li>0-145° adjustable arm range · 8 positions</li>
+        <li>Folds to 109 × 35 cm · apartment-friendly</li>
+        <li>Free Vesta Sensol App — 300+ classes, no subscription</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="rs03-lightbox-{{ section.id }}" id="rs03Lightbox-{{ section.id }}">
+  <button class="rs03-lightbox-close-{{ section.id }}" id="rs03LightboxClose-{{ section.id }}">×</button>
+  <img src="" alt="Product image" id="rs03LightboxImg-{{ section.id }}">
+</div>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var mainImg = document.getElementById('rs03MainImg');
+  var mainContainer = document.getElementById('rs03MainImage-' + sectionId);
+  var thumbs = document.querySelectorAll('.rs03-gallery-thumb-' + sectionId);
+  var lightbox = document.getElementById('rs03Lightbox-' + sectionId);
+  var lightboxImg = document.getElementById('rs03LightboxImg-' + sectionId);
+  var lightboxClose = document.getElementById('rs03LightboxClose-' + sectionId);
+
+  // Thumbnail click - switch main image
+  thumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var newSrc = this.getAttribute('data-image');
+      if (mainImg && newSrc) {
+        mainImg.src = newSrc;
+      }
+      // Update active state
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // Main image click - open lightbox
+  if (mainContainer && mainImg) {
+    mainContainer.addEventListener('click', function() {
+      lightboxImg.src = mainImg.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // Close lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+  if (lightbox) {
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sensol RS03 Landing",
+  "tag": "section",
+  "class": "rs03-landing-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product Landing Section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sensol RS03 Landing"
+    }
+  ]
+}
+{% endschema %}

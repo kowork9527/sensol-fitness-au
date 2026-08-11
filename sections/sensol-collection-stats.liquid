@@ -1,0 +1,105 @@
+{%- style -%}
+  .sc-stats-{{ section.id }} {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-stats-{{ section.id }}__inner {
+    max-width: 1400px; margin: 0 auto;
+    padding: 48px 40px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 64px; flex-wrap: wrap;
+  }
+  .sc-stats-{{ section.id }}__item { text-align: center; }
+  .sc-stats-{{ section.id }}__num {
+    font-size: 32px; font-weight: 200;
+    letter-spacing: 0.04em; margin-bottom: 2px;
+  }
+  .sc-stats-{{ section.id }}__label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: #8A8279;
+  }
+  .sc-stats-{{ section.id }}__divider {
+    width: 1px; height: 40px;
+    background: #D4CEC6;
+  }
+  @media screen and (max-width: 768px) {
+    .sc-stats-{{ section.id }}__inner { gap: 32px; padding: 32px 20px; }
+    .sc-stats-{{ section.id }}__divider { display: none; }
+  }
+{%- endstyle -%}
+
+{%- comment -%} Determine per-series stats based on collection handle {%- endcomment -%}
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign stat1_num = '04' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '128+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$1,580-$4,100' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign stat1_num = '03' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '150+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$950-$1,990' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
+  {%- when 'flex-series' -%}
+    {%- assign stat1_num = '02' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '150+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$890-$1,200' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
+  {%- else -%}
+    {%- assign stat1_num = '7' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '2' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '$950-$4,100' -%}
+    {%- assign stat3_label = 'Price Range AUD' -%}
+    {%- assign stat4_num = '200+' -%}
+    {%- assign stat4_label = 'Movements' -%}
+{%- endcase -%}
+
+<section class="sc-stats-{{ section.id }}">
+  <div class="sc-stats-{{ section.id }}__inner">
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat1_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat1_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat2_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat2_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat3_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat3_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat4_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat4_label }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Series Stats",
+  "tag": "section",
+  "class": "sensol-collection-stats",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,151 @@
+/* ===== SENsol Video Showcase — matching Next.js: dark background ===== */
+.sensol-video-section {
+  margin: 0;
+  padding: 0;
+  background: #1A1816;
+}
+
+.sensol-video {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-video {
+    padding: 8rem 4rem;
+  }
+}
+
+.sensol-video__header {
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__header {
+    margin-bottom: 4rem;
+  }
+}
+
+.sensol-video__label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1rem;
+}
+
+.sensol-video__title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  color: #F7F4F0;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-video__subtitle {
+  font-size: 14px;
+  color: #8A8279;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+/* Media */
+.sensol-video__media {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.sensol-video__player {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 21/9;
+}
+
+/* Paused indicator */
+.sensol-video__pause-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(247,244,240,0.9);
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.sensol-video__pause-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1A1816;
+}
+
+.sensol-video__pause-text {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid #D4CEC6;
+}
+
+.sensol-video__caption {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(247,244,240,0.5);
+  margin-top: 1rem;
+}
+
+/* Specs Row — matching Next.js: 4 cols with border-top border-[#8A8279]/30 */
+.sensol-video__specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  border-top: 1px solid rgba(138,130,121,0.3);
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sensol-video__specs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.sensol-video__spec {
+  display: flex;
+  flex-direction: column;
+}
+
+.sensol-video__spec-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-video__spec-value {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 200;
+  color: #F7F4F0;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-video__spec-desc {
+  font-size: 12px;
+  color: #8A8279;
+  line-height: 1.6;
+  font-weight: 300;
+}

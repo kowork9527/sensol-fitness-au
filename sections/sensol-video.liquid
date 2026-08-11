@@ -1,0 +1,235 @@
+<section class="sensol-video-section">
+  <div class="sensol-video">
+    <div class="sensol-video__header">
+      <p class="sensol-video__label">{{ section.settings.label }}</p>
+      <h2 class="sensol-video__title">{{ section.settings.title }}</h2>
+      <p class="sensol-video__subtitle">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="sensol-video__media">
+      {% if section.settings.video_url != blank %}
+        <video class="sensol-video__player" autoplay muted loop playsinline{% if section.settings.poster_image != blank %} poster="{{ section.settings.poster_image | image_url: width: 1920 }}"{% else %} poster="{{ 'section-2.webp' | asset_url }}"{% endif %}>
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      {% else %}
+        {%- if section.settings.poster_image != blank -%}
+        <img class="sensol-video__player" src="{{ section.settings.poster_image | image_url: width: 1920 }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="1080">
+        {%- else -%}
+        <img class="sensol-video__player" src="{{ 'section-2.webp' | asset_url }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="1920" height="1080">
+        {%- endif -%}
+      {% endif %}
+      <p class="sensol-video__caption">{{ section.settings.caption }}</p>
+    </div>
+
+    <div class="sensol-video__specs">
+      <div class="sensol-video__spec">
+        <span class="sensol-video__spec-label">Motion Range</span>
+        <span class="sensol-video__spec-value">{{ section.settings.spec1_value }}</span>
+        <span class="sensol-video__spec-desc">{{ section.settings.spec1_desc }}</span>
+      </div>
+      <div class="sensol-video__spec">
+        <span class="sensol-video__spec-label">Response Time</span>
+        <span class="sensol-video__spec-value">{{ section.settings.spec2_value }}</span>
+        <span class="sensol-video__spec-desc">{{ section.settings.spec2_desc }}</span>
+      </div>
+      <div class="sensol-video__spec">
+        <span class="sensol-video__spec-label">Resistance</span>
+        <span class="sensol-video__spec-value">{{ section.settings.spec3_value }}</span>
+        <span class="sensol-video__spec-desc">{{ section.settings.spec3_desc }}</span>
+      </div>
+      <div class="sensol-video__spec">
+        <span class="sensol-video__spec-label">Noise Level</span>
+        <span class="sensol-video__spec-value">{{ section.settings.spec4_value }}</span>
+        <span class="sensol-video__spec-desc">{{ section.settings.spec4_desc }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Video",
+  "tag": "section",
+  "class": "sensol-video-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "See how Sensol works" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The first All-in-one smart training reformer." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "See how Sensol works in real movement — simple, precise, and intuitive." },
+    { "type": "image_picker", "id": "poster_image", "label": "Poster/Fallback Image" },
+    { "type": "url", "id": "video_url", "label": "Video URL (mp4)" },
+    { "type": "text", "id": "caption", "label": "Caption", "default": "Sensol RS02 — Precision in motion" },
+    { "type": "text", "id": "spec1_value", "label": "Spec 1 Value", "default": "360°" },
+    { "type": "text", "id": "spec1_desc", "label": "Spec 1 Description", "default": "Full-spectrum movement freedom for unrestricted training." },
+    { "type": "text", "id": "spec2_value", "label": "Spec 2 Value", "default": "<8ms" },
+    { "type": "text", "id": "spec2_desc", "label": "Spec 2 Description", "default": "Near-instantaneous feedback between input and resistance." },
+    { "type": "text", "id": "spec3_value", "label": "Spec 3 Value", "default": "0–100%" },
+    { "type": "text", "id": "spec3_desc", "label": "Spec 3 Description", "default": "Precision-tuned resistance that adapts to your strength curve." },
+    { "type": "text", "id": "spec4_value", "label": "Spec 4 Value", "default": "<25dB" },
+    { "type": "text", "id": "spec4_desc", "label": "Spec 4 Description", "default": "Whisper-quiet operation that preserves the stillness of your space." }
+  ],
+  "presets": [{ "name": "SENSOL Video" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Video Showcase — matching Next.js: dark background ===== */
+.sensol-video-section {
+  margin: 0;
+  padding: 0;
+  background: #1A1816;
+}
+
+.sensol-video {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-video {
+    padding: 8rem 4rem;
+  }
+}
+
+.sensol-video__header {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__header {
+    margin-bottom: 4rem;
+  }
+}
+
+.sensol-video__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1rem;
+}
+
+.sensol-video__title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  color: #F7F4F0;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-video__subtitle {
+  font-size: 15px;
+  color: #8A8279;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 500px;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .sensol-video__subtitle {
+  }
+}
+
+/* Media */
+.sensol-video__media {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.sensol-video__player {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 21/9;
+}
+
+/* Paused indicator */
+.sensol-video__pause-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(247,244,240,0.9);
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.sensol-video__pause-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1A1816;
+}
+
+.sensol-video__pause-text {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid #D4CEC6;
+}
+
+.sensol-video__caption {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(247,244,240,0.5);
+  margin-top: 1rem;
+}
+
+/* Specs Row — matching Next.js: 4 cols with border-top border-[#8A8279]/30 */
+.sensol-video__specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  border-top: 1px solid rgba(138,130,121,0.3);
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sensol-video__specs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.sensol-video__spec {
+  display: flex;
+  flex-direction: column;
+}
+
+.sensol-video__spec-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-video__spec-value {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 200;
+  color: #F7F4F0;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.sensol-video__spec-desc {
+  font-size: 12px;
+  color: #8A8279;
+  line-height: 1.6;
+  font-weight: 300;
+}
+{%- endstyle -%}

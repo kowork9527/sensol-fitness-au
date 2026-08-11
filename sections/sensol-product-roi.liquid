@@ -1,0 +1,103 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+#shopify-section-{{ section.id }} .sp-roi{font-family:'Inter',sans-serif;background:#F7F4F0;color:#1A1816;padding:100px 40px}
+#shopify-section-{{ section.id }} .sp-roi__inner{max-width:1200px;margin:0 auto}
+#shopify-section-{{ section.id }} .sp-roi__eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#8A8279;margin-bottom:20px}
+#shopify-section-{{ section.id }} .sp-roi__title{font-size:clamp(28px,4vw,40px);font-weight:300;letter-spacing:0.04em;margin-bottom:48px;line-height:1.15}
+#shopify-section-{{ section.id }} .sp-roi__wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#shopify-section-{{ section.id }} .sp-roi__img{aspect-ratio:4/3;overflow:hidden}
+#shopify-section-{{ section.id }} .sp-roi__img img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-roi__text{font-size:16px;line-height:1.8;margin-bottom:24px}
+#shopify-section-{{ section.id }} .sp-roi__cards{display:flex;flex-direction:column;border-top:1px solid #D4CEC6}
+#shopify-section-{{ section.id }} .sp-roi__card{display:flex;align-items:baseline;justify-content:space-between;padding:20px 0;border-bottom:1px solid #D4CEC6}
+#shopify-section-{{ section.id }} .sp-roi__card-label{font-size:13px;max-width:60%}
+#shopify-section-{{ section.id }} .sp-roi__card-value{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500}
+#shopify-section-{{ section.id }} .sp-roi__highlight{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;padding:32px;background:#1A1816}
+#shopify-section-{{ section.id }} .sp-roi__highlight-num{font-size:clamp(24px,3vw,32px);font-weight:200;color:#F7F4F0;line-height:1}
+#shopify-section-{{ section.id }} .sp-roi__highlight-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#B5ADA4;margin-top:8px}
+@media(max-width:968px){
+#shopify-section-{{ section.id }} .sp-roi{padding:60px 20px}
+#shopify-section-{{ section.id }} .sp-roi__wrap{grid-template-columns:1fr;gap:32px}
+#shopify-section-{{ section.id }} .sp-roi__highlight{grid-template-columns:1fr;gap:20px}
+}
+</style>
+
+<section class="sp-roi">
+  <div class="sp-roi__inner">
+    {%- if s.eyebrow != blank -%}
+    <div class="sp-roi__eyebrow">{{ s.eyebrow }}</div>
+    {%- endif -%}
+    {%- if s.title != blank -%}
+    <h2 class="sp-roi__title">{{ s.title }}</h2>
+    {%- endif -%}
+    <div class="sp-roi__wrap">
+      <div class="sp-roi__img">
+        {%- if s.image != blank -%}
+          <img src="{{ s.image | image_url: width: 1000 }}" alt="{{ s.title | escape }}" loading="lazy" width="1000" height="750">
+        {%- else -%}
+          <img src="{{ 'site-strength-2.jpeg' | asset_url }}" alt="{{ s.title | escape }}" loading="lazy" width="1000" height="750">
+        {%- endif -%}
+      </div>
+      <div class="sp-roi__content">
+        {%- if s.text != blank -%}
+        <p class="sp-roi__text">{{ s.text }}</p>
+        {%- endif -%}
+        <div class="sp-roi__cards">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'comparison' -%}
+            <div class="sp-roi__card" {{ block.shopify_attributes }}>
+              <span class="sp-roi__card-label">{{ block.settings.label }}</span>
+              <span class="sp-roi__card-value">{{ block.settings.value }}</span>
+            </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="sp-roi__highlight">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'highlight' -%}
+            <div {{ block.shopify_attributes }}>
+              <div class="sp-roi__highlight-num">{{ block.settings.number }}</div>
+              <div class="sp-roi__highlight-label">{{ block.settings.label }}</div>
+            </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP ROI",
+  "tag": "section",
+  "class": "sp-roi-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Math" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Studio costs add up. The RS03 pays for itself." },
+    { "type": "textarea", "id": "text", "label": "Description", "default": "Reformer Pilates is booming in Australia, but studio costs add up quickly. Here's how the RS03 at $2,400 compares to ongoing studio memberships." }
+  ],
+  "blocks": [
+    {
+      "type": "comparison",
+      "name": "Comparison Row",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "vs unlimited membership ($220/mo)" },
+        { "type": "text", "id": "value", "label": "Value", "default": "~11 months" }
+      ]
+    },
+    {
+      "type": "highlight",
+      "name": "Highlight Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "$10,800" },
+        { "type": "text", "id": "label", "label": "Label", "default": "5-Year Savings" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SP ROI", "blocks": [{ "type": "comparison" }, { "type": "comparison" }, { "type": "highlight" }, { "type": "highlight" }, { "type": "highlight" }] }]
+}
+{% endschema %}

@@ -1,0 +1,173 @@
+<section class="sc-ship-fees-{{ section.id }}">
+  <div class="sc-ship-fees-{{ section.id }}__inner">
+    <div class="sc-ship-fees-{{ section.id }}__header">
+      <span class="sc-ship-fees-{{ section.id }}__num">02</span>
+      <div class="sc-ship-fees-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-fees-{{ section.id }}__title">Shipping Fees &amp;<br>Order Processing</h2>
+    <div class="sc-ship-fees-{{ section.id }}__grid">
+      <div class="sc-ship-fees-{{ section.id }}__list">
+        <div class="sc-ship-fees-{{ section.id }}__item">
+          <span class="sc-ship-fees-{{ section.id }}__item-tag">Metro</span>
+          <div>
+            <p class="sc-ship-fees-{{ section.id }}__item-title">Victoria, NSW, QLD, SA, WA, TAS, ACT</p>
+            <p class="sc-ship-fees-{{ section.id }}__item-text">Free domestic shipping on all Sensol products.</p>
+          </div>
+        </div>
+        <div class="sc-ship-fees-{{ section.id }}__item">
+          <span class="sc-ship-fees-{{ section.id }}__item-tag">Regional</span>
+          <div>
+            <p class="sc-ship-fees-{{ section.id }}__item-title">Regional &amp; remote areas</p>
+            <p class="sc-ship-fees-{{ section.id }}__item-text">A shipping surcharge may apply. The exact amount will be displayed at checkout before you complete your purchase.</p>
+          </div>
+        </div>
+        <div class="sc-ship-fees-{{ section.id }}__item">
+          <span class="sc-ship-fees-{{ section.id }}__item-tag">Handling</span>
+          <div>
+            <p class="sc-ship-fees-{{ section.id }}__item-title">No hidden fees</p>
+            <p class="sc-ship-fees-{{ section.id }}__item-text">We do not charge separate handling or packaging fees — shipping costs are fully included in the price shown at checkout.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sc-ship-fees-{{ section.id }}__processing">
+        <p class="sc-ship-fees-{{ section.id }}__processing-label">Order Processing</p>
+        <div class="sc-ship-fees-{{ section.id }}__processing-item">
+          <span class="sc-ship-fees-{{ section.id }}__processing-num">01</span>
+          <p>Orders are processed within <strong>1–2 business days</strong> of payment confirmation.</p>
+        </div>
+        <div class="sc-ship-fees-{{ section.id }}__processing-item">
+          <span class="sc-ship-fees-{{ section.id }}__processing-num">02</span>
+          <p>You will receive a tracking notification via email once your order has been dispatched.</p>
+        </div>
+        <div class="sc-ship-fees-{{ section.id }}__processing-item">
+          <span class="sc-ship-fees-{{ section.id }}__processing-num">03</span>
+          <p>Delivery times are estimates and may vary due to carrier schedules, weather, or remote location access.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping Fees",
+  "tag": "section",
+  "class": "sensol-shipping-fees-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Fees" }]
+}
+{% endschema %}
+
+{%- style -%}
+  .sc-ship-fees-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-fees-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 0;
+  }
+  .sc-ship-fees-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-fees-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-fees-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-fees-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+  .sc-ship-fees-{{ section.id }}__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .sc-ship-fees-{{ section.id }}__item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-ship-fees-{{ section.id }}__item:first-child { padding-top: 0; }
+  .sc-ship-fees-{{ section.id }}__item:last-child { border-bottom: none; }
+  .sc-ship-fees-{{ section.id }}__item-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B5ADA4;
+    flex-shrink: 0;
+    min-width: 70px;
+    padding-top: 3px;
+  }
+  .sc-ship-fees-{{ section.id }}__item-title {
+    font-size: 15px;
+    font-weight: 400;
+    color: #1A1816;
+    margin-bottom: 0.5rem;
+  }
+  .sc-ship-fees-{{ section.id }}__item-text {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+  }
+  .sc-ship-fees-{{ section.id }}__processing {
+    background: #1A1816;
+    padding: 2.5rem 2rem;
+  }
+  .sc-ship-fees-{{ section.id }}__processing-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ship-fees-{{ section.id }}__processing-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(212,206,198,0.12);
+  }
+  .sc-ship-fees-{{ section.id }}__processing-item:last-child { border-bottom: none; }
+  .sc-ship-fees-{{ section.id }}__processing-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: #B5ADA4;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .sc-ship-fees-{{ section.id }}__processing-item p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(247,244,240,0.7);
+  }
+  .sc-ship-fees-{{ section.id }}__processing-item strong {
+    color: #F7F4F0;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-fees-{{ section.id }}__inner { padding: 4rem 1.5rem 0; }
+    .sc-ship-fees-{{ section.id }}__grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+{%- endstyle -%}

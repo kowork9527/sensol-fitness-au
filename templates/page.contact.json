@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact": {
+      "type": "sensol-contact",
+      "settings": {
+        "hero_label": "Get in touch",
+        "hero_title": "Start a conversation.",
+        "hero_sub": "We respond within one business day. AEST, Mon\u2013Fri.",
+        "info_label": "Direct lines",
+        "email": "hello@sensolfitness.com.au",
+        "phone": "+61 3 9000 0000",
+        "hours_weekday": "Mon \u2013 Fri \u00b7 9:00 \u2013 18:00 AEST",
+        "hours_weekend": "Sat \u00b7 10:00 \u2013 16:00 AEST",
+        "studio_line1": "By appointment only.",
+        "studio_line2": "Melbourne, Victoria, Australia",
+        "form_label": "Send a message",
+        "form_title": "Tell us what you're working on.",
+        "button_text": "Send message",
+        "company_name": "Dute Fitness (Australia) Pty. Ltd.",
+        "company_tagline": "Engineered in Melbourne. Built for stillness."
+      }
+    }
+  },
+  "order": [
+    "contact"
+  ]
+}

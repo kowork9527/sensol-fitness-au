@@ -1,0 +1,351 @@
+<section class="sensol-hero-section" id="hero">
+  <div class="sensol-hero">
+    {%- for i in (1..3) -%}
+      {%- capture label_key -%}slide_{{ i }}_label{%- endcapture -%}
+      {%- capture heading_key -%}slide_{{ i }}_heading{%- endcapture -%}
+      {%- capture sub_key -%}slide_{{ i }}_sub{%- endcapture -%}
+      {%- capture img_key -%}slide_{{ i }}_image{%- endcapture -%}
+      <div class="sensol-hero__slide" data-slide="{{ forloop.index0 }}" style="opacity:{% if forloop.first %}1{% else %}0{% endif %}">
+        {%- if section.settings[img_key] != blank -%}
+        <img
+          class="sensol-hero__image"
+          src="{{ section.settings[img_key] | image_url: width: 1920 }}"
+          alt="{{ section.settings[heading_key] | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}"
+          width="1920"
+          height="1024"
+        >
+        {%- else -%}
+        {%- assign default_images = 'banner-1.webp,banner-2.webp,banner-3.webp' | split: ',' -%}
+        <img
+          class="sensol-hero__image"
+          src="{{ default_images[forloop.index0] | asset_url }}"
+          alt="{{ section.settings[heading_key] | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}"
+          width="1920"
+          height="1024"
+        >
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+
+    <div class="sensol-hero__overlay"></div>
+    <div class="sensol-hero__overlay-right"></div>
+
+    <div class="sensol-hero__content">
+      {%- for i in (1..3) -%}
+        {%- capture label_key -%}slide_{{ i }}_label{%- endcapture -%}
+        {%- capture heading_key -%}slide_{{ i }}_heading{%- endcapture -%}
+        {%- capture sub_key -%}slide_{{ i }}_sub{%- endcapture -%}
+        <div class="sensol-hero__text" data-slide="{{ forloop.index0 }}" style="display:{% if forloop.first %}block{% else %}none{% endif %}">
+          <p class="sensol-hero__label">{{ section.settings[label_key] }}</p>
+          <h1 class="sensol-hero__title">{{ section.settings[heading_key] }}</h1>
+          <p class="sensol-hero__subtitle">{{ section.settings[sub_key] }}</p>
+        </div>
+      {%- endfor -%}
+
+      <div class="sensol-hero__cta">
+        <a href="{{ section.settings.cta_link }}" class="sensol-hero__btn">{{ section.settings.cta_text }}</a>
+      </div>
+    </div>
+
+    <div class="sensol-hero__indicators">
+      {%- for i in (1..3) -%}
+        <button class="sensol-hero__dot{% if forloop.first %} sensol-hero__dot--active{% endif %}" data-slide="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+      {%- endfor -%}
+    </div>
+
+    <div class="sensol-hero__scroll">
+      <span>Scroll</span>
+      <div class="sensol-hero__scroll-line"><div class="sensol-hero__scroll-pulse"></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var section = document.querySelector('.sensol-hero-section');
+  if(!section) return;
+  var slides = section.querySelectorAll('[data-slide]');
+  var dots = section.querySelectorAll('.sensol-hero__dot');
+  var current = 0;
+  var total = 3;
+
+  function goTo(idx){
+    current = idx;
+    slides.forEach(function(s){
+      s.style.opacity = s.dataset.slide == idx ? '1' : '0';
+      if(s.classList.contains('sensol-hero__text')){
+        s.style.display = s.dataset.slide == idx ? 'block' : 'none';
+      }
+    });
+    dots.forEach(function(d,i){
+      d.classList.toggle('sensol-hero__dot--active', d.dataset.slide == idx);
+    });
+  }
+
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ goTo(parseInt(d.dataset.slide)); });
+  });
+
+  setInterval(function(){ goTo((current+1)%total); }, 6000);
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "SENSOL Hero",
+  "tag": "section",
+  "class": "sensol-hero-section",
+  "settings": [
+    { "type": "url", "id": "cta_link", "label": "CTA Link", "default": "/collections/all" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Shop All" },
+    { "type": "image_picker", "id": "slide_1_image", "label": "Slide 1 Image" },
+    { "type": "text", "id": "slide_1_label", "label": "Slide 1 Label", "default": "A new language of training" },
+    { "type": "text", "id": "slide_1_heading", "label": "Slide 1 Heading", "default": "SENSOL" },
+    { "type": "text", "id": "slide_1_sub", "label": "Slide 1 Subtitle", "default": "Where strength meets precision, and movement becomes design." },
+    { "type": "image_picker", "id": "slide_2_image", "label": "Slide 2 Image" },
+    { "type": "text", "id": "slide_2_label", "label": "Slide 2 Label", "default": "Engineered movement" },
+    { "type": "text", "id": "slide_2_heading", "label": "Slide 2 Heading", "default": "PRECISION" },
+    { "type": "text", "id": "slide_2_sub", "label": "Slide 2 Subtitle", "default": "Adaptive resistance and fluid motion, tailored to your body." },
+    { "type": "image_picker", "id": "slide_3_image", "label": "Slide 3 Image" },
+    { "type": "text", "id": "slide_3_label", "label": "Slide 3 Label", "default": "Where strength meets pilates" },
+    { "type": "text", "id": "slide_3_heading", "label": "Slide 3 Heading", "default": "CONTROL" },
+    { "type": "text", "id": "slide_3_sub", "label": "Slide 3 Subtitle", "default": "Control begins within. Train with intention." }
+  ],
+  "presets": [{ "name": "SENSOL Hero" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Hero — matching Next.js preview exactly ===== */
+
+/* CRITICAL: Force wrapper to be transparent */
+#shopify-section-sensol-hero,
+.shopify-section.sensol-hero-section {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sensol-hero-section {
+  margin: 0;
+  padding: 0;
+}
+
+.sensol-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Slides */
+.sensol-hero__slide {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.sensol-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlays — matching Next.js: from-black/50 via-black/30 to-black/60 + from-black/20 to-transparent */
+.sensol-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sensol-hero__overlay-right {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content */
+.sensol-hero__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.sensol-hero__text {
+  text-align: center;
+}
+
+.sensol-hero__label {
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.sensol-hero__title {
+  color: #ffffff;
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 200;
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sensol-hero__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 300;
+  margin-top: 1.5rem;
+  max-width: 28rem;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+/* CTA Button — matching Next.js: text-[10px] tracking-[0.2em] uppercase text-[#1A1816] bg-[#F7F4F0] px-10 py-4 */
+.sensol-hero__cta {
+  margin-top: 3rem;
+}
+
+.sensol-hero__btn {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1A1816;
+  background: #F7F4F0;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.sensol-hero__btn:hover {
+  background: rgba(247,244,240,0.9);
+}
+
+/* Indicators — matching Next.js: w-8 h-[1px] bg-white / bg-white/30 */
+.sensol-hero__indicators {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 20;
+}
+
+.sensol-hero__dot {
+  width: 2rem;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.sensol-hero__dot--active {
+  background: #ffffff;
+}
+
+/* Scroll indicator — matching Next.js exactly */
+.sensol-hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 20;
+}
+
+.sensol-hero__scroll span {
+  color: rgba(255,255,255,0.4);
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sensol-hero__scroll-line {
+  width: 1px;
+  height: 2rem;
+  background: rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.sensol-hero__scroll-pulse {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: sensol-scroll-pulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes sensol-scroll-pulse {
+  0% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sensol-hero__label {
+    font-size: 11px;
+    margin-bottom: 1.5rem;
+  }
+  .sensol-hero__subtitle {
+    font-size: 0.875rem;
+  }
+  .sensol-hero__scroll {
+    display: none;
+  }
+}
+{%- endstyle -%}
+
+<style>
+/* HERO ZINDEX FIX - keep hero below header */
+#shopify-section-template--28523276173444__sensol-hero,
+.shopify-section.sensol-hero-section,
+.sensol-hero-section {
+  position: relative !important;
+  z-index: 1 !important;
+}
+</style>
+<script>
+(function() {
+  function fixHeroZIndex() {
+    var heroSection = document.querySelector('.sensol-hero-section');
+    if (heroSection && heroSection.tagName === 'SECTION') {
+      heroSection.style.setProperty('position', 'relative', 'important');
+      heroSection.style.setProperty('z-index', '1', 'important');
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixHeroZIndex);
+  } else {
+    fixHeroZIndex();
+  }
+  setTimeout(fixHeroZIndex, 500);
+})();
+</script>

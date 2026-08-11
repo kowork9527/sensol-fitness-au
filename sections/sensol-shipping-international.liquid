@@ -1,0 +1,121 @@
+<section class="sc-ship-intl-{{ section.id }}">
+  <div class="sc-ship-intl-{{ section.id }}__inner">
+    <div class="sc-ship-intl-{{ section.id }}__grid">
+      <div class="sc-ship-intl-{{ section.id }}__col">
+        <span class="sc-ship-intl-{{ section.id }}__col-label">International</span>
+        <h3 class="sc-ship-intl-{{ section.id }}__col-title">New Zealand</h3>
+        <p class="sc-ship-intl-{{ section.id }}__col-text">We are currently <strong>not shipping to New Zealand</strong>. New Zealand delivery will be available in the future as we expand our international operations.</p>
+        <p class="sc-ship-intl-{{ section.id }}__col-text sc-ship-intl-{{ section.id }}__col-text--muted">When available:</p>
+        <ul class="sc-ship-intl-{{ section.id }}__list">
+          <li>International courier with full tracking</li>
+          <li>Estimated delivery: 5–10 business days</li>
+          <li>Duty threshold: NZD 1,000 — orders below this are free of import duty</li>
+          <li>Shipping fees displayed at checkout before purchase</li>
+        </ul>
+      </div>
+      <div class="sc-ship-intl-{{ section.id }}__col">
+        <span class="sc-ship-intl-{{ section.id }}__col-label">International</span>
+        <h3 class="sc-ship-intl-{{ section.id }}__col-title">Other Countries</h3>
+        <p class="sc-ship-intl-{{ section.id }}__col-text">We do not currently ship to countries other than Australia. International shipping options may be added in the future. Please <a class="sc-ship-intl-{{ section.id }}__link" href="/pages/contact">contact us</a> if you are outside Australia and interested in our products.</p>
+        <span class="sc-ship-intl-{{ section.id }}__col-label sc-ship-intl-{{ section.id }}__col-label--mt">Tracking</span>
+        <h3 class="sc-ship-intl-{{ section.id }}__col-title">Order Tracking</h3>
+        <p class="sc-ship-intl-{{ section.id }}__col-text">Once dispatched, you will receive an email with your tracking number, a link to track your shipment online, and the estimated delivery date. If you have not received tracking information within 3 business days, please <a class="sc-ship-intl-{{ section.id }}__link" href="/pages/contact">contact us</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping International",
+  "tag": "section",
+  "class": "sensol-shipping-international-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping International" }]
+}
+{% endschema %}
+
+{%- style -%}
+  .sc-ship-intl-{{ section.id }} {
+    background: #1A1816;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #F7F4F0;
+    padding: 6rem 0;
+    margin-top: 6rem;
+  }
+  .sc-ship-intl-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+  .sc-ship-intl-{{ section.id }}__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #B5ADA4;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-label--mt {
+    margin-top: 3rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-title {
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(247,244,240,0.6);
+    margin-bottom: 1rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-text--muted {
+    margin-top: 1.5rem;
+  }
+  .sc-ship-intl-{{ section.id }}__col-text strong {
+    color: #F7F4F0;
+    font-weight: 400;
+  }
+  .sc-ship-intl-{{ section.id }}__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sc-ship-intl-{{ section.id }}__list li {
+    padding: 0.6rem 0 0.6rem 1.5rem;
+    position: relative;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(247,244,240,0.6);
+    border-bottom: 1px solid rgba(212,206,198,0.1);
+  }
+  .sc-ship-intl-{{ section.id }}__list li::before {
+    content: '\2014';
+    position: absolute;
+    left: 0;
+    color: #B5ADA4;
+  }
+  .sc-ship-intl-{{ section.id }}__link {
+    color: #F7F4F0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #B5ADA4;
+    text-decoration-thickness: 0.5px;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-intl-{{ section.id }} { padding: 4rem 0; margin-top: 4rem; }
+    .sc-ship-intl-{{ section.id }}__inner { padding: 0 1.5rem; }
+    .sc-ship-intl-{{ section.id }}__grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+{%- endstyle -%}

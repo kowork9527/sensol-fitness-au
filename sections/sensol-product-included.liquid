@@ -1,0 +1,73 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+#shopify-section-{{ section.id }} .sp-included{font-family:'Inter',sans-serif;background:#1A1816;color:#F7F4F0;padding:100px 40px}
+#shopify-section-{{ section.id }} .sp-included__inner{max-width:1200px;margin:0 auto}
+#shopify-section-{{ section.id }} .sp-included__eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#B5ADA4;margin-bottom:20px}
+#shopify-section-{{ section.id }} .sp-included__title{font-size:clamp(28px,4vw,40px);font-weight:300;letter-spacing:0.04em;margin-bottom:48px;color:#F7F4F0!important}
+#shopify-section-{{ section.id }} .sp-included__wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#shopify-section-{{ section.id }} .sp-included__img{aspect-ratio:1/1;overflow:hidden;background:#2A2826}
+#shopify-section-{{ section.id }} .sp-included__img img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-included__list{border-top:1px solid #2A2826}
+#shopify-section-{{ section.id }} .sp-included__item{display:grid;grid-template-columns:40px 1fr;align-items:center;padding:16px 0;border-bottom:1px solid #2A2826}
+#shopify-section-{{ section.id }} .sp-included__num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8279;letter-spacing:0.1em}
+#shopify-section-{{ section.id }} .sp-included__name{font-size:14px;color:#F7F4F0}
+@media(max-width:968px){
+#shopify-section-{{ section.id }} .sp-included{padding:60px 20px}
+#shopify-section-{{ section.id }} .sp-included__wrap{grid-template-columns:1fr;gap:32px}
+}
+</style>
+
+<section class="sp-included">
+  <div class="sp-included__inner">
+    {%- if s.eyebrow != blank -%}
+    <div class="sp-included__eyebrow">{{ s.eyebrow }}</div>
+    {%- endif -%}
+    {%- if s.title != blank -%}
+    <h2 class="sp-included__title">{{ s.title }}</h2>
+    {%- endif -%}
+    <div class="sp-included__wrap">
+      <div class="sp-included__img">
+        {%- if s.image != blank -%}
+          <img src="{{ s.image | image_url: width: 800 }}" alt="{{ s.title | escape }}" loading="lazy" width="800" height="800">
+        {%- else -%}
+          <img src="{{ 'flat-lay.jpeg' | asset_url }}" alt="{{ s.title | escape }}" loading="lazy" width="800" height="800">
+        {%- endif -%}
+      </div>
+      <div class="sp-included__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'item' -%}
+          <div class="sp-included__item" {{ block.shopify_attributes }}>
+            <span class="sp-included__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="sp-included__name">{{ block.settings.name }}</span>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP What's Included",
+  "tag": "section",
+  "class": "sp-included-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Flat lay image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "In the Box" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Everything included." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Item name", "default": "Sensol RS03 Reformer Frame" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SP What's Included", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}

@@ -1,0 +1,107 @@
+/* ===== SENsol Marquee — matching Next.js: huge display text ===== */
+.sensol-marquee-section {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-top: 1px solid #D4CEC6;
+  border-bottom: 1px solid #D4CEC6;
+  background: #F7F4F0;
+}
+
+.sensol-marquee {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.sensol-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: sensol-marquee-scroll 25s linear infinite;
+  padding: 3.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .sensol-marquee__track {
+    padding: 5rem 0;
+  }
+}
+
+/* "Make it easy" — text-[#1A1816] font-extralight tracking-[0.08em] uppercase */
+.sensol-marquee__left {
+  font-size: clamp(1.875rem, 5vw, 3.75rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1A1816;
+  flex-shrink: 0;
+  margin: 0 1.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .sensol-marquee__left {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 0 2.5rem 0 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sensol-marquee__left {
+    font-size: clamp(3.75rem, 7vw, 6rem);
+    margin: 0 2.5rem 0 0;
+  }
+}
+
+/* Dot separator — text-[#D4CEC6] */
+.sensol-marquee__dot {
+  font-size: clamp(1.875rem, 5vw, 3.75rem);
+  font-weight: 200;
+  color: #D4CEC6;
+  flex-shrink: 0;
+  margin: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-marquee__dot {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 0 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sensol-marquee__dot {
+    font-size: clamp(3.75rem, 7vw, 6rem);
+    margin: 0 2.5rem;
+  }
+}
+
+/* "Do it real" — text-[#B5ADA4] italic font-extralight tracking-[0.08em] */
+.sensol-marquee__right {
+  font-size: clamp(1.875rem, 5vw, 3.75rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  font-style: italic;
+  color: #B5ADA4;
+  flex-shrink: 0;
+  margin: 0 1.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .sensol-marquee__right {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 0 2.5rem 0 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sensol-marquee__right {
+    font-size: clamp(3.75rem, 7vw, 6rem);
+    margin: 0 2.5rem 0 0;
+  }
+}
+
+@keyframes sensol-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

@@ -1,0 +1,77 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<style>
+#shopify-section-{{ section.id }} .sp-specs{font-family:'Inter',sans-serif;background:#1A1816;color:#F7F4F0;padding:120px 40px}
+#shopify-section-{{ section.id }} .sp-specs__inner{max-width:1200px;margin:0 auto}
+#shopify-section-{{ section.id }} .sp-specs__eyebrow{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#B5ADA4;margin-bottom:20px}
+#shopify-section-{{ section.id }} .sp-specs__title{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:0.04em;margin-bottom:60px;color:#F7F4F0!important}
+#shopify-section-{{ section.id }} .sp-specs__wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+#shopify-section-{{ section.id }} .sp-specs__img{aspect-ratio:4/5;overflow:hidden;background:#2A2826;order:{% if s.image_position == 'left' %}1{% else %}2{% endif %}}
+#shopify-section-{{ section.id }} .sp-specs__img img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-specs__list{order:{% if s.image_position == 'left' %}2{% else %}1{% endif %}}
+#shopify-section-{{ section.id }} .sp-specs__row{display:grid;grid-template-columns:200px 1fr;padding:18px 0;border-bottom:1px solid #2A2826;align-items:baseline}
+#shopify-section-{{ section.id }} .sp-specs__label{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#8A8279}
+#shopify-section-{{ section.id }} .sp-specs__value{font-size:14px;color:#F7F4F0;letter-spacing:0.02em}
+@media(max-width:968px){
+#shopify-section-{{ section.id }} .sp-specs{padding:80px 24px}
+#shopify-section-{{ section.id }} .sp-specs__wrap{grid-template-columns:1fr;gap:40px}
+#shopify-section-{{ section.id }} .sp-specs__img,#shopify-section-{{ section.id }} .sp-specs__list{order:0}
+#shopify-section-{{ section.id }} .sp-specs__row{grid-template-columns:1fr;gap:6px}
+}
+</style>
+
+<section class="sp-specs">
+  <div class="sp-specs__inner">
+    {%- if s.eyebrow != blank -%}
+    <div class="sp-specs__eyebrow">{{ s.eyebrow }}</div>
+    {%- endif -%}
+    {%- if s.title != blank -%}
+    <h2 class="sp-specs__title">{{ s.title }}</h2>
+    {%- endif -%}
+    <div class="sp-specs__wrap">
+      <div class="sp-specs__img">
+        {%- if s.image != blank -%}
+          <img src="{{ s.image | image_url: width: 800 }}" alt="{{ s.title | escape }}" loading="lazy" width="800" height="1000">
+        {%- else -%}
+          <img src="{{ 'detail-texture.jpeg' | asset_url }}" alt="{{ s.title | escape }}" loading="lazy" width="800" height="1000">
+        {%- endif -%}
+      </div>
+      <div class="sp-specs__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'spec' -%}
+          <div class="sp-specs__row" {{ block.shopify_attributes }}>
+            <div class="sp-specs__label">{{ block.settings.label }}</div>
+            <div class="sp-specs__value">{{ block.settings.value }}</div>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SP Specs",
+  "tag": "section",
+  "class": "sp-specs-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Detail image" },
+    { "type": "select", "id": "image_position", "label": "Image position", "options": [{ "value": "left", "label": "Left" }, { "value": "right", "label": "Right" }], "default": "right" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Specifications" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Every detail, measured." }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Specification",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Motor System" },
+        { "type": "text", "id": "value", "label": "Value", "default": "1500W × 2 (3000W combined)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SP Specs", "blocks": [{ "type": "spec" }, { "type": "spec" }, { "type": "spec" }] }]
+}
+{% endschema %}

@@ -1,0 +1,533 @@
+{%- if page.handle == 'shipping-policy' -%}
+  {% render 'sensol-shipping-page' %}
+{%- endif -%}
+
+<section class="sensol-footer-section">
+  <div class="sensol-footer">
+    <!-- Main Footer Grid -->
+    <div class="sensol-footer__grid">
+      <!-- Brand Column -->
+      <div class="sensol-footer__brand">
+        {%- if section.settings.logo != blank -%}
+        <a href="/" class="sensol-footer__logo-link">
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="Sensol" class="sensol-footer__logo-img" width="200" height="60" style="max-width: {{ section.settings.logo_width }}px;">
+        </a>
+        {%- else -%}
+        <a href="/" class="sensol-footer__brand-name">SENSOL</a>
+        {%- endif -%}
+        <p class="sensol-footer__brand-desc">
+          {{ section.settings.brand_desc }}
+        </p>
+        <div class="sensol-footer__social">
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_youtube != blank -%}
+            <a href="{{ section.settings.social_youtube }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_linkedin != blank -%}
+            <a href="{{ section.settings.social_linkedin }}" class="sensol-footer__social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Products Column -->
+      <div class="sensol-footer__col">
+        <button class="sensol-footer__col-heading" aria-expanded="false" onclick="this.parentElement.classList.toggle('sensol-footer__col--open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('sensol-footer__col--open'));">Products<svg class="sensol-footer__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 4 6 8 10 4"/></svg></button>
+        <ul class="sensol-footer__col-list">
+          {%- for link in linklists[section.settings.product_menu].links -%}
+            <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS02</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS02 PRO</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol RS03</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX AIR</a></li>
+            <li><a href="/collections/all" class="sensol-footer__col-link">Sensol FLEX PRO</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="sensol-footer__col">
+        <button class="sensol-footer__col-heading" aria-expanded="false" onclick="this.parentElement.classList.toggle('sensol-footer__col--open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('sensol-footer__col--open'));">Company<svg class="sensol-footer__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 4 6 8 10 4"/></svg></button>
+        <ul class="sensol-footer__col-list">
+          {%- for link in linklists[section.settings.company_menu].links -%}
+            <li><a href="{{ link.url }}" class="sensol-footer__col-link">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/pages/about" class="sensol-footer__col-link">About</a></li>
+            <li><a href="/pages/philosophy" class="sensol-footer__col-link">Senzine</a></li>
+            <li><a href="/pages/contact" class="sensol-footer__col-link">Contact</a></li>
+            <li><a href="/pages/careers" class="sensol-footer__col-link">Careers</a></li>
+            <li><a href="/pages/press" class="sensol-footer__col-link">Press</a></li>
+            <li><a href="/pages/app" class="sensol-footer__col-link">App</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="sensol-footer__newsletter">
+        <p class="sensol-footer__col-heading">Newsletter</p>
+        <p class="sensol-footer__newsletter-desc">
+          {{ section.settings.newsletter_desc }}
+        </p>
+        {%- form 'customer', id: 'SensolFooter', class: 'sensol-footer__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="hidden" name="contact[accepts_marketing]" value="1">
+          <div class="sensol-footer__form-row">
+            <input
+              type="email"
+              name="contact[email]"
+              class="sensol-footer__input"
+              placeholder="Your email address"
+              required
+              aria-label="Email for newsletter"
+            >
+            <button type="submit" class="sensol-footer__submit">Subscribe</button>
+          </div>
+          <div class="sensol-footer__form-msg" id="SensolFooterMsg" style="display:none;"></div>
+        {%- endform -%}
+
+        <div class="sensol-footer__contact">
+          <p class="sensol-footer__col-heading">Contact</p>
+          <p class="sensol-footer__contact-email">{{ section.settings.contact_email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="sensol-footer__bottom">
+    <div class="sensol-footer__bottom-inner">
+      <p class="sensol-footer__copyright">&copy; {{ 'now' | date: '%Y' }} Sensol. All rights reserved.</p>
+      <div class="sensol-footer__bottom-links">
+        {%- for link in linklists[section.settings.legal_menu].links -%}
+          <a href="{{ link.url }}" class="sensol-footer__bottom-link">{{ link.title }}</a>
+        {%- else -%}
+          <a href="/policies/privacy-policy" class="sensol-footer__bottom-link">Privacy Policy</a>
+          <a href="/policies/terms-of-service" class="sensol-footer__bottom-link">Terms of Service</a>
+          <a href="/policies/shipping-policy" class="sensol-footer__bottom-link">Shipping</a>
+          <a href="/policies/refund-policy" class="sensol-footer__bottom-link">Returns</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SENSOL Footer",
+  "tag": "section",
+  "class": "sensol-footer-section",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Footer Logo" },
+    { "type": "range", "id": "logo_width", "label": "Logo width (px)", "min": 60, "max": 200, "step": 10, "default": 120, "unit": "px" },
+    { "type": "textarea", "id": "brand_desc", "label": "Brand Description", "default": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022." },
+    { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "social_youtube", "label": "YouTube URL" },
+    { "type": "url", "id": "social_linkedin", "label": "LinkedIn URL" },
+    { "type": "link_list", "id": "product_menu", "label": "Products Menu" },
+    { "type": "link_list", "id": "company_menu", "label": "Company Menu" },
+    { "type": "link_list", "id": "legal_menu", "label": "Legal Menu" },
+    { "type": "text", "id": "newsletter_desc", "label": "Newsletter Description", "default": "Subscribe for exclusive updates, early access to new products, and stories from the world of Sensol." },
+    { "type": "text", "id": "contact_email", "label": "Contact Email", "default": "app.sensol@gmail.com" }
+  ],
+  "presets": [{ "name": "SENSOL Footer" }]
+}
+{% endschema %}
+
+{%- style -%}
+/* ===== SENsol Footer — matching Next.js preview ===== */
+.sensol-footer-section {
+  margin: 0;
+  padding: 0;
+  background: #1A1816 !important;
+}
+
+.sensol-footer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer {
+    padding: 7rem 4rem;
+  }
+}
+
+/* Main Grid — matching Next.js: grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 */
+.sensol-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__grid {
+    grid-template-columns: 4fr 2fr 2fr 4fr;
+    gap: 2rem;
+  }
+}
+
+/* Brand Column — matching Next.js: md:col-span-4 */
+.sensol-footer__logo-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.sensol-footer__logo-img {
+  max-height: 50px;
+  max-width: 120px;
+  width: auto;
+  display: block;
+}
+
+.sensol-footer__brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F7F4F0;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.sensol-footer__brand-desc {
+  font-size: 12px;
+  color: #8A8279;
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 20rem;
+  text-align: left;
+}
+
+/* Social Links — matching Next.js: flex gap-6 with icons */
+.sensol-footer__social {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: flex-start;
+}
+
+.sensol-footer__social-link {
+  color: #8A8279;
+  text-decoration: none;
+  transition: color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensol-footer__social-link:hover {
+  color: rgba(247,244,240,0.6);
+}
+
+/* Column — matching Next.js: md:col-span-2 */
+.sensol-footer__col {
+  text-align: left;
+}
+
+/* Column Heading — matching: text-[#8A8279] text-[9px] tracking-brand-lg uppercase mb-6 */
+.sensol-footer__col-heading {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Chevron — only visible on mobile */
+.sensol-footer__chevron {
+  display: none;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Mobile: collapsible columns */
+@media (max-width: 767px) {
+  .sensol-footer__col-heading {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #2a2724;
+    margin-bottom: 0;
+  }
+  .sensol-footer__chevron {
+    display: block;
+  }
+  .sensol-footer__col-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.3s;
+    padding: 0;
+  }
+  .sensol-footer__col--open .sensol-footer__col-list {
+    max-height: 500px;
+    padding: 0.75rem 0;
+  }
+  .sensol-footer__col--open .sensol-footer__chevron {
+    transform: rotate(180deg);
+  }
+}
+
+/* Column Links — matching: text-[#F7F4F0]/50 text-xs font-light */
+.sensol-footer__col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.sensol-footer__col-link {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(247,244,240,0.5);
+  text-decoration: none;
+  transition: color 0.5s;
+  position: relative;
+}
+
+.sensol-footer__col-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sensol-footer__col-link:hover {
+  color: rgba(247,244,240,0.8);
+}
+
+.sensol-footer__col-link:hover::after {
+  width: 100%;
+}
+
+/* Newsletter — matching Next.js: md:col-span-4 */
+.sensol-footer__newsletter {
+  text-align: left;
+}
+
+.sensol-footer__newsletter-desc {
+  font-size: 12px;
+  color: rgba(247,244,240,0.4);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  max-width: 20rem;
+}
+
+/* Newsletter Form — matching Next.js: flex max-w-sm */
+.sensol-footer__form {
+  margin-bottom: 0;
+}
+
+.sensol-footer__form-row {
+  display: flex;
+  max-width: 24rem;
+}
+
+.sensol-footer__input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #2a2724;
+  color: rgba(247,244,240,0.6);
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  padding: 0.875rem 1rem;
+  outline: none;
+  transition: border-color 0.5s;
+}
+
+.sensol-footer__input::placeholder {
+  color: rgba(138,130,121,0.4);
+}
+
+.sensol-footer__input:focus {
+  border-color: #8A8279;
+}
+
+.sensol-footer__submit {
+  background: #F7F4F0;
+  color: #1A1816;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  padding: 0.875rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.sensol-footer__submit:hover {
+  background: rgba(247,244,240,0.9);
+}
+
+/* Newsletter feedback message */
+.sensol-footer__form-msg {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0;
+  line-height: 1.6;
+}
+.sensol-footer__form-msg--success { color: rgba(247,244,240,0.7); }
+.sensol-footer__form-msg--error { color: #B5ADA4; }
+
+/* Contact in newsletter column */
+.sensol-footer__contact {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2724;
+}
+
+.sensol-footer__contact-email {
+  font-size: 12px;
+  color: rgba(247,244,240,0.4);
+  font-weight: 300;
+}
+
+/* Bottom Bar — matching Next.js: border-t border-[#2a2724] */
+.sensol-footer__bottom {
+  border-top: 1px solid #2a2724;
+}
+
+.sensol-footer__bottom-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sensol-footer__bottom-inner {
+    padding: 1.5rem 4rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.sensol-footer__copyright {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(138,130,121,0.6);
+}
+
+.sensol-footer__bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.sensol-footer__bottom-link {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(138,130,121,0.6);
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.sensol-footer__bottom-link:hover {
+  color: rgba(247,244,240,0.4);
+}
+
+/* Override global transparent bg for footer section wrapper */
+#shopify-section-sensol-footer,
+.shopify-section.sensol-footer-section {
+  background: #1A1816 !important;
+}
+{%- endstyle -%}
+
+<script>
+(function() {
+  var form = document.getElementById('SensolFooter');
+  if (!form) return;
+  var msgEl = document.getElementById('SensolFooterMsg');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput || !emailInput.value) return;
+    var email = emailInput.value.trim();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showMsg('Please enter a valid email address.', 'error');
+      return;
+    }
+
+    /* Push to Omnisend JS API (loaded via app embed) */
+    try {
+      if (typeof window.omnisend !== 'undefined') {
+        window.omnisend.push(["track", "identify", {
+          email: email,
+          status: "subscribed"
+        }]);
+        window.omnisend.push(["track", "subscribeContact", {
+          email: email,
+          status: "subscribed"
+        }]);
+      }
+    } catch(err) {}
+
+    /* Also submit to Shopify (creates customer + syncs to Omnisend via accepts_marketing) */
+    var formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/javascript' }
+    }).then(function() {
+      showMsg('Thank you. You are now subscribed.', 'success');
+      emailInput.value = '';
+    }).catch(function() {
+      /* Even if Shopify POST fails, Omnisend JS API already captured it */
+      showMsg('Thank you. You are now subscribed.', 'success');
+      emailInput.value = '';
+    });
+  });
+
+  function showMsg(text, type) {
+    if (!msgEl) return;
+    msgEl.textContent = text;
+    msgEl.className = 'sensol-footer__form-msg sensol-footer__form-msg--' + type;
+    msgEl.style.display = 'block';
+    setTimeout(function() {
+      msgEl.style.display = 'none';
+    }, 5000);
+  }
+})();
+</script>

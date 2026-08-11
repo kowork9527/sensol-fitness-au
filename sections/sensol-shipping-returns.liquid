@@ -1,0 +1,83 @@
+<section class="sc-ship-returns-{{ section.id }}">
+  <div class="sc-ship-returns-{{ section.id }}__inner">
+    <div class="sc-ship-returns-{{ section.id }}__header">
+      <span class="sc-ship-returns-{{ section.id }}__num">06</span>
+      <div class="sc-ship-returns-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-returns-{{ section.id }}__title">Returns &amp;<br>Exchanges</h2>
+    <div class="sc-ship-returns-{{ section.id }}__body">
+      <p>For information about returns and exchanges, please see our <a class="sc-ship-returns-{{ section.id }}__link" href="/policies/refund-policy">Refund Policy</a>.</p>
+      <p>For any shipping-related questions, contact <a class="sc-ship-returns-{{ section.id }}__link" href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a> — response within 1 business day.</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping Returns",
+  "tag": "section",
+  "class": "sensol-shipping-returns-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Returns" }]
+}
+{% endschema %}
+
+{%- style -%}
+  .sc-ship-returns-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-returns-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 8rem;
+  }
+  .sc-ship-returns-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-returns-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-returns-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-returns-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+  .sc-ship-returns-{{ section.id }}__body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #8A8279;
+    max-width: 600px;
+  }
+  .sc-ship-returns-{{ section.id }}__body p {
+    margin-bottom: 1.25rem;
+  }
+  .sc-ship-returns-{{ section.id }}__body p:last-child {
+    margin-bottom: 0;
+  }
+  .sc-ship-returns-{{ section.id }}__link {
+    color: #1A1816;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #B5ADA4;
+    text-decoration-thickness: 0.5px;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-returns-{{ section.id }}__inner { padding: 4rem 1.5rem 6rem; }
+  }
+{%- endstyle -%}

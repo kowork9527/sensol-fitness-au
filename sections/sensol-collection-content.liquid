@@ -1,0 +1,55 @@
+{%- style -%}
+  .sc-content-{{ section.id }} {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-content-{{ section.id }}__inner {
+    max-width: 800px; margin: 0 auto;
+    text-align: center;
+    padding: 60px 40px 80px;
+  }
+  .sc-content-{{ section.id }}__title {
+    font-size: 24px; font-weight: 300;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin: 0 0 20px; color: #1A1816;
+  }
+  .sc-content-{{ section.id }}__text {
+    font-size: 14px; line-height: 1.8;
+    color: #8A8279;
+  }
+  @media screen and (max-width: 768px) {
+    .sc-content-{{ section.id }}__inner { padding: 40px 20px 60px; }
+  }
+{%- endstyle -%}
+
+{%- assign content_should_render = true -%}
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign content_should_render = false -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign content_should_render = false -%}
+{%- endcase -%}
+
+{%- if content_should_render -%}
+<section class="sc-content-{{ section.id }}">
+  <div class="sc-content-{{ section.id }}__inner">
+    <h2 class="sc-content-{{ section.id }}__title">{{ section.settings.title }}</h2>
+    <p class="sc-content-{{ section.id }}__text">{{ section.settings.text }}</p>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Bottom Content",
+  "tag": "section",
+  "class": "sensol-collection-content",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Find Your Reformer" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Smart Series reformers use digital servo motors for 0.5 kg precision weight control - built for practitioners who want studio-grade technology at home. Mechanical Series reformers use elastic band and spring resistance - lighter, foldable, and more accessible, without compromising build quality. All Sensol reformers connect to the Vesta Sensol App for guided training across 200+ movements." }
+  ],
+  "presets": [{ "name": "Collection Bottom Content" }]
+}
+{% endschema %}
