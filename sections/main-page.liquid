@@ -19,6 +19,7 @@
   {%- section 'sensol-shipping-issues' -%}
   {%- section 'sensol-shipping-returns' -%}
 {%- else -%}
+  <div data-sensol-handle="{{ page.handle }}" style="border:3px solid red;padding:10px;background:yellow;position:relative;z-index:99999">HANDLE:{{ page.handle }}</div>
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
   {%- style -%}
