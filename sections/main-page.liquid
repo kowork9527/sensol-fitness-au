@@ -4,7 +4,8 @@
   page record that overrides page.json. We intercept here.
 {%- endcomment -%}
 
-<div data-debug-handle="{{ page.handle }}" data-debug-title="{{ page.title | escape }}" style="display:none"></div>
+<div data-debug-handle="{{ page.handle }}" data-debug-title="{{ page.title | escape }}" style="display:none" id="sensol-debug-router"></div>
+<span style="position:fixed;top:0;left:0;z-index:99999;background:red;color:white;padding:5px;font-size:12px" id="sensol-router-flag">HANDLE:{{ page.handle }}</span>
 
 {%- if page.handle == 'contact' -%}
   {%- section 'sensol-contact' -%}
