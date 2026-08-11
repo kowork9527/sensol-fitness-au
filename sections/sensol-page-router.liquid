@@ -2,6 +2,7 @@
   Sensol Page Router — routes page rendering based on page.handle.
   Replaces main-page.liquid for the default page template.
 {%- endcomment -%}
+<meta name="sensol-router" content="active" data-handle="{{ page.handle }}" data-title="{{ page.title | escape }}" />
 
 {%- if page.handle == 'contact' -%}
   {%- render 'sensol-contact-render' -%}
