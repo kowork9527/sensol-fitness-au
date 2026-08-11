@@ -1,0 +1,712 @@
+{%- comment -%}
+  SENSOl — Contact Dossier
+  Editorial / technical archive aesthetic
+{%- endcomment -%}
+
+<style>
+  .sensol-contact {
+    --ink: #1A1816;
+    --paper: #F7F4F0;
+    --paper-2: #FFFCF8;
+    --stone: #8A8279;
+    --linen: #D4CEC6;
+    --dove: #B5ADA4;
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sensol-contact * { box-sizing: border-box; }
+  .sensol-contact img { max-width: 100%; display: block; }
+
+  .sensol-contact .sc-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .sensol-contact .sc-serif {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .sensol-contact .sc-serif-r {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* ─── Hero ──────────────────────────────────── */
+  .sc-hero {
+    position: relative;
+    min-height: 88vh;
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+  .sc-hero-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .sc-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.55;
+    filter: grayscale(0.15) contrast(1.05);
+  }
+  .sc-hero-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,24,22,0.55) 0%, rgba(26,24,22,0.35) 50%, rgba(26,24,22,0.85) 100%);
+  }
+  .sc-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .sc-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(48px, 7.5vw, 112px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--paper);
+  }
+  .sc-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--dove);
+  }
+  .sc-hero-side {
+    padding-bottom: 18px;
+  }
+  .sc-hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dove);
+    margin: 0 0 22px;
+  }
+  .sc-hero-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--paper);
+    margin: 0 0 32px;
+    max-width: 360px;
+  }
+  .sc-hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    border-top: 1px solid rgba(212,206,198,0.18);
+    padding-top: 24px;
+  }
+  .sc-hero-meta .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dove);
+    margin-bottom: 6px;
+  }
+  .sc-hero-meta .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--paper);
+  }
+
+  /* ─── Section common ──────────────────────── */
+  .sc-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 140px 48px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .sc-section-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--dove);
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+  .sc-section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone);
+    border-top: 1px solid var(--linen);
+    padding-top: 14px;
+  }
+  .sc-section-tag strong {
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .sc-section-body { min-width: 0; }
+  .sc-section-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 36px;
+  }
+  .sc-section-h em { font-style: italic; color: var(--stone); }
+  .sc-section-p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 22px;
+    max-width: 640px;
+  }
+
+  /* ─── Direct lines (3-col) ─────────────────── */
+  .sc-direct {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--linen);
+    border-bottom: 1px solid var(--linen);
+  }
+  .sc-direct .col {
+    padding: 36px 32px;
+    border-right: 1px solid var(--linen);
+  }
+  .sc-direct .col:last-child { border-right: none; }
+  .sc-direct .col-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .sc-direct .col-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dove);
+    margin-bottom: 24px;
+  }
+  .sc-direct .col-h {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 14px;
+  }
+  .sc-direct .col-v {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .sc-direct .col-v a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--dove);
+    padding-bottom: 1px;
+    transition: border-color 0.4s var(--ease);
+  }
+  .sc-direct .col-v a:hover { border-color: var(--ink); }
+  .sc-direct .col-meta {
+    margin-top: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  /* ─── Letter (form) ───────────────────────── */
+  .sc-letter {
+    background: var(--paper-2);
+    border: 1px solid var(--linen);
+    padding: 64px 72px;
+  }
+  .sc-letter-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    border-bottom: 1px solid var(--linen);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .sc-letter-head .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .sc-letter-head .val {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .sc-letter-greet {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 0 0 36px;
+  }
+  .sc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+  }
+  .sc-field { margin-bottom: 32px; }
+  .sc-field.full { grid-column: 1 / -1; }
+  .sc-field .lbl {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 14px;
+  }
+  .sc-field .lbl .num {
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .sc-field .lbl .req {
+    margin-left: auto;
+    color: var(--stone);
+    font-size: 9.5px;
+  }
+  .sc-field input,
+  .sc-field textarea,
+  .sc-field select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--linen);
+    padding: 8px 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.4s var(--ease);
+  }
+  .sc-field input:focus,
+  .sc-field textarea:focus,
+  .sc-field select:focus { border-color: var(--ink); }
+  .sc-field textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+  .sc-field select { appearance: none; cursor: pointer; }
+  .sc-letter-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--linen);
+    padding-top: 32px;
+    margin-top: 24px;
+  }
+  .sc-letter-foot .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+  .sc-send {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.4s var(--ease), gap 0.4s var(--ease);
+  }
+  .sc-send:hover { background: #2a2622; gap: 20px; }
+  .sc-send .arr { font-size: 18px; }
+
+  /* ─── Visit studio (dark) ─────────────────── */
+  .sc-visit {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 140px 0 0;
+  }
+  .sc-visit-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+  }
+  .sc-visit .sc-section-num { color: var(--dove); }
+  .sc-visit .sc-section-tag { border-color: rgba(212,206,198,0.25); color: var(--dove); }
+  .sc-visit .sc-section-tag strong { color: var(--paper); }
+  .sc-visit .sc-section-h { color: var(--paper); }
+  .sc-visit .sc-section-p { color: rgba(247,244,240,0.78); }
+  .sc-visit-card {
+    background: rgba(247,244,240,0.04);
+    border: 1px solid rgba(212,206,198,0.2);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+  }
+  .sc-visit-card .head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dove);
+    border-bottom: 1px solid rgba(212,206,198,0.2);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+  .sc-visit-card .head strong { color: var(--paper); font-weight: 400; }
+  .sc-visit-card .row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: baseline;
+  }
+  .sc-visit-card .row .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dove);
+  }
+  .sc-visit-card .row .v {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--paper);
+    line-height: 1.5;
+  }
+  .sc-visit-card .row .v em { font-style: italic; color: var(--dove); }
+  .sc-visit-card .right {
+    background-image: url('{{ "contact-desk.jpg" | asset_url }}');
+    background-size: cover;
+    background-position: center;
+    min-height: 360px;
+    border: 1px solid rgba(212,206,198,0.18);
+    filter: grayscale(0.1);
+  }
+
+  /* ─── Imprint ─────────────────────────────── */
+  .sc-imprint {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 48px 80px;
+    border-top: 1px solid var(--linen);
+  }
+  .sc-imprint-h {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--ink);
+    margin: 0 0 48px;
+  }
+  .sc-imprint-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--linen);
+  }
+  .sc-imprint-grid .col {
+    padding: 32px 24px 32px 0;
+    border-right: 1px solid var(--linen);
+  }
+  .sc-imprint-grid .col:last-child { border-right: none; }
+  .sc-imprint-grid .col-h {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .sc-imprint-grid .col-v {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .sc-imprint-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--linen);
+    margin-top: 80px;
+    padding-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--stone);
+    text-transform: uppercase;
+  }
+
+  /* ─── Responsive ──────────────────────────── */
+  @media (max-width: 980px) {
+    .sc-hero { min-height: 70vh; }
+    .sc-hero-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 100px 24px 60px;
+    }
+    .sc-section,
+    .sc-visit-inner,
+    .sc-imprint {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 80px 24px;
+    }
+    .sc-direct { grid-template-columns: 1fr; }
+    .sc-direct .col { border-right: none; border-bottom: 1px solid var(--linen); }
+    .sc-direct .col:last-child { border-bottom: none; }
+    .sc-letter { padding: 36px 24px; }
+    .sc-letter-head { grid-template-columns: 1fr; gap: 24px; }
+    .sc-form-grid { grid-template-columns: 1fr; }
+    .sc-visit-card { grid-template-columns: 1fr; padding: 28px; }
+    .sc-visit-card .right { min-height: 220px; }
+    .sc-imprint-grid { grid-template-columns: 1fr 1fr; }
+    .sc-imprint-grid .col { border-right: none; }
+    .sc-letter-foot { flex-direction: column; gap: 24px; align-items: flex-start; }
+  }
+</style>
+
+<div class="sensol-contact">
+
+  <!-- Hero -->
+  <section class="sc-hero">
+    <div class="sc-hero-img">
+      <img src="{{ 'contact-hero.jpg' | asset_url }}" alt="SENSOL studio at dawn" loading="eager">
+    </div>
+    <div class="sc-hero-content">
+      <div>
+        <h1>A line,<br><em>not a form,</em><br>is the shortest<br>path between us.</h1>
+      </div>
+      <div class="sc-hero-side">
+        <p class="sc-hero-eyebrow">— § 00 · PREFACE</p>
+        <p class="sc-hero-sub">SENSOL is built quietly, piece by piece, in Melbourne. We answer our own emails — usually within one business day, often sooner.</p>
+        <div class="sc-hero-meta">
+          <div>
+            <div class="label">Reading time</div>
+            <div class="val">≈ 4 min</div>
+          </div>
+          <div>
+            <div class="label">SLA</div>
+            <div class="val">≤ 24 h</div>
+          </div>
+          <div>
+            <div class="label">Coverage</div>
+            <div class="val">Mon — Sat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct lines -->
+  <section class="sc-section">
+    <aside>
+      <p class="sc-section-num">01</p>
+      <p class="sc-section-tag"><strong>DIRECT LINES</strong> · PREFER EMAIL · MONO-FRI</p>
+    </aside>
+    <div class="sc-section-body">
+      <h2 class="sc-section-h">Three ways to reach <em>one human</em>.</h2>
+      <p class="sc-section-p">No ticket systems. No bots. The fastest reply is email, because we sit closer to it. Calls are returned between meetings. SMS is for studio bookings only.</p>
+      <div class="sc-direct">
+        <div class="col">
+          <div class="col-tag">A</div>
+          <div class="col-label">— Email · preferred</div>
+          <h3 class="col-h">The slow,<br>thorough line.</h3>
+          <p class="col-v"><a href="mailto:hello@sensol.com.au">hello@sensol.com.au</a></p>
+          <p class="col-meta">Replies within 1 business day.<br>Threading, attachments welcome.</p>
+        </div>
+        <div class="col">
+          <div class="col-tag">B</div>
+          <div class="col-label">— Voice · by appointment</div>
+          <h3 class="col-h">The 18-minute<br>conversation.</h3>
+          <p class="col-v"><a href="tel:+61394210000">+61 3 9421 0000</a></p>
+          <p class="col-meta">Tue · Wed · Thu<br>10:00 — 16:00 AEST</p>
+        </div>
+        <div class="col">
+          <div class="col-tag">C</div>
+          <div class="col-label">— Channels · other</div>
+          <h3 class="col-h">For the rest<br>of machines.</h3>
+          <p class="col-v">
+            <a href="https://instagram.com/sensol">Instagram</a><br>
+            <a href="https://linkedin.com/company/sensol">LinkedIn</a><br>
+            <a href="https://wa.me/61394210000">WhatsApp</a>
+          </p>
+          <p class="col-meta">Replies slower here.<br>Email remains the front door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Write to us / Form -->
+  <section class="sc-section" id="sc-write">
+    <aside>
+      <p class="sc-section-num">02</p>
+      <p class="sc-section-tag"><strong>WRITE TO US</strong> · LETTER FORMAT · REPLY ≤ 24 H</p>
+    </aside>
+    <div class="sc-section-body">
+      <h2 class="sc-section-h">Send a letter. <em>Not a form.</em></h2>
+      <p class="sc-section-p">A short paragraph is enough. Tell us what you're moving through — equipment, training, a question, a doubt. We read every line.</p>
+
+      <form class="sc-letter" action="/contact" method="post" id="ContactForm">
+        <div class="sc-letter-head">
+          <div>
+            <div class="lbl">— From</div>
+            <div class="val">You, somewhere on Earth</div>
+          </div>
+          <div>
+            <div class="lbl">— To</div>
+            <div class="val">SENSOL — Studio 04, Collingwood VIC 3066</div>
+          </div>
+        </div>
+
+        <p class="sc-letter-greet">Dear SENSOL,</p>
+
+        <div class="sc-form-grid">
+          <div class="sc-field">
+            <label class="lbl" for="sc-name"><span class="num">01</span><span>— Name</span><span class="req">REQUIRED</span></label>
+            <input type="text" id="sc-name" name="contact[name]" required>
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-email"><span class="num">02</span><span>— Email</span><span class="req">REQUIRED</span></label>
+            <input type="email" id="sc-email" name="contact[email]" required>
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-phone"><span class="num">03</span><span>— Phone</span><span class="req">OPTIONAL</span></label>
+            <input type="tel" id="sc-phone" name="contact[phone]">
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-subject"><span class="num">04</span><span>— Subject</span><span class="req">OPTIONAL</span></label>
+            <select id="sc-subject" name="contact[subject]">
+              <option value="">— Select a topic</option>
+              <option value="Equipment enquiry">Equipment enquiry</option>
+              <option value="Studio visit">Studio visit</option>
+              <option value="Press / media">Press / media</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="sc-field full">
+            <label class="lbl" for="sc-body"><span class="num">05</span><span>— Message</span><span class="req">REQUIRED</span></label>
+            <textarea id="sc-body" name="contact[body]" required placeholder="Tell us, in your own time."></textarea>
+          </div>
+        </div>
+
+        <div class="sc-letter-foot">
+          <div class="meta">— Posted via § 02 / 04<br>SENSOL — Contact Dossier</div>
+          <button type="submit" class="sc-send"><span>Post the letter</span><span class="arr">→</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Visit studio -->
+  <section class="sc-visit">
+    <div class="sc-visit-inner">
+      <aside>
+        <p class="sc-section-num">03</p>
+        <p class="sc-section-tag"><strong>VISIT THE STUDIO</strong> · BY APPOINTMENT</p>
+      </aside>
+      <div class="sc-section-body">
+        <h2 class="sc-section-h">The door is open <em>by appointment.</em></h2>
+        <p class="sc-section-p">The Collingwood studio is not a showroom. It is where we build, prototype, and test the equipment. Visits are reserved for serious enquiries and last about 45 minutes.</p>
+
+        <div class="sc-visit-card">
+          <div>
+            <div class="head">— DOSSIER · 002 · <strong>MELBOURNE HQ</strong></div>
+            <div class="row"><div class="k">Address</div><div class="v">Studio 04, 12 Sackville St<br>Collingwood VIC 3066<br><em>Australia</em></div></div>
+            <div class="row"><div class="k">Coords</div><div class="v">−37.8336° S / 144.9557° E</div></div>
+            <div class="row"><div class="k">Time zone</div><div class="v">AEST · UTC +10<br><em>Daylight: UTC +11</em></div></div>
+            <div class="row"><div class="k">Transit</div><div class="v">Tram 86 · Stop 24<br>Collingwood Library</div></div>
+            <div class="row"><div class="k">Parking</div><div class="v">2-hr street parking on<br>Sackville + Hotham St</div></div>
+            <div class="row"><div class="k">Access</div><div class="v">Step-free entry<br><em>Please advise in advance</em></div></div>
+          </div>
+          <div class="right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Imprint -->
+  <section class="sc-imprint">
+    <h2 class="sc-imprint-h">Imprint & <em style="font-style:italic">small print.</em></h2>
+    <div class="sc-imprint-grid">
+      <div class="col">
+        <div class="col-h">— The company</div>
+        <div class="col-v">SENSOL Fitness Pty Ltd<br>ABN 49 624 891 207<br>Studio 04, Collingwood VIC 3066</div>
+      </div>
+      <div class="col">
+        <div class="col-h">— Domains</div>
+        <div class="col-v">sensol.com.au<br>sensolfitness.com.au<br>shop.sensol.com.au</div>
+      </div>
+      <div class="col">
+        <div class="col-h">— Inboxes</div>
+        <div class="col-v">hello@sensol.com.au<br>studio@sensol.com.au<br>press@sensol.com.au</div>
+      </div>
+      <div class="col">
+        <div class="col-h">— Hours</div>
+        <div class="col-v">Mon — Fri · 09 — 18<br>Sat · 10 — 16<br>Sun · by chance</div>
+      </div>
+    </div>
+    <div class="sc-imprint-foot">
+      <div>© 2026 SENSOL — All rights reserved</div>
+      <div>Designed in Collingwood · Built in-house</div>
+      <div>Dossier — Edition 01 / 2026.08</div>
+    </div>
+  </section>
+
+</div>
