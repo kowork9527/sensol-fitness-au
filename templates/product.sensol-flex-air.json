@@ -28,11 +28,6 @@
     },
     "sp_overview": {
       "type": "sensol-product-overview",
-      "settings": {
-        "eyebrow": "Product Overview",
-        "title": "The most approachable way to begin.",
-        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level elastic band resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -68,18 +63,15 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Product Overview",
+        "title": "The most approachable way to begin.",
+        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level elastic band resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
+      }
     },
     "sp_feature_value": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 01",
-        "title": "Most Affordable Quality Reformer in Australia",
-        "text_1": "At just $650 AUD, the FLEX AIR is less than a quarter of the price of the Your Reformer ($2,795) and roughly half the cost of the Align-Pilates F3 Folding ($1,999). Unlike ultra-budget options that use basic springs and lack app connectivity, the FLEX AIR delivers a complete ecosystem: precision resistance, smart app integration, and professional-grade build quality.",
-        "text_2": "It's the only product in this price range that combines reformer functionality with strength training and digital coaching. No other reformer under $1,000 in Australia offers app-connected training, 300+ guided classes, and a dual-function Pilates-plus-strength design."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -115,18 +107,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "Most Affordable Quality Reformer in Australia",
+        "text_1": "At just $650 AUD, the FLEX AIR is less than a quarter of the price of the Your Reformer ($2,795) and roughly half the cost of the Align-Pilates F3 Folding ($1,999). Unlike ultra-budget options that use basic springs and lack app connectivity, the FLEX AIR delivers a complete ecosystem: precision resistance, smart app integration, and professional-grade build quality.",
+        "text_2": "It's the only product in this price range that combines reformer functionality with strength training and digital coaching. No other reformer under $1,000 in Australia offers app-connected training, 300+ guided classes, and a dual-function Pilates-plus-strength design."
+      }
     },
     "sp_feature_foldable": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 02",
-        "title": "Foldable, Compact, and Apartment-Friendly",
-        "text_1": "The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. Store it upright against a wall or slide it under a bed — its 13 cm ground clearance keeps it stable during use while maintaining a low profile. At just 25 kg, it's light enough for one person to move and reposition.",
-        "text_2": "The 0.2 m² upright storage footprint means it fits in any room, from a studio apartment in Melbourne's CBD to a spare corner in a Sydney terrace. Traditional wooden reformers require dedicated floor space and are difficult to move. The FLEX AIR folds and stores in seconds."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -162,18 +154,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "Foldable, Compact, and Apartment-Friendly",
+        "text_1": "The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. Store it upright against a wall or slide it under a bed — its 13 cm ground clearance keeps it stable during use while maintaining a low profile. At just 25 kg, it's light enough for one person to move and reposition.",
+        "text_2": "The 0.2 m² upright storage footprint means it fits in any room, from a studio apartment in Melbourne's CBD to a spare corner in a Sydney terrace. Traditional wooden reformers require dedicated floor space and are difficult to move. The FLEX AIR folds and stores in seconds."
+      }
     },
     "sp_feature_resistance": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 03",
-        "title": "Smooth Elastic Band Resistance for Gentle Progression",
-        "text_1": "The dual-level elastic band system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, elastic bands provide a gentler onset of resistance that reduces the risk of strain or injury.",
-        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and 0.5 kg precision increments via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes — Standard, Off-centre, and Constant — further expand your options."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -209,18 +201,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "Smooth Elastic Band Resistance for Gentle Progression",
+        "text_1": "The dual-level elastic band system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, elastic bands provide a gentler onset of resistance that reduces the risk of strain or injury.",
+        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and 0.5 kg precision increments via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes — Standard, Off-centre, and Constant — further expand your options."
+      }
     },
     "sp_feature_app": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 04",
-        "title": "Vesta Sensol App — 300+ Free Guided Classes",
-        "text_1": "Every FLEX AIR includes free access to the Vesta Sensol App (iOS and Android), featuring over 300 guided classes spanning Pilates, yoga, strength training, and rehabilitation. Structured programmes guide absolute beginners through to intermediate practitioners, with new classes added regularly.",
-        "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free — saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -256,15 +248,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Vesta Sensol App — 300+ Free Guided Classes",
+        "text_1": "Every FLEX AIR includes free access to the Vesta Sensol App (iOS and Android), featuring over 300 guided classes spanning Pilates, yoga, strength training, and rehabilitation. Structured programmes guide absolute beginners through to intermediate practitioners, with new classes added regularly.",
+        "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free — saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
+      }
     },
     "sp_video": {
       "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It Move",
-        "title": "Your first session, simplified.",
-        "show_hint": true
-      },
       "blocks": {
         "video_1": {
           "type": "video_card",
@@ -300,15 +295,15 @@
         "video_2",
         "video_3",
         "video_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "See It Move",
+        "title": "Your first session, simplified.",
+        "show_hint": true
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
-      "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, measured."
-      },
       "blocks": {
         "spec_frame": {
           "type": "spec",
@@ -456,14 +451,15 @@
         "spec_app",
         "spec_storage",
         "spec_warranty"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, measured."
+      }
     },
     "sp_included": {
       "type": "sensol-product-included",
-      "settings": {
-        "eyebrow": "In the Box",
-        "title": "Everything, included."
-      },
       "blocks": {
         "item_1": {
           "type": "item",
@@ -516,15 +512,14 @@
         "item_5",
         "item_6",
         "item_7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
     },
     "sp_roi": {
       "type": "sensol-product-roi",
-      "settings": {
-        "eyebrow": "The Investment",
-        "title": "Studio costs add up. The FLEX AIR pays for itself fast.",
-        "text": "At $650 AUD, the FLEX AIR represents extraordinary value. If you attend reformer Pilates twice a week, the FLEX AIR pays for itself within two months. After that, every session is essentially free — train as often as you like, on your own schedule, without booking, commuting, or waiting for a class."
-      },
       "blocks": {
         "comp_1": {
           "type": "comparison",
@@ -584,15 +579,15 @@
         "hi_1",
         "hi_2",
         "hi_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "Studio costs add up. The FLEX AIR pays for itself fast.",
+        "text": "At $650 AUD, the FLEX AIR represents extraordinary value. If you attend reformer Pilates twice a week, the FLEX AIR pays for itself within two months. After that, every session is essentially free — train as often as you like, on your own schedule, without booking, commuting, or waiting for a class."
+      }
     },
     "sp_reviews": {
       "type": "sensol-reviews",
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Loved by first-time reformer users."
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -623,15 +618,15 @@
         "review_1",
         "review_2",
         "review_3"
-      ]
+      ],
+      "settings": {
+        "show_section": true,
+        "label": "Verified Owners",
+        "title": "Loved by first-time reformer users."
+      }
     },
     "sp_qa": {
       "type": "sensol-product-qa",
-      "settings": {
-        "eyebrow": "Questions & Answers",
-        "title": "Common questions.",
-        "open_first": true
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -715,7 +710,12 @@
         "qa_8",
         "qa_9",
         "qa_10"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions & Answers",
+        "title": "Common questions.",
+        "open_first": true
+      }
     },
     "sp_related": {
       "type": "sensol-products",
@@ -723,17 +723,16 @@
         "label": "The FLEX Family",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
-        "product1_image_index": 0,
-        "product1_name": "FLEX PRO",
         "product1_vendor": "Sensol",
+        "product1_name": "FLEX PRO",
         "product1_price": "From $1,800",
         "product1_url": "/products/sensol-flex-pro",
-        "product2_name": "RS03 PRO",
         "product2_vendor": "Sensol",
+        "product2_name": "RS03 PRO",
         "product2_price": "From $2,800",
         "product2_url": "/products/sensol-rs03-pro",
-        "product3_name": "RS03",
         "product3_vendor": "Sensol",
+        "product3_name": "RS03",
         "product3_price": "From $2,400",
         "product3_url": "/products/sensol-rs03"
       }

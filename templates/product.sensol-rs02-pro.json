@@ -28,11 +28,6 @@
     },
     "sp_overview": {
       "type": "sensol-product-overview",
-      "settings": {
-        "eyebrow": "Product Overview",
-        "title": "Studio-level Pilates and strength training, reimagined.",
-        "text": "The Sensol RS02 PRO takes everything that makes the RS02 revolutionary and elevates it. The enhanced Pilates cable system expands movement pathways, enabling smoother transitions, greater range of motion, and more advanced sequencing across 200+ movements. This is the machine for those who refuse to compromise between Pilates precision and strength training power — for practitioners who have outgrown group classes and demand a studio-level experience at home."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -68,18 +63,15 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Product Overview",
+        "title": "Studio-level Pilates and strength training, reimagined.",
+        "text": "The Sensol RS02 PRO takes everything that makes the RS02 revolutionary and elevates it. The enhanced Pilates cable system expands movement pathways, enabling smoother transitions, greater range of motion, and more advanced sequencing across 200+ movements. This is the machine for those who refuse to compromise between Pilates precision and strength training power — for practitioners who have outgrown group classes and demand a studio-level experience at home."
+      }
     },
     "sp_feature_cables": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 01",
-        "title": "Enhanced Pilates Cable System",
-        "text_1": "The defining feature of the RS02 PRO is its enhanced Pilates cable system. Purpose-built for fluid Pilates movement, the upgraded cables provide smoother tension throughout the entire range of motion, reduce friction points, and enable transitions between exercises that feel seamless and natural. This is not an accessory bolted onto a strength machine — it is an integrated system designed from the ground up for Pilates practitioners who can feel the difference.",
-        "text_2": "The Your Reformer ($2,795) uses standard spring-and-rope systems that create inconsistent tension curves and jerky transitions. The RS02 PRO's enhanced cable system delivers a consistently smooth feel that mirrors the quality of studio-grade equipment costing $4,000+. The difference is immediately noticeable to anyone who has spent time on a professional reformer."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -115,18 +107,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "Enhanced Pilates Cable System",
+        "text_1": "The defining feature of the RS02 PRO is its enhanced Pilates cable system. Purpose-built for fluid Pilates movement, the upgraded cables provide smoother tension throughout the entire range of motion, reduce friction points, and enable transitions between exercises that feel seamless and natural. This is not an accessory bolted onto a strength machine — it is an integrated system designed from the ground up for Pilates practitioners who can feel the difference.",
+        "text_2": "The Your Reformer ($2,795) uses standard spring-and-rope systems that create inconsistent tension curves and jerky transitions. The RS02 PRO's enhanced cable system delivers a consistently smooth feel that mirrors the quality of studio-grade equipment costing $4,000+. The difference is immediately noticeable to anyone who has spent time on a professional reformer."
+      }
     },
     "sp_feature_pathways": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 02",
-        "title": "Expanded Movement Pathways",
-        "text_1": "The enhanced cable system unlocks movement pathways that the standard RS02 — and every spring-based reformer — simply cannot reach. Additional cable anchor points, combined with the wider arm articulation, create new angles of pull that expand your exercise library beyond the conventional. Movements that require diagonal or rotational pathways — essential for functional training and advanced Pilates — become not just possible but fluid and controlled.",
-        "text_2": "Traditional spring reformers are limited to vertical and slightly angled pull patterns determined by fixed spring attachment points. The RS02 PRO's 200+ movements include diagonal, rotational, and asymmetrical patterns that no spring reformer can replicate. For practitioners who have exhausted what a standard reformer offers, the PRO opens an entirely new movement vocabulary."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -162,18 +154,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "Expanded Movement Pathways",
+        "text_1": "The enhanced cable system unlocks movement pathways that the standard RS02 — and every spring-based reformer — simply cannot reach. Additional cable anchor points, combined with the wider arm articulation, create new angles of pull that expand your exercise library beyond the conventional. Movements that require diagonal or rotational pathways — essential for functional training and advanced Pilates — become not just possible but fluid and controlled.",
+        "text_2": "Traditional spring reformers are limited to vertical and slightly angled pull patterns determined by fixed spring attachment points. The RS02 PRO's 200+ movements include diagonal, rotational, and asymmetrical patterns that no spring reformer can replicate. For practitioners who have exhausted what a standard reformer offers, the PRO opens an entirely new movement vocabulary."
+      }
     },
     "sp_feature_arms": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 03",
-        "title": "145° Dual-Arm Articulation",
-        "text_1": "The RS02 PRO's arms adjust from 0° to 145° across 8 positions — the widest range in the Sensol smart series. This expanded articulation means the strength arms can target muscle groups from angles that the standard RS02 (0–132°) cannot reach. Overhead presses at full extension, low-angle rows, and decline press patterns all become available, transforming the PRO from a dual-function machine into a comprehensive strength training station.",
-        "text_2": "The standard RS02 offers 0–132° arm range. The Align-Pilates F3 ($1,999) has no adjustable arms at all. The Your Reformer ($2,795) similarly lacks strength training arms. The PRO's 145° range means it covers more exercise angles than any reformer in its price class."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -209,18 +201,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "145° Dual-Arm Articulation",
+        "text_1": "The RS02 PRO's arms adjust from 0° to 145° across 8 positions — the widest range in the Sensol smart series. This expanded articulation means the strength arms can target muscle groups from angles that the standard RS02 (0–132°) cannot reach. Overhead presses at full extension, low-angle rows, and decline press patterns all become available, transforming the PRO from a dual-function machine into a comprehensive strength training station.",
+        "text_2": "The standard RS02 offers 0–132° arm range. The Align-Pilates F3 ($1,999) has no adjustable arms at all. The Your Reformer ($2,795) similarly lacks strength training arms. The PRO's 145° range means it covers more exercise angles than any reformer in its price class."
+      }
     },
     "sp_feature_studio": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 04",
-        "title": "Studio-Level Reformer Experience",
-        "text_1": "The combination of enhanced cables, smooth carriage glide, and precise digital weight creates a reformer experience that rivals professional studio equipment. The feel underfoot — the way the carriage responds, the consistency of resistance through the full stroke, the silence of operation — is calibrated to satisfy instructors and advanced practitioners who can immediately tell the difference between quality equipment and compromise equipment.",
-        "text_2": "The Balanced Body Allegro 2 (~$6,000+ AUD) is the studio standard, known for its 'Silent Glide' carriage. The RS02 PRO matches that smoothness while adding digital weight precision that the Allegro 2's spring system cannot offer — all at less than half the price. For instructors who need a home practice base, the PRO is the closest thing to a studio reformer with smart technology built in."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -256,15 +248,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Studio-Level Reformer Experience",
+        "text_1": "The combination of enhanced cables, smooth carriage glide, and precise digital weight creates a reformer experience that rivals professional studio equipment. The feel underfoot — the way the carriage responds, the consistency of resistance through the full stroke, the silence of operation — is calibrated to satisfy instructors and advanced practitioners who can immediately tell the difference between quality equipment and compromise equipment.",
+        "text_2": "The Balanced Body Allegro 2 (~$6,000+ AUD) is the studio standard, known for its 'Silent Glide' carriage. The RS02 PRO matches that smoothness while adding digital weight precision that the Allegro 2's spring system cannot offer — all at less than half the price. For instructors who need a home practice base, the PRO is the closest thing to a studio reformer with smart technology built in."
+      }
     },
     "sp_video": {
       "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It Move",
-        "title": "Every pathway open. Every movement possible.",
-        "show_hint": true
-      },
       "blocks": {
         "video_1": {
           "type": "video_card",
@@ -300,15 +295,15 @@
         "video_2",
         "video_3",
         "video_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "See It Move",
+        "title": "Every pathway open. Every movement possible.",
+        "show_hint": true
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
-      "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, measured."
-      },
       "blocks": {
         "spec_frame": {
           "type": "spec",
@@ -456,14 +451,15 @@
         "spec_connectivity",
         "spec_app",
         "spec_warranty"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, measured."
+      }
     },
     "sp_included": {
       "type": "sensol-product-included",
-      "settings": {
-        "eyebrow": "In the Box",
-        "title": "Everything, included."
-      },
       "blocks": {
         "item_1": {
           "type": "item",
@@ -516,15 +512,14 @@
         "item_5",
         "item_6",
         "item_7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
     },
     "sp_roi": {
       "type": "sensol-product-roi",
-      "settings": {
-        "eyebrow": "The Investment",
-        "title": "Studio costs add up. The RS02 PRO pays for itself fast.",
-        "text": "At $2,400 AUD, the RS02 PRO delivers a studio-level reformer experience at less than the cost of a single year of studio membership. For a serious practitioner training 3–4 times per week, the RS02 PRO saves between $4,320 and $18,480 over two years compared to studio alternatives. After the break-even point, every session is effectively free."
-      },
       "blocks": {
         "comp_1": {
           "type": "comparison",
@@ -584,15 +579,15 @@
         "hi_1",
         "hi_2",
         "hi_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "Studio costs add up. The RS02 PRO pays for itself fast.",
+        "text": "At $2,400 AUD, the RS02 PRO delivers a studio-level reformer experience at less than the cost of a single year of studio membership. For a serious practitioner training 3–4 times per week, the RS02 PRO saves between $4,320 and $18,480 over two years compared to studio alternatives. After the break-even point, every session is effectively free."
+      }
     },
     "sp_reviews": {
       "type": "sensol-reviews",
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Endorsed by instructors and advanced practitioners."
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -632,15 +627,15 @@
         "review_2",
         "review_3",
         "review_4"
-      ]
+      ],
+      "settings": {
+        "show_section": true,
+        "label": "Verified Owners",
+        "title": "Endorsed by instructors and advanced practitioners."
+      }
     },
     "sp_qa": {
       "type": "sensol-product-qa",
-      "settings": {
-        "eyebrow": "Questions & Answers",
-        "title": "Common questions.",
-        "open_first": true
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -724,7 +719,12 @@
         "qa_8",
         "qa_9",
         "qa_10"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions & Answers",
+        "title": "Common questions.",
+        "open_first": true
+      }
     },
     "sp_related": {
       "type": "sensol-products",
@@ -732,17 +732,16 @@
         "label": "The Smart Series",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
-        "product1_image_index": 0,
-        "product1_name": "RS02",
         "product1_vendor": "Sensol",
+        "product1_name": "RS02",
         "product1_price": "From $2,000",
         "product1_url": "/products/sensol-rs02",
-        "product2_name": "RS03",
         "product2_vendor": "Sensol",
+        "product2_name": "RS03",
         "product2_price": "From $2,400",
         "product2_url": "/products/sensol-rs03",
-        "product3_name": "RS03 PRO",
         "product3_vendor": "Sensol",
+        "product3_name": "RS03 PRO",
         "product3_price": "From $2,800",
         "product3_url": "/products/sensol-rs03-pro"
       }

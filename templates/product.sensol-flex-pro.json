@@ -28,11 +28,6 @@
     },
     "sp_overview": {
       "type": "sensol-product-overview",
-      "settings": {
-        "eyebrow": "Product Overview",
-        "title": "The pinnacle of the FLEX Series.",
-        "text": "The Sensol FLEX PRO is a premium elastic band reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 120 kg of maximum resistance powered by dual 1500W servo motors, a 0–145° arm range, and 0.5 kg precision increments, the FLEX PRO is built for those who take their practice seriously."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -68,18 +63,15 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Product Overview",
+        "title": "The pinnacle of the FLEX Series.",
+        "text": "The Sensol FLEX PRO is a premium elastic band reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 120 kg of maximum resistance powered by dual 1500W servo motors, a 0–145° arm range, and 0.5 kg precision increments, the FLEX PRO is built for those who take their practice seriously."
+      }
     },
     "sp_feature_resistance": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 01",
-        "title": "120 kg Resistance — The Widest Range in Its Class",
-        "text_1": "The FLEX PRO delivers up to 120 kg of servo motor-precise resistance — 33% more than the FLEX (90 kg) and double the FLEX AIR (60 kg). This exceeds the practical maximum of most traditional spring reformers (typically 60–75 kg with all springs engaged).",
-        "text_2": "The dual 1500W servo motors provide smooth, consistent tension from 0.5 kg all the way to 120 kg, with instant adjustment via the remote control or app. Whether you're performing gentle rehabilitation movements at 2 kg or demanding strength exercises at 100 kg, the FLEX PRO delivers the same precise, controlled resistance."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -115,18 +107,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "120 kg Resistance — The Widest Range in Its Class",
+        "text_1": "The FLEX PRO delivers up to 120 kg of servo motor-precise resistance — 33% more than the FLEX (90 kg) and double the FLEX AIR (60 kg). This exceeds the practical maximum of most traditional spring reformers (typically 60–75 kg with all springs engaged).",
+        "text_2": "The dual 1500W servo motors provide smooth, consistent tension from 0.5 kg all the way to 120 kg, with instant adjustment via the remote control or app. Whether you're performing gentle rehabilitation movements at 2 kg or demanding strength exercises at 100 kg, the FLEX PRO delivers the same precise, controlled resistance."
+      }
     },
     "sp_feature_arm": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 02",
-        "title": "0–145° Arm Range — Unlock Advanced Movements",
-        "text_1": "The FLEX PRO's arms adjust from 0° to 145° across 8 positions — a wider range than the FLEX and FLEX AIR's 0–132°. This additional 13° unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
-        "text_2": "No traditional spring reformer on the Australian market offers adjustable arm positions at all — their footbars and cable systems are fixed. The FLEX PRO's 0–145° adjustable arms are a Sensol exclusive feature that dramatically expands exercise variety."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -162,18 +154,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "0–145° Arm Range — Unlock Advanced Movements",
+        "text_1": "The FLEX PRO's arms adjust from 0° to 145° across 8 positions — a wider range than the FLEX and FLEX AIR's 0–132°. This additional 13° unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
+        "text_2": "No traditional spring reformer on the Australian market offers adjustable arm positions at all — their footbars and cable systems are fixed. The FLEX PRO's 0–145° adjustable arms are a Sensol exclusive feature that dramatically expands exercise variety."
+      }
     },
     "sp_feature_modes": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 03",
-        "title": "Three Training Modes — Beyond Springs",
-        "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances — impossible on any spring reformer.",
-        "text_2": "Constant Mode maintains perfectly even tension throughout the entire range of motion, eliminating the dangerous peak loads that springs can create. This is particularly beneficial for rehabilitation, muscle endurance, and muscle growth. No spring reformer in the world offers training modes."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -209,18 +201,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "Three Training Modes — Beyond Springs",
+        "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances — impossible on any spring reformer.",
+        "text_2": "Constant Mode maintains perfectly even tension throughout the entire range of motion, eliminating the dangerous peak loads that springs can create. This is particularly beneficial for rehabilitation, muscle endurance, and muscle growth. No spring reformer in the world offers training modes."
+      }
     },
     "sp_feature_build": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 04",
-        "title": "Professional-Grade Build for Daily Use",
-        "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
-        "text_2": "The black matte powder coating is industrial-grade, resisting sweat, scratches, and the cumulative wear of daily high-intensity training. Unlike wooden frames susceptible to humidity, the FLEX PRO's steel construction is impervious to environmental conditions — suitable for garages, sunrooms, and any Australian climate."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -256,15 +248,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Professional-Grade Build for Daily Use",
+        "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
+        "text_2": "The black matte powder coating is industrial-grade, resisting sweat, scratches, and the cumulative wear of daily high-intensity training. Unlike wooden frames susceptible to humidity, the FLEX PRO's steel construction is impervious to environmental conditions — suitable for garages, sunrooms, and any Australian climate."
+      }
     },
     "sp_video": {
       "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It Move",
-        "title": "Advanced precision in motion.",
-        "show_hint": true
-      },
       "blocks": {
         "video_1": {
           "type": "video_card",
@@ -300,15 +295,15 @@
         "video_2",
         "video_3",
         "video_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "See It Move",
+        "title": "Advanced precision in motion.",
+        "show_hint": true
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
-      "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, measured."
-      },
       "blocks": {
         "spec_frame": {
           "type": "spec",
@@ -440,14 +435,15 @@
         "spec_app",
         "spec_storage",
         "spec_warranty"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, measured."
+      }
     },
     "sp_included": {
       "type": "sensol-product-included",
-      "settings": {
-        "eyebrow": "In the Box",
-        "title": "Everything, included."
-      },
       "blocks": {
         "item_1": {
           "type": "item",
@@ -500,15 +496,14 @@
         "item_5",
         "item_6",
         "item_7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
     },
     "sp_roi": {
       "type": "sensol-product-roi",
-      "settings": {
-        "eyebrow": "The Investment",
-        "title": "Studio costs add up. The FLEX PRO pays for itself.",
-        "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500–$13,400 compared to studio sessions — and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
-      },
       "blocks": {
         "comp_1": {
           "type": "comparison",
@@ -568,15 +563,15 @@
         "hi_1",
         "hi_2",
         "hi_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "Studio costs add up. The FLEX PRO pays for itself.",
+        "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500–$13,400 compared to studio sessions — and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
+      }
     },
     "sp_reviews": {
       "type": "sensol-reviews",
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Trusted by advanced practitioners."
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -607,15 +602,15 @@
         "review_1",
         "review_2",
         "review_3"
-      ]
+      ],
+      "settings": {
+        "show_section": true,
+        "label": "Verified Owners",
+        "title": "Trusted by advanced practitioners."
+      }
     },
     "sp_qa": {
       "type": "sensol-product-qa",
-      "settings": {
-        "eyebrow": "Questions & Answers",
-        "title": "Common questions.",
-        "open_first": true
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -699,7 +694,12 @@
         "qa_8",
         "qa_9",
         "qa_10"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions & Answers",
+        "title": "Common questions.",
+        "open_first": true
+      }
     },
     "sp_related": {
       "type": "sensol-products",
@@ -707,17 +707,16 @@
         "label": "The FLEX Family",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
-        "product1_image_index": 0,
-        "product1_name": "RS03 PRO",
         "product1_vendor": "Sensol",
+        "product1_name": "RS03 PRO",
         "product1_price": "From $2,800",
         "product1_url": "/products/sensol-rs03-pro",
-        "product2_name": "FLEX",
         "product2_vendor": "Sensol",
+        "product2_name": "FLEX",
         "product2_price": "From $1,290",
         "product2_url": "/products/sensol-flex",
-        "product3_name": "FLEX AIR",
         "product3_vendor": "Sensol",
+        "product3_name": "FLEX AIR",
         "product3_price": "From $890",
         "product3_url": "/products/sensol-flex-air"
       }

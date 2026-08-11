@@ -2,8 +2,8 @@
    SENSOL Global Override Styles — Dawn Theme
    ============================================ */
 
-/* Import Inter font */
-@import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&display=swap');
+/* Import Inter + Fraunces + JetBrains Mono */
+@import url('https://fonts.googleapis.cn/css2?family=Inter:wght@200;300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400&display=swap');
 
 /* ---- CSS Variables ---- */
 :root {

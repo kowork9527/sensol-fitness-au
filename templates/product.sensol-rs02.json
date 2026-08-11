@@ -28,11 +28,6 @@
     },
     "sp_overview": {
       "type": "sensol-product-overview",
-      "settings": {
-        "eyebrow": "Product Overview",
-        "title": "Digital weight reformer and strength training system.",
-        "text": "The Sensol RS02 redefines what home fitness can be. By replacing traditional spring resistance with a patent-pending digital weight system powered by dual servo motors, the RS02 delivers precise, controllable resistance from 0.5 kg all the way up to 120 kg — in increments as fine as 0.5 kg. No more swapping springs. No more guessing. Just dial in your weight and move."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -68,18 +63,15 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Product Overview",
+        "title": "Digital weight reformer and strength training system.",
+        "text": "The Sensol RS02 redefines what home fitness can be. By replacing traditional spring resistance with a patent-pending digital weight system powered by dual servo motors, the RS02 delivers precise, controllable resistance from 0.5 kg all the way up to 120 kg — in increments as fine as 0.5 kg. No more swapping springs. No more guessing. Just dial in your weight and move."
+      }
     },
     "sp_feature_digital": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 01",
-        "title": "Digital Weight Revolution",
-        "text_1": "The RS02 replaces imprecise spring resistance with a servo motor-driven digital weight system. Instead of hooking and unhooking springs to change resistance, you simply dial in your desired weight — from 0.5 kg to 120 kg — and the motor delivers it instantly. This is the same technology philosophy behind $17,000+ smart fitness systems, available at a fraction of the cost.",
-        "text_2": "Traditional reformers like the Your Reformer ($2,795) and Align-Pilates F3 ($1,999) rely on 3–5 metal springs with fixed tension increments. You cannot fine-tune resistance, springs degrade over time, and switching between exercises means physically changing spring configurations. The RS02 eliminates all of this with instant, precise digital adjustment via the remote control or app."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -115,18 +107,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "Digital Weight Revolution",
+        "text_1": "The RS02 replaces imprecise spring resistance with a servo motor-driven digital weight system. Instead of hooking and unhooking springs to change resistance, you simply dial in your desired weight — from 0.5 kg to 120 kg — and the motor delivers it instantly. This is the same technology philosophy behind $17,000+ smart fitness systems, available at a fraction of the cost.",
+        "text_2": "Traditional reformers like the Your Reformer ($2,795) and Align-Pilates F3 ($1,999) rely on 3–5 metal springs with fixed tension increments. You cannot fine-tune resistance, springs degrade over time, and switching between exercises means physically changing spring configurations. The RS02 eliminates all of this with instant, precise digital adjustment via the remote control or app."
+      }
     },
     "sp_feature_dual": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 02",
-        "title": "Dual-Function: Reformer + Strength Trainer",
-        "text_1": "The RS02 is two machines in one. The Sensol Control Dial™ lets you switch seamlessly between Pilates reformer mode and modular strength training mode. Perform footwork, hundreds, and elephant on the reformer carriage, then rotate the dial and switch to chest presses, rows, and squats using the strength arms — all without leaving the machine.",
-        "text_2": "The Your Reformer ($2,795) is a Pilates reformer only. The NordicTrack Ultra 1 ($17,000+) is a strength trainer only. The RS02 is the only machine in its price range that does both, saving you the cost and space of two separate pieces of equipment."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -162,18 +154,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "Dual-Function: Reformer + Strength Trainer",
+        "text_1": "The RS02 is two machines in one. The Sensol Control Dial™ lets you switch seamlessly between Pilates reformer mode and modular strength training mode. Perform footwork, hundreds, and elephant on the reformer carriage, then rotate the dial and switch to chest presses, rows, and squats using the strength arms — all without leaving the machine.",
+        "text_2": "The Your Reformer ($2,795) is a Pilates reformer only. The NordicTrack Ultra 1 ($17,000+) is a strength trainer only. The RS02 is the only machine in its price range that does both, saving you the cost and space of two separate pieces of equipment."
+      }
     },
     "sp_feature_app": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 03",
-        "title": "AI-Driven Coaching with Vesta Sensol App",
-        "text_1": "The Vesta Sensol App (available on iOS and Android) puts a personal trainer in your pocket. With 300+ guided classes spanning Pilates, strength training, yoga, and hybrid workouts, the app tracks your performance, suggests progressions, and uses AI-driven data coaching to help you improve. The app is included free — no monthly subscription required.",
-        "text_2": "The Align-Pilates F3 ($1,999) has no app connectivity whatsoever. The NordicTrack Ultra 1 requires a paid iFIT membership at approximately $60/month. The Frame Fitness system charges $39.99/month. The RS02 includes full app access with no ongoing fees — saving you up to $720 per year."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -209,18 +201,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "AI-Driven Coaching with Vesta Sensol App",
+        "text_1": "The Vesta Sensol App (available on iOS and Android) puts a personal trainer in your pocket. With 300+ guided classes spanning Pilates, strength training, yoga, and hybrid workouts, the app tracks your performance, suggests progressions, and uses AI-driven data coaching to help you improve. The app is included free — no monthly subscription required.",
+        "text_2": "The Align-Pilates F3 ($1,999) has no app connectivity whatsoever. The NordicTrack Ultra 1 requires a paid iFIT membership at approximately $60/month. The Frame Fitness system charges $39.99/month. The RS02 includes full app access with no ongoing fees — saving you up to $720 per year."
+      }
     },
     "sp_feature_compact": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 04",
-        "title": "Compact Footprint — 0.2 m² When Stored",
-        "text_1": "Australian homes are not getting bigger, but your fitness should not be limited by floor space. The RS02 stores upright in just 0.2 square metres — roughly the footprint of a small chair. Fold it up after your workout and tuck it against a wall, in a cupboard, or beside the bed. The 13 cm ground clearance keeps it stable during use while maintaining a low, accessible profile.",
-        "text_2": "Traditional reformers like the Align-Pilates F3 require a dedicated room — they are 1.8+ metres long and cannot be stored vertically. The Your Reformer offers a foldable option but still occupies significant floor space. The RS02's vertical storage is unique in the smart fitness category, and its noiseless motor design eliminates the squeaking and clanging of spring reformers."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -256,15 +248,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Compact Footprint — 0.2 m² When Stored",
+        "text_1": "Australian homes are not getting bigger, but your fitness should not be limited by floor space. The RS02 stores upright in just 0.2 square metres — roughly the footprint of a small chair. Fold it up after your workout and tuck it against a wall, in a cupboard, or beside the bed. The 13 cm ground clearance keeps it stable during use while maintaining a low, accessible profile.",
+        "text_2": "Traditional reformers like the Align-Pilates F3 require a dedicated room — they are 1.8+ metres long and cannot be stored vertically. The Your Reformer offers a foldable option but still occupies significant floor space. The RS02's vertical storage is unique in the smart fitness category, and its noiseless motor design eliminates the squeaking and clanging of spring reformers."
+      }
     },
     "sp_video": {
       "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It In Action",
-        "title": "Two machines. One device. Zero compromise.",
-        "show_hint": true
-      },
       "blocks": {
         "video_1": {
           "type": "video_card",
@@ -300,15 +295,15 @@
         "video_2",
         "video_3",
         "video_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "See It In Action",
+        "title": "Two machines. One device. Zero compromise.",
+        "show_hint": true
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
-      "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, measured."
-      },
       "blocks": {
         "spec_frame": {
           "type": "spec",
@@ -448,14 +443,15 @@
         "spec_connectivity",
         "spec_app",
         "spec_warranty"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, measured."
+      }
     },
     "sp_included": {
       "type": "sensol-product-included",
-      "settings": {
-        "eyebrow": "In the Box",
-        "title": "Everything, included."
-      },
       "blocks": {
         "item_1": {
           "type": "item",
@@ -508,15 +504,14 @@
         "item_5",
         "item_6",
         "item_7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
     },
     "sp_roi": {
       "type": "sensol-product-roi",
-      "settings": {
-        "eyebrow": "The Investment",
-        "title": "Studio costs add up. The RS02 pays for itself fast.",
-        "text": "At $2,000 AUD, the RS02 brings studio-grade technology into your home without the studio price tag. Over a two-year period, the RS02 saves between $3,160 and $19,040 compared to studio alternatives — and that is before considering the value of the strength training functionality, which would otherwise require a separate gym membership."
-      },
       "blocks": {
         "comp_1": {
           "type": "comparison",
@@ -576,15 +571,15 @@
         "hi_1",
         "hi_2",
         "hi_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "Studio costs add up. The RS02 pays for itself fast.",
+        "text": "At $2,000 AUD, the RS02 brings studio-grade technology into your home without the studio price tag. Over a two-year period, the RS02 saves between $3,160 and $19,040 compared to studio alternatives — and that is before considering the value of the strength training functionality, which would otherwise require a separate gym membership."
+      }
     },
     "sp_reviews": {
       "type": "sensol-reviews",
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Loved by practitioners across Australia."
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -624,15 +619,15 @@
         "review_2",
         "review_3",
         "review_4"
-      ]
+      ],
+      "settings": {
+        "show_section": true,
+        "label": "Verified Owners",
+        "title": "Loved by practitioners across Australia."
+      }
     },
     "sp_qa": {
       "type": "sensol-product-qa",
-      "settings": {
-        "eyebrow": "Questions & Answers",
-        "title": "Common questions.",
-        "open_first": true
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -716,7 +711,12 @@
         "qa_8",
         "qa_9",
         "qa_10"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions & Answers",
+        "title": "Common questions.",
+        "open_first": true
+      }
     },
     "sp_related": {
       "type": "sensol-products",
@@ -724,17 +724,16 @@
         "label": "The Smart Series",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
-        "product1_image_index": 0,
-        "product1_name": "RS02 PRO",
         "product1_vendor": "Sensol",
+        "product1_name": "RS02 PRO",
         "product1_price": "From $2,400",
         "product1_url": "/products/sensol-rs02-pro",
-        "product2_name": "RS03",
         "product2_vendor": "Sensol",
+        "product2_name": "RS03",
         "product2_price": "From $2,400",
         "product2_url": "/products/sensol-rs03",
-        "product3_name": "RS03 PRO",
         "product3_vendor": "Sensol",
+        "product3_name": "RS03 PRO",
         "product3_price": "From $2,800",
         "product3_url": "/products/sensol-rs03-pro"
       }

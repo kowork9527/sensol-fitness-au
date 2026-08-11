@@ -28,11 +28,6 @@
     },
     "sp_overview": {
       "type": "sensol-product-overview",
-      "settings": {
-        "eyebrow": "Product Overview",
-        "title": "The sweet spot of the FLEX Series.",
-        "text": "The Sensol FLEX is the sweet spot of the FLEX Series — a mid-range reformer that grows with you from your first tentative footwork to challenging full-body strength sessions. With 90 kg of maximum resistance powered by dual 1000W servo motors and 0.5 kg precision increments, the FLEX provides the progressive challenge that committed practitioners demand, without the premium price tag of studio-grade equipment."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -68,18 +63,15 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Product Overview",
+        "title": "The sweet spot of the FLEX Series.",
+        "text": "The Sensol FLEX is the sweet spot of the FLEX Series — a mid-range reformer that grows with you from your first tentative footwork to challenging full-body strength sessions. With 90 kg of maximum resistance powered by dual 1000W servo motors and 0.5 kg precision increments, the FLEX provides the progressive challenge that committed practitioners demand, without the premium price tag of studio-grade equipment."
+      }
     },
     "sp_feature_resistance": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 01",
-        "title": "90 kg Resistance That Grows With You",
-        "text_1": "The FLEX delivers up to 90 kg of servo motor-precise resistance — 50% more than the FLEX AIR's 60 kg capacity. This means the FLEX won't plateau as your strength improves. Whether you're a beginner building foundational stability or an intermediate practitioner pushing into advanced movements, the 0.5 kg increment adjustments let you progress at precisely the right pace.",
-        "text_2": "The dual 1000W servo motors ensure smooth, consistent tension throughout every repetition, eliminating the jerky resistance curve of spring-based reformers. The Align-Pilates F3 ($1,999) offers comparable spring resistance but lacks precision increments, app connectivity, and dual-function capability. The FLEX delivers more features for $799 less."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -115,18 +107,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 01",
+        "title": "90 kg Resistance That Grows With You",
+        "text_1": "The FLEX delivers up to 90 kg of servo motor-precise resistance — 50% more than the FLEX AIR's 60 kg capacity. This means the FLEX won't plateau as your strength improves. Whether you're a beginner building foundational stability or an intermediate practitioner pushing into advanced movements, the 0.5 kg increment adjustments let you progress at precisely the right pace.",
+        "text_2": "The dual 1000W servo motors ensure smooth, consistent tension throughout every repetition, eliminating the jerky resistance curve of spring-based reformers. The Align-Pilates F3 ($1,999) offers comparable spring resistance but lacks precision increments, app connectivity, and dual-function capability. The FLEX delivers more features for $799 less."
+      }
     },
     "sp_feature_versatility": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 02",
-        "title": "Serious Versatility in a Single Machine",
-        "text_1": "The FLEX isn't just a reformer — it's a complete training system that replaces multiple pieces of equipment. Use the footboard and carriage for Pilates, the short handles for rows, presses, and curls, the barbell bar for compound lifts, and the adjustable arms for targeted isolation work.",
-        "text_2": "With 0–132° arm adjustment across 8 positions and three training modes, the FLEX supports over 200 distinct movements. This is the versatility of a fully equipped home gym in a single, elegant machine. To match the FLEX's versatility with traditional equipment, you'd need a reformer plus a cable machine, dumbbells, and a home gym setup totalling $5,000+."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -162,18 +154,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 02",
+        "title": "Serious Versatility in a Single Machine",
+        "text_1": "The FLEX isn't just a reformer — it's a complete training system that replaces multiple pieces of equipment. Use the footboard and carriage for Pilates, the short handles for rows, presses, and curls, the barbell bar for compound lifts, and the adjustable arms for targeted isolation work.",
+        "text_2": "With 0–132° arm adjustment across 8 positions and three training modes, the FLEX supports over 200 distinct movements. This is the versatility of a fully equipped home gym in a single, elegant machine. To match the FLEX's versatility with traditional equipment, you'd need a reformer plus a cable machine, dumbbells, and a home gym setup totalling $5,000+."
+      }
     },
     "sp_feature_modes": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "dark",
-        "image_position": "left",
-        "eyebrow": "Key Feature 03",
-        "title": "Three Training Modes for Three Dimensions of Fitness",
-        "text_1": "Standard Mode provides traditional progressive resistance for building strength and endurance. Off-centre Mode shifts the resistance vector, engaging stabiliser muscles and challenging your balance in ways that traditional reformers simply cannot. Constant Mode maintains consistent tension throughout the entire range of motion, maximising time-under-tension for muscle growth and endurance.",
-        "text_2": "No other reformer on the Australian market offers multiple training modes — this is a Sensol exclusive. Traditional reformers offer one resistance profile. The FLEX's three modes effectively give you three different machines in one, each targeting different fitness adaptations."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -209,18 +201,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "image_position": "left",
+        "eyebrow": "Key Feature 03",
+        "title": "Three Training Modes for Three Dimensions of Fitness",
+        "text_1": "Standard Mode provides traditional progressive resistance for building strength and endurance. Off-centre Mode shifts the resistance vector, engaging stabiliser muscles and challenging your balance in ways that traditional reformers simply cannot. Constant Mode maintains consistent tension throughout the entire range of motion, maximising time-under-tension for muscle growth and endurance.",
+        "text_2": "No other reformer on the Australian market offers multiple training modes — this is a Sensol exclusive. Traditional reformers offer one resistance profile. The FLEX's three modes effectively give you three different machines in one, each targeting different fitness adaptations."
+      }
     },
     "sp_feature_build": {
       "type": "sensol-product-feature",
-      "settings": {
-        "color_scheme": "light",
-        "image_position": "right",
-        "eyebrow": "Key Feature 04",
-        "title": "Premium Build Without the Premium Price",
-        "text_1": "The FLEX's steel frame with zinc alloy joints delivers the same commercial-grade durability found in reformers costing two to three times more. The 32 kg frame feels substantial and stable during vigorous exercise — no wobble, no flex, no sliding across the floor. The carriage glides smoothly on precision-engineered rails.",
-        "text_2": "The black matte finish is a durable powder coating that resists sweat, scratches, and daily wear. The Your Reformer ($2,795) uses maple or walnut wood frames that are beautiful but bulky, heavy, and susceptible to humidity damage. The FLEX's steel-and-alloy construction is more durable, more stable, and costs less than half the price."
-      },
       "blocks": {
         "stat_1": {
           "type": "stat",
@@ -256,15 +248,18 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "light",
+        "image_position": "right",
+        "eyebrow": "Key Feature 04",
+        "title": "Premium Build Without the Premium Price",
+        "text_1": "The FLEX's steel frame with zinc alloy joints delivers the same commercial-grade durability found in reformers costing two to three times more. The 32 kg frame feels substantial and stable during vigorous exercise — no wobble, no flex, no sliding across the floor. The carriage glides smoothly on precision-engineered rails.",
+        "text_2": "The black matte finish is a durable powder coating that resists sweat, scratches, and daily wear. The Your Reformer ($2,795) uses maple or walnut wood frames that are beautiful but bulky, heavy, and susceptible to humidity damage. The FLEX's steel-and-alloy construction is more durable, more stable, and costs less than half the price."
+      }
     },
     "sp_video": {
       "type": "sensol-product-video-carousel",
-      "settings": {
-        "eyebrow": "See It In Action",
-        "title": "Three modes. One machine. Endless potential.",
-        "show_hint": true
-      },
       "blocks": {
         "video_1": {
           "type": "video_card",
@@ -300,15 +295,15 @@
         "video_2",
         "video_3",
         "video_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "See It In Action",
+        "title": "Three modes. One machine. Endless potential.",
+        "show_hint": true
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
-      "settings": {
-        "image_position": "right",
-        "eyebrow": "Engineering",
-        "title": "Every detail, measured."
-      },
       "blocks": {
         "spec_frame": {
           "type": "spec",
@@ -456,14 +451,15 @@
         "spec_app",
         "spec_storage",
         "spec_warranty"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "eyebrow": "Engineering",
+        "title": "Every detail, measured."
+      }
     },
     "sp_included": {
       "type": "sensol-product-included",
-      "settings": {
-        "eyebrow": "In the Box",
-        "title": "Everything, included."
-      },
       "blocks": {
         "item_1": {
           "type": "item",
@@ -516,15 +512,14 @@
         "item_5",
         "item_6",
         "item_7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In the Box",
+        "title": "Everything, included."
+      }
     },
     "sp_roi": {
       "type": "sensol-product-roi",
-      "settings": {
-        "eyebrow": "The Investment",
-        "title": "Studio costs add up. The FLEX pays for itself fast.",
-        "text": "At $1,200 AUD, the FLEX delivers a compelling return on investment. For a dual-discipline user who previously maintained both a Pilates studio membership ($280/month) and a gym membership ($25/week), the combined savings of $388/month mean the FLEX pays for itself in just over 3 months. After that, you're saving nearly $4,700 per year."
-      },
       "blocks": {
         "comp_1": {
           "type": "comparison",
@@ -584,15 +579,15 @@
         "hi_1",
         "hi_2",
         "hi_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Investment",
+        "title": "Studio costs add up. The FLEX pays for itself fast.",
+        "text": "At $1,200 AUD, the FLEX delivers a compelling return on investment. For a dual-discipline user who previously maintained both a Pilates studio membership ($280/month) and a gym membership ($25/week), the combined savings of $388/month mean the FLEX pays for itself in just over 3 months. After that, you're saving nearly $4,700 per year."
+      }
     },
     "sp_reviews": {
       "type": "sensol-reviews",
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Loved by committed practitioners."
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -623,15 +618,15 @@
         "review_1",
         "review_2",
         "review_3"
-      ]
+      ],
+      "settings": {
+        "show_section": true,
+        "label": "Verified Owners",
+        "title": "Loved by committed practitioners."
+      }
     },
     "sp_qa": {
       "type": "sensol-product-qa",
-      "settings": {
-        "eyebrow": "Questions & Answers",
-        "title": "Common questions.",
-        "open_first": true
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -715,7 +710,12 @@
         "qa_8",
         "qa_9",
         "qa_10"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions & Answers",
+        "title": "Common questions.",
+        "open_first": true
+      }
     },
     "sp_related": {
       "type": "sensol-products",
@@ -723,17 +723,16 @@
         "label": "The FLEX Family",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
-        "product1_image_index": 0,
-        "product1_name": "FLEX AIR",
         "product1_vendor": "Sensol",
+        "product1_name": "FLEX AIR",
         "product1_price": "From $650",
         "product1_url": "/products/sensol-flex-air",
-        "product2_name": "FLEX PRO",
         "product2_vendor": "Sensol",
+        "product2_name": "FLEX PRO",
         "product2_price": "From $1,800",
         "product2_url": "/products/sensol-flex-pro",
-        "product3_name": "RS03 PRO",
         "product3_vendor": "Sensol",
+        "product3_name": "RS03 PRO",
         "product3_price": "From $2,800",
         "product3_url": "/products/sensol-rs03-pro"
       }
