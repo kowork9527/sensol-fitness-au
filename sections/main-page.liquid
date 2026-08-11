@@ -6,6 +6,15 @@
 
 {%- if page.handle == 'contact' -%}
   {%- section 'sensol-contact' -%}
+{%- elsif page.handle == 'shipping-policy' -%}
+  {%- section 'sensol-shipping-hero' -%}
+  {%- section 'sensol-shipping-domestic' -%}
+  {%- section 'sensol-shipping-fees' -%}
+  {%- section 'sensol-shipping-requirements' -%}
+  {%- section 'sensol-shipping-dimensions' -%}
+  {%- section 'sensol-shipping-international' -%}
+  {%- section 'sensol-shipping-issues' -%}
+  {%- section 'sensol-shipping-returns' -%}
 {%- else -%}
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
