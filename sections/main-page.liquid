@@ -4,6 +4,8 @@
   page record that overrides page.json. We intercept here.
 {%- endcomment -%}
 
+<!-- DEBUG handle=[{{ page.handle }}] title=[{{ page.title }}] -->
+
 {%- if page.handle == 'contact' -%}
   {%- section 'sensol-contact' -%}
 {%- elsif page.handle == 'shipping-policy' or page.handle contains 'shipping' -%}
