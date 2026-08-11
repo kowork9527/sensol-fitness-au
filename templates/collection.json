@@ -1,13 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-/* Auto-generated */
 {
   "sections": {
     "hero": {
@@ -25,18 +15,15 @@
         "mech_count": "03"
       }
     },
+    "spotlight": {
+      "type": "sensol-collection-spotlight",
+      "settings": {
+        "show_section": true
+      }
+    },
     "stats": {
       "type": "sensol-collection-stats",
-      "settings": {
-        "stat1_num": "7",
-        "stat1_label": "Products",
-        "stat2_num": "2",
-        "stat2_label": "Series",
-        "stat3_num": "$950-$4,100",
-        "stat3_label": "Price Range AUD",
-        "stat4_num": "200+",
-        "stat4_label": "Movements"
-      }
+      "settings": {}
     },
     "bottom-content": {
       "type": "sensol-collection-content",
@@ -48,6 +35,7 @@
   },
   "order": [
     "hero",
+    "spotlight",
     "main-grid",
     "stats",
     "bottom-content"

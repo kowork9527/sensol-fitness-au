@@ -1,4 +1,3 @@
-/* Auto-generated */
 {%- style -%}
   .sc-stats-{{ section.id }} {
     background: #F7F4F0;
@@ -35,39 +34,64 @@
 {%- comment -%} Determine per-series stats based on collection handle {%- endcomment -%}
 {%- case collection.handle -%}
   {%- when 'smart-series' -%}
-    {%- assign stat_nums = '04,01,04,$1,580-$4,100,128+' | split: ',' -%}
-    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
-    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
+    {%- assign stat1_num = '04' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '128+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$1,580-$4,100' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
   {%- when 'mechanical-series' -%}
-    {%- assign stat_nums = '03,01,03,$950-$1,990,150+' | split: ',' -%}
-    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
-    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
+    {%- assign stat1_num = '03' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '150+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$950-$1,990' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
   {%- when 'flex-series' -%}
-    {%- assign stat_nums = '03,01,03,$1,490-$1,890,80+' | split: ',' -%}
-    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
-    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
+    {%- assign stat1_num = '03' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '80+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$1,490-$1,890' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
   {%- else -%}
-    {%- assign stat_nums = '7,2,$950-$4,100,200+' | split: ',' -%}
-    {%- assign stat_labels = 'Products,Series,Price Range AUD,Movements' | split: ',' -%}
-    {%- assign stat_show = 'true,true,true,true' | split: ',' -%}
+    {%- assign stat1_num = '7' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '2' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '$950-$4,100' -%}
+    {%- assign stat3_label = 'Price Range AUD' -%}
+    {%- assign stat4_num = '200+' -%}
+    {%- assign stat4_label = 'Movements' -%}
 {%- endcase -%}
 
 <section class="sc-stats-{{ section.id }}">
   <div class="sc-stats-{{ section.id }}__inner">
-    {%- for i in (0..3) -%}
-      {%- assign num = stat_nums[i] -%}
-      {%- assign label = stat_labels[i] -%}
-      {%- assign show = stat_show[i] -%}
-      {%- if show == 'true' and num != blank -%}
-        <div class="sc-stats-{{ section.id }}__item">
-          <p class="sc-stats-{{ section.id }}__num">{{ num }}</p>
-          <p class="sc-stats-{{ section.id }}__label">{{ label }}</p>
-        </div>
-        {%- unless forloop.last -%}
-          <div class="sc-stats-{{ section.id }}__divider"></div>
-        {%- endunless -%}
-      {%- endif -%}
-    {%- endfor -%}
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat1_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat1_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat2_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat2_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat3_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat3_label }}</p>
+    </div>
+    <div class="sc-stats-{{ section.id }}__divider"></div>
+    <div class="sc-stats-{{ section.id }}__item">
+      <p class="sc-stats-{{ section.id }}__num">{{ stat4_num }}</p>
+      <p class="sc-stats-{{ section.id }}__label">{{ stat4_label }}</p>
+    </div>
   </div>
 </section>
 

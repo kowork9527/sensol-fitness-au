@@ -412,6 +412,69 @@
       {{ content_for_layout }}
     </main>
 
+    {%- if template.name == 'collection' -%}
+    <script>
+    (function(){
+      var path = window.location.pathname;
+      var handle = path.split('/collections/')[1];
+      if (!handle) return;
+      handle = handle.split('/')[0];
+      if (handle !== 'smart-series' && handle !== 'mechanical-series' && handle !== 'all') return;
+      if (document.querySelector('.sc-spot-injected')) return;
+
+      var statsSection = document.querySelector('[id$="__stats"]');
+      if (!statsSection) return;
+
+      var style = document.createElement('style');
+      style.textContent = [
+        '.sc-spot-injected{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;padding:100px 40px;border-top:1px solid #D4CEC6}',
+        '.sc-spot-injected--dark{background:#1A1816;color:#F7F4F0}',
+        '.sc-spot-injected--light{background:#F7F4F0;color:#1A1816}',
+        '.sc-spot-injected__inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}',
+        '.sc-spot-injected__eyebrow{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px}',
+        '.sc-spot-injected--dark .sc-spot-injected__eyebrow{color:#B5ADA4}',
+        '.sc-spot-injected--light .sc-spot-injected__eyebrow{color:#8A8279}',
+        '.sc-spot-injected__title{font-size:clamp(28px,4vw,48px);font-weight:200;letter-spacing:0.1em;text-transform:uppercase;line-height:1.15;margin:0 0 24px}',
+        '.sc-spot-injected__text{font-size:15px;font-weight:400;line-height:1.8;max-width:480px;margin:0 0 32px}',
+        '.sc-spot-injected--dark .sc-spot-injected__text{color:#B5ADA4}',
+        '.sc-spot-injected--light .sc-spot-injected__text{color:#8A8279}',
+        '.sc-spot-injected__features{display:flex;flex-wrap:wrap;gap:24px 40px;margin-bottom:36px}',
+        '.sc-spot-injected__feature{font-size:12px;font-weight:400;letter-spacing:0.1em}',
+        '.sc-spot-injected__feature-num{font-family:JetBrains Mono,Courier New,monospace;font-size:20px;font-weight:300;display:block;margin-bottom:2px}',
+        '.sc-spot-injected--dark .sc-spot-injected__feature-num{color:#F7F4F0}',
+        '.sc-spot-injected--light .sc-spot-injected__feature-num{color:#1A1816}',
+        '.sc-spot-injected__feature-label{color:#8A8279}',
+        '.sc-spot-injected__cta{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding-bottom:8px;border-bottom:1px solid currentColor;transition:gap 0.3s cubic-bezier(0.25,0.1,0.25,1)}',
+        '.sc-spot-injected__cta:hover{gap:20px}',
+        '.sc-spot-injected__media{aspect-ratio:4/5;background:#D4CEC6;overflow:hidden}',
+        '.sc-spot-injected__media img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1)}',
+        '.sc-spot-injected__media:hover img{transform:scale(1.03)}',
+        '@media screen and (max-width:768px){.sc-spot-injected{padding:60px 20px}.sc-spot-injected__inner{grid-template-columns:1fr;gap:40px}}'
+      ].join('\n');
+      document.head.appendChild(style);
+
+      function createFeature(num, label) {
+        return '<div class="sc-spot-injected__feature"><span class="sc-spot-injected__feature-num">' + num + '</span><span class="sc-spot-injected__feature-label">' + label + '</span></div>';
+      }
+
+      var section = document.createElement('section');
+      section.className = 'sc-spot-injected';
+
+      if (handle === 'smart-series' || handle === 'all') {
+        section.classList.add('sc-spot-injected--light');
+        section.innerHTML = '<div class="sc-spot-injected__inner"><div><p class="sc-spot-injected__eyebrow">Series 01 / Smart</p><h2 class="sc-spot-injected__title">Engineered for<br>precision.</h2><p class="sc-spot-injected__text">Digital servo motors deliver 0.5 kg increment weight control. Dual-function Pilates and strength training with AI-driven coaching through the Vesta app.</p><div class="sc-spot-injected__features">' + createFeature('0.5kg','Precision') + createFeature('128+','Movements') + createFeature('4.3"','Touch Display') + '</div><a href="/collections/smart-series" class="sc-spot-injected__cta">View Smart Series &rarr;</a></div><div class="sc-spot-injected__media"><img src="' + (window.__collectionImage || '') + '" alt="Smart Series" loading="lazy"></div></div>';
+      } else if (handle === 'mechanical-series') {
+        section.classList.add('sc-spot-injected--dark');
+        section.innerHTML = '<div class="sc-spot-injected__inner"><div class="sc-spot-injected__media"><img src="' + (window.__collectionImage || '') + '" alt="Mechanical Series" loading="lazy"></div><div><p class="sc-spot-injected__eyebrow">Series 02 / Mechanical</p><h2 class="sc-spot-injected__title">Built for<br>accessibility.</h2><p class="sc-spot-injected__text">Elastic band and spring-based resistance in a foldable, lightweight frame. Beginner-friendly without compromising on build quality or training depth.</p><div class="sc-spot-injected__features">' + createFeature('150+','Movements') + createFeature('12kg','Folded Weight') + createFeature('5min','Setup Time') + '</div><a href="/collections/mechanical-series" class="sc-spot-injected__cta">View Mechanical Series &rarr;</a></div></div>';
+      }
+
+      if (section.innerHTML) {
+        statsSection.parentNode.insertBefore(section, statsSection);
+      }
+    })();
+    </script>
+    {%- endif -%}
+
     {% sections 'footer-group' %}
 
     <ul hidden>
