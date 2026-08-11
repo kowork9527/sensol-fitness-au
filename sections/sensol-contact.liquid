@@ -43,32 +43,6 @@
     font-style: normal;
   }
 
-  /* ─── Edition header ───────────────────────── */
-  .sc-edition {
-    background: var(--ink);
-    color: var(--paper);
-    border-bottom: 1px solid var(--ink);
-  }
-  .sc-edition-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 18px 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .sc-edition-inner > div { display: flex; align-items: center; gap: 14px; }
-  .sc-edition-inner > div:nth-child(1) { justify-content: flex-start; color: var(--dove); }
-  .sc-edition-inner > div:nth-child(2) { justify-content: center; color: var(--paper); }
-  .sc-edition-inner > div:nth-child(3) { justify-content: flex-end; color: var(--dove); }
-  .sc-edition-inner .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--dove); display: inline-block; }
-  .sc-edition-inner .dot.active { background: #B5ADA4; box-shadow: 0 0 0 3px rgba(181,173,164,0.18); }
-
   /* ─── Hero ──────────────────────────────────── */
   .sc-hero {
     position: relative;
@@ -521,13 +495,6 @@
 
   /* ─── Responsive ──────────────────────────── */
   @media (max-width: 980px) {
-    .sc-edition-inner {
-      grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 14px 24px;
-      text-align: center;
-    }
-    .sc-edition-inner > div { justify-content: center !important; }
     .sc-hero { min-height: 70vh; }
     .sc-hero-content {
       grid-template-columns: 1fr;
@@ -556,15 +523,6 @@
 </style>
 
 <div class="sensol-contact">
-
-  <!-- Edition header -->
-  <div class="sc-edition">
-    <div class="sc-edition-inner">
-      <div><span class="dot"></span><span>DUT—AU / 2026 / Q3</span></div>
-      <div>SENSOL — CONTACT DOSSIER</div>
-      <div><span>EDITION 01 · </span><span class="dot active"></span><span>ACTIVE</span></div>
-    </div>
-  </div>
 
   <!-- Hero -->
   <section class="sc-hero">
