@@ -37,18 +37,21 @@
     position: relative; z-index: 1; text-align: center;
     color: #F7F4F0; padding: 0 2rem; max-width: 900px;
   }
-  .sensol-about__opening-brand {
-    font-size: clamp(48px, 8vw, 96px); font-weight: 200;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    margin-bottom: 1.5rem; line-height: 1;
+  .sensol-about__opening-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 400; color: rgba(247,244,240,0.5); margin-bottom: 2rem;
   }
-  .sensol-about__opening-tagline {
-    font-size: clamp(18px, 2.5vw, 28px); font-weight: 200;
-    letter-spacing: 0.1em; margin-bottom: 1rem;
+  .sensol-about__opening-title {
+    font-size: clamp(32px, 5vw, 64px); font-weight: 200;
+    letter-spacing: 0.05em; line-height: 1.15;
+  }
+  .sensol-about__opening-rule {
+    width: 60px; height: 1px; background: #8A8279; margin: 2.5rem auto;
   }
   .sensol-about__opening-subtitle {
-    font-size: 15px; font-weight: 300; line-height: 1.7;
-    color: rgba(247,244,240,0.6); max-width: 600px; margin: 0 auto;
+    font-size: clamp(15px, 1.2vw, 18px); font-weight: 300;
+    letter-spacing: 0.06em; line-height: 1.7;
+    color: rgba(247,244,240,0.6); max-width: 560px; margin: 0 auto;
   }
 
   /* ── Story grid ── */
@@ -203,8 +206,9 @@
       <img class="sensol-about__opening-bg" src="{{ section.settings.hero_image | image_url: width: 2000 }}" alt="Sensol" loading="eager" width="2000" height="1125">
     {%- endif -%}
     <div class="sensol-about__opening-inner">
-      <h1 class="sensol-about__opening-brand">{{ section.settings.opening_brand }}</h1>
-      <p class="sensol-about__opening-tagline">{{ section.settings.opening_tagline }}</p>
+      <p class="sensol-about__opening-label">{{ section.settings.opening_label }}</p>
+      <h1 class="sensol-about__opening-title">{{ section.settings.opening_title }}</h1>
+      <div class="sensol-about__opening-rule"></div>
       <p class="sensol-about__opening-subtitle">{{ section.settings.opening_subtitle }}</p>
     </div>
   </section>
@@ -432,9 +436,9 @@
   "settings": [
     { "type": "header", "content": "Opening (Hero)" },
     { "type": "image_picker", "id": "hero_image", "label": "Hero background image" },
-    { "type": "text", "id": "opening_brand", "label": "Brand name", "default": "SENSOL" },
-    { "type": "text", "id": "opening_tagline", "label": "Tagline", "default": "A new language of training." },
-    { "type": "textarea", "id": "opening_subtitle", "label": "Subtitle", "default": "Where strength meets precision, and movement becomes design." },
+    { "type": "text", "id": "opening_label", "label": "Label", "default": "About Sensol" },
+    { "type": "text", "id": "opening_title", "label": "Title", "default": "A New Language of Training" },
+    { "type": "textarea", "id": "opening_subtitle", "label": "Subtitle", "default": "Where strength meets precision, and movement becomes design. Founded in 2022, we design intelligent training systems that merge performance, technology, and spatial aesthetics." },
 
     { "type": "header", "content": "Our Story" },
     { "type": "text", "id": "story_label", "label": "Section label", "default": "01 — Our Story" },
