@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "hero": { "type": "sensol-collection-hero", "settings": {} },
+    "main": { "type": "sensol-collection-grid", "settings": {} },
+    "stats": { "type": "sensol-collection-stats", "settings": {} }
+  },
+  "order": ["hero", "main", "stats"]
+}
