@@ -408,18 +408,7 @@
       role="main"
       tabindex="-1"
       data-template="{{ template.name }}"
-      data-page-handle="{{ page.handle }}"
     >
-      {%- if page.handle == 'shipping-policy' or page.handle contains 'shipping' -%}
-        {{ 'sensol-shipping-page.css' | asset_url | stylesheet_tag }}
-        {%- render 'sensol-shipping-page' -%}
-        <style>
-          #shopify-section-template--28523275714692__main,
-          section[data-template="page"][class*="shopify-section"]:has(.main-page-title) {
-            display: none !important;
-          }
-        </style>
-      {%- endif -%}
       {{ content_for_layout }}
     </main>
 
