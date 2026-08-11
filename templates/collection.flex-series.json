@@ -1,9 +1,0 @@
-{
-  "sections": {
-    "hero": { "type": "sensol-collection-hero", "settings": {} },
-    "spotlight": { "type": "sensol-collection-spotlight", "settings": { "show_section": true } },
-    "main": { "type": "sensol-collection-grid", "settings": {} },
-    "stats": { "type": "sensol-collection-stats", "settings": {} }
-  },
-  "order": ["hero", "spotlight", "main", "stats"]
-}
