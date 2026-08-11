@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -5,8 +14,7 @@
       "settings": {
         "eyebrow": "2026 Collection",
         "title": "All Reformers",
-        "subtitle": "Seven machines engineered for precision strength and Pilates training at home. Filter by series to find your match.",
-        "_cache_bust": "1"
+        "subtitle": "Seven machines engineered for precision strength and Pilates training at home. Filter by series to find your match."
       }
     },
     "main-grid": {
