@@ -1,0 +1,530 @@
+<section class="sensol-contact-section">
+  <div class="sensol-contact-hero">
+    <div class="sensol-contact-hero__inner">
+      <p class="sensol-contact-hero__label">{{ section.settings.hero_label }}</p>
+      <h1 class="sensol-contact-hero__title">{{ section.settings.hero_title }}</h1>
+      <p class="sensol-contact-hero__sub">{{ section.settings.hero_sub }}</p>
+    </div>
+  </div>
+
+  <div class="sensol-contact-body">
+    <div class="sensol-contact-body__grid">
+
+      <aside class="sensol-contact-info">
+        <p class="sensol-contact-info__label">{{ section.settings.info_label }}</p>
+
+        <div class="sensol-contact-info__block">
+          <p class="sensol-contact-info__key">Email</p>
+          <a class="sensol-contact-info__val sensol-contact-info__val--link" href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+        </div>
+
+        <div class="sensol-contact-info__block">
+          <p class="sensol-contact-info__key">Phone</p>
+          <a class="sensol-contact-info__val sensol-contact-info__val--link" href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a>
+        </div>
+
+        <div class="sensol-contact-info__block">
+          <p class="sensol-contact-info__key">Hours</p>
+          <p class="sensol-contact-info__val">{{ section.settings.hours_weekday }}</p>
+          <p class="sensol-contact-info__val">{{ section.settings.hours_weekend }}</p>
+        </div>
+
+        <div class="sensol-contact-info__block">
+          <p class="sensol-contact-info__key">Studio</p>
+          <p class="sensol-contact-info__val">{{ section.settings.studio_line1 }}</p>
+          <p class="sensol-contact-info__val">{{ section.settings.studio_line2 }}</p>
+        </div>
+      </aside>
+
+      <div class="sensol-contact-form-wrap">
+        <p class="sensol-contact-form-wrap__label">{{ section.settings.form_label }}</p>
+        <h2 class="sensol-contact-form-wrap__title">{{ section.settings.form_title }}</h2>
+
+        {%- form 'contact', id: 'SensolContactForm', class: 'sensol-contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="sensol-contact-form__success">
+              <p class="sensol-contact-form__success-label">Message received</p>
+              <p class="sensol-contact-form__success-text">We'll respond within one business day.</p>
+            </div>
+          {%- elsif form.errors -%}
+            <div class="sensol-contact-form__error">
+              <p class="sensol-contact-form__error-text">Please complete the required fields and try again.</p>
+            </div>
+          {%- endif -%}
+
+          <div class="sensol-contact-form__row">
+            <div class="sensol-contact-form__field">
+              <label class="sensol-contact-form__label" for="SensolContact-name">Name</label>
+              <input
+                class="sensol-contact-form__input"
+                autocomplete="name"
+                type="text"
+                id="SensolContact-name"
+                name="contact[{{ 'templates.contact.form.name' | t }}]"
+                value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              >
+            </div>
+            <div class="sensol-contact-form__field">
+              <label class="sensol-contact-form__label" for="SensolContact-email">Email <span aria-hidden="true">*</span></label>
+              <input
+                class="sensol-contact-form__input"
+                autocomplete="email"
+                type="email"
+                id="SensolContact-email"
+                name="contact[email]"
+                spellcheck="false"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                required
+                aria-required="true"
+              >
+            </div>
+          </div>
+
+          <div class="sensol-contact-form__field">
+            <label class="sensol-contact-form__label" for="SensolContact-phone">Phone</label>
+            <input
+              class="sensol-contact-form__input"
+              autocomplete="tel"
+              type="tel"
+              id="SensolContact-phone"
+              name="contact[{{ 'templates.contact.form.phone' | t }}]"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            >
+          </div>
+
+          <div class="sensol-contact-form__field">
+            <label class="sensol-contact-form__label" for="SensolContact-body">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              class="sensol-contact-form__input sensol-contact-form__textarea"
+              rows="5"
+              id="SensolContact-body"
+              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              required
+              aria-required="true"
+            >{{- form.body -}}</textarea>
+          </div>
+
+          <div class="sensol-contact-form__submit">
+            <button type="submit" class="sensol-contact-form__btn">
+              <span class="sensol-contact-form__btn-text">{{ section.settings.button_text }}</span>
+              <span class="sensol-contact-form__btn-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sensol-contact-foot">
+    <div class="sensol-contact-foot__inner">
+      <p class="sensol-contact-foot__line">{{ section.settings.company_name }}</p>
+      <p class="sensol-contact-foot__line">{{ section.settings.company_tagline }}</p>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+.sensol-contact-section {
+  background: #F7F4F0;
+  color: #1A1816;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Hero ---- */
+.sensol-contact-hero {
+  background: #1A1816;
+  color: #F7F4F0;
+  padding: 180px 2rem 120px;
+  text-align: center;
+}
+.sensol-contact-hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.sensol-contact-hero__label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #B5ADA4;
+  margin: 0 0 28px;
+}
+.sensol-contact-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  color: #F7F4F0;
+}
+.sensol-contact-hero__sub {
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: #8A8279;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---- Body grid ---- */
+.sensol-contact-body {
+  background: #F7F4F0;
+  padding: 120px 2rem;
+  border-top: 1px solid #D4CEC6;
+}
+.sensol-contact-body__grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 120px;
+  align-items: start;
+}
+
+/* ---- Info column ---- */
+.sensol-contact-info {
+  position: sticky;
+  top: 40px;
+}
+.sensol-contact-info__label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin: 0 0 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #D4CEC6;
+}
+.sensol-contact-info__block {
+  margin-bottom: 40px;
+}
+.sensol-contact-info__key {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin: 0 0 12px;
+}
+.sensol-contact-info__val {
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin: 0;
+  color: #1A1816;
+}
+.sensol-contact-info__val--link {
+  display: inline-block;
+  border-bottom: 1px solid #D4CEC6;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: border-color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.sensol-contact-info__val--link:hover {
+  border-color: #1A1816;
+}
+
+/* ---- Form column ---- */
+.sensol-contact-form-wrap__label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin: 0 0 16px;
+}
+.sensol-contact-form-wrap__title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0 0 56px;
+  color: #1A1816;
+}
+
+.sensol-contact-form {
+  display: block;
+}
+.sensol-contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.sensol-contact-form__field {
+  margin-bottom: 36px;
+  position: relative;
+}
+.sensol-contact-form__label {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8A8279;
+  margin-bottom: 12px;
+}
+.sensol-contact-form__input {
+  width: 100%;
+  display: block;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #D4CEC6;
+  border-radius: 0;
+  padding: 8px 0 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #1A1816;
+  outline: none;
+  transition: border-color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sensol-contact-form__input:focus {
+  border-bottom-color: #1A1816;
+}
+.sensol-contact-form__textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+.sensol-contact-form__submit {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #D4CEC6;
+}
+.sensol-contact-form__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1A1816;
+  padding: 8px 0 10px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1816;
+  cursor: pointer;
+  transition: gap 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.sensol-contact-form__btn:hover {
+  gap: 28px;
+}
+.sensol-contact-form__btn-arrow {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+/* ---- States ---- */
+.sensol-contact-form__success,
+.sensol-contact-form__error {
+  padding: 32px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #D4CEC6;
+}
+.sensol-contact-form__success-label,
+.sensol-contact-form__error-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+.sensol-contact-form__success-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1816;
+  margin-bottom: 8px;
+}
+.sensol-contact-form__error-text {
+  color: #1A1816;
+}
+
+/* ---- Foot ---- */
+.sensol-contact-foot {
+  background: #1A1816;
+  color: #8A8279;
+  padding: 60px 2rem;
+  text-align: center;
+}
+.sensol-contact-foot__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.sensol-contact-foot__line {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  line-height: 1.8;
+}
+.sensol-contact-foot__line:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 989px) {
+  .sensol-contact-hero {
+    padding: 140px 1.5rem 80px;
+  }
+  .sensol-contact-body {
+    padding: 80px 1.5rem;
+  }
+  .sensol-contact-body__grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+  .sensol-contact-info {
+    position: static;
+  }
+  .sensol-contact-info__label {
+    margin-bottom: 32px;
+  }
+  .sensol-contact-info__block {
+    margin-bottom: 32px;
+  }
+  .sensol-contact-form-wrap__title {
+    margin-bottom: 40px;
+  }
+  .sensol-contact-form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .sensol-contact-foot {
+    padding: 48px 1.5rem;
+  }
+}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "SENSOL Contact",
+  "tag": "section",
+  "class": "sensol-contact-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "hero_label",
+      "label": "Hero label",
+      "default": "Get in touch"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "Start a conversation."
+    },
+    {
+      "type": "text",
+      "id": "hero_sub",
+      "label": "Hero subtitle",
+      "default": "We respond within one business day. AEST, Mon\u2013Fri."
+    },
+    {
+      "type": "header",
+      "content": "Contact info"
+    },
+    {
+      "type": "text",
+      "id": "info_label",
+      "label": "Info column label",
+      "default": "Direct lines"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@sensolfitness.com.au"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+61 3 9000 0000"
+    },
+    {
+      "type": "text",
+      "id": "hours_weekday",
+      "label": "Hours (weekday)",
+      "default": "Mon \u2013 Fri \u00b7 9:00 \u2013 18:00 AEST"
+    },
+    {
+      "type": "text",
+      "id": "hours_weekend",
+      "label": "Hours (weekend)",
+      "default": "Sat \u00b7 10:00 \u2013 16:00 AEST"
+    },
+    {
+      "type": "text",
+      "id": "studio_line1",
+      "label": "Studio line 1",
+      "default": "By appointment only."
+    },
+    {
+      "type": "text",
+      "id": "studio_line2",
+      "label": "Studio line 2",
+      "default": "Melbourne, Victoria, Australia"
+    },
+    {
+      "type": "header",
+      "content": "Form"
+    },
+    {
+      "type": "text",
+      "id": "form_label",
+      "label": "Form label",
+      "default": "Send a message"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form title",
+      "default": "Tell us what you're working on."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Send message"
+    },
+    {
+      "type": "header",
+      "content": "Footer line"
+    },
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company name",
+      "default": "Dute Fitness (Australia) Pty. Ltd."
+    },
+    {
+      "type": "text",
+      "id": "company_tagline",
+      "label": "Company tagline",
+      "default": "Engineered in Melbourne. Built for stillness."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SENSOL Contact"
+    }
+  ]
+}
+{% endschema %}
