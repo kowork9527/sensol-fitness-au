@@ -2,9 +2,9 @@
 {%- case collection.handle -%}
   {%- when 'all' -%}
     {%- assign spot_variant = 'smart' -%}
-  {%- when 'smart-reformers' -%}
+  {%- when 'smart-series' -%}
     {%- assign spot_variant = 'smart' -%}
-  {%- when 'elastic-reformers' -%}
+  {%- when 'mechanical-series' -%}
     {%- assign spot_variant = 'mech' -%}
 {%- endcase -%}
 
@@ -98,7 +98,7 @@
           <span class="sc-spot-{{ section.id }}__feature-label">Touch Display</span>
         </div>
       </div>
-      <a href="/collections/smart-reformers" class="sc-spot-{{ section.id }}__cta">View Smart Series &rarr;</a>
+      <a href="/collections/smart-series" class="sc-spot-{{ section.id }}__cta">View Smart Series &rarr;</a>
     </div>
     <div class="sc-spot-{{ section.id }}__media">
       {%- if collection.image -%}
@@ -137,7 +137,7 @@
           <span class="sc-spot-{{ section.id }}__feature-label">Setup Time</span>
         </div>
       </div>
-      <a href="/collections/elastic-reformers" class="sc-spot-{{ section.id }}__cta">View Mechanical Series &rarr;</a>
+      <a href="/collections/mechanical-series" class="sc-spot-{{ section.id }}__cta">View Mechanical Series &rarr;</a>
     </div>
   </div>
 </section>

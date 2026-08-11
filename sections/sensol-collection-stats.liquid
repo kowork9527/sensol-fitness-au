@@ -33,7 +33,7 @@
 
 {%- comment -%} Determine per-series stats based on collection handle {%- endcomment -%}
 {%- case collection.handle -%}
-  {%- when 'smart-reformers' -%}
+  {%- when 'smart-series' -%}
     {%- assign stat1_num = '04' -%}
     {%- assign stat1_label = 'Products' -%}
     {%- assign stat2_num = '01' -%}
@@ -42,7 +42,7 @@
     {%- assign stat3_label = 'Movements' -%}
     {%- assign stat4_num = '$1,580-$4,100' -%}
     {%- assign stat4_label = 'Price Range AUD' -%}
-  {%- when 'elastic-reformers' -%}
+  {%- when 'mechanical-series' -%}
     {%- assign stat1_num = '03' -%}
     {%- assign stat1_label = 'Products' -%}
     {%- assign stat2_num = '01' -%}
@@ -50,6 +50,15 @@
     {%- assign stat3_num = '150+' -%}
     {%- assign stat3_label = 'Movements' -%}
     {%- assign stat4_num = '$950-$1,990' -%}
+    {%- assign stat4_label = 'Price Range AUD' -%}
+  {%- when 'flex-series' -%}
+    {%- assign stat1_num = '02' -%}
+    {%- assign stat1_label = 'Products' -%}
+    {%- assign stat2_num = '01' -%}
+    {%- assign stat2_label = 'Series' -%}
+    {%- assign stat3_num = '150+' -%}
+    {%- assign stat3_label = 'Movements' -%}
+    {%- assign stat4_num = '$890-$1,200' -%}
     {%- assign stat4_label = 'Price Range AUD' -%}
   {%- else -%}
     {%- assign stat1_num = '7' -%}

@@ -37,14 +37,18 @@
 {%- assign hero_subtitle = section.settings.subtitle -%}
 
 {%- case collection.handle -%}
-  {%- when 'smart-reformers' -%}
+  {%- when 'smart-series' -%}
     {%- assign hero_eyebrow = 'Series 01' -%}
     {%- assign hero_title = 'Smart Series' -%}
     {%- assign hero_subtitle = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.' -%}
-  {%- when 'elastic-reformers' -%}
+  {%- when 'mechanical-series' -%}
     {%- assign hero_eyebrow = 'Series 02' -%}
     {%- assign hero_title = 'Mechanical Series' -%}
     {%- assign hero_subtitle = 'Elastic band and spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.' -%}
+  {%- when 'flex-series' -%}
+    {%- assign hero_eyebrow = 'Mechanical Series' -%}
+    {%- assign hero_title = 'Flex Collection' -%}
+    {%- assign hero_subtitle = 'Foldable, lightweight reformers with elastic band resistance. Designed for home practice where space is at a premium.' -%}
 {%- endcase -%}
 
 <section class="sc-hero-{{ section.id }}">
