@@ -1,3 +1,4 @@
+/* Auto-generated */
 {%- style -%}
   .sc-stats-{{ section.id }} {
     background: #F7F4F0;
@@ -31,72 +32,50 @@
   }
 {%- endstyle -%}
 
-{%- assign s1n = section.settings.stat1_num -%}
-{%- assign s1l = section.settings.stat1_label -%}
-{%- assign s2n = section.settings.stat2_num -%}
-{%- assign s2l = section.settings.stat2_label -%}
-{%- assign s3n = section.settings.stat3_num -%}
-{%- assign s3l = section.settings.stat3_label -%}
-{%- assign s4n = section.settings.stat4_num -%}
-{%- assign s4l = section.settings.stat4_label -%}
-
+{%- comment -%} Determine per-series stats based on collection handle {%- endcomment -%}
 {%- case collection.handle -%}
   {%- when 'smart-series' -%}
-    {%- assign s1n = '4' -%}{%- assign s1l = 'Products' -%}
-    {%- assign s2n = '0.5 kg' -%}{%- assign s2l = 'Precision' -%}
-    {%- assign s3n = '$2,900-$4,100' -%}{%- assign s3l = 'Price Range AUD' -%}
-    {%- assign s4n = '200+' -%}{%- assign s4l = 'Movements' -%}
+    {%- assign stat_nums = '04,01,04,$1,580-$4,100,128+' | split: ',' -%}
+    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
+    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
   {%- when 'mechanical-series' -%}
-    {%- assign s1n = '3' -%}{%- assign s1l = 'Products' -%}
-    {%- assign s2n = '0.2 m2' -%}{%- assign s2l = 'Storage Folded' -%}
-    {%- assign s3n = '$950-$2,600' -%}{%- assign s3l = 'Price Range AUD' -%}
-    {%- assign s4n = '25 kg' -%}{%- assign s4l = 'Lightest Weight' -%}
+    {%- assign stat_nums = '03,01,03,$950-$1,990,150+' | split: ',' -%}
+    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
+    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
   {%- when 'flex-series' -%}
-    {%- assign s1n = '2' -%}{%- assign s1l = 'Products' -%}
-    {%- assign s2n = '0.2 m2' -%}{%- assign s2l = 'Storage Folded' -%}
-    {%- assign s3n = '$950-$1,750' -%}{%- assign s3l = 'Price Range AUD' -%}
-    {%- assign s4n = '25 kg' -%}{%- assign s4l = 'Lightest Weight' -%}
+    {%- assign stat_nums = '03,01,03,$1,490-$1,890,80+' | split: ',' -%}
+    {%- assign stat_labels = 'Products,Series,Movements,Price Range AUD,Movements' | split: ',' -%}
+    {%- assign stat_show = 'true,true,true,true,true' | split: ',' -%}
+  {%- else -%}
+    {%- assign stat_nums = '7,2,$950-$4,100,200+' | split: ',' -%}
+    {%- assign stat_labels = 'Products,Series,Price Range AUD,Movements' | split: ',' -%}
+    {%- assign stat_show = 'true,true,true,true' | split: ',' -%}
 {%- endcase -%}
 
 <section class="sc-stats-{{ section.id }}">
   <div class="sc-stats-{{ section.id }}__inner">
-    <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ s1n }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ s1l }}</p>
-    </div>
-    <div class="sc-stats-{{ section.id }}__divider"></div>
-    <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ s2n }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ s2l }}</p>
-    </div>
-    <div class="sc-stats-{{ section.id }}__divider"></div>
-    <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ s3n }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ s3l }}</p>
-    </div>
-    <div class="sc-stats-{{ section.id }}__divider"></div>
-    <div class="sc-stats-{{ section.id }}__item">
-      <p class="sc-stats-{{ section.id }}__num">{{ s4n }}</p>
-      <p class="sc-stats-{{ section.id }}__label">{{ s4l }}</p>
-    </div>
+    {%- for i in (0..3) -%}
+      {%- assign num = stat_nums[i] -%}
+      {%- assign label = stat_labels[i] -%}
+      {%- assign show = stat_show[i] -%}
+      {%- if show == 'true' and num != blank -%}
+        <div class="sc-stats-{{ section.id }}__item">
+          <p class="sc-stats-{{ section.id }}__num">{{ num }}</p>
+          <p class="sc-stats-{{ section.id }}__label">{{ label }}</p>
+        </div>
+        {%- unless forloop.last -%}
+          <div class="sc-stats-{{ section.id }}__divider"></div>
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Collection Stats",
+  "name": "Series Stats",
   "tag": "section",
   "class": "sensol-collection-stats",
-  "settings": [
-    { "type": "text", "id": "stat1_num", "label": "Stat 1 Number", "default": "7" },
-    { "type": "text", "id": "stat1_label", "label": "Stat 1 Label", "default": "Products" },
-    { "type": "text", "id": "stat2_num", "label": "Stat 2 Number", "default": "2" },
-    { "type": "text", "id": "stat2_label", "label": "Stat 2 Label", "default": "Series" },
-    { "type": "text", "id": "stat3_num", "label": "Stat 3 Number", "default": "$950-$4,100" },
-    { "type": "text", "id": "stat3_label", "label": "Stat 3 Label", "default": "Price Range AUD" },
-    { "type": "text", "id": "stat4_num", "label": "Stat 4 Number", "default": "200+" },
-    { "type": "text", "id": "stat4_label", "label": "Stat 4 Label", "default": "Movements" }
-  ],
-  "presets": [{ "name": "Collection Stats" }]
+  "settings": []
 }
 {% endschema %}
