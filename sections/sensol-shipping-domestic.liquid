@@ -1,48 +1,136 @@
-<section class="sensol-shipping-domestic-section">
-  <div class="sensol-shipping-domestic">
-    <div class="sensol-shipping-domestic__divider"></div>
-    <p class="sensol-shipping-domestic__label">01</p>
-    <h2 class="sensol-shipping-domestic__title">Domestic Shipping &mdash; Australia</h2>
-    <div class="sensol-shipping-domestic__body">
-      <p>We currently ship to all addresses within Australia, including metropolitan, regional, and remote areas across all states and territories. Due to the size and weight of Sensol fitness equipment, all orders are dispatched via <strong>specialized heavy-goods courier services</strong>. We do not use standard parcel carriers.</p>
+<section class="sc-ship-dom-{{ section.id }}">
+  <div class="sc-ship-dom-{{ section.id }}__inner">
+    <div class="sc-ship-dom-{{ section.id }}__header">
+      <span class="sc-ship-dom-{{ section.id }}__num">01</span>
+      <div class="sc-ship-dom-{{ section.id }}__line"></div>
     </div>
-    <div class="sensol-shipping-domestic__methods">
-      <div class="sensol-shipping-domestic__method">
-        <div class="sensol-shipping-domestic__method-icon">&#128666;</div>
-        <div class="sensol-shipping-domestic__method-name">Standard Delivery</div>
-        <div class="sensol-shipping-domestic__method-coverage">Metro areas: Melbourne, Sydney, Brisbane, Adelaide, Perth, Hobart, Canberra, Darwin</div>
-        <div class="sensol-shipping-domestic__method-detail">2&ndash;5 business days. Door-to-door courier with tracking.</div>
+    <h2 class="sc-ship-dom-{{ section.id }}__title">Domestic Shipping<br>Australia</h2>
+    <p class="sc-ship-dom-{{ section.id }}__lead">We ship to all addresses within Australia — metropolitan, regional, and remote. Due to the size and weight of Sensol equipment, all orders are dispatched via specialized heavy-goods courier services. We do not use standard parcel carriers.</p>
+    <div class="sc-ship-dom-{{ section.id }}__methods">
+      <div class="sc-ship-dom-{{ section.id }}__method">
+        <span class="sc-ship-dom-{{ section.id }}__method-tag">A</span>
+        <h3 class="sc-ship-dom-{{ section.id }}__method-name">Standard Delivery</h3>
+        <p class="sc-ship-dom-{{ section.id }}__method-area">Metro areas: Melbourne, Sydney, Brisbane, Adelaide, Perth, Hobart, Canberra, Darwin</p>
+        <p class="sc-ship-dom-{{ section.id }}__method-time">2–5 business days. Door-to-door courier with tracking.</p>
       </div>
-      <div class="sensol-shipping-domestic__method">
-        <div class="sensol-shipping-domestic__method-icon">&#128506;</div>
-        <div class="sensol-shipping-domestic__method-name">Regional &amp; Country</div>
-        <div class="sensol-shipping-domestic__method-coverage">Regional areas across all states and territories</div>
-        <div class="sensol-shipping-domestic__method-detail">3&ndash;9 business days. Delivery times vary by location; remote areas may take longer.</div>
+      <div class="sc-ship-dom-{{ section.id }}__method">
+        <span class="sc-ship-dom-{{ section.id }}__method-tag">B</span>
+        <h3 class="sc-ship-dom-{{ section.id }}__method-name">Regional &amp; Country</h3>
+        <p class="sc-ship-dom-{{ section.id }}__method-area">Regional areas across all states and territories</p>
+        <p class="sc-ship-dom-{{ section.id }}__method-time">3–9 business days. Delivery times vary by location; remote areas may take longer.</p>
       </div>
-      <div class="sensol-shipping-domestic__method">
-        <div class="sensol-shipping-domestic__method-icon">&#128230;</div>
-        <div class="sensol-shipping-domestic__method-name">Authority to Leave (ATL)</div>
-        <div class="sensol-shipping-domestic__method-coverage">All areas, subject to safe location availability</div>
-        <div class="sensol-shipping-domestic__method-detail">If no one is available, the courier may leave the item at a safe location and photograph as proof. Redelivery may incur additional fees if ATL is not possible.</div>
+      <div class="sc-ship-dom-{{ section.id }}__method">
+        <span class="sc-ship-dom-{{ section.id }}__method-tag">C</span>
+        <h3 class="sc-ship-dom-{{ section.id }}__method-name">Authority to Leave</h3>
+        <p class="sc-ship-dom-{{ section.id }}__method-area">All areas, subject to safe location availability</p>
+        <p class="sc-ship-dom-{{ section.id }}__method-time">If no one is available, the courier may leave the item at a safe location and photograph as proof. Redelivery may incur additional fees if ATL is not possible.</p>
       </div>
     </div>
   </div>
 </section>
-{% schema %}{"name":"SENSOL Shipping Domestic","tag":"section","class":"sensol-shipping-domestic-section","settings":[],"presets":[{"name":"SENSOL Shipping Domestic"}]}{% endschema %}
+
+{% schema %}
+{
+  "name": "Shipping Domestic",
+  "tag": "section",
+  "class": "sensol-shipping-domestic-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Domestic" }]
+}
+{% endschema %}
+
 {%- style -%}
-.sensol-shipping-domestic-section{background:#F7F4F0;padding:0}
-.sensol-shipping-domestic-section .sensol-shipping-domestic{max-width:1040px;margin:0 auto;padding:100px 2rem 0}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:32px;color:#1A1816}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__body{font-size:1.5rem;font-weight:400;color:#8A8279;line-height:1.75;margin-bottom:32px}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__body strong{color:#1A1816;font-weight:500}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__methods{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D4CEC6}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__method{background:#F7F4F0;padding:40px 32px}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__method-icon{font-size:1.5rem;margin-bottom:1rem;opacity:0.5}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__method-name{font-size:1.125rem;font-weight:500;color:#1A1816;margin-bottom:0.5rem}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__method-coverage{font-size:0.9375rem;color:#8A8279;margin-bottom:0.75rem;line-height:1.5}
-.sensol-shipping-domestic-section .sensol-shipping-domestic__method-detail{font-size:0.875rem;color:#8A8279;line-height:1.6}
-@media(max-width:900px){.sensol-shipping-domestic-section .sensol-shipping-domestic-section .sensol-shipping-domestic__methods{grid-template-columns:1fr}}
-@media(max-width:749px){.sensol-shipping-domestic-section .sensol-shipping-domestic-section .sensol-shipping-domestic{padding:64px 1.5rem 0}.sensol-shipping-domestic-section .sensol-shipping-domestic__title{font-size:1.75rem}.sensol-shipping-domestic-section .sensol-shipping-domestic__body{font-size:1.25rem}}
+  .sc-ship-dom-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-dom-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 0;
+  }
+  .sc-ship-dom-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-dom-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-dom-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-dom-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-dom-{{ section.id }}__lead {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #4A4640;
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+  .sc-ship-dom-{{ section.id }}__methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid #D4CEC6;
+  }
+  .sc-ship-dom-{{ section.id }}__method {
+    padding: 2.5rem 2rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-ship-dom-{{ section.id }}__method:last-child {
+    border-right: none;
+  }
+  .sc-ship-dom-{{ section.id }}__method-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #B5ADA4;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .sc-ship-dom-{{ section.id }}__method-name {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1A1816;
+    margin-bottom: 0.75rem;
+  }
+  .sc-ship-dom-{{ section.id }}__method-area {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8A8279;
+    margin-bottom: 0.75rem;
+  }
+  .sc-ship-dom-{{ section.id }}__method-time {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8A8279;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-dom-{{ section.id }}__inner { padding: 4rem 1.5rem 0; }
+    .sc-ship-dom-{{ section.id }}__methods { grid-template-columns: 1fr; }
+    .sc-ship-dom-{{ section.id }}__method {
+      border-right: none;
+      border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 0;
+    }
+    .sc-ship-dom-{{ section.id }}__method:last-child { border-bottom: none; }
+  }
 {%- endstyle -%}

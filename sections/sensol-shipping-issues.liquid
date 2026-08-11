@@ -1,54 +1,156 @@
-<section class="sensol-shipping-issues-section">
-  <div class="sensol-shipping-issues">
-    <div class="sensol-shipping-issues__divider"></div>
-    <p class="sensol-shipping-issues__label">05</p>
-    <h2 class="sensol-shipping-issues__title">Delivery Issues</h2>
-    <div class="sensol-shipping-issues__cards">
-      <div class="sensol-shipping-issues__card">
-        <div class="sensol-shipping-issues__card-title">Missed Delivery</div>
-        <ol class="sensol-shipping-issues__steps">
-          <li>Attempt redelivery within the next 1&ndash;2 business days</li>
+<section class="sc-ship-issues-{{ section.id }}">
+  <div class="sc-ship-issues-{{ section.id }}__inner">
+    <div class="sc-ship-issues-{{ section.id }}__header">
+      <span class="sc-ship-issues-{{ section.id }}__num">05</span>
+      <div class="sc-ship-issues-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-issues-{{ section.id }}__title">Delivery<br>Issues</h2>
+    <div class="sc-ship-issues-{{ section.id }}__cards">
+      <div class="sc-ship-issues-{{ section.id }}__card">
+        <span class="sc-ship-issues-{{ section.id }}__card-tag">A</span>
+        <h3 class="sc-ship-issues-{{ section.id }}__card-title">Missed Delivery</h3>
+        <ol class="sc-ship-issues-{{ section.id }}__steps">
+          <li>Attempt redelivery within the next 1–2 business days</li>
           <li>If redelivery fails, hold the item at a local depot for collection</li>
         </ol>
-        <p class="sensol-shipping-issues__note">Contact the courier directly using your tracking number to arrange redelivery or depot collection.</p>
+        <p class="sc-ship-issues-{{ section.id }}__note">Contact the courier directly using your tracking number to arrange redelivery or depot collection.</p>
       </div>
-      <div class="sensol-shipping-issues__card">
-        <div class="sensol-shipping-issues__card-title">Damaged Delivery</div>
-        <ol class="sensol-shipping-issues__steps">
+      <div class="sc-ship-issues-{{ section.id }}__card">
+        <span class="sc-ship-issues-{{ section.id }}__card-tag">B</span>
+        <h3 class="sc-ship-issues-{{ section.id }}__card-title">Damaged Delivery</h3>
+        <ol class="sc-ship-issues-{{ section.id }}__steps">
           <li>Take photographs of the damage immediately</li>
           <li>Contact us within 48 hours of receiving the delivery</li>
           <li>Keep all original packaging materials</li>
           <li>Do not attempt to use the damaged product</li>
         </ol>
-        <p class="sensol-shipping-issues__note">We will arrange a replacement or repair based on the nature of the damage.</p>
+        <p class="sc-ship-issues-{{ section.id }}__note">We will arrange a replacement or repair based on the nature of the damage.</p>
       </div>
-      <div class="sensol-shipping-issues__card">
-        <div class="sensol-shipping-issues__card-title">Lost Delivery</div>
-        <ol class="sensol-shipping-issues__steps">
+      <div class="sc-ship-issues-{{ section.id }}__card">
+        <span class="sc-ship-issues-{{ section.id }}__card-tag">C</span>
+        <h3 class="sc-ship-issues-{{ section.id }}__card-title">Lost Delivery</h3>
+        <ol class="sc-ship-issues-{{ section.id }}__steps">
           <li>Check with neighbours or building management</li>
           <li>Contact the courier directly to investigate</li>
           <li>If unresolved after 5 business days, contact us and we will file a carrier investigation</li>
         </ol>
-        <p class="sensol-shipping-issues__note">Note: For heavy-goods courier services, compensation for lost shipments is limited. We will work with you and the carrier to resolve any delivery issues as quickly as possible.</p>
+        <p class="sc-ship-issues-{{ section.id }}__note">For heavy-goods courier services, compensation for lost shipments is limited. We will work with you and the carrier to resolve any delivery issues as quickly as possible.</p>
       </div>
     </div>
   </div>
 </section>
-{% schema %}{"name":"SENSOL Shipping Issues","tag":"section","class":"sensol-shipping-issues-section","settings":[],"presets":[{"name":"SENSOL Shipping Issues"}]}{% endschema %}
+
+{% schema %}
+{
+  "name": "Shipping Issues",
+  "tag": "section",
+  "class": "sensol-shipping-issues-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Issues" }]
+}
+{% endschema %}
+
 {%- style -%}
-.sensol-shipping-issues-section{background:#F7F4F0;padding:0}
-.sensol-shipping-issues-section .sensol-shipping-issues{max-width:1040px;margin:0 auto;padding:80px 2rem 0}
-.sensol-shipping-issues-section .sensol-shipping-issues__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
-.sensol-shipping-issues-section .sensol-shipping-issues__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
-.sensol-shipping-issues-section .sensol-shipping-issues__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:32px;color:#1A1816}
-.sensol-shipping-issues-section .sensol-shipping-issues__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D4CEC6}
-.sensol-shipping-issues-section .sensol-shipping-issues__card{background:#F7F4F0;padding:40px 32px}
-.sensol-shipping-issues-section .sensol-shipping-issues__card-title{font-size:1.25rem;font-weight:500;color:#1A1816;margin-bottom:1rem}
-.sensol-shipping-issues-section .sensol-shipping-issues__steps{list-style:none;counter-reset:step}
-.sensol-shipping-issues-section .sensol-shipping-issues__steps li{counter-increment:step;font-size:1rem;color:#8A8279;line-height:1.7;padding:0.5rem 0 0.5rem 2rem;position:relative;border-bottom:1px solid #D4CEC6}
-.sensol-shipping-issues-section .sensol-shipping-issues__steps li:last-child{border-bottom:none}
-.sensol-shipping-issues-section .sensol-shipping-issues__steps li::before{content:counter(step);position:absolute;left:0;top:0.5rem;font-size:0.75rem;font-weight:600;color:#B5ADA4}
-.sensol-shipping-issues-section .sensol-shipping-issues__note{margin-top:1rem;font-size:0.875rem;color:#8A8279;line-height:1.6}
-@media(max-width:900px){.sensol-shipping-issues-section .sensol-shipping-issues-section .sensol-shipping-issues__cards{grid-template-columns:1fr}}
-@media(max-width:749px){.sensol-shipping-issues-section .sensol-shipping-issues-section .sensol-shipping-issues{padding:56px 1.5rem 0}.sensol-shipping-issues-section .sensol-shipping-issues__title{font-size:1.75rem}}
+  .sc-ship-issues-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-issues-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 0;
+  }
+  .sc-ship-issues-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-issues-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-issues-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-issues-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+  .sc-ship-issues-{{ section.id }}__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid #D4CEC6;
+  }
+  .sc-ship-issues-{{ section.id }}__card {
+    padding: 2.5rem 2rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-ship-issues-{{ section.id }}__card:last-child { border-right: none; }
+  .sc-ship-issues-{{ section.id }}__card-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #B5ADA4;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+  .sc-ship-issues-{{ section.id }}__card-title {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ship-issues-{{ section.id }}__steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+  .sc-ship-issues-{{ section.id }}__steps li {
+    counter-increment: step;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8A8279;
+    padding: 0.6rem 0 0.6rem 2rem;
+    position: relative;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-ship-issues-{{ section.id }}__steps li:last-child { border-bottom: none; }
+  .sc-ship-issues-{{ section.id }}__steps li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    font-size: 11px;
+    font-weight: 500;
+    color: #B5ADA4;
+  }
+  .sc-ship-issues-{{ section.id }}__note {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8A8279;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-issues-{{ section.id }}__inner { padding: 4rem 1.5rem 0; }
+    .sc-ship-issues-{{ section.id }}__cards { grid-template-columns: 1fr; }
+    .sc-ship-issues-{{ section.id }}__card {
+      border-right: none;
+      border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 0;
+    }
+    .sc-ship-issues-{{ section.id }}__card:last-child { border-bottom: none; }
+  }
 {%- endstyle -%}

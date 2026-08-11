@@ -1,23 +1,83 @@
-<section class="sensol-shipping-returns-section">
-  <div class="sensol-shipping-returns">
-    <div class="sensol-shipping-returns__divider"></div>
-    <p class="sensol-shipping-returns__label">06</p>
-    <h2 class="sensol-shipping-returns__title">Returns &amp; Exchanges</h2>
-    <div class="sensol-shipping-returns__body">
-      <p>For information about returns and exchanges, please see our <a class="sensol-shipping-returns__link" href="/policies/refund-policy">Refund Policy</a>.</p>
-      <p>For any shipping-related questions, contact <a class="sensol-shipping-returns__link" href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a> &mdash; response within 1 business day.</p>
+<section class="sc-ship-returns-{{ section.id }}">
+  <div class="sc-ship-returns-{{ section.id }}__inner">
+    <div class="sc-ship-returns-{{ section.id }}__header">
+      <span class="sc-ship-returns-{{ section.id }}__num">06</span>
+      <div class="sc-ship-returns-{{ section.id }}__line"></div>
+    </div>
+    <h2 class="sc-ship-returns-{{ section.id }}__title">Returns &amp;<br>Exchanges</h2>
+    <div class="sc-ship-returns-{{ section.id }}__body">
+      <p>For information about returns and exchanges, please see our <a class="sc-ship-returns-{{ section.id }}__link" href="/policies/refund-policy">Refund Policy</a>.</p>
+      <p>For any shipping-related questions, contact <a class="sc-ship-returns-{{ section.id }}__link" href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a> — response within 1 business day.</p>
     </div>
   </div>
 </section>
-{% schema %}{"name":"SENSOL Shipping Returns","tag":"section","class":"sensol-shipping-returns-section","settings":[],"presets":[{"name":"SENSOL Shipping Returns"}]}{% endschema %}
+
+{% schema %}
+{
+  "name": "Shipping Returns",
+  "tag": "section",
+  "class": "sensol-shipping-returns-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Returns" }]
+}
+{% endschema %}
+
 {%- style -%}
-.sensol-shipping-returns-section{background:#F7F4F0;padding:0}
-.sensol-shipping-returns-section .sensol-shipping-returns{max-width:1040px;margin:0 auto;padding:80px 2rem 100px}
-.sensol-shipping-returns-section .sensol-shipping-returns__divider{width:48px;height:1px;background:#D4CEC6;margin-bottom:48px}
-.sensol-shipping-returns-section .sensol-shipping-returns__label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1rem}
-.sensol-shipping-returns-section .sensol-shipping-returns__title{font-size:clamp(2rem,3vw,2.75rem);font-weight:300;letter-spacing:-0.01em;line-height:1.2;margin-bottom:24px;color:#1A1816}
-.sensol-shipping-returns-section .sensol-shipping-returns__body{font-size:1.5rem;font-weight:400;color:#8A8279;line-height:1.75}
-.sensol-shipping-returns-section .sensol-shipping-returns__body p{margin-bottom:1rem}
-.sensol-shipping-returns-section .sensol-shipping-returns__link{color:#1A1816;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#B5ADA4;text-decoration-thickness:0.5px}
-@media(max-width:749px){.sensol-shipping-returns-section .sensol-shipping-returns-section .sensol-shipping-returns{padding:56px 1.5rem 80px}.sensol-shipping-returns-section .sensol-shipping-returns__title{font-size:1.75rem}.sensol-shipping-returns-section .sensol-shipping-returns__body{font-size:1.25rem}}
+  .sc-ship-returns-{{ section.id }} {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+  }
+  .sc-ship-returns-{{ section.id }}__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 8rem;
+  }
+  .sc-ship-returns-{{ section.id }}__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ship-returns-{{ section.id }}__num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ship-returns-{{ section.id }}__line {
+    flex: 1;
+    height: 1px;
+    background: #D4CEC6;
+  }
+  .sc-ship-returns-{{ section.id }}__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+  .sc-ship-returns-{{ section.id }}__body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #8A8279;
+    max-width: 600px;
+  }
+  .sc-ship-returns-{{ section.id }}__body p {
+    margin-bottom: 1.25rem;
+  }
+  .sc-ship-returns-{{ section.id }}__body p:last-child {
+    margin-bottom: 0;
+  }
+  .sc-ship-returns-{{ section.id }}__link {
+    color: #1A1816;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #B5ADA4;
+    text-decoration-thickness: 0.5px;
+  }
+  @media (max-width: 768px) {
+    .sc-ship-returns-{{ section.id }}__inner { padding: 4rem 1.5rem 6rem; }
+  }
 {%- endstyle -%}

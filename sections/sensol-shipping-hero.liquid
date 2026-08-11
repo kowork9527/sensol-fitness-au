@@ -1,42 +1,130 @@
-<section class="sensol-shipping-hero-section">
-  <div class="sensol-shipping-hero">
-    <div class="sensol-shipping-hero__text">
-      <p class="sensol-shipping-hero__kicker">Delivery &amp; Returns</p>
-      <h1 class="sensol-shipping-hero__title">Shipping Policy</h1>
-      <div class="sensol-shipping-hero__stats">
-        <div class="sensol-shipping-hero__stat"><span class="sensol-shipping-hero__stat-num">Free</span><span class="sensol-shipping-hero__stat-label">Australia Metro</span></div>
-        <div class="sensol-shipping-hero__stat"><span class="sensol-shipping-hero__stat-num">2&ndash;5</span><span class="sensol-shipping-hero__stat-label">Business Days</span></div>
-        <div class="sensol-shipping-hero__stat"><span class="sensol-shipping-hero__stat-num">Insured</span><span class="sensol-shipping-hero__stat-label">Every Shipment</span></div>
+<section class="sc-ship-hero-{{ section.id }}">
+  <div class="sc-ship-hero-{{ section.id }}__inner">
+    <div class="sc-ship-hero-{{ section.id }}__content">
+      <p class="sc-ship-hero-{{ section.id }}__kicker">Delivery &amp; Returns</p>
+      <h1 class="sc-ship-hero-{{ section.id }}__title">Shipping<br>Policy</h1>
+      <p class="sc-ship-hero-{{ section.id }}__sub">Everything you need to know about delivery, processing times, and returns for Sensol fitness equipment across Australia.</p>
+      <div class="sc-ship-hero-{{ section.id }}__stats">
+        <div class="sc-ship-hero-{{ section.id }}__stat">
+          <span class="sc-ship-hero-{{ section.id }}__stat-num">Free</span>
+          <span class="sc-ship-hero-{{ section.id }}__stat-label">Metro Delivery</span>
+        </div>
+        <div class="sc-ship-hero-{{ section.id }}__stat-divider"></div>
+        <div class="sc-ship-hero-{{ section.id }}__stat">
+          <span class="sc-ship-hero-{{ section.id }}__stat-num">2&ndash;5</span>
+          <span class="sc-ship-hero-{{ section.id }}__stat-label">Business Days</span>
+        </div>
+        <div class="sc-ship-hero-{{ section.id }}__stat-divider"></div>
+        <div class="sc-ship-hero-{{ section.id }}__stat">
+          <span class="sc-ship-hero-{{ section.id }}__stat-num">Insured</span>
+          <span class="sc-ship-hero-{{ section.id }}__stat-label">Every Shipment</span>
+        </div>
       </div>
     </div>
-    <div class="sensol-shipping-hero__image"><span class="sensol-shipping-hero__image-text">SENSOL</span></div>
   </div>
 </section>
 
-{% schema %}{"name":"SENSOL Shipping Hero","tag":"section","class":"sensol-shipping-hero-section","settings":[],"presets":[{"name":"SENSOL Shipping Hero"}]}{% endschema %}
+{% schema %}
+{
+  "name": "Shipping Hero",
+  "tag": "section",
+  "class": "sensol-shipping-hero-section",
+  "settings": [],
+  "presets": [{ "name": "Shipping Hero" }]
+}
+{% endschema %}
 
 {%- style -%}
-.sensol-shipping-hero-section{margin:0;padding:0;background:#1A1816}
-.sensol-shipping-hero{display:grid;grid-template-columns:1.2fr 1fr;min-height:80vh}
-.sensol-shipping-hero__text{display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 80px 80px}
-.sensol-shipping-hero__kicker{font-size:0.75rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:#B5ADA4;margin-bottom:1.5rem}
-.sensol-shipping-hero__title{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;letter-spacing:-0.03em;line-height:1.02;color:#F7F4F0;margin-bottom:2rem;max-width:500px}
-.sensol-shipping-hero__stats{display:flex;gap:48px}
-.sensol-shipping-hero__stat-num{font-size:2rem;font-weight:300;color:#F7F4F0;display:block;line-height:1}
-.sensol-shipping-hero__stat-label{font-size:0.6875rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#8A8279;margin-top:0.5rem;display:block}
-.sensol-shipping-hero__image{background:#2A2622;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.sensol-shipping-hero__image-text{font-size:8rem;color:rgba(247,244,240,0.04);font-weight:200;user-select:none}
-.sensol-shipping-hero__image::after{content:'';position:absolute;left:0;top:0;bottom:0;width:40%;background:linear-gradient(to right,#1A1816,transparent)}
-@media(max-width:900px){.sensol-shipping-hero{grid-template-columns:1fr;min-height:auto}.sensol-shipping-hero__text{padding:80px 2rem 48px}.sensol-shipping-hero__image{height:350px}.sensol-shipping-hero__image::after{width:100%;height:40%;top:auto;bottom:0;background:linear-gradient(to top,#1A1816,transparent)}}
+  .sc-ship-hero-{{ section.id }} {
+    background: #1A1816;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    position: relative;
+  }
+  .sc-ship-hero-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(181,173,164,0.06) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.9) 100%);
+  }
+  .sc-ship-hero-{{ section.id }}__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem 6rem;
+  }
+  .sc-ship-hero-{{ section.id }}__kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ship-hero-{{ section.id }}__title {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ship-hero-{{ section.id }}__sub {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(247,244,240,0.55);
+    max-width: 480px;
+    margin-bottom: 3rem;
+  }
+  .sc-ship-hero-{{ section.id }}__stats {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .sc-ship-hero-{{ section.id }}__stat-num {
+    font-size: 28px;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    color: #F7F4F0;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .sc-ship-hero-{{ section.id }}__stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+  .sc-ship-hero-{{ section.id }}__stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(212,206,198,0.2);
+  }
+  @media (max-width: 768px) {
+    .sc-ship-hero-{{ section.id }} { min-height: 60vh; }
+    .sc-ship-hero-{{ section.id }}__inner { padding: 0 1.5rem 4rem; }
+    .sc-ship-hero-{{ section.id }}__stats { gap: 1.5rem; flex-wrap: wrap; }
+    .sc-ship-hero-{{ section.id }}__stat-divider { display: none; }
+  }
 {%- endstyle -%}
 
 {%- style -%}
-[id*="sensol-header"] .sensol-header__logo-text,
-[id*="sensol-header"] .sensol-header__link,
-[id*="sensol-header"] .sensol-header__menu-btn{color:#F7F4F0!important}
-[id*="sensol-header"] .sensol-header__link:hover,
-[id*="sensol-header"] .sensol-header__menu-btn:hover{color:#B5ADA4!important}
-[id*="sensol-header"].scrolled .sensol-header__logo-text,
-[id*="sensol-header"].scrolled .sensol-header__link,
-[id*="sensol-header"].scrolled .sensol-header__menu-btn{color:#1A1816!important}
+  [id*="sensol-header"] .sensol-header__logo-text,
+  [id*="sensol-header"] .sensol-header__link,
+  [id*="sensol-header"] .sensol-header__menu-btn { color: #F7F4F0 !important; }
+  [id*="sensol-header"] .sensol-header__link:hover,
+  [id*="sensol-header"] .sensol-header__menu-btn:hover { color: #B5ADA4 !important; }
+  [id*="sensol-header"].scrolled .sensol-header__logo-text,
+  [id*="sensol-header"].scrolled .sensol-header__link,
+  [id*="sensol-header"].scrolled .sensol-header__menu-btn { color: #1A1816 !important; }
 {%- endstyle -%}
