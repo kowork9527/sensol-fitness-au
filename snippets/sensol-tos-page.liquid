@@ -1,381 +1,740 @@
-{%- comment -%}Sensol Terms of Service page — branded design{%- endcomment -%}
+{%- comment -%}Sensol Terms of Service — Editorial redesign{%- endcomment -%}
 
 <style>
   /* Hide default page content */
   .main-page-title, .rte, .section-main-page-padding,
   .page-width--narrow.section-template--main-padding { display: none !important; }
 
-  /* ── Hero ── */
-  .sc-tos-hero {
-    background: #1A1816;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 70vh;
-    display: flex; align-items: flex-end;
-    overflow: hidden; position: relative;
-  }
-  .sc-tos-hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(181,173,164,0.06) 0%, transparent 60%),
-                linear-gradient(180deg, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.9) 100%);
-  }
-  .sc-tos-hero__inner { position: relative; z-index: 1; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem 6rem; }
-  .sc-tos-hero__kicker { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
-  .sc-tos-hero__title { font-size: clamp(40px, 7vw, 80px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.05; color: #F7F4F0; margin-bottom: 1.5rem; }
-  .sc-tos-hero__sub { font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(247,244,240,0.55); max-width: 480px; margin-bottom: 3rem; }
-  .sc-tos-hero__stats { display: flex; align-items: center; gap: 2.5rem; }
-  .sc-tos-hero__stat-num { font-size: 28px; font-weight: 200; letter-spacing: 0.02em; color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.5rem; }
-  .sc-tos-hero__stat-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; }
-  .sc-tos-hero__stat-divider { width: 1px; height: 36px; background: rgba(212,206,198,0.2); }
+  /* ═══ ROOT ═══ */
+  .sc-legal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
 
-  /* ── Common section ── */
-  .sc-tos-sec { background: #F7F4F0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
-  .sc-tos-sec--alt { background: #EDEAE5; }
-  .sc-tos-sec__inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem 0; }
-  .sc-tos-sec__bottom { padding-bottom: 6rem; }
-  .sc-tos-sec__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-  .sc-tos-sec__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
-  .sc-tos-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
-  .sc-tos-sec__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; }
-  .sc-tos-sec__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: #4A4640; max-width: 700px; margin-bottom: 4rem; }
-
-  /* ── Info cards ── */
-  .sc-tos-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #D4CEC6; }
-  .sc-tos-card { padding: 2.5rem 2rem 3rem; border-right: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
-  .sc-tos-card:nth-child(2n) { border-right: none; }
-  .sc-tos-card__tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; display: block; margin-bottom: 1.25rem; }
-  .sc-tos-card__name { font-size: 17px; font-weight: 400; letter-spacing: 0.02em; color: #1A1816; margin-bottom: 0.75rem; }
-  .sc-tos-card__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
-
-  /* ── Numbered list ── */
-  .sc-tos-list { border-top: 1px solid #D4CEC6; }
-  .sc-tos-list__item { display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid #D4CEC6; }
-  .sc-tos-list__num { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; flex-shrink: 0; min-width: 32px; padding-top: 3px; }
-  .sc-tos-list__body { flex: 1; }
-  .sc-tos-list__title { font-size: 15px; font-weight: 400; color: #1A1816; margin-bottom: 0.5rem; }
-  .sc-tos-list__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
-
-  /* ── Dark section ── */
-  .sc-tos-dark { background: #1A1816; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #F7F4F0; padding: 6rem 0; }
-  .sc-tos-dark__inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
-  .sc-tos-dark__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-  .sc-tos-dark__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
-  .sc-tos-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
-  .sc-tos-dark__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; color: #F7F4F0; }
-  .sc-tos-dark__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.55); max-width: 700px; margin-bottom: 4rem; }
-  .sc-tos-dark__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-  .sc-tos-dark__col-label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
-  .sc-tos-dark__col-text { font-size: 14px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.65); }
-  .sc-tos-dark__col-text strong { color: #F7F4F0; font-weight: 400; }
-
-  /* ── Text block ── */
-  .sc-tos-block { border-top: 1px solid #D4CEC6; padding-top: 3rem; }
-  .sc-tos-block__label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
-  .sc-tos-block__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; max-width: 800px; }
-  .sc-tos-block__text strong { color: #1A1816; font-weight: 400; }
-
-  /* ── CTA bar ── */
-  .sc-tos-cta {
+  /* ═══ HERO ═══ */
+  .sc-legal-hero {
     background: #F7F4F0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 5rem 3rem;
+    border-bottom: 1px solid #D4CEC6;
+    overflow: hidden;
+    position: relative;
+  }
+  .sc-legal-hero::after {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,130,121,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sc-legal-hero__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    position: relative; z-index: 1;
+  }
+  .sc-legal-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__breadcrumb span { color: #8A8279; }
+  .sc-legal-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: #D4CEC6; }
+  .sc-legal-hero__title {
+    font-size: clamp(36px, 6vw, 72px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.05; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-hero__updated {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.05em;
+    color: #8A8279;
+    padding: 0.5rem 1rem;
+    background: #EDEAE5;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__updated::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: #8A8279;
+  }
+  .sc-legal-hero__intro {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #4A4640; max-width: 640px;
+  }
+
+  /* ═══ LAYOUT (sidebar + content) ═══ */
+  .sc-legal-layout {
+    background: #F7F4F0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ═══ SIDEBAR ═══ */
+  .sc-legal-sidebar {
+    position: sticky; top: 0;
+    height: fit-content;
+    padding: 3rem 1rem 3rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-legal-sidebar__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-sidebar__nav { list-style: none; padding: 0; margin: 0; }
+  .sc-legal-sidebar__nav li { margin-bottom: 0.25rem; }
+  .sc-legal-sidebar__nav a {
+    display: flex; align-items: baseline; gap: 0.75rem;
+    text-decoration: none;
+    font-size: 13px; font-weight: 400; line-height: 1.5;
+    color: #8A8279;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .sc-legal-sidebar__nav a:hover { color: #1A1816; background: #EDEAE5; }
+  .sc-legal-sidebar__nav a.is-active { color: #1A1816; background: #EDEAE5; font-weight: 500; }
+  .sc-legal-sidebar__num {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    color: #B5ADA4; min-width: 20px;
+  }
+  .sc-legal-sidebar__nav a:hover .sc-legal-sidebar__num,
+  .sc-legal-sidebar__nav a.is-active .sc-legal-sidebar__num { color: #1A1816; }
+
+  /* ═══ CONTENT ═══ */
+  .sc-legal-content { padding: 3rem 3rem 5rem 3rem; min-width: 0; }
+
+  .sc-legal-sec { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+  .sc-legal-sec:last-child { margin-bottom: 0; }
+
+  .sc-legal-sec__head {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .sc-legal-sec__num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    color: #B5ADA4;
+    flex-shrink: 0;
+  }
+  .sc-legal-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-legal-sec__title {
+    font-size: 22px; font-weight: 400; letter-spacing: 0.02em;
+    line-height: 1.3; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-sec__text {
+    font-size: 14px; font-weight: 300; line-height: 1.85;
+    color: #4A4640;
+  }
+  .sc-legal-sec__text p { margin: 0 0 1rem; }
+  .sc-legal-sec__text p:last-child { margin-bottom: 0; }
+  .sc-legal-sec__text a { color: #1A1816; text-decoration: underline; text-underline-offset: 2px; }
+  .sc-legal-sec__text strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Subsection list ── */
+  .sc-legal-subs { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .sc-legal-subs li {
+    display: flex; gap: 0.75rem;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid #EDEAE5;
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #4A4640;
+  }
+  .sc-legal-subs li:last-child { border-bottom: none; }
+  .sc-legal-subs li strong { font-weight: 500; color: #1A1816; flex-shrink: 0; }
+  .sc-legal-subs__label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    color: #8A8279; min-width: 140px; flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  /* ── Callout box ── */
+  .sc-legal-callout {
+    background: #1A1816;
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-callout__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-legal-callout__text {
+    font-size: 14px; font-weight: 300; line-height: 1.8;
+    color: rgba(247,244,240,0.7);
+  }
+  .sc-legal-callout__text strong { color: #F7F4F0; font-weight: 400; }
+
+  /* ── Light callout ── */
+  .sc-legal-note {
+    background: #EDEAE5;
+    border-left: 3px solid #8A8279;
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: #4A4640;
+  }
+  .sc-legal-note strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Quick facts grid ── */
+  .sc-legal-facts {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-fact {
+    background: #F7F4F0;
+    padding: 1.5rem 1.25rem;
     text-align: center;
   }
-  .sc-tos-cta__inner { max-width: 800px; margin: 0 auto; }
-  .sc-tos-cta__label { font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
-  .sc-tos-cta__title { font-size: clamp(24px, 3vw, 36px); font-weight: 200; letter-spacing: 0.04em; color: #1A1816; margin-bottom: 1.5rem; }
-  .sc-tos-cta__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; margin-bottom: 2.5rem; }
-  .sc-tos-cta__contact { display: flex; justify-content: center; gap: 3rem; }
-  .sc-tos-cta__contact-item { text-align: center; }
-  .sc-tos-cta__contact-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 0.5rem; }
-  .sc-tos-cta__contact-value { font-size: 16px; font-weight: 400; color: #1A1816; }
-
-  /* ── Footer note ── */
-  .sc-tos-foot {
-    background: #F7F4F0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 0 3rem 4rem;
+  .sc-legal-fact__num {
+    font-size: 24px; font-weight: 200; letter-spacing: 0.02em;
+    color: #1A1816; display: block; line-height: 1; margin-bottom: 0.5rem;
   }
-  .sc-tos-foot__inner { max-width: 1200px; margin: 0 auto; }
-  .sc-tos-foot__text { font-size: 12px; font-weight: 300; line-height: 1.8; color: #8A8279; padding-top: 2rem; border-top: 1px solid #D4CEC6; }
+  .sc-legal-fact__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #8A8279;
+  }
 
-  /* ── Responsive ── */
-  @media (max-width: 749px) {
-    .sc-tos-hero__inner { padding: 0 1.5rem 4rem; }
-    .sc-tos-hero__stats { flex-wrap: wrap; gap: 1.5rem; }
-    .sc-tos-sec__inner { padding: 4rem 1.5rem 0; }
-    .sc-tos-sec__bottom { padding-bottom: 4rem; }
-    .sc-tos-cards { grid-template-columns: 1fr; }
-    .sc-tos-card { border-right: none; }
-    .sc-tos-list__item { gap: 1rem; }
-    .sc-tos-dark { padding: 4rem 0; }
-    .sc-tos-dark__inner { padding: 0 1.5rem; }
-    .sc-tos-dark__grid { grid-template-columns: 1fr; gap: 2rem; }
-    .sc-tos-cta { padding: 4rem 1.5rem; }
-    .sc-tos-cta__contact { flex-direction: column; gap: 1.5rem; }
-    .sc-tos-foot { padding: 0 1.5rem 3rem; }
+  /* ═══ CTA ═══ */
+  .sc-legal-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 4rem 3rem;
+    text-align: center;
+  }
+  .sc-legal-cta__inner { max-width: 600px; margin: 0 auto; }
+  .sc-legal-cta__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__title {
+    font-size: clamp(22px, 3vw, 32px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__text {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #8A8279; margin-bottom: 2rem;
+  }
+  .sc-legal-cta__contact {
+    display: inline-flex; align-items: center; gap: 2rem;
+    padding: 1rem 2rem;
+    background: #1A1816;
+    border-radius: 100px;
+  }
+  .sc-legal-cta__contact-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 14px; font-weight: 400; color: #F7F4F0;
+    text-decoration: none;
+  }
+  .sc-legal-cta__contact-divider { width: 1px; height: 20px; background: rgba(212,206,198,0.3); }
+
+  /* ═══ FOOTER ═══ */
+  .sc-legal-foot {
+    background: #1A1816;
+    padding: 2.5rem 3rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .sc-legal-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-legal-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-legal-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-legal-layout { grid-template-columns: 1fr; }
+    .sc-legal-sidebar {
+      position: static; border-right: none; border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 1.5rem;
+    }
+    .sc-legal-sidebar__nav {
+      display: flex; flex-wrap: wrap; gap: 0.25rem;
+    }
+    .sc-legal-sidebar__nav li { margin-bottom: 0; }
+    .sc-legal-sidebar__nav a { font-size: 12px; padding: 0.375rem 0.625rem; }
+    .sc-legal-content { padding: 2rem 1.5rem 4rem; }
+    .sc-legal-hero__inner { padding: 3rem 1.5rem 2.5rem; }
+    .sc-legal-facts { grid-template-columns: 1fr; }
+    .sc-legal-cta { padding: 3rem 1.5rem; }
+    .sc-legal-cta__contact { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }
+    .sc-legal-cta__contact-divider { display: none; }
+    .sc-legal-foot { padding: 2rem 1.5rem; }
+    .sc-legal-foot__inner { flex-direction: column; text-align: center; }
   }
 </style>
 
 <!-- ═══════ HERO ═══════ -->
-<section class="sc-tos-hero">
-  <div class="sc-tos-hero__inner">
-    <div class="sc-tos-hero__content">
-      <p class="sc-tos-hero__kicker">Legal &amp; Agreements</p>
-      <h1 class="sc-tos-hero__title">Terms of<br>Service</h1>
-      <p class="sc-tos-hero__sub">The terms and conditions that describe your rights and responsibilities when using our Services. Please read carefully, as they include important information about warranty disclaimers and limitations of liability.</p>
-      <div class="sc-tos-hero__stats">
-        <div class="sc-tos-hero__stat">
-          <span class="sc-tos-hero__stat-num">25</span>
-          <span class="sc-tos-hero__stat-label">Sections</span>
-        </div>
-        <div class="sc-tos-hero__stat-divider"></div>
-        <div class="sc-tos-hero__stat">
-          <span class="sc-tos-hero__stat-num">AU</span>
-          <span class="sc-tos-hero__stat-label">Jurisdiction</span>
-        </div>
-        <div class="sc-tos-hero__stat-divider"></div>
-        <div class="sc-tos-hero__stat">
-          <span class="sc-tos-hero__stat-num">Shopify</span>
-          <span class="sc-tos-hero__stat-label">Powered By</span>
-        </div>
+<section class="sc-legal sc-legal-hero">
+  <div class="sc-legal-hero__inner">
+    <div class="sc-legal-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span>Legal</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span style="color:#1A1816">Terms of Service</span>
+    </div>
+    <h1 class="sc-legal-hero__title">Terms of<br>Service</h1>
+    <div class="sc-legal-hero__updated">Last updated: August 2026</div>
+    <p class="sc-legal-hero__intro">The terms and conditions that describe your rights and responsibilities when using our Services. Please read carefully, as they include important information about warranty disclaimers and limitations of liability.</p>
+    <div class="sc-legal-facts">
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">25</span>
+        <span class="sc-legal-fact__label">Sections</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">AU</span>
+        <span class="sc-legal-fact__label">Jurisdiction</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">Shopify</span>
+        <span class="sc-legal-fact__label">Platform</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ 01 — OVERVIEW ═══════ -->
-<section class="sc-tos-sec">
-  <div class="sc-tos-sec__inner sc-tos-sec__bottom">
-    <div class="sc-tos-sec__header">
-      <span class="sc-tos-sec__num">01</span>
-      <div class="sc-tos-sec__line"></div>
-    </div>
-    <h2 class="sc-tos-sec__title">Overview &amp;<br>Agreement</h2>
-    <p class="sc-tos-sec__lead">Welcome to Sensol Fitness. The terms "we", "us" and "our" refer to Sensol Fitness, trading as DUTE FITNESS (AUSTRALIA) PTY. LTD. By visiting, interacting with or using our Services, you agree to be bound by these Terms of Service and our Privacy Policy.</p>
-    <div class="sc-tos-cards">
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Services</span>
-        <h3 class="sc-tos-card__name">What We Provide</h3>
-        <p class="sc-tos-card__text">Sensol Fitness operates this store and website, including all related information, content, features, tools, products and services to provide you with a curated shopping experience. Powered by Shopify.</p>
-      </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Agreement</span>
-        <h3 class="sc-tos-card__name">Your Acceptance</h3>
-        <p class="sc-tos-card__text">By visiting, interacting with or using our Services, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, you should not use or access our Services.</p>
-      </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Age</span>
-        <h3 class="sc-tos-card__name">Age of Majority</h3>
-        <p class="sc-tos-card__text">By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence, and you have given us your consent to allow any of your minor dependents to use the Services.</p>
-      </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Account</span>
-        <h3 class="sc-tos-card__name">Account Security</h3>
-        <p class="sc-tos-card__text">You are solely responsible for maintaining the security of your account credentials and for all account activity. You may not transfer, sell, assign, or license your account to any other person.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ═══════ LAYOUT ═══════ -->
+<div class="sc-legal sc-legal-layout">
 
-<!-- ═══════ 02 — PRODUCTS & ORDERS ═══════ -->
-<section class="sc-tos-sec sc-tos-sec--alt">
-  <div class="sc-tos-sec__inner sc-tos-sec__bottom">
-    <div class="sc-tos-sec__header">
-      <span class="sc-tos-sec__num">02</span>
-      <div class="sc-tos-sec__line"></div>
-    </div>
-    <h2 class="sc-tos-sec__title">Products,<br>Orders &amp; Pricing</h2>
-    <p class="sc-tos-sec__lead">We have made every effort to provide an accurate representation of our products. When you place an order, you are making an offer to purchase. Sensol Fitness reserves the right to accept or decline your order for any reason at its discretion.</p>
-    <div class="sc-tos-list">
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">A</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Product Representation</h3>
-          <p class="sc-tos-list__text">Colors or product appearance may differ from how they appear on your screen due to your device settings. We do not warrant that the appearance or quality of any products will meet your expectations or be the same as depicted. All descriptions are subject to change without notice.</p>
-        </div>
-      </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">B</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Order Acceptance</h3>
-          <p class="sc-tos-list__text">Your order is not accepted until Sensol Fitness confirms acceptance. We must receive and process your payment before your order is accepted. Please review your order carefully before submitting, as we may be unable to accommodate cancellation requests after an order is accepted.</p>
-        </div>
-      </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">C</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Pricing &amp; Billing</h3>
-          <p class="sc-tos-list__text">Prices, discounts and promotions are subject to change without notice. The price charged will be the price in effect at the time the order is placed. Unless otherwise stated, posted prices do not include taxes, shipping, handling, customs or import charges.</p>
-        </div>
-      </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">D</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Shipping &amp; Delivery</h3>
-          <p class="sc-tos-list__text">We are not liable for shipping and delivery delays. All delivery times are estimates only and are not guaranteed. Once we transfer products to the carrier, title and risk of loss passes to you.</p>
-        </div>
-      </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">E</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Personal Use</h3>
-          <p class="sc-tos-list__text">You represent and warrant that your purchases are for your own personal or household use and not for commercial resale or export. Purchases are subject to return or exchange solely in accordance with our Refund Policy.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- SIDEBAR -->
+  <aside class="sc-legal-sidebar">
+    <p class="sc-legal-sidebar__label">Contents</p>
+    <ul class="sc-legal-sidebar__nav">
+      <li><a href="#tos-overview"><span class="sc-legal-sidebar__num">00</span>Overview</a></li>
+      <li><a href="#tos-account"><span class="sc-legal-sidebar__num">01</span>Access &amp; Account</a></li>
+      <li><a href="#tos-products"><span class="sc-legal-sidebar__num">02</span>Our Products</a></li>
+      <li><a href="#tos-orders"><span class="sc-legal-sidebar__num">03</span>Orders</a></li>
+      <li><a href="#tos-pricing"><span class="sc-legal-sidebar__num">04</span>Prices &amp; Billing</a></li>
+      <li><a href="#tos-shipping"><span class="sc-legal-sidebar__num">05</span>Shipping</a></li>
+      <li><a href="#tos-ip"><span class="sc-legal-sidebar__num">06</span>Intellectual Property</a></li>
+      <li><a href="#tos-tools"><span class="sc-legal-sidebar__num">07</span>Optional Tools</a></li>
+      <li><a href="#tos-links"><span class="sc-legal-sidebar__num">08</span>Third-Party Links</a></li>
+      <li><a href="#tos-shopify"><span class="sc-legal-sidebar__num">09</span>Shopify Relationship</a></li>
+      <li><a href="#tos-privacy"><span class="sc-legal-sidebar__num">10</span>Privacy Policy</a></li>
+      <li><a href="#tos-feedback"><span class="sc-legal-sidebar__num">11</span>Feedback</a></li>
+      <li><a href="#tos-errors"><span class="sc-legal-sidebar__num">12</span>Errors &amp; Omissions</a></li>
+      <li><a href="#tos-prohibited"><span class="sc-legal-sidebar__num">13</span>Prohibited Uses</a></li>
+      <li><a href="#tos-warranty"><span class="sc-legal-sidebar__num">14</span>Disclaimer</a></li>
+      <li><a href="#tos-liability"><span class="sc-legal-sidebar__num">15</span>Limitation of Liability</a></li>
+      <li><a href="#tos-indemn"><span class="sc-legal-sidebar__num">16</span>Indemnification</a></li>
+      <li><a href="#tos-variation"><span class="sc-legal-sidebar__num">17</span>Variation</a></li>
+      <li><a href="#tos-reliance"><span class="sc-legal-sidebar__num">18</span>Reliance</a></li>
+      <li><a href="#tos-sever"><span class="sc-legal-sidebar__num">19</span>Severability</a></li>
+      <li><a href="#tos-waiver"><span class="sc-legal-sidebar__num">20</span>Waiver &amp; Entire Agreement</a></li>
+      <li><a href="#tos-assign"><span class="sc-legal-sidebar__num">21</span>Assignment</a></li>
+      <li><a href="#tos-law"><span class="sc-legal-sidebar__num">22</span>Governing Law</a></li>
+      <li><a href="#tos-headings"><span class="sc-legal-sidebar__num">23</span>Headings</a></li>
+      <li><a href="#tos-changes"><span class="sc-legal-sidebar__num">24</span>Changes to Terms</a></li>
+      <li><a href="#tos-contact"><span class="sc-legal-sidebar__num">25</span>Contact</a></li>
+    </ul>
+  </aside>
 
-<!-- ═══════ 03 — INTELLECTUAL PROPERTY (dark) ═══════ -->
-<section class="sc-tos-dark">
-  <div class="sc-tos-dark__inner">
-    <div class="sc-tos-dark__header">
-      <span class="sc-tos-dark__num">03</span>
-      <div class="sc-tos-dark__line"></div>
-    </div>
-    <h2 class="sc-tos-dark__title">Intellectual<br>Property</h2>
-    <p class="sc-tos-dark__lead">Our Services, including all trademarks, brands, text, displays, images, graphics, product reviews, video, and audio, and the design, selection, and arrangement thereof, are owned by Sensol Fitness, its affiliates or licensors.</p>
-    <div class="sc-tos-dark__grid">
-      <div>
-        <span class="sc-tos-dark__col-label">Your Usage Rights</span>
-        <p class="sc-tos-dark__col-text">These Terms permit you to use the Services for your <strong>personal, non-commercial use only</strong>. You must not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any material without our prior written consent.</p>
-      </div>
-      <div>
-        <span class="sc-tos-dark__col-label">Trademarks</span>
-        <p class="sc-tos-dark__col-text">Sensol Fitness's names, logos, product and service names, designs, and slogans are <strong>trademarks of Sensol Fitness</strong> or its affiliates. You must not use such trademarks without prior written permission. All other names and logos are the trademarks of their respective owners.</p>
-      </div>
-    </div>
-    <div class="sc-tos-block" style="border-color: rgba(212,206,198,0.15); margin-top: 3rem;">
-      <span class="sc-tos-block__label">Third-Party Tools &amp; Links</span>
-      <p class="sc-tos-block__text" style="color: rgba(247,244,240,0.65);">You may be provided with access to tools offered by third parties as part of the Services, which we neither monitor nor have any control over. The Services may also contain hyperlinks to websites operated by third parties. We are not responsible for examining or evaluating the content or accuracy of any third-party materials. Access to these is at your own risk.</p>
-    </div>
-  </div>
-</section>
+  <!-- CONTENT -->
+  <div class="sc-legal-content">
 
-<!-- ═══════ 04 — LIABILITY &amp; DISCLAIMERS ═══════ -->
-<section class="sc-tos-sec">
-  <div class="sc-tos-sec__inner sc-tos-sec__bottom">
-    <div class="sc-tos-sec__header">
-      <span class="sc-tos-sec__num">04</span>
-      <div class="sc-tos-sec__line"></div>
-    </div>
-    <h2 class="sc-tos-sec__title">Liability &amp;<br>Disclaimers</h2>
-    <p class="sc-tos-sec__lead">Our Services are provided on an "as is" and "as available" basis. To the fullest extent permitted by law, Sensol Fitness disclaims all warranties, express or implied, including implied warranties of merchantability and fitness for a particular purpose.</p>
-    <div class="sc-tos-cards">
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Services</span>
-        <h3 class="sc-tos-card__name">"As Is" Basis</h3>
-        <p class="sc-tos-card__text">We do not warrant that the Services will be uninterrupted, timely, secure, or error-free. We do not warrant that the results obtained from the use of the Services will be accurate or reliable.</p>
+    <!-- 00 OVERVIEW -->
+    <section class="sc-legal-sec" id="tos-overview">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">00</span>
+        <div class="sc-legal-sec__line"></div>
       </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Limitation</span>
-        <h3 class="sc-tos-card__name">Limitation of Liability</h3>
-        <p class="sc-tos-card__text">To the fullest extent permitted by law, Sensol Fitness shall not be liable for any indirect, incidental, special, consequential or punitive damages, including loss of profits, data, use, goodwill, or other intangible losses.</p>
+      <h2 class="sc-legal-sec__title">Overview</h2>
+      <div class="sc-legal-sec__text">
+        <p>Welcome to Sensol Fitness. The terms "we", "us" and "our" refer to Sensol Fitness. We operate this store and website, including all related information, content, features, tools, products and services to provide you with a curated shopping experience (the <strong>"Services"</strong>). Sensol Fitness is powered by Shopify.</p>
+        <p>The terms and conditions below, together with any policies referenced herein (these <strong>"Terms of Service"</strong> or <strong>"Terms"</strong>), describe your rights and responsibilities when you use the Services. Please read carefully, as they include important information about your legal rights, warranty disclaimers, and limitations of liability.</p>
+        <p>By visiting, interacting with or using our Services, you agree to be bound by these Terms of Service and our <a href="/pages/privacy-policy">Privacy Policy</a>. If you do not agree, you should not use or access our Services.</p>
       </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Indemnification</span>
-        <h3 class="sc-tos-card__name">Your Indemnity</h3>
-        <p class="sc-tos-card__text">You agree to indemnify, defend and hold harmless Sensol Fitness from any claims, damages, liabilities, costs and expenses arising from your use of the Services or your violation of these Terms.</p>
-      </div>
-      <div class="sc-tos-card">
-        <span class="sc-tos-card__tag">Severability</span>
-        <h3 class="sc-tos-card__name">Enforceability</h3>
-        <p class="sc-tos-card__text">If any provision of these Terms is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be severed.</p>
-      </div>
-    </div>
-    <div class="sc-tos-block" style="margin-top: 3rem;">
-      <span class="sc-tos-block__label">Relationship with Shopify</span>
-      <p class="sc-tos-block__text">Sensol Fitness is powered by Shopify. Any sales and purchases you make are made <strong>directly with Sensol Fitness</strong>. Shopify is not responsible for any aspect of any sales between you and Sensol Fitness, including any injury, damage, or loss resulting from purchased products and services.</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════ 05 — FEEDBACK & PRIVACY ═══════ -->
-<section class="sc-tos-sec sc-tos-sec--alt">
-  <div class="sc-tos-sec__inner sc-tos-sec__bottom">
-    <div class="sc-tos-sec__header">
-      <span class="sc-tos-sec__num">05</span>
-      <div class="sc-tos-sec__line"></div>
-    </div>
-    <h2 class="sc-tos-sec__title">Feedback &amp;<br>Privacy</h2>
-    <p class="sc-tos-sec__lead">If you submit any ideas, suggestions, feedback, reviews, proposals, or other content ("Feedback"), you grant us a perpetual, worldwide, sublicensable, royalty-free license to use, reproduce, modify, publish, distribute and display such Feedback.</p>
-    <div class="sc-tos-list">
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">A</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Feedback License</h3>
-          <p class="sc-tos-list__text">You grant us a perpetual, worldwide, sublicensable, royalty-free license to use your Feedback for any purpose, including commercial use. We are under no obligation to maintain confidentiality, pay compensation, or respond to Feedback.</p>
-        </div>
+    <!-- 01 ACCESS & ACCOUNT -->
+    <section class="sc-legal-sec" id="tos-account">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">01</span>
+        <div class="sc-legal-sec__line"></div>
       </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">B</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Content Standards</h3>
-          <p class="sc-tos-list__text">Your Feedback must not violate any third-party rights, including copyright, trademark, privacy, or other proprietary rights. It must not contain libelous, unlawful, abusive, or obscene content, or any computer virus or malware.</p>
-        </div>
+      <h2 class="sc-legal-sec__title">Section 1 — Access and Account</h2>
+      <div class="sc-legal-sec__text">
+        <p>By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence, and you have given us your consent to allow any of your minor dependents to use the Services on devices you own, purchase or manage.</p>
+        <p>To use the Services, you may be asked to provide certain information such as your email address, billing, payment, and shipping information. You represent and warrant that all information you provide is correct, current and complete.</p>
+        <p>You are solely responsible for maintaining the security of your account credentials and for all account activity. You may not transfer, sell, assign, or license your account to any other person.</p>
       </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">C</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Privacy Policy</h3>
-          <p class="sc-tos-list__text">All personal information we collect through the Services is subject to our Privacy Policy. Because the Services are hosted by Shopify, Shopify collects and processes personal information about your access to and use of the Services.</p>
-        </div>
-      </div>
-      <div class="sc-tos-list__item">
-        <span class="sc-tos-list__num">D</span>
-        <div class="sc-tos-list__body">
-          <h3 class="sc-tos-list__title">Changes to Terms</h3>
-          <p class="sc-tos-list__text">We reserve the right to update, change, or replace any part of these Terms at any time. Your continued use of or access to the Services following the posting of any changes constitutes acceptance of those changes.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════ 06 — GOVERNING LAW (dark) ═══════ -->
-<section class="sc-tos-dark">
-  <div class="sc-tos-dark__inner">
-    <div class="sc-tos-dark__header">
-      <span class="sc-tos-dark__num">06</span>
-      <div class="sc-tos-dark__line"></div>
-    </div>
-    <h2 class="sc-tos-dark__title">Governing Law<br>&amp; Assignment</h2>
-    <p class="sc-tos-dark__lead">These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction where Sensol Fitness is headquartered. You and Sensol Fitness consent to venue and personal jurisdiction in such courts.</p>
-    <div class="sc-tos-dark__grid">
-      <div>
-        <span class="sc-tos-dark__col-label">Assignment</span>
-        <p class="sc-tos-dark__col-text">You may not delegate, transfer or assign this Agreement or any of your rights without our <strong>prior written consent</strong>. Any such attempt will be null and void. We may transfer, assign, or delegate these Terms without consent or notice to you.</p>
+    <!-- 02 OUR PRODUCTS -->
+    <section class="sc-legal-sec" id="tos-products">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">02</span>
+        <div class="sc-legal-sec__line"></div>
       </div>
-      <div>
-        <span class="sc-tos-dark__col-label">Entire Agreement</span>
-        <p class="sc-tos-dark__col-text">These Terms and any policies posted by us constitute the <strong>entire agreement</strong> between you and us, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written.</p>
+      <h2 class="sc-legal-sec__title">Section 2 — Our Products</h2>
+      <div class="sc-legal-sec__text">
+        <p>We have made every effort to provide an accurate representation of our products. However, colors or product appearance may differ from how they appear on your screen due to device settings and configuration.</p>
+        <p>We do not warrant that the appearance or quality of any products or services purchased will meet your expectations or be the same as depicted in our online stores.</p>
+        <p>All descriptions of products are subject to change at any time without notice. We reserve the right to discontinue any product and may limit quantities offered to any person, geographic region or jurisdiction.</p>
       </div>
-    </div>
+    </section>
+
+    <!-- 03 ORDERS -->
+    <section class="sc-legal-sec" id="tos-orders">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">03</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 3 — Orders</h2>
+      <div class="sc-legal-sec__text">
+        <p>When you place an order, you are making an offer to purchase. Sensol Fitness reserves the right to accept or decline your order for any reason. Your order is not accepted until we confirm acceptance and process your payment.</p>
+        <p>Please review your order carefully before submitting, as we may be unable to accommodate cancellation requests after an order is accepted. If we do not accept, change, or cancel an order, we will attempt to notify you by the email, billing address, and/or phone number provided.</p>
+        <div class="sc-legal-note">Your purchases are subject to return or exchange solely in accordance with our <strong>Refund Policy</strong>. You represent and warrant that your purchases are for personal or household use and not for commercial resale or export.</div>
+      </div>
+    </section>
+
+    <!-- 04 PRICES & BILLING -->
+    <section class="sc-legal-sec" id="tos-pricing">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">04</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 4 — Prices and Billing</h2>
+      <div class="sc-legal-sec__text">
+        <p>Prices, discounts and promotions are subject to change without notice. The price charged will be the price in effect at the time the order is placed. Unless otherwise stated, posted prices do not include taxes, shipping, handling, customs or import charges.</p>
+        <p>Prices in our online stores may differ from prices in physical stores or third-party stores. We may offer promotions governed by separate terms — if there is a conflict, the promotion terms will govern.</p>
+        <p>You agree to provide current, complete and accurate purchase and account information, and to promptly update your information including email address, credit card numbers and expiration dates.</p>
+        <p>You represent and warrant that: (i) the credit card information you provide is true, correct and complete; (ii) you are duly authorized to use such credit card; (iii) charges incurred will be honored by your credit card company; and (iv) you will pay charges at the posted prices, including all applicable taxes.</p>
+      </div>
+    </section>
+
+    <!-- 05 SHIPPING -->
+    <section class="sc-legal-sec" id="tos-shipping">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">05</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 5 — Shipping and Delivery</h2>
+      <div class="sc-legal-sec__text">
+        <p>We are not liable for shipping and delivery delays. All delivery times are estimates only and are not guaranteed. We are not responsible for delays caused by shipping carriers, customs processing, or events outside our control. Once we transfer products to the carrier, title and risk of loss passes to you.</p>
+      </div>
+    </section>
+
+    <!-- 06 IP -->
+    <section class="sc-legal-sec" id="tos-ip">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">06</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 6 — Intellectual Property</h2>
+      <div class="sc-legal-sec__text">
+        <p>Our Services, including all trademarks, brands, text, displays, images, graphics, product reviews, video, and audio, and the design, selection, and arrangement thereof, are owned by Sensol Fitness, its affiliates or licensors and are protected by intellectual property laws.</p>
+        <p>These Terms permit you to use the Services for personal, non-commercial use only. You must not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any material without our prior written consent.</p>
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">Trademarks</p>
+          <p class="sc-legal-callout__text">Sensol Fitness's names, logos, product and service names, designs, and slogans are trademarks of Sensol Fitness or its affiliates. <strong>You must not use such trademarks without prior written permission.</strong> Shopify's name, logo, and designs are trademarks of Shopify. All other names and logos are the trademarks of their respective owners.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 OPTIONAL TOOLS -->
+    <section class="sc-legal-sec" id="tos-tools">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">07</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 7 — Optional Tools</h2>
+      <div class="sc-legal-sec__text">
+        <p>You may be provided with access to customer tools offered by third parties as part of the Services, which we neither monitor nor have any control nor input. We provide access to such tools "as is" and "as available" without any warranties or endorsement.</p>
+        <p>Any use of optional tools is entirely at your own risk and discretion. We may also offer new features through the Services in the future, which shall be subject to these Terms.</p>
+      </div>
+    </section>
+
+    <!-- 08 THIRD-PARTY LINKS -->
+    <section class="sc-legal-sec" id="tos-links">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">08</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 8 — Third-Party Links</h2>
+      <div class="sc-legal-sec__text">
+        <p>The Services may contain materials and hyperlinks to websites provided or operated by third parties. We are not responsible for examining or evaluating the content or accuracy of any third-party materials or websites.</p>
+        <p>If you decide to leave the Services to access these materials or third-party sites, you do so at your own risk. We are not liable for any harm or damages related to your access of third-party websites. Complaints regarding third-party products and services should be directed to the third-party.</p>
+      </div>
+    </section>
+
+    <!-- 09 SHOPIFY -->
+    <section class="sc-legal-sec" id="tos-shopify">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">09</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 9 — Relationship with Shopify</h2>
+      <div class="sc-legal-sec__text">
+        <p>Sensol Fitness is powered by Shopify, which enables us to provide the Services to you. However, any sales and purchases you make in our Store are made directly with Sensol Fitness.</p>
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">Important</p>
+          <p class="sc-legal-callout__text">By using the Services, you acknowledge and agree that <strong>Shopify is not responsible</strong> for any aspect of any sales between you and Sensol Fitness, including any injury, damage, or loss resulting from purchased products and services. You hereby expressly release Shopify and its affiliates from all claims, damages, and liabilities arising from or related to your purchases and transactions with Sensol Fitness.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 PRIVACY -->
+    <section class="sc-legal-sec" id="tos-privacy">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">10</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 10 — Privacy Policy</h2>
+      <div class="sc-legal-sec__text">
+        <p>All personal information we collect through the Services is subject to our <a href="/pages/privacy-policy">Privacy Policy</a>, and certain personal information may be subject to <a href="https://www.shopify.com/legal/privacy/app-users" target="_blank" rel="noopener">Shopify's Privacy Policy</a>.</p>
+        <p>Because the Services are hosted by Shopify, Shopify collects and processes personal information about your access to and use of the Services. Information you submit will be transmitted to and shared with Shopify as well as third parties that may be located in other countries.</p>
+      </div>
+    </section>
+
+    <!-- 11 FEEDBACK -->
+    <section class="sc-legal-sec" id="tos-feedback">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">11</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 11 — Feedback</h2>
+      <div class="sc-legal-sec__text">
+        <p>If you submit any ideas, suggestions, feedback, reviews, proposals, plans, or other content (collectively, <strong>"Feedback"</strong>), you grant us a perpetual, worldwide, sublicensable, royalty-free license to use, reproduce, modify, publish, distribute and display such Feedback in any medium for any purpose, including commercial use.</p>
+        <p>You also represent and warrant that: (i) you own or have all necessary rights to all Feedback; (ii) you have disclosed any compensation or incentives received; and (iii) your Feedback will comply with these Terms.</p>
+        <p>We are under no obligation to maintain your Feedback in confidence, pay compensation, or respond to your Feedback. We may monitor, edit or remove Feedback that we determine to be unlawful, offensive, or otherwise objectionable.</p>
+      </div>
+    </section>
+
+    <!-- 12 ERRORS -->
+    <section class="sc-legal-sec" id="tos-errors">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">12</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 12 — Errors, Inaccuracies and Omissions</h2>
+      <div class="sc-legal-sec__text">
+        <p>Occasionally there may be information on the Services that contains typographical errors, inaccuracies or omissions relating to product descriptions, pricing, promotions, offers, shipping charges, transit times and availability. We reserve the right to correct any errors and to change or update information or cancel orders if any information is inaccurate at any time without prior notice.</p>
+      </div>
+    </section>
+
+    <!-- 13 PROHIBITED USES -->
+    <section class="sc-legal-sec" id="tos-prohibited">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">13</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 13 — Prohibited Uses</h2>
+      <div class="sc-legal-sec__text">
+        <p>You may access and use the Services for lawful purposes only. You may not use the Services:</p>
+        <ul class="sc-legal-subs">
+          <li><span class="sc-legal-subs__label">(a)</span>For any unlawful or malicious purpose</li>
+          <li><span class="sc-legal-subs__label">(b)</span>To violate any international, federal, provincial or state regulations, rules, laws, or local ordinances</li>
+          <li><span class="sc-legal-subs__label">(c)</span>To infringe upon or violate our intellectual property rights or the rights of others</li>
+          <li><span class="sc-legal-subs__label">(d)</span>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or harm any person</li>
+          <li><span class="sc-legal-subs__label">(e)</span>To transmit false or misleading information</li>
+          <li><span class="sc-legal-subs__label">(f)</span>To send, receive, upload, download, or re-use any material that does not comply with these Terms</li>
+          <li><span class="sc-legal-subs__label">(g)</span>To transmit any advertising or promotional material, including "junk mail," "chain letter," or "spam"</li>
+          <li><span class="sc-legal-subs__label">(h)</span>To impersonate or attempt to impersonate any other person or entity</li>
+          <li><span class="sc-legal-subs__label">(i)</span>To engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Services</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 14 DISCLAIMER -->
+    <section class="sc-legal-sec" id="tos-warranty">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">14</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 14 — Disclaimer of Warranties</h2>
+      <div class="sc-legal-sec__text">
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">"As Is" Basis</p>
+          <p class="sc-legal-callout__text">The Services and all information, content, materials, and products included on or otherwise made available to you through the Services are provided on an <strong>"as is" and "as available"</strong> basis without warranty of any kind. We make no warranties, expressed or implied, and hereby disclaim all other warranties.</p>
+        </div>
+        <p>We do not warrant that the Services will be uninterrupted, secure, or error-free, that defects will be corrected, or that the Services or the server that makes it available are free of viruses or other harmful components.</p>
+      </div>
+    </section>
+
+    <!-- 15 LIMITATION -->
+    <section class="sc-legal-sec" id="tos-liability">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">15</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 15 — Limitation of Liability</h2>
+      <div class="sc-legal-sec__text">
+        <p>In no event shall Sensol Fitness, its directors, officers, employees, affiliates, agents, contractors, or licensors be liable for any direct, indirect, incidental, punitive, or consequential damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of the Services.</p>
+      </div>
+    </section>
+
+    <!-- 16 INDEMNIFICATION -->
+    <section class="sc-legal-sec" id="tos-indemn">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">16</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 16 — Indemnification</h2>
+      <div class="sc-legal-sec__text">
+        <p>You agree to indemnify, defend, and hold harmless Sensol Fitness and its affiliates from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your breach of these Terms, your violation of any law or the rights of a third party, or your use of the Services.</p>
+      </div>
+    </section>
+
+    <!-- 17-23 compact -->
+    <section class="sc-legal-sec" id="tos-variation">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">17</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 17 — Variation</h2>
+      <div class="sc-legal-sec__text">
+        <p>These Terms may be varied by us from time to time. Any variation will take effect when the updated Terms are posted on the Services. Your continued use of the Services after the updated Terms are posted constitutes your agreement to be bound by the updated Terms.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-reliance">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">18</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 18 — Reliance</h2>
+      <div class="sc-legal-sec__text">
+        <p>You acknowledge that in using the Services, you have not relied on any representation, warranty, or other statement not expressly set out in these Terms. To the extent any applicable law does not allow the exclusion of reliance, the above exclusion shall apply to the maximum extent permitted.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-sever">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">19</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 19 — Severability</h2>
+      <div class="sc-legal-sec__text">
+        <p>If any provision of these Terms is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed severed. Such determination shall not affect the validity and enforceability of any other remaining provisions.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-waiver">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">20</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 20 — Waiver; Entire Agreement</h2>
+      <div class="sc-legal-sec__text">
+        <p>The failure of us to exercise or enforce any right or provision shall not constitute a waiver of such right or provision. These Terms and any policies posted on this site constitute the entire agreement between you and us, superseding any prior or contemporaneous agreements, communications and proposals.</p>
+        <p>Any ambiguities in the interpretation of these Terms shall not be construed against the drafting party.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-assign">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">21</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 21 — Assignment</h2>
+      <div class="sc-legal-sec__text">
+        <p>You may not delegate, transfer or assign this Agreement or any of your rights or obligations without our prior written consent, and any such attempt will be null and void. We may transfer, assign, or delegate these Terms and our rights and obligations without consent or notice to you.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-law">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">22</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 22 — Governing Law</h2>
+      <div class="sc-legal-sec__text">
+        <p>These Terms and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the federal and state or territorial courts in the jurisdiction where Sensol Fitness is headquartered. You and Sensol Fitness consent to venue and personal jurisdiction in such courts.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-headings">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">23</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 23 — Headings</h2>
+      <div class="sc-legal-sec__text">
+        <p>The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-changes">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">24</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 24 — Changes to Terms</h2>
+      <div class="sc-legal-sec__text">
+        <p>You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change, or replace any part of these Terms by posting updates to our website. It is your responsibility to check periodically for changes.</p>
+        <p>Your continued use of or access to the Services following the posting of any changes constitutes acceptance of those changes.</p>
+      </div>
+    </section>
+
+    <section class="sc-legal-sec" id="tos-contact">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">25</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Section 25 — Contact Information</h2>
+      <div class="sc-legal-sec__text">
+        <p>Questions about the Terms of Service should be sent to us at <a href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a>.</p>
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
 
 <!-- ═══════ CTA ═══════ -->
-<section class="sc-tos-cta">
-  <div class="sc-tos-cta__inner">
-    <p class="sc-tos-cta__label">Need Clarification?</p>
-    <h2 class="sc-tos-cta__title">Contact Our Support Team</h2>
-    <p class="sc-tos-cta__text">If you have any questions about these Terms of Service, our Australian support team is here to help.</p>
-    <div class="sc-tos-cta__contact">
-      <div class="sc-tos-cta__contact-item">
-        <span class="sc-tos-cta__contact-label">Email</span>
-        <span class="sc-tos-cta__contact-value">support@sensolfitness.com.au</span>
-      </div>
-      <div class="sc-tos-cta__contact-item">
-        <span class="sc-tos-cta__contact-label">Phone</span>
-        <span class="sc-tos-cta__contact-value">+61 480 899 797</span>
-      </div>
+<section class="sc-legal sc-legal-cta">
+  <div class="sc-legal-cta__inner">
+    <p class="sc-legal-cta__label">Need Help?</p>
+    <h3 class="sc-legal-cta__title">Questions about these terms?</h3>
+    <p class="sc-legal-cta__text">Our support team is here to help you understand your rights and responsibilities under these Terms of Service.</p>
+    <div class="sc-legal-cta__contact">
+      <a href="mailto:support@sensolfitness.com.au" class="sc-legal-cta__contact-item">support@sensolfitness.com.au</a>
+      <div class="sc-legal-cta__contact-divider"></div>
+      <a href="tel:+61480899797" class="sc-legal-cta__contact-item">+61 480 899 797</a>
     </div>
   </div>
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
-<section class="sc-tos-foot">
-  <div class="sc-tos-foot__inner">
-    <p class="sc-tos-foot__text">DUTE FITNESS (AUSTRALIA) PTY. LTD. trading as Sensol Fitness. Powered by Shopify. These Terms of Service are governed by the laws of Australia. We reserve the right to amend these Terms at any time. Your continued use of the Services constitutes acceptance of any changes.</p>
+<footer class="sc-legal sc-legal-foot">
+  <div class="sc-legal-foot__inner">
+    <p class="sc-legal-foot__text">Sensol Fitness, trading as DUTE FITNESS (AUSTRALIA) PTY. LTD.<br>Melaan Way, Clyde North VIC 3978, Australia</p>
+    <p class="sc-legal-foot__brand">SENSOL FITNESS</p>
   </div>
-</section>
+</footer>
+
+<script>
+  // Active section highlighting in sidebar
+  (function() {
+    var links = document.querySelectorAll('.sc-legal-sidebar__nav a');
+    var sections = [];
+    links.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      var sec = document.getElementById(id);
+      if (sec) sections.push({ link: link, el: sec });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 100;
+      var current = sections[0];
+      sections.forEach(function(s) {
+        if (s.el.offsetTop <= scrollY) current = s;
+      });
+      links.forEach(function(l) { l.classList.remove('is-active'); });
+      if (current) current.link.classList.add('is-active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
