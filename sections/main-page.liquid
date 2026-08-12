@@ -11,6 +11,10 @@
   {%- section 'sensol-shipping-returns' -%}
 {%- elsif page.handle == 'refund-policy' or page.handle contains 'refund' or page.handle contains 'return' -%}
   {%- render 'sensol-refund-page' -%}
+{%- elsif page.handle == 'terms-of-service' or page.handle contains 'terms' -%}
+  {%- render 'sensol-tos-page' -%}
+{%- elsif page.handle == 'privacy-policy' or page.handle contains 'privacy' -%}
+  {%- render 'sensol-privacy-page' -%}
 {%- else -%}
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 

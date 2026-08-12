@@ -1,0 +1,378 @@
+{%- comment -%}Sensol Privacy Policy page — branded design{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ── Hero ── */
+  .sc-priv-hero {
+    background: #1A1816;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 70vh;
+    display: flex; align-items: flex-end;
+    overflow: hidden; position: relative;
+  }
+  .sc-priv-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(181,173,164,0.06) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.9) 100%);
+  }
+  .sc-priv-hero__inner { position: relative; z-index: 1; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem 6rem; }
+  .sc-priv-hero__kicker { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
+  .sc-priv-hero__title { font-size: clamp(40px, 7vw, 80px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.05; color: #F7F4F0; margin-bottom: 1.5rem; }
+  .sc-priv-hero__sub { font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(247,244,240,0.55); max-width: 480px; margin-bottom: 3rem; }
+  .sc-priv-hero__stats { display: flex; align-items: center; gap: 2.5rem; }
+  .sc-priv-hero__stat-num { font-size: 28px; font-weight: 200; letter-spacing: 0.02em; color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.5rem; }
+  .sc-priv-hero__stat-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; }
+  .sc-priv-hero__stat-divider { width: 1px; height: 36px; background: rgba(212,206,198,0.2); }
+
+  /* ── Common section ── */
+  .sc-priv-sec { background: #F7F4F0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+  .sc-priv-sec--alt { background: #EDEAE5; }
+  .sc-priv-sec__inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem 0; }
+  .sc-priv-sec__bottom { padding-bottom: 6rem; }
+  .sc-priv-sec__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+  .sc-priv-sec__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
+  .sc-priv-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-priv-sec__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; }
+  .sc-priv-sec__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: #4A4640; max-width: 700px; margin-bottom: 4rem; }
+
+  /* ── Info cards ── */
+  .sc-priv-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #D4CEC6; }
+  .sc-priv-card { padding: 2.5rem 2rem 3rem; border-right: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
+  .sc-priv-card:nth-child(2n) { border-right: none; }
+  .sc-priv-card__tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; display: block; margin-bottom: 1.25rem; }
+  .sc-priv-card__name { font-size: 17px; font-weight: 400; letter-spacing: 0.02em; color: #1A1816; margin-bottom: 0.75rem; }
+  .sc-priv-card__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
+
+  /* ── Numbered list ── */
+  .sc-priv-list { border-top: 1px solid #D4CEC6; }
+  .sc-priv-list__item { display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid #D4CEC6; }
+  .sc-priv-list__num { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; flex-shrink: 0; min-width: 32px; padding-top: 3px; }
+  .sc-priv-list__body { flex: 1; }
+  .sc-priv-list__title { font-size: 15px; font-weight: 400; color: #1A1816; margin-bottom: 0.5rem; }
+  .sc-priv-list__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
+
+  /* ── Dark section ── */
+  .sc-priv-dark { background: #1A1816; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #F7F4F0; padding: 6rem 0; }
+  .sc-priv-dark__inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  .sc-priv-dark__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+  .sc-priv-dark__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
+  .sc-priv-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
+  .sc-priv-dark__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; color: #F7F4F0; }
+  .sc-priv-dark__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.55); max-width: 700px; margin-bottom: 4rem; }
+  .sc-priv-dark__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .sc-priv-dark__col-label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
+  .sc-priv-dark__col-text { font-size: 14px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.65); }
+  .sc-priv-dark__col-text strong { color: #F7F4F0; font-weight: 400; }
+
+  /* ── Rights grid ── */
+  .sc-priv-rights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid #D4CEC6; }
+  .sc-priv-right { padding: 2.5rem 1.5rem 3rem; border-right: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
+  .sc-priv-right:nth-child(3n) { border-right: none; }
+  .sc-priv-right__tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; display: block; margin-bottom: 1.25rem; }
+  .sc-priv-right__name { font-size: 17px; font-weight: 400; letter-spacing: 0.02em; color: #1A1816; margin-bottom: 0.75rem; }
+  .sc-priv-right__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
+
+  /* ── Text block ── */
+  .sc-priv-block { border-top: 1px solid #D4CEC6; padding-top: 3rem; margin-top: 3rem; }
+  .sc-priv-block__label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
+  .sc-priv-block__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; max-width: 800px; }
+  .sc-priv-block__text strong { color: #1A1816; font-weight: 400; }
+
+  /* ── CTA bar ── */
+  .sc-priv-cta {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .sc-priv-cta__inner { max-width: 800px; margin: 0 auto; }
+  .sc-priv-cta__label { font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
+  .sc-priv-cta__title { font-size: clamp(24px, 3vw, 36px); font-weight: 200; letter-spacing: 0.04em; color: #1A1816; margin-bottom: 1.5rem; }
+  .sc-priv-cta__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; margin-bottom: 2.5rem; }
+  .sc-priv-cta__contact { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .sc-priv-cta__contact-item { text-align: center; }
+  .sc-priv-cta__contact-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 0.5rem; }
+  .sc-priv-cta__contact-value { font-size: 16px; font-weight: 400; color: #1A1816; }
+
+  /* ── Footer note ── */
+  .sc-priv-foot {
+    background: #F7F4F0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0 3rem 4rem;
+  }
+  .sc-priv-foot__inner { max-width: 1200px; margin: 0 auto; }
+  .sc-priv-foot__text { font-size: 12px; font-weight: 300; line-height: 1.8; color: #8A8279; padding-top: 2rem; border-top: 1px solid #D4CEC6; }
+
+  /* ── Responsive ── */
+  @media (max-width: 749px) {
+    .sc-priv-hero__inner { padding: 0 1.5rem 4rem; }
+    .sc-priv-hero__stats { flex-wrap: wrap; gap: 1.5rem; }
+    .sc-priv-sec__inner { padding: 4rem 1.5rem 0; }
+    .sc-priv-sec__bottom { padding-bottom: 4rem; }
+    .sc-priv-cards { grid-template-columns: 1fr; }
+    .sc-priv-card { border-right: none; }
+    .sc-priv-list__item { gap: 1rem; }
+    .sc-priv-rights { grid-template-columns: 1fr; }
+    .sc-priv-right { border-right: none; }
+    .sc-priv-dark { padding: 4rem 0; }
+    .sc-priv-dark__inner { padding: 0 1.5rem; }
+    .sc-priv-dark__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .sc-priv-cta { padding: 4rem 1.5rem; }
+    .sc-priv-cta__contact { flex-direction: column; gap: 1.5rem; }
+    .sc-priv-foot { padding: 0 1.5rem 3rem; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-priv-hero">
+  <div class="sc-priv-hero__inner">
+    <div class="sc-priv-hero__content">
+      <p class="sc-priv-hero__kicker">Your Data &amp; Privacy</p>
+      <h1 class="sc-priv-hero__title">Privacy<br>Policy</h1>
+      <p class="sc-priv-hero__sub">This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase using our Services. Last updated: July 31, 2026.</p>
+      <div class="sc-priv-hero__stats">
+        <div class="sc-priv-hero__stat">
+          <span class="sc-priv-hero__stat-num">7</span>
+          <span class="sc-priv-hero__stat-label">Data Categories</span>
+        </div>
+        <div class="sc-priv-hero__stat-divider"></div>
+        <div class="sc-priv-hero__stat">
+          <span class="sc-priv-hero__stat-num">5</span>
+          <span class="sc-priv-hero__stat-label">Your Rights</span>
+        </div>
+        <div class="sc-priv-hero__stat-divider"></div>
+        <div class="sc-priv-hero__stat">
+          <span class="sc-priv-hero__stat-num">AU</span>
+          <span class="sc-priv-hero__stat-label">Jurisdiction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 01 — DATA WE COLLECT ═══════ -->
+<section class="sc-priv-sec">
+  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
+    <div class="sc-priv-sec__header">
+      <span class="sc-priv-sec__num">01</span>
+      <div class="sc-priv-sec__line"></div>
+    </div>
+    <h2 class="sc-priv-sec__title">Personal Information<br>We Collect</h2>
+    <p class="sc-priv-sec__lead">When we use the term "personal information," we are referring to information that identifies or can reasonably be linked to you. We may collect or process the following categories of personal information depending on how you interact with the Services.</p>
+    <div class="sc-priv-cards">
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Contact</span>
+        <h3 class="sc-priv-card__name">Contact Details</h3>
+        <p class="sc-priv-card__text">Your name, address, billing address, shipping address, phone number, and email address.</p>
+      </div>
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Financial</span>
+        <h3 class="sc-priv-card__name">Financial Information</h3>
+        <p class="sc-priv-card__text">Credit card, debit card, financial account numbers, payment card information, transaction details, and other payment details.</p>
+      </div>
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Account</span>
+        <h3 class="sc-priv-card__name">Account Information</h3>
+        <p class="sc-priv-card__text">Your username, password, security questions, preferences and settings.</p>
+      </div>
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Transaction</span>
+        <h3 class="sc-priv-card__name">Transaction Information</h3>
+        <p class="sc-priv-card__text">Items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel, and your past transactions.</p>
+      </div>
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Device</span>
+        <h3 class="sc-priv-card__name">Device Information</h3>
+        <p class="sc-priv-card__text">Information about your device, browser, or network connection, your IP address, and other unique identifiers.</p>
+      </div>
+      <div class="sc-priv-card">
+        <span class="sc-priv-card__tag">Usage</span>
+        <h3 class="sc-priv-card__name">Usage Information</h3>
+        <p class="sc-priv-card__text">Information regarding your interaction with the Services, including how and when you interact with or navigate the Services.</p>
+      </div>
+    </div>
+    <div class="sc-priv-block">
+      <span class="sc-priv-block__label">Data Sources</span>
+      <p class="sc-priv-block__text">We collect personal information <strong>directly from you</strong> when you create an account, visit or use the Services, or communicate with us; <strong>automatically through the Services</strong> via cookies and similar technologies; from our <strong>service providers</strong> who process information on our behalf; and from our <strong>partners or other third parties</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 02 — HOW WE USE DATA (dark) ═══════ -->
+<section class="sc-priv-dark">
+  <div class="sc-priv-dark__inner">
+    <div class="sc-priv-dark__header">
+      <span class="sc-priv-dark__num">02</span>
+      <div class="sc-priv-dark__line"></div>
+    </div>
+    <h2 class="sc-priv-dark__title">How We Use Your<br>Personal Information</h2>
+    <p class="sc-priv-dark__lead">Depending on how you interact with us or which Services you use, we may use your personal information for the following purposes:</p>
+    <div class="sc-priv-dark__grid">
+      <div>
+        <span class="sc-priv-dark__col-label">Service Delivery</span>
+        <p class="sc-priv-dark__col-text">We use your personal information to <strong>provide, tailor, and improve the Services</strong> — processing payments, fulfilling orders, remembering preferences, sending notifications, processing returns and exchanges, and creating a customized shopping experience.</p>
+      </div>
+      <div>
+        <span class="sc-priv-dark__col-label">Marketing &amp; Advertising</span>
+        <p class="sc-priv-dark__col-text">We use your personal information for <strong>marketing and promotional purposes</strong> — sending marketing communications by email, text message or postal mail, and showing you online advertisements based on your activity on the Services.</p>
+      </div>
+      <div>
+        <span class="sc-priv-dark__col-label">Security &amp; Fraud Prevention</span>
+        <p class="sc-priv-dark__col-text">We use your personal information to <strong>authenticate your account</strong>, provide a secure shopping experience, detect and investigate possible fraudulent or malicious activity, and protect public safety.</p>
+      </div>
+      <div>
+        <span class="sc-priv-dark__col-label">Communication &amp; Legal</span>
+        <p class="sc-priv-dark__col-text">We use your personal information to provide <strong>customer support</strong>, maintain our business relationship, comply with applicable law, respond to legal process, and enforce our terms or policies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 — DATA DISCLOSURE ═══════ -->
+<section class="sc-priv-sec">
+  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
+    <div class="sc-priv-sec__header">
+      <span class="sc-priv-sec__num">03</span>
+      <div class="sc-priv-sec__line"></div>
+    </div>
+    <h2 class="sc-priv-sec__title">How We Disclose<br>Personal Information</h2>
+    <p class="sc-priv-sec__lead">In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy.</p>
+    <div class="sc-priv-list">
+      <div class="sc-priv-list__item">
+        <span class="sc-priv-list__num">A</span>
+        <div class="sc-priv-list__body">
+          <h3 class="sc-priv-list__title">Service Providers</h3>
+          <p class="sc-priv-list__text">With Shopify, vendors and other third parties who perform services on our behalf (IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).</p>
+        </div>
+      </div>
+      <div class="sc-priv-list__item">
+        <span class="sc-priv-list__num">B</span>
+        <div class="sc-priv-list__body">
+          <h3 class="sc-priv-list__title">Marketing Partners</h3>
+          <p class="sc-priv-list__text">With business and marketing partners to provide marketing services and advertise to you. We use Shopify to support personalized advertising with third-party services based on your online activity.</p>
+        </div>
+      </div>
+      <div class="sc-priv-list__item">
+        <span class="sc-priv-list__num">C</span>
+        <div class="sc-priv-list__body">
+          <h3 class="sc-priv-list__title">With Your Consent</h3>
+          <p class="sc-priv-list__text">When you direct, request us, or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations.</p>
+        </div>
+      </div>
+      <div class="sc-priv-list__item">
+        <span class="sc-priv-list__num">D</span>
+        <div class="sc-priv-list__body">
+          <h3 class="sc-priv-list__title">Corporate &amp; Legal</h3>
+          <p class="sc-priv-list__text">With our affiliates, in connection with a business transaction (merger, acquisition), to comply with legal obligations, respond to government requests, protect our rights, or with your consent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 04 — YOUR RIGHTS ═══════ -->
+<section class="sc-priv-sec sc-priv-sec--alt">
+  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
+    <div class="sc-priv-sec__header">
+      <span class="sc-priv-sec__num">04</span>
+      <div class="sc-priv-sec__line"></div>
+    </div>
+    <h2 class="sc-priv-sec__title">Your Privacy<br>Rights</h2>
+    <p class="sc-priv-sec__lead">Depending on where you live, you may have certain rights regarding your personal information. You may exercise any of these rights where indicated on the Services or by contacting us.</p>
+    <div class="sc-priv-rights">
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">01</span>
+        <h3 class="sc-priv-right__name">Access &amp; Disclosure</h3>
+        <p class="sc-priv-right__text">You may have the right to request access to or a copy of your personal information, including details about how we collect, use, and disclose it.</p>
+      </div>
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">02</span>
+        <h3 class="sc-priv-right__name">Correction</h3>
+        <p class="sc-priv-right__text">You may have the right to request that we correct or update your personal information if it is inaccurate or incomplete.</p>
+      </div>
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">03</span>
+        <h3 class="sc-priv-right__name">Deletion</h3>
+        <p class="sc-priv-right__text">You may have the right to request that we delete your personal information, subject to certain exceptions permitted or required by applicable law.</p>
+      </div>
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">04</span>
+        <h3 class="sc-priv-right__name">Portability</h3>
+        <p class="sc-priv-right__text">You may have the right to receive a copy of the personal information we hold about you and request that we transfer it to a third party.</p>
+      </div>
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">05</span>
+        <h3 class="sc-priv-right__name">Communication Preferences</h3>
+        <p class="sc-priv-right__text">You may opt out of receiving promotional emails at any time using the unsubscribe option. We may still send non-promotional emails about your account or orders.</p>
+      </div>
+      <div class="sc-priv-right">
+        <span class="sc-priv-right__tag">06</span>
+        <h3 class="sc-priv-right__name">Non-Discrimination</h3>
+        <p class="sc-priv-right__text">We will not discriminate against you for exercising any of these rights. We may need to verify your identity before processing your requests.</p>
+      </div>
+    </div>
+    <div class="sc-priv-block">
+      <span class="sc-priv-block__label">Authorized Agents</span>
+      <p class="sc-priv-block__text">In accordance with applicable laws, you may designate an <strong>authorized agent</strong> to make requests on your behalf. We will require proof that you have authorized them to act for you, and may need to verify your identity directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 05 — COMPLAINTS & TRANSFERS (dark) ═══════ -->
+<section class="sc-priv-dark">
+  <div class="sc-priv-dark__inner">
+    <div class="sc-priv-dark__header">
+      <span class="sc-priv-dark__num">05</span>
+      <div class="sc-priv-dark__line"></div>
+    </div>
+    <h2 class="sc-priv-dark__title">Complaints &amp;<br>International Transfers</h2>
+    <p class="sc-priv-dark__lead">If you have complaints about how we process your personal information, please contact us. Depending on where you live, you may have the right to appeal or lodge a complaint with your local data protection authority.</p>
+    <div class="sc-priv-dark__grid">
+      <div>
+        <span class="sc-priv-dark__col-label">Complaints</span>
+        <p class="sc-priv-dark__col-text">If you have complaints about how we process your personal information, please contact us using the contact details provided below. You may have the right to <strong>appeal our decision</strong> or lodge a complaint with your local data protection authority.</p>
+      </div>
+      <div>
+        <span class="sc-priv-dark__col-label">International Transfers</span>
+        <p class="sc-priv-dark__col-text">We may transfer, store and process your personal information outside the country you live in. For transfers out of the EEA or UK, we rely on <strong>Standard Contractual Clauses</strong> or equivalent mechanisms, unless the destination country provides an adequate level of protection.</p>
+      </div>
+    </div>
+    <div class="sc-priv-block" style="border-color: rgba(212,206,198,0.15); margin-top: 3rem;">
+      <span class="sc-priv-block__label">Changes to This Privacy Policy</span>
+      <p class="sc-priv-block__text" style="color: rgba(247,244,240,0.65);">We may update this Privacy Policy from time to time to reflect changes in our practices or for operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the "Last updated" date, and provide notice as required by applicable law.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="sc-priv-cta">
+  <div class="sc-priv-cta__inner">
+    <p class="sc-priv-cta__label">Privacy Questions?</p>
+    <h2 class="sc-priv-cta__title">Contact Our Support Team</h2>
+    <p class="sc-priv-cta__text">If you have any questions about our privacy practices or would like to exercise any of your rights, our Australian support team is here to help.</p>
+    <div class="sc-priv-cta__contact">
+      <div class="sc-priv-cta__contact-item">
+        <span class="sc-priv-cta__contact-label">Phone</span>
+        <span class="sc-priv-cta__contact-value">+61 480 899 797</span>
+      </div>
+      <div class="sc-priv-cta__contact-item">
+        <span class="sc-priv-cta__contact-label">Email</span>
+        <span class="sc-priv-cta__contact-value">support@sensolfitness.com.au</span>
+      </div>
+      <div class="sc-priv-cta__contact-item">
+        <span class="sc-priv-cta__contact-label">Address</span>
+        <span class="sc-priv-cta__contact-value">Melaan Way, Clyde North VIC 3978</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<section class="sc-priv-foot">
+  <div class="sc-priv-foot__inner">
+    <p class="sc-priv-foot__text">DUTE FITNESS (AUSTRALIA) PTY. LTD. trading as Sensol Fitness. Last updated: July 31, 2026. To learn more about how Shopify uses your personal information, visit https://privacy.shopify.com/en. We may update this Privacy Policy from time to time. We will post the revised version and update the "Last updated" date.</p>
+  </div>
+</section>
