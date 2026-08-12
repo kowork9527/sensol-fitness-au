@@ -1,6 +1,6 @@
 {%- comment -%}
   SENSOl — Override: render custom sections based on page.handle.
-  Intercepts contact and shipping-policy pages to render branded designs.
+  Intercepts contact, shipping-policy, and refund-policy pages to render branded designs.
 {%- endcomment -%}
 
 {%- if page.handle == 'contact' -%}
@@ -14,6 +14,8 @@
   {%- section 'sensol-shipping-international' -%}
   {%- section 'sensol-shipping-issues' -%}
   {%- section 'sensol-shipping-returns' -%}
+{%- elsif page.handle == 'refund-policy' or page.handle contains 'refund' or page.handle contains 'return' -%}
+  {%- render 'sensol-refund-page' -%}
 {%- else -%}
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
