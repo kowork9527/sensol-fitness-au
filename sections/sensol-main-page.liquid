@@ -29,10 +29,10 @@
   {%- endstyle -%}
 
   <div class="page-width page-width--narrow section-{{ section.id }}-padding">
-    <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <h1 class="main-page-title page-title h0 scroll-trigger animate--fade-in">
       {{ page.title | escape }}
     </h1>
-    <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="rte scroll-trigger animate--slide-in">
       {{ page.content }}
     </div>
   </div>
@@ -40,14 +40,8 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-page.name",
-  "tag": "section",
-  "class": "section",
+  "name": "Sensol Page",
   "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
     {
       "type": "range",
       "id": "padding_top",
@@ -55,7 +49,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Padding top",
       "default": 36
     },
     {
@@ -65,7 +59,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Padding bottom",
       "default": 36
     }
   ]
