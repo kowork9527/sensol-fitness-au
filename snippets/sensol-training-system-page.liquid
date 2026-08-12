@@ -1,0 +1,667 @@
+{%- comment -%}Sensol Training System — Editorial training showcase page{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-ts { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO (dark, video bg) ═══ */
+  .sc-ts-hero {
+    background: #1A1816;
+    overflow: hidden; position: relative;
+    min-height: 85vh; display: flex; align-items: center;
+    justify-content: center;
+  }
+  .sc-ts-hero__video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.5;
+  }
+  .sc-ts-hero::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(26,24,22,0.5) 0%, rgba(26,24,22,0.85) 100%);
+  }
+  .sc-ts-hero__inner {
+    position: relative; z-index: 2; width: 100%;
+    max-width: 1200px; margin: 0 auto;
+    padding: 9rem 3rem 5rem; text-align: center;
+  }
+  .sc-ts-hero__breadcrumb {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 3rem;
+  }
+  .sc-ts-hero__breadcrumb span { color: rgba(247,244,240,0.4); }
+  .sc-ts-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,206,198,0.3); }
+  .sc-ts-hero__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ts-hero__title {
+    font-size: clamp(40px, 7vw, 88px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.02; color: #F7F4F0;
+    margin-bottom: 2rem;
+  }
+  .sc-ts-hero__sub {
+    font-size: clamp(15px, 1.5vw, 20px); font-weight: 300;
+    line-height: 1.7; color: rgba(247,244,240,0.6);
+    max-width: 580px; margin: 0 auto;
+  }
+  .sc-ts-hero__scroll {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%); z-index: 2;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.25em;
+    text-transform: uppercase; color: rgba(247,244,240,0.4);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+  }
+  .sc-ts-hero__scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, rgba(247,244,240,0.3), transparent);
+  }
+
+  /* ═══ SECTION (light) ═══ */
+  .sc-ts-sec {
+    background: #F7F4F0; overflow: hidden;
+  }
+  .sc-ts-sec--alt { background: #EDEAE5; }
+  .sc-ts-sec__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-ts-sec__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ts-sec__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ts-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-ts-sec__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ts-sec__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: #4A4640; max-width: 720px;
+  }
+
+  /* ═══ DARK SECTION ═══ */
+  .sc-ts-dark {
+    background: #1A1816; overflow: hidden;
+  }
+  .sc-ts-dark__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-ts-dark__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-ts-dark__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-ts-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
+  .sc-ts-dark__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ts-dark__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(247,244,240,0.55); max-width: 720px;
+  }
+
+  /* ═══ One System intro ═══ */
+  .sc-ts-intro {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    margin-top: 3rem;
+  }
+  .sc-ts-intro__left {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.1; color: #1A1816;
+  }
+  .sc-ts-intro__left span { color: #8A8279; }
+  .sc-ts-intro__right {
+    font-size: 15px; font-weight: 300; line-height: 1.85;
+    color: #4A4640;
+  }
+  .sc-ts-intro__right p { margin-bottom: 1.25rem; }
+  .sc-ts-intro__tags {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem;
+  }
+  .sc-ts-intro__tag {
+    padding: 0.5rem 1.25rem; border: 1px solid #D4CEC6;
+    border-radius: 100px; font-size: 12px; font-weight: 400;
+    letter-spacing: 0.05em; color: #8A8279;
+    transition: all 0.25s ease;
+  }
+  .sc-ts-intro__tag:hover {
+    border-color: #1A1816; color: #1A1816;
+  }
+
+  /* ═══ Exercise cards grid ═══ */
+  .sc-ts-exercises {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3.5rem;
+  }
+  .sc-ts-ex-card {
+    position: relative; overflow: hidden;
+    border-radius: 12px; background: #EDEAE5;
+    aspect-ratio: 3/4; cursor: pointer;
+    transition: transform 0.35s ease;
+  }
+  .sc-ts-ex-card:hover { transform: translateY(-4px); }
+  .sc-ts-ex-card__media {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transition: transform 0.5s ease;
+  }
+  .sc-ts-ex-card:hover .sc-ts-ex-card__media { transform: scale(1.05); }
+  .sc-ts-ex-card__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(26,24,22,0.75) 100%);
+  }
+  .sc-ts-ex-card__num {
+    position: absolute; top: 1rem; right: 1rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    color: rgba(247,244,240,0.6);
+    background: rgba(26,24,22,0.4); padding: 0.35rem 0.75rem;
+    border-radius: 100px; backdrop-filter: blur(8px);
+  }
+  .sc-ts-ex-card__name {
+    position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+    font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+    color: #F7F4F0; line-height: 1.3;
+  }
+  .sc-ts-ex-card__cat {
+    position: absolute; bottom: 3.5rem; left: 1.5rem;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(247,244,240,0.5);
+  }
+
+  /* ═══ Complete System (split layout) ═══ */
+  .sc-ts-complete {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center; margin-top: 3rem;
+  }
+  .sc-ts-complete__media {
+    position: relative; border-radius: 16px; overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .sc-ts-complete__media img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .sc-ts-complete__points {
+    display: flex; flex-direction: column; gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .sc-ts-complete__point {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .sc-ts-complete__point-num {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border: 1px solid #D4CEC6; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 500; color: #8A8279;
+  }
+  .sc-ts-complete__point-text {
+    font-size: 14px; font-weight: 300; line-height: 1.75;
+    color: #4A4640; padding-top: 0.35rem;
+  }
+
+  /* ═══ Training programs (dark, 3-col) ═══ */
+  .sc-ts-programs {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(212,206,198,0.15);
+    border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 12px; overflow: hidden;
+    margin-top: 3.5rem;
+  }
+  .sc-ts-program {
+    background: #1A1816; padding: 2.5rem 2rem;
+    transition: background 0.25s ease;
+  }
+  .sc-ts-program:hover { background: #22201D; }
+  .sc-ts-program__icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid rgba(212,206,198,0.25);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem; font-size: 18px; color: #B5ADA4;
+  }
+  .sc-ts-program__name {
+    font-size: 16px; font-weight: 400; letter-spacing: 0.02em;
+    color: #F7F4F0; margin-bottom: 0.75rem;
+  }
+  .sc-ts-program__desc {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5); margin-bottom: 1.5rem;
+  }
+  .sc-ts-program__tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .sc-ts-program__tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #8A8279;
+    padding: 0.3rem 0.75rem; border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 100px;
+  }
+
+  /* ═══ Quote band ═══ */
+  .sc-ts-quote {
+    text-align: center; max-width: 800px; margin: 0 auto;
+    padding: 4rem 0 0;
+  }
+  .sc-ts-quote__text {
+    font-size: clamp(20px, 2.5vw, 30px); font-weight: 200;
+    line-height: 1.5; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 1.5rem;
+  }
+  .sc-ts-quote__author {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ Stats band ═══ */
+  .sc-ts-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; border-top: 1px solid #D4CEC6;
+    border-bottom: 1px solid #D4CEC6;
+    margin-top: 4rem;
+  }
+  .sc-ts-stat {
+    padding: 2.5rem 1.5rem; text-align: center;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-ts-stat:last-child { border-right: none; }
+  .sc-ts-stat__num {
+    font-size: clamp(32px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.02em; color: #1A1816;
+    display: block; line-height: 1; margin-bottom: 0.75rem;
+  }
+  .sc-ts-stat__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ CTA ═══ */
+  .sc-ts-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 5rem 3rem; text-align: center;
+  }
+  .sc-ts-cta__inner { max-width: 700px; margin: 0 auto; }
+  .sc-ts-cta__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ts-cta__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-ts-cta__text {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #8A8279; margin-bottom: 2.5rem;
+  }
+  .sc-ts-cta__btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  .sc-ts-cta__btn {
+    display: inline-block; padding: 1rem 2.5rem;
+    background: #1A1816; color: #F7F4F0;
+    font-size: 14px; font-weight: 400; letter-spacing: 0.1em;
+    text-decoration: none; border-radius: 100px;
+    transition: opacity 0.2s ease;
+  }
+  .sc-ts-cta__btn:hover { opacity: 0.85; }
+  .sc-ts-cta__btn--outline {
+    background: transparent; color: #1A1816;
+    border: 1px solid #1A1816;
+  }
+  .sc-ts-cta__btn--outline:hover { background: #1A1816; color: #F7F4F0; opacity: 1; }
+
+  /* ═══ FOOTER ═══ */
+  .sc-ts-foot {
+    background: #1A1816; padding: 2.5rem 3rem;
+  }
+  .sc-ts-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-ts-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-ts-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-ts-exercises { grid-template-columns: 1fr 1fr; }
+    .sc-ts-programs { grid-template-columns: 1fr; }
+    .sc-ts-stats { grid-template-columns: 1fr 1fr; }
+    .sc-ts-stat:nth-child(2) { border-right: none; }
+    .sc-ts-stat:nth-child(-n+2) { border-bottom: 1px solid #D4CEC6; }
+  }
+  @media (max-width: 749px) {
+    .sc-ts-hero__inner { padding: 7rem 1.5rem 4rem; }
+    .sc-ts-sec__inner { padding: 4rem 1.5rem; }
+    .sc-ts-dark__inner { padding: 4rem 1.5rem; }
+    .sc-ts-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .sc-ts-exercises { grid-template-columns: 1fr; }
+    .sc-ts-complete { grid-template-columns: 1fr; gap: 2rem; }
+    .sc-ts-stats { grid-template-columns: 1fr; }
+    .sc-ts-stat { border-right: none; border-bottom: 1px solid #D4CEC6; }
+    .sc-ts-stat:last-child { border-bottom: none; }
+    .sc-ts-cta { padding: 4rem 1.5rem; }
+    .sc-ts-cta__btns { flex-direction: column; }
+    .sc-ts-foot { padding: 2rem 1.5rem; }
+    .sc-ts-foot__inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-ts sc-ts-hero">
+  <!-- Replace with your own video or image. Current: Shopify CDN hero video -->
+  <video class="sc-ts-hero__video" autoplay loop muted playsinline
+    poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/dc9e3f2251094d5f900e038afb2d2c86.thumbnail.0000000000.jpg?v=1775018220">
+    <source src="https://cdn.shopify.com/videos/c/vp/dc9e3f2251094d5f900e038afb2d2c86/dc9e3f2251094d5f900e038afb2d2c86.HD-720p-1.6Mbps-79989449.mp4" type="video/mp4">
+  </video>
+  <div class="sc-ts-hero__inner">
+    <div class="sc-ts-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-ts-hero__breadcrumb-dot"></span>
+      <span>Training System</span>
+    </div>
+    <div class="sc-ts-hero__label">Training System</div>
+    <h1 class="sc-ts-hero__title">A new language<br>of training</h1>
+    <p class="sc-ts-hero__sub">Where strength meets precision, and movement becomes design.</p>
+  </div>
+  <div class="sc-ts-hero__scroll">
+    <span>Scroll</span>
+    <span class="sc-ts-hero__scroll-line"></span>
+  </div>
+</section>
+
+<!-- ═══════ ONE SYSTEM ═══════ -->
+<section class="sc-ts sc-ts-sec">
+  <div class="sc-ts-sec__inner">
+    <div class="sc-ts-sec__header">
+      <span class="sc-ts-sec__num">01 / System</span>
+      <span class="sc-ts-sec__line"></span>
+    </div>
+    <div class="sc-ts-intro">
+      <div class="sc-ts-intro__left">
+        One system.<br>
+        <span>Multiple ways to train.</span>
+      </div>
+      <div class="sc-ts-intro__right">
+        <p>Sensol redefines what a training system can be. By unifying strength, pilates, and functional training into a single intelligent platform, we eliminate the need for multiple machines and disjointed routines.</p>
+        <p>Digital resistance replaces traditional weights with precision control. Every movement is tracked, every session is optimised, and every progression is earned through data, not guesswork.</p>
+        <div class="sc-ts-intro__tags">
+          <span class="sc-ts-intro__tag">Strength</span>
+          <span class="sc-ts-intro__tag">Pilates</span>
+          <span class="sc-ts-intro__tag">Functional</span>
+          <span class="sc-ts-intro__tag">Digital Resistance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 300+ MOVEMENTS ═══════ -->
+<section class="sc-ts sc-ts-sec sc-ts-sec--alt">
+  <div class="sc-ts-sec__inner">
+    <div class="sc-ts-sec__header">
+      <span class="sc-ts-sec__num">02 / Library</span>
+      <span class="sc-ts-sec__line"></span>
+    </div>
+    <h2 class="sc-ts-sec__title">300+ Movements</h2>
+    <p class="sc-ts-sec__lead">A growing collection of exercises designed to support every way you train. Each movement is engineered to maximise engagement, precision, and control.</p>
+
+    <div class="sc-ts-exercises">
+      <!-- Exercise 1 -->
+      <div class="sc-ts-ex-card">
+        <video class="sc-ts-ex-card__media" autoplay loop muted playsinline
+          poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/60ec1df69b95457d91dc60cad4d04793.thumbnail.0000000000.jpg?v=1775018220">
+          <source src="https://cdn.shopify.com/videos/c/vp/60ec1df69b95457d91dc60cad4d04793/60ec1df69b95457d91dc60cad4d04793.HD-1080p-2.5Mbps-83301773.mp4" type="video/mp4">
+        </video>
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">01</span>
+        <span class="sc-ts-ex-card__cat">Core / Stability</span>
+        <h3 class="sc-ts-ex-card__name">Elbow Plank Shoulder Slide</h3>
+      </div>
+      <!-- Exercise 2 -->
+      <div class="sc-ts-ex-card">
+        <video class="sc-ts-ex-card__media" autoplay loop muted playsinline
+          poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/11180702ad304507a477e7c48442ea37.thumbnail.0000000000.jpg?v=1775018220">
+          <source src="https://cdn.shopify.com/videos/c/vp/11180702ad304507a477e7c48442ea37/11180702ad304507a477e7c48442ea37.HD-1080p-2.5Mbps-83301770.mp4" type="video/mp4">
+        </video>
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">02</span>
+        <span class="sc-ts-ex-card__cat">Lower Body / Strength</span>
+        <h3 class="sc-ts-ex-card__name">Supine Leg Press</h3>
+      </div>
+      <!-- Exercise 3 -->
+      <div class="sc-ts-ex-card">
+        <video class="sc-ts-ex-card__media" autoplay loop muted playsinline
+          poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/fa04a8d6c7ed4208b9bb179b24f28e5f.fa04a8d6c7ed4208b9bb179b24f28e5f.thumbnail.0000000000.jpg?v=1775018220">
+          <source src="https://cdn.shopify.com/videos/c/vp/fa04a8d6c7ed4208b9bb179b24f28e5f/fa04a8d6c7ed4208b9bb179b24f28e5f.HD-1080p-2.5Mbps-83301771.mp4" type="video/mp4">
+        </video>
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">03</span>
+        <span class="sc-ts-ex-card__cat">Upper Body / Press</span>
+        <h3 class="sc-ts-ex-card__name">Kneeling Chest Press</h3>
+      </div>
+      <!-- Exercise 4 -->
+      <div class="sc-ts-ex-card">
+        <video class="sc-ts-ex-card__media" autoplay loop muted playsinline
+          poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/22f5c5308e4a45aa9d622af2adf9a465.thumbnail.0000000000.jpg?v=1775018220">
+          <source src="https://cdn.shopify.com/videos/c/vp/22f5c5308e4a45aa9d622af2adf9a465/22f5c5308e4a45aa9d622af2adf9a465.HD-1080p-2.5Mbps-83301769.mp4" type="video/mp4">
+        </video>
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">04</span>
+        <span class="sc-ts-ex-card__cat">Functional / Power</span>
+        <h3 class="sc-ts-ex-card__name">Lunge to Knee Drive Jump</h3>
+      </div>
+      <!-- Exercise 5 -->
+      <div class="sc-ts-ex-card">
+        <video class="sc-ts-ex-card__media" autoplay loop muted playsinline
+          poster="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/d8ff268d1fd64a9b9d6d274f39d144b2.thumbnail.0000000000.jpg?v=1775018220">
+          <source src="https://cdn.shopify.com/videos/c/vp/d8ff268d1fd64a9b9d6d274f39d144b2/d8ff268d1fd64a9b9d6d274f39d144b2.HD-1080p-2.5Mbps-83301772.mp4" type="video/mp4">
+        </video>
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">05</span>
+        <span class="sc-ts-ex-card__cat">Upper Body / Extension</span>
+        <h3 class="sc-ts-ex-card__name">Fixed Plate Shoulder Extension</h3>
+      </div>
+      <!-- Exercise 6 -->
+      <div class="sc-ts-ex-card">
+        <img class="sc-ts-ex-card__media" src="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_1154.png?v=1776148991" alt="Sliding Board Cat Stretch" loading="lazy">
+        <div class="sc-ts-ex-card__overlay"></div>
+        <span class="sc-ts-ex-card__num">06</span>
+        <span class="sc-ts-ex-card__cat">Mobility / Recovery</span>
+        <h3 class="sc-ts-ex-card__name">Sliding Board Cat Stretch</h3>
+      </div>
+    </div>
+
+    <!-- Stats band -->
+    <div class="sc-ts-stats">
+      <div class="sc-ts-stat">
+        <span class="sc-ts-stat__num">300+</span>
+        <span class="sc-ts-stat__label">Movements</span>
+      </div>
+      <div class="sc-ts-stat">
+        <span class="sc-ts-stat__num">3</span>
+        <span class="sc-ts-stat__label">Training Modes</span>
+      </div>
+      <div class="sc-ts-stat">
+        <span class="sc-ts-stat__num">28-52</span>
+        <span class="sc-ts-stat__label">kg Resistance</span>
+      </div>
+      <div class="sc-ts-stat">
+        <span class="sc-ts-stat__num">360&deg;</span>
+        <span class="sc-ts-stat__label">Motion Range</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ COMPLETE TRAINING SYSTEM ═══════ -->
+<section class="sc-ts sc-ts-sec">
+  <div class="sc-ts-sec__inner">
+    <div class="sc-ts-sec__header">
+      <span class="sc-ts-sec__num">03 / Integration</span>
+      <span class="sc-ts-sec__line"></span>
+    </div>
+    <div class="sc-ts-complete">
+      <div>
+        <h2 class="sc-ts-sec__title">A Complete<br>Training System</h2>
+        <p class="sc-ts-sec__lead">Seamlessly switch between strength, pilates, and functional training. Digital resistance replaces traditional weights with precision control.</p>
+        <div class="sc-ts-complete__points">
+          <div class="sc-ts-complete__point">
+            <span class="sc-ts-complete__point-num">1</span>
+            <span class="sc-ts-complete__point-text">One machine, multiple training modalities in a unified system.</span>
+          </div>
+          <div class="sc-ts-complete__point">
+            <span class="sc-ts-complete__point-num">2</span>
+            <span class="sc-ts-complete__point-text">Digital resistance replaces traditional weights with precision control.</span>
+          </div>
+          <div class="sc-ts-complete__point">
+            <span class="sc-ts-complete__point-num">3</span>
+            <span class="sc-ts-complete__point-text">Designed for both performance and spatial aesthetics.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sc-ts-complete__media">
+        <img src="https://cdn.shopify.com/s/files/1/0984/9012/2538/files/14_0f47fabd-581d-4215-870e-025021095229.jpg" alt="Sensol Complete Training System" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TRAIN WITH PURPOSE (dark) ═══════ -->
+<section class="sc-ts sc-ts-dark">
+  <div class="sc-ts-dark__inner">
+    <div class="sc-ts-dark__header">
+      <span class="sc-ts-dark__num">04 / Programs</span>
+      <span class="sc-ts-dark__line"></span>
+    </div>
+    <h2 class="sc-ts-dark__title">Train with Purpose</h2>
+    <p class="sc-ts-dark__lead">Structured programs designed to help you build strength, refine control, and progress with intention. Every movement has a purpose, every session moves you forward.</p>
+
+    <div class="sc-ts-programs">
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#9650;</div>
+        <h3 class="sc-ts-program__name">Strength Builder</h3>
+        <p class="sc-ts-program__desc">Progressive overload protocols that target major muscle groups with precision resistance curves.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Hypertrophy</span>
+          <span class="sc-ts-program__tag">Power</span>
+        </div>
+      </div>
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#9675;</div>
+        <h3 class="sc-ts-program__name">Control &amp; Precision</h3>
+        <p class="sc-ts-program__desc">Pilates-inspired sequences that build deep core stability, alignment awareness, and controlled movement patterns.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Core</span>
+          <span class="sc-ts-program__tag">Alignment</span>
+        </div>
+      </div>
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#10070;</div>
+        <h3 class="sc-ts-program__name">Functional Flow</h3>
+        <p class="sc-ts-program__desc">Dynamic multi-planar movements that translate directly to real-world strength, mobility, and athletic performance.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Athletic</span>
+          <span class="sc-ts-program__tag">Mobility</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TRAIN WITH FEELING (dark) ═══════ -->
+<section class="sc-ts sc-ts-dark" style="border-top: 1px solid rgba(212,206,198,0.1);">
+  <div class="sc-ts-dark__inner">
+    <div class="sc-ts-dark__header">
+      <span class="sc-ts-dark__num">05 / Intuition</span>
+      <span class="sc-ts-dark__line"></span>
+    </div>
+    <h2 class="sc-ts-dark__title">Train with Feeling</h2>
+    <p class="sc-ts-dark__lead">Not every day needs a goal. These programs respond to how you feel&mdash;whether you want to move gently, reset your body, or simply find your rhythm.</p>
+
+    <div class="sc-ts-programs">
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#9775;</div>
+        <h3 class="sc-ts-program__name">Gentle Reset</h3>
+        <p class="sc-ts-program__desc">Low-intensity sessions focused on recovery, mobility, and nervous system regulation. Perfect for rest days or de-load weeks.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Recovery</span>
+          <span class="sc-ts-program__tag">Low Impact</span>
+        </div>
+      </div>
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#8773;</div>
+        <h3 class="sc-ts-program__name">Body Scan Flow</h3>
+        <p class="sc-ts-program__desc">Mindful movement sequences that build awareness from head to toe. Tune in, breathe, and let your body guide the session.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Mindful</span>
+          <span class="sc-ts-program__tag">Breath</span>
+        </div>
+      </div>
+      <div class="sc-ts-program">
+        <div class="sc-ts-program__icon">&#9826;</div>
+        <h3 class="sc-ts-program__name">Find Your Rhythm</h3>
+        <p class="sc-ts-program__desc">Music-driven sessions that match resistance tempo to beat. Move with flow, lose track of time, and rediscover the joy of movement.</p>
+        <div class="sc-ts-program__tags">
+          <span class="sc-ts-program__tag">Flow</span>
+          <span class="sc-ts-program__tag">Tempo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ QUOTE ═══════ -->
+<section class="sc-ts sc-ts-sec">
+  <div class="sc-ts-sec__inner" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="sc-ts-quote">
+      <p class="sc-ts-quote__text">"Training is not about doing more. It's about moving better&mdash;with intention, with precision, and with a system that adapts to you."</p>
+      <p class="sc-ts-quote__author">Sensol Fitness Design Team</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="sc-ts sc-ts-cta">
+  <div class="sc-ts-cta__inner">
+    <div class="sc-ts-cta__label">Ready to Begin</div>
+    <h2 class="sc-ts-cta__title">Experience the system</h2>
+    <p class="sc-ts-cta__text">One machine. Infinite possibilities. Discover how Sensol transforms the way you train.</p>
+    <div class="sc-ts-cta__btns">
+      <a href="/collections/all" class="sc-ts-cta__btn">Shop All Products</a>
+      <a href="/pages/philosophy" class="sc-ts-cta__btn sc-ts-cta__btn--outline">Our Philosophy</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<section class="sc-ts sc-ts-foot">
+  <div class="sc-ts-foot__inner">
+    <span class="sc-ts-foot__brand">SENSOL FITNESS</span>
+    <span class="sc-ts-foot__text">Copyright &copy; 2026, Sensol Fitness. All rights reserved.</span>
+  </div>
+</section>
