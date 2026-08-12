@@ -1,0 +1,476 @@
+{%- comment -%}Sensol Philosophy — Brand editorial page{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-phi { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO ═══ */
+  .sc-phi-hero {
+    background: #1A1816;
+    overflow: hidden; position: relative;
+    min-height: 80vh; display: flex; align-items: flex-end;
+  }
+  .sc-phi-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(181,173,164,0.08) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(26,24,22,0.6) 0%, rgba(26,24,22,0.95) 100%);
+  }
+  .sc-phi-hero__inner {
+    position: relative; z-index: 1; width: 100%;
+    max-width: 1200px; margin: 0 auto;
+    padding: 9rem 3rem 5rem;
+  }
+  .sc-phi-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 2.5rem;
+  }
+  .sc-phi-hero__breadcrumb span { color: rgba(247,244,240,0.4); }
+  .sc-phi-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,206,198,0.3); }
+  .sc-phi-hero__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1.5rem;
+  }
+  .sc-phi-hero__title {
+    font-size: clamp(40px, 7vw, 88px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.02; color: #F7F4F0;
+    margin-bottom: 2rem;
+  }
+  .sc-phi-hero__sub {
+    font-size: clamp(15px, 1.5vw, 20px); font-weight: 300;
+    line-height: 1.7; color: rgba(247,244,240,0.55);
+    max-width: 580px; margin-bottom: 3rem;
+  }
+  .sc-phi-hero__stats { display: flex; align-items: center; gap: 2.5rem; }
+  .sc-phi-hero__stat-num {
+    font-size: 28px; font-weight: 200; letter-spacing: 0.02em;
+    color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .sc-phi-hero__stat-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+  .sc-phi-hero__stat-divider { width: 1px; height: 36px; background: rgba(212,206,198,0.2); }
+
+  /* ═══ SECTION (light) ═══ */
+  .sc-phi-sec {
+    background: #F7F4F0;
+    overflow: hidden;
+  }
+  .sc-phi-sec--alt { background: #EDEAE5; }
+  .sc-phi-sec__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-phi-sec__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-phi-sec__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-phi-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-phi-sec__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-phi-sec__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: #4A4640; max-width: 720px;
+  }
+
+  /* ═══ DARK SECTION ═══ */
+  .sc-phi-dark {
+    background: #1A1816; overflow: hidden;
+  }
+  .sc-phi-dark__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-phi-dark__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-phi-dark__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-phi-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
+  .sc-phi-dark__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  .sc-phi-dark__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(247,244,240,0.55); max-width: 720px;
+  }
+
+  /* ═══ Principle cards ═══ */
+  .sc-phi-principles {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border-top: 1px solid #D4CEC6;
+    margin-top: 3rem;
+  }
+  .sc-phi-principle {
+    padding: 3rem 2.5rem 3.5rem;
+    border-right: 1px solid #D4CEC6;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-phi-principle:nth-child(2n) { border-right: none; }
+  .sc-phi-principle:nth-last-child(-n+2) { border-bottom: none; }
+  .sc-phi-principle__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    color: #B5ADA4; display: block; margin-bottom: 1.25rem;
+  }
+  .sc-phi-principle__name {
+    font-size: 19px; font-weight: 400; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 0.75rem;
+  }
+  .sc-phi-principle__text {
+    font-size: 14px; font-weight: 300; line-height: 1.75;
+    color: #8A8279;
+  }
+
+  /* ═══ Manifesto block (dark) ═══ */
+  .sc-phi-manifesto {
+    max-width: 860px; margin: 3rem auto 0;
+  }
+  .sc-phi-manifesto__text {
+    font-size: clamp(18px, 2vw, 24px); font-weight: 200;
+    line-height: 1.6; letter-spacing: 0.02em;
+    color: rgba(247,244,240,0.8);
+  }
+  .sc-phi-manifesto__text strong {
+    color: #F7F4F0; font-weight: 300;
+  }
+
+  /* ═══ Feature grid (dark) ═══ */
+  .sc-phi-features {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: rgba(212,206,198,0.15);
+    border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 12px; overflow: hidden;
+    margin-top: 3rem;
+  }
+  .sc-phi-feature {
+    background: #1A1816; padding: 2.25rem 1.75rem;
+  }
+  .sc-phi-feature__num {
+    font-size: 28px; font-weight: 200; letter-spacing: 0.02em;
+    color: #F7F4F0; display: block; line-height: 1; margin-bottom: 1rem;
+  }
+  .sc-phi-feature__name {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-phi-feature__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.55);
+  }
+
+  /* ═══ Quote ═══ */
+  .sc-phi-quote {
+    text-align: center; max-width: 800px; margin: 0 auto;
+    padding: 4rem 0 0;
+  }
+  .sc-phi-quote__mark {
+    font-size: 48px; font-weight: 200; color: #B5ADA4;
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .sc-phi-quote__text {
+    font-size: clamp(20px, 2.5vw, 30px); font-weight: 200;
+    line-height: 1.5; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 1.5rem;
+  }
+  .sc-phi-quote__author {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ Timeline ═══ */
+  .sc-phi-timeline {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0; border-top: 1px solid rgba(212,206,198,0.2);
+    margin-top: 3rem;
+  }
+  .sc-phi-timeline__item {
+    padding: 2.5rem 1.5rem 0;
+    border-right: 1px solid rgba(212,206,198,0.15);
+  }
+  .sc-phi-timeline__item:last-child { border-right: none; }
+  .sc-phi-timeline__year {
+    font-size: 24px; font-weight: 200; letter-spacing: 0.02em;
+    color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.75rem;
+  }
+  .sc-phi-timeline__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-phi-timeline__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+
+  /* ═══ CTA ═══ */
+  .sc-phi-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .sc-phi-cta__inner { max-width: 700px; margin: 0 auto; }
+  .sc-phi-cta__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-phi-cta__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-phi-cta__text {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #8A8279; margin-bottom: 2.5rem;
+  }
+  .sc-phi-cta__btn {
+    display: inline-block; padding: 1rem 2.5rem;
+    background: #1A1816; color: #F7F4F0;
+    font-size: 14px; font-weight: 400; letter-spacing: 0.1em;
+    text-decoration: none; border-radius: 100px;
+    transition: opacity 0.2s ease;
+  }
+  .sc-phi-cta__btn:hover { opacity: 0.85; }
+
+  /* ═══ FOOTER ═══ */
+  .sc-phi-foot {
+    background: #1A1816;
+    padding: 2.5rem 3rem;
+  }
+  .sc-phi-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-phi-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-phi-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 749px) {
+    .sc-phi-hero__inner { padding: 6rem 1.5rem 4rem; }
+    .sc-phi-hero__stats { flex-wrap: wrap; gap: 1.5rem; }
+    .sc-phi-sec__inner { padding: 4rem 1.5rem; }
+    .sc-phi-dark__inner { padding: 4rem 1.5rem; }
+    .sc-phi-principles { grid-template-columns: 1fr; }
+    .sc-phi-principle { border-right: none; }
+    .sc-phi-principle:nth-last-child(2) { border-bottom: 1px solid #D4CEC6; }
+    .sc-phi-features { grid-template-columns: 1fr; }
+    .sc-phi-timeline { grid-template-columns: 1fr 1fr; }
+    .sc-phi-timeline__item:nth-child(2n) { border-right: none; }
+    .sc-phi-cta { padding: 4rem 1.5rem; }
+    .sc-phi-foot { padding: 2rem 1.5rem; }
+    .sc-phi-foot__inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-phi sc-phi-hero">
+  <div class="sc-phi-hero__inner">
+    <div class="sc-phi-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-phi-hero__breadcrumb-dot"></span>
+      <span>Brand</span>
+      <span class="sc-phi-hero__breadcrumb-dot"></span>
+      <span style="color:#F7F4F0">Philosophy</span>
+    </div>
+    <p class="sc-phi-hero__label">Our Philosophy</p>
+    <h1 class="sc-phi-hero__title">Strength is not<br>about how much<br>you can lift.</h1>
+    <p class="sc-phi-hero__sub">It is about how precisely you can move. Sensol is redefining the role of fitness in modern living — intelligent training systems that merge performance, technology, and spatial aesthetics.</p>
+    <div class="sc-phi-hero__stats">
+      <div>
+        <span class="sc-phi-hero__stat-num">2022</span>
+        <span class="sc-phi-hero__stat-label">Founded</span>
+      </div>
+      <div class="sc-phi-hero__stat-divider"></div>
+      <div>
+        <span class="sc-phi-hero__stat-num">7</span>
+        <span class="sc-phi-hero__stat-label">Products</span>
+      </div>
+      <div class="sc-phi-hero__stat-divider"></div>
+      <div>
+        <span class="sc-phi-hero__stat-num">&infin;</span>
+        <span class="sc-phi-hero__stat-label">Possibilities</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 01 — THE VISION ═══════ -->
+<section class="sc-phi sc-phi-sec">
+  <div class="sc-phi-sec__inner">
+    <div class="sc-phi-sec__header">
+      <span class="sc-phi-sec__num">01</span>
+      <div class="sc-phi-sec__line"></div>
+    </div>
+    <h2 class="sc-phi-sec__title">Designed around<br>the human form.</h2>
+    <p class="sc-phi-sec__lead">Sensol is redefining the role of fitness in modern living. Founded in 2022, we design intelligent training systems that merge performance, technology, and spatial aesthetics — building a new vision of the future fitness lifestyle.</p>
+    <p class="sc-phi-sec__lead" style="margin-top: 1.25rem;">Our machines are not merely equipment. They are engineered instruments — each component machined to precision, each resistance curve calibrated for the human body. The result is a training experience that feels less like a workout and more like a practice in control.</p>
+  </div>
+</section>
+
+<!-- ═══════ 02 — CORE PRINCIPLES ═══════ -->
+<section class="sc-phi sc-phi-sec sc-phi-sec--alt">
+  <div class="sc-phi-sec__inner">
+    <div class="sc-phi-sec__header">
+      <span class="sc-phi-sec__num">02</span>
+      <div class="sc-phi-sec__line"></div>
+    </div>
+    <h2 class="sc-phi-sec__title">Four principles<br>guide everything.</h2>
+    <p class="sc-phi-sec__lead">Every Sensol system is built to help you discover precision — in your own space, at your own pace, on your own terms.</p>
+    <div class="sc-phi-principles">
+      <div class="sc-phi-principle">
+        <span class="sc-phi-principle__num">01</span>
+        <h3 class="sc-phi-principle__name">Adaptive Resistance</h3>
+        <p class="sc-phi-principle__text">Our magnetic resistance system responds in real time to your movement patterns — adjusting tension mid-rep for a fluid, natural feel that traditional cable systems cannot replicate.</p>
+      </div>
+      <div class="sc-phi-principle">
+        <span class="sc-phi-principle__num">02</span>
+        <h3 class="sc-phi-principle__name">Spatial Design</h3>
+        <p class="sc-phi-principle__text">Every Sensol machine is designed to live in your space — not dominate it. Clean lines, premium materials, and a footprint that respects the architecture of your home or studio.</p>
+      </div>
+      <div class="sc-phi-principle">
+        <span class="sc-phi-principle__num">03</span>
+        <h3 class="sc-phi-principle__name">Intelligent Motion</h3>
+        <p class="sc-phi-principle__text">From 360-degree range of motion to whisper-quiet operation at under 25dB, every technical detail serves one purpose: to let you focus entirely on the movement.</p>
+      </div>
+      <div class="sc-phi-principle">
+        <span class="sc-phi-principle__num">04</span>
+        <h3 class="sc-phi-principle__name">Precision over Power</h3>
+        <p class="sc-phi-principle__text">We believe strength is not about how much you can lift, but how precisely you can move. Each system is calibrated to help you find control in every repetition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 — MANIFESTO (dark) ═══════ -->
+<section class="sc-phi sc-phi-dark">
+  <div class="sc-phi-dark__inner">
+    <div class="sc-phi-dark__header">
+      <span class="sc-phi-dark__num">03</span>
+      <div class="sc-phi-dark__line"></div>
+    </div>
+    <h2 class="sc-phi-dark__title">The manifesto.</h2>
+    <div class="sc-phi-manifesto">
+      <p class="sc-phi-manifesto__text">We believe fitness should not be confined to a room. It should <strong>belong</strong> to the space you live in. We believe equipment should not be tolerated — it should be <strong>admired</strong>. We believe that the best training is not the hardest, but the most <strong>attentive</strong>. And we believe that the future of fitness is not louder, faster, or heavier — it is <strong>quieter, smarter, and more precise</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 04 — ENGINEERING (dark features) ═══════ -->
+<section class="sc-phi sc-phi-dark" style="border-top: 1px solid rgba(212,206,198,0.1);">
+  <div class="sc-phi-dark__inner">
+    <div class="sc-phi-dark__header">
+      <span class="sc-phi-dark__num">04</span>
+      <div class="sc-phi-dark__line"></div>
+    </div>
+    <h2 class="sc-phi-dark__title">Engineered to disappear<br>into the movement.</h2>
+    <p class="sc-phi-dark__lead">Every technical decision serves one outcome: a training experience so seamless that the machine itself becomes invisible. What remains is you, the resistance, and the precision of each repetition.</p>
+    <div class="sc-phi-features">
+      <div class="sc-phi-feature">
+        <span class="sc-phi-feature__num">25dB</span>
+        <span class="sc-phi-feature__name">Whisper-Quiet</span>
+        <p class="sc-phi-feature__text">Operation at under 25 decibels — quieter than a whisper, allowing training at any hour without disruption.</p>
+      </div>
+      <div class="sc-phi-feature">
+        <span class="sc-phi-feature__num">360&deg;</span>
+        <span class="sc-phi-feature__name">Range of Motion</span>
+        <p class="sc-phi-feature__text">Full 360-degree range of motion engineered into every pivot, cable, and joint for unrestricted natural movement.</p>
+      </div>
+      <div class="sc-phi-feature">
+        <span class="sc-phi-feature__num">28-52kg</span>
+        <span class="sc-phi-feature__name">Built Solid</span>
+        <p class="sc-phi-feature__text">Commercial-grade steel frames weighing 28 to 52 kilograms — stability you can feel in every repetition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 05 — QUOTE ═══════ -->
+<section class="sc-phi sc-phi-sec">
+  <div class="sc-phi-sec__inner" style="padding-bottom: 3rem;">
+    <div class="sc-phi-quote">
+      <p class="sc-phi-quote__mark">&ldquo;</p>
+      <p class="sc-phi-quote__text">The result is a training experience that feels less like a workout and more like a practice in control.</p>
+      <p class="sc-phi-quote__author">Sensol Fitness Design Team</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 06 — JOURNEY (dark timeline) ═══════ -->
+<section class="sc-phi sc-phi-dark">
+  <div class="sc-phi-dark__inner">
+    <div class="sc-phi-dark__header">
+      <span class="sc-phi-dark__num">05</span>
+      <div class="sc-phi-dark__line"></div>
+    </div>
+    <h2 class="sc-phi-dark__title">The journey so far.</h2>
+    <p class="sc-phi-dark__lead">From a founding vision to a complete ecosystem of intelligent training systems.</p>
+    <div class="sc-phi-timeline">
+      <div class="sc-phi-timeline__item">
+        <span class="sc-phi-timeline__year">2022</span>
+        <span class="sc-phi-timeline__label">Founded</span>
+        <p class="sc-phi-timeline__text">Sensol Fitness is established with a vision to redefine fitness in modern living.</p>
+      </div>
+      <div class="sc-phi-timeline__item">
+        <span class="sc-phi-timeline__year">RS03</span>
+        <span class="sc-phi-timeline__label">First System</span>
+        <p class="sc-phi-timeline__text">The RS03 launches — our first smart resistance training system with magnetic digital control.</p>
+      </div>
+      <div class="sc-phi-timeline__item">
+        <span class="sc-phi-timeline__year">FLEX</span>
+        <span class="sc-phi-timeline__label">Ecosystem</span>
+        <p class="sc-phi-timeline__text">The FLEX series expands the lineup — FLEX, FLEX AIR, and FLEX PRO for every training need.</p>
+      </div>
+      <div class="sc-phi-timeline__item">
+        <span class="sc-phi-timeline__year">Now</span>
+        <span class="sc-phi-timeline__label">SENZINE</span>
+        <p class="sc-phi-timeline__text">SENZINE publication launches, distilling ideas of control, resistance, and stillness into a tactile experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="sc-phi sc-phi-cta">
+  <div class="sc-phi-cta__inner">
+    <p class="sc-phi-cta__label">Where Strength Meets Pilates</p>
+    <h3 class="sc-phi-cta__title">The Future of Modern Training.</h3>
+    <p class="sc-phi-cta__text">Discover the complete Sensol ecosystem — intelligent training systems engineered for precision, designed for modern living.</p>
+    <a href="/collections/all" class="sc-phi-cta__btn">Shop All Products</a>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="sc-phi sc-phi-foot">
+  <div class="sc-phi-foot__inner">
+    <p class="sc-phi-foot__text">Sensol Fitness, trading as DUTE FITNESS (AUSTRALIA) PTY. LTD.<br>Melaan Way, Clyde North VIC 3978, Australia</p>
+    <p class="sc-phi-foot__brand">SENSOL FITNESS</p>
+  </div>
+</footer>
