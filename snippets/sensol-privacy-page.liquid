@@ -1,378 +1,646 @@
-{%- comment -%}Sensol Privacy Policy page — branded design{%- endcomment -%}
+{%- comment -%}Sensol Privacy Policy — Editorial redesign{%- endcomment -%}
 
 <style>
   /* Hide default page content */
   .main-page-title, .rte, .section-main-page-padding,
   .page-width--narrow.section-template--main-padding { display: none !important; }
 
-  /* ── Hero ── */
-  .sc-priv-hero {
+  /* ═══ ROOT ═══ */
+  .sc-legal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO ═══ */
+  .sc-legal-hero {
+    background: #F7F4F0;
+    border-bottom: 1px solid #D4CEC6;
+    overflow: hidden;
+    position: relative;
+  }
+  .sc-legal-hero::after {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,130,121,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sc-legal-hero__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    position: relative; z-index: 1;
+  }
+  .sc-legal-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__breadcrumb span { color: #8A8279; }
+  .sc-legal-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: #D4CEC6; }
+  .sc-legal-hero__title {
+    font-size: clamp(36px, 6vw, 72px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.05; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-hero__updated {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.05em;
+    color: #8A8279;
+    padding: 0.5rem 1rem;
+    background: #EDEAE5;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__updated::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: #8A8279;
+  }
+  .sc-legal-hero__intro {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #4A4640; max-width: 640px;
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .sc-legal-layout {
+    background: #F7F4F0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ═══ SIDEBAR ═══ */
+  .sc-legal-sidebar {
+    position: sticky; top: 0;
+    height: fit-content;
+    padding: 3rem 1rem 3rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-legal-sidebar__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-sidebar__nav { list-style: none; padding: 0; margin: 0; }
+  .sc-legal-sidebar__nav li { margin-bottom: 0.25rem; }
+  .sc-legal-sidebar__nav a {
+    display: flex; align-items: baseline; gap: 0.75rem;
+    text-decoration: none;
+    font-size: 13px; font-weight: 400; line-height: 1.5;
+    color: #8A8279;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .sc-legal-sidebar__nav a:hover { color: #1A1816; background: #EDEAE5; }
+  .sc-legal-sidebar__nav a.is-active { color: #1A1816; background: #EDEAE5; font-weight: 500; }
+  .sc-legal-sidebar__num {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    color: #B5ADA4; min-width: 20px;
+  }
+  .sc-legal-sidebar__nav a:hover .sc-legal-sidebar__num,
+  .sc-legal-sidebar__nav a.is-active .sc-legal-sidebar__num { color: #1A1816; }
+
+  /* ═══ CONTENT ═══ */
+  .sc-legal-content { padding: 3rem 3rem 5rem 3rem; min-width: 0; }
+
+  .sc-legal-sec { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+  .sc-legal-sec:last-child { margin-bottom: 0; }
+
+  .sc-legal-sec__head {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .sc-legal-sec__num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    color: #B5ADA4;
+    flex-shrink: 0;
+  }
+  .sc-legal-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-legal-sec__title {
+    font-size: 22px; font-weight: 400; letter-spacing: 0.02em;
+    line-height: 1.3; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-sec__text {
+    font-size: 14px; font-weight: 300; line-height: 1.85;
+    color: #4A4640;
+  }
+  .sc-legal-sec__text p { margin: 0 0 1rem; }
+  .sc-legal-sec__text p:last-child { margin-bottom: 0; }
+  .sc-legal-sec__text a { color: #1A1816; text-decoration: underline; text-underline-offset: 2px; }
+  .sc-legal-sec__text strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Data list ── */
+  .sc-legal-datalist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .sc-legal-datalist li {
+    display: flex; gap: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #EDEAE5;
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #4A4640;
+  }
+  .sc-legal-datalist li:last-child { border-bottom: none; }
+  .sc-legal-datalist li strong { font-weight: 500; color: #1A1816; flex-shrink: 0; min-width: 160px; }
+
+  /* ── Callout ── */
+  .sc-legal-callout {
     background: #1A1816;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 70vh;
-    display: flex; align-items: flex-end;
-    overflow: hidden; position: relative;
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
   }
-  .sc-priv-hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(181,173,164,0.06) 0%, transparent 60%),
-                linear-gradient(180deg, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.9) 100%);
+  .sc-legal-callout__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
   }
-  .sc-priv-hero__inner { position: relative; z-index: 1; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem 6rem; }
-  .sc-priv-hero__kicker { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
-  .sc-priv-hero__title { font-size: clamp(40px, 7vw, 80px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.05; color: #F7F4F0; margin-bottom: 1.5rem; }
-  .sc-priv-hero__sub { font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(247,244,240,0.55); max-width: 480px; margin-bottom: 3rem; }
-  .sc-priv-hero__stats { display: flex; align-items: center; gap: 2.5rem; }
-  .sc-priv-hero__stat-num { font-size: 28px; font-weight: 200; letter-spacing: 0.02em; color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.5rem; }
-  .sc-priv-hero__stat-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8279; }
-  .sc-priv-hero__stat-divider { width: 1px; height: 36px; background: rgba(212,206,198,0.2); }
+  .sc-legal-callout__text {
+    font-size: 14px; font-weight: 300; line-height: 1.8;
+    color: rgba(247,244,240,0.7);
+  }
+  .sc-legal-callout__text strong { color: #F7F4F0; font-weight: 400; }
 
-  /* ── Common section ── */
-  .sc-priv-sec { background: #F7F4F0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
-  .sc-priv-sec--alt { background: #EDEAE5; }
-  .sc-priv-sec__inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem 0; }
-  .sc-priv-sec__bottom { padding-bottom: 6rem; }
-  .sc-priv-sec__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-  .sc-priv-sec__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
-  .sc-priv-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
-  .sc-priv-sec__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; }
-  .sc-priv-sec__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: #4A4640; max-width: 700px; margin-bottom: 4rem; }
-
-  /* ── Info cards ── */
-  .sc-priv-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #D4CEC6; }
-  .sc-priv-card { padding: 2.5rem 2rem 3rem; border-right: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
-  .sc-priv-card:nth-child(2n) { border-right: none; }
-  .sc-priv-card__tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; display: block; margin-bottom: 1.25rem; }
-  .sc-priv-card__name { font-size: 17px; font-weight: 400; letter-spacing: 0.02em; color: #1A1816; margin-bottom: 0.75rem; }
-  .sc-priv-card__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
-
-  /* ── Numbered list ── */
-  .sc-priv-list { border-top: 1px solid #D4CEC6; }
-  .sc-priv-list__item { display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid #D4CEC6; }
-  .sc-priv-list__num { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; flex-shrink: 0; min-width: 32px; padding-top: 3px; }
-  .sc-priv-list__body { flex: 1; }
-  .sc-priv-list__title { font-size: 15px; font-weight: 400; color: #1A1816; margin-bottom: 0.5rem; }
-  .sc-priv-list__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
-
-  /* ── Dark section ── */
-  .sc-priv-dark { background: #1A1816; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #F7F4F0; padding: 6rem 0; }
-  .sc-priv-dark__inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
-  .sc-priv-dark__header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-  .sc-priv-dark__num { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; color: #B5ADA4; }
-  .sc-priv-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
-  .sc-priv-dark__title { font-size: clamp(28px, 4vw, 44px); font-weight: 200; letter-spacing: 0.06em; line-height: 1.2; margin-bottom: 2rem; color: #F7F4F0; }
-  .sc-priv-dark__lead { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.55); max-width: 700px; margin-bottom: 4rem; }
-  .sc-priv-dark__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-  .sc-priv-dark__col-label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
-  .sc-priv-dark__col-text { font-size: 14px; font-weight: 300; line-height: 1.8; color: rgba(247,244,240,0.65); }
-  .sc-priv-dark__col-text strong { color: #F7F4F0; font-weight: 400; }
+  /* ── Note ── */
+  .sc-legal-note {
+    background: #EDEAE5;
+    border-left: 3px solid #8A8279;
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: #4A4640;
+  }
+  .sc-legal-note strong { font-weight: 500; color: #1A1816; }
 
   /* ── Rights grid ── */
-  .sc-priv-rights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid #D4CEC6; }
-  .sc-priv-right { padding: 2.5rem 1.5rem 3rem; border-right: 1px solid #D4CEC6; border-bottom: 1px solid #D4CEC6; }
-  .sc-priv-right:nth-child(3n) { border-right: none; }
-  .sc-priv-right__tag { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: #B5ADA4; display: block; margin-bottom: 1.25rem; }
-  .sc-priv-right__name { font-size: 17px; font-weight: 400; letter-spacing: 0.02em; color: #1A1816; margin-bottom: 0.75rem; }
-  .sc-priv-right__text { font-size: 13px; font-weight: 300; line-height: 1.7; color: #8A8279; }
-
-  /* ── Text block ── */
-  .sc-priv-block { border-top: 1px solid #D4CEC6; padding-top: 3rem; margin-top: 3rem; }
-  .sc-priv-block__label { font-size: 10px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 1rem; }
-  .sc-priv-block__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; max-width: 800px; }
-  .sc-priv-block__text strong { color: #1A1816; font-weight: 400; }
-
-  /* ── CTA bar ── */
-  .sc-priv-cta {
+  .sc-legal-rights {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-right {
     background: #F7F4F0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 5rem 3rem;
+    padding: 1.5rem 1.5rem;
+  }
+  .sc-legal-right__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.5rem;
+  }
+  .sc-legal-right__title {
+    font-size: 15px; font-weight: 500; color: #1A1816;
+    margin-bottom: 0.5rem;
+  }
+  .sc-legal-right__text {
+    font-size: 13px; font-weight: 300; line-height: 1.65;
+    color: #8A8279;
+  }
+
+  /* ── Quick facts ── */
+  .sc-legal-facts {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-fact {
+    background: #F7F4F0;
+    padding: 1.5rem 1.25rem;
     text-align: center;
   }
-  .sc-priv-cta__inner { max-width: 800px; margin: 0 auto; }
-  .sc-priv-cta__label { font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #B5ADA4; margin-bottom: 1.5rem; }
-  .sc-priv-cta__title { font-size: clamp(24px, 3vw, 36px); font-weight: 200; letter-spacing: 0.04em; color: #1A1816; margin-bottom: 1.5rem; }
-  .sc-priv-cta__text { font-size: 14px; font-weight: 300; line-height: 1.8; color: #8A8279; margin-bottom: 2.5rem; }
-  .sc-priv-cta__contact { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-  .sc-priv-cta__contact-item { text-align: center; }
-  .sc-priv-cta__contact-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #B5ADA4; display: block; margin-bottom: 0.5rem; }
-  .sc-priv-cta__contact-value { font-size: 16px; font-weight: 400; color: #1A1816; }
-
-  /* ── Footer note ── */
-  .sc-priv-foot {
-    background: #F7F4F0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 0 3rem 4rem;
+  .sc-legal-fact__num {
+    font-size: 24px; font-weight: 200; letter-spacing: 0.02em;
+    color: #1A1816; display: block; line-height: 1; margin-bottom: 0.5rem;
   }
-  .sc-priv-foot__inner { max-width: 1200px; margin: 0 auto; }
-  .sc-priv-foot__text { font-size: 12px; font-weight: 300; line-height: 1.8; color: #8A8279; padding-top: 2rem; border-top: 1px solid #D4CEC6; }
+  .sc-legal-fact__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #8A8279;
+  }
 
-  /* ── Responsive ── */
-  @media (max-width: 749px) {
-    .sc-priv-hero__inner { padding: 0 1.5rem 4rem; }
-    .sc-priv-hero__stats { flex-wrap: wrap; gap: 1.5rem; }
-    .sc-priv-sec__inner { padding: 4rem 1.5rem 0; }
-    .sc-priv-sec__bottom { padding-bottom: 4rem; }
-    .sc-priv-cards { grid-template-columns: 1fr; }
-    .sc-priv-card { border-right: none; }
-    .sc-priv-list__item { gap: 1rem; }
-    .sc-priv-rights { grid-template-columns: 1fr; }
-    .sc-priv-right { border-right: none; }
-    .sc-priv-dark { padding: 4rem 0; }
-    .sc-priv-dark__inner { padding: 0 1.5rem; }
-    .sc-priv-dark__grid { grid-template-columns: 1fr; gap: 2rem; }
-    .sc-priv-cta { padding: 4rem 1.5rem; }
-    .sc-priv-cta__contact { flex-direction: column; gap: 1.5rem; }
-    .sc-priv-foot { padding: 0 1.5rem 3rem; }
+  /* ═══ CTA ═══ */
+  .sc-legal-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 4rem 3rem;
+    text-align: center;
+  }
+  .sc-legal-cta__inner { max-width: 600px; margin: 0 auto; }
+  .sc-legal-cta__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__title {
+    font-size: clamp(22px, 3vw, 32px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__text {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #8A8279; margin-bottom: 2rem;
+  }
+  .sc-legal-cta__contact {
+    display: inline-flex; align-items: center; gap: 2rem;
+    padding: 1rem 2rem;
+    background: #1A1816;
+    border-radius: 100px;
+  }
+  .sc-legal-cta__contact-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 14px; font-weight: 400; color: #F7F4F0;
+    text-decoration: none;
+  }
+  .sc-legal-cta__contact-divider { width: 1px; height: 20px; background: rgba(212,206,198,0.3); }
+
+  /* ═══ FOOTER ═══ */
+  .sc-legal-foot {
+    background: #1A1816;
+    padding: 2.5rem 3rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .sc-legal-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-legal-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-legal-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-legal-layout { grid-template-columns: 1fr; }
+    .sc-legal-sidebar {
+      position: static; border-right: none; border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 1.5rem;
+    }
+    .sc-legal-sidebar__nav {
+      display: flex; flex-wrap: wrap; gap: 0.25rem;
+    }
+    .sc-legal-sidebar__nav li { margin-bottom: 0; }
+    .sc-legal-sidebar__nav a { font-size: 12px; padding: 0.375rem 0.625rem; }
+    .sc-legal-content { padding: 2rem 1.5rem 4rem; }
+    .sc-legal-hero__inner { padding: 3rem 1.5rem 2.5rem; }
+    .sc-legal-facts { grid-template-columns: 1fr; }
+    .sc-legal-rights { grid-template-columns: 1fr; }
+    .sc-legal-cta { padding: 3rem 1.5rem; }
+    .sc-legal-cta__contact { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }
+    .sc-legal-cta__contact-divider { display: none; }
+    .sc-legal-foot { padding: 2rem 1.5rem; }
+    .sc-legal-foot__inner { flex-direction: column; text-align: center; }
   }
 </style>
 
 <!-- ═══════ HERO ═══════ -->
-<section class="sc-priv-hero">
-  <div class="sc-priv-hero__inner">
-    <div class="sc-priv-hero__content">
-      <p class="sc-priv-hero__kicker">Your Data &amp; Privacy</p>
-      <h1 class="sc-priv-hero__title">Privacy<br>Policy</h1>
-      <p class="sc-priv-hero__sub">This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase using our Services. Last updated: July 31, 2026.</p>
-      <div class="sc-priv-hero__stats">
-        <div class="sc-priv-hero__stat">
-          <span class="sc-priv-hero__stat-num">7</span>
-          <span class="sc-priv-hero__stat-label">Data Categories</span>
-        </div>
-        <div class="sc-priv-hero__stat-divider"></div>
-        <div class="sc-priv-hero__stat">
-          <span class="sc-priv-hero__stat-num">5</span>
-          <span class="sc-priv-hero__stat-label">Your Rights</span>
-        </div>
-        <div class="sc-priv-hero__stat-divider"></div>
-        <div class="sc-priv-hero__stat">
-          <span class="sc-priv-hero__stat-num">AU</span>
-          <span class="sc-priv-hero__stat-label">Jurisdiction</span>
-        </div>
+<section class="sc-legal sc-legal-hero">
+  <div class="sc-legal-hero__inner">
+    <div class="sc-legal-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span>Legal</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span style="color:#1A1816">Privacy Policy</span>
+    </div>
+    <h1 class="sc-legal-hero__title">Privacy<br>Policy</h1>
+    <div class="sc-legal-hero__updated">Last updated: July 31, 2026</div>
+    <p class="sc-legal-hero__intro">This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase using the Services. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to your personal information.</p>
+    <div class="sc-legal-facts">
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">7</span>
+        <span class="sc-legal-fact__label">Data Categories</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">5</span>
+        <span class="sc-legal-fact__label">Your Rights</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">AU</span>
+        <span class="sc-legal-fact__label">Jurisdiction</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ 01 — DATA WE COLLECT ═══════ -->
-<section class="sc-priv-sec">
-  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
-    <div class="sc-priv-sec__header">
-      <span class="sc-priv-sec__num">01</span>
-      <div class="sc-priv-sec__line"></div>
-    </div>
-    <h2 class="sc-priv-sec__title">Personal Information<br>We Collect</h2>
-    <p class="sc-priv-sec__lead">When we use the term "personal information," we are referring to information that identifies or can reasonably be linked to you. We may collect or process the following categories of personal information depending on how you interact with the Services.</p>
-    <div class="sc-priv-cards">
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Contact</span>
-        <h3 class="sc-priv-card__name">Contact Details</h3>
-        <p class="sc-priv-card__text">Your name, address, billing address, shipping address, phone number, and email address.</p>
-      </div>
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Financial</span>
-        <h3 class="sc-priv-card__name">Financial Information</h3>
-        <p class="sc-priv-card__text">Credit card, debit card, financial account numbers, payment card information, transaction details, and other payment details.</p>
-      </div>
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Account</span>
-        <h3 class="sc-priv-card__name">Account Information</h3>
-        <p class="sc-priv-card__text">Your username, password, security questions, preferences and settings.</p>
-      </div>
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Transaction</span>
-        <h3 class="sc-priv-card__name">Transaction Information</h3>
-        <p class="sc-priv-card__text">Items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel, and your past transactions.</p>
-      </div>
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Device</span>
-        <h3 class="sc-priv-card__name">Device Information</h3>
-        <p class="sc-priv-card__text">Information about your device, browser, or network connection, your IP address, and other unique identifiers.</p>
-      </div>
-      <div class="sc-priv-card">
-        <span class="sc-priv-card__tag">Usage</span>
-        <h3 class="sc-priv-card__name">Usage Information</h3>
-        <p class="sc-priv-card__text">Information regarding your interaction with the Services, including how and when you interact with or navigate the Services.</p>
-      </div>
-    </div>
-    <div class="sc-priv-block">
-      <span class="sc-priv-block__label">Data Sources</span>
-      <p class="sc-priv-block__text">We collect personal information <strong>directly from you</strong> when you create an account, visit or use the Services, or communicate with us; <strong>automatically through the Services</strong> via cookies and similar technologies; from our <strong>service providers</strong> who process information on our behalf; and from our <strong>partners or other third parties</strong>.</p>
-    </div>
-  </div>
-</section>
+<!-- ═══════ LAYOUT ═══════ -->
+<div class="sc-legal sc-legal-layout">
 
-<!-- ═══════ 02 — HOW WE USE DATA (dark) ═══════ -->
-<section class="sc-priv-dark">
-  <div class="sc-priv-dark__inner">
-    <div class="sc-priv-dark__header">
-      <span class="sc-priv-dark__num">02</span>
-      <div class="sc-priv-dark__line"></div>
-    </div>
-    <h2 class="sc-priv-dark__title">How We Use Your<br>Personal Information</h2>
-    <p class="sc-priv-dark__lead">Depending on how you interact with us or which Services you use, we may use your personal information for the following purposes:</p>
-    <div class="sc-priv-dark__grid">
-      <div>
-        <span class="sc-priv-dark__col-label">Service Delivery</span>
-        <p class="sc-priv-dark__col-text">We use your personal information to <strong>provide, tailor, and improve the Services</strong> — processing payments, fulfilling orders, remembering preferences, sending notifications, processing returns and exchanges, and creating a customized shopping experience.</p>
-      </div>
-      <div>
-        <span class="sc-priv-dark__col-label">Marketing &amp; Advertising</span>
-        <p class="sc-priv-dark__col-text">We use your personal information for <strong>marketing and promotional purposes</strong> — sending marketing communications by email, text message or postal mail, and showing you online advertisements based on your activity on the Services.</p>
-      </div>
-      <div>
-        <span class="sc-priv-dark__col-label">Security &amp; Fraud Prevention</span>
-        <p class="sc-priv-dark__col-text">We use your personal information to <strong>authenticate your account</strong>, provide a secure shopping experience, detect and investigate possible fraudulent or malicious activity, and protect public safety.</p>
-      </div>
-      <div>
-        <span class="sc-priv-dark__col-label">Communication &amp; Legal</span>
-        <p class="sc-priv-dark__col-text">We use your personal information to provide <strong>customer support</strong>, maintain our business relationship, comply with applicable law, respond to legal process, and enforce our terms or policies.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- SIDEBAR -->
+  <aside class="sc-legal-sidebar">
+    <p class="sc-legal-sidebar__label">Contents</p>
+    <ul class="sc-legal-sidebar__nav">
+      <li><a href="#priv-intro"><span class="sc-legal-sidebar__num">00</span>Introduction</a></li>
+      <li><a href="#priv-collect"><span class="sc-legal-sidebar__num">01</span>Information We Collect</a></li>
+      <li><a href="#priv-sources"><span class="sc-legal-sidebar__num">02</span>Information Sources</a></li>
+      <li><a href="#priv-use"><span class="sc-legal-sidebar__num">03</span>How We Use It</a></li>
+      <li><a href="#priv-disclose"><span class="sc-legal-sidebar__num">04</span>How We Disclose It</a></li>
+      <li><a href="#priv-shopify"><span class="sc-legal-sidebar__num">05</span>Shopify Relationship</a></li>
+      <li><a href="#priv-thirdparty"><span class="sc-legal-sidebar__num">06</span>Third-Party Links</a></li>
+      <li><a href="#priv-children"><span class="sc-legal-sidebar__num">07</span>Children's Data</a></li>
+      <li><a href="#priv-security"><span class="sc-legal-sidebar__num">08</span>Security &amp; Retention</a></li>
+      <li><a href="#priv-rights"><span class="sc-legal-sidebar__num">09</span>Your Rights</a></li>
+      <li><a href="#priv-complaints"><span class="sc-legal-sidebar__num">10</span>Complaints</a></li>
+      <li><a href="#priv-international"><span class="sc-legal-sidebar__num">11</span>International Transfers</a></li>
+      <li><a href="#priv-changes"><span class="sc-legal-sidebar__num">12</span>Changes</a></li>
+      <li><a href="#priv-contact"><span class="sc-legal-sidebar__num">13</span>Contact</a></li>
+    </ul>
+  </aside>
 
-<!-- ═══════ 03 — DATA DISCLOSURE ═══════ -->
-<section class="sc-priv-sec">
-  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
-    <div class="sc-priv-sec__header">
-      <span class="sc-priv-sec__num">03</span>
-      <div class="sc-priv-sec__line"></div>
-    </div>
-    <h2 class="sc-priv-sec__title">How We Disclose<br>Personal Information</h2>
-    <p class="sc-priv-sec__lead">In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy.</p>
-    <div class="sc-priv-list">
-      <div class="sc-priv-list__item">
-        <span class="sc-priv-list__num">A</span>
-        <div class="sc-priv-list__body">
-          <h3 class="sc-priv-list__title">Service Providers</h3>
-          <p class="sc-priv-list__text">With Shopify, vendors and other third parties who perform services on our behalf (IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).</p>
+  <!-- CONTENT -->
+  <div class="sc-legal-content">
+
+    <!-- 00 INTRO -->
+    <section class="sc-legal-sec" id="priv-intro">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">00</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Introduction</h2>
+      <div class="sc-legal-sec__text">
+        <p>Sensol Fitness operates this store and website, including all related information, content, features, tools, products and services, in order to provide you with a curated shopping experience (the <strong>"Services"</strong>). Sensol Fitness is powered by Shopify, which enables us to provide the Services to you.</p>
+        <p>This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase or other transaction using the Services or otherwise communicate with us. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to the collection, processing, and disclosure of your personal information.</p>
+        <p>Please read this Privacy Policy carefully. By using and accessing any of the Services, you acknowledge that you have read and understand the collection, use, and disclosure of your information as described herein.</p>
+      </div>
+    </section>
+
+    <!-- 01 COLLECT -->
+    <section class="sc-legal-sec" id="priv-collect">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">01</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Personal Information We Collect</h2>
+      <div class="sc-legal-sec__text">
+        <p>When we use the term "personal information," we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified. We may collect or process the following categories of personal information:</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Contact details</strong> Your name, address, billing address, shipping address, phone number, and email address.</li>
+          <li><strong>Financial information</strong> Credit card, debit card, and financial account numbers, payment card information, transaction details, and other payment details.</li>
+          <li><strong>Account information</strong> Your username, password, security questions, preferences and settings.</li>
+          <li><strong>Transaction information</strong> Items you view, put in your cart, add to your wishlist, purchase, return, exchange or cancel, and your past transactions.</li>
+          <li><strong>Communications</strong> Information you include in communications with us, such as customer support inquiries.</li>
+          <li><strong>Device information</strong> Information about your device, browser, or network connection, your IP address, and other unique identifiers.</li>
+          <li><strong>Usage information</strong> Information regarding your interaction with the Services, including how and when you interact with or navigate the Services.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 SOURCES -->
+    <section class="sc-legal-sec" id="priv-sources">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">02</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Personal Information Sources</h2>
+      <div class="sc-legal-sec__text">
+        <p>We may collect personal information from the following sources:</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Directly from you</strong> When you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information.</li>
+          <li><strong>Automatically</strong> From your device when you use our products or services or visit our websites, through cookies and similar technologies.</li>
+          <li><strong>Service providers</strong> When we engage them to enable certain technology and when they collect or process your personal information on our behalf.</li>
+          <li><strong>Partners</strong> From our partners or other third parties.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 USE -->
+    <section class="sc-legal-sec" id="priv-use">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">03</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">How We Use Your Personal Information</h2>
+      <div class="sc-legal-sec__text">
+        <p>Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Provide &amp; Improve</strong> To provide the Services, perform our contract with you, process payments, fulfill orders, remember your preferences, process purchases and returns, manage your account, arrange shipping, and create a customized shopping experience.</li>
+          <li><strong>Marketing &amp; Advertising</strong> To send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements based on your activity.</li>
+          <li><strong>Security &amp; Fraud</strong> To authenticate your account, provide a secure payment and shopping experience, detect and investigate fraudulent or malicious activity, and protect public safety.</li>
+          <li><strong>Communication</strong> To provide customer support, be responsive to you, provide effective services, and maintain our business relationship.</li>
+          <li><strong>Legal Reasons</strong> To comply with applicable law, respond to legal process, investigate litigation, and enforce our terms or policies.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 DISCLOSE -->
+    <section class="sc-legal-sec" id="priv-disclose">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">04</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">How We Disclose Personal Information</h2>
+      <div class="sc-legal-sec__text">
+        <p>In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Service providers</strong> With Shopify, vendors and other third parties who perform services on our behalf (IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).</li>
+          <li><strong>Marketing partners</strong> With business and marketing partners to provide marketing services and advertise to you. We use Shopify to support personalized advertising based on your online activity.</li>
+          <li><strong>With your consent</strong> When you direct, request us or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through social media widgets.</li>
+          <li><strong>Affiliates &amp; legal</strong> With our affiliates, in connection with business transactions such as a merger or bankruptcy, to comply with legal obligations, enforce terms of service, and protect or defend the Services and our rights.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 SHOPIFY -->
+    <section class="sc-legal-sec" id="priv-shopify">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">05</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Relationship with Shopify</h2>
+      <div class="sc-legal-sec__text">
+        <p>The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside.</p>
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">Shopify's Role</p>
+          <p class="sc-legal-callout__text">We use certain Shopify enhanced features that incorporate data obtained from your interactions with our Store. In these circumstances, <strong>Shopify is responsible for the processing of your personal information</strong>, including for responding to your requests to exercise your rights. Learn more at the <a href="https://www.shopify.com/legal/privacy/app-users" target="_blank" rel="noopener" style="color:rgba(247,244,240,0.9);text-decoration:underline">Shopify Consumer Privacy Policy</a> and exercise your rights at the <a href="https://privacy.shopify.com/en" target="_blank" rel="noopener" style="color:rgba(247,244,240,0.9);text-decoration:underline">Shopify Privacy Portal</a>.</p>
         </div>
       </div>
-      <div class="sc-priv-list__item">
-        <span class="sc-priv-list__num">B</span>
-        <div class="sc-priv-list__body">
-          <h3 class="sc-priv-list__title">Marketing Partners</h3>
-          <p class="sc-priv-list__text">With business and marketing partners to provide marketing services and advertise to you. We use Shopify to support personalized advertising with third-party services based on your online activity.</p>
-        </div>
-      </div>
-      <div class="sc-priv-list__item">
-        <span class="sc-priv-list__num">C</span>
-        <div class="sc-priv-list__body">
-          <h3 class="sc-priv-list__title">With Your Consent</h3>
-          <p class="sc-priv-list__text">When you direct, request us, or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations.</p>
-        </div>
-      </div>
-      <div class="sc-priv-list__item">
-        <span class="sc-priv-list__num">D</span>
-        <div class="sc-priv-list__body">
-          <h3 class="sc-priv-list__title">Corporate &amp; Legal</h3>
-          <p class="sc-priv-list__text">With our affiliates, in connection with a business transaction (merger, acquisition), to comply with legal obligations, respond to government requests, protect our rights, or with your consent.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════ 04 — YOUR RIGHTS ═══════ -->
-<section class="sc-priv-sec sc-priv-sec--alt">
-  <div class="sc-priv-sec__inner sc-priv-sec__bottom">
-    <div class="sc-priv-sec__header">
-      <span class="sc-priv-sec__num">04</span>
-      <div class="sc-priv-sec__line"></div>
-    </div>
-    <h2 class="sc-priv-sec__title">Your Privacy<br>Rights</h2>
-    <p class="sc-priv-sec__lead">Depending on where you live, you may have certain rights regarding your personal information. You may exercise any of these rights where indicated on the Services or by contacting us.</p>
-    <div class="sc-priv-rights">
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">01</span>
-        <h3 class="sc-priv-right__name">Access &amp; Disclosure</h3>
-        <p class="sc-priv-right__text">You may have the right to request access to or a copy of your personal information, including details about how we collect, use, and disclose it.</p>
+    <!-- 06 THIRD-PARTY -->
+    <section class="sc-legal-sec" id="priv-thirdparty">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">06</span>
+        <div class="sc-legal-sec__line"></div>
       </div>
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">02</span>
-        <h3 class="sc-priv-right__name">Correction</h3>
-        <p class="sc-priv-right__text">You may have the right to request that we correct or update your personal information if it is inaccurate or incomplete.</p>
+      <h2 class="sc-legal-sec__title">Third-Party Websites and Links</h2>
+      <div class="sc-legal-sec__text">
+        <p>The Services may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies. We do not guarantee and are not responsible for the privacy or security of such sites.</p>
+        <p>Information you provide on public or semi-public venues, including information you share on third-party social networking platforms, may be viewable by other users without limitation. Our inclusion of such links does not imply endorsement of the content on such platforms.</p>
       </div>
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">03</span>
-        <h3 class="sc-priv-right__name">Deletion</h3>
-        <p class="sc-priv-right__text">You may have the right to request that we delete your personal information, subject to certain exceptions permitted or required by applicable law.</p>
-      </div>
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">04</span>
-        <h3 class="sc-priv-right__name">Portability</h3>
-        <p class="sc-priv-right__text">You may have the right to receive a copy of the personal information we hold about you and request that we transfer it to a third party.</p>
-      </div>
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">05</span>
-        <h3 class="sc-priv-right__name">Communication Preferences</h3>
-        <p class="sc-priv-right__text">You may opt out of receiving promotional emails at any time using the unsubscribe option. We may still send non-promotional emails about your account or orders.</p>
-      </div>
-      <div class="sc-priv-right">
-        <span class="sc-priv-right__tag">06</span>
-        <h3 class="sc-priv-right__name">Non-Discrimination</h3>
-        <p class="sc-priv-right__text">We will not discriminate against you for exercising any of these rights. We may need to verify your identity before processing your requests.</p>
-      </div>
-    </div>
-    <div class="sc-priv-block">
-      <span class="sc-priv-block__label">Authorized Agents</span>
-      <p class="sc-priv-block__text">In accordance with applicable laws, you may designate an <strong>authorized agent</strong> to make requests on your behalf. We will require proof that you have authorized them to act for you, and may need to verify your identity directly.</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════ 05 — COMPLAINTS & TRANSFERS (dark) ═══════ -->
-<section class="sc-priv-dark">
-  <div class="sc-priv-dark__inner">
-    <div class="sc-priv-dark__header">
-      <span class="sc-priv-dark__num">05</span>
-      <div class="sc-priv-dark__line"></div>
-    </div>
-    <h2 class="sc-priv-dark__title">Complaints &amp;<br>International Transfers</h2>
-    <p class="sc-priv-dark__lead">If you have complaints about how we process your personal information, please contact us. Depending on where you live, you may have the right to appeal or lodge a complaint with your local data protection authority.</p>
-    <div class="sc-priv-dark__grid">
-      <div>
-        <span class="sc-priv-dark__col-label">Complaints</span>
-        <p class="sc-priv-dark__col-text">If you have complaints about how we process your personal information, please contact us using the contact details provided below. You may have the right to <strong>appeal our decision</strong> or lodge a complaint with your local data protection authority.</p>
+    <!-- 07 CHILDREN -->
+    <section class="sc-legal-sec" id="priv-children">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">07</span>
+        <div class="sc-legal-sec__line"></div>
       </div>
-      <div>
-        <span class="sc-priv-dark__col-label">International Transfers</span>
-        <p class="sc-priv-dark__col-text">We may transfer, store and process your personal information outside the country you live in. For transfers out of the EEA or UK, we rely on <strong>Standard Contractual Clauses</strong> or equivalent mechanisms, unless the destination country provides an adequate level of protection.</p>
+      <h2 class="sc-legal-sec__title">Children's Data</h2>
+      <div class="sc-legal-sec__text">
+        <p>The Services are not intended for use by children, and we do not knowingly collect any personal information about children under the age of majority in your jurisdiction. If you are the parent or guardian of a child who has provided us with their personal information, you may contact us to request that it be deleted.</p>
+        <div class="sc-legal-note">As of the Effective Date of this Privacy Policy, we do not have actual knowledge that we <strong>"share"</strong> or <strong>"sell"</strong> (as those terms are defined in applicable law) personal information of individuals under 16 years of age.</div>
       </div>
-    </div>
-    <div class="sc-priv-block" style="border-color: rgba(212,206,198,0.15); margin-top: 3rem;">
-      <span class="sc-priv-block__label">Changes to This Privacy Policy</span>
-      <p class="sc-priv-block__text" style="color: rgba(247,244,240,0.65);">We may update this Privacy Policy from time to time to reflect changes in our practices or for operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the "Last updated" date, and provide notice as required by applicable law.</p>
-    </div>
+    </section>
+
+    <!-- 08 SECURITY -->
+    <section class="sc-legal-sec" id="priv-security">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">08</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Security and Retention</h2>
+      <div class="sc-legal-sec__text">
+        <p>Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee "perfect security." Any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information.</p>
+        <p>How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, provide Services, comply with legal obligations, resolve disputes, or enforce applicable contracts and policies.</p>
+      </div>
+    </section>
+
+    <!-- 09 RIGHTS -->
+    <section class="sc-legal-sec" id="priv-rights">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">09</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Your Rights and Choices</h2>
+      <div class="sc-legal-sec__text">
+        <p>Depending on where you live, you may have some or all of the rights listed below. These rights are not absolute, may apply only in certain circumstances, and in certain cases we may decline your request as permitted by law.</p>
+      </div>
+      <div class="sc-legal-rights">
+        <div class="sc-legal-right">
+          <p class="sc-legal-right__label">Right 01</p>
+          <h3 class="sc-legal-right__title">Right to Access / Know</h3>
+          <p class="sc-legal-right__text">You may request access to personal information that we hold about you.</p>
+        </div>
+        <div class="sc-legal-right">
+          <p class="sc-legal-right__label">Right 02</p>
+          <h3 class="sc-legal-right__title">Right to Delete</h3>
+          <p class="sc-legal-right__text">You may request that we delete personal information we maintain about you.</p>
+        </div>
+        <div class="sc-legal-right">
+          <p class="sc-legal-right__label">Right 03</p>
+          <h3 class="sc-legal-right__title">Right to Correct</h3>
+          <p class="sc-legal-right__text">You may request that we correct inaccurate personal information we maintain about you.</p>
+        </div>
+        <div class="sc-legal-right">
+          <p class="sc-legal-right__label">Right 04</p>
+          <h3 class="sc-legal-right__title">Right of Portability</h3>
+          <p class="sc-legal-right__text">You may receive a copy of your personal information and request transfer to a third party, with certain exceptions.</p>
+        </div>
+        <div class="sc-legal-right" style="grid-column: 1 / -1;">
+          <p class="sc-legal-right__label">Right 05</p>
+          <h3 class="sc-legal-right__title">Managing Communication Preferences</h3>
+          <p class="sc-legal-right__text">We may send promotional emails, and you may opt out at any time using the unsubscribe option. If you opt out, we may still send non-promotional emails about your account or orders.</p>
+        </div>
+      </div>
+      <div class="sc-legal-sec__text" style="margin-top: 1rem;">
+        <p>You may exercise any of these rights by contacting us using the details provided below. We will not discriminate against you for exercising these rights. We may need to verify your identity before processing your requests.</p>
+        <p>In accordance with applicable laws, you may designate an <strong>authorized agent</strong> to make requests on your behalf. Before accepting such a request, we will require proof that you have authorized the agent to act on your behalf, and we may need you to verify your identity directly with us. We will respond in a timely manner as required under applicable law.</p>
+      </div>
+    </section>
+
+    <!-- 10 COMPLAINTS -->
+    <section class="sc-legal-sec" id="priv-complaints">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">10</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Complaints</h2>
+      <div class="sc-legal-sec__text">
+        <p>If you have complaints about how we process your personal information, please contact us using the details provided below. Depending on where you live, you may have the right to appeal our decision by contacting us, or lodge your complaint with your local data protection authority.</p>
+      </div>
+    </section>
+
+    <!-- 11 INTERNATIONAL -->
+    <section class="sc-legal-sec" id="priv-international">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">11</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">International Transfers</h2>
+      <div class="sc-legal-sec__text">
+        <p>Please note that we may transfer, store and process your personal information outside the country you live in.</p>
+        <div class="sc-legal-note">If we transfer your personal information out of the European Economic Area or the United Kingdom, we will rely on recognized transfer mechanisms like the <strong>European Commission's Standard Contractual Clauses</strong>, or any equivalent contracts issued by the relevant competent authority of the UK, unless the data transfer is to a country that has been determined to provide an adequate level of protection.</div>
+      </div>
+    </section>
+
+    <!-- 12 CHANGES -->
+    <section class="sc-legal-sec" id="priv-changes">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">12</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Changes to This Privacy Policy</h2>
+      <div class="sc-legal-sec__text">
+        <p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the "Last updated" date, and provide notice as required by applicable law.</p>
+      </div>
+    </section>
+
+    <!-- 13 CONTACT -->
+    <section class="sc-legal-sec" id="priv-contact">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">13</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Contact</h2>
+      <div class="sc-legal-sec__text">
+        <p>Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please contact us:</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Phone</strong> <a href="tel:+61480899797">+61 480 899 797</a></li>
+          <li><strong>Email</strong> <a href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a></li>
+          <li><strong>Address</strong> Melaan Way, Clyde North VIC 3978, Australia</li>
+        </ul>
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
 
 <!-- ═══════ CTA ═══════ -->
-<section class="sc-priv-cta">
-  <div class="sc-priv-cta__inner">
-    <p class="sc-priv-cta__label">Privacy Questions?</p>
-    <h2 class="sc-priv-cta__title">Contact Our Support Team</h2>
-    <p class="sc-priv-cta__text">If you have any questions about our privacy practices or would like to exercise any of your rights, our Australian support team is here to help.</p>
-    <div class="sc-priv-cta__contact">
-      <div class="sc-priv-cta__contact-item">
-        <span class="sc-priv-cta__contact-label">Phone</span>
-        <span class="sc-priv-cta__contact-value">+61 480 899 797</span>
-      </div>
-      <div class="sc-priv-cta__contact-item">
-        <span class="sc-priv-cta__contact-label">Email</span>
-        <span class="sc-priv-cta__contact-value">support@sensolfitness.com.au</span>
-      </div>
-      <div class="sc-priv-cta__contact-item">
-        <span class="sc-priv-cta__contact-label">Address</span>
-        <span class="sc-priv-cta__contact-value">Melaan Way, Clyde North VIC 3978</span>
-      </div>
+<section class="sc-legal sc-legal-cta">
+  <div class="sc-legal-cta__inner">
+    <p class="sc-legal-cta__label">Privacy Matters</p>
+    <h3 class="sc-legal-cta__title">Have questions about your data?</h3>
+    <p class="sc-legal-cta__text">Our team is here to help you understand how we handle your personal information and to assist you in exercising your privacy rights.</p>
+    <div class="sc-legal-cta__contact">
+      <a href="mailto:support@sensolfitness.com.au" class="sc-legal-cta__contact-item">support@sensolfitness.com.au</a>
+      <div class="sc-legal-cta__contact-divider"></div>
+      <a href="tel:+61480899797" class="sc-legal-cta__contact-item">+61 480 899 797</a>
     </div>
   </div>
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
-<section class="sc-priv-foot">
-  <div class="sc-priv-foot__inner">
-    <p class="sc-priv-foot__text">DUTE FITNESS (AUSTRALIA) PTY. LTD. trading as Sensol Fitness. Last updated: July 31, 2026. To learn more about how Shopify uses your personal information, visit https://privacy.shopify.com/en. We may update this Privacy Policy from time to time. We will post the revised version and update the "Last updated" date.</p>
+<footer class="sc-legal sc-legal-foot">
+  <div class="sc-legal-foot__inner">
+    <p class="sc-legal-foot__text">Sensol Fitness, trading as DUTE FITNESS (AUSTRALIA) PTY. LTD.<br>Melaan Way, Clyde North VIC 3978, Australia</p>
+    <p class="sc-legal-foot__brand">SENSOL FITNESS</p>
   </div>
-</section>
+</footer>
+
+<script>
+  // Active section highlighting in sidebar
+  (function() {
+    var links = document.querySelectorAll('.sc-legal-sidebar__nav a');
+    var sections = [];
+    links.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      var sec = document.getElementById(id);
+      if (sec) sections.push({ link: link, el: sec });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 100;
+      var current = sections[0];
+      sections.forEach(function(s) {
+        if (s.el.offsetTop <= scrollY) current = s;
+      });
+      links.forEach(function(l) { l.classList.remove('is-active'); });
+      if (current) current.link.classList.add('is-active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
