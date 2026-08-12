@@ -1,0 +1,628 @@
+{%- comment -%}Sensol Warranty Policy — Editorial design{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-legal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO ═══ */
+  .sc-legal-hero {
+    background: #F7F4F0;
+    border-bottom: 1px solid #D4CEC6;
+    overflow: hidden;
+    position: relative;
+  }
+  .sc-legal-hero::after {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,130,121,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sc-legal-hero__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 9rem 3rem 4rem;
+    position: relative; z-index: 1;
+  }
+  .sc-legal-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__breadcrumb span { color: #8A8279; }
+  .sc-legal-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: #D4CEC6; }
+  .sc-legal-hero__title {
+    font-size: clamp(36px, 6vw, 72px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.05; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-hero__updated {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.05em;
+    color: #8A8279;
+    padding: 0.5rem 1rem;
+    background: #EDEAE5;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .sc-legal-hero__updated::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: #8A8279;
+  }
+  .sc-legal-hero__intro {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #4A4640; max-width: 640px;
+  }
+
+  /* ═══ Quick facts ═══ */
+  .sc-legal-facts {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-fact {
+    background: #F7F4F0;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .sc-legal-fact__num {
+    font-size: 24px; font-weight: 200; letter-spacing: 0.02em;
+    color: #1A1816; display: block; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .sc-legal-fact__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .sc-legal-layout {
+    background: #F7F4F0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ═══ SIDEBAR ═══ */
+  .sc-legal-sidebar {
+    position: sticky; top: 0;
+    height: fit-content;
+    padding: 3rem 1rem 3rem 3rem;
+    border-right: 1px solid #D4CEC6;
+  }
+  .sc-legal-sidebar__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-legal-sidebar__nav { list-style: none; padding: 0; margin: 0; }
+  .sc-legal-sidebar__nav li { margin-bottom: 0.25rem; }
+  .sc-legal-sidebar__nav a {
+    display: flex; align-items: baseline; gap: 0.75rem;
+    text-decoration: none;
+    font-size: 13px; font-weight: 400; line-height: 1.5;
+    color: #8A8279;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .sc-legal-sidebar__nav a:hover { color: #1A1816; background: #EDEAE5; }
+  .sc-legal-sidebar__nav a.is-active { color: #1A1816; background: #EDEAE5; font-weight: 500; }
+  .sc-legal-sidebar__num {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    color: #B5ADA4; min-width: 20px;
+  }
+  .sc-legal-sidebar__nav a:hover .sc-legal-sidebar__num,
+  .sc-legal-sidebar__nav a.is-active .sc-legal-sidebar__num { color: #1A1816; }
+
+  /* ═══ CONTENT ═══ */
+  .sc-legal-content { padding: 3rem 3rem 5rem 3rem; min-width: 0; }
+
+  .sc-legal-sec { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+  .sc-legal-sec:last-child { margin-bottom: 0; }
+
+  .sc-legal-sec__head {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .sc-legal-sec__num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    color: #B5ADA4;
+    flex-shrink: 0;
+  }
+  .sc-legal-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-legal-sec__title {
+    font-size: 22px; font-weight: 400; letter-spacing: 0.02em;
+    line-height: 1.3; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-sec__text {
+    font-size: 14px; font-weight: 300; line-height: 1.85;
+    color: #4A4640;
+  }
+  .sc-legal-sec__text p { margin: 0 0 1rem; }
+  .sc-legal-sec__text p:last-child { margin-bottom: 0; }
+  .sc-legal-sec__text a { color: #1A1816; text-decoration: underline; text-underline-offset: 2px; }
+  .sc-legal-sec__text strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Callout ── */
+  .sc-legal-callout {
+    background: #1A1816;
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
+  }
+  .sc-legal-callout__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-legal-callout__text {
+    font-size: 14px; font-weight: 300; line-height: 1.8;
+    color: rgba(247,244,240,0.7);
+  }
+  .sc-legal-callout__text strong { color: #F7F4F0; font-weight: 400; }
+
+  /* ── Note ── */
+  .sc-legal-note {
+    background: #EDEAE5;
+    border-left: 3px solid #8A8279;
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: #4A4640;
+  }
+  .sc-legal-note strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Data list ── */
+  .sc-legal-datalist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .sc-legal-datalist li {
+    display: flex; gap: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #EDEAE5;
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #4A4640;
+  }
+  .sc-legal-datalist li:last-child { border-bottom: none; }
+  .sc-legal-datalist li strong { font-weight: 500; color: #1A1816; flex-shrink: 0; min-width: 160px; }
+
+  /* ── Warranty tiers (special) ── */
+  .sc-warranty-tiers {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-warranty-tier {
+    background: #F7F4F0;
+    padding: 2rem 1.75rem;
+    position: relative;
+  }
+  .sc-warranty-tier__period {
+    font-size: 28px; font-weight: 200; letter-spacing: 0.02em;
+    color: #1A1816; display: block; line-height: 1; margin-bottom: 0.25rem;
+  }
+  .sc-warranty-tier__period-unit {
+    font-size: 13px; font-weight: 400; color: #8A8279;
+    margin-left: 0.25rem;
+  }
+  .sc-warranty-tier__name {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-warranty-tier__desc {
+    font-size: 13px; font-weight: 300; line-height: 1.65;
+    color: #8A8279;
+  }
+  .sc-warranty-tier__desc strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Steps (diagnostic protocol) ── */
+  .sc-warranty-steps {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: #D4CEC6;
+    border: 1px solid #D4CEC6;
+    border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .sc-warranty-step {
+    background: #F7F4F0;
+    padding: 1.75rem 1.5rem;
+  }
+  .sc-warranty-step__num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-warranty-step__title {
+    font-size: 15px; font-weight: 500; color: #1A1816;
+    margin-bottom: 0.5rem;
+  }
+  .sc-warranty-step__text {
+    font-size: 13px; font-weight: 300; line-height: 1.65;
+    color: #8A8279;
+  }
+  .sc-warranty-step__text strong { font-weight: 500; color: #1A1816; }
+
+  /* ── Exclusion list ── */
+  .sc-warranty-exclusions {
+    list-style: none; padding: 0; margin: 1rem 0 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid #D4CEC6;
+  }
+  .sc-warranty-exclusions li {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    border-bottom: 1px solid #EDEAE5;
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #4A4640;
+  }
+  .sc-warranty-exclusions li:nth-child(2n) { padding-left: 1.5rem; padding-right: 0; border-left: 1px solid #EDEAE5; }
+  .sc-warranty-exclusions li strong { display: block; font-weight: 500; color: #1A1816; margin-bottom: 0.375rem; }
+
+  /* ── Warning box ── */
+  .sc-warranty-warning {
+    background: #1A1816;
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #8A8279;
+  }
+  .sc-warranty-warning__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-warranty-warning__text {
+    font-size: 14px; font-weight: 300; line-height: 1.8;
+    color: rgba(247,244,240,0.7);
+  }
+  .sc-warranty-warning__text strong { color: #F7F4F0; font-weight: 400; }
+
+  /* ═══ CTA ═══ */
+  .sc-legal-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 4rem 3rem;
+    text-align: center;
+  }
+  .sc-legal-cta__inner { max-width: 600px; margin: 0 auto; }
+  .sc-legal-cta__label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__title {
+    font-size: clamp(22px, 3vw, 32px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1rem;
+  }
+  .sc-legal-cta__text {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: #8A8279; margin-bottom: 2rem;
+  }
+  .sc-legal-cta__contact {
+    display: inline-flex; align-items: center; gap: 2rem;
+    padding: 1rem 2rem;
+    background: #1A1816;
+    border-radius: 100px;
+  }
+  .sc-legal-cta__contact-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 14px; font-weight: 400; color: #F7F4F0;
+    text-decoration: none;
+  }
+  .sc-legal-cta__contact-divider { width: 1px; height: 20px; background: rgba(212,206,198,0.3); }
+
+  /* ═══ FOOTER ═══ */
+  .sc-legal-foot {
+    background: #1A1816;
+    padding: 2.5rem 3rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .sc-legal-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-legal-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-legal-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-legal-layout { grid-template-columns: 1fr; }
+    .sc-legal-sidebar {
+      position: static; border-right: none; border-bottom: 1px solid #D4CEC6;
+      padding: 2rem 1.5rem;
+    }
+    .sc-legal-sidebar__nav {
+      display: flex; flex-wrap: wrap; gap: 0.25rem;
+    }
+    .sc-legal-sidebar__nav li { margin-bottom: 0; }
+    .sc-legal-sidebar__nav a { font-size: 12px; padding: 0.375rem 0.625rem; }
+    .sc-legal-content { padding: 2rem 1.5rem 4rem; }
+    .sc-legal-hero__inner { padding: 6rem 1.5rem 2.5rem; }
+    .sc-legal-facts { grid-template-columns: 1fr; }
+    .sc-warranty-tiers { grid-template-columns: 1fr; }
+    .sc-warranty-steps { grid-template-columns: 1fr; }
+    .sc-warranty-exclusions { grid-template-columns: 1fr; }
+    .sc-warranty-exclusions li:nth-child(2n) { padding-left: 0; border-left: none; }
+    .sc-legal-cta { padding: 3rem 1.5rem; }
+    .sc-legal-cta__contact { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }
+    .sc-legal-cta__contact-divider { display: none; }
+    .sc-legal-foot { padding: 2rem 1.5rem; }
+    .sc-legal-foot__inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-legal sc-legal-hero">
+  <div class="sc-legal-hero__inner">
+    <div class="sc-legal-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span>Legal</span>
+      <span class="sc-legal-hero__breadcrumb-dot"></span>
+      <span style="color:#1A1816">Warranty Policy</span>
+    </div>
+    <h1 class="sc-legal-hero__title">Warranty<br>Policy</h1>
+    <div class="sc-legal-hero__updated">Last updated: August 2026</div>
+    <p class="sc-legal-hero__intro">We stand behind the professional engineering, durability, and commercial-grade quality of our smart fitness equipment. Our warranty policy is designed to fully comply with the Australian Consumer Law (ACL) under the Competition and Consumer Act 2010.</p>
+    <div class="sc-legal-facts">
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">5 Years</span>
+        <span class="sc-legal-fact__label">Max Coverage</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">4 Tiers</span>
+        <span class="sc-legal-fact__label">Warranty Periods</span>
+      </div>
+      <div class="sc-legal-fact">
+        <span class="sc-legal-fact__num">ACL</span>
+        <span class="sc-legal-fact__label">Compliant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ LAYOUT ═══════ -->
+<div class="sc-legal sc-legal-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sc-legal-sidebar">
+    <p class="sc-legal-sidebar__label">Contents</p>
+    <ul class="sc-legal-sidebar__nav">
+      <li><a href="#war-overview"><span class="sc-legal-sidebar__num">00</span>Overview</a></li>
+      <li><a href="#war-acl"><span class="sc-legal-sidebar__num">01</span>Statutory Guarantees</a></li>
+      <li><a href="#war-tiers"><span class="sc-legal-sidebar__num">02</span>Warranty Periods</a></li>
+      <li><a href="#war-exclusions"><span class="sc-legal-sidebar__num">03</span>Exclusions</a></li>
+      <li><a href="#war-protocol"><span class="sc-legal-sidebar__num">04</span>Diagnostic Protocol</a></li>
+      <li><a href="#war-logistics"><span class="sc-legal-sidebar__num">05</span>Logistics &amp; Costs</a></li>
+      <li><a href="#war-support"><span class="sc-legal-sidebar__num">06</span>Local Support</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="sc-legal-content">
+
+    <!-- 00 OVERVIEW -->
+    <section class="sc-legal-sec" id="war-overview">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">00</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Overview</h2>
+      <div class="sc-legal-sec__text">
+        <p>Welcome to Sensol Fitness (<strong>sensolfitness.com.au</strong>). We stand behind the professional engineering, durability, and commercial-grade quality of our smart fitness equipment. Our warranty policy is straightforward and designed to fully comply with the Australian Consumer Law (ACL) under the Competition and Consumer Act 2010.</p>
+      </div>
+    </section>
+
+    <!-- 01 ACL -->
+    <section class="sc-legal-sec" id="war-acl">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">01</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Statutory Consumer Guarantees (ACL)</h2>
+      <div class="sc-legal-sec__text">
+        <p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.</p>
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">Important</p>
+          <p class="sc-legal-callout__text">The commercial warranties outlined in Section 2 are <strong>in addition to</strong>, and do not limit or override, your statutory rights under the ACL.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 TIERS -->
+    <section class="sc-legal-sec" id="war-tiers">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">02</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Sensol Fitness Tiered Warranty Periods</h2>
+      <div class="sc-legal-sec__text">
+        <p>We provide a voluntary Limited Commercial Warranty to the original purchaser for domestic, non-commercial home use, commencing from the official date of delivery recorded by our logistics partners:</p>
+      </div>
+      <div class="sc-warranty-tiers">
+        <div class="sc-warranty-tier">
+          <span class="sc-warranty-tier__name">Structural Frame</span>
+          <span class="sc-warranty-tier__period">5<span class="sc-warranty-tier__period-unit">Years</span></span>
+          <p class="sc-warranty-tier__desc">Covers structural <strong>steel welds, chassis integrity</strong>, and heavy-duty frame casting. Excludes cosmetic surface scratches or paint finish degradation.</p>
+        </div>
+        <div class="sc-warranty-tier">
+          <span class="sc-warranty-tier__name">Electric Motor &amp; Digital Resistance</span>
+          <span class="sc-warranty-tier__period">2<span class="sc-warranty-tier__period-unit">Years</span></span>
+          <p class="sc-warranty-tier__desc">Covers the internal <strong>heavy-duty electric motor drive units</strong> and magnetic/digital resistance actuators.</p>
+        </div>
+        <div class="sc-warranty-tier">
+          <span class="sc-warranty-tier__name">Touchscreen Console &amp; Electronics</span>
+          <span class="sc-warranty-tier__period">1<span class="sc-warranty-tier__period-unit">Year</span></span>
+          <p class="sc-warranty-tier__desc">Covers the electronic <strong>console, internal PCB mainboards</strong>, connection wiring, and advanced sensory components.</p>
+        </div>
+        <div class="sc-warranty-tier">
+          <span class="sc-warranty-tier__name">High-Wear Components</span>
+          <span class="sc-warranty-tier__period">6<span class="sc-warranty-tier__period-unit">Months</span></span>
+          <p class="sc-warranty-tier__desc">Covers quick-wear accessories, including <strong>grips, resistance straps, pull cables</strong>, and soft-touch upholstery padding.</p>
+        </div>
+      </div>
+      <div class="sc-legal-note">This warranty is strictly <strong>non-transferable</strong> and applies exclusively to the original buyer registered within our Shopify sales database.</div>
+    </section>
+
+    <!-- 03 EXCLUSIONS -->
+    <section class="sc-legal-sec" id="war-exclusions">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">03</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Specific Warranty Exclusions</h2>
+      <div class="sc-legal-sec__text">
+        <p>This commercial warranty strictly does not apply to any damage, malfunction, or failure resulting from:</p>
+      </div>
+      <ul class="sc-warranty-exclusions">
+        <li>
+          <strong>Improper Self-Assembly</strong>
+          Failure to assemble, calibrate, or wire the unit in strict accordance with the official Sensol Fitness user manual.
+        </li>
+        <li>
+          <strong>Commercial Exploitation</strong>
+          Operation of domestic-grade equipment within commercial fitness studios, corporate gyms, cross-fit centers, or rehabilitation clinics.
+        </li>
+        <li>
+          <strong>Environmental &amp; Moisture Damage</strong>
+          Storing or operating the machinery in uninsulated garages, outdoor patios, or damp environments prone to humidity, causing rust, structural corrosion, or water ingress.
+        </li>
+        <li>
+          <strong>Electrical Grid Fluctuations</strong>
+          Terminal damage to PCB motherboards or digital motors caused by power grid surges, unstable voltage inputs, or failure to utilize an approved surge protector.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 04 PROTOCOL -->
+    <section class="sc-legal-sec" id="war-protocol">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">04</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Heavy Freight Warranty &amp; Diagnostic Protocol</h2>
+      <div class="sc-legal-sec__text">
+        <p>Because our smart fitness units consist of heavy and oversized equipment weighing between <strong>28kg and 52kg+</strong>, returning products for service incurs critical heavy-logistics overheads. To ensure speed of resolution and protect against unnecessary shipping, we enforce a strict multi-tier technical protocol:</p>
+      </div>
+      <div class="sc-warranty-steps">
+        <div class="sc-warranty-step">
+          <p class="sc-warranty-step__num">Step 1</p>
+          <h3 class="sc-warranty-step__title">Mandatory Remote Diagnostics</h3>
+          <p class="sc-warranty-step__text">Before any hardware return is approved, you must contact our technical support desk via email or text message. You will be required to submit your official <strong>Shopify order number</strong> (e.g., #AU1001), a clear video clip, and high-resolution photos displaying the exact functional defect or the digital error code on the console screen.</p>
+        </div>
+        <div class="sc-warranty-step">
+          <p class="sc-warranty-step__num">Step 2</p>
+          <h3 class="sc-warranty-step__title">Tiered Fault Resolution</h3>
+          <p class="sc-warranty-step__text"><strong>Minor faults:</strong> If the defect is isolated to a modular part (detachable screen, external cable, friction strap), we will express-ship the replacement component free of charge with video installation guides. <strong>Major faults:</strong> If remote diagnostics prove a major structural or motor failure, we will issue a formal RMA and coordinate collection through our authorized heavy-freight networks.</p>
+        </div>
+        <div class="sc-warranty-step">
+          <p class="sc-warranty-step__num">Step 3</p>
+          <h3 class="sc-warranty-step__title">Logistics &amp; Inspection</h3>
+          <p class="sc-warranty-step__text">If our technicians confirm a valid manufacturing fault, <strong>Sensol Fitness absorbs 100% of all round-trip freight fees</strong>, labor, and parts. If no fault is found or the issue is caused by user misuse, the customer is liable for all freight and inspection costs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 LOGISTICS COSTS -->
+    <section class="sc-legal-sec" id="war-logistics">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">05</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Logistics &amp; Inspection Costs Allocation</h2>
+      <div class="sc-legal-sec__text">
+        <div class="sc-legal-callout">
+          <p class="sc-legal-callout__label">Confirmed Manufacturing Fault (Covered under ACL)</p>
+          <p class="sc-legal-callout__text">If our warehouse technicians confirm that the defect is a valid structural or electronic manufacturing issue, <strong>Sensol Fitness will absorb 100% of all round-trip heavy freight fees</strong>, workshop labor costs, and parts replacement fees.</p>
+        </div>
+        <div class="sc-warranty-warning">
+          <p class="sc-warranty-warning__label">No Fault Found / User Misuse Policy</p>
+          <p class="sc-warranty-warning__text">If an oversized unit (28kg&ndash;52kg+) is collected and subsequently inspected, and our technicians determine that the fault was caused by <strong>user abuse, unauthorized modification, improper storage</strong>, or if no mechanical fault is detected, the customer will be legally held liable for the full round-trip heavy-freight expenses. This includes standard heavy freight shipping plus all mandatory hydraulic lift-gate (Tailgate) charges (ranging from <strong>$65 to $206+ AUD</strong> depending on location), alongside a flat <strong>$99 AUD</strong> workshop diagnostic inspection fee.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 SUPPORT -->
+    <section class="sc-legal-sec" id="war-support">
+      <div class="sc-legal-sec__head">
+        <span class="sc-legal-sec__num">06</span>
+        <div class="sc-legal-sec__line"></div>
+      </div>
+      <h2 class="sc-legal-sec__title">Local Support Infrastructure</h2>
+      <div class="sc-legal-sec__text">
+        <p>For all warranty claims, parts requests, or operational troubleshooting, please reach out directly to our dedicated customer care desk via writing. To maintain a clear record of your warranty claim, <strong>we do not accept voice calls</strong>.</p>
+        <ul class="sc-legal-datalist">
+          <li><strong>Email</strong> <a href="mailto:support@sensolfitness.com.au">support@sensolfitness.com.au</a> (or via our website contact form)</li>
+          <li><strong>WhatsApp / SMS</strong> <a href="tel:+61480899797">+61 480 899 797</a> (Text Only)</li>
+        </ul>
+        <div class="sc-legal-note" style="margin-top: 1.5rem;">
+          <strong>Legal Compliance Notice:</strong> The Sensol Fitness commercial website, brand, and warranty provisions are operated and legally indemnified under <strong>DUTE FITNESS (AUSTRALIA) PTY. LTD.</strong>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="sc-legal sc-legal-cta">
+  <div class="sc-legal-cta__inner">
+    <p class="sc-legal-cta__label">Need to File a Claim?</p>
+    <h3 class="sc-legal-cta__title">Warranty support starts here</h3>
+    <p class="sc-legal-cta__text">Contact our technical support desk with your order number and a description of the issue. We'll guide you through the diagnostic process.</p>
+    <div class="sc-legal-cta__contact">
+      <a href="mailto:support@sensolfitness.com.au" class="sc-legal-cta__contact-item">support@sensolfitness.com.au</a>
+      <div class="sc-legal-cta__contact-divider"></div>
+      <a href="tel:+61480899797" class="sc-legal-cta__contact-item">+61 480 899 797</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="sc-legal sc-legal-foot">
+  <div class="sc-legal-foot__inner">
+    <p class="sc-legal-foot__text">Sensol Fitness, trading as DUTE FITNESS (AUSTRALIA) PTY. LTD.<br>Melaan Way, Clyde North VIC 3978, Australia</p>
+    <p class="sc-legal-foot__brand">SENSOL FITNESS</p>
+  </div>
+</footer>
+
+<script>
+  // Active section highlighting in sidebar
+  (function() {
+    var links = document.querySelectorAll('.sc-legal-sidebar__nav a');
+    var sections = [];
+    links.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      var sec = document.getElementById(id);
+      if (sec) sections.push({ link: link, el: sec });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 100;
+      var current = sections[0];
+      sections.forEach(function(s) {
+        if (s.el.offsetTop <= scrollY) current = s;
+      });
+      links.forEach(function(l) { l.classList.remove('is-active'); });
+      if (current) current.link.classList.add('is-active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
