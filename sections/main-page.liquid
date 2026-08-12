@@ -1,5 +1,7 @@
 {%- if page.handle == 'contact' -%}
   {%- section 'sensol-contact' -%}
+{%- elsif page.handle == 'philosophy' -%}
+  {%- render 'sensol-philosophy-page' -%}
 {%- elsif page.handle == 'shipping-policy' or page.handle contains 'shipping' -%}
   {%- section 'sensol-shipping-hero' -%}
   {%- section 'sensol-shipping-domestic' -%}
