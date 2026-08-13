@@ -23,6 +23,8 @@
   {%- render 'sensol-training-system-page' -%}
 {%- elsif page.handle == 'senzine' or page.handle contains 'senzine' -%}
   {%- render 'sensol-senzine-page' -%}
+{%- elsif page.handle == 'engineering' or page.handle contains 'engineering' -%}
+  {%- render 'sensol-engineering-page' -%}
 {%- else -%}
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 

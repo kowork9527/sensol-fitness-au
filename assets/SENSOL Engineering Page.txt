@@ -1,0 +1,211 @@
+SENSOL Engineering Page
+
+Content (Pure Text)
+
+Section 1 — Hero
+
+Engineering.
+
+Not more features. More intention.
+
+Every specification exists for a reason. Nothing is decorative. Nothing is arbitrary.
+
+Section 2 — The Digital Weight System
+
+This is where Sensol began — and where it still lives.
+
+Traditional fitness equipment relies on weights, springs, or pneumatic cylinders. Each has trade-offs: weights are heavy and dangerous, springs lose tension, pneumatic systems drift. None of them give you real precision.
+
+Sensol's digital weight system replaces all of that with a motor-driven resistance engine controlled by intelligent algorithms. Here is what that means in practice:
+
+Up to 120 kg of total resistance — generated electronically, not by stacking plates. The resistance is real. You feel it in your muscles, not in a simulation. But unlike iron, it can be adjusted in 0.5 kg increments with the touch of a button.
+
+Instant load and unload — No racking, no pins, no walking away from a barbell you can't lift. Hit the remote, and the resistance drops to zero. Immediately. Safely. This alone changes the psychology of training. You can push to your actual limit, knowing the machine will catch you.
+
+Three resistance modes — not one-size-fits-all:
+
+Standard Mode mirrors natural strength curves, providing more resistance where you are stronger and less where you are weaker.
+Offcenter Mode deliberately shifts the resistance off-axis, challenging your stabiliser muscles and core control. It forces you to own the movement, not just survive it.
+Constant Mode holds resistance steady throughout the entire range of motion. No strength curve. No coasting. Every millimetre of the rep is work.
+
+The motor operates at under 25 dB — quieter than a library. Train at midnight in an apartment. Your neighbours will never know.
+
+Section 3 — Robotic Arms
+
+Two independently adjustable robotic arms give Sensol its versatility.
+
+Each arm rotates from 0° to 145°, allowing you to target every major muscle group from a single seated or lying position. The arms lock into position with mechanical certainty — no wobble, no drift, no gradual slippage mid-set.
+
+This range of motion is what makes 200+ distinct movements possible. Chest press, row, shoulder press, bicep curl, tricep extension, lateral raise, leg extension — all from the same machine, all without changing a single attachment.
+
+For Pilates reformer work, the arms disconnect to accommodate the reformer carriage system, creating a true dual-function machine: a complete strength training station and a fully functional reformer in one.
+
+Attachments included with every machine:
+
+Tricep Rope
+D-Handle
+Ankle Strap
+Pull-Down Bar
+
+Section 4 — Structural Engineering
+
+A machine that lives in your home has to earn its place — not just functionally, but physically.
+
+Steel frame construction — The chassis is built from heavy-duty steel, powder-coated to resist corrosion and wear. This is not furniture-grade tubing. It is engineered to handle years of daily loading without fatigue.
+
+Zinc alloy joints — Every connection point uses zinc alloy hardware, chosen for its strength-to-weight ratio and resistance to deformation under repeated stress. These are the points that take the most force, and they are built to outlast the frame.
+
+Folded dimensions: 109 cm × 35.6 cm × 46.5 cm — compact enough to store upright in a corner, behind a door, or against a wall.
+
+Unfolded dimensions: 175.5 cm × 100 cm × 46.5 cm — a full training footprint when in use, but never larger than a coffee table when stored.
+
+Net weight: 67.2 kg (148.2 lbs) — heavy enough to stay planted during aggressive training. Light enough to reposition with one person.
+
+Power supply: 100V–240V — plug it into any standard outlet worldwide. No special wiring. No electrician.
+
+Section 5 — The Smart App
+
+Hardware is only half the equation. The Sensol App is the brain.
+
+Real-time resistance control — Adjust weight, switch modes, and manage your entire session from your phone. No remote, no buttons on the machine. Your phone is the control centre.
+
+Guided workout library — 100+ on-demand classes and free training programs, led by professional instructors. Pilates, strength, hybrid sessions, and mobility work. New content added regularly.
+
+AI-driven coaching — The app monitors your training data over time — sets, reps, resistance levels, frequency, and rest periods. It uses this data to provide personalised guidance: when to increase resistance, when to deload, which muscle groups you are neglecting. It is like having a coach who never forgets a session.
+
+Custom course creation — Build your own routines by selecting movements, setting reps and sets, and choosing your preferred gravity mode. Save them for reuse. Build a library of sessions tailored to your goals.
+
+Performance analytics — Every session is logged. Track your total volume, progression curves, and consistency over weeks and months. The data is yours — exportable, understandable, and actually useful.
+
+Bluetooth direct control — Connect your phone to the machine via Bluetooth for instant, lag-free resistance adjustments during your session. No Wi-Fi dependency. No waiting.
+
+OTA firmware updates — The machine improves over time. Firmware updates are delivered wirelessly through the app, adding features and refinements without you ever needing to visit a service centre.
+
+Available on iOS and Android.
+
+Section 6 — Safety Engineering
+
+Safety is not a feature list. It is a design principle.
+
+Instant unload — The digital weight system can drop resistance to zero in under 8 milliseconds. If you lose control mid-rep, one tap on the remote and the weight is gone. No barbell dropping. No spotter needed. No risk of being pinned under a load you cannot lift.
+
+No momentum transfer — Unlike free weights, the digital resistance engine does not store kinetic energy. There is no barbell to drop, no cable to snap, no stack to crash. The resistance exists only when you are actively engaging it.
+
+Low centre of gravity — The 67.2 kg base sits flat on the floor with a wide stance. The machine does not tip, rock, or shift during use, even at maximum resistance with aggressive movement patterns.
+
+Noiseless operation — Under 25 dB at full load. Not just quiet for a fitness machine — quiet by any standard. This protects your hearing, your relationships with housemates and neighbours, and your ability to train at any hour without thinking about it.
+
+Child-safe design — When stored upright, the machine presents no exposed moving parts. The robotic arms retract into the body. The resistance system is inactive when not in use.
+
+Section 7 — Quality Assurance
+
+Every Sensol machine goes through a multi-stage quality process before it ships:
+
+Component testing — Each motor, joint, and electronic component is tested individually before assembly. Motors are run through load cycles. Joints are tested for play and tolerance. Electronics go through burn-in testing.
+
+Assembly verification — After assembly, each unit undergoes a full functional test: every resistance level, every arm position, every mode. If a single function fails, the unit is pulled and reworked — not shipped.
+
+Endurance simulation — Sample units from each production batch are subjected to accelerated lifecycle testing: thousands of load cycles, temperature variations, and repeated folding and unfolding. This data feeds back into the next production run.
+
+Packaging engineering — The machine ships in a purpose-designed protective package (117.5 cm × 45.5 cm × 54 cm, 63 kg gross weight) that has been drop-tested and vibration-tested to survive international shipping without damage.
+
+Section 8 — Closing
+
+Engineering is not about adding features. It is about removing doubt.
+
+Every number has a reason. Every material has a purpose. Every design decision can be traced back to a question that someone refused to leave unanswered.
+
+120 kg resistance. 0.5 kg precision. 8ms response. 25 dB silence. 200+ movements. 0–145° range.
+
+These are not specifications for a spec sheet. They are the result of over ten years of asking: what does the body actually need — and how do we deliver it without compromise?
+
+Make it easy. Do it real.
+
+Media Placement Guide
+
+Section 1 — Hero
+
+[IMAGE: Full-width hero] — Close-up of Sensol's internal mechanism: motor, robotic arm joint, or digital weight display. Dark background, dramatic lighting. Should feel "under the hood" — technical, precise, almost surgical.
+[IMAGE: Mobile hero] — Vertical crop of above
+
+Section 2 — The Digital Weight System
+
+[IMAGE: Digital weight display close-up] — Show the resistance number on the machine's display, with a hand pressing the adjustment button
+[IMAGE or GIF: Three training modes visual] — Diagram or animated graphic showing the three resistance curves: Standard (natural curve), Offcenter (off-axis), Constant (flat line). Could be a simple line chart or motion curve illustration.
+[IMAGE: Side-angle shot] — Person training on Sensol, visible resistance from the motor. Show the machine "working" — tension in the cables, effort in the user's form.
+
+Section 3 — Robotic Arms
+
+[IMAGE: Arms rotating] — Two-panel or GIF showing the robotic arms moving through their 0–145° range. Should convey smooth, mechanical precision.
+[IMAGE: Attachment lineup] — Tricep Rope, D-Handle, Ankle Strap, Pull-Down Bar arranged neatly on a surface. Product photography style.
+[IMAGE: Pilates mode] — Arms disconnected, reformer carriage visible. Show the dual-function nature of the machine.
+
+Section 4 — Structural Engineering
+
+[IMAGE: Dimension diagram] — Technical illustration showing folded vs unfolded dimensions. Clean line drawing, not photography. Should feel like an engineering blueprint.
+[IMAGE: Material close-ups] — Three panels: (1) Steel frame weld / powder coat texture, (2) Zinc alloy joint close-up, (3) Motor housing. Industrial photography style.
+[IMAGE: Folded storage] — Sensol machine stored upright in a real living space. Show how compact it is — next to a bookshelf or behind a door.
+
+Section 5 — The Smart App
+
+[IMAGE: App screenshot carousel] — 3–4 screenshots: resistance control screen, guided workout library, performance analytics dashboard, AI coaching suggestion
+[IMAGE: Phone + machine] — Person holding phone next to Sensol, adjusting resistance via the app. Natural, in-use shot.
+App Store badge: https://apps.apple.com/app/sensol/id6465174283
+Google Play badge: https://play.google.com/store/apps/details?id=com.xfq.sensol
+
+Section 6 — Safety Engineering
+
+[IMAGE: Instant unload demonstration] — Sequential frames or GIF: person mid-rep → taps remote → resistance drops to zero. Should feel reassuring, not dramatic.
+[IMAGE: Machine stability] — Low-angle shot showing the wide, stable base. Emphasise the low centre of gravity and solid stance.
+
+Section 7 — Quality Assurance
+
+[IMAGE: Testing environment] — If available: shot of Sensol machine in a testing rig or quality control station. Industrial, clinical, reassuring.
+[IMAGE: Packaging] — The machine in its purpose-designed shipping box. Clean, professional. Conveys "this arrived safely and will arrive safely at your door too."
+
+Section 8 — Closing
+
+[IMAGE: Full-width] — Sensol machine in a minimalist room, soft light, slightly elevated angle showing the full footprint. Quiet confidence. Should feel like: "this is all you need."
+
+Existing Image Assets (Reusable from CDN)
+
+Banner 1: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_117.jpg?v=1775959482
+Banner 2: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_118_2be82d55-fb87-417e-a4fd-304ed3d0ec2d.png?v=1775960476
+Banner 3: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_114_f05bfe4f-c79b-4d19-967c-4b1d3ec3b206.png?v=1775961860
+Landscape 1: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_110_7043ba29-42c0-48c4-ba89-84d8c41150c3.png?v=1775880215
+Landscape 2: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Frame_113.png?v=1775880818
+Video thumbnail 1: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/4e2228f5ad7c4a2dbe02f8743f00928e.thumbnail.0000000000_1800x.jpg?v=1776130227
+Video thumbnail 2: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/preview_images/47e8b072c750455db911e59239c7f6d5.thumbnail.0000000000_1800x.jpg?v=1776130554
+"Sensol in the world" shot: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Screen_Shot_2026-04-13_at_6.03.02_PM.png?v=1776129533
+App screenshot: https://cdn.shopify.com/s/files/1/0984/9012/2538/files/Screen_Shot_2026-04-14_at_9.18.40_AM.png?v=1776129533
+
+Technical Specifications Reference
+
+For fact-checking and cross-referencing:
+
+表格
+Spec	Smart Series (RS02/PRO/RS03/PRO)	Source
+Max Resistance	120 kg (265 lbs) total	Indiegogo / Amazon
+Increment	0.5 kg / 1 lb	Indiegogo
+Arm Range	0–145°	Indiegogo
+Movements	200+	Indiegogo / Amazon
+Training Modes	Standard, Offcenter, Constant	Indiegogo
+Motor Noise	<25 dB	US site homepage
+Response Time	<8ms	US site homepage
+Net Weight	67.2 kg (148.2 lbs)	Kickstarter FAQ
+Folded Size	109 × 35.6 × 46.5 cm	Alibaba
+Unfolded Size	175.5 × 100 × 46.5 cm	Alibaba
+Package Weight	63 kg	Alibaba
+Package Size	117.5 × 45.5 × 54 cm	Alibaba
+Power Supply	100V–240V	Alibaba
+Materials	Steel + Zinc Alloy	Alibaba
+App Platforms	iOS + Android	App Store / Google Play
+Connectivity	Wi-Fi + Bluetooth	App Store
+
+表格
+Spec	Flex Series (FLEX AIR/FLEX/FLEX PRO)	Source
+Max Resistance	25 kg / 32 kg / 37 kg	AU site product listings
+Resistance Type	Mechanical	AU site product listings
+Note	Detailed specs for FLEX series not publicly available	—
+
+本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成内容标识办法》使用与传播。
