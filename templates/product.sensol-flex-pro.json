@@ -67,7 +67,7 @@
       "settings": {
         "eyebrow": "Product Overview",
         "title": "The pinnacle of the FLEX Series.",
-        "text": "The Sensol FLEX PRO is a premium elastic band reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 120 kg of maximum resistance powered by dual 1500W springs, a 0\u2013145\u00b0 arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
+        "text": "The Sensol FLEX PRO is a premium spring reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 150 kg maximum load powered by German steel wire springs (7.5KG \u00d7 2 / 15KG \u00d7 2), a 0\u2013145\u00b0 arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
       }
     },
     "sp_feature_resistance": {
@@ -113,8 +113,8 @@
         "image_position": "left",
         "eyebrow": "Key Feature 01",
         "title": "150 kg max load Resistance \u2014 The Widest Range in Its Class",
-        "text_1": "The FLEX PRO delivers up to 150 kg max load of servo motor-precise resistance \u2014 the FLEX AIR (120 kg max load). This exceeds the practical maximum of most traditional spring reformers (typically 60\u201375 kg with all springs engaged).",
-        "text_2": "The dual 1500W servo motors provide smooth, consistent tension from spring levels all the way to 150 kg max load, with instant adjustment via the remote control or app. Whether you're performing gentle rehabilitation movements at 2 kg or demanding strength exercises at 100 kg, the FLEX PRO delivers the same precise, controlled resistance."
+        "text_1": "The FLEX PRO delivers up to 150 kg max load of spring-based resistance \u2014 the FLEX AIR (150 kg max load max load). This exceeds the practical maximum of most traditional spring reformers (typically 60\u201375 kg with all springs engaged).",
+        "text_2": "The German steel wire springs provide smooth, consistent tension from spring levels all the way to 150 kg max load, with instant adjustment via the remote control or app. Whether you're performing gentle rehabilitation movements at 2 kg or demanding strength exercises at 100 kg, the FLEX PRO delivers the same precise, controlled resistance."
       }
     },
     "sp_feature_arm": {
@@ -616,7 +616,7 @@
           "type": "qa",
           "settings": {
             "question": "What makes the FLEX PRO different from the FLEX?",
-            "answer": "The FLEX PRO offers three key upgrades: (1) 120 kg maximum resistance vs 90 kg \u2014 a 33% increase; (2) 0\u2013145\u00b0 arm range vs 0\u2013132\u00b0 \u2014 the extra 13\u00b0 unlocks advanced movements and deeper range-of-motion exercises; (3) Dual 1500W springs vs Spring-based \u2014 delivering faster resistance transitions and more consistent tension at high loads. The FLEX PRO is designed for advanced practitioners who need maximum resistance and movement variety."
+            "answer": "The FLEX PRO offers three key upgrades: (1) 150 kg max load vs 90 kg \u2014 a 33% increase; (2) 0\u2013145\u00b0 arm range vs 0\u2013132\u00b0 \u2014 the extra 13\u00b0 unlocks advanced movements and deeper range-of-motion exercises; (3) German steel wire springs vs Spring-based \u2014 delivering faster resistance transitions and more consistent tension at high loads. The FLEX PRO is designed for advanced practitioners who need maximum resistance and movement variety."
           }
         },
         "qa_2": {
@@ -630,14 +630,14 @@
           "type": "qa",
           "settings": {
             "question": "Is 150 kg max load of resistance too much for Pilates?",
-            "answer": "Not at all \u2014 that's the beauty of spring resistance increments. For Pilates movements, you'll typically work in the 5\u201330 kg range, adjusting in spring levels increments to find the exact tension that challenges your form. The 120 kg maximum is there for strength training exercises and for the few Pilates practitioners who can genuinely benefit from high-resistance footwork and leg press sequences. The range gives you options; the precision lets you use exactly what you need."
+            "answer": "Not at all \u2014 that's the beauty of spring resistance increments. For Pilates movements, you'll typically work in the 5\u201330 kg range, adjusting spring tension to find the exact tension that challenges your form. The 150 kg max load is there for strength training exercises and for the few Pilates practitioners who can genuinely benefit from high-resistance footwork and leg press sequences. The range gives you options; the precision lets you use exactly what you need."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
             "question": "How does the FLEX PRO compare to the Your Reformer?",
-            "answer": "The Your Reformer ($2,795) is a spring-based reformer with a wooden frame. The FLEX PRO costs $995 less while offering: 120 kg vs ~75 kg resistance; spring resistance vs spring hooks; 3 training modes vs 1; 0\u2013145\u00b0 adjustable arms vs fixed footbar; dual-function Pilates-plus-strength vs Pilates-only; and near-silent springs vs audible spring noise. The FLEX PRO is more capable, more versatile, and more technologically advanced."
+            "answer": "The Your Reformer ($2,795) is a spring-based reformer with a wooden frame. The FLEX PRO costs $995 less while offering: 150 kg max load vs ~75 kg; spring resistance vs spring hooks; 3 training modes vs 1; 0\u2013145\u00b0 adjustable arms vs fixed footbar; dual-function Pilates-plus-strength vs Pilates-only; and precision springs vs audible spring noise. The FLEX PRO is more capable, more versatile, and more technologically advanced."
           }
         },
         "qa_5": {
