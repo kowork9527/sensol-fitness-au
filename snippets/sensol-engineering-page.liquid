@@ -1,0 +1,814 @@
+{%- comment -%}Sensol Engineering — Technical editorial page{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-eng { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO ═══ */
+  .sc-eng-hero {
+    background: #1A1816;
+    overflow: hidden; position: relative;
+    min-height: 85vh; display: flex; align-items: flex-end;
+  }
+  .sc-eng-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(181,173,164,0.06) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(26,24,22,0.5) 0%, rgba(26,24,22,0.95) 100%);
+  }
+  .sc-eng-hero__grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(181,173,164,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(181,173,164,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: 0;
+  }
+  .sc-eng-hero__inner {
+    position: relative; z-index: 1; width: 100%;
+    max-width: 1200px; margin: 0 auto;
+    padding: 9rem 3rem 5rem;
+  }
+  .sc-eng-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 2.5rem;
+  }
+  .sc-eng-hero__breadcrumb span { color: rgba(247,244,240,0.4); }
+  .sc-eng-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,206,198,0.3); }
+  .sc-eng-hero__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-hero__title {
+    font-size: clamp(44px, 8vw, 96px); font-weight: 200;
+    letter-spacing: 0.02em; line-height: 1; color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-hero__sub {
+    font-size: clamp(16px, 1.6vw, 22px); font-weight: 300;
+    line-height: 1.6; color: rgba(247,244,240,0.55);
+    max-width: 620px; margin-bottom: 3rem;
+  }
+  .sc-eng-hero__specs {
+    display: flex; align-items: stretch; gap: 0;
+    border-top: 1px solid rgba(212,206,198,0.15);
+    padding-top: 2rem;
+  }
+  .sc-eng-hero__spec {
+    flex: 1; padding-right: 2rem;
+  }
+  .sc-eng-hero__spec:not(:last-child) {
+    border-right: 1px solid rgba(212,206,198,0.12);
+    margin-right: 2rem;
+  }
+  .sc-eng-hero__spec-num {
+    font-size: clamp(20px, 2.2vw, 28px); font-weight: 200;
+    letter-spacing: 0.02em; color: #F7F4F0;
+    display: block; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .sc-eng-hero__spec-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ SECTION COMMON ═══ */
+  .sc-eng-sec { background: #F7F4F0; overflow: hidden; }
+  .sc-eng-sec--alt { background: #EDEAE5; }
+  .sc-eng-sec--dark { background: #1A1816; }
+  .sc-eng-sec__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-eng-sec__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-eng-sec__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4;
+  }
+  .sc-eng-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-eng-sec--dark .sc-eng-sec__line { background: rgba(212,206,198,0.2); }
+  .sc-eng-sec__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.03em; line-height: 1.12; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-sec--dark .sc-eng-sec__title { color: #F7F4F0; }
+  .sc-eng-sec__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: #4A4640; max-width: 720px;
+  }
+  .sc-eng-sec--dark .sc-eng-sec__lead { color: rgba(247,244,240,0.55); }
+
+  /* ═══ Feature list ═══ */
+  .sc-eng-features {
+    margin-top: 3rem;
+    border-top: 1px solid #D4CEC6;
+  }
+  .sc-eng-sec--dark .sc-eng-features { border-color: rgba(212,206,198,0.15); }
+  .sc-eng-feature {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 2rem; padding: 2rem 0;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-eng-sec--dark .sc-eng-feature { border-color: rgba(212,206,198,0.12); }
+  .sc-eng-feature__label {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+    color: #1A1816;
+  }
+  .sc-eng-sec--dark .sc-eng-feature__label { color: #F7F4F0; }
+  .sc-eng-feature__body {
+    font-size: 14px; font-weight: 300; line-height: 1.8;
+    color: #8A8279;
+  }
+  .sc-eng-sec--dark .sc-eng-feature__body { color: rgba(247,244,240,0.55); }
+  .sc-eng-feature__body strong {
+    font-weight: 500; color: #1A1816;
+  }
+  .sc-eng-sec--dark .sc-eng-feature__body strong { color: #F7F4F0; }
+
+  /* ═══ Mode cards (dark) ═══ */
+  .sc-eng-modes {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: rgba(212,206,198,0.15);
+    border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 12px; overflow: hidden;
+    margin-top: 3rem;
+  }
+  .sc-eng-mode {
+    background: #1A1816; padding: 2.5rem 2rem;
+  }
+  .sc-eng-mode__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    color: #B5ADA4; margin-bottom: 1rem;
+  }
+  .sc-eng-mode__name {
+    font-size: 18px; font-weight: 400; letter-spacing: 0.02em;
+    color: #F7F4F0; margin-bottom: 1rem;
+  }
+  .sc-eng-mode__text {
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-eng-mode__curve {
+    margin-top: 1.5rem; height: 40px;
+    display: flex; align-items: flex-end; gap: 3px;
+  }
+  .sc-eng-mode__bar {
+    flex: 1; background: rgba(181,173,164,0.3);
+    border-radius: 1px;
+  }
+
+  /* ═══ Split layout ═══ */
+  .sc-eng-split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+    margin-top: 3rem;
+  }
+  .sc-eng-split__col-title {
+    font-size: 14px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-split__list { list-style: none; padding: 0; margin: 0; }
+  .sc-eng-split__item {
+    display: flex; align-items: baseline; gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(212,206,198,0.12);
+    font-size: 14px; font-weight: 300; line-height: 1.6;
+    color: rgba(247,244,240,0.6);
+  }
+  .sc-eng-split__item::before {
+    content: ''; flex-shrink: 0;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #B5ADA4;
+  }
+
+  /* ═══ Blueprint spec table ═══ */
+  .sc-eng-blueprint {
+    margin-top: 3rem;
+    border: 1px solid #D4CEC6; border-radius: 12px;
+    overflow: hidden;
+  }
+  .sc-eng-sec--dark .sc-eng-blueprint { border-color: rgba(212,206,198,0.15); }
+  .sc-eng-bp-row {
+    display: grid; grid-template-columns: 200px 1fr 1fr;
+    gap: 0; padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid #D4CEC6;
+    align-items: center;
+  }
+  .sc-eng-sec--dark .sc-eng-bp-row { border-color: rgba(212,206,198,0.12); }
+  .sc-eng-bp-row:last-child { border-bottom: none; }
+  .sc-eng-bp-row--head {
+    background: #EDEAE5;
+  }
+  .sc-eng-sec--dark .sc-eng-bp-row--head { background: rgba(212,206,198,0.08); }
+  .sc-eng-bp-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #8A8279;
+  }
+  .sc-eng-bp-value {
+    font-size: 14px; font-weight: 400; color: #1A1816;
+  }
+  .sc-eng-sec--dark .sc-eng-bp-value { color: #F7F4F0; }
+  .sc-eng-bp-row--head .sc-eng-bp-value {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #8A8279;
+  }
+
+  /* ═══ Material cards ═══ */
+  .sc-eng-materials {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .sc-eng-material {
+    border: 1px solid #D4CEC6; border-radius: 12px;
+    padding: 2rem; background: #F7F4F0;
+  }
+  .sc-eng-material__icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: #EDEAE5; margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 300; color: #8A8279;
+  }
+  .sc-eng-material__name {
+    font-size: 15px; font-weight: 500; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 0.75rem;
+  }
+  .sc-eng-material__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: #8A8279;
+  }
+
+  /* ═══ App feature grid ═══ */
+  .sc-eng-app-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border-top: 1px solid #D4CEC6;
+    margin-top: 3rem;
+  }
+  .sc-eng-app-item {
+    padding: 2rem 2rem 2rem 0;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-eng-app-item:nth-child(2n) { padding-left: 2rem; padding-right: 0; border-left: 1px solid #D4CEC6; }
+  .sc-eng-app-item__name {
+    font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 0.75rem;
+  }
+  .sc-eng-app-item__text {
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: #8A8279;
+  }
+
+  /* ═══ Safety cards ═══ */
+  .sc-eng-safety {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: rgba(212,206,198,0.15);
+    border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 12px; overflow: hidden;
+    margin-top: 3rem;
+  }
+  .sc-eng-safety-item {
+    background: #1A1816; padding: 2.5rem 2rem;
+  }
+  .sc-eng-safety-item__num {
+    font-size: 28px; font-weight: 200; letter-spacing: 0.02em;
+    color: #F7F4F0; display: block; line-height: 1; margin-bottom: 1rem;
+  }
+  .sc-eng-safety-item__name {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-eng-safety-item__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+
+  /* ═══ QA steps ═══ */
+  .sc-eng-qa-steps {
+    margin-top: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .sc-eng-qa-step {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid #D4CEC6;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-eng-qa-step:nth-child(2n) { border-right: none; }
+  .sc-eng-qa-step:nth-last-child(-n+2) { border-bottom: none; }
+  .sc-eng-qa-step__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    color: #B5ADA4; display: block; margin-bottom: 1rem;
+  }
+  .sc-eng-qa-step__name {
+    font-size: 16px; font-weight: 400; letter-spacing: 0.02em;
+    color: #1A1816; margin-bottom: 0.75rem;
+  }
+  .sc-eng-qa-step__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: #8A8279;
+  }
+
+  /* ═══ Closing stats ═══ */
+  .sc-eng-closing-stats {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0; margin: 3rem 0;
+  }
+  .sc-eng-closing-stat {
+    text-align: center; padding: 0 2rem;
+    border-right: 1px solid rgba(212,206,198,0.2);
+  }
+  .sc-eng-closing-stat:last-child { border-right: none; }
+  .sc-eng-closing-stat__num {
+    font-size: clamp(24px, 3vw, 36px); font-weight: 200;
+    letter-spacing: 0.02em; color: #F7F4F0;
+    display: block; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .sc-eng-closing-stat__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #B5ADA4;
+  }
+
+  /* ═══ CTA ═══ */
+  .sc-eng-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .sc-eng-cta__inner { max-width: 700px; margin: 0 auto; }
+  .sc-eng-cta__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-cta__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 200;
+    letter-spacing: 0.03em; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-eng-cta__text {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #8A8279; margin-bottom: 2.5rem;
+  }
+  .sc-eng-cta__btn {
+    display: inline-block; padding: 1rem 2.5rem;
+    background: #1A1816; color: #F7F4F0;
+    font-size: 14px; font-weight: 400; letter-spacing: 0.1em;
+    text-decoration: none; border-radius: 100px;
+    transition: opacity 0.2s ease;
+  }
+  .sc-eng-cta__btn:hover { opacity: 0.85; }
+
+  /* ═══ FOOTER ═══ */
+  .sc-eng-foot {
+    background: #1A1816;
+    padding: 2.5rem 3rem;
+  }
+  .sc-eng-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-eng-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-eng-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-eng-modes { grid-template-columns: 1fr; }
+    .sc-eng-materials { grid-template-columns: 1fr 1fr; }
+    .sc-eng-app-grid { grid-template-columns: 1fr; }
+    .sc-eng-app-item:nth-child(2n) { padding-left: 0; border-left: none; }
+    .sc-eng-bp-row { grid-template-columns: 160px 1fr; }
+    .sc-eng-bp-row .sc-eng-bp-value:last-child { display: none; }
+  }
+  @media (max-width: 749px) {
+    .sc-eng-hero__inner { padding: 6rem 1.5rem 4rem; }
+    .sc-eng-hero__specs { flex-direction: column; gap: 1.5rem; }
+    .sc-eng-hero__spec { border-right: none !important; margin-right: 0 !important; padding-right: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212,206,198,0.12); }
+    .sc-eng-hero__spec:last-child { border-bottom: none; padding-bottom: 0; }
+    .sc-eng-sec__inner { padding: 4rem 1.5rem; }
+    .sc-eng-feature { grid-template-columns: 1fr; gap: 0.5rem; }
+    .sc-eng-split { grid-template-columns: 1fr; gap: 2rem; }
+    .sc-eng-materials { grid-template-columns: 1fr; }
+    .sc-eng-safety { grid-template-columns: 1fr; }
+    .sc-eng-qa-steps { grid-template-columns: 1fr; }
+    .sc-eng-qa-step { border-right: none; }
+    .sc-eng-qa-step:nth-last-child(2) { border-bottom: 1px solid #D4CEC6; }
+    .sc-eng-closing-stats { flex-direction: column; gap: 1.5rem; }
+    .sc-eng-closing-stat { border-right: none; border-bottom: 1px solid rgba(212,206,198,0.2); padding-bottom: 1.5rem; }
+    .sc-eng-closing-stat:last-child { border-bottom: none; }
+    .sc-eng-cta { padding: 4rem 1.5rem; }
+    .sc-eng-foot { padding: 2rem 1.5rem; }
+    .sc-eng-foot__inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-eng sc-eng-hero">
+  <div class="sc-eng-hero__grid"></div>
+  <div class="sc-eng-hero__inner">
+    <div class="sc-eng-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-eng-hero__breadcrumb-dot"></span>
+      <span>Engineering</span>
+    </div>
+    <div class="sc-eng-hero__label">Technical Documentation</div>
+    <h1 class="sc-eng-hero__title">Engineering.</h1>
+    <p class="sc-eng-hero__sub">Not more features. More intention. Every specification exists for a reason. Nothing is decorative. Nothing is arbitrary.</p>
+    <div class="sc-eng-hero__specs">
+      <div class="sc-eng-hero__spec">
+        <span class="sc-eng-hero__spec-num">500W</span>
+        <span class="sc-eng-hero__spec-label">Servo Motor</span>
+      </div>
+      <div class="sc-eng-hero__spec">
+        <span class="sc-eng-hero__spec-num">45 kg</span>
+        <span class="sc-eng-hero__spec-label">Digital Resistance</span>
+      </div>
+      <div class="sc-eng-hero__spec">
+        <span class="sc-eng-hero__spec-num">1 kg</span>
+        <span class="sc-eng-hero__spec-label">Precision</span>
+      </div>
+      <div class="sc-eng-hero__spec">
+        <span class="sc-eng-hero__spec-num">&lt;8 ms</span>
+        <span class="sc-eng-hero__spec-label">Response Time</span>
+      </div>
+      <div class="sc-eng-hero__spec">
+        <span class="sc-eng-hero__spec-num">&lt;25 dB</span>
+        <span class="sc-eng-hero__spec-label">Operating Noise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 2 — DIGITAL WEIGHT SYSTEM ═══════ -->
+<section class="sc-eng sc-eng-sec">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">01</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">The Digital Weight System</h2>
+    <p class="sc-eng-sec__lead">This is where Sensol began &mdash; and where it still lives. Traditional fitness equipment relies on weights, springs, or pneumatic cylinders. Each has trade-offs: weights are heavy and dangerous, springs lose tension, pneumatic systems drift. None of them give you real precision. Sensol's digital weight system replaces all of that with a motor-driven resistance engine controlled by intelligent algorithms.</p>
+
+    <div class="sc-eng-features">
+      <div class="sc-eng-feature">
+        <div class="sc-eng-feature__label">Resistance</div>
+        <div class="sc-eng-feature__body"><strong>Up to 45 kg of digital resistance</strong> &mdash; generated electronically by a 500W servo motor, not by stacking plates. The resistance is real. You feel it in your muscles, not in a simulation. Adjustable in <strong>1 kg increments</strong> with the touch of a button.</div>
+      </div>
+      <div class="sc-eng-feature">
+        <div class="sc-eng-feature__label">Instant Load / Unload</div>
+        <div class="sc-eng-feature__body">No racking, no pins, no walking away from a barbell you can't lift. Hit the remote, and the resistance drops to zero. Immediately. Safely. <strong>This alone changes the psychology of training.</strong> You can push to your actual limit, knowing the machine will catch you.</div>
+      </div>
+      <div class="sc-eng-feature">
+        <div class="sc-eng-feature__label">Acoustic</div>
+        <div class="sc-eng-feature__body">The motor operates at <strong>under 25 dB</strong> &mdash; quieter than a library. Train at midnight in an apartment. Your neighbours will never know.</div>
+      </div>
+    </div>
+
+    <div class="sc-eng-modes">
+      <div class="sc-eng-mode">
+        <div class="sc-eng-mode__num">Mode 01</div>
+        <div class="sc-eng-mode__name">Standard</div>
+        <p class="sc-eng-mode__text">Mirrors natural strength curves, providing more resistance where you are stronger and less where you are weaker.</p>
+        <div class="sc-eng-mode__curve">
+          <div class="sc-eng-mode__bar" style="height:30%"></div>
+          <div class="sc-eng-mode__bar" style="height:55%"></div>
+          <div class="sc-eng-mode__bar" style="height:80%"></div>
+          <div class="sc-eng-mode__bar" style="height:95%"></div>
+          <div class="sc-eng-mode__bar" style="height:75%"></div>
+          <div class="sc-eng-mode__bar" style="height:50%"></div>
+          <div class="sc-eng-mode__bar" style="height:25%"></div>
+        </div>
+      </div>
+      <div class="sc-eng-mode">
+        <div class="sc-eng-mode__num">Mode 02</div>
+        <div class="sc-eng-mode__name">Off-centre</div>
+        <p class="sc-eng-mode__text">Deliberately shifts the resistance off-axis, challenging your stabiliser muscles and core control. Forces you to own the movement, not just survive it.</p>
+        <div class="sc-eng-mode__curve">
+          <div class="sc-eng-mode__bar" style="height:60%"></div>
+          <div class="sc-eng-mode__bar" style="height:35%"></div>
+          <div class="sc-eng-mode__bar" style="height:85%"></div>
+          <div class="sc-eng-mode__bar" style="height:45%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:30%"></div>
+          <div class="sc-eng-mode__bar" style="height:55%"></div>
+        </div>
+      </div>
+      <div class="sc-eng-mode">
+        <div class="sc-eng-mode__num">Mode 03</div>
+        <div class="sc-eng-mode__name">Constant</div>
+        <p class="sc-eng-mode__text">Holds resistance steady throughout the entire range of motion. No strength curve. No coasting. Every millimetre of the rep is work.</p>
+        <div class="sc-eng-mode__curve">
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+          <div class="sc-eng-mode__bar" style="height:70%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 3 — ROBOTIC ARMS ═══════ -->
+<section class="sc-eng sc-eng-sec sc-eng-sec--alt">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">02</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">Robotic Arms</h2>
+    <p class="sc-eng-sec__lead">Two independently adjustable robotic arms give Sensol its versatility. Each arm rotates from 0&deg; to 145&deg;, allowing you to target every major muscle group from a single seated or lying position. The arms lock into position with mechanical certainty &mdash; no wobble, no drift, no gradual slippage mid-set. This range of motion is what makes 200+ distinct movements possible.</p>
+
+    <div class="sc-eng-split" style="grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;">
+      <div>
+        <div class="sc-eng-split__col-title" style="color: #B5ADA4;">Movement Capability</div>
+        <ul class="sc-eng-split__list" style="--gap: 0;">
+          <li class="sc-eng-feature__body" style="color: #4A4640; padding: 0.6rem 0; border-bottom: 1px solid #D4CEC6; font-size: 14px; font-weight: 300; line-height: 1.7;">Chest press, row, shoulder press, bicep curl, tricep extension, lateral raise, leg extension &mdash; all from the same machine, all without changing a single attachment.</li>
+        </ul>
+        <div class="sc-eng-split__col-title" style="color: #B5ADA4; margin-top: 2rem;">Dual-Function Design</div>
+        <p class="sc-eng-feature__body" style="color: #4A4640; font-size: 14px; font-weight: 300; line-height: 1.8;">For Pilates reformer work, the arms disconnect to accommodate the reformer carriage system, creating a true dual-function machine: a complete strength training station and a fully functional reformer in one.</p>
+      </div>
+      <div>
+        <div class="sc-eng-split__col-title" style="color: #B5ADA4;">Attachments Included</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #D4CEC6;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: #B5ADA4; min-width: 32px;">01</span>
+            <span style="font-size: 14px; font-weight: 400; color: #1A1816;">Tricep Rope</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #D4CEC6;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: #B5ADA4; min-width: 32px;">02</span>
+            <span style="font-size: 14px; font-weight: 400; color: #1A1816;">D-Handle</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #D4CEC6;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: #B5ADA4; min-width: 32px;">03</span>
+            <span style="font-size: 14px; font-weight: 400; color: #1A1816;">Ankle Strap</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: #B5ADA4; min-width: 32px;">04</span>
+            <span style="font-size: 14px; font-weight: 400; color: #1A1816;">Pull-Down Bar</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 4 — STRUCTURAL ENGINEERING ═══════ -->
+<section class="sc-eng sc-eng-sec sc-eng-sec--dark">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">03</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">Structural Engineering</h2>
+    <p class="sc-eng-sec__lead">A machine that lives in your home has to earn its place &mdash; not just functionally, but physically.</p>
+
+    <div class="sc-eng-materials" style="grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 3rem;">
+      <div class="sc-eng-material" style="background: #1A1816; border-color: rgba(212,206,198,0.15);">
+        <div class="sc-eng-material__icon" style="background: rgba(212,206,198,0.08); color: #B5ADA4;">Fe</div>
+        <div class="sc-eng-material__name" style="color: #F7F4F0;">Steel Frame</div>
+        <p class="sc-eng-material__text" style="color: rgba(247,244,240,0.5);">Heavy-duty steel, powder-coated to resist corrosion and wear. Not furniture-grade tubing &mdash; engineered to handle years of daily loading without fatigue.</p>
+      </div>
+      <div class="sc-eng-material" style="background: #1A1816; border-color: rgba(212,206,198,0.15);">
+        <div class="sc-eng-material__icon" style="background: rgba(212,206,198,0.08); color: #B5ADA4;">Zn</div>
+        <div class="sc-eng-material__name" style="color: #F7F4F0;">Zinc Alloy Joints</div>
+        <p class="sc-eng-material__text" style="color: rgba(247,244,240,0.5);">Every connection point uses zinc alloy hardware, chosen for its strength-to-weight ratio and resistance to deformation under repeated stress. Built to outlast the frame.</p>
+      </div>
+      <div class="sc-eng-material" style="background: #1A1816; border-color: rgba(212,206,198,0.15);">
+        <div class="sc-eng-material__icon" style="background: rgba(212,206,198,0.08); color: #B5ADA4;">W</div>
+        <div class="sc-eng-material__name" style="color: #F7F4F0;">500W Servo Motor</div>
+        <p class="sc-eng-material__text" style="color: rgba(247,244,240,0.5);">A digitally controlled servo motor delivering up to 45 kg of resistance with 1 kg precision. Brushless design for years of maintenance-free operation.</p>
+      </div>
+    </div>
+
+    <div class="sc-eng-blueprint" style="margin-top: 3rem; border-color: rgba(212,206,198,0.15);">
+      <div class="sc-eng-bp-row sc-eng-bp-row--head">
+        <div class="sc-eng-bp-label">Specification</div>
+        <div class="sc-eng-bp-value">RS03 / RS03 PRO</div>
+        <div class="sc-eng-bp-value">FLEX AIR / FLEX PRO</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Resistance Type</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">500W digital servo motor</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">Steel wire springs</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Max Resistance</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">45 kg (1 kg increments)</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">7.5KG &times; 2 / 15KG &times; 2</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Max User Weight</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">150 kg</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">120 &ndash; 150 kg</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Arm Range</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">0&deg;&ndash;145&deg; (8 positions)</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">0&deg;&ndash;145&deg; (8 positions)</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Power Supply</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">220V / 50Hz</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">None (mechanical)</div>
+      </div>
+      <div class="sc-eng-bp-row">
+        <div class="sc-eng-bp-label">Materials</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">Steel + Zinc Alloy</div>
+        <div class="sc-eng-bp-value" style="color: #F7F4F0;">Steel + Zinc Alloy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 5 — THE SMART APP ═══════ -->
+<section class="sc-eng sc-eng-sec">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">04</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">The Smart App</h2>
+    <p class="sc-eng-sec__lead">Hardware is only half the equation. The Sensol App is the brain.</p>
+
+    <div class="sc-eng-app-grid">
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">Real-time Resistance Control</div>
+        <p class="sc-eng-app-item__text">Adjust weight, switch modes, and manage your entire session from your phone. No remote, no buttons on the machine. Your phone is the control centre.</p>
+      </div>
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">Guided Workout Library</div>
+        <p class="sc-eng-app-item__text">300+ on-demand classes and free training programs, led by professional instructors. Pilates, strength, hybrid sessions, and mobility work. New content added regularly.</p>
+      </div>
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">AI-driven Coaching</div>
+        <p class="sc-eng-app-item__text">The app monitors your training data over time &mdash; sets, reps, resistance levels, frequency, and rest periods. It provides personalised guidance: when to increase resistance, when to deload, which muscle groups you are neglecting.</p>
+      </div>
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">Custom Course Creation</div>
+        <p class="sc-eng-app-item__text">Build your own routines by selecting movements, setting reps and sets, and choosing your preferred gravity mode. Save them for reuse. Build a library of sessions tailored to your goals.</p>
+      </div>
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">Performance Analytics</div>
+        <p class="sc-eng-app-item__text">Every session is logged. Track your total volume, progression curves, and consistency over weeks and months. The data is yours &mdash; exportable, understandable, and actually useful.</p>
+      </div>
+      <div class="sc-eng-app-item">
+        <div class="sc-eng-app-item__name">Bluetooth Direct Control + OTA</div>
+        <p class="sc-eng-app-item__text">Connect via Bluetooth for instant, lag-free resistance adjustments. No Wi-Fi dependency. Firmware updates delivered wirelessly &mdash; the machine improves over time. Available on iOS and Android.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 6 — SAFETY ENGINEERING ═══════ -->
+<section class="sc-eng sc-eng-sec sc-eng-sec--dark">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">05</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">Safety Engineering</h2>
+    <p class="sc-eng-sec__lead">Safety is not a feature list. It is a design principle.</p>
+
+    <div class="sc-eng-safety">
+      <div class="sc-eng-safety-item">
+        <span class="sc-eng-safety-item__num">&lt;8 ms</span>
+        <div class="sc-eng-safety-item__name">Instant Unload</div>
+        <p class="sc-eng-safety-item__text">The digital weight system can drop resistance to zero in under 8 milliseconds. If you lose control mid-rep, one tap on the remote and the weight is gone. No barbell dropping. No spotter needed.</p>
+      </div>
+      <div class="sc-eng-safety-item">
+        <span class="sc-eng-safety-item__num">0 J</span>
+        <div class="sc-eng-safety-item__name">No Momentum Transfer</div>
+        <p class="sc-eng-safety-item__text">Unlike free weights, the digital resistance engine does not store kinetic energy. There is no barbell to drop, no cable to snap, no stack to crash. The resistance exists only when you are actively engaging it.</p>
+      </div>
+      <div class="sc-eng-safety-item">
+        <span class="sc-eng-safety-item__num">67 kg</span>
+        <div class="sc-eng-safety-item__name">Low Centre of Gravity</div>
+        <p class="sc-eng-safety-item__text">The base sits flat on the floor with a wide stance. The machine does not tip, rock, or shift during use, even at maximum resistance with aggressive movement patterns.</p>
+      </div>
+      <div class="sc-eng-safety-item">
+        <span class="sc-eng-safety-item__num">&lt;25 dB</span>
+        <div class="sc-eng-safety-item__name">Noiseless Operation</div>
+        <p class="sc-eng-safety-item__text">Under 25 dB at full load. Not just quiet for a fitness machine &mdash; quiet by any standard. Protects your hearing, your relationships with housemates and neighbours, and your ability to train at any hour.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(212,206,198,0.12);">
+      <div class="sc-eng-safety-item__name" style="margin-bottom: 1rem;">Child-Safe Design</div>
+      <p class="sc-eng-safety-item__text" style="max-width: 720px;">When stored upright, the machine presents no exposed moving parts. The robotic arms retract into the body. The resistance system is inactive when not in use.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 7 — QUALITY ASSURANCE ═══════ -->
+<section class="sc-eng sc-eng-sec sc-eng-sec--alt">
+  <div class="sc-eng-sec__inner">
+    <div class="sc-eng-sec__header">
+      <span class="sc-eng-sec__num">06</span>
+      <span class="sc-eng-sec__line"></span>
+    </div>
+    <h2 class="sc-eng-sec__title">Quality Assurance</h2>
+    <p class="sc-eng-sec__lead">Every Sensol machine goes through a multi-stage quality process before it ships.</p>
+
+    <div class="sc-eng-qa-steps">
+      <div class="sc-eng-qa-step">
+        <span class="sc-eng-qa-step__num">Stage 01</span>
+        <div class="sc-eng-qa-step__name">Component Testing</div>
+        <p class="sc-eng-qa-step__text">Each motor, joint, and electronic component is tested individually before assembly. Motors are run through load cycles. Joints are tested for play and tolerance. Electronics go through burn-in testing.</p>
+      </div>
+      <div class="sc-eng-qa-step">
+        <span class="sc-eng-qa-step__num">Stage 02</span>
+        <div class="sc-eng-qa-step__name">Assembly Verification</div>
+        <p class="sc-eng-qa-step__text">After assembly, each unit undergoes a full functional test: every resistance level, every arm position, every mode. If a single function fails, the unit is pulled and reworked &mdash; not shipped.</p>
+      </div>
+      <div class="sc-eng-qa-step">
+        <span class="sc-eng-qa-step__num">Stage 03</span>
+        <div class="sc-eng-qa-step__name">Endurance Simulation</div>
+        <p class="sc-eng-qa-step__text">Sample units from each production batch are subjected to accelerated lifecycle testing: thousands of load cycles, temperature variations, and repeated folding and unfolding. This data feeds back into the next production run.</p>
+      </div>
+      <div class="sc-eng-qa-step">
+        <span class="sc-eng-qa-step__num">Stage 04</span>
+        <div class="sc-eng-qa-step__name">Packaging Engineering</div>
+        <p class="sc-eng-qa-step__text">The machine ships in a purpose-designed protective package that has been drop-tested and vibration-tested to survive international shipping without damage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 8 — CLOSING ═══════ -->
+<section class="sc-eng sc-eng-sec sc-eng-sec--dark">
+  <div class="sc-eng-sec__inner" style="text-align: center; max-width: 860px;">
+    <div class="sc-eng-sec__header" style="justify-content: center;">
+      <span class="sc-eng-sec__num">07</span>
+    </div>
+    <h2 class="sc-eng-sec__title" style="font-size: clamp(24px, 3vw, 40px);">Engineering is not about adding features.<br>It is about removing doubt.</h2>
+    <p class="sc-eng-sec__lead" style="max-width: 680px; margin: 0 auto;">Every number has a reason. Every material has a purpose. Every design decision can be traced back to a question that someone refused to leave unanswered.</p>
+
+    <div class="sc-eng-closing-stats">
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">45 kg</span>
+        <span class="sc-eng-closing-stat__label">Resistance</span>
+      </div>
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">1 kg</span>
+        <span class="sc-eng-closing-stat__label">Precision</span>
+      </div>
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">8 ms</span>
+        <span class="sc-eng-closing-stat__label">Response</span>
+      </div>
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">25 dB</span>
+        <span class="sc-eng-closing-stat__label">Silence</span>
+      </div>
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">200+</span>
+        <span class="sc-eng-closing-stat__label">Movements</span>
+      </div>
+      <div class="sc-eng-closing-stat">
+        <span class="sc-eng-closing-stat__num">145&deg;</span>
+        <span class="sc-eng-closing-stat__label">Range</span>
+      </div>
+    </div>
+
+    <p class="sc-eng-sec__lead" style="max-width: 680px; margin: 2rem auto 0; font-size: 18px; font-weight: 200; line-height: 1.6; color: rgba(247,244,240,0.8);">These are not specifications for a spec sheet. They are the result of over ten years of asking: what does the body actually need &mdash; and how do we deliver it without compromise?</p>
+    <p style="font-size: 15px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #B5ADA4; margin-top: 2rem;">Make it easy. Do it real.</p>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="sc-eng sc-eng-cta">
+  <div class="sc-eng-cta__inner">
+    <div class="sc-eng-cta__label">Experience the Engineering</div>
+    <h2 class="sc-eng-cta__title">See it for yourself.</h2>
+    <p class="sc-eng-cta__text">Every specification. Every material. Every decision. Built into a machine that earns its place in your home.</p>
+    <a href="/collections/all" class="sc-eng-cta__btn">Explore Products</a>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<section class="sc-eng sc-eng-foot">
+  <div class="sc-eng-foot__inner">
+    <div class="sc-eng-foot__text">Sensol Fitness &mdash; Engineering Documentation</div>
+    <div class="sc-eng-foot__brand">SENSOL</div>
+  </div>
+</section>
