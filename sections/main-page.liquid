@@ -21,6 +21,8 @@
   {%- render 'sensol-warranty-page' -%}
 {%- elsif page.handle == 'training-system' or page.handle contains 'training' or page.handle == 'app' -%}
   {%- render 'sensol-training-system-page' -%}
+{%- elsif page.handle == 'senzine' or page.handle contains 'senzine' -%}
+  {%- render 'sensol-senzine-page' -%}
 {%- else -%}
   {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 

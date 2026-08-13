@@ -1,0 +1,524 @@
+{%- comment -%}Sensol Senzine — Editorial magazine page{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-sz { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1816; }
+
+  /* ═══ HERO (dark, editorial magazine cover) ═══ */
+  .sc-sz-hero {
+    background: #1A1816;
+    overflow: hidden; position: relative;
+    min-height: 85vh; display: flex; align-items: flex-end;
+  }
+  .sc-sz-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(181,173,164,0.06) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(26,24,22,0.5) 0%, rgba(26,24,22,0.95) 100%);
+  }
+  .sc-sz-hero__inner {
+    position: relative; z-index: 1; width: 100%;
+    max-width: 1200px; margin: 0 auto;
+    padding: 9rem 3rem 5rem;
+  }
+  .sc-sz-hero__breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 3rem;
+  }
+  .sc-sz-hero__breadcrumb span { color: rgba(247,244,240,0.4); }
+  .sc-sz-hero__breadcrumb-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,206,198,0.3); }
+  .sc-sz-hero__issue {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .sc-sz-hero__issue-num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    padding: 0.4rem 1rem; border: 1px solid rgba(212,206,198,0.25);
+    border-radius: 100px;
+  }
+  .sc-sz-hero__issue-date {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(247,244,240,0.4);
+  }
+  .sc-sz-hero__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1.5rem;
+  }
+  .sc-sz-hero__title {
+    font-size: clamp(60px, 12vw, 160px); font-weight: 200;
+    letter-spacing: 0.12em; line-height: 0.95; color: #F7F4F0;
+    margin-bottom: 1.5rem; text-transform: uppercase;
+  }
+  .sc-sz-hero__sub {
+    font-size: clamp(16px, 1.8vw, 22px); font-weight: 300;
+    line-height: 1.6; color: rgba(247,244,240,0.55);
+    max-width: 520px; font-style: italic;
+  }
+  .sc-sz-hero__meta {
+    display: flex; align-items: center; gap: 2rem;
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(212,206,198,0.15);
+  }
+  .sc-sz-hero__meta-item {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(247,244,240,0.4);
+  }
+  .sc-sz-hero__meta-item span { color: #B5ADA4; display: block; margin-bottom: 0.3rem; font-size: 9px; }
+
+  /* ═══ SECTION (light) ═══ */
+  .sc-sz-sec {
+    background: #F7F4F0; overflow: hidden;
+  }
+  .sc-sz-sec--alt { background: #EDEAE5; }
+  .sc-sz-sec__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-sz-sec__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-sz-sec__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4; text-transform: uppercase;
+  }
+  .sc-sz-sec__line { flex: 1; height: 1px; background: #D4CEC6; }
+  .sc-sz-sec__kicker {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1rem;
+  }
+  .sc-sz-sec__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #1A1816;
+    margin-bottom: 2rem;
+  }
+  .sc-sz-sec__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: #4A4640; max-width: 680px;
+  }
+  .sc-sz-sec__body {
+    font-size: 15px; font-weight: 300; line-height: 1.9;
+    color: #4A4640; max-width: 680px;
+  }
+  .sc-sz-sec__body p { margin-bottom: 1.25rem; }
+  .sc-sz-sec__body strong { color: #1A1816; font-weight: 500; }
+
+  /* ═══ DARK SECTION ═══ */
+  .sc-sz-dark {
+    background: #1A1816; overflow: hidden;
+  }
+  .sc-sz-dark__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .sc-sz-dark__header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .sc-sz-dark__num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: #B5ADA4; text-transform: uppercase;
+  }
+  .sc-sz-dark__line { flex: 1; height: 1px; background: rgba(212,206,198,0.2); }
+  .sc-sz-dark__kicker {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1rem;
+  }
+  .sc-sz-dark__title {
+    font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+    letter-spacing: 0.04em; line-height: 1.15; color: #F7F4F0;
+    margin-bottom: 2rem;
+  }
+  .sc-sz-dark__lead {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(247,244,240,0.55); max-width: 680px;
+  }
+  .sc-sz-dark__body {
+    font-size: 15px; font-weight: 300; line-height: 1.9;
+    color: rgba(247,244,240,0.5); max-width: 680px;
+  }
+  .sc-sz-dark__body p { margin-bottom: 1.25rem; }
+  .sc-sz-dark__body strong { color: #F7F4F0; font-weight: 500; }
+
+  /* ═══ Editorial split (article + sidebar) ═══ */
+  .sc-sz-article {
+    display: grid; grid-template-columns: 1fr 280px;
+    gap: 4rem; margin-top: 3rem;
+  }
+  .sc-sz-article__main {
+    font-size: 16px; font-weight: 300; line-height: 1.9;
+    color: #4A4640;
+  }
+  .sc-sz-article__main p { margin-bottom: 1.5rem; }
+  .sc-sz-article__main strong { color: #1A1816; font-weight: 500; }
+  .sc-sz-article__main p:first-child::first-letter {
+    font-size: 56px; font-weight: 200; color: #1A1816;
+    float: left; line-height: 0.9; margin: 0.3rem 0.75rem 0 0;
+    font-style: italic;
+  }
+  .sc-sz-article__side {
+    border-left: 1px solid #D4CEC6;
+    padding-left: 2rem;
+  }
+  .sc-sz-article__side-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1rem;
+  }
+  .sc-sz-article__side-item {
+    padding: 1rem 0; border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-sz-article__side-item:last-child { border-bottom: none; }
+  .sc-sz-article__side-item-name {
+    font-size: 14px; font-weight: 400; color: #1A1816;
+    margin-bottom: 0.35rem;
+  }
+  .sc-sz-article__side-item-val {
+    font-size: 12px; font-weight: 300; color: #8A8279;
+  }
+
+  /* ═══ Pull quote ═══ */
+  .sc-sz-pull {
+    max-width: 800px; margin: 4rem auto;
+    text-align: center; padding: 3rem 0;
+    border-top: 1px solid #D4CEC6;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-sz-pull__text {
+    font-size: clamp(22px, 3vw, 34px); font-weight: 200;
+    line-height: 1.4; letter-spacing: 0.02em;
+    color: #1A1816; font-style: italic;
+  }
+  .sc-sz-pull__attr {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+    margin-top: 1.5rem;
+  }
+
+  /* ═══ Product matrix table ═══ */
+  .sc-sz-matrix {
+    margin-top: 3rem;
+    border-top: 2px solid #1A1816;
+  }
+  .sc-sz-matrix__row {
+    display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 2fr;
+    gap: 1.5rem; padding: 1.75rem 0;
+    border-bottom: 1px solid #D4CEC6;
+    align-items: center;
+  }
+  .sc-sz-matrix__row--head {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #1A1816;
+  }
+  .sc-sz-matrix__head {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8A8279;
+  }
+  .sc-sz-matrix__model {
+    font-size: 18px; font-weight: 400; letter-spacing: 0.02em;
+    color: #1A1816;
+  }
+  .sc-sz-matrix__val {
+    font-size: 14px; font-weight: 300; color: #4A4640;
+  }
+  .sc-sz-matrix__desc {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: #8A8279;
+  }
+
+  /* ═══ Feature callout grid ═══ */
+  .sc-sz-callouts {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(212,206,198,0.15);
+    border: 1px solid rgba(212,206,198,0.15);
+    border-radius: 12px; overflow: hidden;
+    margin-top: 3rem;
+  }
+  .sc-sz-callout {
+    background: #1A1816; padding: 2.25rem 1.75rem;
+  }
+  .sc-sz-callout__num {
+    font-size: 28px; font-weight: 200; letter-spacing: 0.02em;
+    color: #F7F4F0; display: block; line-height: 1; margin-bottom: 0.75rem;
+  }
+  .sc-sz-callout__unit {
+    font-size: 11px; font-weight: 400; color: #B5ADA4;
+    display: inline; margin-left: 0.25rem;
+  }
+  .sc-sz-callout__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 0.75rem;
+  }
+  .sc-sz-callout__text {
+    font-size: 13px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+
+  /* ═══ Closing CTA ═══ */
+  .sc-sz-cta {
+    background: #F7F4F0;
+    border-top: 1px solid #D4CEC6;
+    padding: 5rem 3rem; text-align: center;
+  }
+  .sc-sz-cta__inner { max-width: 700px; margin: 0 auto; }
+  .sc-sz-cta__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  .sc-sz-cta__title {
+    font-size: clamp(24px, 3vw, 40px); font-weight: 200;
+    letter-spacing: 0.04em; color: #1A1816;
+    margin-bottom: 1.5rem;
+  }
+  .sc-sz-cta__text {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: #8A8279; margin-bottom: 1rem;
+  }
+  .sc-sz-cta__email {
+    font-size: 14px; font-weight: 400; color: #1A1816;
+    margin-bottom: 2.5rem;
+  }
+  .sc-sz-cta__btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  .sc-sz-cta__btn {
+    display: inline-block; padding: 1rem 2.5rem;
+    background: #1A1816; color: #F7F4F0;
+    font-size: 14px; font-weight: 400; letter-spacing: 0.1em;
+    text-decoration: none; border-radius: 100px;
+    transition: opacity 0.2s ease;
+  }
+  .sc-sz-cta__btn:hover { opacity: 0.85; }
+  .sc-sz-cta__btn--outline {
+    background: transparent; color: #1A1816;
+    border: 1px solid #1A1816;
+  }
+  .sc-sz-cta__btn--outline:hover { background: #1A1816; color: #F7F4F0; opacity: 1; }
+
+  /* ═══ FOOTER ═══ */
+  .sc-sz-foot {
+    background: #1A1816; padding: 2.5rem 3rem;
+  }
+  .sc-sz-foot__inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 2rem;
+  }
+  .sc-sz-foot__text {
+    font-size: 12px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5);
+  }
+  .sc-sz-foot__brand {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+    color: #F7F4F0;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .sc-sz-article { grid-template-columns: 1fr; gap: 2rem; }
+    .sc-sz-article__side { border-left: none; border-top: 1px solid #D4CEC6; padding-left: 0; padding-top: 2rem; }
+    .sc-sz-callouts { grid-template-columns: 1fr; }
+    .sc-sz-matrix__row { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .sc-sz-matrix__desc { grid-column: 1 / -1; }
+  }
+  @media (max-width: 749px) {
+    .sc-sz-hero__inner { padding: 7rem 1.5rem 4rem; }
+    .sc-sz-hero__meta { flex-wrap: wrap; gap: 1.5rem; }
+    .sc-sz-sec__inner { padding: 4rem 1.5rem; }
+    .sc-sz-dark__inner { padding: 4rem 1.5rem; }
+    .sc-sz-matrix__row { grid-template-columns: 1fr; }
+    .sc-sz-cta { padding: 4rem 1.5rem; }
+    .sc-sz-cta__btns { flex-direction: column; }
+    .sc-sz-foot { padding: 2rem 1.5rem; }
+    .sc-sz-foot__inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sc-sz sc-sz-hero">
+  <div class="sc-sz-hero__inner">
+    <div class="sc-sz-hero__breadcrumb">
+      <span>Sensol Fitness</span>
+      <span class="sc-sz-hero__breadcrumb-dot"></span>
+      <span>Editorial</span>
+      <span class="sc-sz-hero__breadcrumb-dot"></span>
+      <span style="color:#F7F4F0">Senzine</span>
+    </div>
+    <div class="sc-sz-hero__issue">
+      <span class="sc-sz-hero__issue-num">Issue 01</span>
+      <span class="sc-sz-hero__issue-date">2026 / Editorial</span>
+    </div>
+    <p class="sc-sz-hero__label">Sensol Fitness Editorial</p>
+    <h1 class="sc-sz-hero__title">Senzine</h1>
+    <p class="sc-sz-hero__sub">The Art of Digital Resistance</p>
+    <div class="sc-sz-hero__meta">
+      <div class="sc-sz-hero__meta-item">
+        <span>Category</span>
+        Editorial
+      </div>
+      <div class="sc-sz-hero__meta-item">
+        <span>Read Time</span>
+        6 min
+      </div>
+      <div class="sc-sz-hero__meta-item">
+        <span>Sections</span>
+        03 Chapters
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 01 — VISUAL AESTHETICS ═══════ -->
+<section class="sc-sz sc-sz-sec">
+  <div class="sc-sz-sec__inner">
+    <div class="sc-sz-sec__header">
+      <span class="sc-sz-sec__num">01 / Visual Aesthetics</span>
+      <span class="sc-sz-sec__line"></span>
+    </div>
+    <p class="sc-sz-sec__kicker">Chapter One</p>
+    <h2 class="sc-sz-sec__title">Gym? No, It's a Piece<br>of Modern Furniture.</h2>
+
+    <div class="sc-sz-article">
+      <div class="sc-sz-article__main">
+        <p>Traditional home gym equipment has always been defined by crude spray paint, exposed iron weight stacks, and a ruthless disruption of your living space. When left unused, they inevitably devolve into awkward clothes racks in the corner of a room.</p>
+        <p>At Sensol Fitness, we believe in the aesthetics of restraint. Whether it is the sleek agility of the <strong>FLEX AIR (28KG)</strong> or the commanding presence of the flagship <strong>FLEX PRO (52KG)</strong>, our lineup is wrapped in high-strength, aerospace-grade aluminum with minimalist industrial lines. They don't just exist in your home; they seamlessly disappear into a modern Melbourne apartment or a coastal Sydney residence.</p>
+        <p>It's not just equipment&mdash;it is digital furniture designed for the modern interior. Every curve, every finish, every silhouette is considered against the architecture of contemporary living. The result is something unprecedented: training equipment that you are proud to display, not desperate to hide.</p>
+      </div>
+      <aside class="sc-sz-article__side">
+        <p class="sc-sz-article__side-label">In This Chapter</p>
+        <div class="sc-sz-article__side-item">
+          <p class="sc-sz-article__side-item-name">Material</p>
+          <p class="sc-sz-article__side-item-val">Aerospace-grade aluminum</p>
+        </div>
+        <div class="sc-sz-article__side-item">
+          <p class="sc-sz-article__side-item-name">Design Language</p>
+          <p class="sc-sz-article__side-item-val">Minimalist industrial</p>
+        </div>
+        <div class="sc-sz-article__side-item">
+          <p class="sc-sz-article__side-item-name">Featured Models</p>
+          <p class="sc-sz-article__side-item-val">FLEX AIR, FLEX PRO</p>
+        </div>
+        <div class="sc-sz-article__side-item">
+          <p class="sc-sz-article__side-item-name">Philosophy</p>
+          <p class="sc-sz-article__side-item-val">Aesthetics of restraint</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="sc-sz-pull">
+      <p class="sc-sz-pull__text">"They don't just exist in your home; they seamlessly disappear into it."</p>
+      <p class="sc-sz-pull__attr">Sensol Fitness Editorial</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 02 — DIGITAL MOTORS (dark) ═══════ -->
+<section class="sc-sz sc-sz-dark">
+  <div class="sc-sz-dark__inner">
+    <div class="sc-sz-dark__header">
+      <span class="sc-sz-dark__num">02 / Digital Motors</span>
+      <span class="sc-sz-dark__line"></span>
+    </div>
+    <p class="sc-sz-dark__kicker">Chapter Two</p>
+    <h2 class="sc-sz-dark__title">The Science Behind<br>Weightless Weight.</h2>
+    <p class="sc-sz-dark__lead">The secret to shedding hundreds of kilograms of physical iron plates lies within our precision Digital Resistance Control System.</p>
+
+    <div class="sc-sz-dark__body" style="margin-top: 2rem;">
+      <p>Traditional gravity-based training introduces micro-fluctuations and momentum shifts during the concentric and eccentric phases, which is often the root cause of joint strain and standard training plateaus.</p>
+      <p>Driven by an intelligent motor control chip executing <strong>thousands of dynamic recalculations per second</strong>, Sensol Fitness delivers absolute, liquid-smooth resistance. Whether you are chasing explosive velocity at 28KG or demanding peak mechanical overload at 52KG, our digital motor senses your force trajectory in milliseconds, providing a pure, unadulterated pump that traditional dumbbells simply cannot replicate.</p>
+    </div>
+
+    <!-- Feature callouts -->
+    <div class="sc-sz-callouts">
+      <div class="sc-sz-callout">
+        <span class="sc-sz-callout__num">1000<span class="sc-sz-callout__unit">+/sec</span></span>
+        <p class="sc-sz-callout__label">Recalculations</p>
+        <p class="sc-sz-callout__text">Dynamic resistance adjustments per second, adapting to your force trajectory in real time.</p>
+      </div>
+      <div class="sc-sz-callout">
+        <span class="sc-sz-callout__num">28-52<span class="sc-sz-callout__unit">kg</span></span>
+        <p class="sc-sz-callout__label">Resistance Range</p>
+        <p class="sc-sz-callout__text">From explosive velocity to peak mechanical overload, calibrated with millisecond precision.</p>
+      </div>
+      <div class="sc-sz-callout">
+        <span class="sc-sz-callout__num">25<span class="sc-sz-callout__unit">dB</span></span>
+        <p class="sc-sz-callout__label">Operating Volume</p>
+        <p class="sc-sz-callout__text">Whisper-quiet operation that respects your space and the people sharing it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 — THE PERFORMANCE MATRIX ═══════ -->
+<section class="sc-sz sc-sz-sec sc-sz-sec--alt">
+  <div class="sc-sz-sec__inner">
+    <div class="sc-sz-sec__header">
+      <span class="sc-sz-sec__num">03 / The Performance Matrix</span>
+      <span class="sc-sz-sec__line"></span>
+    </div>
+    <p class="sc-sz-sec__kicker">Chapter Three</p>
+    <h2 class="sc-sz-sec__title">Engineered for Power.<br>Sized for the Home.</h2>
+    <p class="sc-sz-sec__lead">Three machines. One philosophy. Each model in the Sensol lineup is engineered to bridge the gap between heavy hardware performance and premium lifestyle integration.</p>
+
+    <!-- Product matrix table -->
+    <div class="sc-sz-matrix">
+      <div class="sc-sz-matrix__row sc-sz-matrix__row--head">
+        <span class="sc-sz-matrix__head">Model</span>
+        <span class="sc-sz-matrix__head">Gross Weight</span>
+        <span class="sc-sz-matrix__head">Max Load</span>
+        <span class="sc-sz-matrix__head">Core Target</span>
+      </div>
+      <div class="sc-sz-matrix__row">
+        <span class="sc-sz-matrix__model">FLEX AIR</span>
+        <span class="sc-sz-matrix__val">~28 KG</span>
+        <span class="sc-sz-matrix__val">120 KG</span>
+        <span class="sc-sz-matrix__desc">Lightweight, portable, and built for agility, high-frequency toning, and seamless spatial versatility.</span>
+      </div>
+      <div class="sc-sz-matrix__row">
+        <span class="sc-sz-matrix__model">FLEX PRO</span>
+        <span class="sc-sz-matrix__val">~52 KG</span>
+        <span class="sc-sz-matrix__val">150 KG</span>
+        <span class="sc-sz-matrix__desc">The definitive heavy-duty flagship. Engineered for advanced strength breakthroughs and raw physical power.</span>
+      </div>
+      <div class="sc-sz-matrix__row">
+        <span class="sc-sz-matrix__model">RS03 PRO</span>
+        <span class="sc-sz-matrix__val">~52 KG</span>
+        <span class="sc-sz-matrix__val">150 KG</span>
+        <span class="sc-sz-matrix__desc">The ultimate multi-dimensional training workstation. Heavy-duty intelligent core built to push your limits.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CLOSING CTA ═══════ -->
+<section class="sc-sz sc-sz-cta">
+  <div class="sc-sz-cta__inner">
+    <div class="sc-sz-cta__label">Sensol Fitness</div>
+    <h2 class="sc-sz-cta__title">Empower Your Space,<br>Elevate Your Mind.</h2>
+    <p class="sc-sz-cta__text">We bridge the gap between heavy hardware performance and premium lifestyle integration.</p>
+    <p class="sc-sz-cta__email">support@sensolfitness.com</p>
+    <div class="sc-sz-cta__btns">
+      <a href="/collections/all" class="sc-sz-cta__btn">Shop All Products</a>
+      <a href="/pages/philosophy" class="sc-sz-cta__btn sc-sz-cta__btn--outline">Our Philosophy</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<section class="sc-sz sc-sz-foot">
+  <div class="sc-sz-foot__inner">
+    <span class="sc-sz-foot__brand">SENSOL FITNESS &mdash; SENZINE</span>
+    <span class="sc-sz-foot__text">Editorial &copy; 2026, Sensol Fitness. All rights reserved.</span>
+  </div>
+</section>
