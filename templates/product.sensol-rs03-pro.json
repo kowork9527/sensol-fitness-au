@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -32,21 +23,21 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "3000W",
-            "label": "Dual Servo Motor"
+            "number": "500W",
+            "label": "Servo Motor"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "120kg",
+            "number": "45 kg",
             "label": "Digital Resistance"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.5kg",
+            "number": "1 kg",
             "label": "Precision Increments"
           }
         },
@@ -123,21 +114,21 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "3000W",
-            "label": "Combined Power"
+            "number": "500W",
+            "label": "Motor Power"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "120kg",
+            "number": "45 kg",
             "label": "Max Resistance"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.5kg",
+            "number": "1 kg",
             "label": "Precision Increments"
           }
         },
@@ -159,8 +150,8 @@
         "color_scheme": "light",
         "image_position": "right",
         "eyebrow": "Key Feature 02",
-        "title": "1500W Dual Servo Motor — Maximum Power",
-        "text_1": "The RS03 PRO is powered by two 1500W servo motors — the most powerful motor system in the Sensol lineup. This combined 3000W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
+        "title": "500W Servo Motor — Digital Precision",
+        "text_1": "The RS03 PRO is powered by a 500W servo motor — the most refined motor system in the Sensol lineup. This 500W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
         "text_2": "Whether you are performing slow, controlled Pilates work or high-tempo strength circuits, the motors maintain perfect resistance throughout. The Your Reformer ($2,795 AUD) has no motors at all — it is entirely spring-based. The RS03 PRO delivers motorised precision at a fraction of the cost of any motorised competitor."
       }
     },
@@ -254,7 +245,7 @@
         "image_position": "right",
         "eyebrow": "Key Feature 04",
         "title": "Digital Weight with Three Training Modes",
-        "text_1": "The RS03 PRO delivers 120 kg of total resistance (60 kg per arm) adjustable in 0.5 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
+        "text_1": "The RS03 PRO delivers 45 kg of digital resistance adjustable in 1 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
         "text_2": "Standard Mode — Progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode — Asymmetric resistance that challenges stabilisers and corrects imbalances. Constant Mode — Uniform resistance throughout the entire range, eliminating spring slack. No spring reformer in the world offers training modes."
       }
     },
@@ -316,7 +307,7 @@
           "type": "spec",
           "settings": {
             "label": "Motors",
-            "value": "2 × 1500W brushless servo (3000W total)"
+            "value": "500W brushless servo motor"
           }
         },
         "spec_cables": {
@@ -344,14 +335,14 @@
           "type": "spec",
           "settings": {
             "label": "Max Resistance",
-            "value": "120 kg (60 kg per arm)"
+            "value": "45 kg digital resistance"
           }
         },
         "spec_precision": {
           "type": "spec",
           "settings": {
             "label": "Adjustment Precision",
-            "value": "0.5 kg increments"
+            "value": "1 kg increments"
           }
         },
         "spec_modes": {
@@ -592,7 +583,7 @@
         "review_3": {
           "type": "review",
           "settings": {
-            "text": "I integrated the RS03 PRO into my physiotherapy practice six months ago. The 0.5 kg precision is critical for post-surgical rehabilitation. Constant Mode provides the uniform resistance that is safest for rebuilding strength. The enhanced cables accommodate the gentle, controlled movements my patients need. At $2,800, it cost less than two months of equipment leasing for my previous reformer.",
+            "text": "I integrated the RS03 PRO into my physiotherapy practice six months ago. The 1 kg precision is important for post-surgical rehabilitation. Constant Mode provides the uniform resistance that is safest for rebuilding strength. The enhanced cables accommodate the gentle, controlled movements my patients need. At $2,800, it cost less than two months of equipment leasing for my previous reformer.",
             "name": "Dr. Lisa C.",
             "role": "Physiotherapist, Brisbane QLD"
           }
@@ -616,7 +607,7 @@
           "type": "qa",
           "settings": {
             "question": "What is the difference between the RS03 and the RS03 PRO?",
-            "answer": "Both models share the same 1500W dual servo motor system, 120 kg maximum resistance, 0.5 kg precision, 0–145° arm range, and chassis. The RS03 PRO's defining upgrade is its enhanced Pilates cable system, which provides smoother transitions, greater range of motion, more advanced sequencing capability, and a studio-grade tactile quality. The price difference is $400 AUD ($2,400 for RS03 vs $2,800 for RS03 PRO)."
+            "answer": "Both models share the same 500W servo motor system, 45 kg maximum resistance, 1 kg precision, 0–145° arm range, and chassis. The RS03 PRO's defining upgrade is its enhanced Pilates cable system, which provides smoother transitions, greater range of motion, more advanced sequencing capability, and a studio-grade tactile quality. The price difference is $400 AUD ($2,400 for RS03 vs $2,800 for RS03 PRO)."
           }
         },
         "qa_2": {
@@ -637,7 +628,7 @@
           "type": "qa",
           "settings": {
             "question": "Can I use the RS03 PRO professionally in a studio or clinic?",
-            "answer": "Yes. The RS03 PRO is suitable for professional use in Pilates studios, physiotherapy practices, and personal training facilities. The enhanced cables, 1500W motors, and AI-driven app are designed to meet the demands of professional practitioners. The Lifetime Warranty covers professional use. Many of our early adopters are certified instructors who use the RS03 PRO as their primary teaching tool."
+            "answer": "Yes. The RS03 PRO is suitable for professional use in Pilates studios, physiotherapy practices, and personal training facilities. The enhanced cables, 500W motor, and AI-driven app are designed to meet the demands of professional practitioners. The Lifetime Warranty covers professional use. Many of our early adopters are certified instructors who use the RS03 PRO as their primary teaching tool."
           }
         },
         "qa_5": {
@@ -679,7 +670,7 @@
           "type": "qa",
           "settings": {
             "question": "How does the RS03 PRO compare to studio reformers?",
-            "answer": "The RS03 PRO was specifically designed to deliver a studio-grade experience at home. The enhanced cables match the smoothness and responsiveness of professional studio equipment. The digital weight system actually exceeds what studio reformers offer — no studio reformer provides 0.5 kg precision, three training modes, or AI-driven coaching. The RS03 PRO's 56 kg weight and 13 cm ground clearance provide a comparably stable platform."
+            "answer": "The RS03 PRO was specifically designed to deliver a studio-grade experience at home. The enhanced cables match the smoothness and responsiveness of professional studio equipment. The digital weight system actually exceeds what studio reformers offer — no studio reformer provides 1 kg precision, three training modes, or AI-driven coaching. The RS03 PRO's 56 kg weight and 13 cm ground clearance provide a comparably stable platform."
           }
         }
       },

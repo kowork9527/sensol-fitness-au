@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -31,21 +22,21 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "3000W",
-            "label": "Combined motor output"
+            "number": "500W",
+            "label": "Motor output"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "120 kg",
+            "number": "45 kg",
             "label": "Max resistance"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.5 kg",
+            "number": "1 kg",
             "label": "Adjustment precision"
           }
         },
@@ -70,7 +61,7 @@
         "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "Double the Power. Twice the Possibility.",
-        "text": "The Sensol RS03 represents a generational leap in home strength training. With 120 kg of total resistance adjustable in 0.5 kg increments, two independent motors deliver 3,000 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table."
+        "text": "The Sensol RS03 represents a generational leap in home strength training. With 45 kg of digital resistance adjustable in 1 kg increments, the servo motor deliver 500 watts of digital force - precise enough for clinical rehabilitation, powerful enough for elite athletic training. 200+ guided movements across three training modes put a complete strength studio in the footprint of a coffee table."
       }
     },
     "feature_01": {
@@ -79,14 +70,14 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "0.5 kg",
+            "number": "1 kg",
             "label": "Increment step"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "120 kg",
+            "number": "45 kg",
             "label": "Max resistance"
           }
         }
@@ -100,8 +91,8 @@
         "image_position": "left",
         "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.12_PM.png",
         "eyebrow": "01 — Digital Weight",
-        "title": "0.5 kg precision. No springs. No guesswork.",
-        "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with two digitally controlled motors. Cable tension is measured 1,000 times per second and adjusted in real time, so 0.5 kg is exactly 0.5 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
+        "title": "1 kg precision. No springs. No guesswork.",
+        "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with a digitally controlled motor. Cable tension is measured 1,000 times per second and adjusted in real time, so 1 kg is exactly 1 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
         "text_2": "Two motors, two cables, two independent forces. The left arm can pull at 14 kg while the right pushes at 22.5 - simultaneously, from one machine, without a single weight swap."
       }
     },
@@ -288,7 +279,7 @@
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "1500W Dual Servo Motor System"
+            "name": "500W Servo Motor System"
           }
         },
         "item_3": {
@@ -351,14 +342,14 @@
           "type": "spec",
           "settings": {
             "label": "Motor System",
-            "value": "1500W × 2 (3000W combined)"
+            "value": "500W servo motor"
           }
         },
         "spec_2": {
           "type": "spec",
           "settings": {
             "label": "Max Resistance",
-            "value": "120 kg (0.5 kg increments)"
+            "value": "45 kg (1 kg increments)"
           }
         },
         "spec_3": {
@@ -569,7 +560,7 @@
           "type": "qa",
           "settings": {
             "question": "Is the RS03 suitable for beginners?",
-            "answer": "Yes. Three training modes — Standard, Off-centre, and Constant — adapt to your level. Start with 0.5 kg increments and progress at your own pace."
+            "answer": "Yes. Three training modes — Standard, Off-centre, and Constant — adapt to your level. Start with 1 kg increments and progress at your own pace."
           }
         },
         "qa_6": {

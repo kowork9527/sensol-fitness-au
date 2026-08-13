@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -39,7 +30,7 @@
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "60kg",
+            "number": "120 kg",
             "label": "Max Resistance"
           }
         },
@@ -67,7 +58,7 @@
       "settings": {
         "eyebrow": "Product Overview",
         "title": "The most approachable way to begin.",
-        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level elastic band resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
+        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level spring resistance up to 120 kg max load, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
       }
     },
     "sp_feature_value": {
@@ -170,7 +161,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "60kg",
+            "number": "120 kg",
             "label": "Max Resistance"
           }
         },
@@ -184,7 +175,7 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.5kg",
+            "number": "Spring",
             "label": "Precision"
           }
         },
@@ -206,9 +197,9 @@
         "color_scheme": "dark",
         "image_position": "left",
         "eyebrow": "Key Feature 03",
-        "title": "Smooth Elastic Band Resistance for Gentle Progression",
-        "text_1": "The dual-level elastic band system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, elastic bands provide a gentler onset of resistance that reduces the risk of strain or injury.",
-        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and 0.5 kg precision increments via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes — Standard, Off-centre, and Constant — further expand your options."
+        "title": "Smooth Spring Resistance for Gentle Progression",
+        "text_1": "The dual-level spring system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, springs provide a gentler onset of resistance that reduces the risk of strain or injury.",
+        "text_2": "With a maximum load capacity of 120 kg, a stable 84 cm stroke, and spring resistance via Chinese steel wire springs (7.5KG × 2 / 15KG × 2), the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes — Standard, Off-centre, and Constant — further expand your options."
       }
     },
     "sp_feature_app": {
@@ -316,27 +307,27 @@
           "type": "spec",
           "settings": {
             "label": "Motors",
-            "value": "2 × Servo Motors, 750W total"
+            "value": "Spring (Chinese steel wire) · 7.5KG × 2 / 15KG × 2"
           }
         },
         "spec_resistance": {
           "type": "spec",
           "settings": {
             "label": "Max Resistance",
-            "value": "60 kg"
+            "value": "120 kg max load"
           }
         },
         "spec_precision": {
           "type": "spec",
           "settings": {
             "label": "Resistance Precision",
-            "value": "0.5 kg / 1 lb increments"
+            "value": "spring levels / 1 lb increments"
           }
         },
         "spec_bands": {
           "type": "spec",
           "settings": {
-            "label": "Elastic Band System",
+            "label": "Spring System",
             "value": "Dual-level: 10 lb × 2 / 20 lb × 2"
           }
         },
@@ -592,7 +583,7 @@
         "review_1": {
           "type": "review",
           "settings": {
-            "text": "I'd been wanting to try reformer Pilates for over a year but couldn't justify the studio prices — $45 a class adds up fast. The FLEX AIR cost me less than three months of studio sessions, and I can use it every day. The elastic bands feel smooth and forgiving, which was perfect as a complete beginner. The Vesta app walked me through my first session step by step. After six weeks, I've already noticed improvements in my posture and core strength.",
+            "text": "I'd been wanting to try reformer Pilates for over a year but couldn't justify the studio prices — $45 a class adds up fast. The FLEX AIR cost me less than three months of studio sessions, and I can use it every day. The springs feel smooth and forgiving, which was perfect as a complete beginner. The Vesta app walked me through my first session step by step. After six weeks, I've already noticed improvements in my posture and core strength.",
             "name": "Sarah M.",
             "role": "Melbourne"
           }
@@ -600,7 +591,7 @@
         "review_2": {
           "type": "review",
           "settings": {
-            "text": "My physio recommended reformer Pilates after my knee surgery, but the waiting list for classes was 8 weeks and private sessions were $120 each. The FLEX AIR let me start my rehabilitation at home, at my own pace. The elastic band resistance is gentle enough for post-surgical recovery but progressive enough that I'm still using it months later. The app's rehab programme is excellent — clear, safe, and well-structured.",
+            "text": "My physio recommended reformer Pilates after my knee surgery, but the waiting list for classes was 8 weeks and private sessions were $120 each. The FLEX AIR let me start my rehabilitation at home, at my own pace. The spring resistance is gentle enough for post-surgical recovery but progressive enough that I'm still using it months later. The app's rehab programme is excellent — clear, safe, and well-structured.",
             "name": "Margaret T.",
             "role": "Brisbane"
           }
@@ -632,14 +623,14 @@
           "type": "qa",
           "settings": {
             "question": "Is the FLEX AIR suitable for complete beginners?",
-            "answer": "Absolutely. The FLEX AIR was designed with beginners as the primary audience. The elastic band resistance provides smooth, gentle tension that's far less intimidating than springs. The Vesta Sensol App includes a dedicated 'First Time Reformer' programme that guides you through every movement with clear video and audio instructions. You can start at the lowest resistance setting and progress at your own pace."
+            "answer": "Absolutely. The FLEX AIR was designed with beginners as the primary audience. The spring resistance provides smooth, gentle tension that's far less intimidating than springs. The Vesta Sensol App includes a dedicated 'First Time Reformer' programme that guides you through every movement with clear video and audio instructions. You can start at the lowest resistance setting and progress at your own pace."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
-            "question": "How does elastic band resistance compare to springs?",
-            "answer": "Elastic bands deliver smoother, more consistent tension throughout the entire range of motion, whereas springs can feel jerky and provide uneven resistance. For beginners and rehabilitation users, this smoothness reduces the risk of strain and makes it easier to maintain proper form. Elastic bands are also quieter, lighter, and don't suffer from the spring fatigue that degrades traditional reformers over time."
+            "question": "How does spring resistance compare to springs?",
+            "answer": "Springs deliver smoother, more consistent tension throughout the entire range of motion, whereas springs can feel jerky and provide uneven resistance. For beginners and rehabilitation users, this smoothness reduces the risk of strain and makes it easier to maintain proper form. Springs are also quieter, lighter, and don't suffer from the spring fatigue that degrades traditional reformers over time."
           }
         },
         "qa_3": {
@@ -660,7 +651,7 @@
           "type": "qa",
           "settings": {
             "question": "How does the FLEX AIR compare to the Fortis Foldable Reformer?",
-            "answer": "The Fortis ($279–$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers servo motor-precise resistance with 0.5 kg increments, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
+            "answer": "The Fortis ($279–$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers spring-based resistance with spring resistance levels, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
           }
         },
         "qa_6": {
@@ -695,7 +686,7 @@
           "type": "qa",
           "settings": {
             "question": "Can I upgrade from the FLEX AIR to a higher model later?",
-            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 60 kg maximum, the FLEX (90 kg) and FLEX PRO (120 kg) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
+            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 120 kg max load, the FLEX PRO (150 kg max load) and FLEX PRO (150 kg max load) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
           }
         }
       },
