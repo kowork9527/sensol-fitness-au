@@ -13,7 +13,7 @@
       "type": "sensol-flex-air-landing",
       "settings": {
         "subtitle": "Your Pilates Journey Starts Here",
-        "model_info": "Model FLEX AIR / Smart Folding Reformer · SKU: SNSL-FLEX-AIR-AU",
+        "model_info": "Model FLEX AIR / Smart Folding Reformer \u00b7 SKU: SNSL-FLEX-AIR-AU",
         "padding_top": 40
       }
     },
@@ -33,7 +33,7 @@
           "type": "stat",
           "settings": {
             "number": "$650",
-            "label": "AUD — Entry Price"
+            "label": "AUD \u2014 Entry Price"
           }
         },
         "stat_2": {
@@ -46,7 +46,7 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.2m²",
+            "number": "0.2m\u00b2",
             "label": "Upright Storage"
           }
         },
@@ -67,7 +67,7 @@
       "settings": {
         "eyebrow": "Product Overview",
         "title": "The most approachable way to begin.",
-        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level elastic band resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
+        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level spring resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
       }
     },
     "sp_feature_value": {
@@ -137,7 +137,7 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.2m²",
+            "number": "0.2m\u00b2",
             "label": "Storage Footprint"
           }
         },
@@ -160,8 +160,8 @@
         "image_position": "right",
         "eyebrow": "Key Feature 02",
         "title": "Foldable, Compact, and Apartment-Friendly",
-        "text_1": "The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. Store it upright against a wall or slide it under a bed — its 13 cm ground clearance keeps it stable during use while maintaining a low profile. At just 25 kg, it's light enough for one person to move and reposition.",
-        "text_2": "The 0.2 m² upright storage footprint means it fits in any room, from a studio apartment in Melbourne's CBD to a spare corner in a Sydney terrace. Traditional wooden reformers require dedicated floor space and are difficult to move. The FLEX AIR folds and stores in seconds."
+        "text_1": "The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. Store it upright against a wall or slide it under a bed \u2014 its 13 cm ground clearance keeps it stable during use while maintaining a low profile. At just 25 kg, it's light enough for one person to move and reposition.",
+        "text_2": "The 0.2 m\u00b2 upright storage footprint means it fits in any room, from a studio apartment in Melbourne's CBD to a spare corner in a Sydney terrace. Traditional wooden reformers require dedicated floor space and are difficult to move. The FLEX AIR folds and stores in seconds."
       }
     },
     "sp_feature_resistance": {
@@ -207,8 +207,8 @@
         "image_position": "left",
         "eyebrow": "Key Feature 03",
         "title": "Smooth Elastic Band Resistance for Gentle Progression",
-        "text_1": "The dual-level elastic band system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, elastic bands provide a gentler onset of resistance that reduces the risk of strain or injury.",
-        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and 0.5 kg precision increments via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes — Standard, Off-centre, and Constant — further expand your options."
+        "text_1": "The dual-level spring system (10 lb \u00d7 2 and 20 lb \u00d7 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, springs provide a gentler onset of resistance that reduces the risk of strain or injury.",
+        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and spring-loaded resistance via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes \u2014 Standard, Off-centre, and Constant \u2014 further expand your options."
       }
     },
     "sp_feature_app": {
@@ -253,9 +253,9 @@
         "color_scheme": "light",
         "image_position": "right",
         "eyebrow": "Key Feature 04",
-        "title": "Vesta Sensol App — 300+ Free Guided Classes",
+        "title": "Vesta Sensol App \u2014 300+ Free Guided Classes",
         "text_1": "Every FLEX AIR includes free access to the Vesta Sensol App (iOS and Android), featuring over 300 guided classes spanning Pilates, yoga, strength training, and rehabilitation. Structured programmes guide absolute beginners through to intermediate practitioners, with new classes added regularly.",
-        "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free — saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
+        "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free \u2014 saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
       }
     },
     "sp_video": {
@@ -316,14 +316,14 @@
           "type": "spec",
           "settings": {
             "label": "Motors",
-            "value": "2 × Servo Motors, 750W total"
+            "value": "2 \u00d7 Servo Motors, Spring-based total"
           }
         },
         "spec_resistance": {
           "type": "spec",
           "settings": {
             "label": "Max Resistance",
-            "value": "60 kg"
+            "value": "120 kg max load"
           }
         },
         "spec_precision": {
@@ -337,14 +337,14 @@
           "type": "spec",
           "settings": {
             "label": "Elastic Band System",
-            "value": "Dual-level: 10 lb × 2 / 20 lb × 2"
+            "value": "Dual-level: 10 lb \u00d7 2 / 20 lb \u00d7 2"
           }
         },
         "spec_arms": {
           "type": "spec",
           "settings": {
             "label": "Arm Adjustment",
-            "value": "0–132°, 8 positions"
+            "value": "0\u2013132\u00b0, 8 positions"
           }
         },
         "spec_modes": {
@@ -358,14 +358,14 @@
           "type": "spec",
           "settings": {
             "label": "Dimensions (Unfolded)",
-            "value": "185 × 61 × 43 cm"
+            "value": "185 \u00d7 61 \u00d7 43 cm"
           }
         },
         "spec_dims_folded": {
           "type": "spec",
           "settings": {
             "label": "Dimensions (Folded)",
-            "value": "165 × 61 × 43 cm"
+            "value": "165 \u00d7 61 \u00d7 43 cm"
           }
         },
         "spec_weight": {
@@ -400,7 +400,7 @@
           "type": "spec",
           "settings": {
             "label": "Power Supply",
-            "value": "100–240V, Australian plug"
+            "value": "100\u2013240V, Australian plug"
           }
         },
         "spec_connectivity": {
@@ -414,14 +414,14 @@
           "type": "spec",
           "settings": {
             "label": "App",
-            "value": "Vesta Sensol App — 300+ classes (Free, no subscription)"
+            "value": "Vesta Sensol App \u2014 300+ classes (Free, no subscription)"
           }
         },
         "spec_storage": {
           "type": "spec",
           "settings": {
             "label": "Storage",
-            "value": "Foldable, 0.2 m² upright footprint"
+            "value": "Foldable, 0.2 m\u00b2 upright footprint"
           }
         },
         "spec_warranty": {
@@ -464,37 +464,37 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "name": "Sensol FLEX AIR device × 1"
+            "name": "Sensol FLEX AIR device \u00d7 1"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "Footboard × 1"
+            "name": "Footboard \u00d7 1"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "Barbell bar × 1"
+            "name": "Barbell bar \u00d7 1"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "Short handles × 2"
+            "name": "Short handles \u00d7 2"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Remote control × 1"
+            "name": "Remote control \u00d7 1"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Power cord × 1 (Australian plug, 100–240V)"
+            "name": "Power cord \u00d7 1 (Australian plug, 100\u2013240V)"
           }
         },
         "item_7": {
@@ -524,7 +524,7 @@
         "comp_1": {
           "type": "comparison",
           "settings": {
-            "label": "vs casual classes ($45/session × 2/week)",
+            "label": "vs casual classes ($45/session \u00d7 2/week)",
             "value": "~$4,680 / yr"
           }
         },
@@ -583,7 +583,7 @@
       "settings": {
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The FLEX AIR pays for itself fast.",
-        "text": "At $650 AUD, the FLEX AIR represents extraordinary value. If you attend reformer Pilates twice a week, the FLEX AIR pays for itself within two months. After that, every session is essentially free — train as often as you like, on your own schedule, without booking, commuting, or waiting for a class."
+        "text": "At $650 AUD, the FLEX AIR represents extraordinary value. If you attend reformer Pilates twice a week, the FLEX AIR pays for itself within two months. After that, every session is essentially free \u2014 train as often as you like, on your own schedule, without booking, commuting, or waiting for a class."
       }
     },
     "sp_reviews": {
@@ -592,7 +592,7 @@
         "review_1": {
           "type": "review",
           "settings": {
-            "text": "I'd been wanting to try reformer Pilates for over a year but couldn't justify the studio prices — $45 a class adds up fast. The FLEX AIR cost me less than three months of studio sessions, and I can use it every day. The elastic bands feel smooth and forgiving, which was perfect as a complete beginner. The Vesta app walked me through my first session step by step. After six weeks, I've already noticed improvements in my posture and core strength.",
+            "text": "I'd been wanting to try reformer Pilates for over a year but couldn't justify the studio prices \u2014 $45 a class adds up fast. The FLEX AIR cost me less than three months of studio sessions, and I can use it every day. The springs feel smooth and forgiving, which was perfect as a complete beginner. The Vesta app walked me through my first session step by step. After six weeks, I've already noticed improvements in my posture and core strength.",
             "name": "Sarah M.",
             "role": "Melbourne"
           }
@@ -600,7 +600,7 @@
         "review_2": {
           "type": "review",
           "settings": {
-            "text": "My physio recommended reformer Pilates after my knee surgery, but the waiting list for classes was 8 weeks and private sessions were $120 each. The FLEX AIR let me start my rehabilitation at home, at my own pace. The elastic band resistance is gentle enough for post-surgical recovery but progressive enough that I'm still using it months later. The app's rehab programme is excellent — clear, safe, and well-structured.",
+            "text": "My physio recommended reformer Pilates after my knee surgery, but the waiting list for classes was 8 weeks and private sessions were $120 each. The FLEX AIR let me start my rehabilitation at home, at my own pace. The spring resistance is gentle enough for post-surgical recovery but progressive enough that I'm still using it months later. The app's rehab programme is excellent \u2014 clear, safe, and well-structured.",
             "name": "Margaret T.",
             "role": "Brisbane"
           }
@@ -632,13 +632,13 @@
           "type": "qa",
           "settings": {
             "question": "Is the FLEX AIR suitable for complete beginners?",
-            "answer": "Absolutely. The FLEX AIR was designed with beginners as the primary audience. The elastic band resistance provides smooth, gentle tension that's far less intimidating than springs. The Vesta Sensol App includes a dedicated 'First Time Reformer' programme that guides you through every movement with clear video and audio instructions. You can start at the lowest resistance setting and progress at your own pace."
+            "answer": "Absolutely. The FLEX AIR was designed with beginners as the primary audience. The spring resistance provides smooth, gentle tension that's far less intimidating than springs. The Vesta Sensol App includes a dedicated 'First Time Reformer' programme that guides you through every movement with clear video and audio instructions. You can start at the lowest resistance setting and progress at your own pace."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
-            "question": "How does elastic band resistance compare to springs?",
+            "question": "How does spring resistance compare to springs?",
             "answer": "Elastic bands deliver smoother, more consistent tension throughout the entire range of motion, whereas springs can feel jerky and provide uneven resistance. For beginners and rehabilitation users, this smoothness reduces the risk of strain and makes it easier to maintain proper form. Elastic bands are also quieter, lighter, and don't suffer from the spring fatigue that degrades traditional reformers over time."
           }
         },
@@ -646,56 +646,56 @@
           "type": "qa",
           "settings": {
             "question": "Will the FLEX AIR fit in my apartment?",
-            "answer": "Almost certainly. The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. It stores upright in just 0.2 m² — about the footprint of a large indoor plant. At 25 kg, it's light enough for one person to move and reposition. You can set it up for a workout and fold it away when you're done, making it ideal for apartments, small homes, and shared living spaces."
+            "answer": "Almost certainly. The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. It stores upright in just 0.2 m\u00b2 \u2014 about the footprint of a large indoor plant. At 25 kg, it's light enough for one person to move and reposition. You can set it up for a workout and fold it away when you're done, making it ideal for apartments, small homes, and shared living spaces."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
             "question": "What's included with the Vesta Sensol App? Is there a monthly fee?",
-            "answer": "The Vesta Sensol App is included free with your FLEX AIR purchase — no monthly subscription required. You get access to all 300+ guided classes, structured programmes, workout tracking, and progressive difficulty levels. This saves you up to $480 per year compared to NordicTrack ($34/month for iFIT) or Frame Fitness ($39.99/month)."
+            "answer": "The Vesta Sensol App is included free with your FLEX AIR purchase \u2014 no monthly subscription required. You get access to all 300+ guided classes, structured programmes, workout tracking, and progressive difficulty levels. This saves you up to $480 per year compared to NordicTrack ($34/month for iFIT) or Frame Fitness ($39.99/month)."
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "How does the FLEX AIR compare to the Fortis Foldable Reformer?",
-            "answer": "The Fortis ($279–$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers servo motor-precise resistance with 0.5 kg increments, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
+            "answer": "The Fortis ($279\u2013$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers servo motor-precise resistance with spring resistance levels, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
             "question": "Can I use the FLEX AIR for strength training, not just Pilates?",
-            "answer": "Yes — that's one of the FLEX AIR's biggest advantages. The included short handles, barbell bar, and adjustable arm positions (0–132°) enable rows, chest presses, bicep curls, lateral raises, and more. Three training modes (Standard, Off-centre, Constant) further expand your strength training options. No traditional reformer on the Australian market offers this dual-function capability."
+            "answer": "Yes \u2014 that's one of the FLEX AIR's biggest advantages. The included short handles, barbell bar, and adjustable arm positions (0\u2013132\u00b0) enable rows, chest presses, bicep curls, lateral raises, and more. Three training modes (Standard, Off-centre, Constant) further expand your strength training options. No traditional reformer on the Australian market offers this dual-function capability."
           }
         },
         "qa_7": {
           "type": "qa",
           "settings": {
             "question": "What is the warranty and return policy?",
-            "answer": "The FLEX AIR comes with a Lifetime Warranty on the frame and structural components, plus a 30-Day Money-Back Guarantee. If you're not completely satisfied within 30 days, return it for a full refund. Warranty claims are handled locally in Australia by Dute Fitness (Australia) Pty. Ltd. — no international shipping or long wait times."
+            "answer": "The FLEX AIR comes with a Lifetime Warranty on the frame and structural components, plus a 30-Day Money-Back Guarantee. If you're not completely satisfied within 30 days, return it for a full refund. Warranty claims are handled locally in Australia by Dute Fitness (Australia) Pty. Ltd. \u2014 no international shipping or long wait times."
           }
         },
         "qa_8": {
           "type": "qa",
           "settings": {
             "question": "How long does shipping take? Is it really free?",
-            "answer": "Shipping is completely free to all Australian addresses. Standard delivery takes 3–7 business days to metro areas (Sydney, Melbourne, Brisbane, Perth, Adelaide) and 5–10 business days to regional areas. You'll receive tracking information via email once your order is dispatched."
+            "answer": "Shipping is completely free to all Australian addresses. Standard delivery takes 3\u20137 business days to metro areas (Sydney, Melbourne, Brisbane, Perth, Adelaide) and 5\u201310 business days to regional areas. You'll receive tracking information via email once your order is dispatched."
           }
         },
         "qa_9": {
           "type": "qa",
           "settings": {
             "question": "Do I need any tools to assemble the FLEX AIR?",
-            "answer": "Minimal assembly is required and all necessary tools are included. Most users have the FLEX AIR ready for their first workout within 15–20 minutes of unboxing. The quick-start guide provides step-by-step instructions, and the Vesta Sensol App includes a setup video tutorial."
+            "answer": "Minimal assembly is required and all necessary tools are included. Most users have the FLEX AIR ready for their first workout within 15\u201320 minutes of unboxing. The quick-start guide provides step-by-step instructions, and the Vesta Sensol App includes a setup video tutorial."
           }
         },
         "qa_10": {
           "type": "qa",
           "settings": {
             "question": "Can I upgrade from the FLEX AIR to a higher model later?",
-            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 60 kg maximum, the FLEX (90 kg) and FLEX PRO (120 kg) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
+            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 60 kg maximum, the FLEX (90 kg) and FLEX PRO (150 kg max load) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
           }
         }
       },
