@@ -32,7 +32,7 @@
           "type": "stat",
           "settings": {
             "number": "500W",
-            "label": "Combined motor output"
+            "label": "Motor output"
           }
         },
         "stat_2": {
@@ -99,7 +99,7 @@
         "color_scheme": "light",
         "image_position": "left",
         "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.12_PM.png",
-        "eyebrow": "01 \u2014 Digital Weight",
+        "eyebrow": "01 — Digital Weight",
         "title": "1 kg precision. No springs. No guesswork.",
         "text_1": "Every spring-loaded reformer before the RS03 forced a compromise: a click, a swap, a missing plate. RS03 replaces all of that with a digitally controlled motor. Cable tension is measured 1,000 times per second and adjusted in real time, so 1 kg is exactly 1 kg - at the top of the pull, at the bottom, and through every millimetre of the stroke.",
         "text_2": "Two motors, two cables, two independent forces. The left arm can pull at 14 kg while the right pushes at 22.5 - simultaneously, from one machine, without a single weight swap."
@@ -111,7 +111,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "145\u00b0",
+            "number": "145°",
             "label": "Arm range"
           }
         },
@@ -131,9 +131,9 @@
         "color_scheme": "dark",
         "image_position": "right",
         "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.17.28_PM.png",
-        "eyebrow": "02 \u2014 Expanded Range & Modes",
-        "title": "145\u00b0 of movement. Three ways to train.",
-        "text_1": "The RS03 arm rotates through 145\u00b0 - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90\u00b0 for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
+        "eyebrow": "02 — Expanded Range & Modes",
+        "title": "145° of movement. Three ways to train.",
+        "text_1": "The RS03 arm rotates through 145° - enough to reproduce a full Pilates repertoire plus the long-arc pulls of cable strength training. Lock it at 90° for closed-chain chest press, or unlock it for free-path movements no fixed-cable machine can match.",
         "text_2": "Three training modes meet you where you are. Pilates Mode for classical reformer repertoire. Strength Mode for traditional cable-based hypertrophy. Free Mode for the movements no machine has ever let you do before."
       }
     },
@@ -150,7 +150,7 @@
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "1\u00d7",
+            "number": "1×",
             "label": "Footprint"
           }
         }
@@ -163,7 +163,7 @@
         "color_scheme": "light",
         "image_position": "left",
         "image": "shopify://shop_images/one_9_fb3b91e1-149c-46eb-a4b0-94ea4662c173.jpg",
-        "eyebrow": "03 \u2014 Dual Function",
+        "eyebrow": "03 — Dual Function",
         "title": "A Pilates reformer. A strength station. One machine.",
         "text_1": "Studio reformers do one thing well. Strength machines do another. The RS03 is engineered to do both - with a moving carriage for classical reformer repertoire, and two independent cable arms for chest press, row, lat pulldown, tricep extension, bicep curl, and every other cable movement you'd expect from a full commercial cable column.",
         "text_2": "One footprint. Two disciplines. Zero compromise on either."
@@ -175,7 +175,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "109\u00d735",
+            "number": "109×35",
             "label": "Footprint (cm)"
           }
         },
@@ -211,9 +211,9 @@
         "color_scheme": "dark",
         "image_position": "right",
         "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
-        "eyebrow": "04 \u2014 Compact & Connected",
+        "eyebrow": "04 — Compact & Connected",
         "title": "Apartment-friendly. AI-coached. Subscription-free.",
-        "text_1": "109 \u00d7 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
+        "text_1": "109 × 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
         "text_2": "The companion app unlocks 300+ classes, live metric tracking, and AI form coaching. Free for the life of the machine. No subscription. No upsell. No data lock-in."
       }
     },
@@ -294,25 +294,25 @@
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "Tricep Rope (1\u00d7)"
+            "name": "Tricep Rope (1×)"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "D-Handle (1\u00d7)"
+            "name": "D-Handle (1×)"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Ankle Strap (1\u00d7)"
+            "name": "Ankle Strap (1×)"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Pull-Down Bar (1\u00d7)"
+            "name": "Pull-Down Bar (1×)"
           }
         },
         "item_7": {
@@ -365,21 +365,21 @@
           "type": "spec",
           "settings": {
             "label": "Arm Range",
-            "value": "0\u00b0\u2013145\u00b0 (8 positions)"
+            "value": "0°–145° (8 positions)"
           }
         },
         "spec_4": {
           "type": "spec",
           "settings": {
             "label": "Dimensions",
-            "value": "190 \u00d7 64 \u00d7 46 cm"
+            "value": "190 × 64 × 46 cm"
           }
         },
         "spec_5": {
           "type": "spec",
           "settings": {
             "label": "Folded Size",
-            "value": "109 \u00d7 35 cm"
+            "value": "109 × 35 cm"
           }
         },
         "spec_6": {
@@ -414,7 +414,7 @@
           "type": "spec",
           "settings": {
             "label": "Power Input",
-            "value": "100\u2013230V (AU plug)"
+            "value": "100–230V (AU plug)"
           }
         },
         "spec_11": {
@@ -466,14 +466,14 @@
         "comp_2": {
           "type": "comparison",
           "settings": {
-            "label": "vs casual classes ($42.50 avg, 2\u00d7/week)",
+            "label": "vs casual classes ($42.50 avg, 2×/week)",
             "value": "~6.5 months"
           }
         },
         "comp_3": {
           "type": "comparison",
           "settings": {
-            "label": "vs private sessions ($120 avg, 2\u00d7/week)",
+            "label": "vs private sessions ($120 avg, 2×/week)",
             "value": "~2.3 months"
           }
         },
@@ -541,7 +541,7 @@
           "type": "qa",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "We ship within 2\u20133 business days from our Sydney warehouse. Standard delivery takes 5\u20137 business days to metro areas across Australia and 7\u201310 days to NZ. Free shipping to all Australian addresses, metro and regional."
+            "answer": "We ship within 2–3 business days from our Sydney warehouse. Standard delivery takes 5–7 business days to metro areas across Australia and 7–10 days to NZ. Free shipping to all Australian addresses, metro and regional."
           }
         },
         "qa_2": {
@@ -562,21 +562,21 @@
           "type": "qa",
           "settings": {
             "question": "Is the Vesta Sensol App really free?",
-            "answer": "Yes. Every RS03 includes lifetime access to the Vesta Sensol App \u2014 300+ classes, live tracking, and AI form coaching. No subscription, ever."
+            "answer": "Yes. Every RS03 includes lifetime access to the Vesta Sensol App — 300+ classes, live tracking, and AI form coaching. No subscription, ever."
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "Is the RS03 suitable for beginners?",
-            "answer": "Yes. Three training modes \u2014 Standard, Off-centre, and Constant \u2014 adapt to your level. Start with 1 kg increments and progress at your own pace."
+            "answer": "Yes. Three training modes — Standard, Off-centre, and Constant — adapt to your level. Start with 1 kg increments and progress at your own pace."
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
             "question": "How noisy is it? Can I use it in an apartment?",
-            "answer": "The RS03 operates under 45 dB at full load \u2014 quieter than a normal conversation. Safe for apartment use at any hour."
+            "answer": "The RS03 operates under 45 dB at full load — quieter than a normal conversation. Safe for apartment use at any hour."
           }
         },
         "qa_7": {

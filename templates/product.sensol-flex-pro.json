@@ -13,7 +13,7 @@
       "type": "sensol-flex-pro-landing",
       "settings": {
         "subtitle": "Studio Power. Home Convenience.",
-        "model_info": "Model FLEX PRO / Smart Elastic Band Reformer \u00b7 SKU: SNSL-FLEX-PRO-AU",
+        "model_info": "Model FLEX PRO / Smart Spring Reformer · SKU: SNSL-FLEX-PRO-AU",
         "padding_top": 40
       }
     },
@@ -32,14 +32,14 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "120kg",
+            "number": "150 kg",
             "label": "Max Resistance"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "0\u2013145\u00b0",
+            "number": "0–145°",
             "label": "Arm Range"
           }
         },
@@ -47,7 +47,7 @@
           "type": "stat",
           "settings": {
             "number": "Spring-based",
-            "label": "Dual Servo Motor"
+            "label": "Spring System"
           }
         },
         "stat_4": {
@@ -67,7 +67,7 @@
       "settings": {
         "eyebrow": "Product Overview",
         "title": "The pinnacle of the FLEX Series.",
-        "text": "The Sensol FLEX PRO is a premium spring reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 150 kg maximum load powered by German steel wire springs (7.5KG \u00d7 2 / 15KG \u00d7 2), a 0\u2013145\u00b0 arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
+        "text": "The Sensol FLEX PRO is a premium spring reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 150 kg maximum load powered by German steel wire springs (7.5KG × 2 / 15KG × 2), a 0–145° arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
       }
     },
     "sp_feature_resistance": {
@@ -76,7 +76,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "120kg",
+            "number": "150 kg",
             "label": "Max Resistance"
           }
         },
@@ -90,14 +90,14 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "0.5kg",
+            "number": "Spring",
             "label": "Precision"
           }
         },
         "stat_4": {
           "type": "stat",
           "settings": {
-            "number": "2\u2013100kg",
+            "number": "2–100kg",
             "label": "Working Range"
           }
         }
@@ -112,8 +112,8 @@
         "color_scheme": "dark",
         "image_position": "left",
         "eyebrow": "Key Feature 01",
-        "title": "150 kg max load Resistance \u2014 The Widest Range in Its Class",
-        "text_1": "The FLEX PRO delivers up to 150 kg max load of spring-based resistance \u2014 the FLEX AIR (150 kg max load max load). This exceeds the practical maximum of most traditional spring reformers (typically 60\u201375 kg with all springs engaged).",
+        "title": "150 kg max load Resistance — The Widest Range in Its Class",
+        "text_1": "The FLEX PRO delivers up to 150 kg max load of spring-based resistance — the FLEX AIR (150 kg max load max load). This exceeds the practical maximum of most traditional spring reformers (typically 60–75 kg with all springs engaged).",
         "text_2": "The German steel wire springs provide smooth, consistent tension from spring levels all the way to 150 kg max load, with instant adjustment via the remote control or app. Whether you're performing gentle rehabilitation movements at 2 kg or demanding strength exercises at 100 kg, the FLEX PRO delivers the same precise, controlled resistance."
       }
     },
@@ -123,7 +123,7 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "0\u2013145\u00b0",
+            "number": "0–145°",
             "label": "Arm Range"
           }
         },
@@ -137,7 +137,7 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "number": "+13\u00b0",
+            "number": "+13°",
             "label": "vs FLEX / FLEX AIR"
           }
         },
@@ -159,9 +159,9 @@
         "color_scheme": "light",
         "image_position": "right",
         "eyebrow": "Key Feature 02",
-        "title": "0\u2013145\u00b0 Arm Range \u2014 Unlock Advanced Movements",
-        "text_1": "The FLEX PRO's arms adjust from 0\u00b0 to 145\u00b0 across 8 positions \u2014 a wider range than the FLEX and FLEX AIR's 0\u2013132\u00b0. This additional 13\u00b0 unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
-        "text_2": "No traditional spring reformer on the Australian market offers adjustable arm positions at all \u2014 their footbars and cable systems are fixed. The FLEX PRO's 0\u2013145\u00b0 adjustable arms are a Sensol exclusive feature that dramatically expands exercise variety."
+        "title": "0–145° Arm Range — Unlock Advanced Movements",
+        "text_1": "The FLEX PRO's arms adjust from 0° to 145° across 8 positions — a wider range than the FLEX and FLEX AIR's 0–132°. This additional 13° unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
+        "text_2": "No traditional spring reformer on the Australian market offers adjustable arm positions at all — their footbars and cable systems are fixed. The FLEX PRO's 0–145° adjustable arms are a Sensol exclusive feature that dramatically expands exercise variety."
       }
     },
     "sp_feature_modes": {
@@ -206,8 +206,8 @@
         "color_scheme": "dark",
         "image_position": "left",
         "eyebrow": "Key Feature 03",
-        "title": "Three Training Modes \u2014 Beyond Springs",
-        "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances \u2014 impossible on any spring reformer.",
+        "title": "Three Training Modes — Beyond Springs",
+        "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances — impossible on any spring reformer.",
         "text_2": "Constant Mode maintains perfectly even tension throughout the entire range of motion, eliminating the dangerous peak loads that springs can create. This is particularly beneficial for rehabilitation, muscle endurance, and muscle growth. No spring reformer in the world offers training modes."
       }
     },
@@ -255,7 +255,7 @@
         "eyebrow": "Key Feature 04",
         "title": "Professional-Grade Build for Daily Use",
         "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
-        "text_2": "The black matte powder coating is industrial-grade, resisting sweat, scratches, and the cumulative wear of daily high-intensity training. Unlike wooden frames susceptible to humidity, the FLEX PRO's steel construction is impervious to environmental conditions \u2014 suitable for garages, sunrooms, and any Australian climate."
+        "text_2": "The black matte powder coating is industrial-grade, resisting sweat, scratches, and the cumulative wear of daily high-intensity training. Unlike wooden frames susceptible to humidity, the FLEX PRO's steel construction is impervious to environmental conditions — suitable for garages, sunrooms, and any Australian climate."
       }
     },
     "sp_video": {
@@ -271,7 +271,7 @@
         "video_2": {
           "type": "video_card",
           "settings": {
-            "title": "145\u00b0 Arm Showcase",
+            "title": "145° Arm Showcase",
             "duration": "2:00"
           }
         },
@@ -316,7 +316,7 @@
           "type": "spec",
           "settings": {
             "label": "Motors",
-            "value": "2 \u00d7 Servo Motors, Spring-based total"
+            "value": "Spring (German steel wire) · 7.5KG × 2 / 15KG × 2"
           }
         },
         "spec_resistance": {
@@ -330,14 +330,14 @@
           "type": "spec",
           "settings": {
             "label": "Resistance Precision",
-            "value": "Spring-loaded (7.5KG \u00d7 2 / 15KG \u00d7 2)"
+            "value": "Spring-loaded (7.5KG × 2 / 15KG × 2)"
           }
         },
         "spec_arms": {
           "type": "spec",
           "settings": {
             "label": "Arm Adjustment",
-            "value": "0\u2013145\u00b0, 8 positions"
+            "value": "0–145°, 8 positions"
           }
         },
         "spec_modes": {
@@ -351,7 +351,7 @@
           "type": "spec",
           "settings": {
             "label": "Dimensions (Unfolded)",
-            "value": "192 \u00d7 64 \u00d7 45 cm"
+            "value": "192 × 64 × 45 cm"
           }
         },
         "spec_weight": {
@@ -372,7 +372,7 @@
           "type": "spec",
           "settings": {
             "label": "Package Dimensions",
-            "value": "200 \u00d7 70 \u00d7 56 cm"
+            "value": "200 × 70 × 56 cm"
           }
         },
         "spec_user_weight": {
@@ -386,7 +386,7 @@
           "type": "spec",
           "settings": {
             "label": "Power Supply",
-            "value": "100\u2013240V, Australian plug"
+            "value": "100–240V, Australian plug"
           }
         },
         "spec_connectivity": {
@@ -400,14 +400,14 @@
           "type": "spec",
           "settings": {
             "label": "App",
-            "value": "Vesta Sensol App \u2014 300+ classes (Free, no subscription)"
+            "value": "Vesta Sensol App — 300+ classes (Free, no subscription)"
           }
         },
         "spec_storage": {
           "type": "spec",
           "settings": {
             "label": "Storage",
-            "value": "Upright, 0.2 m\u00b2 footprint"
+            "value": "Upright, 0.2 m² footprint"
           }
         },
         "spec_warranty": {
@@ -448,37 +448,37 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "name": "Sensol FLEX PRO device \u00d7 1"
+            "name": "Sensol FLEX PRO device × 1"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "name": "Footboard \u00d7 1"
+            "name": "Footboard × 1"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "name": "Barbell bar \u00d7 1"
+            "name": "Barbell bar × 1"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "name": "Short handles \u00d7 2"
+            "name": "Short handles × 2"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "name": "Remote control \u00d7 1"
+            "name": "Remote control × 1"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "name": "Power cord \u00d7 1 (Australian plug, 100\u2013240V)"
+            "name": "Power cord × 1 (Australian plug, 100–240V)"
           }
         },
         "item_7": {
@@ -508,7 +508,7 @@
         "comp_1": {
           "type": "comparison",
           "settings": {
-            "label": "vs casual classes ($45/session \u00d7 2/week)",
+            "label": "vs casual classes ($45/session × 2/week)",
             "value": "~$4,680 / yr"
           }
         },
@@ -522,7 +522,7 @@
         "comp_3": {
           "type": "comparison",
           "settings": {
-            "label": "vs private sessions ($120/session \u00d7 1/week)",
+            "label": "vs private sessions ($120/session × 1/week)",
             "value": "~$6,240 / yr"
           }
         },
@@ -567,7 +567,7 @@
       "settings": {
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The FLEX PRO pays for itself.",
-        "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500\u2013$13,400 compared to studio sessions \u2014 and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
+        "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500–$13,400 compared to studio sessions — and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
       }
     },
     "sp_reviews": {
@@ -576,7 +576,7 @@
         "review_1": {
           "type": "review",
           "settings": {
-            "text": "I've been teaching reformer Pilates for 12 years and I've never experienced anything like the FLEX PRO. The 145\u00b0 arm range allows me to perform and teach movements that are simply impossible on a traditional reformer \u2014 the snake, the twist, diagonal pull-throughs at extreme angles. The Off-centre training mode has become my secret weapon for clients with stability issues. This is the future of reformer training.",
+            "text": "I've been teaching reformer Pilates for 12 years and I've never experienced anything like the FLEX PRO. The 145° arm range allows me to perform and teach movements that are simply impossible on a traditional reformer — the snake, the twist, diagonal pull-throughs at extreme angles. The Off-centre training mode has become my secret weapon for clients with stability issues. This is the future of reformer training.",
             "name": "Victoria S.",
             "role": "Pilates Instructor, Byron Bay"
           }
@@ -584,7 +584,7 @@
         "review_2": {
           "type": "review",
           "settings": {
-            "text": "As a former rugby player, I need both strength and mobility. Traditional reformers maxed out at around 70 kg, which wasn't enough for my strength goals. The FLEX PRO's 150 kg max load is the real deal \u2014 heavy rows, chest presses, and overhead work that actually challenges my strength. Then I switch to Pilates mode for mobility and core work. It's like having a reformer, a cable machine, and a physical therapy tool all in one.",
+            "text": "As a former rugby player, I need both strength and mobility. Traditional reformers maxed out at around 70 kg, which wasn't enough for my strength goals. The FLEX PRO's 150 kg max load is the real deal — heavy rows, chest presses, and overhead work that actually challenges my strength. Then I switch to Pilates mode for mobility and core work. It's like having a reformer, a cable machine, and a physical therapy tool all in one.",
             "name": "Jackson M.",
             "role": "Brisbane"
           }
@@ -592,7 +592,7 @@
         "review_3": {
           "type": "review",
           "settings": {
-            "text": "My physio recommended reformer Pilates for my chronic lower back pain, but at $120 per private session, it wasn't sustainable. The FLEX PRO's Constant Mode has been transformative \u2014 the even tension means I never get that scary 'catch' that springs can create. After 10 weeks of daily 30-minute sessions, my back pain has reduced by about 40%, I'm sleeping through the night, and I can play with my grandchildren without wincing.",
+            "text": "My physio recommended reformer Pilates for my chronic lower back pain, but at $120 per private session, it wasn't sustainable. The FLEX PRO's Constant Mode has been transformative — the even tension means I never get that scary 'catch' that springs can create. After 10 weeks of daily 30-minute sessions, my back pain has reduced by about 40%, I'm sleeping through the night, and I can play with my grandchildren without wincing.",
             "name": "Diane W.",
             "role": "Regional NSW"
           }
@@ -616,70 +616,70 @@
           "type": "qa",
           "settings": {
             "question": "What makes the FLEX PRO different from the FLEX?",
-            "answer": "The FLEX PRO offers three key upgrades: (1) 150 kg max load vs 90 kg \u2014 a 33% increase; (2) 0\u2013145\u00b0 arm range vs 0\u2013132\u00b0 \u2014 the extra 13\u00b0 unlocks advanced movements and deeper range-of-motion exercises; (3) German steel wire springs vs Spring-based \u2014 delivering faster resistance transitions and more consistent tension at high loads. The FLEX PRO is designed for advanced practitioners who need maximum resistance and movement variety."
+            "answer": "The FLEX PRO offers three key upgrades: (1) 150 kg max load vs 90 kg — a 33% increase; (2) 0–145° arm range vs 0–132° — the extra 13° unlocks advanced movements and deeper range-of-motion exercises; (3) German steel wire springs vs Spring-based — delivering faster resistance transitions and more consistent tension at high loads. The FLEX PRO is designed for advanced practitioners who need maximum resistance and movement variety."
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
-            "question": "What exercises does the 145\u00b0 arm range unlock?",
-            "answer": "The additional 13\u00b0 of arm range unlocks several categories of exercises impossible on the FLEX or FLEX AIR: deeper lateral flexion patterns targeting the obliques and QL; wider diagonal pull-throughs for rotational core strength; advanced Pilates movements like the full snake, twist, and upward stretch; deeper lunges and split-stance exercises at extreme angles; and wider chest-opening patterns for improved shoulder mobility and thoracic extension."
+            "question": "What exercises does the 145° arm range unlock?",
+            "answer": "The additional 13° of arm range unlocks several categories of exercises impossible on the FLEX or FLEX AIR: deeper lateral flexion patterns targeting the obliques and QL; wider diagonal pull-throughs for rotational core strength; advanced Pilates movements like the full snake, twist, and upward stretch; deeper lunges and split-stance exercises at extreme angles; and wider chest-opening patterns for improved shoulder mobility and thoracic extension."
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
             "question": "Is 150 kg max load of resistance too much for Pilates?",
-            "answer": "Not at all \u2014 that's the beauty of spring resistance increments. For Pilates movements, you'll typically work in the 5\u201330 kg range, adjusting spring tension to find the exact tension that challenges your form. The 150 kg max load is there for strength training exercises and for the few Pilates practitioners who can genuinely benefit from high-resistance footwork and leg press sequences. The range gives you options; the precision lets you use exactly what you need."
+            "answer": "Not at all — that's the beauty of spring resistance increments. For Pilates movements, you'll typically work in the 5–30 kg range, adjusting spring tension to find the exact tension that challenges your form. The 150 kg max load is there for strength training exercises and for the few Pilates practitioners who can genuinely benefit from high-resistance footwork and leg press sequences. The range gives you options; the precision lets you use exactly what you need."
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
             "question": "How does the FLEX PRO compare to the Your Reformer?",
-            "answer": "The Your Reformer ($2,795) is a spring-based reformer with a wooden frame. The FLEX PRO costs $995 less while offering: 150 kg max load vs ~75 kg; spring resistance vs spring hooks; 3 training modes vs 1; 0\u2013145\u00b0 adjustable arms vs fixed footbar; dual-function Pilates-plus-strength vs Pilates-only; and precision springs vs audible spring noise. The FLEX PRO is more capable, more versatile, and more technologically advanced."
+            "answer": "The Your Reformer ($2,795) is a spring-based reformer with a wooden frame. The FLEX PRO costs $995 less while offering: 150 kg max load vs ~75 kg; spring resistance vs spring hooks; 3 training modes vs 1; 0–145° adjustable arms vs fixed footbar; dual-function Pilates-plus-strength vs Pilates-only; and precision springs vs audible spring noise. The FLEX PRO is more capable, more versatile, and more technologically advanced."
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "Can the FLEX PRO replace studio Pilates entirely?",
-            "answer": "For most advanced practitioners, yes. The FLEX PRO provides more resistance range than a studio reformer, more exercise variety thanks to the 145\u00b0 arms and three training modes, and guided programming via the Vesta Sensol App's advanced class library. What it can't replace is the social experience of a group class or the hands-on adjustments of a skilled instructor. But for the actual training, the FLEX PRO delivers an experience that matches or exceeds most studios."
+            "answer": "For most advanced practitioners, yes. The FLEX PRO provides more resistance range than a studio reformer, more exercise variety thanks to the 145° arms and three training modes, and guided programming via the Vesta Sensol App's advanced class library. What it can't replace is the social experience of a group class or the hands-on adjustments of a skilled instructor. But for the actual training, the FLEX PRO delivers an experience that matches or exceeds most studios."
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
             "question": "What is the Constant Mode, and why is it beneficial?",
-            "answer": "Constant Mode maintains perfectly even tension throughout the entire range of motion. On a spring-based reformer, resistance increases as the spring stretches and decreases as it shortens. Constant Mode eliminates this variability, providing consistent resistance from the first centimetre of movement to the last. This is particularly beneficial for rehabilitation, muscle endurance, and muscle growth \u2014 where the absence of a 'sticky point' ensures the muscle is challenged throughout the entire movement."
+            "answer": "Constant Mode maintains perfectly even tension throughout the entire range of motion. On a spring-based reformer, resistance increases as the spring stretches and decreases as it shortens. Constant Mode eliminates this variability, providing consistent resistance from the first centimetre of movement to the last. This is particularly beneficial for rehabilitation, muscle endurance, and muscle growth — where the absence of a 'sticky point' ensures the muscle is challenged throughout the entire movement."
           }
         },
         "qa_7": {
           "type": "qa",
           "settings": {
             "question": "Is the FLEX PRO suitable for rehabilitation?",
-            "answer": "Yes. Three features make it ideal: (1) spring resistance increments allow exact resistance matching to a patient's capacity; (2) Constant Mode provides even, controlled tension that eliminates dangerous peak loads; (3) the Vesta Sensol App includes rehabilitation programmes developed with physiotherapy input. Research shows 6\u201312 weeks of reformer Pilates reduces chronic lower back pain by 30\u201350%, and the FLEX PRO provides the precision and control needed to achieve these outcomes safely."
+            "answer": "Yes. Three features make it ideal: (1) spring resistance increments allow exact resistance matching to a patient's capacity; (2) Constant Mode provides even, controlled tension that eliminates dangerous peak loads; (3) the Vesta Sensol App includes rehabilitation programmes developed with physiotherapy input. Research shows 6–12 weeks of reformer Pilates reduces chronic lower back pain by 30–50%, and the FLEX PRO provides the precision and control needed to achieve these outcomes safely."
           }
         },
         "qa_8": {
           "type": "qa",
           "settings": {
             "question": "What is the warranty and return policy?",
-            "answer": "The FLEX PRO comes with a Lifetime Warranty on the frame and structural components, plus a 30-Day Money-Back Guarantee. If you're not completely satisfied within 30 days, return it for a full refund. Warranty claims are handled locally in Australia by Dute Fitness (Australia) Pty. Ltd. \u2014 no international shipping or long wait times."
+            "answer": "The FLEX PRO comes with a Lifetime Warranty on the frame and structural components, plus a 30-Day Money-Back Guarantee. If you're not completely satisfied within 30 days, return it for a full refund. Warranty claims are handled locally in Australia by Dute Fitness (Australia) Pty. Ltd. — no international shipping or long wait times."
           }
         },
         "qa_9": {
           "type": "qa",
           "settings": {
             "question": "How long does shipping take? Is it really free?",
-            "answer": "Shipping is completely free to all Australian addresses. Standard delivery takes 3\u20137 business days to metro areas and 5\u201310 business days to regional areas. Given the 43 kg package weight, free shipping represents $100\u2013$200 in value. You'll receive tracking information via email once your order is dispatched."
+            "answer": "Shipping is completely free to all Australian addresses. Standard delivery takes 3–7 business days to metro areas and 5–10 business days to regional areas. Given the 43 kg package weight, free shipping represents $100–$200 in value. You'll receive tracking information via email once your order is dispatched."
           }
         },
         "qa_10": {
           "type": "qa",
           "settings": {
             "question": "How does the FLEX PRO compare to smart reformers like the NordicTrack Ultra?",
-            "answer": "The NordicTrack Ultra costs approximately $17,000+ AUD, requires a $34/month iFIT subscription, and isn't foldable. The FLEX PRO costs $1,800, includes free app access with no subscription, and stores upright in 0.2 m\u00b2. The FLEX PRO offers more resistance (150 kg max load vs 65 kg), more training modes (3 vs 1), a wider arm range, and dual-function capability. The FLEX PRO delivers essential smart features at a fraction of the price."
+            "answer": "The NordicTrack Ultra costs approximately $17,000+ AUD, requires a $34/month iFIT subscription, and isn't foldable. The FLEX PRO costs $1,800, includes free app access with no subscription, and stores upright in 0.2 m². The FLEX PRO offers more resistance (150 kg max load vs 65 kg), more training modes (3 vs 1), a wider arm range, and dual-function capability. The FLEX PRO delivers essential smart features at a fraction of the price."
           }
         }
       },
