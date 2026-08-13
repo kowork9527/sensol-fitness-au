@@ -5,11 +5,11 @@
 {%- case collection.handle -%}
   {%- when 'smart-series' -%}
     {%- assign grid_show_tabs = false -%}
-    {%- assign grid_cols = 4 -%}
+    {%- assign grid_cols = 2 -%}
     {%- assign grid_label = 'Smart Series' -%}
   {%- when 'mechanical-series' -%}
     {%- assign grid_show_tabs = false -%}
-    {%- assign grid_cols = 3 -%}
+    {%- assign grid_cols = 2 -%}
     {%- assign grid_label = 'Mechanical Series' -%}
   {%- when 'flex-series' -%}
     {%- assign grid_show_tabs = false -%}
@@ -165,6 +165,13 @@
   <div class="sc-grid-{{ section.id }}__products" id="sc-grid-products-{{ section.id }}">
     {%- for product in collection.products -%}
       {%- assign product_title_lower = product.title | downcase -%}
+      {%- comment -%} Filter out discontinued products: RS02, RS02 PRO, and standalone FLEX {%- endcomment -%}
+      {%- if product_title_lower contains 'rs02' -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- if product_title_lower == 'sensol flex' or product_title_lower == 'flex' -%}
+        {%- continue -%}
+      {%- endif -%}
       {%- assign card_series = 'smart' -%}
       {%- if product_title_lower contains 'flex' -%}
         {%- assign card_series = 'mechanical' -%}
@@ -233,8 +240,8 @@
   "tag": "section",
   "class": "sensol-collection-grid",
   "settings": [
-    { "type": "text", "id": "smart_count", "label": "Smart Series Count", "default": "04" },
-    { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "03" }
+    { "type": "text", "id": "smart_count", "label": "Smart Series Count", "default": "02" },
+    { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "02" }
   ],
   "presets": [{ "name": "Collection Product Grid" }]
 }

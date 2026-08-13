@@ -6,6 +6,8 @@
     {%- assign spot_variant = 'smart' -%}
   {%- when 'mechanical-series' -%}
     {%- assign spot_variant = 'mech' -%}
+  {%- when 'flex-series' -%}
+    {%- assign spot_variant = 'flex' -%}
 {%- endcase -%}
 
 
@@ -129,8 +131,8 @@
           <span class="sc-spot-{{ section.id }}__feature-label">Movements</span>
         </div>
         <div class="sc-spot-{{ section.id }}__feature">
-          <span class="sc-spot-{{ section.id }}__feature-num">12kg</span>
-          <span class="sc-spot-{{ section.id }}__feature-label">Folded Weight</span>
+          <span class="sc-spot-{{ section.id }}__feature-num">25kg</span>
+          <span class="sc-spot-{{ section.id }}__feature-label">Starting Weight</span>
         </div>
         <div class="sc-spot-{{ section.id }}__feature">
           <span class="sc-spot-{{ section.id }}__feature-num">5min</span>
@@ -138,6 +140,38 @@
         </div>
       </div>
       <a href="/collections/mechanical-series" class="sc-spot-{{ section.id }}__cta">View Mechanical Series &rarr;</a>
+    </div>
+  </div>
+</section>
+{%- elsif spot_variant == 'flex' -%}
+<section class="sc-spot-{{ section.id }} sc-spot-{{ section.id }}--light">
+  <div class="sc-spot-{{ section.id }}__inner">
+    <div>
+      <p class="sc-spot-{{ section.id }}__eyebrow">Flex Collection</p>
+      <h2 class="sc-spot-{{ section.id }}__title">Foldable.<br>Uncompromising.</h2>
+      <p class="sc-spot-{{ section.id }}__text">Spring-based resistance in a foldable, space-saving frame. German and Chinese steel wire springs deliver smooth, consistent resistance for home practice where space matters.</p>
+      <div class="sc-spot-{{ section.id }}__features">
+        <div class="sc-spot-{{ section.id }}__feature">
+          <span class="sc-spot-{{ section.id }}__feature-num">150+</span>
+          <span class="sc-spot-{{ section.id }}__feature-label">Movements</span>
+        </div>
+        <div class="sc-spot-{{ section.id }}__feature">
+          <span class="sc-spot-{{ section.id }}__feature-num">Spring</span>
+          <span class="sc-spot-{{ section.id }}__feature-label">Resistance</span>
+        </div>
+        <div class="sc-spot-{{ section.id }}__feature">
+          <span class="sc-spot-{{ section.id }}__feature-num">Foldable</span>
+          <span class="sc-spot-{{ section.id }}__feature-label">Design</span>
+        </div>
+      </div>
+      <a href="/collections/flex-series" class="sc-spot-{{ section.id }}__cta">View Flex Series &rarr;</a>
+    </div>
+    <div class="sc-spot-{{ section.id }}__media">
+      {%- if collection.image -%}
+        <img src="{{ collection.image | image_url: width: 800 }}" alt="Flex Series" loading="lazy">
+      {%- else -%}
+        <img src="{{ 'contact-hero.jpg' | asset_url }}" alt="Flex Series" loading="lazy">
+      {%- endif -%}
     </div>
   </div>
 </section>
