@@ -5,15 +5,15 @@
       "settings": {
         "eyebrow": "2026 Collection",
         "title": "All Reformers",
-        "subtitle": "Seven machines engineered for precision strength and Pilates training at home. Filter by series to find your match.",
+        "subtitle": "Four machines engineered for precision strength and Pilates training at home. Filter by series to find your match.",
         "_cache_bust": "1"
       }
     },
     "main-grid": {
       "type": "sensol-collection-grid",
       "settings": {
-        "smart_count": "04",
-        "mech_count": "03"
+        "smart_count": "02",
+        "mech_count": "02"
       }
     },
     "spotlight": {
@@ -30,7 +30,7 @@
       "type": "sensol-collection-content",
       "settings": {
         "title": "Find Your Reformer",
-        "text": "Smart Series reformers use digital servo motors for 0.5 kg precision weight control - built for practitioners who want studio-grade technology at home. Mechanical Series reformers use elastic band and spring resistance - lighter, foldable, and more accessible, without compromising build quality. All Sensol reformers connect to the Vesta Sensol App for guided training across 200+ movements."
+        "text": "Smart Series reformers use a 500W servo motor for 1 kg precision digital weight control - built for practitioners who want studio-grade technology at home. Mechanical Series reformers use spring resistance - foldable, lightweight, and more accessible, without compromising build quality. All Sensol reformers connect to the Vesta Sensol App for guided training across 200+ movements."
       }
     }
   },
