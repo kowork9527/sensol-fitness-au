@@ -67,7 +67,7 @@
       "settings": {
         "eyebrow": "Product Overview",
         "title": "The most approachable way to begin.",
-        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level spring resistance up to 60 kg, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
+        "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level spring resistance up to 120 kg max load, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
       }
     },
     "sp_feature_value": {
@@ -208,7 +208,7 @@
         "eyebrow": "Key Feature 03",
         "title": "Smooth Elastic Band Resistance for Gentle Progression",
         "text_1": "The dual-level spring system (10 lb \u00d7 2 and 20 lb \u00d7 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, springs provide a gentler onset of resistance that reduces the risk of strain or injury.",
-        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and spring-loaded resistance via 750W servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes \u2014 Standard, Off-centre, and Constant \u2014 further expand your options."
+        "text_2": "With a maximum load capacity of 60 kg, a stable 84 cm stroke, and spring resistance via Chinese steel wire servo motors, the FLEX AIR supports everything from gentle rehabilitation movements to moderately challenging strength exercises. Three training modes \u2014 Standard, Off-centre, and Constant \u2014 further expand your options."
       }
     },
     "sp_feature_app": {
@@ -330,7 +330,7 @@
           "type": "spec",
           "settings": {
             "label": "Resistance Precision",
-            "value": "0.5 kg / 1 lb increments"
+            "value": "spring levels / 1 lb increments"
           }
         },
         "spec_bands": {
@@ -660,7 +660,7 @@
           "type": "qa",
           "settings": {
             "question": "How does the FLEX AIR compare to the Fortis Foldable Reformer?",
-            "answer": "The Fortis ($279\u2013$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers servo motor-precise resistance with spring resistance levels, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
+            "answer": "The Fortis ($279\u2013$349 from Kogan) is the cheapest reformer in Australia, but it uses basic springs with no app connectivity, no guided classes, no adjustable arms, and limited warranty. The FLEX AIR offers spring-based resistance with spring resistance levels, 300+ guided classes, dual-function Pilates-plus-strength capability, Wi-Fi/Bluetooth connectivity, and a Lifetime Warranty. It's a completely different category of product."
           }
         },
         "qa_6": {
@@ -695,7 +695,7 @@
           "type": "qa",
           "settings": {
             "question": "Can I upgrade from the FLEX AIR to a higher model later?",
-            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 60 kg maximum, the FLEX (90 kg) and FLEX PRO (150 kg max load) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
+            "answer": "While the FLEX AIR is a complete system on its own, Sensol offers a range of models with increasing resistance capacity. If you find yourself outgrowing the FLEX AIR's 60 kg maximum, the FLEX PRO (150 kg max load) and FLEX PRO (150 kg max load) offer natural upgrade paths. Contact our support team at support@sensolfitness.com.au to discuss upgrade options."
           }
         }
       },
