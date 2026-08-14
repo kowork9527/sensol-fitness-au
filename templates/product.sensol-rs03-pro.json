@@ -20,6 +20,7 @@
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/imgi_497_Frame_1133.png",
         "eyebrow": "Make it easy, Do it real",
         "title": "Where strength meets precision, and movement becomes design.",
         "height": 70,
@@ -65,6 +66,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The Flagship. Without Compromise.",
         "text": "Maximum power, enhanced Pilates cables, and the widest arm range in the Sensol lineup — delivering a studio-grade experience in your home. The RS03 PRO is the pinnacle of the Sensol platform, taking everything that makes the RS03 exceptional and elevating it with an enhanced Pilates cable system that expands movement pathways, increases range of motion, and enables advanced sequencing that approaches the depth and complexity of a professional studio session."
@@ -111,6 +116,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.11.02_PM.png",
         "eyebrow": "Key Feature 01",
         "title": "Enhanced Pilates Cable System — Studio-Grade Movement",
         "text_1": "The defining feature of the RS03 PRO. Engineered with premium-grade materials and a redesigned routing architecture, these cables deliver smoother transitions between exercises, greater range of motion through every movement pattern, and a tactile responsiveness that serious Pilates practitioners will immediately appreciate.",
@@ -158,6 +164,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-15_at_1.35.27_PM.png",
         "eyebrow": "Key Feature 02",
         "title": "500W Servo Motor — Digital Precision",
         "text_1": "The RS03 PRO is powered by a 500W servo motor — the most refined motor system in the Sensol lineup. This 500W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
@@ -205,6 +212,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-15_at_1.35.14_PM.png",
         "eyebrow": "Key Feature 03",
         "title": "Widest Arm Range: 0–145°, Eight Positions",
         "text_1": "The RS03 PRO features the widest arm adjustment range in the Sensol lineup: 0–145° across eight precisely engineered positions. This expansive arc, combined with the enhanced cables, creates a movement surface that accommodates everything from narrow-grip footwork to wide rotational pulls.",
@@ -252,6 +260,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/Screen_Shot_2026-04-30_at_12.00.16_PM.png",
         "eyebrow": "Key Feature 04",
         "title": "Digital Weight with Three Training Modes",
         "text_1": "The RS03 PRO delivers 45 kg of digital resistance adjustable in 1 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
@@ -265,28 +274,32 @@
           "type": "video_card",
           "settings": {
             "title": "Flagship Showcase",
-            "duration": "1:30"
+            "duration": "1:30",
+            "video_url": ""
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "Enhanced Cables",
-            "duration": "0:45"
+            "duration": "0:45",
+            "video_url": ""
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Three Training Modes",
-            "duration": "0:38"
+            "duration": "0:38",
+            "video_url": ""
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Range",
-            "duration": "0:22"
+            "duration": "0:22",
+            "video_url": ""
           }
         }
       },
