@@ -509,6 +509,75 @@
         {%- endif -%}
 
         <!-- Start blocks -->
+        <!-- Discount Code -->
+        <div class="cart-drawer__discount" style="margin-bottom:12px;">
+          <details id="Details-CartDrawer-Discount">
+            <summary style="cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; font-size:13px; font-family:'Inter',sans-serif; color:#1A1816; padding:8px 0;">
+              {{ 'sections.cart.discount_code' | default: 'Add a discount code' }}
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </summary>
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <input
+                type="text"
+                id="CartDrawer-DiscountInput"
+                placeholder="Enter discount code"
+                style="flex:1; padding:10px 12px; border:1px solid #D4CEC6; border-radius:4px; font-size:13px; font-family:'Inter',sans-serif; background:#fff; color:#1A1816; outline:none;"
+              >
+              <button
+                type="button"
+                id="CartDrawer-DiscountApply"
+                style="padding:10px 16px; background:#1A1816; color:#F7F4F0; border:none; border-radius:4px; font-size:12px; font-family:'Inter',sans-serif; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; white-space:nowrap;"
+              >Apply</button>
+            </div>
+            <p id="CartDrawer-DiscountMsg" style="font-size:12px; margin-top:6px; display:none;"></p>
+          </details>
+        </div>
+        <script>
+        (function() {
+          var btn = document.getElementById('CartDrawer-DiscountApply');
+          var input = document.getElementById('CartDrawer-DiscountInput');
+          var msg = document.getElementById('CartDrawer-DiscountMsg');
+          if (!btn || !input) return;
+          btn.addEventListener('click', function() {
+            var code = input.value.trim();
+            if (!code) { msg.style.display='block'; msg.style.color='#c00'; msg.textContent='Please enter a code.'; return; }
+            btn.textContent = 'Applying...';
+            fetch('/cart.js').then(function(r){return r.json();}).then(function(cart) {
+              var updates = {};
+              cart.items.forEach(function(item){ updates[item.key] = item.quantity; });
+              return fetch('/cart/update.js', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json','X-Requested-With':'XMLHttpRequest'},
+                body: JSON.stringify({discount: code})
+              });
+            }).then(function(r){return r.json();}).then(function(data) {
+              if (data.discount_applications && data.discount_applications.length > 0) {
+                msg.style.display='block'; msg.style.color='#2a7a2a'; msg.textContent='Discount applied: ' + (data.discount_applications[0].title || code);
+                input.value = '';
+                /* Reload the cart drawer contents */
+                var cartDrawer = document.querySelector('cart-drawer');
+                if (cartDrawer) {
+                  fetch('/cart?section_id=cart-drawer').then(function(r){return r.text();}).then(function(html) {
+                    var parsed = new DOMParser().parseFromString(html, 'text/html');
+                    var newItems = parsed.querySelector('cart-drawer-items');
+                    var newFooter = parsed.querySelector('.drawer__footer');
+                    if (newItems) { var existing = cartDrawer.querySelector('cart-drawer-items'); if (existing) existing.replaceWith(newItems); }
+                    if (newFooter) { var existingF = cartDrawer.querySelector('.drawer__footer'); if (existingF) existingF.replaceWith(newFooter); }
+                  });
+                }
+              } else {
+                msg.style.display='block'; msg.style.color='#c00'; msg.textContent='Invalid discount code.';
+              }
+              btn.textContent='Apply';
+            }).catch(function(e) {
+              msg.style.display='block'; msg.style.color='#c00'; msg.textContent='Error applying code.';
+              btn.textContent='Apply';
+            });
+          });
+          input.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); btn.click(); } });
+        })();
+        </script>
+
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
