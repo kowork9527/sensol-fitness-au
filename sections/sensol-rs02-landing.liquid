@@ -39,7 +39,7 @@
   }
   .rs02-gallery-{{ section.id }} {
     position: sticky;
-    top: 100px;
+    top: 20px;
   }
   .rs02-gallery-main-{{ section.id }} {
     aspect-ratio: 1 / 1;
@@ -115,7 +115,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 5;
+    z-index: 10;
     opacity: 0.65;
     transition: opacity 0.3s, background 0.2s;
     color: #1A1816;
@@ -502,8 +502,16 @@
     if (index < 0) index = images.length - 1;
     if (index >= images.length) index = 0;
     currentIndex = index;
-    if (mainImg) { mainImg.src = images[index]; }
+    if (mainImg) {
+      mainImg.src = images[index];
+      mainImg.removeAttribute('srcset');
+      mainImg.removeAttribute('sizes');
+    }
     thumbs.forEach(function(t, i) { t.classList.toggle('active', i === index); });
+    // Auto-scroll thumbs to keep active one visible
+    if (thumbs[currentIndex] && thumbs[currentIndex].scrollIntoView) {
+      thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
   }
 
   thumbs.forEach(function(thumb, i) {

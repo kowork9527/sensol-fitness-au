@@ -4,7 +4,7 @@
 <style>
 #shopify-section-{{ section.id }}{font-family:'Inter',sans-serif;color:#1A1816;background:#F7F4F0;padding:200px 20px 80px;box-sizing:border-box}
 #shopify-section-{{ section.id }} .rs03-product{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-#shopify-section-{{ section.id }} .rs03-gallery{position:sticky;top:120px}
+#shopify-section-{{ section.id }} .rs03-gallery{position:sticky;top:20px}
 #shopify-section-{{ section.id }} .rs03-gallery__main{aspect-ratio:1/1;background:#fff;overflow:hidden;margin-bottom:16px}
 #shopify-section-{{ section.id }} .rs03-gallery__main img{width:100%;height:100%;object-fit:cover}
 #shopify-section-{{ section.id }} .rs03-gallery__thumbs{display:flex;gap:10px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:6px}
@@ -15,7 +15,7 @@
 #shopify-section-{{ section.id }} .rs03-gallery__thumb:hover{border-color:#1A1816}
 #shopify-section-{{ section.id }} .rs03-gallery__thumb img{width:100%;height:100%;object-fit:cover}
 #shopify-section-{{ section.id }} .rs03-gallery__main-wrapper{position:relative;margin-bottom:16px}
-#shopify-section-{{ section.id }} .rs03-gallery__nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,0.92);border:none;border-radius:50%;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;opacity:0.65;transition:opacity 0.3s,background 0.2s;color:#1A1816}
+#shopify-section-{{ section.id }} .rs03-gallery__nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,0.92);border:none;border-radius:50%;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;opacity:0.65;transition:opacity 0.3s,background 0.2s;color:#1A1816}
 #shopify-section-{{ section.id }} .rs03-gallery__main-wrapper:hover .rs03-gallery__nav{opacity:1}
 #shopify-section-{{ section.id }} .rs03-gallery__nav:hover{background:rgba(255,255,255,1)}
 #shopify-section-{{ section.id }} .rs03-gallery__nav--prev{left:12px}
@@ -142,8 +142,16 @@
     if (index < 0) index = images.length - 1;
     if (index >= images.length) index = 0;
     currentIndex = index;
-    if (mainImg) { mainImg.src = images[index]; }
+    if (mainImg) {
+      mainImg.src = images[index];
+      mainImg.removeAttribute('srcset');
+      mainImg.removeAttribute('sizes');
+    }
     thumbs.forEach(function(t, i) { t.classList.toggle('active', i === index); });
+    // Auto-scroll thumbs to keep active one visible
+    if (thumbs[currentIndex] && thumbs[currentIndex].scrollIntoView) {
+      thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
   }
 
   thumbs.forEach(function(thumb, i) {
