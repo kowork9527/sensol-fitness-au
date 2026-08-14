@@ -1,3 +1,4 @@
+<!-- SENSWEB-THEME-V4-CHECK -->
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
@@ -296,6 +297,7 @@
         --sensol-accent: #B5ADA4;
         --sensol-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         --sensol-transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+        --sensol-cache-check: #CACHE123;
       }
       body, .shopify-section { font-family: var(--sensol-font) !important; }
       h1, h2, h3, h4, h5, h6, .heading-font, .header__heading, .banner__heading { font-family: var(--sensol-font) !important; }
@@ -320,7 +322,7 @@
     {%- endstyle -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
-    {%- if settings.cart_type == 'drawer' -%}
+    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
       {{ 'component-cart.css' | asset_url | stylesheet_tag }}
       {{ 'component-totals.css' | asset_url | stylesheet_tag }}
@@ -396,7 +398,7 @@
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- if settings.cart_type == 'drawer' -%}
+    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
@@ -468,7 +470,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.cart_type == 'drawer' -%}
+    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
