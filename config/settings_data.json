@@ -10,6 +10,7 @@
 {
   "current": {
     "logo_width": 90,
+    "customer_account_menu": "customer-account-main-menu",
     "type_header_font": "inter_n3",
     "heading_scale": 100,
     "type_body_font": "inter_n4",
@@ -252,6 +253,7 @@
   "presets": {
     "Dawn": {
       "logo_width": 90,
+      "customer_account_menu": "customer-account-main-menu",
       "color_schemes": {
         "scheme-1": {
           "settings": {
