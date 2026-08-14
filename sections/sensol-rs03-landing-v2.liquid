@@ -70,6 +70,7 @@
 
     {%- form 'product', p -%}
       <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+      <div class="subscriptions_app_embed_block"></div>
 
       <div class="rs03-qty">
         <label class="rs03-qty__label" for="qty-{{ section.id }}">Quantity</label>
