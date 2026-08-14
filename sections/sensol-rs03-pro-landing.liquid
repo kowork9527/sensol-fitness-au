@@ -81,6 +81,68 @@
     height: 100%;
     object-fit: cover;
   }
+  .rs03pro-gallery-main-wrapper-{{ section.id }} {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .rs03pro-gallery-nav-{{ section.id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.92);
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.2s;
+    color: #1A1816;
+  }
+  .rs03pro-gallery-main-wrapper-{{ section.id }}:hover .rs03pro-gallery-nav-{{ section.id }} {
+    opacity: 1;
+  }
+  .rs03pro-gallery-nav-{{ section.id }}:hover {
+    background: rgba(255,255,255,1);
+  }
+  .rs03pro-gallery-nav-prev-{{ section.id }} { left: 12px; }
+  .rs03pro-gallery-nav-next-{{ section.id }} { right: 12px; }
+  .rs03pro-gallery-thumbs-{{ section.id }} {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .rs03pro-gallery-{{ section.id }}:hover .rs03pro-gallery-thumbs-{{ section.id }} {
+    opacity: 1;
+  }
+  .rs03pro-lightbox-nav-{{ section.id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    transition: background 0.2s;
+  }
+  .rs03pro-lightbox-nav-{{ section.id }}:hover {
+    background: rgba(255,255,255,0.3);
+  }
+  .rs03pro-lightbox-nav-prev-{{ section.id }} { left: 30px; }
+  .rs03pro-lightbox-nav-next-{{ section.id }} { right: 30px; }
   .rs03pro-info-{{ section.id }} {
     padding: 20px 0;
   }
@@ -316,17 +378,21 @@
 
   <div class="rs03pro-product-{{ section.id }}">
     <div class="rs03pro-gallery-{{ section.id }}">
-      <div class="rs03pro-gallery-main-{{ section.id }}" id="rs03proMainImage-{{ section.id }}">
-        {%- if p.featured_image -%}
-          {{ p.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', id: 'rs03proMainImg' }}
-        {%- else -%}
-          <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279">No image</div>
-        {%- endif -%}
+      <div class="rs03pro-gallery-main-wrapper-{{ section.id }}">
+        <div class="rs03pro-gallery-main-{{ section.id }}" id="rs03proMainImage-{{ section.id }}">
+          {%- if p.featured_image -%}
+            {{ p.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', id: 'rs03proMainImg' }}
+          {%- else -%}
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8A8279">No image</div>
+          {%- endif -%}
+        </div>
+        <button class="rs03pro-gallery-nav-{{ section.id }} rs03pro-gallery-nav-prev-{{ section.id }}" id="rs03proPrev-{{ section.id }}" aria-label="Previous image">&#8249;</button>
+        <button class="rs03pro-gallery-nav-{{ section.id }} rs03pro-gallery-nav-next-{{ section.id }}" id="rs03proNext-{{ section.id }}" aria-label="Next image">&#8250;</button>
       </div>
       {%- if p.images.size > 1 -%}
-        <div class="rs03pro-gallery-thumbs-{{ section.id }}">
-          {%- for img in p.images limit: 4 -%}
-            <div class="rs03pro-gallery-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" data-image="{{ img | image_url: width: 1200 }}">
+        <div class="rs03pro-gallery-thumbs-{{ section.id }}" id="rs03proThumbs-{{ section.id }}">
+          {%- for img in p.images -%}
+            <div class="rs03pro-gallery-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" data-image="{{ img | image_url: width: 1200 }}" data-index="{{ forloop.index0 }}">
               {{ img | image_url: width: 300 | image_tag: loading: 'lazy' }}
             </div>
           {%- endfor -%}
@@ -398,7 +464,9 @@
 <!-- Lightbox -->
 <div class="rs03pro-lightbox-{{ section.id }}" id="rs03proLightbox-{{ section.id }}">
   <button class="rs03pro-lightbox-close-{{ section.id }}" id="rs03proLightboxClose-{{ section.id }}">×</button>
+  <button class="rs03pro-lightbox-nav-{{ section.id }} rs03pro-lightbox-nav-prev-{{ section.id }}" id="rs03proLightboxPrev-{{ section.id }}" aria-label="Previous">&#8249;</button>
   <img src="" alt="Product image" id="rs03proLightboxImg-{{ section.id }}">
+  <button class="rs03pro-lightbox-nav-{{ section.id }} rs03pro-lightbox-nav-next-{{ section.id }}" id="rs03proLightboxNext-{{ section.id }}" aria-label="Next">&#8250;</button>
 </div>
 
 <script>
@@ -407,24 +475,48 @@
   var mainImg = document.getElementById('rs03proMainImg');
   var mainContainer = document.getElementById('rs03proMainImage-' + sectionId);
   var thumbs = document.querySelectorAll('.rs03pro-gallery-thumb-' + sectionId);
+  var prevBtn = document.getElementById('rs03proPrev-' + sectionId);
+  var nextBtn = document.getElementById('rs03proNext-' + sectionId);
   var lightbox = document.getElementById('rs03proLightbox-' + sectionId);
   var lightboxImg = document.getElementById('rs03proLightboxImg-' + sectionId);
   var lightboxClose = document.getElementById('rs03proLightboxClose-' + sectionId);
+  var lightboxPrev = document.getElementById('rs03proLightboxPrev-' + sectionId);
+  var lightboxNext = document.getElementById('rs03proLightboxNext-' + sectionId);
 
+  var images = [];
   thumbs.forEach(function(thumb) {
-    thumb.addEventListener('click', function() {
-      var newSrc = this.getAttribute('data-image');
-      if (mainImg && newSrc) {
-        mainImg.src = newSrc;
-      }
-      thumbs.forEach(function(t) { t.classList.remove('active'); });
-      this.classList.add('active');
-    });
+    images.push(thumb.getAttribute('data-image'));
   });
+  if (mainImg && mainImg.src && images.indexOf(mainImg.src) === -1) {
+    images.unshift(mainImg.src);
+  }
+  if (images.length === 0 && mainImg) {
+    images.push(mainImg.src);
+  }
+  var currentIndex = 0;
 
-  if (mainContainer && mainImg) {
+  function showImage(index) {
+    if (images.length === 0) return;
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+    currentIndex = index;
+    if (mainImg) { mainImg.src = images[index]; }
+    thumbs.forEach(function(t, i) { t.classList.toggle('active', i === index); });
+  }
+
+  thumbs.forEach(function(thumb, i) {
+    thumb.addEventListener('click', function() { showImage(i); });
+  });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showImage(currentIndex - 1); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showImage(currentIndex + 1); });
+  }
+
+  if (mainContainer) {
     mainContainer.addEventListener('click', function() {
-      lightboxImg.src = mainImg.src;
+      if (lightboxImg && images[currentIndex]) { lightboxImg.src = images[currentIndex]; }
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
@@ -434,16 +526,37 @@
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
   }
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', closeLightbox);
-  }
+  if (lightboxClose) { lightboxClose.addEventListener('click', closeLightbox); }
   if (lightbox) {
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) closeLightbox();
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+  }
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var ni = (currentIndex - 1 + images.length) % images.length;
+      currentIndex = ni;
+      lightboxImg.src = images[ni];
+    });
+  }
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var ni = (currentIndex + 1) % images.length;
+      currentIndex = ni;
+      lightboxImg.src = images[ni];
     });
   }
   document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') {
+      var ni = (currentIndex - 1 + images.length) % images.length;
+      currentIndex = ni; lightboxImg.src = images[ni];
+    }
+    if (e.key === 'ArrowRight') {
+      var ni = (currentIndex + 1) % images.length;
+      currentIndex = ni; lightboxImg.src = images[ni];
+    }
   });
 })();
 </script>
