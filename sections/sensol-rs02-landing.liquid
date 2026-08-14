@@ -440,6 +440,7 @@
       {%- endif -%}
 
       {%- form 'product', p, id: 'product-form-' -%}
+        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" class="product-variant-id">
         <div class="subscriptions_app_embed_block"></div>
         <div class="rs02-qty-{{ section.id }}">
           <label class="rs02-qty-label-{{ section.id }}" for="Quantity-{{ section.id }}">Quantity</label>
