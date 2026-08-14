@@ -3,8 +3,8 @@
 -%}
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 80 }}px;
     padding-left: 20px;
     padding-right: 20px;
     background: #F7F4F0;
@@ -579,6 +579,16 @@
       "unit": "px",
       "label": "Top padding",
       "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
     }
   ],
   "presets": [
