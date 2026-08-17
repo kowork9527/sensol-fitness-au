@@ -12,7 +12,8 @@
     "hero": {
       "type": "sensol-rs03-landing",
       "settings": {
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "banner": {
@@ -339,7 +340,7 @@
         "item_8"
       ],
       "settings": {
-        "image": "shopify://shop_images/bd949e28-7514-42bb-9b05-371c8ecc43f5.png",
+        "image": "shopify://shop_images/imgi_28_bd949e28-7514-42bb-9b05-371c8ecc43f5.webp",
         "eyebrow": "In the Box",
         "title": "Everything included."
       }
