@@ -722,20 +722,22 @@
       "settings": {
         "label": "The FLEX Family",
         "title": "Built for every level.",
-        "view_all_link": "/collections/all",
+        "view_all_link": "shopify://collections",
         "product1_image": "shopify://shop_images/export_1_21f874a9-89cf-46d6-b8cf-873c42e21b7f.jpg",
         "product1_vendor": "Sensol",
         "product1_name": "RS03 PRO",
-        "product1_price": "From $2,800",
-        "product1_url": "/products/sensol-rs03-pro",
+        "product1_price": "From $3,099.00",
+        "product1_url": "shopify://products/sensol-pro-plus",
+        "product2_image": "shopify://shop_images/1.png",
         "product2_vendor": "Sensol",
-        "product2_name": "FLEX",
-        "product2_price": "From $1,290",
-        "product2_url": "/products/sensol-flex",
+        "product2_name": "FLEX AIR",
+        "product2_price": "From $699.00",
+        "product2_url": "shopify://products/sensol-mini-1",
+        "product3_image": "shopify://shop_images/7.png",
         "product3_vendor": "Sensol",
-        "product3_name": "FLEX AIR",
-        "product3_price": "From $890",
-        "product3_url": "/products/sensol-flex-air"
+        "product3_name": "FLEX PRO",
+        "product3_price": "From $2,299.00",
+        "product3_url": "shopify://products/sensol-flex-pro"
       }
     }
   },
