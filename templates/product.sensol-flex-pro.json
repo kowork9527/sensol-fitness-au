@@ -261,7 +261,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
-        "image": "shopify://shop_images/imgi_17_47b0bd64-c188-47a2-9c34-21505192ce49_3.png",
+        "image": "shopify://shop_images/imgi_87_Sensol_Pro_-_Smart_Pilates_Machine-4.jpg",
         "eyebrow": "Key Feature 04",
         "title": "Professional-Grade Build for Daily Use",
         "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
@@ -275,32 +275,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:30",
-            "video_url": ""
+            "duration": "0:41",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6cd56d35a7044421a75a87039c0770d4.mp4"
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Showcase",
-            "duration": "2:00",
-            "video_url": ""
+            "duration": "0:28",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/a2d207459f3b426fad0b03083c72e173.mp4"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Training Modes Explained",
-            "duration": "2:30",
-            "video_url": ""
+            "duration": "0:26",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e61e4324f4fa48b69d733b91ca5e4521.mp4"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "Advanced Movements",
-            "duration": "2:15",
-            "video_url": ""
+            "duration": "0:21",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/528e7d731d5746cc96dcc42f4cf230f8.mp4"
           }
         }
       },
@@ -451,6 +451,7 @@
         "spec_warranty"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_17_47b0bd64-c188-47a2-9c34-21505192ce49_4.png",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -512,6 +513,7 @@
         "item_7"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_17_3_d437d679-04bc-4ae3-ada5-da8348da1cf0.png",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
