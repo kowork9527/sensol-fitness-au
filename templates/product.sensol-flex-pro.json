@@ -14,12 +14,14 @@
       "settings": {
         "subtitle": "Studio Power. Home Convenience.",
         "model_info": "Model FLEX PRO / Smart Spring Reformer · SKU: SNSL-FLEX-PRO-AU",
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/kling_20260817_IMAGE__1__MAKE__3724_0.webp",
         "eyebrow": "Make it easy, Do it real",
         "title": "Studio power meets home convenience.",
         "height": 70,
@@ -65,6 +67,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The pinnacle of the FLEX Series.",
         "text": "The Sensol FLEX PRO is a premium spring reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 150 kg maximum load powered by German steel wire springs (7.5KG × 2 / 15KG × 2), a 0–145° arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
@@ -111,6 +117,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/kling_20260817_IMAGE__2___KEY__3739_0.webp",
         "eyebrow": "Key Feature 01",
         "title": "150 kg max load Resistance — The Widest Range in Its Class",
         "text_1": "The FLEX PRO delivers up to 150 kg max load of spring-based resistance — the FLEX AIR (150 kg max load max load). This exceeds the practical maximum of most traditional spring reformers (typically 60–75 kg with all springs engaged).",
@@ -158,6 +165,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/jimeng-2026-08-17-9554.webp",
         "eyebrow": "Key Feature 02",
         "title": "0–145° Arm Range — Unlock Advanced Movements",
         "text_1": "The FLEX PRO's arms adjust from 0° to 145° across 8 positions — a wider range than the FLEX and FLEX AIR's 0–132°. This additional 13° unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
@@ -205,6 +213,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/7.png",
         "eyebrow": "Key Feature 03",
         "title": "Three Training Modes — Beyond Springs",
         "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances — impossible on any spring reformer.",
@@ -252,6 +261,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/imgi_17_47b0bd64-c188-47a2-9c34-21505192ce49_3.png",
         "eyebrow": "Key Feature 04",
         "title": "Professional-Grade Build for Daily Use",
         "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
@@ -265,28 +275,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:30"
+            "duration": "1:30",
+            "video_url": ""
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Showcase",
-            "duration": "2:00"
+            "duration": "2:00",
+            "video_url": ""
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Training Modes Explained",
-            "duration": "2:30"
+            "duration": "2:30",
+            "video_url": ""
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "Advanced Movements",
-            "duration": "2:15"
+            "duration": "2:15",
+            "video_url": ""
           }
         }
       },
