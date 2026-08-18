@@ -283,24 +283,24 @@
           "type": "video_card",
           "settings": {
             "title": "Enhanced Cables",
-            "duration": "0:45",
-            "video_url": ""
+            "duration": "0:28",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/a2d207459f3b426fad0b03083c72e173.mp4"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Three Training Modes",
-            "duration": "0:38",
-            "video_url": ""
+            "duration": "0:26",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e61e4324f4fa48b69d733b91ca5e4521.mp4"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Range",
-            "duration": "0:22",
-            "video_url": ""
+            "duration": "0:41",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6cd56d35a7044421a75a87039c0770d4.mp4"
           }
         }
       },
