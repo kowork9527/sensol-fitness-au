@@ -451,6 +451,7 @@
         "spec_warranty"
       ],
       "settings": {
+        "image": "shopify://shop_images/export_1.jpg",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -512,6 +513,7 @@
         "item_7"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_389_pro_3_a8844b6a-60f8-490b-99e7-dd54444230fd.jpg",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
