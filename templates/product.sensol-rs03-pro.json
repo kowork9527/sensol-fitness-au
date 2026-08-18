@@ -165,6 +165,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/04_7ec54ea2-ca28-438c-aee8-9b5e4dba9d9f.jpg",
         "eyebrow": "Key Feature 02",
         "title": "500W Servo Motor — Digital Precision",
         "text_1": "The RS03 PRO is powered by a 500W servo motor — the most refined motor system in the Sensol lineup. This 500W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
@@ -212,6 +213,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/03.jpg",
         "eyebrow": "Key Feature 03",
         "title": "Widest Arm Range: 0–145°, Eight Positions",
         "text_1": "The RS03 PRO features the widest arm adjustment range in the Sensol lineup: 0–145° across eight precisely engineered positions. This expansive arc, combined with the enhanced cables, creates a movement surface that accommodates everything from narrow-grip footwork to wide rotational pulls.",
@@ -259,6 +261,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/Frame_1127_09ca6999-67d3-4494-aef0-6faf23d8113f.png",
         "eyebrow": "Key Feature 04",
         "title": "Digital Weight with Three Training Modes",
         "text_1": "The RS03 PRO delivers 45 kg of digital resistance adjustable in 1 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
