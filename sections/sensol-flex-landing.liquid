@@ -44,10 +44,13 @@
     align-items: start;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #1A1816;
+    min-width: 0;
   }
   .flex-gallery-{{ section.id }} {
     position: sticky;
     top: 20px;
+    min-width: 0;
+    max-width: 100%;
   }
   .flex-gallery-main-{{ section.id }} {
     aspect-ratio: 1 / 1;
@@ -56,11 +59,13 @@
     margin-bottom: 16px;
     cursor: zoom-in;
     position: relative;
+    min-width: 0;
+    max-width: 100%;
   }
   .flex-gallery-main-{{ section.id }} img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
     object-fit: cover;
     display: block;
     transition: transform 0.3s;
@@ -102,15 +107,17 @@
     border-color: #1A1816;
   }
   .flex-gallery-thumb-{{ section.id }} img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
     object-fit: cover;
     display: block;
   }
   .flex-gallery-main-wrapper-{{ section.id }} {
     position: relative;
     margin-bottom: 16px;
+    min-width: 0;
+    max-width: 100%;
   }
   .flex-gallery-nav-{{ section.id }} {
     position: absolute;
@@ -166,6 +173,7 @@
   .flex-lightbox-nav-next-{{ section.id }} { right: 30px; }
   .flex-info-{{ section.id }} {
     padding: 20px 0;
+    min-width: 0;
   }
   .flex-info-brand-{{ section.id }} {
     font-size: 11px;
