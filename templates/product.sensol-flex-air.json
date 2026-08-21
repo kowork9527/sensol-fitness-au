@@ -14,12 +14,14 @@
       "settings": {
         "subtitle": "Your Pilates Journey Starts Here",
         "model_info": "Model FLEX AIR / Smart Folding Reformer · SKU: SNSL-FLEX-AIR-AU",
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/imgi_482_Frame_1136_d92ca72d-9867-4fe1-8c4c-078bc61e6911.png",
         "eyebrow": "Make it easy, Do it real",
         "title": "Your Pilates journey starts here.",
         "height": 70,
@@ -65,6 +67,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The most approachable way to begin.",
         "text": "The Sensol FLEX AIR is the most approachable way to enter the world of reformer Pilates and smart strength training. Designed for beginners, apartment dwellers, and anyone curious about Pilates, the FLEX AIR delivers the core Sensol experience at a fraction of the cost. With dual-level spring resistance up to 120 kg max load, a foldable frame, and the Vesta Sensol App's 300+ guided classes, it's the smartest first step toward a stronger, more balanced body."
@@ -111,6 +117,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/kling_20260817_IMAGE__1__MAKE__3724_0_a8fa994e-1cd5-47be-ac6d-6e6e522621cd.webp",
         "eyebrow": "Key Feature 01",
         "title": "Most Affordable Quality Reformer in Australia",
         "text_1": "At just $650 AUD, the FLEX AIR is less than a quarter of the price of the Your Reformer ($2,795) and roughly half the cost of the Align-Pilates F3 Folding ($1,999). Unlike ultra-budget options that use basic springs and lack app connectivity, the FLEX AIR delivers a complete ecosystem: precision resistance, smart app integration, and professional-grade build quality.",
@@ -158,6 +165,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/imgi_428_Frame_1135_a15dfdd3-762a-4a93-bd98-9c8a3cd9bbf8.png",
         "eyebrow": "Key Feature 02",
         "title": "Foldable, Compact, and Apartment-Friendly",
         "text_1": "The FLEX AIR is the only Sensol model with a foldable frame, collapsing from 185 cm to 165 cm in length. Store it upright against a wall or slide it under a bed — its 13 cm ground clearance keeps it stable during use while maintaining a low profile. At just 25 kg, it's light enough for one person to move and reposition.",
@@ -205,6 +213,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/imgi_374_mini.55.jpg",
         "eyebrow": "Key Feature 03",
         "title": "Smooth Spring Resistance for Gentle Progression",
         "text_1": "The dual-level spring system (10 lb × 2 and 20 lb × 2) delivers smooth, continuous tension that's ideal for beginners learning proper form. Unlike spring-based systems that can feel jerky or overwhelming, springs provide a gentler onset of resistance that reduces the risk of strain or injury.",
@@ -252,8 +261,9 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/Frame_1117.png",
         "eyebrow": "Key Feature 04",
-        "title": "Vesta Sensol App — 300+ Free Guided Classes",
+        "title": "Sensol App — 300+ Free Guided Classes",
         "text_1": "Every FLEX AIR includes free access to the Vesta Sensol App (iOS and Android), featuring over 300 guided classes spanning Pilates, yoga, strength training, and rehabilitation. Structured programmes guide absolute beginners through to intermediate practitioners, with new classes added regularly.",
         "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free — saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
       }
@@ -265,28 +275,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:00"
+            "duration": "1:00",
+            "video_url": ""
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "Beginner's First Session",
-            "duration": "3:30"
+            "duration": "3:30",
+            "video_url": ""
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Fold & Store",
-            "duration": "0:30"
+            "duration": "0:30",
+            "video_url": ""
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "FLEX AIR vs Studio",
-            "duration": "2:00"
+            "duration": "2:00",
+            "video_url": ""
           }
         }
       },
