@@ -41,8 +41,9 @@
   }
 
   .sensol-header__logo-img {
-    max-height: 32px;
-    max-width: 120px;
+    max-height: 56px;
+    max-width: {{ section.settings.logo_width }}px;
+    height: auto;
     object-fit: contain;
   }
 
@@ -256,8 +257,8 @@
       display: flex;
     }
     .sensol-header__logo-img {
-      max-height: 24px;
-      max-width: 80px;
+      max-height: 40px;
+      max-width: 140px;
     }
   }
 
@@ -325,11 +326,11 @@
     <a href="/" class="sensol-header__logo">
       {%- if section.settings.logo != blank -%}
         <img
-          src="{{ section.settings.logo | image_url: width: 200 }}"
+          src="{{ section.settings.logo | image_url: width: 400 }}"
           alt="{{ shop.name | escape }}"
           class="sensol-header__logo-img"
           width="{{ section.settings.logo_width }}"
-          height="32"
+          height="56"
           loading="eager"
         >
       {%- else -%}
@@ -542,10 +543,10 @@
       "type": "range",
       "id": "logo_width",
       "min": 50,
-      "max": 200,
+      "max": 300,
       "step": 5,
       "unit": "px",
-      "default": 120,
+      "default": 180,
       "label": "Logo width"
     },
     {
