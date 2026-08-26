@@ -166,9 +166,11 @@
 {%- assign cmp_products = '' | split: '' -%}
 {%- for product in cmp_collection.products -%}
   {%- assign pt = product.title | downcase -%}
+  <!-- DBG-B i=[{{ forloop.index }}] t=[{{ product.title }}] before_arr=[{{ cmp_products.size }}] -->
   {%- if pt contains 'rs02' -%}{%- continue -%}{%- endif -%}
   {%- if pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
   {%- assign cmp_products = cmp_products | push: product -%}
+  <!-- DBG-C after_push arr=[{{ cmp_products.size }}] -->
 {%- endfor -%}
 {%- assign p1 = cmp_products[0] -%}
 {%- assign p2 = cmp_products[1] -%}
