@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "sensol-collection-hero",
+      "settings": {
+        "eyebrow": "Series 02",
+        "title": "Mechanical Series",
+        "subtitle": "Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality."
+      }
+    },
+    "spotlight": {
+      "type": "sensol-collection-spotlight",
+      "settings": {
+        "show_section": true
+      }
+    },
+    "main-grid": {
+      "type": "sensol-collection-grid",
+      "settings": {}
+    },
+    "stats": {
+      "type": "sensol-collection-stats",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "spotlight",
+    "main-grid",
+    "stats"
+  ]
+}
