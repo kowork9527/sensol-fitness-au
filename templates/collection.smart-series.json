@@ -18,6 +18,14 @@
       "type": "sensol-collection-grid",
       "settings": {}
     },
+    "compare": {
+      "type": "sensol-collection-compare",
+      "settings": {
+        "show_section": true,
+        "eyebrow": "Choose Your Reformer",
+        "title": ""
+      }
+    },
     "stats": {
       "type": "sensol-collection-stats",
       "settings": {}
@@ -27,6 +35,7 @@
     "hero",
     "spotlight",
     "main-grid",
+    "compare",
     "stats"
   ]
 }

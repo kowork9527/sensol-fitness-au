@@ -31,14 +31,20 @@
 - `sections/sensol-collection-hero.liquid` — collection page hero (settings: eyebrow, title, subtitle)
 - `sections/sensol-collection-spotlight.liquid` — unified spotlight section (show_section checkbox)
 - `sections/sensol-collection-grid.liquid` — product grid (settings: smart_count, mech_count)
+- `sections/sensol-collection-compare.liquid` — model comparison table between the two active products (per collection handle via `{% case %}`)
 - `sections/sensol-collection-stats.liquid` — stats with Liquid `{% case collection.handle %}` logic (no schema settings needed)
 - `sections/sensol-collection-content.liquid` — bottom content section
 
+## Liquid Pitfalls (Learned the Hard Way)
+- **`push` filter does NOT work with product drops** in Shopify Liquid (`{% assign arr = arr | push: product %}` silently keeps the array empty). Use a counter + direct assignment instead (`{% assign p1 = product %}`).
+- **Shopify page cache**: full-page HTML is cached per URL variant. Random query params (`?_cb=123`) do NOT vary the cache key; `?sort_by=<value>` DOES. To verify a fresh render after pushing, use a new `sort_by` value or wait for cache TTL.
+- Section Rendering API (`?sections=template--ID__key`) responses are also cached server-side.
+
 ## Collection Templates
 - `templates/collection.json` — default (all products)
-- `templates/collection.smart-series.json` — Smart Series (hero + spotlight + grid + stats)
-- `templates/collection.mechanical-series.json` — Mechanical Series
-- `templates/collection.flex-series.json` — Flex Collection
+- `templates/collection.smart-series.json` — Smart Series (hero + spotlight + grid + compare + stats)
+- `templates/collection.mechanical-series.json` — Mechanical Series (same structure as smart-series)
+- `templates/collection.flex-series.json` — Flex Collection (no compare section)
 
 ## Build & Push
 - All changes pushed via Shopify CLI to both live and dev themes

@@ -1,0 +1,295 @@
+{%- comment -%}
+  Sensol Collection Compare - Model comparison table
+  Renders a spec comparison between the active products in the collection.
+  Products are filtered the same way as the product grid (RS02 legacy and
+  standalone FLEX are skipped). Spec rows are assigned per collection handle.
+
+  NOTE: the push filter does NOT accumulate product drops in Shopify Liquid,
+  so the first two active products are captured via direct assignment with
+  an integer counter instead.
+{%- endcomment -%}
+
+{%- style -%}
+  .sc-cmp-{{ section.id }} {
+    background: #FFFFFF;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1816;
+    padding: 80px 0 96px;
+  }
+  .sc-cmp-{{ section.id }}__head {
+    max-width: 1200px; margin: 0 auto 48px;
+    text-align: center;
+    padding: 0 40px;
+  }
+  .sc-cmp-{{ section.id }}__eyebrow {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: #8A8279; margin: 0 0 12px;
+  }
+  .sc-cmp-{{ section.id }}__title {
+    font-size: 32px; font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0; color: #1A1816;
+  }
+  .sc-cmp-{{ section.id }}__table {
+    max-width: 1080px; margin: 0 auto;
+    padding: 0 40px;
+  }
+  .sc-cmp-{{ section.id }}__products,
+  .sc-cmp-{{ section.id }}__row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0 32px;
+    align-items: stretch;
+  }
+  .sc-cmp-{{ section.id }}__products {
+    border-bottom: 1px solid #D4CEC6;
+    padding-bottom: 40px;
+  }
+  .sc-cmp-{{ section.id }}__row {
+    border-bottom: 1px solid #E8E2DA;
+  }
+  .sc-cmp-{{ section.id }}__row:last-child {
+    border-bottom: none;
+  }
+  .sc-cmp-{{ section.id }}__label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #8A8279;
+    padding: 20px 0;
+    display: flex; align-items: center;
+  }
+  .sc-cmp-{{ section.id }}__val {
+    font-size: 14px; font-weight: 400;
+    color: #1A1816;
+    padding: 20px 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .sc-cmp-{{ section.id }}__val--empty {
+    color: #C9C1B6;
+  }
+  .sc-cmp-{{ section.id }}__product {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .sc-cmp-{{ section.id }}__product-img {
+    width: 100%; aspect-ratio: 4 / 3;
+    background: #F7F4F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .sc-cmp-{{ section.id }}__product-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .sc-cmp-{{ section.id }}__product:hover .sc-cmp-{{ section.id }}__product-img img {
+    transform: scale(1.04);
+  }
+  .sc-cmp-{{ section.id }}__product-tag {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: #8A8279; margin: 0 0 8px;
+  }
+  .sc-cmp-{{ section.id }}__product-tag--flag {
+    color: #1A1816;
+    border-bottom: 1px solid #1A1816;
+    padding-bottom: 2px;
+  }
+  .sc-cmp-{{ section.id }}__product-name {
+    font-size: 20px; font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+  }
+  .sc-cmp-{{ section.id }}__product-price {
+    font-size: 14px; font-weight: 300;
+    color: #8A8279; margin: 0 0 20px;
+  }
+  .sc-cmp-{{ section.id }}__product-price s {
+    margin-right: 8px; opacity: 0.6;
+  }
+  .sc-cmp-{{ section.id }}__product-btn {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #FFFFFF; background: #1A1816;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+  .sc-cmp-{{ section.id }}__product:hover .sc-cmp-{{ section.id }}__product-btn {
+    background: #3A3631;
+  }
+  .sc-cmp-{{ section.id }}__single {
+    grid-template-columns: 200px 1fr;
+  }
+
+  @media screen and (max-width: 768px) {
+    .sc-cmp-{{ section.id }} { padding: 56px 0 72px; }
+    .sc-cmp-{{ section.id }}__head { padding: 0 20px; margin-bottom: 36px; }
+    .sc-cmp-{{ section.id }}__title { font-size: 24px; }
+    .sc-cmp-{{ section.id }}__table { padding: 0 20px; }
+    .sc-cmp-{{ section.id }}__products,
+    .sc-cmp-{{ section.id }}__row {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
+    }
+    .sc-cmp-{{ section.id }}__products { padding-bottom: 28px; }
+    .sc-cmp-{{ section.id }}__label {
+      grid-column: 1 / -1;
+      padding: 16px 0 6px;
+    }
+    .sc-cmp-{{ section.id }}__val {
+      padding: 6px 0 16px;
+      font-size: 13px;
+      text-align: center;
+    }
+    .sc-cmp-{{ section.id }}__product-img { margin-bottom: 14px; }
+    .sc-cmp-{{ section.id }}__product-name { font-size: 16px; }
+    .sc-cmp-{{ section.id }}__product-btn { padding: 12px 24px; }
+    .sc-cmp-{{ section.id }}__single {
+      grid-template-columns: 1fr;
+    }
+    .sc-cmp-{{ section.id }}__single .sc-cmp-{{ section.id }}__label {
+      grid-column: auto;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  Collect the first two active products (same filter logic as the product
+  grid: RS02 legacy models and the standalone FLEX are skipped).
+{%- endcomment -%}
+{%- assign cmp_seen = 0 -%}
+{%- for product in collection.products -%}
+  {%- assign pt = product.title | downcase -%}
+  {%- if pt contains 'rs02' -%}{%- continue -%}{%- endif -%}
+  {%- if pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
+  {%- if cmp_seen == 0 -%}
+    {%- assign p1 = product -%}
+  {%- elsif cmp_seen == 1 -%}
+    {%- assign p2 = product -%}
+  {%- endif -%}
+  {%- assign cmp_seen = cmp_seen | plus: 1 -%}
+{%- endfor -%}
+
+{%- comment -%} Assign comparison copy per collection handle {%- endcomment -%}
+{%- assign cmp_eyebrow = 'Choose Your Reformer' -%}
+{%- assign cmp_specs = '' -%}
+{%- assign p1_tag = '' -%}
+{%- assign p2_tag = '' -%}
+{%- case collection.handle -%}
+  {%- when 'smart-series' -%}
+    {%- assign p1_tag = 'Upgraded Smart' -%}
+    {%- assign p2_tag = 'Flagship' -%}
+    {%- assign cmp_specs = 'Motor Output|1500W dual servo|1500W dual servo;Total Resistance|120 kg|120 kg;Weight Precision|1 kg increments|1 kg increments;Arm Range|0-145°|0-145°;Pilates Cables|Standard cables|Enhanced Pilates cables;Movement Library|200+ movements|200+ movements;Best For|Serious home training|Studio-grade experience' -%}
+  {%- when 'mechanical-series' -%}
+    {%- assign p1_tag = 'Entry Level' -%}
+    {%- assign p2_tag = 'Flagship' -%}
+    {%- assign cmp_specs = 'Max Resistance|Band-based|120 kg;Weight Precision|-|0.5 kg increments;Arm Range|0-132°|0-145°;Training Modes|-|3 modes;Movement Library|-|200+ movements;Vesta App Classes|-|300+ guided classes;Best For|Essential home practice|Advanced home studio' -%}
+  {%- else -%}
+    {%- assign cmp_specs = 'Resistance System|Digital weight, servo driven|Elastic band, foldable;Best For|Precision strength training|Accessible home practice' -%}
+{%- endcase -%}
+
+{%- if section.settings.show_section and p1 != blank and cmp_specs != blank -%}
+<section class="sc-cmp-{{ section.id }}">
+  <div class="sc-cmp-{{ section.id }}__head">
+    <p class="sc-cmp-{{ section.id }}__eyebrow">{{ section.settings.eyebrow | default: cmp_eyebrow }}</p>
+    <h2 class="sc-cmp-{{ section.id }}__title">
+      {%- if section.settings.title != blank -%}
+        {{ section.settings.title }}
+      {%- elsif p2 != blank -%}
+        {{ p1.title | remove: 'Sensol ' }} vs {{ p2.title | remove: 'Sensol ' }}
+      {%- else -%}
+        {{ p1.title | remove: 'Sensol ' }}
+      {%- endif -%}
+    </h2>
+  </div>
+
+  <div class="sc-cmp-{{ section.id }}__table{% if p2 == blank %} sc-cmp-{{ section.id }}__single{% endif %}">
+    <div class="sc-cmp-{{ section.id }}__products">
+      <div class="sc-cmp-{{ section.id }}__label"></div>
+      <a href="{{ p1.url }}" class="sc-cmp-{{ section.id }}__product">
+        <div class="sc-cmp-{{ section.id }}__product-img">
+          {%- if p1.featured_image -%}
+            <img src="{{ p1.featured_image | image_url: width: 600 }}" alt="{{ p1.title | escape }}" loading="lazy" width="600" height="450">
+          {%- endif -%}
+        </div>
+        {%- if p1_tag != blank -%}
+          <p class="sc-cmp-{{ section.id }}__product-tag">{{ p1_tag }}</p>
+        {%- endif -%}
+        <h3 class="sc-cmp-{{ section.id }}__product-name">{{ p1.title | remove: 'Sensol ' }}</h3>
+        <p class="sc-cmp-{{ section.id }}__product-price">
+          {%- if p1.compare_at_price > p1.price -%}
+            <s>{{ p1.compare_at_price | money }}</s>
+          {%- endif -%}
+          {{ p1.price | money }}
+        </p>
+        <span class="sc-cmp-{{ section.id }}__product-btn">View {{ p1.title | remove: 'Sensol ' }}</span>
+      </a>
+      {%- if p2 != blank -%}
+      <a href="{{ p2.url }}" class="sc-cmp-{{ section.id }}__product">
+        <div class="sc-cmp-{{ section.id }}__product-img">
+          {%- if p2.featured_image -%}
+            <img src="{{ p2.featured_image | image_url: width: 600 }}" alt="{{ p2.title | escape }}" loading="lazy" width="600" height="450">
+          {%- endif -%}
+        </div>
+        {%- if p2_tag != blank -%}
+          <p class="sc-cmp-{{ section.id }}__product-tag sc-cmp-{{ section.id }}__product-tag--flag">{{ p2_tag }}</p>
+        {%- endif -%}
+        <h3 class="sc-cmp-{{ section.id }}__product-name">{{ p2.title | remove: 'Sensol ' }}</h3>
+        <p class="sc-cmp-{{ section.id }}__product-price">
+          {%- if p2.compare_at_price > p2.price -%}
+            <s>{{ p2.compare_at_price | money }}</s>
+          {%- endif -%}
+          {{ p2.price | money }}
+        </p>
+        <span class="sc-cmp-{{ section.id }}__product-btn">View {{ p2.title | remove: 'Sensol ' }}</span>
+      </a>
+      {%- endif -%}
+    </div>
+
+    {%- assign cmp_rows = cmp_specs | split: ';' -%}
+    {%- for row in cmp_rows -%}
+      {%- assign cells = row | split: '|' -%}
+      <div class="sc-cmp-{{ section.id }}__row">
+        <div class="sc-cmp-{{ section.id }}__label">{{ cells[0] }}</div>
+        {%- if cells[1] == '-' -%}
+          <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
+        {%- else -%}
+          <div class="sc-cmp-{{ section.id }}__val">{{ cells[1] }}</div>
+        {%- endif -%}
+        {%- if p2 != blank -%}
+          {%- if cells[2] == '-' -%}
+            <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
+          {%- else -%}
+            <div class="sc-cmp-{{ section.id }}__val">{{ cells[2] }}</div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Compare",
+  "tag": "section",
+  "class": "sensol-collection-compare",
+  "settings": [
+    { "type": "checkbox", "id": "show_section", "label": "Show Compare Section", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow (optional)", "default": "Choose Your Reformer" },
+    { "type": "text", "id": "title", "label": "Title (optional - defaults to product names)" }
+  ],
+  "presets": [
+    {
+      "name": "Collection Compare"
+    }
+  ]
+}
+{% endschema %}
