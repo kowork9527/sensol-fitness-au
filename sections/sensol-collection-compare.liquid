@@ -156,9 +156,15 @@
   }
 {%- endstyle -%}
 
-{%- comment -%} Collect active products (same filter logic as product grid) {%- endcomment -%}
+{%- comment -%}
+  Collect active products (same filter logic as product grid).
+  Note: collection.products is only populated in a collection template's
+  main section (key starts with "main", e.g. main-grid). This section uses
+  the global collections[handle] drop instead, which works everywhere.
+{%- endcomment -%}
+{%- assign cmp_collection = collections[collection.handle] -%}
 {%- assign cmp_products = '' | split: '' -%}
-{%- for product in collection.products -%}
+{%- for product in cmp_collection.products -%}
   {%- assign pt = product.title | downcase -%}
   {%- if pt contains 'rs02' -%}{%- continue -%}{%- endif -%}
   {%- if pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
@@ -275,11 +281,13 @@
   "name": "Collection Compare",
   "tag": "section",
   "class": "sensol-collection-compare",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
   "settings": [
     { "type": "checkbox", "id": "show_section", "label": "Show Compare Section", "default": true },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow (optional)", "default": "Choose Your Reformer" },
     { "type": "text", "id": "title", "label": "Title (optional - defaults to product names)" }
-  ],
-  "presets": [{ "name": "Collection Compare" }]
+  ]
 }
 {% endschema %}
