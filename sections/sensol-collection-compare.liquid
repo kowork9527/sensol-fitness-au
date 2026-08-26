@@ -195,6 +195,7 @@
     {%- assign cmp_specs = 'Resistance System|Digital weight, servo driven|Elastic band, foldable;Best For|Precision strength training|Accessible home practice' -%}
 {%- endcase -%}
 
+<!-- DBG-A handle=[{{ collection.handle }}] cmp_coll=[{{ cmp_collection.handle | default: 'NIL' }}] prods=[{{ cmp_collection.products.size }}] arr=[{{ cmp_products.size }}] show=[{{ section.settings.show_section }}] specs=[{{ cmp_specs | size }}] p1=[{{ p1.title | default: 'BLANK' }}] -->
 {%- if section.settings.show_section and p1 != blank and cmp_specs != blank -%}
 <section class="sc-cmp-{{ section.id }}">
   <div class="sc-cmp-{{ section.id }}__head">
