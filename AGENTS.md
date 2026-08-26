@@ -37,8 +37,14 @@
 
 ## Liquid Pitfalls (Learned the Hard Way)
 - **`push` filter does NOT work with product drops** in Shopify Liquid (`{% assign arr = arr | push: product %}` silently keeps the array empty). Use a counter + direct assignment instead (`{% assign p1 = product %}`).
-- **Shopify page cache**: full-page HTML is cached per URL variant. Random query params (`?_cb=123`) do NOT vary the cache key; `?sort_by=<value>` DOES. To verify a fresh render after pushing, use a new `sort_by` value or wait for cache TTL.
-- Section Rendering API (`?sections=template--ID__key`) responses are also cached server-side.
+
+## Deployment Rules (User Requirement - MANDATORY)
+- **Shopify changes take effect IMMEDIATELY. There is NO cache delay - never blame cache.** If a change does not show on the frontend after upload, it did NOT succeed. Debug in this strict order:
+  1. Code problem (Liquid logic, template errors)
+  2. Wrong upload destination - verify store URL and theme ID match
+  3. Confirm it was pushed to the LIVE theme (not just dev)
+- **GitHub ↔ Shopify sync is real-time.** The live theme's GitHub connection is the **`shopify` branch** (repo `kowork9527/sensol-fitness-au`) - NOT the `admin` branch. Never confuse them.
+- Full deployment = commit locally on `main` → fast-forward `shopify` branch → `git push github shopify` → GitHub integration syncs the live theme instantly.
 
 ## Collection Templates
 - `templates/collection.json` — default (all products)
@@ -47,6 +53,7 @@
 - `templates/collection.flex-series.json` — Flex Collection (no compare section)
 
 ## Build & Push
-- All changes pushed via Shopify CLI to both live and dev themes
+- **Primary flow (GitHub sync)**: work on `main`, then fast-forward `shopify` branch to `main` and push to GitHub remote `github` (kowork9527/sensol-fitness-au). The live theme syncs from the `shopify` branch automatically and instantly.
+- **Direct CLI push (live theme)**: `SHOPIFY_CLI_THEME_TOKEN=shptka_13dcf82ad8062ddda2f7a784dd722a40 npx @shopify/cli theme push --only <file> --theme <ID> [--allow-live] --store 1heajg-6u.myshopify.com`
 - Git commit after each push
-- Current branch: main
+- Working branch: `main`; deployment branch: `shopify` (must always be pushed to GitHub - this is what the live theme reads)
