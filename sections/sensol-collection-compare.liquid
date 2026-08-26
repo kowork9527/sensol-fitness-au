@@ -163,6 +163,10 @@
   the global collections[handle] drop instead, which works everywhere.
 {%- endcomment -%}
 {%- assign cmp_collection = collections[collection.handle] -%}
+<!-- DBG-1 direct_size=[{{ collection.products.size }}] glob_size=[{{ collections[collection.handle].products.size }}] glob_hard_size=[{{ collections['smart-series'].products.size }}] -->
+<!-- DBG-2 direct_loop: -->{%- for p in collection.products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
+<!-- DBG-3 globhard_loop: -->{%- for p in collections['smart-series'].products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
+<!-- DBG-4 globdyn_loop: -->{%- for p in cmp_collection.products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
 {%- assign cmp_products = '' | split: '' -%}
 {%- for product in cmp_collection.products -%}
   {%- assign pt = product.title | downcase -%}
