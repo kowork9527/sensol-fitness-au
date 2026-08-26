@@ -155,7 +155,7 @@
     }
   }
 {%- endstyle -%}
-COMPARE-SECTION-V3-MARKER
+
 {%- comment -%}
   Collect active products (same filter logic as product grid).
   Note: collection.products is only populated in a collection template's
@@ -172,7 +172,6 @@ COMPARE-SECTION-V3-MARKER
 {%- endfor -%}
 {%- assign p1 = cmp_products[0] -%}
 {%- assign p2 = cmp_products[1] -%}
-<!-- DEBUG cmp: handle={{ collection.handle }} coll={{ cmp_collection.title }} total={{ cmp_collection.products_count }} filtered={{ cmp_products.size }} p1={{ p1.title }} p2={{ p2.title }} show={{ section.settings.show_section }} -->
 
 {%- comment -%} Assign comparison copy per collection handle {%- endcomment -%}
 {%- assign cmp_eyebrow = 'Choose Your Reformer' -%}
