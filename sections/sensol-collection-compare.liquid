@@ -3,6 +3,10 @@
   Renders a spec comparison between the active products in the collection.
   Products are filtered the same way as the product grid (RS02 legacy and
   standalone FLEX are skipped). Spec rows are assigned per collection handle.
+
+  NOTE: the push filter does NOT accumulate product drops in Shopify Liquid,
+  so the first two active products are captured via direct assignment with
+  an integer counter instead.
 {%- endcomment -%}
 
 {%- style -%}
@@ -157,27 +161,21 @@
 {%- endstyle -%}
 
 {%- comment -%}
-  Collect active products (same filter logic as product grid).
-  Note: collection.products is only populated in a collection template's
-  main section (key starts with "main", e.g. main-grid). This section uses
-  the global collections[handle] drop instead, which works everywhere.
+  Collect the first two active products (same filter logic as the product
+  grid: RS02 legacy models and the standalone FLEX are skipped).
 {%- endcomment -%}
-{%- assign cmp_collection = collections[collection.handle] -%}
-<!-- DBG-1 direct_size=[{{ collection.products.size }}] glob_size=[{{ collections[collection.handle].products.size }}] glob_hard_size=[{{ collections['smart-series'].products.size }}] -->
-<!-- DBG-2 direct_loop: -->{%- for p in collection.products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
-<!-- DBG-3 globhard_loop: -->{%- for p in collections['smart-series'].products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
-<!-- DBG-4 globdyn_loop: -->{%- for p in cmp_collection.products -%}[{{ p.title }}]{%- endfor -%}<!-- end -->
-{%- assign cmp_products = '' | split: '' -%}
-{%- for product in cmp_collection.products -%}
+{%- assign cmp_seen = 0 -%}
+{%- for product in collection.products -%}
   {%- assign pt = product.title | downcase -%}
-  <!-- DBG-B i=[{{ forloop.index }}] t=[{{ product.title }}] before_arr=[{{ cmp_products.size }}] -->
   {%- if pt contains 'rs02' -%}{%- continue -%}{%- endif -%}
   {%- if pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
-  {%- assign cmp_products = cmp_products | push: product -%}
-  <!-- DBG-C after_push arr=[{{ cmp_products.size }}] -->
+  {%- if cmp_seen == 0 -%}
+    {%- assign p1 = product -%}
+  {%- elsif cmp_seen == 1 -%}
+    {%- assign p2 = product -%}
+  {%- endif -%}
+  {%- assign cmp_seen = cmp_seen | plus: 1 -%}
 {%- endfor -%}
-{%- assign p1 = cmp_products[0] -%}
-{%- assign p2 = cmp_products[1] -%}
 
 {%- comment -%} Assign comparison copy per collection handle {%- endcomment -%}
 {%- assign cmp_eyebrow = 'Choose Your Reformer' -%}
@@ -188,20 +186,15 @@
   {%- when 'smart-series' -%}
     {%- assign p1_tag = 'Upgraded Smart' -%}
     {%- assign p2_tag = 'Flagship' -%}
-    {%- assign cmp_specs = 'Resistance System|Digital weight, servo driven|Digital weight, servo driven;Motor Output|1500W dual servo|1500W dual servo;Weight Precision|1 kg increments|1 kg increments;Arm Range|0-145°|0-145°;Pilates Cables|Standard cables|Enhanced cables;Best For|Serious home training|Studio-grade experience' -%}
+    {%- assign cmp_specs = 'Motor Output|1500W dual servo|1500W dual servo;Total Resistance|120 kg|120 kg;Weight Precision|1 kg increments|1 kg increments;Arm Range|0-145°|0-145°;Pilates Cables|Standard cables|Enhanced Pilates cables;Movement Library|200+ movements|200+ movements;Best For|Serious home training|Studio-grade experience' -%}
   {%- when 'mechanical-series' -%}
-    {%- assign p1_tag = 'Entry Foldable' -%}
+    {%- assign p1_tag = 'Entry Level' -%}
     {%- assign p2_tag = 'Flagship' -%}
-    {%- assign cmp_specs = 'Resistance System|Elastic band|Dual 1500W servo motors;Max Resistance|Band-based|120 kg;Weight Precision|—|0.5 kg increments;Arm Range|—|0-145°;Movement Library|—|200+ movements;Vesta App Classes|—|300+ guided classes;Training Modes|—|3 modes;Folds for Storage|Yes|Yes;Best For|Beginners, light practice|Advanced home practice' -%}
-  {%- when 'flex-series' -%}
-    {%- assign p1_tag = 'Entry Foldable' -%}
-    {%- assign p2_tag = 'Flagship' -%}
-    {%- assign cmp_specs = 'Resistance System|Elastic band|Dual 1500W servo motors;Max Resistance|Band-based|120 kg;Weight Precision|—|0.5 kg increments;Arm Range|—|0-145°;Movement Library|—|200+ movements;Vesta App Classes|—|300+ guided classes;Training Modes|—|3 modes;Folds for Storage|Yes|Yes;Best For|Beginners, light practice|Advanced home practice' -%}
+    {%- assign cmp_specs = 'Max Resistance|Band-based|120 kg;Weight Precision|-|0.5 kg increments;Arm Range|0-132°|0-145°;Training Modes|-|3 modes;Movement Library|-|200+ movements;Vesta App Classes|-|300+ guided classes;Best For|Essential home practice|Advanced home studio' -%}
   {%- else -%}
     {%- assign cmp_specs = 'Resistance System|Digital weight, servo driven|Elastic band, foldable;Best For|Precision strength training|Accessible home practice' -%}
 {%- endcase -%}
 
-<!-- DBG-A handle=[{{ collection.handle }}] cmp_coll=[{{ cmp_collection.handle | default: 'NIL' }}] prods=[{{ cmp_collection.products.size }}] arr=[{{ cmp_products.size }}] show=[{{ section.settings.show_section }}] specs=[{{ cmp_specs | size }}] p1=[{{ p1.title | default: 'BLANK' }}] -->
 {%- if section.settings.show_section and p1 != blank and cmp_specs != blank -%}
 <section class="sc-cmp-{{ section.id }}">
   <div class="sc-cmp-{{ section.id }}__head">
@@ -265,13 +258,13 @@
       {%- assign cells = row | split: '|' -%}
       <div class="sc-cmp-{{ section.id }}__row">
         <div class="sc-cmp-{{ section.id }}__label">{{ cells[0] }}</div>
-        {%- if cells[1] == '—' -%}
+        {%- if cells[1] == '-' -%}
           <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
         {%- else -%}
           <div class="sc-cmp-{{ section.id }}__val">{{ cells[1] }}</div>
         {%- endif -%}
         {%- if p2 != blank -%}
-          {%- if cells[2] == '—' -%}
+          {%- if cells[2] == '-' -%}
             <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
           {%- else -%}
             <div class="sc-cmp-{{ section.id }}__val">{{ cells[2] }}</div>
