@@ -20,7 +20,7 @@
 - Collection images come from `child_link.object.image` (Shopify native)
 - Fallback: `child_link.object.products.first.featured_image` if no collection image
 - Hardcoded descriptions per collection handle via `{% case %}` block
-- Mobile: accordion expand with image cards (64x64px thumbnails)
+- Mobile: accordion expand with text-only links (no images - avoids inconsistent appearance when some items lack images)
 
 ### Design Rule (User Requirement)
 > Navigation dropdowns must use collection images, not plain text. This is a sales website, not a blog. Visual richness is mandatory.
