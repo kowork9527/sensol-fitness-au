@@ -1,295 +1,307 @@
-{%- comment -%}
-  Sensol Collection Compare - Model comparison table
-  Renders a spec comparison between the active products in the collection.
-  Products are filtered the same way as the product grid (RS02 legacy and
-  standalone FLEX are skipped). Spec rows are assigned per collection handle.
+{% comment %}
+  Sensol Collection Model Selector
+  Two product cards with differentiators + shared platform strip.
+  Replaces the old spec-comparison table (identical specs made it useless).
+{% endcomment %}
 
-  NOTE: the push filter does NOT accumulate product drops in Shopify Liquid,
-  so the first two active products are captured via direct assignment with
-  an integer counter instead.
-{%- endcomment -%}
-
-{%- style -%}
-  .sc-cmp-{{ section.id }} {
-    background: #FFFFFF;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1A1816;
-    padding: 80px 0 96px;
-  }
-  .sc-cmp-{{ section.id }}__head {
-    max-width: 1200px; margin: 0 auto 48px;
-    text-align: center;
-    padding: 0 40px;
-  }
-  .sc-cmp-{{ section.id }}__eyebrow {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: #8A8279; margin: 0 0 12px;
-  }
-  .sc-cmp-{{ section.id }}__title {
-    font-size: 32px; font-weight: 300;
-    letter-spacing: 0.04em;
-    margin: 0; color: #1A1816;
-  }
-  .sc-cmp-{{ section.id }}__table {
-    max-width: 1080px; margin: 0 auto;
-    padding: 0 40px;
-  }
-  .sc-cmp-{{ section.id }}__products,
-  .sc-cmp-{{ section.id }}__row {
-    display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    gap: 0 32px;
-    align-items: stretch;
-  }
-  .sc-cmp-{{ section.id }}__products {
-    border-bottom: 1px solid #D4CEC6;
-    padding-bottom: 40px;
-  }
-  .sc-cmp-{{ section.id }}__row {
-    border-bottom: 1px solid #E8E2DA;
-  }
-  .sc-cmp-{{ section.id }}__row:last-child {
-    border-bottom: none;
-  }
-  .sc-cmp-{{ section.id }}__label {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: #8A8279;
-    padding: 20px 0;
-    display: flex; align-items: center;
-  }
-  .sc-cmp-{{ section.id }}__val {
-    font-size: 14px; font-weight: 400;
-    color: #1A1816;
-    padding: 20px 0;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center;
-  }
-  .sc-cmp-{{ section.id }}__val--empty {
-    color: #C9C1B6;
-  }
-  .sc-cmp-{{ section.id }}__product {
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    display: flex; flex-direction: column; align-items: center;
-  }
-  .sc-cmp-{{ section.id }}__product-img {
-    width: 100%; aspect-ratio: 4 / 3;
-    background: #F7F4F0;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  .sc-cmp-{{ section.id }}__product-img img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-    transition: transform 0.5s ease;
-  }
-  .sc-cmp-{{ section.id }}__product:hover .sc-cmp-{{ section.id }}__product-img img {
-    transform: scale(1.04);
-  }
-  .sc-cmp-{{ section.id }}__product-tag {
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    color: #8A8279; margin: 0 0 8px;
-  }
-  .sc-cmp-{{ section.id }}__product-tag--flag {
-    color: #1A1816;
-    border-bottom: 1px solid #1A1816;
-    padding-bottom: 2px;
-  }
-  .sc-cmp-{{ section.id }}__product-name {
-    font-size: 20px; font-weight: 400;
-    letter-spacing: 0.04em;
-    margin: 0 0 8px;
-  }
-  .sc-cmp-{{ section.id }}__product-price {
-    font-size: 14px; font-weight: 300;
-    color: #8A8279; margin: 0 0 20px;
-  }
-  .sc-cmp-{{ section.id }}__product-price s {
-    margin-right: 8px; opacity: 0.6;
-  }
-  .sc-cmp-{{ section.id }}__product-btn {
-    display: inline-block;
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: #FFFFFF; background: #1A1816;
-    padding: 14px 32px;
-    border-radius: 2px;
-    transition: background 0.3s ease;
-  }
-  .sc-cmp-{{ section.id }}__product:hover .sc-cmp-{{ section.id }}__product-btn {
-    background: #3A3631;
-  }
-  .sc-cmp-{{ section.id }}__single {
-    grid-template-columns: 200px 1fr;
-  }
-
-  @media screen and (max-width: 768px) {
-    .sc-cmp-{{ section.id }} { padding: 56px 0 72px; }
-    .sc-cmp-{{ section.id }}__head { padding: 0 20px; margin-bottom: 36px; }
-    .sc-cmp-{{ section.id }}__title { font-size: 24px; }
-    .sc-cmp-{{ section.id }}__table { padding: 0 20px; }
-    .sc-cmp-{{ section.id }}__products,
-    .sc-cmp-{{ section.id }}__row {
+<section class="sc-cmp" id="model-selector">
+  <style>
+    .sc-cmp {
+      background: #fff;
+      border-top: 1px solid #D4CEC6;
+      padding: 72px 40px 64px;
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1A1816;
+    }
+    .sc-cmp__container { max-width: 1080px; margin: 0 auto; }
+    .sc-cmp__header { text-align: center; margin-bottom: 44px; }
+    .sc-cmp__eyebrow {
+      display: block;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: #8A8279; margin-bottom: 12px;
+    }
+    .sc-cmp__title {
+      font-size: 30px; font-weight: 300;
+      letter-spacing: -0.02em; margin: 0 0 12px;
+    }
+    .sc-cmp__subtitle {
+      font-size: 15px; color: #8A8279;
+      max-width: 520px; margin: 0 auto; line-height: 1.6;
+    }
+    .sc-cmp__grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 16px;
+      gap: 24px;
+      margin-bottom: 28px;
     }
-    .sc-cmp-{{ section.id }}__products { padding-bottom: 28px; }
-    .sc-cmp-{{ section.id }}__label {
-      grid-column: 1 / -1;
-      padding: 16px 0 6px;
+    .sc-cmp__card {
+      background: #fff;
+      border: 1px solid #D4CEC6;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
     }
-    .sc-cmp-{{ section.id }}__val {
-      padding: 6px 0 16px;
-      font-size: 13px;
+    .sc-cmp__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(26,24,22,0.10);
+    }
+    .sc-cmp__card--flagship { border-color: #1A1816; }
+    .sc-cmp__badge {
+      position: absolute; top: 16px; left: 16px; z-index: 2;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 999px;
+    }
+    .sc-cmp__badge--value {
+      background: #fff; color: #1A1816;
+      border: 1px solid #1A1816;
+    }
+    .sc-cmp__badge--flagship {
+      background: #1A1816; color: #F7F4F0;
+      border: 1px solid #1A1816;
+    }
+    .sc-cmp__img-wrap {
+      background: #F7F4F0;
+      aspect-ratio: 4 / 3;
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px;
+    }
+    .sc-cmp__img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.35s ease;
+    }
+    .sc-cmp__card:hover .sc-cmp__img { transform: scale(1.04); }
+    .sc-cmp__body { padding: 28px 28px 24px; display: flex; flex-direction: column; flex: 1; }
+    .sc-cmp__name { font-size: 21px; font-weight: 600; margin: 0 0 4px; }
+    .sc-cmp__tagline { font-size: 14px; color: #8A8279; margin: 0 0 18px; }
+    .sc-cmp__bullets { list-style: none; margin: 0 0 22px; padding: 0; }
+    .sc-cmp__bullet {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 14px; line-height: 1.5; color: #3E3A34;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(212,206,198,0.5);
+    }
+    .sc-cmp__bullet:last-child { border-bottom: none; }
+    .sc-cmp__bullet::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #1A1816; flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .sc-cmp__footer {
+      margin-top: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+      padding-top: 6px;
+    }
+    .sc-cmp__price-block { display: flex; align-items: baseline; gap: 10px; }
+    .sc-cmp__price { font-size: 24px; font-weight: 500; }
+    .sc-cmp__price-old {
+      font-size: 14px; color: #B0A89E;
+      text-decoration: line-through;
+    }
+    .sc-cmp__btn {
+      display: inline-block;
+      background: #1A1816; color: #F7F4F0;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 14px 26px; border-radius: 999px;
+      text-decoration: none; border: 1px solid #1A1816;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+    .sc-cmp__btn:hover { background: #fff; color: #1A1816; }
+    .sc-cmp__shared {
       text-align: center;
+      padding: 20px 24px;
+      background: #F7F4F0;
+      border-radius: 12px;
     }
-    .sc-cmp-{{ section.id }}__product-img { margin-bottom: 14px; }
-    .sc-cmp-{{ section.id }}__product-name { font-size: 16px; }
-    .sc-cmp-{{ section.id }}__product-btn { padding: 12px 24px; }
-    .sc-cmp-{{ section.id }}__single {
-      grid-template-columns: 1fr;
+    .sc-cmp__shared-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #8A8279; margin-bottom: 8px;
     }
-    .sc-cmp-{{ section.id }}__single .sc-cmp-{{ section.id }}__label {
-      grid-column: auto;
+    .sc-cmp__shared-list {
+      font-size: 13.5px; color: #3E3A34;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 6px 0;
     }
-  }
-{%- endstyle -%}
+    .sc-cmp__shared-item { display: inline-flex; align-items: center; }
+    .sc-cmp__shared-item + .sc-cmp__shared-item::before {
+      content: '·'; margin: 0 10px; color: #B0A89E;
+    }
+    @media (max-width: 860px) {
+      .sc-cmp { padding: 56px 20px 48px; }
+      .sc-cmp__title { font-size: 24px; }
+      .sc-cmp__grid { grid-template-columns: 1fr; gap: 16px; }
+      .sc-cmp__img-wrap { aspect-ratio: 16 / 10; padding: 24px; }
+      .sc-cmp__footer { flex-direction: column; align-items: stretch; }
+      .sc-cmp__btn { text-align: center; }
+    }
+  </style>
 
-{%- comment -%}
-  Collect the first two active products (same filter logic as the product
-  grid: RS02 legacy models and the standalone FLEX are skipped).
-{%- endcomment -%}
-{%- assign cmp_seen = 0 -%}
-{%- for product in collection.products -%}
-  {%- assign pt = product.title | downcase -%}
-  {%- if pt contains 'rs02' -%}{%- continue -%}{%- endif -%}
-  {%- if pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
-  {%- if cmp_seen == 0 -%}
-    {%- assign p1 = product -%}
-  {%- elsif cmp_seen == 1 -%}
-    {%- assign p2 = product -%}
-  {%- endif -%}
-  {%- assign cmp_seen = cmp_seen | plus: 1 -%}
-{%- endfor -%}
+  {%- if section.settings.show_section -%}
+    {%- comment -%} Capture first two active products (skip discontinued RS02 / base FLEX) {%- endcomment -%}
+    {%- assign cmp_seen = 0 -%}
+    {%- assign p1 = blank -%}
+    {%- assign p2 = blank -%}
+    {%- for product in collection.products -%}
+      {%- assign t = product.title -%}
+      {%- if t contains 'RS02' -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- if cmp_seen == 0 -%}
+        {%- assign p1 = product -%}
+        {%- assign cmp_seen = 1 -%}
+      {%- elsif cmp_seen == 1 -%}
+        {%- assign p2 = product -%}
+        {%- assign cmp_seen = 2 -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-{%- comment -%} Assign comparison copy per collection handle {%- endcomment -%}
-{%- assign cmp_eyebrow = 'Choose Your Reformer' -%}
-{%- assign cmp_specs = '' -%}
-{%- assign p1_tag = '' -%}
-{%- assign p2_tag = '' -%}
-{%- case collection.handle -%}
-  {%- when 'smart-series' -%}
-    {%- assign p1_tag = 'Upgraded Smart' -%}
-    {%- assign p2_tag = 'Flagship' -%}
-    {%- assign cmp_specs = 'Motor Output|1500W dual servo|1500W dual servo;Total Resistance|120 kg|120 kg;Weight Precision|1 kg increments|1 kg increments;Arm Range|0-145°|0-145°;Pilates Cables|Standard cables|Enhanced Pilates cables;Movement Library|200+ movements|200+ movements;Best For|Serious home training|Studio-grade experience' -%}
-  {%- when 'mechanical-series' -%}
-    {%- assign p1_tag = 'Entry Level' -%}
-    {%- assign p2_tag = 'Flagship' -%}
-    {%- assign cmp_specs = 'Max Resistance|Band-based|120 kg;Weight Precision|-|0.5 kg increments;Arm Range|0-132°|0-145°;Training Modes|-|3 modes;Movement Library|-|200+ movements;Vesta App Classes|-|300+ guided classes;Best For|Essential home practice|Advanced home studio' -%}
-  {%- else -%}
-    {%- assign cmp_specs = 'Resistance System|Digital weight, servo driven|Elastic band, foldable;Best For|Precision strength training|Accessible home practice' -%}
-{%- endcase -%}
-
-{%- if section.settings.show_section and p1 != blank and cmp_specs != blank -%}
-<section class="sc-cmp-{{ section.id }}">
-  <div class="sc-cmp-{{ section.id }}__head">
-    <p class="sc-cmp-{{ section.id }}__eyebrow">{{ section.settings.eyebrow | default: cmp_eyebrow }}</p>
-    <h2 class="sc-cmp-{{ section.id }}__title">
-      {%- if section.settings.title != blank -%}
-        {{ section.settings.title }}
-      {%- elsif p2 != blank -%}
-        {{ p1.title | remove: 'Sensol ' }} vs {{ p2.title | remove: 'Sensol ' }}
+    {%- comment -%} Per-collection card copy {%- endcomment -%}
+    {%- case collection.handle -%}
+      {%- when 'smart-series' -%}
+        {%- assign c_eyebrow = 'Choose Your Reformer' -%}
+        {%- assign c_title = 'Same flagship platform. Pick your tier.' -%}
+        {%- assign c_subtitle = 'Both models are built on the identical Smart Series chassis. The difference comes down to the cable system and finishing level.' -%}
+        {%- assign p1_badge = 'Best Value' -%}
+        {%- assign p1_tagline = 'The performance benchmark' -%}
+        {%- assign p1_bullets = 'Standard Pilates cable system|Best performance-per-dollar in its class|Full Smart Series platform, nothing held back' -%}
+        {%- assign p2_badge = 'Flagship' -%}
+        {%- assign p2_tagline = 'Studio-grade refinement' -%}
+        {%- assign p2_bullets = 'Enhanced Pilates cable system|Expanded movement pathways|Premium build and finish throughout' -%}
+        {%- assign shared_specs = '1500W dual servo motors|120 kg total resistance|0.5 kg increments|0–145° arm range|3 training modes' -%}
+      {%- when 'mechanical-series' -%}
+        {%- assign c_eyebrow = 'Choose Your Reformer' -%}
+        {%- assign c_title = 'Two models. One training goal.' -%}
+        {%- assign c_subtitle = 'Start with the essentials or go straight to studio-grade power. Both share the same elastic band resistance platform.' -%}
+        {%- assign p1_badge = 'The Essentials' -%}
+        {%- assign p1_tagline = 'Everything you need to begin' -%}
+        {%- assign p1_bullets = '0–132° arm range|Compact, space-friendly footprint|Five designer colorways' -%}
+        {%- assign p2_badge = 'Studio Grade' -%}
+        {%- assign p2_tagline = 'Studio power, home convenience' -%}
+        {%- assign p2_bullets = '0–145° arm range — 13° wider|120 kg maximum resistance|300+ Vesta guided classes' -%}
+        {%- assign shared_specs = 'Elastic band resistance system|0.5 kg precision increments|200+ guided movements' -%}
       {%- else -%}
-        {{ p1.title | remove: 'Sensol ' }}
-      {%- endif -%}
-    </h2>
-  </div>
+        {%- assign c_eyebrow = 'Choose Your Reformer' -%}
+        {%- assign c_title = 'Find your match' -%}
+        {%- assign c_subtitle = 'Compare the models side by side and pick the one that fits your training.' -%}
+        {%- assign p1_badge = 'Option 1' -%}
+        {%- assign p1_tagline = '' -%}
+        {%- assign p1_bullets = 'Full training platform|Space-saving design|Vesta app connectivity' -%}
+        {%- assign p2_badge = 'Option 2' -%}
+        {%- assign p2_tagline = '' -%}
+        {%- assign p2_bullets = 'Full training platform|Space-saving design|Vesta app connectivity' -%}
+        {%- assign shared_specs = 'Elastic band resistance|0.5 kg precision|200+ movements' -%}
+    {%- endcase -%}
 
-  <div class="sc-cmp-{{ section.id }}__table{% if p2 == blank %} sc-cmp-{{ section.id }}__single{% endif %}">
-    <div class="sc-cmp-{{ section.id }}__products">
-      <div class="sc-cmp-{{ section.id }}__label"></div>
-      <a href="{{ p1.url }}" class="sc-cmp-{{ section.id }}__product">
-        <div class="sc-cmp-{{ section.id }}__product-img">
-          {%- if p1.featured_image -%}
-            <img src="{{ p1.featured_image | image_url: width: 600 }}" alt="{{ p1.title | escape }}" loading="lazy" width="600" height="450">
-          {%- endif -%}
-        </div>
-        {%- if p1_tag != blank -%}
-          <p class="sc-cmp-{{ section.id }}__product-tag">{{ p1_tag }}</p>
-        {%- endif -%}
-        <h3 class="sc-cmp-{{ section.id }}__product-name">{{ p1.title | remove: 'Sensol ' }}</h3>
-        <p class="sc-cmp-{{ section.id }}__product-price">
-          {%- if p1.compare_at_price > p1.price -%}
-            <s>{{ p1.compare_at_price | money }}</s>
-          {%- endif -%}
-          {{ p1.price | money }}
-        </p>
-        <span class="sc-cmp-{{ section.id }}__product-btn">View {{ p1.title | remove: 'Sensol ' }}</span>
-      </a>
-      {%- if p2 != blank -%}
-      <a href="{{ p2.url }}" class="sc-cmp-{{ section.id }}__product">
-        <div class="sc-cmp-{{ section.id }}__product-img">
-          {%- if p2.featured_image -%}
-            <img src="{{ p2.featured_image | image_url: width: 600 }}" alt="{{ p2.title | escape }}" loading="lazy" width="600" height="450">
-          {%- endif -%}
-        </div>
-        {%- if p2_tag != blank -%}
-          <p class="sc-cmp-{{ section.id }}__product-tag sc-cmp-{{ section.id }}__product-tag--flag">{{ p2_tag }}</p>
-        {%- endif -%}
-        <h3 class="sc-cmp-{{ section.id }}__product-name">{{ p2.title | remove: 'Sensol ' }}</h3>
-        <p class="sc-cmp-{{ section.id }}__product-price">
-          {%- if p2.compare_at_price > p2.price -%}
-            <s>{{ p2.compare_at_price | money }}</s>
-          {%- endif -%}
-          {{ p2.price | money }}
-        </p>
-        <span class="sc-cmp-{{ section.id }}__product-btn">View {{ p2.title | remove: 'Sensol ' }}</span>
-      </a>
-      {%- endif -%}
-    </div>
+    <div class="sc-cmp__container">
+      <header class="sc-cmp__header">
+        <span class="sc-cmp__eyebrow">{{ c_eyebrow }}</span>
+        <h2 class="sc-cmp__title">{{ c_title }}</h2>
+        <p class="sc-cmp__subtitle">{{ c_subtitle }}</p>
+      </header>
 
-    {%- assign cmp_rows = cmp_specs | split: ';' -%}
-    {%- for row in cmp_rows -%}
-      {%- assign cells = row | split: '|' -%}
-      <div class="sc-cmp-{{ section.id }}__row">
-        <div class="sc-cmp-{{ section.id }}__label">{{ cells[0] }}</div>
-        {%- if cells[1] == '-' -%}
-          <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
-        {%- else -%}
-          <div class="sc-cmp-{{ section.id }}__val">{{ cells[1] }}</div>
-        {%- endif -%}
+      {%- if p1 != blank -%}
+      <div class="sc-cmp__grid">
+        <article class="sc-cmp__card">
+          <span class="sc-cmp__badge sc-cmp__badge--value">{{ p1_badge }}</span>
+          <a href="{{ p1.url }}" class="sc-cmp__img-wrap" aria-label="{{ p1.title | escape }}">
+            {%- if p1.featured_image -%}
+              <img class="sc-cmp__img"
+                   src="{{ p1.featured_image | image_url: width: 700 }}"
+                   alt="{{ p1.title | escape }}"
+                   width="700" height="525" loading="lazy">
+            {%- endif -%}
+          </a>
+          <div class="sc-cmp__body">
+            <h3 class="sc-cmp__name">{{ p1.title }}</h3>
+            {%- if p1_tagline != blank -%}<p class="sc-cmp__tagline">{{ p1_tagline }}</p>{%- endif -%}
+            <ul class="sc-cmp__bullets">
+              {%- assign b1 = p1_bullets | split: '|' -%}
+              {%- for b in b1 -%}
+                <li class="sc-cmp__bullet">{{ b }}</li>
+              {%- endfor -%}
+            </ul>
+            <div class="sc-cmp__footer">
+              <div class="sc-cmp__price-block">
+                <span class="sc-cmp__price">{{ p1.price | money }}</span>
+                {%- if p1.compare_at_price > p1.price -%}
+                  <span class="sc-cmp__price-old">{{ p1.compare_at_price | money }}</span>
+                {%- endif -%}
+              </div>
+              <a class="sc-cmp__btn" href="{{ p1.url }}">View Details</a>
+            </div>
+          </div>
+        </article>
+
         {%- if p2 != blank -%}
-          {%- if cells[2] == '-' -%}
-            <div class="sc-cmp-{{ section.id }}__val sc-cmp-{{ section.id }}__val--empty">&mdash;</div>
-          {%- else -%}
-            <div class="sc-cmp-{{ section.id }}__val">{{ cells[2] }}</div>
-          {%- endif -%}
+        <article class="sc-cmp__card sc-cmp__card--flagship">
+          <span class="sc-cmp__badge sc-cmp__badge--flagship">{{ p2_badge }}</span>
+          <a href="{{ p2.url }}" class="sc-cmp__img-wrap" aria-label="{{ p2.title | escape }}">
+            {%- if p2.featured_image -%}
+              <img class="sc-cmp__img"
+                   src="{{ p2.featured_image | image_url: width: 700 }}"
+                   alt="{{ p2.title | escape }}"
+                   width="700" height="525" loading="lazy">
+            {%- endif -%}
+          </a>
+          <div class="sc-cmp__body">
+            <h3 class="sc-cmp__name">{{ p2.title }}</h3>
+            {%- if p2_tagline != blank -%}<p class="sc-cmp__tagline">{{ p2_tagline }}</p>{%- endif -%}
+            <ul class="sc-cmp__bullets">
+              {%- assign b2 = p2_bullets | split: '|' -%}
+              {%- for b in b2 -%}
+                <li class="sc-cmp__bullet">{{ b }}</li>
+              {%- endfor -%}
+            </ul>
+            <div class="sc-cmp__footer">
+              <div class="sc-cmp__price-block">
+                <span class="sc-cmp__price">{{ p2.price | money }}</span>
+                {%- if p2.compare_at_price > p2.price -%}
+                  <span class="sc-cmp__price-old">{{ p2.compare_at_price | money }}</span>
+                {%- endif -%}
+              </div>
+              <a class="sc-cmp__btn" href="{{ p2.url }}">View Details</a>
+            </div>
+          </div>
+        </article>
         {%- endif -%}
       </div>
-    {%- endfor -%}
-  </div>
+
+      <div class="sc-cmp__shared">
+        <div class="sc-cmp__shared-label">Both models share</div>
+        <div class="sc-cmp__shared-list">
+          {%- assign shared = shared_specs | split: '|' -%}
+          {%- for s in shared -%}
+            <span class="sc-cmp__shared-item">{{ s }}</span>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 </section>
-{%- endif -%}
 
 {% schema %}
 {
-  "name": "Collection Compare",
-  "tag": "section",
-  "class": "sensol-collection-compare",
+  "name": "Model Selector",
   "settings": [
-    { "type": "checkbox", "id": "show_section", "label": "Show Compare Section", "default": true },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow (optional)", "default": "Choose Your Reformer" },
-    { "type": "text", "id": "title", "label": "Title (optional - defaults to product names)" }
-  ],
-  "presets": [
     {
-      "name": "Collection Compare"
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
     }
-  ]
+  ],
+  "enabled_on": {
+    "templates": ["collection"]
+  }
 }
 {% endschema %}
