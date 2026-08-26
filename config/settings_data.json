@@ -9,10 +9,15 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/2_1logo_01_1.webp",
     "logo_width": 90,
+<<<<<<< HEAD
     "customer_account_menu": "customer-account-main-menu",
+=======
+    "favicon": "shopify://shop_images/1_1logo_01.webp",
+>>>>>>> github/shopify
     "type_header_font": "inter_n3",
-    "heading_scale": 100,
+    "heading_scale": 110,
     "type_body_font": "inter_n4",
     "body_scale": 100,
     "page_width": 1400,
@@ -105,16 +110,17 @@
     "badge_corner_radius": 0,
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_headline": "",
-    "brand_description": "<p></p>",
+    "brand_headline": "Sensol Fitness | Smart Pilates Reformer Australia",
+    "brand_description": "<p>Sensol Fitness offers premium smart Pilates reformers and all-in-one training systems designed for modern home workouts. Featuring adaptive magnetic resistance, whisper-quiet operation, and space-saving design. Shop RS03, FLEX, and PRO series with free shipping across Australia.</p>",
+    "brand_image": "shopify://shop_images/2_1logo_01_1.webp",
     "brand_image_width": 100,
-    "social_facebook_link": "",
+    "social_facebook_link": "https://www.facebook.com/profile.php?id=61592878450784",
     "social_instagram_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "https://www.youtube.com/@SensolAU",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
-    "social_pinterest_link": "",
+    "social_pinterest_link": "https://au.pinterest.com/SENSOLAU/",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
@@ -126,6 +132,7 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "customer_account_menu": "customer-account-main-menu",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

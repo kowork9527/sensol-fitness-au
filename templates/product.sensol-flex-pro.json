@@ -5,12 +5,14 @@
       "settings": {
         "subtitle": "Studio Power. Home Convenience.",
         "model_info": "Model FLEX PRO / Smart Spring Reformer · SKU: SNSL-FLEX-PRO-AU",
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/kling_20260817_IMAGE__1__MAKE__3724_0.webp",
         "eyebrow": "Make it easy, Do it real",
         "title": "Studio power meets home convenience.",
         "height": 70,
@@ -56,6 +58,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The pinnacle of the FLEX Series.",
         "text": "The Sensol FLEX PRO is a premium spring reformer engineered for advanced practitioners who demand the widest resistance range, the most expansive movement pathways, and the closest approximation to a professional studio experience available for home use. With 150 kg maximum load powered by German steel wire springs (7.5KG × 2 / 15KG × 2), a 0–145° arm range, and spring resistance increments, the FLEX PRO is built for those who take their practice seriously."
@@ -102,6 +108,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/kling_20260817_IMAGE__2___KEY__3739_0.webp",
         "eyebrow": "Key Feature 01",
         "title": "150 kg max load Resistance — The Widest Range in Its Class",
         "text_1": "The FLEX PRO delivers up to 150 kg max load of spring-based resistance — the FLEX AIR (150 kg max load max load). This exceeds the practical maximum of most traditional spring reformers (typically 60–75 kg with all springs engaged).",
@@ -149,6 +156,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/jimeng-2026-08-17-9554.webp",
         "eyebrow": "Key Feature 02",
         "title": "0–145° Arm Range — Unlock Advanced Movements",
         "text_1": "The FLEX PRO's arms adjust from 0° to 145° across 8 positions — a wider range than the FLEX and FLEX AIR's 0–132°. This additional 13° unlocks a new dimension of exercise: deeper lateral movements, wider chest-opening patterns, more extreme diagonal cable exercises, and advanced Pilates movements like the snake, twist, and upward stretch.",
@@ -196,6 +204,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/FLEXPRO.104.jpg",
         "eyebrow": "Key Feature 03",
         "title": "Three Training Modes — Beyond Springs",
         "text_1": "Standard Mode delivers progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode provides asymmetric resistance that challenges stabilisers and corrects imbalances — impossible on any spring reformer.",
@@ -243,6 +252,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/imgi_87_Sensol_Pro_-_Smart_Pilates_Machine-4.jpg",
         "eyebrow": "Key Feature 04",
         "title": "Professional-Grade Build for Daily Use",
         "text_1": "At 37 kg, the FLEX PRO is the most substantial model in the FLEX Series, providing the rock-solid stability needed for high-resistance, high-intensity training. The steel frame with zinc alloy reinforcement is built for years of daily use, with no spring fatigue, no cable stretching, and no mechanical degradation.",
@@ -256,28 +266,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:30"
+            "duration": "0:41",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6cd56d35a7044421a75a87039c0770d4.mp4"
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Showcase",
-            "duration": "2:00"
+            "duration": "0:28",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/a2d207459f3b426fad0b03083c72e173.mp4"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Training Modes Explained",
-            "duration": "2:30"
+            "duration": "0:26",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e61e4324f4fa48b69d733b91ca5e4521.mp4"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "Advanced Movements",
-            "duration": "2:15"
+            "duration": "0:21",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/528e7d731d5746cc96dcc42f4cf230f8.mp4"
           }
         }
       },
@@ -428,6 +442,7 @@
         "spec_warranty"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_17_47b0bd64-c188-47a2-9c34-21505192ce49_4.png",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -489,6 +504,7 @@
         "item_7"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_17_3_d437d679-04bc-4ae3-ada5-da8348da1cf0.png",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
@@ -556,6 +572,7 @@
         "hi_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/kling_20260817_IMAGE___Image1__4390_0.webp",
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The FLEX PRO pays for itself.",
         "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500–$13,400 compared to studio sessions — and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
@@ -697,19 +714,22 @@
       "settings": {
         "label": "The FLEX Family",
         "title": "Built for every level.",
-        "view_all_link": "/collections/all",
+        "view_all_link": "shopify://collections",
+        "product1_image": "shopify://shop_images/export_1_21f874a9-89cf-46d6-b8cf-873c42e21b7f.jpg",
         "product1_vendor": "Sensol",
         "product1_name": "RS03 PRO",
-        "product1_price": "From $2,800",
-        "product1_url": "/products/sensol-rs03-pro",
+        "product1_price": "From $3,099.00",
+        "product1_url": "shopify://products/sensol-pro-plus",
+        "product2_image": "shopify://shop_images/1.png",
         "product2_vendor": "Sensol",
-        "product2_name": "FLEX",
-        "product2_price": "From $1,290",
-        "product2_url": "/products/sensol-flex",
+        "product2_name": "FLEX AIR",
+        "product2_price": "From $699.00",
+        "product2_url": "shopify://products/sensol-mini-1",
+        "product3_image": "shopify://shop_images/7.png",
         "product3_vendor": "Sensol",
-        "product3_name": "FLEX AIR",
-        "product3_price": "From $890",
-        "product3_url": "/products/sensol-flex-air"
+        "product3_name": "FLEX PRO",
+        "product3_price": "From $2,299.00",
+        "product3_url": "shopify://products/sensol-flex-pro"
       }
     }
   },

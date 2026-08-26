@@ -5,12 +5,14 @@
       "settings": {
         "subtitle": "The Studio. Reimagined for Home.",
         "model_info": "Model RS03 PRO / Flagship Smart Reformer · SKU: SNSL-RS03-PRO-AU",
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/imgi_497_Frame_1133_e74f9c08-219b-4801-9904-2b2580536e34.png",
         "eyebrow": "Make it easy, Do it real",
         "title": "Where strength meets precision, and movement becomes design.",
         "height": 70,
@@ -56,6 +58,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The Flagship. Without Compromise.",
         "text": "Maximum power, enhanced Pilates cables, and the widest arm range in the Sensol lineup — delivering a studio-grade experience in your home. The RS03 PRO is the pinnacle of the Sensol platform, taking everything that makes the RS03 exceptional and elevating it with an enhanced Pilates cable system that expands movement pathways, increases range of motion, and enables advanced sequencing that approaches the depth and complexity of a professional studio session."
@@ -102,6 +108,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/imgi_31_Screen_Shot_2026-04-15_at_1.35.27_PM.png",
         "eyebrow": "Key Feature 01",
         "title": "Enhanced Pilates Cable System — Studio-Grade Movement",
         "text_1": "The defining feature of the RS03 PRO. Engineered with premium-grade materials and a redesigned routing architecture, these cables deliver smoother transitions between exercises, greater range of motion through every movement pattern, and a tactile responsiveness that serious Pilates practitioners will immediately appreciate.",
@@ -149,6 +156,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/04_7ec54ea2-ca28-438c-aee8-9b5e4dba9d9f.jpg",
         "eyebrow": "Key Feature 02",
         "title": "500W Servo Motor — Digital Precision",
         "text_1": "The RS03 PRO is powered by a 500W servo motor — the most refined motor system in the Sensol lineup. This 500W output delivers instantaneous response, consistent tension through the entire range of motion, and the ability to handle explosive movements without lag.",
@@ -196,6 +204,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/03.jpg",
         "eyebrow": "Key Feature 03",
         "title": "Widest Arm Range: 0–145°, Eight Positions",
         "text_1": "The RS03 PRO features the widest arm adjustment range in the Sensol lineup: 0–145° across eight precisely engineered positions. This expansive arc, combined with the enhanced cables, creates a movement surface that accommodates everything from narrow-grip footwork to wide rotational pulls.",
@@ -243,6 +252,7 @@
       "settings": {
         "color_scheme": "light",
         "image_position": "right",
+        "image": "shopify://shop_images/Frame_1127_09ca6999-67d3-4494-aef0-6faf23d8113f.png",
         "eyebrow": "Key Feature 04",
         "title": "Digital Weight with Three Training Modes",
         "text_1": "The RS03 PRO delivers 45 kg of digital resistance adjustable in 1 kg increments via the Sensol Control Dial™, remote control, or Vesta Sensol App. Three training modes transform how resistance behaves.",
@@ -256,28 +266,32 @@
           "type": "video_card",
           "settings": {
             "title": "Flagship Showcase",
-            "duration": "1:30"
+            "duration": "0:21",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/528e7d731d5746cc96dcc42f4cf230f8.mp4"
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "Enhanced Cables",
-            "duration": "0:45"
+            "duration": "0:28",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/a2d207459f3b426fad0b03083c72e173.mp4"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Three Training Modes",
-            "duration": "0:38"
+            "duration": "0:26",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e61e4324f4fa48b69d733b91ca5e4521.mp4"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "145° Arm Range",
-            "duration": "0:22"
+            "duration": "0:41",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6cd56d35a7044421a75a87039c0770d4.mp4"
           }
         }
       },
@@ -428,6 +442,7 @@
         "spec_warranty"
       ],
       "settings": {
+        "image": "shopify://shop_images/export_1.jpg",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -489,6 +504,7 @@
         "item_7"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_389_pro_3_a8844b6a-60f8-490b-99e7-dd54444230fd.jpg",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
@@ -556,6 +572,7 @@
         "hi_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/imgi_110_Frame_1165.png",
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The RS03 PRO pays for itself.",
         "text": "At $2,800 AUD, the RS03 PRO is an investment that pays for itself remarkably quickly. Compared to a $220/month unlimited studio membership, the break-even is approximately 13 months. Over five years, the RS03 PRO delivers savings of $10,400–$16,400 compared to studio memberships — while providing both Pilates and strength training, AI-driven coaching, and the convenience of home."

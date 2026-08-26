@@ -14,7 +14,7 @@
     "sensol-footer": {
       "type": "sensol-footer",
       "settings": {
-        "logo": "shopify://shop_images/logo3_1_d3897fb6-e7f1-4b53-a585-80ac61be14c9.png",
+        "logo": "shopify://shop_images/2_1logo_01.webp",
         "logo_width": 200,
         "brand_desc": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022.",
         "social_instagram": "",
@@ -22,7 +22,7 @@
         "social_linkedin": "",
         "product_menu": "footer",
         "company_menu": "company",
-        "legal_menu": "",
+        "legal_menu": "service-policy",
         "newsletter_desc": "Subscribe for exclusive updates, early access to new products, and stories from the world of Sensol.",
         "contact_email": "support@sensolfitness.com"
       }
