@@ -77,6 +77,110 @@
     color: #8A8279;
   }
 
+  /* === DESKTOP DROPDOWN === */
+  .sensol-header__nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .sensol-header__link--has-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sensol-header__chevron {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -3px;
+    transition: transform 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .sensol-header__nav-item:hover .sensol-header__chevron,
+  .sensol-header__nav-item.active .sensol-header__chevron {
+    transform: rotate(-135deg);
+    margin-top: 1px;
+  }
+
+  .sensol-header__dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 340px;
+    background: #F7F4F0;
+    border: 1px solid #E3DFD9;
+    box-shadow: 0 8px 32px rgba(26, 24, 22, 0.08);
+    padding: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1002;
+  }
+
+  .sensol-header__nav-item:hover .sensol-header__dropdown,
+  .sensol-header__nav-item.active .sensol-header__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .sensol-header__dropdown-link {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+
+  .sensol-header__dropdown-link:hover {
+    background-color: rgba(26, 24, 22, 0.04);
+  }
+
+  .sensol-header__dropdown-title {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: #1A1816;
+    margin-bottom: 3px;
+  }
+
+  .sensol-header__dropdown-desc {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8A8279;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .sensol-header__dropdown-all {
+    display: block;
+    margin-top: 4px;
+    padding: 12px 16px 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1A1816;
+    text-decoration: none;
+    border-top: 1px solid #E3DFD9;
+    transition: color 0.2s ease;
+  }
+
+  .sensol-header__dropdown-all:hover {
+    color: #8A8279;
+  }
+
   .sensol-header__shop-btn {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -225,6 +329,86 @@
     margin-top: 16px;
   }
 
+  /* === MOBILE ACCORDION === */
+  .sensol-header__drawer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sensol-header__drawer-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1A1816;
+    padding: 0;
+  }
+
+  .sensol-header__drawer-chevron {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -4px;
+    transition: transform 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .sensol-header__drawer-item.open .sensol-header__drawer-chevron {
+    transform: rotate(-135deg);
+    margin-top: 2px;
+  }
+
+  .sensol-header__drawer-children {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .sensol-header__drawer-item.open .sensol-header__drawer-children {
+    max-height: 400px;
+    padding-top: 24px;
+  }
+
+  .sensol-header__drawer-child-link {
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .sensol-header__drawer-child-link .child-title {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #1A1816;
+    letter-spacing: 0.08em;
+  }
+
+  .sensol-header__drawer-child-link .child-desc {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8A8279;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+
   .sensol-header__drawer-actions {
     display: flex;
     gap: 32px;
@@ -340,7 +524,29 @@
 
     <nav class="sensol-header__nav">
       {%- for link in linklists[section.settings.menu].links -%}
+        {%- assign link_title_lower = link.title | downcase -%}
+        {%- if link_title_lower == 'products' or link_title_lower == 'product' -%}
+        <div class="sensol-header__nav-item" data-nav-dropdown>
+          <a href="{{ link.url }}" class="sensol-header__link sensol-header__link--has-dropdown">{{ link.title | upcase }}<span class="sensol-header__chevron"></span></a>
+          <div class="sensol-header__dropdown">
+            <a href="/collections/smart-series" class="sensol-header__dropdown-link">
+              <span class="sensol-header__dropdown-title">Smart Series</span>
+              <span class="sensol-header__dropdown-desc">Digital weight reformers with 1 kg precision, AI coaching</span>
+            </a>
+            <a href="/collections/mechanical-series" class="sensol-header__dropdown-link">
+              <span class="sensol-header__dropdown-title">Mechanical Series</span>
+              <span class="sensol-header__dropdown-desc">Spring-based foldable reformers, beginner-friendly</span>
+            </a>
+            <a href="/collections/flex-series" class="sensol-header__dropdown-link">
+              <span class="sensol-header__dropdown-title">Flex Collection</span>
+              <span class="sensol-header__dropdown-desc">Space-saving foldable reformers for home practice</span>
+            </a>
+            <a href="/collections/all" class="sensol-header__dropdown-all">View All Products &rarr;</a>
+          </div>
+        </div>
+        {%- else -%}
         <a href="{{ link.url }}" class="sensol-header__link">{{ link.title | upcase }}</a>
+        {%- endif -%}
       {%- endfor -%}
       <a href="/collections/all" class="sensol-header__shop-btn">SHOP ALL</a>
     </nav>
@@ -364,7 +570,31 @@
   <div class="sensol-header__drawer" id="sensolDrawer" aria-hidden="true">
     <div class="sensol-header__drawer-inner">
       {%- for link in linklists[section.settings.menu].links -%}
+        {%- assign link_title_lower = link.title | downcase -%}
+        {%- if link_title_lower == 'products' or link_title_lower == 'product' -%}
+        <div class="sensol-header__drawer-item" data-drawer-accordion>
+          <button type="button" class="sensol-header__drawer-toggle" onclick="var item=this.parentElement; item.classList.toggle('open'); this.setAttribute('aria-expanded', item.classList.contains('open'));">{{ link.title | upcase }}<span class="sensol-header__drawer-chevron"></span></button>
+          <div class="sensol-header__drawer-children">
+            <a href="/collections/smart-series" class="sensol-header__drawer-child-link">
+              <span class="child-title">Smart Series</span>
+              <span class="child-desc">Digital weight reformers</span>
+            </a>
+            <a href="/collections/mechanical-series" class="sensol-header__drawer-child-link">
+              <span class="child-title">Mechanical Series</span>
+              <span class="child-desc">Spring-based foldable reformers</span>
+            </a>
+            <a href="/collections/flex-series" class="sensol-header__drawer-child-link">
+              <span class="child-title">Flex Collection</span>
+              <span class="child-desc">Space-saving foldable reformers</span>
+            </a>
+            <a href="/collections/all" class="sensol-header__drawer-child-link">
+              <span class="child-title">View All Products</span>
+            </a>
+          </div>
+        </div>
+        {%- else -%}
         <a href="{{ link.url }}" class="sensol-header__drawer-link">{{ link.title | upcase }}</a>
+        {%- endif -%}
       {%- endfor -%}
       <a href="/collections/all" class="sensol-header__drawer-shop-btn">SHOP ALL</a>
       <div class="sensol-header__drawer-actions">
@@ -414,7 +644,7 @@
 
       /* Close drawer when clicking a link inside */
       drawer.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A') {
+        if (e.target.tagName === 'A' && !e.target.closest('[data-drawer-accordion] .sensol-header__drawer-toggle')) {
           drawer.classList.remove('open');
           hamburger.classList.remove('active');
           hamburger.setAttribute('aria-expanded', 'false');
@@ -423,6 +653,32 @@
         }
       });
     }
+
+    /* === DESKTOP DROPDOWN: click/touch support === */
+    var navDropdowns = document.querySelectorAll('.sensol-header__nav-item[data-nav-dropdown]');
+    navDropdowns.forEach(function(item) {
+      var link = item.querySelector('.sensol-header__link--has-dropdown');
+      if (!link) return;
+      link.addEventListener('click', function(e) {
+        /* On touch devices, toggle dropdown instead of navigating */
+        if (window.matchMedia('(hover: none)').matches) {
+          e.preventDefault();
+          navDropdowns.forEach(function(other) {
+            if (other !== item) other.classList.remove('active');
+          });
+          item.classList.toggle('active');
+        }
+      });
+    });
+
+    /* Close dropdown when clicking outside */
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.sensol-header__nav-item[data-nav-dropdown]')) {
+        navDropdowns.forEach(function(item) {
+          item.classList.remove('active');
+        });
+      }
+    });
   })();
 </script>
 
