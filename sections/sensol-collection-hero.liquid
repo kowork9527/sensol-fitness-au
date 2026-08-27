@@ -3,6 +3,9 @@
   unless hero_image != blank
     assign hero_image = collection.image
   endunless
+  unless hero_image != blank
+    assign hero_image = collection.products.first.featured_image
+  endunless
   assign overlay_val = section.settings.overlay_opacity | divided_by: 100.0
   assign overlay_soft = overlay_val | times: 0.6
 -%}
