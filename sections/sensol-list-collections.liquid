@@ -1,0 +1,337 @@
+{%- liquid
+  assign lc_handles = section.settings.handles | default: 'smart-series,mechanical-series,flex-series,products' | split: ','
+  assign hero_image = section.settings.image
+-%}
+
+{%- style -%}
+  .sc-lc-{{ section.id }} {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F7F4F0;
+    color: #1A1816;
+  }
+  .sc-lc-{{ section.id }}__hero {
+    position: relative; overflow: hidden;
+    background: #1A1816; color: #F7F4F0;
+    padding: 160px 40px 120px;
+    text-align: center;
+  }
+  .sc-lc-{{ section.id }}__hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .sc-lc-{{ section.id }}__hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .sc-lc-{{ section.id }}__hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg,
+      rgba(26,24,22,0.62) 0%,
+      rgba(26,24,22,0.40) 55%,
+      rgba(26,24,22,0.62) 100%);
+  }
+  .sc-lc-{{ section.id }}__hero-content {
+    position: relative; z-index: 2;
+  }
+  .sc-lc-{{ section.id }}__hero-eyebrow {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: #B5ADA4; margin: 0 0 24px;
+  }
+  .sc-lc-{{ section.id }}__hero-title {
+    font-size: clamp(48px, 7.5vw, 96px);
+    font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; line-height: 1.05;
+    margin: 0 0 28px;
+    text-shadow: 0 2px 24px rgba(26,24,22,0.4);
+  }
+  .sc-lc-{{ section.id }}__hero-subtitle {
+    font-size: 15px; font-weight: 400; line-height: 1.7;
+    color: #D8D2CA; max-width: 520px;
+    margin: 0 auto;
+    text-shadow: 0 1px 12px rgba(26,24,22,0.5);
+  }
+  .sc-lc-{{ section.id }}__hero-divider {
+    width: 1px; height: 48px;
+    background: rgba(247,244,240,0.2);
+    margin: 32px auto 0;
+  }
+  .sc-lc-{{ section.id }}__grid-wrap {
+    padding: 100px 40px 120px;
+  }
+  .sc-lc-{{ section.id }}__header {
+    max-width: 1400px; margin: 0 auto 56px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D4CEC6;
+  }
+  .sc-lc-{{ section.id }}__header-eyebrow {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: #8A8279; margin: 0 0 12px;
+  }
+  .sc-lc-{{ section.id }}__header-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; margin: 0;
+  }
+  .sc-lc-{{ section.id }}__header-count {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 11px; font-weight: 300;
+    letter-spacing: 0.1em; color: #8A8279;
+    white-space: nowrap; padding-bottom: 4px;
+  }
+  .sc-lc-{{ section.id }}__grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px 32px;
+  }
+  .sc-lc-{{ section.id }}__card {
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .sc-lc-{{ section.id }}__card:hover { transform: translateY(-4px); }
+  .sc-lc-{{ section.id }}__img-wrap {
+    aspect-ratio: 4/5;
+    background: #D4CEC6;
+    overflow: hidden; position: relative;
+  }
+  .sc-lc-{{ section.id }}__img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.6s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .sc-lc-{{ section.id }}__card:hover img { transform: scale(1.03); }
+  .sc-lc-{{ section.id }}__img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: #D4CEC6; color: #8A8279;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+  }
+  .sc-lc-{{ section.id }}__tag {
+    position: absolute; top: 16px; left: 16px;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #1A1816; background: rgba(247,244,240,0.92);
+    padding: 6px 12px;
+  }
+  .sc-lc-{{ section.id }}__tag--dark {
+    color: #F7F4F0; background: rgba(26,24,22,0.85);
+  }
+  .sc-lc-{{ section.id }}__body {
+    padding-top: 24px;
+    display: flex; flex-direction: column; flex: 1;
+  }
+  .sc-lc-{{ section.id }}__title-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 10px;
+  }
+  .sc-lc-{{ section.id }}__title {
+    font-size: 24px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin: 0;
+  }
+  .sc-lc-{{ section.id }}__count {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 11px; font-weight: 300;
+    color: #8A8279; letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .sc-lc-{{ section.id }}__desc {
+    font-size: 14px; font-weight: 400; line-height: 1.7;
+    color: #8A8279; margin: 0 0 20px;
+    max-width: 420px;
+  }
+  .sc-lc-{{ section.id }}__meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-top: auto;
+  }
+  .sc-lc-{{ section.id }}__price {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 13px; font-weight: 400;
+    color: #1A1816; letter-spacing: 0.02em;
+  }
+  .sc-lc-{{ section.id }}__price-label {
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #8A8279; margin-right: 6px;
+  }
+  .sc-lc-{{ section.id }}__cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-decoration: none; color: #1A1816;
+    padding-bottom: 6px;
+    border-bottom: 1px solid currentColor;
+    transition: gap 0.3s cubic-bezier(0.25,0.1,0.25,1);
+  }
+  .sc-lc-{{ section.id }}__card:hover .sc-lc-{{ section.id }}__cta { gap: 18px; }
+  @media screen and (max-width: 768px) {
+    .sc-lc-{{ section.id }}__hero { padding: 120px 20px 80px; }
+    .sc-lc-{{ section.id }}__grid-wrap { padding: 64px 20px 80px; }
+    .sc-lc-{{ section.id }}__header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .sc-lc-{{ section.id }}__header-count { padding-bottom: 0; }
+    .sc-lc-{{ section.id }}__grid { grid-template-columns: 1fr; gap: 56px; }
+    .sc-lc-{{ section.id }}__title { font-size: 20px; }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign valid_count = 0
+  for h in lc_handles
+    assign hc = h | strip
+    assign col = collections[hc]
+    if col != blank and col.products_count > 0
+      assign valid_count = valid_count | plus: 1
+    endif
+  endfor
+-%}
+
+<section class="sc-lc-{{ section.id }}">
+  <div class="sc-lc-{{ section.id }}__hero">
+    {%- if hero_image != blank -%}
+      <div class="sc-lc-{{ section.id }}__hero-bg">
+        <img
+          src="{{ hero_image | image_url: width: 2000 }}"
+          srcset="{{ hero_image | image_url: width: 1200 }} 1200w, {{ hero_image | image_url: width: 2000 }} 2000w"
+          sizes="100vw"
+          alt="{{ section.settings.title | default: 'Collections' | escape }}"
+          width="2000"
+          height="1000"
+          loading="eager"
+          fetchpriority="high"
+        >
+      </div>
+      <div class="sc-lc-{{ section.id }}__hero-overlay"></div>
+    {%- else -%}
+      <div class="sc-lc-{{ section.id }}__hero-bg">
+        <img
+          src="{{ 'banner-2.webp' | asset_url }}"
+          alt="{{ section.settings.title | default: 'Collections' | escape }}"
+          width="1920"
+          height="1024"
+          loading="eager"
+          fetchpriority="high"
+        >
+      </div>
+      <div class="sc-lc-{{ section.id }}__hero-overlay"></div>
+    {%- endif -%}
+    <div class="sc-lc-{{ section.id }}__hero-content">
+      <p class="sc-lc-{{ section.id }}__hero-eyebrow">{{ section.settings.eyebrow | default: 'Sensol Fitness' }}</p>
+      <h1 class="sc-lc-{{ section.id }}__hero-title">{{ section.settings.title | default: 'Collections' }}</h1>
+      <p class="sc-lc-{{ section.id }}__hero-subtitle">{{ section.settings.subtitle | default: 'Two series, one standard. Explore the full Sensol lineup and find the reformer built for your training.' }}</p>
+      <div class="sc-lc-{{ section.id }}__hero-divider"></div>
+    </div>
+  </div>
+
+  <div class="sc-lc-{{ section.id }}__grid-wrap">
+  <div class="sc-lc-{{ section.id }}__header">
+    <div>
+      <p class="sc-lc-{{ section.id }}__header-eyebrow">{{ section.settings.header_eyebrow | default: 'Explore' }}</p>
+      <h2 class="sc-lc-{{ section.id }}__header-title">{{ section.settings.header_title | default: 'Shop by series' }}</h2>
+    </div>
+    <span class="sc-lc-{{ section.id }}__header-count">{{ valid_count }} collection{% if valid_count > 1 %}s{% endif %}</span>
+  </div>
+
+  <div class="sc-lc-{{ section.id }}__grid">
+    {%- for h in lc_handles -%}
+      {%- liquid
+        assign hc = h | strip
+        assign col = collections[hc]
+        assign card_tag = ''
+        assign card_desc = ''
+        assign card_price = ''
+        assign tag_dark = false
+        case hc
+          when 'smart-series'
+            assign card_tag = 'Series 01'
+            assign card_desc = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.'
+            assign card_price = 'From $3,099'
+          when 'mechanical-series'
+            assign card_tag = 'Series 02'
+            assign card_desc = 'Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.'
+            assign card_price = 'From $699'
+            assign tag_dark = true
+          when 'flex-series'
+            assign card_tag = 'Series 03'
+            assign card_desc = 'Foldable, space-saving reformers with spring resistance for home practice where every square metre counts.'
+            assign card_price = 'From $699'
+          when 'products'
+            assign card_tag = 'All Reformers'
+            assign card_desc = 'Every Sensol machine in one place. Compare across series and find the reformer that matches your training.'
+            assign card_price = 'From $699'
+            assign tag_dark = true
+          else
+            assign card_tag = col.title
+        endcase
+      -%}
+      {%- if col != blank and col.products_count > 0 -%}
+        {%- liquid
+          assign card_image = col.image
+          unless card_image != blank
+            assign card_image = col.products.first.featured_image
+          endunless
+          assign card_count = 0
+          for p in col.products limit: 50
+            assign pt = p.title | downcase
+            if pt contains 'rs02' or pt == 'sensol flex' or pt == 'flex'
+              continue
+            endif
+            assign card_count = card_count | plus: 1
+          endfor
+        -%}
+        <a href="{{ col.url }}" class="sc-lc-{{ section.id }}__card">
+          <div class="sc-lc-{{ section.id }}__img-wrap">
+            {%- if card_image != blank -%}
+              <img
+                src="{{ card_image | image_url: width: 800 }}"
+                srcset="{{ card_image | image_url: width: 600 }} 600w, {{ card_image | image_url: width: 900 }} 900w"
+                sizes="(min-width: 769px) 660px, calc(100vw - 40px)"
+                alt="{{ col.title | escape }}"
+                width="900"
+                height="1125"
+                loading="lazy"
+              >
+            {%- else -%}
+              <span class="sc-lc-{{ section.id }}__img-placeholder">Sensol</span>
+            {%- endif -%}
+            <span class="sc-lc-{{ section.id }}__tag{% if tag_dark %} sc-lc-{{ section.id }}__tag--dark{% endif %}">{{ card_tag }}</span>
+          </div>
+          <div class="sc-lc-{{ section.id }}__body">
+            <div class="sc-lc-{{ section.id }}__title-row">
+              <h3 class="sc-lc-{{ section.id }}__title">{{ col.title }}</h3>
+              <span class="sc-lc-{{ section.id }}__count">{{ card_count }} model{% if card_count > 1 %}s{% endif %}</span>
+            </div>
+            <p class="sc-lc-{{ section.id }}__desc">{{ card_desc | default: col.description | strip_html | truncate: 140 }}</p>
+            <div class="sc-lc-{{ section.id }}__meta">
+              {%- if card_price != blank -%}
+                <span class="sc-lc-{{ section.id }}__price"><span class="sc-lc-{{ section.id }}__price-label">From</span>{{ card_price | remove: 'From ' }}</span>
+              {%- else -%}
+                <span></span>
+              {%- endif -%}
+              <span class="sc-lc-{{ section.id }}__cta">Explore &rarr;</span>
+            </div>
+          </div>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections Index",
+  "tag": "section",
+  "class": "sensol-list-collections",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Hero eyebrow", "default": "Sensol Fitness" },
+    { "type": "text", "id": "title", "label": "Hero title", "default": "Collections" },
+    { "type": "textarea", "id": "subtitle", "label": "Hero subtitle", "default": "Two series, one standard. Explore the full Sensol lineup and find the reformer built for your training." },
+    { "type": "image_picker", "id": "image", "label": "Hero background image", "info": "Falls back to the default banner when empty" },
+    { "type": "text", "id": "header_eyebrow", "label": "Header eyebrow", "default": "Explore" },
+    { "type": "text", "id": "header_title", "label": "Header title", "default": "Shop by series" },
+    { "type": "textarea", "id": "handles", "label": "Collections to show", "info": "Comma-separated collection handles, in display order. Hidden or empty collections are skipped.", "default": "smart-series,mechanical-series,flex-series,products" }
+  ],
+  "presets": [{ "name": "Collections Index" }]
+}
+{% endschema %}
