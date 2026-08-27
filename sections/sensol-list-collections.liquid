@@ -176,12 +176,18 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign valid_count = 0
+  assign visible_count = 0
   for h in lc_handles
     assign hc = h | strip
     assign col = collections[hc]
     if col != blank and col.products_count > 0
-      assign valid_count = valid_count | plus: 1
+      for p in col.products limit: 50
+        assign pt = p.title | downcase
+        if pt contains 'rs02' or pt == 'sensol flex' or pt == 'flex'
+          continue
+        endif
+        assign visible_count = visible_count | plus: 1
+      endfor
     endif
   endfor
 -%}
@@ -229,7 +235,7 @@
       <p class="sc-lc-{{ section.id }}__header-eyebrow">{{ section.settings.header_eyebrow | default: 'Explore' }}</p>
       <h2 class="sc-lc-{{ section.id }}__header-title">{{ section.settings.header_title | default: 'Shop by series' }}</h2>
     </div>
-    <span class="sc-lc-{{ section.id }}__header-count">{{ valid_count }} collections</span>
+    <span class="sc-lc-{{ section.id }}__header-count">{{ visible_count }} models</span>
   </div>
 
   <div class="sc-lc-{{ section.id }}__grid">
@@ -245,7 +251,7 @@
           when 'smart-series'
             assign card_tag = 'Series 01'
             assign card_desc = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.'
-            assign card_price = 'From $2,900'
+            assign card_price = 'From $3,099'
           when 'mechanical-series'
             assign card_tag = 'Series 02'
             assign card_desc = 'Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.'
@@ -270,6 +276,14 @@
           unless card_image != blank
             assign card_image = col.products.first.featured_image
           endunless
+          assign card_count = 0
+          for p in col.products limit: 50
+            assign pt = p.title | downcase
+            if pt contains 'rs02' or pt == 'sensol flex' or pt == 'flex'
+              continue
+            endif
+            assign card_count = card_count | plus: 1
+          endfor
         -%}
         <a href="{{ col.url }}" class="sc-lc-{{ section.id }}__card">
           <div class="sc-lc-{{ section.id }}__img-wrap">
@@ -291,7 +305,7 @@
           <div class="sc-lc-{{ section.id }}__body">
             <div class="sc-lc-{{ section.id }}__title-row">
               <h3 class="sc-lc-{{ section.id }}__title">{{ col.title }}</h3>
-              <span class="sc-lc-{{ section.id }}__count">{{ col.products_count }} model{% if col.products_count > 1 %}s{% endif %}</span>
+              <span class="sc-lc-{{ section.id }}__count">{{ card_count }} model{% if card_count > 1 %}s{% endif %}</span>
             </div>
             <p class="sc-lc-{{ section.id }}__desc">{{ card_desc | default: col.description | strip_html | truncate: 140 }}</p>
             <div class="sc-lc-{{ section.id }}__meta">
