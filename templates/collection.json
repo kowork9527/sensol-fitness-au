@@ -14,14 +14,17 @@
       "settings": {
         "eyebrow": "2026 Collection",
         "title": "All Reformers",
-        "subtitle": "Four machines engineered for precision strength and Pilates training at home. Filter by series to find your match."
+        "subtitle": "Four machines engineered for precision strength and Pilates training at home. Filter by series to find your match.",
+        "image": "shopify://shop_images/product_lineup_v3.webp",
+        "overlay_opacity": 55
       }
     },
     "main-grid": {
       "type": "sensol-collection-grid",
       "settings": {
         "smart_count": "02",
-        "mech_count": "02"
+        "mech_count": "02",
+        "source_handle": ""
       }
     },
     "stats": {
