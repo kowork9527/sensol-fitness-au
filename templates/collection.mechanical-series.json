@@ -19,20 +19,23 @@
     },
     "spotlight": {
       "type": "sensol-collection-spotlight",
+      "disabled": true,
       "settings": {
         "show_section": true
       }
     },
     "main-grid": {
       "type": "sensol-collection-grid",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "smart_count": "02",
+        "mech_count": "02"
+      }
     },
     "compare": {
       "type": "sensol-collection-compare",
       "settings": {
-        "show_section": true,
-        "eyebrow": "Choose Your Reformer",
-        "title": ""
+        "show_section": true
       }
     },
     "stats": {

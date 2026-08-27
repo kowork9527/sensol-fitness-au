@@ -30,9 +30,7 @@
     "compare": {
       "type": "sensol-collection-compare",
       "settings": {
-        "show_section": true,
-        "eyebrow": "Choose Your Reformer",
-        "title": ""
+        "show_section": true
       }
     },
     "stats": {
