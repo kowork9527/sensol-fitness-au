@@ -1,3 +1,30 @@
+{%- liquid
+  assign grid_collection = collection
+  assign source_handle = section.settings.source_handle | strip
+  if source_handle != blank
+    assign src_collection = collections[source_handle]
+    if src_collection != blank and src_collection.products_count > 0
+      assign grid_collection = src_collection
+    endif
+  endif
+  if collection.handle == 'frontpage'
+    assign fp_collection = collections['products']
+    if fp_collection != blank and fp_collection.products_count > 0
+      assign grid_collection = fp_collection
+    else
+      assign fp_collection = collections['all']
+      if fp_collection != blank and fp_collection.products_count > 0
+        assign grid_collection = fp_collection
+      endif
+    endif
+  endif
+-%}
+{%- assign visible_total = 0 -%}
+{%- for product in grid_collection.products -%}
+  {%- assign pt = product.title | downcase -%}
+  {%- if pt contains 'rs02' or pt == 'sensol flex' or pt == 'flex' -%}{%- continue -%}{%- endif -%}
+  {%- assign visible_total = visible_total | plus: 1 -%}
+{%- endfor -%}
 {%- assign grid_show_tabs = true -%}
 {%- assign grid_cols = 4 -%}
 {%- assign grid_label = collection.title -%}
@@ -149,7 +176,7 @@
   {%- if grid_show_tabs -%}
   <div class="sc-grid-{{ section.id }}__filter-bar">
     <div class="sc-grid-{{ section.id }}__tabs" id="sc-tabs-{{ section.id }}">
-      <button class="sc-grid-{{ section.id }}__tab is-active" data-filter="all">All Products <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></button>
+      <button class="sc-grid-{{ section.id }}__tab is-active" data-filter="all">All Products <span class="sc-grid-{{ section.id }}__tab-count">{{ visible_total | prepend: '0' }}</span></button>
       <button class="sc-grid-{{ section.id }}__tab" data-filter="smart">Smart Series <span class="sc-grid-{{ section.id }}__tab-count">{{ section.settings.smart_count | default: '04' }}</span></button>
       <button class="sc-grid-{{ section.id }}__tab" data-filter="mechanical">Mechanical Series <span class="sc-grid-{{ section.id }}__tab-count">{{ section.settings.mech_count | default: '03' }}</span></button>
     </div>
@@ -157,13 +184,13 @@
   {%- else -%}
   <div class="sc-grid-{{ section.id }}__filter-bar">
     <div class="sc-grid-{{ section.id }}__tabs" style="border-bottom: none;">
-      <span class="sc-grid-{{ section.id }}__tab is-active" style="cursor: default;">{{ grid_label }} <span class="sc-grid-{{ section.id }}__tab-count">{{ collection.products_count | prepend: '0' }}</span></span>
+      <span class="sc-grid-{{ section.id }}__tab is-active" style="cursor: default;">{{ grid_label }} <span class="sc-grid-{{ section.id }}__tab-count">{{ visible_total | prepend: '0' }}</span></span>
     </div>
   </div>
   {%- endif -%}
 
   <div class="sc-grid-{{ section.id }}__products" id="sc-grid-products-{{ section.id }}">
-    {%- for product in collection.products -%}
+    {%- for product in grid_collection.products -%}
       {%- assign product_title_lower = product.title | downcase -%}
       {%- comment -%} Filter out discontinued products: RS02, RS02 PRO, and standalone FLEX {%- endcomment -%}
       {%- if product_title_lower contains 'rs02' -%}
@@ -241,7 +268,8 @@
   "class": "sensol-collection-grid",
   "settings": [
     { "type": "text", "id": "smart_count", "label": "Smart Series Count", "default": "02" },
-    { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "02" }
+    { "type": "text", "id": "mech_count", "label": "Mechanical Series Count", "default": "02" },
+    { "type": "text", "id": "source_handle", "label": "Products source collection handle", "info": "Leave empty to use the current collection. Set e.g. 'products' to render that collection's products instead (for alternate templates like frontpage)." }
   ],
   "presets": [{ "name": "Collection Product Grid" }]
 }
