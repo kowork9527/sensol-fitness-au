@@ -14,16 +14,7 @@
       "settings": {
         "eyebrow": "Series 02",
         "title": "Mechanical Series",
-        "subtitle": "Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.",
-        "image": "shopify://shop_images/imgi_98_Frame_1167.webp",
-        "overlay_opacity": 55
-      }
-    },
-    "spotlight": {
-      "type": "sensol-collection-spotlight",
-      "disabled": true,
-      "settings": {
-        "show_section": true
+        "subtitle": "Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality."
       }
     },
     "main-grid": {
@@ -47,7 +38,6 @@
   },
   "order": [
     "hero",
-    "spotlight",
     "main-grid",
     "compare",
     "stats"

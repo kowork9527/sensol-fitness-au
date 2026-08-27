@@ -17,12 +17,6 @@
         "subtitle": "Foldable, lightweight reformers with spring resistance. Designed for home practice where space is at a premium."
       }
     },
-    "spotlight": {
-      "type": "sensol-collection-spotlight",
-      "settings": {
-        "show_section": true
-      }
-    },
     "main-grid": {
       "type": "sensol-collection-grid",
       "settings": {}
@@ -34,7 +28,6 @@
   },
   "order": [
     "hero",
-    "spotlight",
     "main-grid",
     "stats"
   ]
