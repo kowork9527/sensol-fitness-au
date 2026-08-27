@@ -11,11 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/2_1logo_01_1.webp",
     "logo_width": 90,
-<<<<<<< HEAD
-    "customer_account_menu": "customer-account-main-menu",
-=======
     "favicon": "shopify://shop_images/1_1logo_01.webp",
->>>>>>> github/shopify
     "type_header_font": "inter_n3",
     "heading_scale": 110,
     "type_body_font": "inter_n4",
