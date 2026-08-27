@@ -1,10 +1,48 @@
+{%- liquid
+  assign hero_image = section.settings.image
+  unless hero_image != blank
+    assign hero_image = collection.image
+  endunless
+  unless hero_image != blank
+    assign hero_image = collection.products.first.featured_image
+  endunless
+  assign overlay_val = section.settings.overlay_opacity | divided_by: 100.0
+  assign overlay_soft = overlay_val | times: 0.6
+-%}
+
 {%- style -%}
   .sc-hero-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
     background: #1A1816;
     color: #F7F4F0;
     padding: 160px 40px 100px;
     text-align: center;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .sc-hero-{{ section.id }}__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .sc-hero-{{ section.id }}__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sc-hero-{{ section.id }}__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg,
+      rgba(26,24,22,{{ overlay_val }}) 0%,
+      rgba(26,24,22,{{ overlay_soft | round: 2 }}) 55%,
+      rgba(26,24,22,{{ overlay_val }}) 100%);
+  }
+  .sc-hero-{{ section.id }}__content {
+    position: relative;
+    z-index: 2;
   }
   .sc-hero-{{ section.id }}__eyebrow {
     font-size: 11px; font-weight: 500;
@@ -16,11 +54,13 @@
     font-weight: 200; letter-spacing: 0.12em;
     text-transform: uppercase; line-height: 1.1;
     margin: 0 0 24px;
+    text-shadow: 0 2px 24px rgba(26,24,22,0.4);
   }
   .sc-hero-{{ section.id }}__subtitle {
     font-size: 15px; font-weight: 400;
-    line-height: 1.7; color: #B5ADA4;
+    line-height: 1.7; color: #D8D2CA;
     max-width: 520px; margin: 0 auto;
+    text-shadow: 0 1px 12px rgba(26,24,22,0.5);
   }
   .sc-hero-{{ section.id }}__divider {
     width: 1px; height: 48px;
@@ -40,22 +80,39 @@
   {%- when 'smart-series' -%}
     {%- assign hero_eyebrow = 'Series 01' -%}
     {%- assign hero_title = 'Smart Series' -%}
-    {%- assign hero_subtitle = 'Digital weight reformers powered by servo motors. 1 kg precision, dual-function Pilates and strength training, AI-driven coaching.' -%}
+    {%- assign hero_subtitle = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.' -%}
   {%- when 'mechanical-series' -%}
     {%- assign hero_eyebrow = 'Series 02' -%}
     {%- assign hero_title = 'Mechanical Series' -%}
     {%- assign hero_subtitle = 'Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.' -%}
   {%- when 'flex-series' -%}
-    {%- assign hero_eyebrow = 'Mechanical Series' -%}
+    {%- assign hero_eyebrow = 'Foldable Design' -%}
     {%- assign hero_title = 'Flex Collection' -%}
     {%- assign hero_subtitle = 'Foldable, lightweight reformers with spring resistance. Designed for home practice where space is at a premium.' -%}
 {%- endcase -%}
 
 <section class="sc-hero-{{ section.id }}">
-  <p class="sc-hero-{{ section.id }}__eyebrow">{{ hero_eyebrow }}</p>
-  <h1 class="sc-hero-{{ section.id }}__title">{{ hero_title }}</h1>
-  <p class="sc-hero-{{ section.id }}__subtitle">{{ hero_subtitle }}</p>
-  <div class="sc-hero-{{ section.id }}__divider"></div>
+  {%- if hero_image != blank -%}
+    <div class="sc-hero-{{ section.id }}__bg">
+      <img
+        src="{{ hero_image | image_url: width: 2000 }}"
+        srcset="{{ hero_image | image_url: width: 1200 }} 1200w, {{ hero_image | image_url: width: 2000 }} 2000w"
+        sizes="100vw"
+        alt="{{ hero_title | escape }}"
+        width="2000"
+        height="1000"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </div>
+    <div class="sc-hero-{{ section.id }}__overlay"></div>
+  {%- endif -%}
+  <div class="sc-hero-{{ section.id }}__content">
+    <p class="sc-hero-{{ section.id }}__eyebrow">{{ hero_eyebrow }}</p>
+    <h1 class="sc-hero-{{ section.id }}__title">{{ hero_title }}</h1>
+    <p class="sc-hero-{{ section.id }}__subtitle">{{ hero_subtitle }}</p>
+    <div class="sc-hero-{{ section.id }}__divider"></div>
+  </div>
 </section>
 
 {% schema %}
@@ -66,7 +123,9 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "2026 Collection" },
     { "type": "text", "id": "title", "label": "Title", "default": "All Reformers" },
-    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Four machines engineered for precision strength and Pilates training at home. Filter by series to find your match." }
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Four machines engineered for precision strength and Pilates training at home. Filter by series to find your match." },
+    { "type": "image_picker", "id": "image", "label": "Background image", "info": "Falls back to the collection image when empty" },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Image overlay opacity", "default": 55 }
   ],
   "presets": [{ "name": "Collection Hero" }]
 }
