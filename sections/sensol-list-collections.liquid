@@ -176,18 +176,12 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign visible_count = 0
+  assign valid_count = 0
   for h in lc_handles
     assign hc = h | strip
     assign col = collections[hc]
     if col != blank and col.products_count > 0
-      for p in col.products limit: 50
-        assign pt = p.title | downcase
-        if pt contains 'rs02' or pt == 'sensol flex' or pt == 'flex'
-          continue
-        endif
-        assign visible_count = visible_count | plus: 1
-      endfor
+      assign valid_count = valid_count | plus: 1
     endif
   endfor
 -%}
@@ -235,7 +229,7 @@
       <p class="sc-lc-{{ section.id }}__header-eyebrow">{{ section.settings.header_eyebrow | default: 'Explore' }}</p>
       <h2 class="sc-lc-{{ section.id }}__header-title">{{ section.settings.header_title | default: 'Shop by series' }}</h2>
     </div>
-    <span class="sc-lc-{{ section.id }}__header-count">{{ visible_count }} models</span>
+    <span class="sc-lc-{{ section.id }}__header-count">{{ valid_count }} collection{% if valid_count > 1 %}s{% endif %}</span>
   </div>
 
   <div class="sc-lc-{{ section.id }}__grid">
