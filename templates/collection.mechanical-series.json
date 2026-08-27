@@ -29,7 +29,10 @@
     },
     "product-grid": {
       "type": "sensol-collection-grid",
+<<<<<<< HEAD
       "disabled": false,
+=======
+>>>>>>> github/shopify
       "settings": {
         "smart_count": "02",
         "mech_count": "02"
