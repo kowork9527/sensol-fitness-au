@@ -29,7 +29,6 @@
     },
     "product-grid": {
       "type": "sensol-collection-grid",
-      "disabled": true,
       "settings": {
         "smart_count": "02",
         "mech_count": "02"
