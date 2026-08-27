@@ -17,13 +17,6 @@
         "subtitle": "Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality."
       }
     },
-    "spotlight": {
-      "type": "sensol-collection-spotlight",
-      "disabled": true,
-      "settings": {
-        "show_section": true
-      }
-    },
     "main-grid": {
       "type": "sensol-collection-grid",
       "disabled": true,
@@ -45,7 +38,6 @@
   },
   "order": [
     "hero",
-    "spotlight",
     "main-grid",
     "compare",
     "stats"

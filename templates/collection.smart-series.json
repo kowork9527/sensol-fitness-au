@@ -17,12 +17,6 @@
         "subtitle": "Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching."
       }
     },
-    "spotlight": {
-      "type": "sensol-collection-spotlight",
-      "settings": {
-        "show_section": true
-      }
-    },
     "main-grid": {
       "type": "sensol-collection-grid",
       "settings": {}
@@ -40,7 +34,6 @@
   },
   "order": [
     "hero",
-    "spotlight",
     "main-grid",
     "compare",
     "stats"

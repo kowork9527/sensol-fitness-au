@@ -24,12 +24,6 @@
         "mech_count": "02"
       }
     },
-    "spotlight": {
-      "type": "sensol-collection-spotlight",
-      "settings": {
-        "show_section": true
-      }
-    },
     "stats": {
       "type": "sensol-collection-stats",
       "settings": {}
@@ -45,7 +39,6 @@
   "order": [
     "hero",
     "main-grid",
-    "spotlight",
     "stats",
     "bottom-content"
   ]

@@ -1,4 +1,37 @@
+{%- comment %}
+  Priority: theme editor settings > per-collection defaults.
+  Only fall back to the hardcoded defaults when the setting is blank,
+  so merchant input in the customizer always takes effect.
+{%- endcomment -%}
 {%- liquid
+  assign hero_eyebrow = ''
+  assign hero_title = ''
+  assign hero_subtitle = ''
+  case collection.handle
+    when 'smart-series'
+      assign hero_eyebrow = 'Series 01'
+      assign hero_title = 'Smart Series'
+      assign hero_subtitle = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.'
+    when 'mechanical-series'
+      assign hero_eyebrow = 'Series 02'
+      assign hero_title = 'Mechanical Series'
+      assign hero_subtitle = 'Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.'
+    when 'flex-series'
+      assign hero_eyebrow = 'Foldable Design'
+      assign hero_title = 'Flex Collection'
+      assign hero_subtitle = 'Foldable, lightweight reformers with spring resistance. Designed for home practice where space is at a premium.'
+  endcase
+
+  if section.settings.eyebrow != blank
+    assign hero_eyebrow = section.settings.eyebrow
+  endif
+  if section.settings.title != blank
+    assign hero_title = section.settings.title
+  endif
+  if section.settings.subtitle != blank
+    assign hero_subtitle = section.settings.subtitle
+  endif
+
   assign hero_image = section.settings.image
   unless hero_image != blank
     assign hero_image = collection.image
@@ -50,10 +83,10 @@
     color: #B5ADA4; margin-bottom: 24px;
   }
   .sc-hero-{{ section.id }}__title {
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 200; letter-spacing: 0.12em;
-    text-transform: uppercase; line-height: 1.1;
-    margin: 0 0 24px;
+    font-size: clamp(48px, 7.5vw, 96px);
+    font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; line-height: 1.05;
+    margin: 0 0 28px;
     text-shadow: 0 2px 24px rgba(26,24,22,0.4);
   }
   .sc-hero-{{ section.id }}__subtitle {
@@ -71,25 +104,6 @@
     .sc-hero-{{ section.id }} { padding: 120px 20px 60px; }
   }
 {%- endstyle -%}
-
-{%- assign hero_eyebrow = section.settings.eyebrow -%}
-{%- assign hero_title = section.settings.title -%}
-{%- assign hero_subtitle = section.settings.subtitle -%}
-
-{%- case collection.handle -%}
-  {%- when 'smart-series' -%}
-    {%- assign hero_eyebrow = 'Series 01' -%}
-    {%- assign hero_title = 'Smart Series' -%}
-    {%- assign hero_subtitle = 'Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.' -%}
-  {%- when 'mechanical-series' -%}
-    {%- assign hero_eyebrow = 'Series 02' -%}
-    {%- assign hero_title = 'Mechanical Series' -%}
-    {%- assign hero_subtitle = 'Spring-based reformers built for accessibility. Foldable, lightweight, and beginner-friendly without compromising build quality.' -%}
-  {%- when 'flex-series' -%}
-    {%- assign hero_eyebrow = 'Foldable Design' -%}
-    {%- assign hero_title = 'Flex Collection' -%}
-    {%- assign hero_subtitle = 'Foldable, lightweight reformers with spring resistance. Designed for home practice where space is at a premium.' -%}
-{%- endcase -%}
 
 <section class="sc-hero-{{ section.id }}">
   {%- if hero_image != blank -%}
