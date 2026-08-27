@@ -11,7 +11,15 @@
   "sections": {
     "main": {
       "type": "sensol-list-collections",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Sensol Fitness",
+        "title": "Collections",
+        "subtitle": "Two series, one standard. Explore the full Sensol lineup and find the reformer built for your training.",
+        "image": "shopify://shop_images/product_lineup_v3.jpg",
+        "header_eyebrow": "Explore",
+        "header_title": "Shop by series",
+        "handles": "smart-series,mechanical-series,flex-series,products"
+      }
     }
   },
   "order": [
