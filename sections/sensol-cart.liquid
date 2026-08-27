@@ -70,7 +70,10 @@
     .sc-cart__trust-item svg { flex: none; width: 16px; height: 16px; stroke: #8A8279; margin-top: 2px; }
     .sc-cart__trust-item strong { color: #F7F4F0; font-weight: 600; display: block; }
 
-    .sc-cart__footnote { max-width: 1120px; margin: 56px auto 0; padding: 0 24px; font-size: 12px; color: #8A8279; }
+    .sc-cart__footnote { max-width: 1120px; margin: 56px auto 0; padding: 0 24px; font-size: 12px; color: #8A8279; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .sc-cart__footnote-lock { width: 13px; height: 13px; flex: none; color: #8A8279; }
+    .sc-cart__pay-icons { display: flex; align-items: center; gap: 6px; margin-left: 4px; }
+    .sc-cart__pay-icon { width: 34px; height: 21px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px #D4CEC6; }
 
     @media (max-width: 989px) {
       .sc-cart__header { padding: 64px 0 48px; }
@@ -178,7 +181,18 @@
           </ul>
         </aside>
       </div>
-      <p class="sc-cart__footnote">Secure checkout powered by Shopify. Payment methods: credit card, Apple Pay, Google Pay, PayPal.</p>
+      <div class="sc-cart__footnote">
+        <svg class="sc-cart__footnote-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+        <span>Secure checkout powered by Shopify</span>
+        <span class="sc-cart__pay-icons" aria-label="Supported payment methods">
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="Visa"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#FFFFFF" stroke="#D4CEC6"/><path fill="#1A1F71" d="M15.5 8.2 12.9 15.8h-1.8L9.8 9.9c-.1-.4-.2-.5-.5-.7-.4-.2-1-.4-1.5-.5l.1-.5h2.7c.4 0 .7.3.8.8l.7 4 1.9-4.7h1.5Zm3.4 0-1.4 7.6h-1.7l1.4-7.6h1.7Zm5.4 2.1c-.6-.3-1-.5-.9-.8 0-.3.4-.6 1.1-.6.5 0 1 .1 1.3.3l.2.1.3-1.4c-.4-.1-.9-.3-1.6-.3-1.7 0-2.9.9-2.9 2.2 0 .9.8 1.4 1.5 1.8.6.3.9.5.8.8 0 .4-.5.6-1.1.6-.7 0-1.3-.2-1.7-.4l-.2-.1-.3 1.4c.4.2 1.2.4 1.9.4 1.9 0 3-.9 3-2.3 0-.8-.5-1.4-1.4-1.7Zm5.7-2.1h-1.3c-.4 0-.7.1-.9.5l-2.5 5h1.7l.3-.9h2.1l.2.9h1.5l-1.1-5.5Zm-2 4.5.7-2.1.4 2.1h-1.1Zm-6.9-4.5-1.4 7.6h-1.6l1.4-7.6h1.6Z" transform="translate(3,2)"/></svg>
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="Mastercard"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#FFFFFF" stroke="#D4CEC6"/><circle cx="17" cy="12" r="6.5" fill="#EB001B"/><circle cx="24" cy="12" r="6.5" fill="#F79E1B"/><path fill="#FF5F00" d="M20.5 7.2a6.5 6.5 0 0 0 0 9.6 6.5 6.5 0 0 0 0-9.6Z"/></svg>
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="Amex"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#2E77BC"/><path fill="#FFFFFF" d="M9 8.5h3l1.2 2.6L14.4 8.5h3l-2.4 4.2 2.5 4.3h-3l-1.3-2.7-1.3 2.7h-3l2.5-4.3L9 8.5Zm8 0h6v1.6h-2v6.9h-2v-6.9h-2V8.5Zm7.5 0h2.9l1.4 2.7 1.4-2.7H34l-3 5.2v3.3h-2v-3.3l-3-5.2Z"/></svg>
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="Apple Pay"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#000000"/><path fill="#FFFFFF" d="M20.7 8.9c-.5 0-1.1.5-1.6.5-.6 0-1.2-.5-1.8-.4-1.1 0-2 .6-2.5 1.6-1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.5.7 0 1-.5 1.8-.5s1.1.5 1.8.5c.8 0 1.4-.8 1.9-1.5.5-.8.7-1.6.7-1.6s-1.5-.6-1.5-2.3c0-1.4 1.1-2.1 1.2-2.1-.6-.9-1.6-1.7-2.6-1.7Zm.5-1.1c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8Z" transform="translate(1,1)"/><text x="26" y="16.5" font-family="Helvetica" font-size="7" font-weight="600" fill="#FFFFFF">Pay</text></svg>
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="Google Pay"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#FFFFFF" stroke="#D4CEC6"/><path d="M9.5 10.5c.9 0 1.6.6 1.6 1.5s-.7 1.5-1.6 1.5H7.5v-3h2Zm-.1 5.2c1 0 1.8.7 1.8 1.7s-.8 1.6-1.8 1.6H7.5v-3.3h1.9Zm4.1 2.6-2-2.9c1-.3 1.6-1.2 1.6-2.3 0-1.5-1.1-2.6-2.7-2.6H6v8.9h1.5v-3h1.3l1.8 3h1.9Z" fill="#3C4043"/><path d="M14.5 9.5c0 .5.2.8.6 1.1l-.3.4c-.7-.3-1.1-1-1.1-1.8 0-.8.5-1.4 1.1-1.8l.3.4c-.4.3-.6.9-.6 1.7Z" fill="#5F6368" opacity="0"/><path d="M15.6 8.5c1 0 1.8.6 2 1.5l-.5.1c-.2-.7-.8-1.1-1.5-1.1-.9 0-1.6.7-1.6 1.6s.7 1.6 1.6 1.6c.7 0 1.3-.4 1.5-1.1l.5.1c-.2.9-1 1.5-2 1.5-1.2 0-2.1-.9-2.1-2.1s.9-2.2 2.1-2.2Z" fill="#3C4043"/><text x="24" y="15.5" font-family="Arial" font-size="6.5" font-weight="700" fill="#5F6368">Pay</text></svg>
+          <svg class="sc-cart__pay-icon" viewBox="0 0 40 24" role="img" aria-label="PayPal"><rect x="0.5" y="0.5" width="39" height="23" rx="3" fill="#FFFFFF" stroke="#D4CEC6"/><path fill="#003087" d="M15.2 7.5h2.7c1.5 0 2.5.7 2.2 2.3l-.7 4c-.2 1.2-1.2 1.9-2.4 1.9h-1.6l-.5 2.7c-.1.4-.3.6-.7.6h-1c-.3 0-.5-.2-.4-.6l1.5-8.9c.1-.4.3-.6.7-.6h.2Zm1.4 2.4-.5 3.4h1c.6 0 1-.3 1.1-1l.2-1.3c.1-.7-.2-1.1-.9-1.1h-.9Z"/><path fill="#009cde" d="M24.3 7.5h2.7c1.5 0 2.5.7 2.2 2.3l-.7 4c-.2 1.2-1.2 1.9-2.4 1.9h-1.6l-.5 2.7c-.1.4-.3.6-.7.6h-1c-.3 0-.5-.2-.4-.6l1.5-8.9c.1-.4.3-.6.7-.6h.2Zm1.4 2.4-.5 3.4h1c.6 0 1-.3 1.1-1l.2-1.3c.1-.7-.2-1.1-.9-1.1h-.9Z" transform="translate(2,0)"/><path fill="#002F86" d="M22.5 5.5h-3.2c-.5 0-.9.3-1 .8l-1.4 8c-.1.5.2.8.6.8h1.7c.3 0 .5-.2.6-.5l.4-2.4h1.4c1.7 0 2.8-.9 3.1-2.7l.2-1c.3-1.9-.7-3-2.4-3Zm.7 3.2-.2 1c-.1.9-.6 1.3-1.5 1.3h-.9l.5-3.5h1c.8 0 1.2.4 1.1 1.2Z"/></svg>
+        </span>
+      </div>
     </div>
   {%- endif -%}
 
