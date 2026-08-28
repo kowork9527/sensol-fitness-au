@@ -1,0 +1,249 @@
+{%- comment -%}
+  Sensol App Page - Hero Section
+  Editable: eyebrow, title (2 lines), subtitle, store links, 3 phone mockup images.
+  Empty image slots fall back to bundled theme assets.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} { margin: 0; }
+  .sc-apph {
+    position: relative;
+    background: #0a0a0c;
+    color: #f5f5f7;
+    overflow: hidden;
+    padding: 5.5rem 1.5rem 7rem;
+  }
+  .sc-apph::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(58% 48% at 78% 30%, rgba(94, 84, 141, 0.22), transparent 70%),
+      radial-gradient(42% 36% at 18% 82%, rgba(94, 84, 141, 0.13), transparent 70%);
+    pointer-events: none;
+  }
+  .sc-apph__inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 3.5rem;
+  }
+  .sc-apph__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #b8b4c8;
+    margin: 0 0 1.1rem;
+  }
+  .sc-apph__title {
+    font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+    line-height: 1.06;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.4rem;
+    color: #f5f5f7;
+  }
+  .sc-apph__title em {
+    font-style: normal;
+    color: #bcb4d6;
+  }
+  .sc-apph__sub {
+    font-size: 1.02rem;
+    line-height: 1.72;
+    color: #9d9aa8;
+    max-width: 34rem;
+    margin: 0 0 2.2rem;
+  }
+  .sc-apph__badges { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .sc-apph__badge {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.62rem 1.15rem;
+    border: 1px solid rgba(188, 180, 214, 0.3);
+    border-radius: 999px;
+    color: #d6d2e4;
+    font-size: 0.86rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .sc-apph__badge:hover {
+    border-color: rgba(188, 180, 214, 0.65);
+    background: rgba(188, 180, 214, 0.08);
+  }
+  .sc-apph__badge svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
+  /* phone trio */
+  .sc-apph__phones {
+    position: relative;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sc-apph__phone {
+    position: absolute;
+    border-radius: 22px;
+    background: #17171b;
+    padding: 7px;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .sc-apph__phone img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: #000;
+  }
+  .sc-apph__phone--main {
+    width: 236px;
+    z-index: 3;
+    transform: translateY(-14px);
+  }
+  .sc-apph__phone--left {
+    width: 196px;
+    left: 2%;
+    z-index: 1;
+    transform: rotate(-7deg) translateY(26px);
+    opacity: 0.92;
+  }
+  .sc-apph__phone--right {
+    width: 196px;
+    right: 2%;
+    z-index: 2;
+    transform: rotate(6deg) translateY(8px);
+    opacity: 0.96;
+  }
+
+  @media (max-width: 990px) {
+    .sc-apph { padding: 4rem 1.5rem 5.5rem; }
+    .sc-apph__inner { grid-template-columns: 1fr; gap: 3rem; }
+    .sc-apph__phones { height: 440px; }
+    .sc-apph__phone--main { width: 205px; }
+    .sc-apph__phone--left  { left: -5%; }
+    .sc-apph__phone--right { right: -5%; }
+  }
+  @media (max-width: 640px) {
+    .sc-apph__phones { height: 400px; }
+    .sc-apph__phone--main { width: 185px; }
+    .sc-apph__phone--left  { left: -6%; }
+    .sc-apph__phone--right { right: -6%; }
+  }
+</style>
+
+<section class="sc-apph">
+  <div class="sc-apph__inner">
+    <div class="sc-apph__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sc-apph__label">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="sc-apph__title">
+        {{ section.settings.title | escape }}{% if section.settings.title_accent != blank %}<br><em>{{ section.settings.title_accent | escape }}</em>{% endif %}
+      </h1>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="sc-apph__sub">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+      <div class="sc-apph__badges">
+        <a class="sc-apph__badge" href="{{ section.settings.ios_link | default: 'https://apps.apple.com/app/id6747697213' }}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09l-.01-.01zM12.03 7.25c-.15-2.23 1.66-4.25 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          iOS
+        </a>
+        <a class="sc-apph__badge" href="{{ section.settings.android_link | default: 'https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta' }}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8L13.4 12 3.6 22.2c-.37-.25-.6-.68-.6-1.24V3.04c0-.56.23-.99.6-1.24zm11.17 9.37l2.5-2.49L5.2 1.1l-.02.01c-.42.16-.68.6-.68 1.19v19.4c0 .59.26 1.03.68 1.19l.02.01 11.57-7.59-2.5-2.45-.01.01.01-.01zM19.3 8.9l-2.5 2.49 2.5 2.48 2.72-1.62c.8-.5.8-1.72 0-2.22L19.3 8.9v.01z"/></svg>
+          Android
+        </a>
+      </div>
+    </div>
+
+    {%- liquid
+      assign left_img = section.settings.phone_left
+      assign main_img = section.settings.phone_main
+      assign right_img = section.settings.phone_right
+    -%}
+    <div class="sc-apph__phones">
+      {%- if left_img != blank -%}
+        <div class="sc-apph__phone sc-apph__phone--left">{{ left_img | image_url: width: 500 | image_tag: loading: 'lazy', widths: '250,500', alt: 'Sensol App screen' }}</div>
+      {%- else -%}
+        <div class="sc-apph__phone sc-apph__phone--left"><img src="{{ 'app-screen-discover.png' | asset_url }}" alt="Sensol App discover screen" loading="lazy" width="200" height="437"></div>
+      {%- endif -%}
+
+      {%- if main_img != blank -%}
+        <div class="sc-apph__phone sc-apph__phone--main">{{ main_img | image_url: width: 600 | image_tag: loading: 'eager', widths: '300,600', alt: 'Sensol App screen' }}</div>
+      {%- else -%}
+        <div class="sc-apph__phone sc-apph__phone--main"><img src="{{ 'app-screen-login.png' | asset_url }}" alt="Sensol App login screen" loading="eager" width="240" height="530"></div>
+      {%- endif -%}
+
+      {%- if right_img != blank -%}
+        <div class="sc-apph__phone sc-apph__phone--right">{{ right_img | image_url: width: 500 | image_tag: loading: 'lazy', widths: '250,500', alt: 'Sensol App screen' }}</div>
+      {%- else -%}
+        <div class="sc-apph__phone sc-apph__phone--right"><img src="{{ 'app-screen-player.png' | asset_url }}" alt="Sensol App training player" loading="lazy" width="200" height="407"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "App Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Sensol Training App"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (line 1)",
+      "default": "Make it easy."
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title (line 2, highlighted)",
+      "default": "Do it real."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "The complete training companion for your Sensol reformer. Discover classes, follow structured programs, and train with real-time resistance guidance - engineered to make every session count."
+    },
+    {
+      "type": "url",
+      "id": "ios_link",
+      "label": "iOS store link"
+    },
+    {
+      "type": "url",
+      "id": "android_link",
+      "label": "Android store link"
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_main",
+      "label": "Phone mockup - center",
+      "info": "Leave empty to use the default app screen from theme assets."
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_left",
+      "label": "Phone mockup - left",
+      "info": "Leave empty to use the default app screen from theme assets."
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_right",
+      "label": "Phone mockup - right",
+      "info": "Leave empty to use the default app screen from theme assets."
+    }
+  ],
+  "default": {
+    "settings": {}
+  }
+}
+{% endschema %}

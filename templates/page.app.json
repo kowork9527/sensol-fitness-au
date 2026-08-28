@@ -1,23 +1,148 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "hero": {
+      "type": "sensol-app-hero",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "eyebrow": "Sensol Training App",
+        "title": "Make it easy.",
+        "title_accent": "Do it real.",
+        "subtitle": "The complete training companion for your Sensol reformer. Discover classes, follow structured programs, and train with real-time resistance guidance - engineered to make every session count.",
+        "ios_link": "https://apps.apple.com/app/id6747697213",
+        "android_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta"
       }
+    },
+    "tour": {
+      "type": "sensol-app-tour",
+      "settings": {
+        "eyebrow": "Inside the app",
+        "title": "Your studio, on your phone",
+        "description": "Every screen is engineered for focus - from browsing classes to live training sessions."
+      },
+      "blocks": {
+        "tour-1": {
+          "type": "screen",
+          "settings": {
+            "title": "Sign in",
+            "text": "Create your profile and pair your reformer in seconds."
+          }
+        },
+        "tour-2": {
+          "type": "screen",
+          "settings": {
+            "title": "Discover",
+            "text": "New classes, programs and live sessions - refreshed weekly."
+          }
+        },
+        "tour-3": {
+          "type": "screen",
+          "settings": {
+            "title": "Categories",
+            "text": "Filter by body region, duration and difficulty level."
+          }
+        },
+        "tour-4": {
+          "type": "screen",
+          "settings": {
+            "title": "Programs",
+            "text": "Structured multi-week plans that build session by session."
+          }
+        },
+        "tour-5": {
+          "type": "screen",
+          "settings": {
+            "title": "Class detail",
+            "text": "Every exercise, duration and resistance range upfront."
+          }
+        },
+        "tour-6": {
+          "type": "screen",
+          "settings": {
+            "title": "Train live",
+            "text": "Real-time resistance cues synced to every movement."
+          }
+        }
+      },
+      "block_order": ["tour-1", "tour-2", "tour-3", "tour-4", "tour-5", "tour-6"]
+    },
+    "features": {
+      "type": "sensol-app-features",
+      "settings": {
+        "eyebrow": "Built for progress",
+        "title": "More than a class library"
+      },
+      "blocks": {
+        "feat-1": {
+          "type": "feature",
+          "settings": {
+            "title": "Classified course library",
+            "text": "Browse by body region, duration and level. New classes every week."
+          }
+        },
+        "feat-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Structured programs",
+            "text": "Multi-week plans, from deep core activation to full-body strength."
+          }
+        },
+        "feat-3": {
+          "type": "feature",
+          "settings": {
+            "title": "Live resistance player",
+            "text": "Real-time resistance and rep guidance, synced to the hardware."
+          }
+        },
+        "feat-4": {
+          "type": "feature",
+          "settings": {
+            "title": "iOS + Android",
+            "text": "One account across devices. Your progress follows you."
+          }
+        }
+      },
+      "block_order": ["feat-1", "feat-2", "feat-3", "feat-4"]
+    },
+    "download": {
+      "type": "sensol-app-download",
+      "settings": {
+        "eyebrow": "Get the app",
+        "title": "Two apps. One system.",
+        "subtitle": "Pick the app that matches your reformer and start training today.",
+        "card_width": "half",
+        "note": "<p>Free to download. Full course library requires a SENSOL reformer with Bluetooth connection.</p>"
+      },
+      "blocks": {
+        "dl-1": {
+          "type": "app",
+          "settings": {
+            "badge": "App 01",
+            "app_name": "SENSOL App",
+            "models": "RS02 / RS02 PRO / RS03 PRO",
+            "description": "The training companion for the Smart Series digital reformers. Digital resistance control, 0.5 kg precision, live class guidance.",
+            "qr_fallback": "smart",
+            "ios_link": "https://apps.apple.com/app/id6747697213",
+            "ios_hint": "Scan for iOS",
+            "android_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta",
+            "android_hint": "Scan for Android"
+          }
+        },
+        "dl-2": {
+          "type": "app",
+          "settings": {
+            "badge": "App 02",
+            "app_name": "SENSOL FLEX App",
+            "models": "FLEX / FLEX AIR / FLEX PRO",
+            "description": "The course app for the FLEX Series reformers. Guided classes with resistance levels matched to the FLEX spring system.",
+            "qr_fallback": "flex",
+            "ios_link": "https://apps.apple.com/app/id6784491021",
+            "ios_hint": "Scan for iOS",
+            "android_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.flex",
+            "android_hint": "Scan for Android"
+          }
+        }
+      },
+      "block_order": ["dl-1", "dl-2"]
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["hero", "tour", "features", "download"]
 }

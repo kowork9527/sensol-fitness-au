@@ -1,0 +1,210 @@
+{%- comment -%}
+  Sensol App Page - App Screen Tour Section
+  Blocks (type "screen") are reorderable / addable / removable.
+  Empty image slots fall back to bundled theme assets by position.
+{%- endcomment -%}
+
+<style>
+  .sc-appt {
+    background: #f5f5f7;
+    padding: 5.5rem 1.5rem 6.5rem;
+  }
+  .sc-appt__inner { max-width: 1280px; margin: 0 auto; }
+  .sc-appt__head { text-align: center; margin-bottom: 3.2rem; }
+  .sc-appt__label {
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8a8696;
+    margin: 0 0 0.8rem;
+  }
+  .sc-appt__title {
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #16161a;
+    margin: 0 0 0.9rem;
+  }
+  .sc-appt__desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #5d5a66;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .sc-appt__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.2rem;
+  }
+  .sc-appt__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .sc-appt__thumb {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e6e4ea;
+    padding: 6px;
+    box-shadow: 0 12px 30px rgba(22, 22, 26, 0.08);
+    aspect-ratio: 3 / 6.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sc-appt__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px;
+  }
+  .sc-appt__thumb--empty {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #9d9aa8;
+    font-size: 0.75rem;
+    background: repeating-linear-gradient(45deg, #f0eef4, #f0eef4 10px, #e9e7ee 10px, #e9e7ee 20px);
+    border-radius: 13px;
+    min-height: 160px;
+  }
+  .sc-appt__num {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #6c6878;
+  }
+  .sc-appt__name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #16161a;
+    margin: 0;
+  }
+  .sc-appt__text {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: #6c6878;
+    margin: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .sc-appt__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .sc-appt { padding: 3.5rem 1.25rem 4.5rem; }
+    .sc-appt__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  }
+</style>
+
+<section class="sc-appt">
+  <div class="sc-appt__inner">
+    <div class="sc-appt__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sc-appt__label">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="sc-appt__title">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.description != blank -%}
+        <p class="sc-appt__desc">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="sc-appt__grid">
+      {%- liquid
+        assign fallbacks = 'app-screen-login.png,app-screen-discover.png,app-screen-categories.png,app-screen-program.png,app-screen-course.png,app-screen-player.png' | split: ','
+      -%}
+      {%- for block in section.blocks -%}
+        <div class="sc-appt__card" {{ block.shopify_attributes }}>
+          <div class="sc-appt__thumb">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,600', alt: block.settings.title }}
+            {%- else -%}
+              {%- assign fb = fallbacks[forloop.index0] -%}
+              {%- if fb != blank -%}
+                <img src="{{ fb | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="200" height="437">
+              {%- else -%}
+                <div class="sc-appt__thumb--empty">Upload image</div>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+          <div>
+            <span class="sc-appt__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="sc-appt__name">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="sc-appt__text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "App Tour",
+  "tag": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Inside the app"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your studio, on your phone"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every screen is engineered for focus - from browsing classes to live training sessions."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "screen",
+      "name": "Screen",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Screen image",
+          "info": "Leave empty to use the default app screen for this position."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Screen name",
+          "default": "Screen"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "screen", "settings": { "title": "Sign in", "text": "Your SENSOL account syncs across every device." } },
+      { "type": "screen", "settings": { "title": "Discover", "text": "Fresh classes, programs and live sessions, front and centre." } },
+      { "type": "screen", "settings": { "title": "Categories", "text": "Filter by focus, level or duration to find the right class." } },
+      { "type": "screen", "settings": { "title": "Programs", "text": "Multi-week plans that build week by week." } },
+      { "type": "screen", "settings": { "title": "Class detail", "text": "Duration, level and target areas before you start." } },
+      { "type": "screen", "settings": { "title": "Training player", "text": "Follow every rep with real-time guidance and cues." } }
+    ]
+  }
+}
+{% endschema %}
