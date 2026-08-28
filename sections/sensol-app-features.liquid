@@ -1,0 +1,185 @@
+{%- comment -%}
+  Sensol App Page - Features Section
+  4 built-in feature slots, each with custom image + text + optional link.
+{%- endcomment -%}
+
+<style>
+  .sc-appf {
+    background: #ffffff;
+    padding: 5.5rem 1.5rem 6.5rem;
+  }
+  .sc-appf__inner { max-width: 1180px; margin: 0 auto; }
+  .sc-appf__head { margin-bottom: 3.4rem; }
+  .sc-appf__label {
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8a8696;
+    margin: 0 0 0.8rem;
+  }
+  .sc-appf__title {
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #16161a;
+    margin: 0;
+  }
+  .sc-appf__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+  .sc-appf__item {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 1.2rem;
+    align-items: center;
+    background: #f5f5f7;
+    border: 1px solid #eceaf1;
+    border-radius: 18px;
+    padding: 1.5rem 1.6rem;
+    text-decoration: none;
+  }
+  a.sc-appf__item:hover { border-color: #c9c4d4; }
+  .sc-appf__icon {
+    width: 84px;
+    height: 84px;
+    border-radius: 16px;
+    background: #16161a;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .sc-appf__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sc-appf__icon svg { width: 34px; height: 34px; }
+  .sc-appf__name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #16161a;
+    margin: 0 0 0.45rem;
+  }
+  .sc-appf__text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #5d5a66;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .sc-appf { padding: 3.5rem 1.25rem 4.5rem; }
+    .sc-appf__grid { grid-template-columns: 1fr; }
+    .sc-appf__item { grid-template-columns: 64px 1fr; gap: 1rem; }
+    .sc-appf__icon { width: 64px; height: 64px; }
+  }
+</style>
+
+<section class="sc-appf">
+  <div class="sc-appf__inner">
+    <div class="sc-appf__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sc-appf__label">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="sc-appf__title">{{ section.settings.title | escape }}</h2>
+    </div>
+
+    <div class="sc-appf__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign fallbacks = 'app-screen-categories.png,app-screen-program.png,app-screen-player.png,app-screen-discover.png' | split: ','
+          assign fb = fallbacks[forloop.index0]
+        -%}
+        {%- if block.settings.link != blank -%}
+          <a class="sc-appf__item" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+        {%- else -%}
+          <div class="sc-appf__item" {{ block.shopify_attributes }}>
+        {%- endif -%}
+          <div class="sc-appf__icon">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100,200', alt: block.settings.title }}
+            {%- else -%}
+              <img src="{{ fb | asset_url }}" alt="" loading="lazy" width="84" height="84" style="object-fit: cover; border-radius: 16px;">
+            {%- endif -%}
+          </div>
+          <div>
+            {%- if block.settings.title != blank -%}
+              <h3 class="sc-appf__name">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="sc-appf__text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "App Features",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Built for progress"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "More than a class library"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature image",
+          "info": "Leave empty to use a default app screen image."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "feature", "settings": { "title": "Organised class library", "text": "Browse by body focus, difficulty or duration and find the right session in seconds." } },
+      { "type": "feature", "settings": { "title": "Structured programs", "text": "Multi-week plans that progress with you, from deep core activation to full-body strength." } },
+      { "type": "feature", "settings": { "title": "Real-time training player", "text": "Follow every rep with on-screen guidance, timing and target cues while you train." } },
+      { "type": "feature", "settings": { "title": "Both platforms", "text": "Native apps for iPhone, iPad and Android, included free with your reformer." } }
+    ]
+  }
+}
+{% endschema %}
