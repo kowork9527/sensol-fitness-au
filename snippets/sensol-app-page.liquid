@@ -1,0 +1,515 @@
+{%- comment -%}Sensol App page - app showcase + download QR codes for both apps{%- endcomment -%}
+
+<style>
+  /* Hide default page content */
+  .main-page-title, .rte, .section-main-page-padding,
+  .page-width--narrow.section-template--main-padding { display: none !important; }
+
+  /* ═══ ROOT ═══ */
+  .sc-app { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+  /* ═══ HERO (dark) ═══ */
+  .sc-app-hero {
+    background: #1A1816;
+    overflow: hidden; position: relative;
+    padding: 8rem 3rem 5rem;
+  }
+  .sc-app-hero__inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .sc-app-hero__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    margin-bottom: 1.5rem;
+  }
+  .sc-app-hero__title {
+    font-size: clamp(44px, 5.5vw, 72px); font-weight: 200;
+    letter-spacing: 0.02em; line-height: 1.05; color: #F7F4F0;
+    margin-bottom: 2rem;
+  }
+  .sc-app-hero__title em {
+    font-style: normal; color: #B9B4E8;
+  }
+  .sc-app-hero__sub {
+    font-size: clamp(15px, 1.4vw, 18px); font-weight: 300;
+    line-height: 1.75; color: rgba(247,244,240,0.6);
+    max-width: 480px; margin-bottom: 3rem;
+  }
+  .sc-app-hero__badges { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .sc-app-hero__badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.7rem 1.3rem; border: 1px solid rgba(247,244,240,0.18);
+    border-radius: 999px; text-decoration: none;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+    color: rgba(247,244,240,0.75); transition: all 0.25s ease;
+  }
+  .sc-app-hero__badge:hover {
+    border-color: rgba(185,180,232,0.6); color: #F7F4F0;
+    background: rgba(185,180,232,0.08);
+  }
+  .sc-app-hero__badge svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* Hero phone trio */
+  .sc-app-hero__phones {
+    position: relative; height: 560px;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .sc-app-hero__phone {
+    position: absolute; width: 200px;
+    border-radius: 24px; overflow: hidden;
+    border: 1px solid rgba(247,244,240,0.12);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .sc-app-hero__phone img { display: block; width: 100%; height: auto; }
+  .sc-app-hero__phone--left  { left: 0;    top: 50%; transform: translateY(-50%) rotate(-7deg); opacity: 0.55; z-index: 1; }
+  .sc-app-hero__phone--right { right: 0;   top: 50%; transform: translateY(-50%) rotate(7deg);  opacity: 0.55; z-index: 1; }
+  .sc-app-hero__phone--main  { left: 50%;  top: 46%;  transform: translate(-50%, -50%); z-index: 2; width: 240px; }
+
+  /* ═══ TOUR (dark, 6 screens) ═══ */
+  .sc-app-tour {
+    background: #1A1816; padding: 5rem 3rem 7rem;
+    border-top: 1px solid rgba(247,244,240,0.07);
+  }
+  .sc-app-tour__inner { max-width: 1280px; margin: 0 auto; }
+  .sc-app-tour__head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap;
+  }
+  .sc-app-tour__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279; margin-bottom: 1rem;
+  }
+  .sc-app-tour__title {
+    font-size: clamp(28px, 3vw, 44px); font-weight: 200;
+    letter-spacing: 0.02em; color: #F7F4F0;
+  }
+  .sc-app-tour__desc {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5); max-width: 340px;
+  }
+  .sc-app-tour__grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem; align-items: start;
+  }
+  .sc-app-tour__item { text-align: left; }
+  .sc-app-tour__item-img {
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(247,244,240,0.1);
+    margin-bottom: 1.25rem; transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .sc-app-tour__item:hover .sc-app-tour__item-img {
+    transform: translateY(-8px); border-color: rgba(185,180,232,0.45);
+  }
+  .sc-app-tour__item-img img { display: block; width: 100%; height: auto; }
+  .sc-app-tour__item-num {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    color: #B9B4E8; margin-bottom: 0.4rem;
+  }
+  .sc-app-tour__item-name {
+    font-size: 14px; font-weight: 500; color: #F7F4F0;
+    margin-bottom: 0.35rem;
+  }
+  .sc-app-tour__item-desc {
+    font-size: 12px; font-weight: 300; line-height: 1.6;
+    color: rgba(247,244,240,0.45);
+  }
+
+  /* ═══ FEATURES (light) ═══ */
+  .sc-app-feat { background: #F5F2EE; padding: 7rem 3rem; }
+  .sc-app-feat__inner { max-width: 1080px; margin: 0 auto; }
+  .sc-app-feat__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    text-align: center; margin-bottom: 1.2rem;
+  }
+  .sc-app-feat__title {
+    font-size: clamp(28px, 3vw, 42px); font-weight: 200;
+    letter-spacing: 0.02em; color: #1A1816;
+    text-align: center; margin-bottom: 4rem; line-height: 1.15;
+  }
+  .sc-app-feat__grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem 4rem;
+  }
+  .sc-app-feat__item {
+    padding: 2rem 0 0; border-top: 1px solid rgba(26,24,22,0.14);
+  }
+  .sc-app-feat__item-num {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+    color: #9692C9; margin-bottom: 1rem;
+  }
+  .sc-app-feat__item-name {
+    font-size: 19px; font-weight: 600; color: #1A1816; margin-bottom: 0.7rem;
+  }
+  .sc-app-feat__item-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(26,24,22,0.62);
+  }
+
+  /* ═══ DOWNLOAD (dark, two apps) ═══ */
+  .sc-app-dl { background: #1A1816; padding: 7rem 3rem; }
+  .sc-app-dl__inner { max-width: 1080px; margin: 0 auto; }
+  .sc-app-dl__label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8A8279;
+    text-align: center; margin-bottom: 1.2rem;
+  }
+  .sc-app-dl__title {
+    font-size: clamp(28px, 3vw, 42px); font-weight: 200;
+    letter-spacing: 0.02em; color: #F7F4F0;
+    text-align: center; margin-bottom: 1rem;
+  }
+  .sc-app-dl__sub {
+    font-size: 15px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.5); text-align: center;
+    max-width: 520px; margin: 0 auto 4.5rem;
+  }
+  .sc-app-dl__grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .sc-app-card {
+    border: 1px solid rgba(247,244,240,0.12);
+    border-radius: 24px; padding: 3rem 2.5rem;
+    background: rgba(247,244,240,0.03);
+  }
+  .sc-app-card__series {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B9B4E8; border: 1px solid rgba(185,180,232,0.4);
+    border-radius: 999px; padding: 0.4rem 0.9rem; margin-bottom: 1.5rem;
+  }
+  .sc-app-card__name {
+    font-size: 30px; font-weight: 200; color: #F7F4F0;
+    letter-spacing: 0.02em; margin-bottom: 0.7rem;
+  }
+  .sc-app-card__models {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(247,244,240,0.4); margin-bottom: 1rem;
+  }
+  .sc-app-card__desc {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: rgba(247,244,240,0.55); margin-bottom: 2.5rem;
+  }
+  .sc-app-card__desc a { color: #B9B4E8; text-decoration: none; }
+  .sc-app-card__desc a:hover { text-decoration: underline; }
+  .sc-app-card__qrs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .sc-app-qr {
+    background: #FFFFFF; border-radius: 16px;
+    padding: 1.1rem; text-align: center;
+  }
+  .sc-app-qr img {
+    display: block; width: 100%; max-width: 158px;
+    height: auto; margin: 0 auto;
+  }
+  .sc-app-qr__name {
+    margin-top: 0.75rem; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #1A1816;
+  }
+  .sc-app-qr__hint {
+    margin-top: 0.25rem; font-size: 10px; font-weight: 400;
+    letter-spacing: 0.06em; color: rgba(26,24,22,0.45);
+  }
+  .sc-app-card__links { display: flex; gap: 0.75rem; margin-top: 1.75rem; flex-wrap: wrap; }
+  .sc-app-card__btn {
+    flex: 1; min-width: 150px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+    padding: 0.85rem 1.2rem; border: 1px solid rgba(247,244,240,0.2);
+    border-radius: 999px; text-decoration: none;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+    color: rgba(247,244,240,0.8); transition: all 0.25s ease;
+  }
+  .sc-app-card__btn:hover {
+    border-color: rgba(185,180,232,0.6); color: #F7F4F0;
+    background: rgba(185,180,232,0.08);
+  }
+  .sc-app-card__btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* ═══ FOOT NOTE ═══ */
+  .sc-app-note {
+    background: #1A1816; padding: 0 3rem 5rem;
+  }
+  .sc-app-note__inner {
+    max-width: 1080px; margin: 0 auto;
+    border-top: 1px solid rgba(247,244,240,0.08);
+    padding-top: 2.5rem;
+    font-size: 12px; font-weight: 300; line-height: 1.8;
+    color: rgba(247,244,240,0.35); text-align: center;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 990px) {
+    .sc-app-hero__inner { grid-template-columns: 1fr; gap: 3rem; }
+    .sc-app-hero__sub { margin-left: auto; margin-right: auto; }
+    .sc-app-hero { text-align: center; padding: 6rem 1.5rem 4rem; }
+    .sc-app-hero__phones { height: 460px; }
+    .sc-app-hero__phone--main { width: 210px; }
+    .sc-app-hero__phone--left, .sc-app-hero__phone--right { width: 170px; }
+
+    .sc-app-tour { padding: 4rem 1.5rem 5rem; }
+    .sc-app-tour__grid {
+      grid-template-columns: repeat(3, 1fr); gap: 1.75rem 1.25rem;
+    }
+
+    .sc-app-feat { padding: 5rem 1.5rem; }
+    .sc-app-feat__grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .sc-app-dl { padding: 5rem 1.5rem; }
+    .sc-app-dl__grid { grid-template-columns: 1fr; }
+    .sc-app-card { padding: 2.5rem 1.75rem; }
+
+    .sc-app-note { padding: 0 1.5rem 4rem; }
+  }
+
+  @media (max-width: 640px) {
+    .sc-app-hero__phones { height: 420px; }
+    .sc-app-hero__phone--main { width: 190px; }
+    .sc-app-hero__phone--left  { left: -6%; }
+    .sc-app-hero__phone--right { right: -6%; }
+    .sc-app-tour__grid { grid-template-columns: repeat(2, 1fr); }
+    .sc-app-card__qrs { gap: 1rem; }
+  }
+</style>
+
+<!-- ═════════ HERO ═════════ -->
+<section class="sc-app sc-app-hero">
+  <div class="sc-app-hero__inner">
+    <div class="sc-app-hero__copy">
+      <p class="sc-app-hero__label">Sensol Training App</p>
+      <h1 class="sc-app-hero__title">Make it easy.<br><em>Do it real.</em></h1>
+      <p class="sc-app-hero__sub">
+        The complete training companion for your Sensol reformer. Discover classes,
+        follow structured programs, and train with real-time resistance guidance
+        - engineered to make every session count.
+      </p>
+      <div class="sc-app-hero__badges">
+        <a class="sc-app-hero__badge" href="https://apps.apple.com/app/id6747697213" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09l-.01-.01zM12.03 7.25c-.15-2.23 1.66-4.25 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          iOS
+        </a>
+        <a class="sc-app-hero__badge" href="https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M3.6 1.8L13.4 12 3.6 22.2c-.37-.25-.6-.68-.6-1.24V3.04c0-.56.23-.99.6-1.24zm11.17 9.37l2.5-2.49L5.2 1.1l-.02.01c-.42.16-.68.6-.68 1.19v19.4c0 .59.26 1.03.68 1.19l.02.01 11.57-7.59-2.5-2.45-.01.01.01-.01zM19.3 8.9l-2.5 2.49 2.5 2.48 2.72-1.62c.8-.5.8-1.72 0-2.22L19.3 8.9v.01z"/></svg>
+          Android
+        </a>
+      </div>
+    </div>
+    <div class="sc-app-hero__phones">
+      <div class="sc-app-hero__phone sc-app-hero__phone--left">
+        <img src="{{ 'app-screen-discover.png' | asset_url }}" alt="Sensol App - Discover classes" loading="lazy" width="200" height="441">
+      </div>
+      <div class="sc-app-hero__phone sc-app-hero__phone--main">
+        <img src="{{ 'app-screen-login.png' | asset_url }}" alt="Sensol App - Sign in" loading="eager" width="240" height="530">
+      </div>
+      <div class="sc-app-hero__phone sc-app-hero__phone--right">
+        <img src="{{ 'app-screen-player.png' | asset_url }}" alt="Sensol App - Training player" loading="lazy" width="200" height="407">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ APP TOUR ═════════ -->
+<section class="sc-app sc-app-tour">
+  <div class="sc-app-tour__inner">
+    <div class="sc-app-tour__head">
+      <div>
+        <p class="sc-app-tour__label">Inside the app</p>
+        <h2 class="sc-app-tour__title">Your studio, on your phone</h2>
+      </div>
+      <p class="sc-app-tour__desc">
+        From first log-in to the final rep - a complete training journey
+        designed around how you actually move.
+      </p>
+    </div>
+    <div class="sc-app-tour__grid">
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-login.png' | asset_url }}" alt="App sign-in screen" loading="lazy" width="200" height="441">
+        </div>
+        <p class="sc-app-tour__item-num">01</p>
+        <p class="sc-app-tour__item-name">Sign in</p>
+        <p class="sc-app-tour__item-desc">Start your journey in seconds - create an account or log back in.</p>
+      </div>
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-discover.png' | asset_url }}" alt="Discover classes screen" loading="lazy" width="200" height="437">
+        </div>
+        <p class="sc-app-tour__item-num">02</p>
+        <p class="sc-app-tour__item-name">Discover</p>
+        <p class="sc-app-tour__item-desc">Search classes, fit clips, programs and movements in one place.</p>
+      </div>
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-categories.png' | asset_url }}" alt="Training categories screen" loading="lazy" width="200" height="437">
+        </div>
+        <p class="sc-app-tour__item-num">03</p>
+        <p class="sc-app-tour__item-name">Categories</p>
+        <p class="sc-app-tour__item-desc">Fat reduction, muscle building, core strength, stretching and more.</p>
+      </div>
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-program.png' | asset_url }}" alt="Training program screen" loading="lazy" width="200" height="409">
+        </div>
+        <p class="sc-app-tour__item-num">04</p>
+        <p class="sc-app-tour__item-name">Programs</p>
+        <p class="sc-app-tour__item-desc">Multi-session plans with set counts, durations and resistance targets.</p>
+      </div>
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-course.png' | asset_url }}" alt="Course details screen" loading="lazy" width="200" height="409">
+        </div>
+        <p class="sc-app-tour__item-num">05</p>
+        <p class="sc-app-tour__item-name">Course details</p>
+        <p class="sc-app-tour__item-desc">Duration, difficulty level and the full training intention before you start.</p>
+      </div>
+      <div class="sc-app-tour__item">
+        <div class="sc-app-tour__item-img">
+          <img src="{{ 'app-screen-player.png' | asset_url }}" alt="Training player screen" loading="lazy" width="200" height="407">
+        </div>
+        <p class="sc-app-tour__item-num">06</p>
+        <p class="sc-app-tour__item-name">Train</p>
+        <p class="sc-app-tour__item-desc">Guided playback with resistance, sets and rep cues in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FEATURES ═════════ -->
+<section class="sc-app sc-app-feat">
+  <div class="sc-app-feat__inner">
+    <p class="sc-app-feat__label">Why train with the app</p>
+    <h2 class="sc-app-feat__title">Built for progress,<br>designed for real life</h2>
+    <div class="sc-app-feat__grid">
+      <div class="sc-app-feat__item">
+        <p class="sc-app-feat__item-num">01</p>
+        <p class="sc-app-feat__item-name">Classes for every goal</p>
+        <p class="sc-app-feat__item-desc">
+          Browse by category - muscle &amp; fat loss, sculpt, flexibility, recovery -
+          or search directly for the class that fits your session.
+        </p>
+      </div>
+      <div class="sc-app-feat__item">
+        <p class="sc-app-feat__item-num">02</p>
+        <p class="sc-app-feat__item-name">Structured programs</p>
+        <p class="sc-app-feat__item-desc">
+          Multi-session courses such as the 12-session deep muscle activation
+          program, with adjustable schedules that fit your week.
+        </p>
+      </div>
+      <div class="sc-app-feat__item">
+        <p class="sc-app-feat__item-num">03</p>
+        <p class="sc-app-feat__item-name">Real-time training player</p>
+        <p class="sc-app-feat__item-desc">
+          Follow every movement with set counts, durations and resistance targets -
+          so your form and workload stay on point from start to finish.
+        </p>
+      </div>
+      <div class="sc-app-feat__item">
+        <p class="sc-app-feat__item-num">04</p>
+        <p class="sc-app-feat__item-name">Train anywhere</p>
+        <p class="sc-app-feat__item-desc">
+          Available on iOS and Android, for both the Smart Series and
+          FLEX Series reformers - one companion for your entire Sensol setup.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DOWNLOAD ═════════ -->
+<section class="sc-app sc-app-dl">
+  <div class="sc-app-dl__inner">
+    <p class="sc-app-dl__label">Download</p>
+    <h2 class="sc-app-dl__title">Two apps. One system.</h2>
+    <p class="sc-app-dl__sub">
+      Pick the app that matches your reformer. Scan the QR code with your
+      phone camera, or download directly from the store.
+    </p>
+    <div class="sc-app-dl__grid">
+
+      <!-- SENSOL App (Smart Series) -->
+      <div class="sc-app-card">
+        <span class="sc-app-card__series">For Smart Series</span>
+        <h3 class="sc-app-card__name">SENSOL App</h3>
+        <p class="sc-app-card__models">RS02 &middot; RS02 PRO &middot; RS03 PRO</p>
+        <p class="sc-app-card__desc">
+          Courses and training programs for the digital-motor Smart Series
+          reformers. Pairs with your machine for guided resistance-based
+          workouts - <a href="/collections/smart-series">explore Smart Series</a>.
+        </p>
+        <div class="sc-app-card__qrs">
+          <div class="sc-app-qr">
+            <a href="https://apps.apple.com/app/id6747697213" target="_blank" rel="noopener">
+              <img src="{{ 'SENSOL_iOS.png' | asset_url }}" alt="SENSOL App iOS download QR code" loading="lazy" width="158" height="158">
+            </a>
+            <p class="sc-app-qr__name">iOS</p>
+            <p class="sc-app-qr__hint">Scan to download</p>
+          </div>
+          <div class="sc-app-qr">
+            <a href="https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta" target="_blank" rel="noopener">
+              <img src="{{ 'SENSOL_Android.png' | asset_url }}" alt="SENSOL App Android download QR code" loading="lazy" width="158" height="158">
+            </a>
+            <p class="sc-app-qr__name">Android</p>
+            <p class="sc-app-qr__hint">Scan to download</p>
+          </div>
+        </div>
+        <div class="sc-app-card__links">
+          <a class="sc-app-card__btn" href="https://apps.apple.com/app/id6747697213" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09l-.01-.01zM12.03 7.25c-.15-2.23 1.66-4.25 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            App Store
+          </a>
+          <a class="sc-app-card__btn" href="https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M3.6 1.8L13.4 12 3.6 22.2c-.37-.25-.6-.68-.6-1.24V3.04c0-.56.23-.99.6-1.24zm11.17 9.37l2.5-2.49L5.2 1.1l-.02.01c-.42.16-.68.6-.68 1.19v19.4c0 .59.26 1.03.68 1.19l.02.01 11.57-7.59-2.5-2.45-.01.01.01-.01zM19.3 8.9l-2.5 2.49 2.5 2.48 2.72-1.62c.8-.5.8-1.72 0-2.22L19.3 8.9v.01z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+
+      <!-- SENSOL FLEX App (FLEX Series) -->
+      <div class="sc-app-card">
+        <span class="sc-app-card__series">For FLEX Series</span>
+        <h3 class="sc-app-card__name">SENSOL FLEX App</h3>
+        <p class="sc-app-card__models">FLEX &middot; FLEX AIR &middot; FLEX PRO</p>
+        <p class="sc-app-card__desc">
+          Course library for the FLEX Series spring-resistance reformers.
+          Resistance-level training programs for every FLEX machine -
+          <a href="/collections/flex-series">explore FLEX Series</a>.
+        </p>
+        <div class="sc-app-card__qrs">
+          <div class="sc-app-qr">
+            <a href="https://apps.apple.com/app/id6784491021" target="_blank" rel="noopener">
+              <img src="{{ 'SENSOL_FLEX_iOS.png' | asset_url }}" alt="SENSOL FLEX App iOS download QR code" loading="lazy" width="158" height="158">
+            </a>
+            <p class="sc-app-qr__name">iOS</p>
+            <p class="sc-app-qr__hint">Scan to download</p>
+          </div>
+          <div class="sc-app-qr">
+            <a href="https://play.google.com/store/apps/details?id=com.xfq.sensol.flex" target="_blank" rel="noopener">
+              <img src="{{ 'SENSOL_FLEX_Android.png' | asset_url }}" alt="SENSOL FLEX App Android download QR code" loading="lazy" width="158" height="158">
+            </a>
+            <p class="sc-app-qr__name">Android</p>
+            <p class="sc-app-qr__hint">Scan to download</p>
+          </div>
+        </div>
+        <div class="sc-app-card__links">
+          <a class="sc-app-card__btn" href="https://apps.apple.com/app/id6784491021" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09l-.01-.01zM12.03 7.25c-.15-2.23 1.66-4.25 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            App Store
+          </a>
+          <a class="sc-app-card__btn" href="https://play.google.com/store/apps/details?id=com.xfq.sensol.flex" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M3.6 1.8L13.4 12 3.6 22.2c-.37-.25-.6-.68-.6-1.24V3.04c0-.56.23-.99.6-1.24zm11.17 9.37l2.5-2.49L5.2 1.1l-.02.01c-.42.16-.68.6-.68 1.19v19.4c0 .59.26 1.03.68 1.19l.02.01 11.57-7.59-2.5-2.45-.01.01.01-.01zM19.3 8.9l-2.5 2.49 2.5 2.48 2.72-1.62c.8-.5.8-1.72 0-2.22L19.3 8.9v.01z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FOOT NOTE ═════════ -->
+<div class="sc-app sc-app-note">
+  <div class="sc-app-note__inner">
+    The SENSOL App pairs with Smart Series digital reformers (RS02, RS02 PRO, RS03 PRO).
+    The SENSOL FLEX App pairs with FLEX Series spring-resistance reformers (FLEX, FLEX AIR, FLEX PRO).
+    Available on the App Store and Google Play.
+  </div>
+</div>
