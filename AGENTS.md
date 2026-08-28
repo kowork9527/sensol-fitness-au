@@ -34,6 +34,18 @@
 - `sections/sensol-collection-compare.liquid` — model comparison table between the two active products (per collection handle via `{% case %}`)
 - `sections/sensol-collection-stats.liquid` — stats with Liquid `{% case collection.handle %}` logic (no schema settings needed)
 - `sections/sensol-collection-content.liquid` — bottom content section
+- `sections/sensol-home-app.liquid` — homepage App Download teaser (dark #1A1816, phone image + feature blocks + store buttons + compact QRs; correct links: id6747697213 / com.xfq.sensol.vesta)
+- `sections/sensol-judge-reviews.liquid` — homepage reviews wrapper (cream #F7F4F0) hosting Judge.me app block; renders app blocks via `{% render block %}`; schema blocks `[{"type": "@app"}]`
+- `sections/sensol-app-{hero,tour,features,download}.liquid` — modular /pages/app sections
+
+## Judge.me Integration (Important)
+- App block URI format: `shopify://apps/judge-me-reviews/blocks/<name>/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8`
+- Valid block names: `review_widget` (product page), `reviews_grid_widget` (homepage grid), `judgeme_core` + `cart_drawer_widget` (app embeds)
+- Valid `reviews_grid_widget` settings: show_sample_reviews, review_selection ("all"), display_order ("most_recent"/"media_first"), columns_desktop (1-6), rows_desktop, columns_mobile ("1"/"2" string!), rows_mobile, show_stars, show_reviewer_name, show_average_rating, card_spacing, corner_styling, header_text, max_width
+- Valid `review_widget` settings: review_data ("real_data"/"sample_data"), empty_state ("empty_widget"/"other_product_reviews"), show_shop_reviews, max_width
+- Discovery method: push probe values to dev theme, then pull back - invalid setting names/blocks get silently DROPPED by Shopify
+- Judge.me public API requires auth - store review count is NOT verifiable anonymously
+- Widget colors/styling live in Judge.me admin (Settings > Widgets), not the theme
 
 ## Liquid Pitfalls (Learned the Hard Way)
 - **`push` filter does NOT work with product drops** in Shopify Liquid (`{% assign arr = arr | push: product %}` silently keeps the array empty). Use a counter + direct assignment instead (`{% assign p1 = product %}`).
