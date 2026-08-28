@@ -19,7 +19,9 @@
   {%- render 'sensol-privacy-page' -%}
 {%- elsif page.handle == 'warranty' or page.handle contains 'warranty' -%}
   {%- render 'sensol-warranty-page' -%}
-{%- elsif page.handle == 'training-system' or page.handle contains 'training' or page.handle == 'app' -%}
+{%- elsif page.handle == 'app' -%}
+  {%- render 'sensol-app-page' -%}
+{%- elsif page.handle == 'training-system' or page.handle contains 'training' -%}
   {%- render 'sensol-training-system-page' -%}
 {%- elsif page.handle == 'senzine' or page.handle contains 'senzine' -%}
   {%- render 'sensol-senzine-page' -%}
