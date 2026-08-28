@@ -1,0 +1,118 @@
+{%- comment -%}
+  Sensol Reviews - Judge.me integration wrapper.
+  Renders a SENSOL-styled header around a Judge.me app block
+  (e.g. the "Reviews Grid" widget added via the theme editor or JSON template).
+  Reviews data comes 100% from Judge.me - nothing is hardcoded here.
+{%- endcomment -%}
+
+{%- style -%}
+  .sensol-judge-reviews {
+    background: #F7F4F0;
+    padding: 110px 24px;
+    font-family: 'Inter', sans-serif;
+  }
+  .sensol-judge-reviews__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .sensol-judge-reviews__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    margin: 0 0 44px;
+  }
+  .sensol-judge-reviews__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #8B8B8B;
+    margin: 0 0 16px;
+  }
+  .sensol-judge-reviews__title {
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    font-weight: 200;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    color: #1A1816;
+    margin: 0;
+    max-width: 620px;
+  }
+  .sensol-judge-reviews__head-note {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #6B6B6B;
+    max-width: 300px;
+    margin: 0;
+  }
+  .sensol-judge-reviews__widget {
+    font-family: 'Inter', sans-serif;
+  }
+  .sensol-judge-reviews__widget:empty { display: none; }
+  @media (max-width: 968px) {
+    .sensol-judge-reviews { padding: 72px 20px; }
+    .sensol-judge-reviews__head { margin-bottom: 32px; }
+  }
+  @media (max-width: 640px) {
+    .sensol-judge-reviews { padding: 56px 16px; }
+  }
+{%- endstyle -%}
+
+<section class="sensol-judge-reviews">
+  <div class="sensol-judge-reviews__inner">
+    <div class="sensol-judge-reviews__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sensol-judge-reviews__label">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="sensol-judge-reviews__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.head_note != blank -%}
+        <p class="sensol-judge-reviews__head-note">{{ section.settings.head_note | escape }}</p>
+      {%- endif -%}
+    </div>
+    <div class="sensol-judge-reviews__widget">
+      {%- for block in section.blocks -%}
+        {% render block %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sensol Judge Reviews",
+  "tag": "section",
+  "class": "sensol-judge-reviews-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "What they say"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Trained by design."
+    },
+    {
+      "type": "text",
+      "id": "head_note",
+      "label": "Head note (right side)",
+      "default": "Genuine reviews collected and verified by Judge.me"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

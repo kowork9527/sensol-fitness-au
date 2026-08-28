@@ -118,61 +118,84 @@
         "product3_url": "shopify://products/sensol-one-plus"
       }
     },
-    "sensol-app-download": {
-      "type": "sensol-app-download",
+    "sensol_home_app": {
+      "type": "sensol-home-app",
       "settings": {
         "phone_image": "shopify://shop_images/3_30_4.gif",
-        "title": "Your intelligent training companion",
-        "description": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone.",
-        "feature1_name": "Real-time Resistance Control",
-        "feature1_desc": "Adjust resistance levels instantly during your session",
-        "feature2_name": "100+ Guided Workouts",
-        "feature2_desc": "Expert-led pilates and strength programs for every level",
-        "feature3_name": "Performance Analytics",
-        "feature3_desc": "Track your progress with detailed session insights",
-        "appstore_link": "https://apps.apple.com/app/sensol/id6465174283",
-        "playstore_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol"
-      }
-    },
-    "sensol_reviews_cRTDJM": {
-      "type": "sensol-reviews",
+        "phone_alt": "Sensol App on a reformer screen",
+        "eyebrow": "Sensol App",
+        "title": "Your intelligent training companion.",
+        "description": "The Sensol App connects to your reformer for real-time resistance control, guided workout programs and performance tracking - all from your phone.",
+        "show_store_buttons": true,
+        "appstore_link": "https://apps.apple.com/app/id6747697213",
+        "playstore_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta",
+        "show_qr": true,
+        "more_link": "shopify://pages/app",
+        "more_label": "Explore the app"
+      },
       "blocks": {
-        "review_ime9TU": {
-          "type": "review",
+        "feature_resistance": {
+          "type": "feature",
           "settings": {
-            "text": "The precision of this machine is unlike anything I've used before. It feels like it was designed specifically for how my body moves.",
-            "name": "Sarah M.",
-            "role": "Pilates Instructor"
+            "icon": "resistance",
+            "name": "Real-time Resistance Control",
+            "desc": "Adjust resistance levels instantly during your session"
           }
         },
-        "review_GxUa7A": {
-          "type": "review",
+        "feature_programs": {
+          "type": "feature",
           "settings": {
-            "text": "I didn't expect a piece of fitness equipment to change my entire morning routine. The quiet operation means I can train before anyone wakes up.",
-            "name": "James L.",
-            "role": "Architect"
+            "icon": "workouts",
+            "name": "100+ Guided Workouts",
+            "desc": "Expert-led pilates and strength programs for every level"
           }
         },
-        "review_NQUTTi": {
-          "type": "review",
+        "feature_analytics": {
+          "type": "feature",
           "settings": {
-            "text": "Sensol lives in my living room like a piece of sculpture. Guests always ask about it — and then they try it.",
-            "name": "Elena K.",
-            "role": "Creative Director"
+            "icon": "chart",
+            "name": "Performance Analytics",
+            "desc": "Track your progress with detailed session insights"
           }
         }
       },
       "block_order": [
-        "review_ime9TU",
-        "review_GxUa7A",
-        "review_NQUTTi"
-      ],
-      "name": "SENSOL Reviews",
+        "feature_resistance",
+        "feature_programs",
+        "feature_analytics"
+      ]
+    },
+    "sensol_judge_reviews": {
+      "type": "sensol-judge-reviews",
       "settings": {
-        "show_section": true,
-        "label": "What they say",
-        "title": "Trained by design."
-      }
+        "eyebrow": "What they say",
+        "title": "Trained by design.",
+        "head_note": "Genuine reviews collected and verified by Judge.me"
+      },
+      "blocks": {
+        "judgeme_grid": {
+          "type": "shopify://apps/judge-me-reviews/blocks/reviews_grid_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "review_selection": "all",
+            "display_order": "most_recent",
+            "columns_desktop": 3,
+            "rows_desktop": 2,
+            "columns_mobile": "2",
+            "rows_mobile": 3,
+            "show_stars": true,
+            "show_reviewer_name": true,
+            "show_average_rating": true,
+            "card_spacing": "medium",
+            "corner_styling": "square",
+            "header_text": "",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judgeme_grid"
+      ]
     }
   },
   "order": [
@@ -183,7 +206,7 @@
     "sensol-video",
     "sensol-senzine",
     "sensol-products",
-    "sensol-app-download",
-    "sensol_reviews_cRTDJM"
+    "sensol_home_app",
+    "sensol_judge_reviews"
   ]
 }

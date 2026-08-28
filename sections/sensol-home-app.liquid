@@ -1,0 +1,462 @@
+{%- comment -%}
+  Sensol Homepage - App Download (compact teaser)
+  Phone image + title + feature blocks + store buttons + compact QR codes.
+  Modular: features are blocks, QR images have asset fallbacks.
+{%- endcomment -%}
+
+{%- style -%}
+  .sensol-home-app {
+    background: #1A1816;
+    color: #D4CEC6;
+    padding: 110px 24px;
+    font-family: 'Inter', sans-serif;
+  }
+  .sensol-home-app__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 72px;
+    align-items: center;
+  }
+  .sensol-home-app__phone-col { position: relative; }
+  .sensol-home-app__phone-image-wrap {
+    border-radius: 28px;
+    overflow: hidden;
+    background: #2a2724;
+    border: 1px solid rgba(212, 206, 198, 0.12);
+    aspect-ratio: 3 / 4;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .sensol-home-app__phone-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sensol-home-app__phone-glow {
+    position: absolute;
+    inset: -8% -12%;
+    background: radial-gradient(ellipse at center, rgba(212, 206, 198, 0.06), transparent 65%);
+    pointer-events: none;
+  }
+  .sensol-home-app__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #8A8279;
+    margin: 0 0 18px;
+  }
+  .sensol-home-app__title {
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    color: #F7F4F0;
+    margin: 0 0 22px;
+  }
+  .sensol-home-app__desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #A8A29A;
+    max-width: 560px;
+    margin: 0 0 36px;
+  }
+  .sensol-home-app__features {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 0 0 40px;
+    padding: 0;
+    list-style: none;
+  }
+  .sensol-home-app__feature { display: flex; gap: 16px; align-items: flex-start; }
+  .sensol-home-app__feature-icon {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    color: #D4CEC6;
+    opacity: 0.9;
+  }
+  .sensol-home-app__feature-name {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #F7F4F0;
+    margin: 0 0 4px;
+  }
+  .sensol-home-app__feature-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8A8279;
+    margin: 0;
+  }
+  .sensol-home-app__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 14px;
+    margin: 0 0 16px;
+  }
+  .sensol-home-app__store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px;
+    border: 1px solid rgba(212, 206, 198, 0.3);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+  .sensol-home-app__store-btn:hover {
+    border-color: rgba(212, 206, 198, 0.7);
+    background: rgba(212, 206, 198, 0.06);
+    transform: translateY(-2px);
+  }
+  .sensol-home-app__store-icon { width: 22px; height: 22px; color: #F7F4F0; }
+  .sensol-home-app__store-texts { display: flex; flex-direction: column; line-height: 1.25; }
+  .sensol-home-app__store-small {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #8A8279;
+  }
+  .sensol-home-app__store-big {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #F7F4F0;
+  }
+  .sensol-home-app__qr-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0 0 22px;
+  }
+  .sensol-home-app__qr {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background: #F7F4F0;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .sensol-home-app__qr:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+  .sensol-home-app__qr img {
+    display: block;
+    width: 58px;
+    height: 58px;
+    border-radius: 4px;
+  }
+  .sensol-home-app__qr-meta { display: flex; flex-direction: column; line-height: 1.3; }
+  .sensol-home-app__qr-platform {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1A1816;
+  }
+  .sensol-home-app__qr-hint { font-size: 10px; color: #8A8279; margin-top: 2px; }
+  .sensol-home-app__more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: #D4CEC6;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 206, 198, 0.3);
+    padding-bottom: 3px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  .sensol-home-app__more-link:hover { color: #F7F4F0; border-color: rgba(212, 206, 198, 0.7); }
+  .sensol-home-app__more-arrow { width: 14px; height: 14px; }
+
+  @media (max-width: 968px) {
+    .sensol-home-app { padding: 72px 20px; }
+    .sensol-home-app__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .sensol-home-app__phone-image-wrap { max-width: 360px; }
+  }
+  @media (max-width: 640px) {
+    .sensol-home-app { padding: 56px 16px; }
+    .sensol-home-app__phone-image-wrap { max-width: 300px; }
+    .sensol-home-app__cta-row { flex-direction: column; align-items: stretch; }
+    .sensol-home-app__store-btn { justify-content: flex-start; }
+    .sensol-home-app__qr-row { flex-wrap: wrap; }
+    .sensol-home-app__features { gap: 18px; }
+  }
+{%- endstyle -%}
+
+<section class="sensol-home-app">
+  <div class="sensol-home-app__inner">
+    <div class="sensol-home-app__phone-col">
+      <div class="sensol-home-app__phone-glow"></div>
+      {%- if section.settings.phone_image != blank -%}
+        <div class="sensol-home-app__phone-image-wrap">
+          {{ section.settings.phone_image | image_url: width: 920 | image_tag:
+            loading: 'lazy',
+            widths: '460, 690, 920',
+            sizes: '(min-width: 969px) 460px, 80vw',
+            alt: section.settings.phone_alt | default: 'Sensol App',
+            class: 'sensol-home-app__phone-image'
+          }}
+        </div>
+      {%- else -%}
+        <div class="sensol-home-app__phone-image-wrap">
+          <img
+            src="{{ 'app-screen-player.png' | asset_url }}"
+            alt="Sensol App"
+            class="sensol-home-app__phone-image"
+            loading="lazy"
+            width="460"
+            height="613"
+          />
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="sensol-home-app__content-col">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sensol-home-app__label">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="sensol-home-app__title">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.description != blank -%}
+        <p class="sensol-home-app__desc">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="sensol-home-app__features">
+          {%- for block in section.blocks -%}
+            <li class="sensol-home-app__feature" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != 'none' -%}
+                {%- case block.settings.icon -%}
+                  {%- when 'resistance' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 12h6M17 16h6"/></svg>
+                  {%- when 'workouts' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  {%- when 'chart' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 6-7"/></svg>
+                  {%- when 'bluetooth' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11L12 22V2l5.5 4.5-11 11"/></svg>
+                  {%- when 'heart' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+                  {%- when 'clock' -%}
+                    <svg class="sensol-home-app__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                {%- endcase -%}
+              {%- endif -%}
+              <div>
+                <p class="sensol-home-app__feature-name">{{ block.settings.name | escape }}</p>
+                {%- if block.settings.desc != blank -%}
+                  <p class="sensol-home-app__feature-desc">{{ block.settings.desc | escape }}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.show_store_buttons -%}
+        <div class="sensol-home-app__cta-row">
+          <a href="{{ section.settings.appstore_link }}" class="sensol-home-app__store-btn" target="_blank" rel="noopener">
+            <svg class="sensol-home-app__store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.42 2.18-1.11 2.96-.71.8-1.87 1.42-2.97 1.34-.14-1.13.44-2.31 1.11-3.05.75-.82 2.03-1.42 2.97-1.25zM20.9 8.27c-1.61 1.24-2.55 3.13-2.42 5.2.15 2.42 1.68 4.52 3.52 5.55-.7 2.02-1.76 4.03-3.5 5.07-.92.53-2.12.96-3.28.92-1.09-.04-1.82-.4-2.6-.78-.84-.41-1.72-.83-3.05-.84-1.36-.01-2.27.44-3.14.87-.77.38-1.49.73-2.55.77-1.13.04-2.27-.35-3.16-.93C-.2 20.98-1.3 17.3-1.03 13.7c.21-2.84 1.6-5.57 4.3-5.66 1.2-.04 2.08.38 2.9.77.83.4 1.59.77 2.72.77 1.1 0 1.81-.35 2.61-.77.89-.46 1.9-.95 3.4-.91.68.02 1.92.13 3.28.76-.55.2-1.06.47-1.52.8.05-.02-.38.18.26-.19zM12.05 9.7c-.6.71-1.56 1.26-2.49 1.23-.12-.93.36-1.93.91-2.56.6-.7 1.67-1.24 2.49-1.28.1.96-.39 1.92-.91 2.61z" transform="translate(2)"/></svg>
+            <span class="sensol-home-app__store-texts">
+              <span class="sensol-home-app__store-small">Download on the</span>
+              <span class="sensol-home-app__store-big">App Store</span>
+            </span>
+          </a>
+          <a href="{{ section.settings.playstore_link }}" class="sensol-home-app__store-btn" target="_blank" rel="noopener">
+            <svg class="sensol-home-app__store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l9.3-10.2L3.6 1.8zm10.9 9.3-2.8-3.1 4-6.7c.4-.7 1.3-.9 2-.5.6.4.9 1.2.6 1.9l-3.8 8.4zm-2.8 3.4 2.8-3.1 3.8 8.4c.3.7 0 1.5-.6 1.9-.7.4-1.6.2-2-.5l-4-6.7zM20.5 8.6 15.4 11l2.3 2.5 3.2-1.9c1.3-.8 1.3-2.3-.4-3zM4.3 11 2.6 10c-1.7 1-1.7 2.5 0 3.3l1.7-1 2.3-2.4L4.3 11z" transform="translate(1)"/></svg>
+            <span class="sensol-home-app__store-texts">
+              <span class="sensol-home-app__store-small">Get it on</span>
+              <span class="sensol-home-app__store-big">Google Play</span>
+            </span>
+          </a>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_qr -%}
+        <div class="sensol-home-app__qr-row">
+          {%- liquid
+            assign qr_ios = section.settings.ios_qr
+            assign qr_android = section.settings.android_qr
+          -%}
+          {%- if section.settings.appstore_link != blank -%}
+            <a href="{{ section.settings.appstore_link }}" class="sensol-home-app__qr" target="_blank" rel="noopener">
+              {%- if qr_ios != blank -%}
+                <img src="{{ qr_ios | image_url: width: 116 }}" alt="App Store QR code" loading="lazy" width="58" height="58">
+              {%- else -%}
+                <img src="{{ 'SENSOL_iOS.png' | asset_url }}" alt="App Store QR code" loading="lazy" width="58" height="58">
+              {%- endif -%}
+              <span class="sensol-home-app__qr-meta">
+                <span class="sensol-home-app__qr-platform">iOS</span>
+                <span class="sensol-home-app__qr-hint">Scan to download</span>
+              </span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.playstore_link != blank -%}
+            <a href="{{ section.settings.playstore_link }}" class="sensol-home-app__qr" target="_blank" rel="noopener">
+              {%- if qr_android != blank -%}
+                <img src="{{ qr_android | image_url: width: 116 }}" alt="Google Play QR code" loading="lazy" width="58" height="58">
+              {%- else -%}
+                <img src="{{ 'SENSOL_Android.png' | asset_url }}" alt="Google Play QR code" loading="lazy" width="58" height="58">
+              {%- endif -%}
+              <span class="sensol-home-app__qr-meta">
+                <span class="sensol-home-app__qr-platform">Android</span>
+                <span class="sensol-home-app__qr-hint">Scan to download</span>
+              </span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.more_link != blank and section.settings.more_label != blank -%}
+        <a href="{{ section.settings.more_link }}" class="sensol-home-app__more-link">
+          {{ section.settings.more_label | escape }}
+          <svg class="sensol-home-app__more-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sensol Home App",
+  "tag": "section",
+  "class": "sensol-home-app-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "phone_image",
+      "label": "Phone image",
+      "info": "Leave empty to use the built-in app screen asset."
+    },
+    {
+      "type": "text",
+      "id": "phone_alt",
+      "label": "Phone image alt text",
+      "default": "Sensol App"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Sensol App"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your intelligent training companion."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The Sensol App connects seamlessly to your reformer, providing real-time resistance control, guided workout programs, and performance tracking — all from your phone."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_store_buttons",
+      "label": "Show store buttons",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "appstore_link",
+      "label": "App Store link",
+      "default": "https://apps.apple.com/app/id6747697213"
+    },
+    {
+      "type": "text",
+      "id": "playstore_link",
+      "label": "Google Play link",
+      "default": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_qr",
+      "label": "Show compact QR codes",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "ios_qr",
+      "label": "iOS QR image",
+      "info": "Leave empty to use the built-in SENSOL QR asset."
+    },
+    {
+      "type": "image_picker",
+      "id": "android_qr",
+      "label": "Android QR image",
+      "info": "Leave empty to use the built-in SENSOL QR asset."
+    },
+    {
+      "type": "url",
+      "id": "more_link",
+      "label": "Explore link URL"
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "Explore link label",
+      "default": "Explore the app"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "resistance", "label": "Resistance" },
+            { "value": "workouts", "label": "Programs" },
+            { "value": "chart", "label": "Analytics" },
+            { "value": "bluetooth", "label": "Connectivity" },
+            { "value": "heart", "label": "Wellness" },
+            { "value": "clock", "label": "Time" }
+          ],
+          "default": "resistance"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Feature name",
+          "default": "Real-time Resistance Control"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Feature description",
+          "default": "Adjust resistance levels instantly during your session"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sensol Home App",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "resistance", "name": "Real-time Resistance Control", "desc": "Adjust resistance levels instantly during your session" } },
+        { "type": "feature", "settings": { "icon": "workouts", "name": "100+ Guided Workouts", "desc": "Expert-led pilates and strength programs for every level" } },
+        { "type": "feature", "settings": { "icon": "chart", "name": "Performance Analytics", "desc": "Track your progress with detailed session insights" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
