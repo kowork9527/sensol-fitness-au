@@ -88,7 +88,13 @@
   if current_tags.size > 0
     assign current_tag = current_tags | first
   endif
+  assign _blog_all_tags = blog.all_tags
 -%}
+
+<div style="display:none" id="debug-outer">
+before_paginate_all_tags_count: {{ blog.all_tags | size }}
+before_paginate_tags: [{{ blog.tags }}]
+</div>
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
@@ -105,7 +111,7 @@
       >
         All
       </a>
-      {%- assign _blog_tags = blog.all_tags -%}
+      {%- assign _blog_tags = _blog_all_tags -%}
       {%- if _blog_tags.size == 0 -%}
         {%- assign _blog_tags = blog.tags | split: ', ' -%}
       {%- endif -%}
