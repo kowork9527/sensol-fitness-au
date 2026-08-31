@@ -402,6 +402,14 @@
     animation: none !important;
     transition: none !important;
   }
+
+  /* BLOG ARTICLE HERO IMAGE: hidden on article pages.
+     The full-width hero image at the top of blog posts is too large and
+     pushes the actual content far down the page, hurting readability.
+     Text content starts right after the header instead. */
+  [data-template="article"] .article-template__hero-container {
+    display: none !important;
+  }
   </style>
 </head>
 
