@@ -10,7 +10,6 @@
   - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
   - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
   - show_badge: {String} The setting either show the blog badge or not.
-  - show_tag: {Boolean} Show first article tag above the title. Default: false (optional)
   - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
 
   Usage:
@@ -22,10 +21,6 @@
     assign ratio = 1
     if media_aspect_ratio != null
       assign ratio = media_aspect_ratio
-    endif
-    assign article_first_tag = ''
-    if article.tags.size > 0
-      assign article_first_tag = article.tags | first
     endif
   -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
@@ -80,11 +75,6 @@
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
-            {%- if show_tag and article_first_tag != '' -%}
-              <a href="{{ blog.url }}/tagged/{{ article_first_tag | handle }}" class="article-card__tag">
-                {{ article_first_tag }}
-              </a>
-            {%- endif -%}
             <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
                 {{ article.title | truncate: 50 | escape }}
@@ -124,11 +114,6 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          {%- if show_tag and article_first_tag != '' -%}
-            <a href="{{ blog.url }}/tagged/{{ article_first_tag | handle }}" class="article-card__tag">
-              {{ article_first_tag }}
-            </a>
-          {%- endif -%}
           <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
               {{ article.title | truncate: 50 | escape }}
