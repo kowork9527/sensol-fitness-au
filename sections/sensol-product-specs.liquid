@@ -6,9 +6,9 @@
 #shopify-section-{{ section.id }} .sp-specs__inner{max-width:1200px;margin:0 auto}
 #shopify-section-{{ section.id }} .sp-specs__eyebrow{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#B5ADA4;margin-bottom:20px}
 #shopify-section-{{ section.id }} .sp-specs__title{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:0.04em;margin-bottom:60px;color:#F7F4F0!important}
-#shopify-section-{{ section.id }} .sp-specs__wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
-#shopify-section-{{ section.id }} .sp-specs__img{aspect-ratio:4/5;overflow:hidden;background:#2A2826;order:{% if s.image_position == 'left' %}1{% else %}2{% endif %}}
-#shopify-section-{{ section.id }} .sp-specs__img img{width:100%;height:100%;object-fit:cover}
+#shopify-section-{{ section.id }} .sp-specs__wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:flex-start}
+#shopify-section-{{ section.id }} .sp-specs__img{overflow:hidden;background:#2A2826;order:{% if s.image_position == 'left' %}1{% else %}2{% endif %}}
+#shopify-section-{{ section.id }} .sp-specs__img img{display:block;width:100%;height:auto;object-fit:contain}
 #shopify-section-{{ section.id }} .sp-specs__list{order:{% if s.image_position == 'left' %}2{% else %}1{% endif %}}
 #shopify-section-{{ section.id }} .sp-specs__row{display:grid;grid-template-columns:200px 1fr;padding:18px 0;border-bottom:1px solid #2A2826;align-items:baseline}
 #shopify-section-{{ section.id }} .sp-specs__label{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#8A8279}
