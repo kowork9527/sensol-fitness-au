@@ -581,7 +581,7 @@
         "hi_3"
       ],
       "settings": {
-        "image": "shopify://shop_images/imgi_110_Frame_1165.png",
+        "image": "shopify://shop_images/sensol_catalog_1__05.png",
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The RS03 PRO pays for itself.",
         "text": "At $2,800 AUD, the RS03 PRO is an investment that pays for itself remarkably quickly. Compared to a $220/month unlimited studio membership, the break-even is approximately 13 months. Over five years, the RS03 PRO delivers savings of $10,400–$16,400 compared to studio memberships — while providing both Pilates and strength training, AI-driven coaching, and the convenience of home."
@@ -685,17 +685,20 @@
         "label": "The RS Family",
         "title": "Built for the same room.",
         "view_all_link": "/collections/all",
+        "product1_image": "shopify://shop_images/imgi_28_7cf456be-0cdf-4aa8-88ca-e6075bf5ea77.webp",
         "product1_vendor": "Sensol",
         "product1_name": "RS03",
-        "product1_price": "From $2,400",
+        "product1_price": "From $3,099.00",
         "product1_url": "/products/sensol-rs03",
+        "product2_image": "shopify://shop_images/1.png",
         "product2_vendor": "Sensol",
         "product2_name": "Flex Air",
-        "product2_price": "From $1,490",
+        "product2_price": "From $699.00",
         "product2_url": "/products/sensol-flex-air",
+        "product3_image": "shopify://shop_images/7.png",
         "product3_vendor": "Sensol",
         "product3_name": "Flex Pro",
-        "product3_price": "From $1,890",
+        "product3_price": "From $2,299.00",
         "product3_url": "/products/sensol-flex-pro"
       }
     }
