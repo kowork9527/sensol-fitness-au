@@ -29,7 +29,8 @@
     max-width: 300px;
     margin: 0 auto;
   }
-  .sensol-home-app__phone-image {
+  .sensol-home-app__phone-image,
+  .sensol-home-app__phone-image-wrap img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -203,12 +204,13 @@
     <div class="sensol-home-app__phone-col">
       <div class="sensol-home-app__phone-glow"></div>
       {%- if section.settings.phone_image != blank -%}
+        {%- assign phone_alt_text = section.settings.phone_alt | default: 'Sensol App' -%}
         <div class="sensol-home-app__phone-image-wrap">
           {{ section.settings.phone_image | image_url: width: 920 | image_tag:
             loading: 'lazy',
             widths: '460, 690, 920',
-            sizes: '(min-width: 969px) 460px, 80vw',
-            alt: section.settings.phone_alt | default: 'Sensol App',
+            sizes: '(min-width: 969px) 300px, (min-width: 641px) 260px, 220px',
+            alt: phone_alt_text,
             class: 'sensol-home-app__phone-image'
           }}
         </div>
