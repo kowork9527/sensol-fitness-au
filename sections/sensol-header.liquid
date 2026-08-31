@@ -1,17 +1,38 @@
+{%- liquid
+  # TWO-SCHEME HEADER: pages whose top area is dark use light header ink (while at top)
+  # Managed via section setting "dark_hero_templates" (comma-separated list of templates)
+  assign tpl_key = template.name
+  if template.suffix != blank
+    assign tpl_key = template.name | append: '.' | append: template.suffix
+  endif
+  assign header_dark_hero = false
+  assign dark_list = section.settings.dark_hero_templates | default: 'index, page.senzine' | split: ','
+  for t in dark_list
+    assign tt = t | strip | downcase
+    if tt != blank and tt == tpl_key
+      assign header_dark_hero = true
+    endif
+  endfor
+-%}
 {%- style -%}
+  /* === TWO-SCHEME HEADER (2026-08) === */
+  /* Base scheme: dark ink on transparent (light-hero pages) */
   .sensol-header-section {
+    --header-ink: #1A1816;
+    --header-ink-hover: #8A8279;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    {%- if template.name == 'index' -%}
-      background-color: transparent;
-      transition: background-color 0.5s ease, box-shadow 0.5s ease;
-    {%- else -%}
-      background-color: #F7F4F0;
-      box-shadow: 0 1px 0 #E3DFD9;
-    {%- endif -%}
+    background-color: transparent;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  /* Scheme 2: light ink on dark hero (toggled per template, only while at top) */
+  .sensol-header-section.on-dark-hero:not(.scrolled) {
+    --header-ink: #F7F4F0;
+    --header-ink-hover: rgba(247, 244, 240, 0.75);
   }
 
   .sensol-header-section.scrolled {
@@ -45,6 +66,12 @@
     max-width: {{ section.settings.logo_width }}px;
     height: auto;
     object-fit: contain;
+    transition: filter 0.3s ease;
+  }
+
+  /* Black logo image turns light on dark hero (scheme 2) */
+  .sensol-header-section.on-dark-hero:not(.scrolled) .sensol-header__logo-img {
+    filter: brightness(0) invert(1);
   }
 
   .sensol-header__logo-text {
@@ -53,7 +80,8 @@
     font-weight: 300;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #1A1816;
+    color: var(--header-ink);
+    transition: color 0.3s ease;
   }
 
   .sensol-header__nav {
@@ -69,13 +97,13 @@
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #1A1816;
+    color: var(--header-ink);
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .sensol-header__link:hover {
-    color: #8A8279;
+    color: var(--header-ink-hover);
   }
 
   /* === DESKTOP MEGA MENU === */
@@ -265,13 +293,18 @@
     font-family: 'Inter', sans-serif;
   }
 
-  .sensol-header__icon {
+  .sensol-header-section.on-dark-hero:not(.scrolled) .cart-count-bubble {
+    background: #F7F4F0;
     color: #1A1816;
+  }
+
+  .sensol-header__icon {
+    color: var(--header-ink);
     transition: color 0.3s ease;
   }
 
   .sensol-header__icon-link:hover .sensol-header__icon {
-    color: #8A8279;
+    color: var(--header-ink-hover);
   }
 
   .sensol-header__hamburger {
@@ -293,7 +326,7 @@
     display: block;
     width: 100%;
     height: 1.5px;
-    background-color: #1A1816;
+    background-color: var(--header-ink);
     transition: all 0.4s ease;
   }
 
@@ -517,9 +550,17 @@
       padding-top: 64px;
     }
   }
+
+  /* Dark-hero page: hero sits directly under the transparent header at y=0,
+     so the light header ink stays on the dark hero (no light gap above it) */
+  {%- if header_dark_hero -%}
+    #MainContent[data-template="{{ template.name }}"] {
+      padding-top: 0 !important;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
-<header class="sensol-header-section" id="sensolHeader">
+<header class="sensol-header-section{% if header_dark_hero %} on-dark-hero{% endif %}" id="sensolHeader">
   <div class="sensol-header__inner">
     <button type="button" class="sensol-header__hamburger" id="sensolHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -813,6 +854,13 @@
   "tag": "section",
   "class": "sensol-header-section-wrapper",
   "settings": [
+    {
+      "type": "text",
+      "id": "dark_hero_templates",
+      "label": "Dark top pages (light header scheme)",
+      "info": "Comma-separated templates whose top area is dark, so the header uses light ink while at top. Examples: index, page.senzine, page.contact",
+      "default": "index, page.senzine"
+    },
     {
       "type": "image_picker",
       "id": "logo",
