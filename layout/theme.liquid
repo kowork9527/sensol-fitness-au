@@ -19,14 +19,14 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
+      {{ page_title | replace: 'Sensol Fitness', 'Sensol' }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains "Sensol" %} &ndash; Sensol{% endunless -%}
     </title>
 
     {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+      <meta name="description" content="{{ page_description | replace: 'Sensol Fitness', 'Sensol' | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
