@@ -120,6 +120,7 @@
     },
     "sensol_home_app": {
       "type": "sensol-home-app",
+<<<<<<< HEAD
       "settings": {
         "phone_image": "shopify://shop_images/3_30_4.gif",
         "phone_alt": "Sensol App on a reformer screen",
@@ -134,6 +135,8 @@
         "more_label": "Explore the app",
         "phone_ratio": "9 / 19.5"
       },
+=======
+>>>>>>> github/shopify
       "blocks": {
         "feature_resistance": {
           "type": "feature",
@@ -164,39 +167,65 @@
         "feature_resistance",
         "feature_programs",
         "feature_analytics"
-      ]
+      ],
+      "settings": {
+        "phone_image": "shopify://shop_images/screen_01.png",
+        "phone_alt": "Sensol App on a reformer screen",
+        "eyebrow": "Sensol App",
+        "title": "Your intelligent training companion.",
+        "description": "The Sensol App connects to your reformer for real-time resistance control, guided workout programs and performance tracking - all from your phone.",
+        "show_store_buttons": true,
+        "appstore_link": "https://apps.apple.com/app/id6747697213",
+        "playstore_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta",
+        "show_qr": true,
+        "more_link": "shopify://pages/app",
+        "more_label": "Explore the app"
+      }
     },
     "sensol_judge_reviews": {
       "type": "sensol-judge-reviews",
-      "settings": {
-        "eyebrow": "What they say",
-        "title": "Trained by design.",
-        "head_note": "Genuine reviews collected and verified by Judge.me"
-      },
       "blocks": {
         "judgeme_grid": {
           "type": "shopify://apps/judge-me-reviews/blocks/reviews_grid_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "show_sample_reviews": false,
             "review_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "show_media_only": false,
             "display_order": "most_recent",
+            "card_grouping": "per_media",
             "columns_desktop": 3,
             "rows_desktop": 2,
             "columns_mobile": "2",
             "rows_mobile": 3,
             "show_stars": true,
             "show_reviewer_name": true,
-            "show_average_rating": true,
-            "card_spacing": "medium",
+            "show_review_title_on_hover_desktop": true,
+            "max_width": 1200,
             "corner_styling": "square",
+            "card_spacing": "medium",
+            "header_text_color": "#000000",
+            "star_and_reviewer_name_color": "#f9f9f9",
+            "drop_shadow_color": "#000000",
+            "overlay_and_background_color": "#000000",
+            "content_color": "#f9f9f9",
             "header_text": "",
-            "max_width": 1200
+            "show_average_rating": true,
+            "rating_display": "default"
           }
         }
       },
       "block_order": [
         "judgeme_grid"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "What they say",
+        "title": "Trained by design.",
+        "head_note": "Genuine reviews collected and verified by Judge.me"
+      }
     }
   },
   "order": [
