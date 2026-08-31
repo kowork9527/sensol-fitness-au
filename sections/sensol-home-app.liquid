@@ -25,14 +25,14 @@
     overflow: hidden;
     background: #2a2724;
     border: 1px solid rgba(212, 206, 198, 0.12);
-    aspect-ratio: var(--phone-ratio, 9 / 19.5);
-    max-width: 460px;
+    aspect-ratio: 9 / 19.5;
+    max-width: 300px;
     margin: 0 auto;
   }
   .sensol-home-app__phone-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
   .sensol-home-app__phone-glow {
@@ -186,11 +186,11 @@
       grid-template-columns: 1fr;
       gap: 48px;
     }
-    .sensol-home-app__phone-image-wrap { max-width: 360px; }
+    .sensol-home-app__phone-image-wrap { max-width: 260px; }
   }
   @media (max-width: 640px) {
     .sensol-home-app { padding: 56px 16px; }
-    .sensol-home-app__phone-image-wrap { max-width: 300px; }
+    .sensol-home-app__phone-image-wrap { max-width: 220px; }
     .sensol-home-app__cta-row { flex-direction: column; align-items: stretch; }
     .sensol-home-app__store-btn { justify-content: flex-start; }
     .sensol-home-app__qr-row { flex-wrap: wrap; }
@@ -198,7 +198,7 @@
   }
 {%- endstyle -%}
 
-<section class="sensol-home-app" style="--phone-ratio: {{ section.settings.phone_ratio | default: '9 / 19.5' }};">
+<section class="sensol-home-app">
   <div class="sensol-home-app__inner">
     <div class="sensol-home-app__phone-col">
       <div class="sensol-home-app__phone-glow"></div>
@@ -330,8 +330,7 @@
   </div>
 </section>
 
-{% schema %}
-{
+{% schema %}{
   "name": "Sensol Home App",
   "tag": "section",
   "class": "sensol-home-app-section",
@@ -341,20 +340,6 @@
       "id": "phone_image",
       "label": "Phone image",
       "info": "Leave empty to use the built-in app screen asset."
-    },
-    {
-      "type": "select",
-      "id": "phone_ratio",
-      "label": "Phone image aspect ratio",
-      "info": "Match this to your uploaded image. App screenshots are 9:19.5 (no cropping); marketing photos 3:4.",
-      "options": [
-        { "value": "9 / 19.5", "label": "9:19.5 (phone screenshot, no crop)" },
-        { "value": "3 / 4", "label": "3:4 (portrait photo)" },
-        { "value": "4 / 3", "label": "4:3 (landscape)" },
-        { "value": "1 / 1", "label": "1:1 (square)" }
-      ],
-      "default": "9 / 19.5",
-      "info": "App screenshots (750x1640) should use Phone screen 9:19.5."
     },
     {
       "type": "text",
@@ -438,12 +423,30 @@
           "id": "icon",
           "label": "Icon",
           "options": [
-            { "value": "resistance", "label": "Resistance" },
-            { "value": "workouts", "label": "Programs" },
-            { "value": "chart", "label": "Analytics" },
-            { "value": "bluetooth", "label": "Connectivity" },
-            { "value": "heart", "label": "Wellness" },
-            { "value": "clock", "label": "Time" }
+            {
+              "value": "resistance",
+              "label": "Resistance"
+            },
+            {
+              "value": "workouts",
+              "label": "Programs"
+            },
+            {
+              "value": "chart",
+              "label": "Analytics"
+            },
+            {
+              "value": "bluetooth",
+              "label": "Connectivity"
+            },
+            {
+              "value": "heart",
+              "label": "Wellness"
+            },
+            {
+              "value": "clock",
+              "label": "Time"
+            }
           ],
           "default": "resistance"
         },
@@ -466,11 +469,31 @@
     {
       "name": "Sensol Home App",
       "blocks": [
-        { "type": "feature", "settings": { "icon": "resistance", "name": "Real-time Resistance Control", "desc": "Adjust resistance levels instantly during your session" } },
-        { "type": "feature", "settings": { "icon": "workouts", "name": "100+ Guided Workouts", "desc": "Expert-led pilates and strength programs for every level" } },
-        { "type": "feature", "settings": { "icon": "chart", "name": "Performance Analytics", "desc": "Track your progress with detailed session insights" } }
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "resistance",
+            "name": "Real-time Resistance Control",
+            "desc": "Adjust resistance levels instantly during your session"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "workouts",
+            "name": "100+ Guided Workouts",
+            "desc": "Expert-led pilates and strength programs for every level"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "chart",
+            "name": "Performance Analytics",
+            "desc": "Track your progress with detailed session insights"
+          }
+        }
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}
