@@ -388,6 +388,20 @@
     position: relative;
     z-index: 1002;
   }
+
+  /* BLOG CONTENT VISIBILITY SAFETY (2026-08):
+     Blog list & article pages must never hide content behind Dawn's
+     scroll-trigger lazy animation. If IntersectionObserver init is delayed
+     or broken (app JS errors on these pages), elements stay at opacity .01
+     and content appears "merged/overlapping" with the background.
+     Force content visible on these reading pages - also better for SEO. */
+  [data-template="blog"] .scroll-trigger,
+  [data-template="article"] .scroll-trigger {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
   </style>
 </head>
 
