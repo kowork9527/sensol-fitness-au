@@ -211,7 +211,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "right",
-        "image": "shopify://shop_images/imgi_255_Screen_Shot_2026-04-30_at_12.17.28_PM.png",
+        "image": "shopify://shop_images/Frame_1117.png",
         "eyebrow": "04 — Compact & Connected",
         "title": "Apartment-friendly. AI-coached. Subscription-free.",
         "text_1": "109 × 35 cm. Fits in any room, in any apartment, alongside any sofa. 45 dB at full load - quieter than a normal conversation - so you can train at 6am without waking anyone. No wall mount, no ceiling clearance, no dedicated studio required.",
@@ -275,74 +275,6 @@
         "eyebrow": "See It Move",
         "title": "Precision in motion.",
         "show_hint": true
-      }
-    },
-    "included": {
-      "type": "sensol-product-included",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "name": "Sensol RS03 Reformer Frame"
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "name": "500W Servo Motor System"
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "name": "Tricep Rope (1×)"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "name": "D-Handle (1×)"
-          }
-        },
-        "item_5": {
-          "type": "item",
-          "settings": {
-            "name": "Ankle Strap (1×)"
-          }
-        },
-        "item_6": {
-          "type": "item",
-          "settings": {
-            "name": "Pull-Down Bar (1×)"
-          }
-        },
-        "item_7": {
-          "type": "item",
-          "settings": {
-            "name": "Vesta Sensol App Access (Free)"
-          }
-        },
-        "item_8": {
-          "type": "item",
-          "settings": {
-            "name": "Owner Manual & Quick Start Guide"
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4",
-        "item_5",
-        "item_6",
-        "item_7",
-        "item_8"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/sensol__06.png",
-        "eyebrow": "In the Box",
-        "title": "Everything included."
       }
     },
     "specs": {
@@ -452,6 +384,74 @@
         "image_position": "right",
         "eyebrow": "Specifications",
         "title": "Every detail, measured."
+      }
+    },
+    "included": {
+      "type": "sensol-product-included",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "name": "Sensol RS03 Reformer Frame"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "name": "500W Servo Motor System"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "name": "Tricep Rope (1×)"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "name": "D-Handle (1×)"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "name": "Ankle Strap (1×)"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "name": "Pull-Down Bar (1×)"
+          }
+        },
+        "item_7": {
+          "type": "item",
+          "settings": {
+            "name": "Vesta Sensol App Access (Free)"
+          }
+        },
+        "item_8": {
+          "type": "item",
+          "settings": {
+            "name": "Owner Manual & Quick Start Guide"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6",
+        "item_7",
+        "item_8"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/sensol__06.png",
+        "eyebrow": "In the Box",
+        "title": "Everything included."
       }
     },
     "roi": {
