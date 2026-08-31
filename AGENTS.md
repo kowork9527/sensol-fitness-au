@@ -49,6 +49,16 @@
 
 ## Liquid Pitfalls (Learned the Hard Way)
 - **`push` filter does NOT work with product drops** in Shopify Liquid (`{% assign arr = arr | push: product %}` silently keeps the array empty). Use a counter + direct assignment instead (`{% assign p1 = product %}`).
+- **Never use inline filters on `image_tag` named arguments** (`alt: setting | default: 'x'`). The parser cuts the argument list at `|` and ALL subsequent params (e.g. `class:`) are silently DROPPED - the img renders without the class, so CSS never matches. This caused the "phone image ignores its frame" bug. Fix: pre-assign with `{%- assign alt_text = settings.alt | default: 'x' -%}` then pass the plain variable.
+- **File-level verification (push + pull diff) is NOT enough.** Always do rendering-level self-check: fetch the live page HTML and verify the actual img tags / class attributes / rendered `<style>` blocks (see Frontend Verification below).
+
+## Frontend Verification (Rendering-Level Self-Check)
+- Storefront password page is ACTIVE: password is `nufrar`. Anonymous curl only gets the password page.
+- Bypass method:
+  1. `curl -s -c /tmp/pw_cookies.txt -X POST -d 'password=nufrar' https://1heajg-6u.myshopify.com/password` (302 = OK)
+  2. `curl -s -b /tmp/pw_cookies.txt -L https://1heajg-6u.myshopify.com/ -o /tmp/home.html`
+- Then grep the downloaded HTML: check `action="/password"` count is 0 (real page), verify section markup, img attributes, and the section's `<style data-shopify>` rules actually match the elements.
+- Theme CSS conflict scan: download all linked `assets/*.css` and regex-scan rules whose selectors contain `img` with width/height/object-fit - confirm none apply to the section being changed.
 
 ## Deployment Rules (User Requirement - MANDATORY)
 - **Shopify changes take effect IMMEDIATELY. There is NO cache delay - never blame cache.** If a change does not show on the frontend after upload, it did NOT succeed. Debug in this strict order:
