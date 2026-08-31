@@ -88,18 +88,8 @@
   if current_tags.size > 0
     assign current_tag = current_tags | first
   endif
-  assign _blog_all_tags = blog.all_tags
+  assign current_tag_handle = current_tag | handle
 -%}
-
-{%- comment -%} Collect all unique tags from articles (since blog.all_tags may be empty in OS 2.0) {%- endcomment -%}
-{%- capture _all_tags_str -%}{%- for article in blog.articles -%}{{ article.tags | join: '|' }}|{%- endfor -%}{%- endcapture -%}
-{%- assign _all_tags_arr = _all_tags_str | split: '|' | uniq | sort -%}
-
-<div style="display:none" id="debug-outer">
-all_tags_count: {{ blog.all_tags | size }}
-article_tags_count: {{ _all_tags_arr | size }}
-article_tags: {{ _all_tags_arr | join: ',' }}
-</div>
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
@@ -107,25 +97,28 @@ article_tags: {{ _all_tags_arr | join: ',' }}
       {{ blog.title | escape }}
     </h1>
 
-    {% comment %} Category filter navigation {% endcomment %}
-    {% render 'debug-blog-tags' %}
-    <nav class="blog-categories">
+    {% comment %} Category filter navigation — curated order matching content strategy {% endcomment %}
+    <nav class="blog-categories" aria-label="Blog categories">
+      {%- capture _all_label -%}All{%- endcapture -%}
       <a
         href="{{ blog.url }}"
         class="blog-categories__link{% if current_tag == '' %} blog-categories__link--active{% endif %}"
       >
-        All
+        {{ _all_label }}
       </a>
-      {%- assign _blog_tags = _blog_all_tags -%}
-      {%- if _blog_tags.size == 0 -%}
-        {%- assign _blog_tags = _all_tags_arr -%}
-      {%- endif -%}
-      {%- for tag in _blog_tags -%}
+      {%- assign _cat_1 = 'Pilates 101' -%}
+      {%- assign _cat_2 = 'Reformer Benefits' -%}
+      {%- assign _cat_3 = 'Buying Guides' -%}
+      {%- assign _cat_4 = 'Smart Training' -%}
+      {%- assign _cat_5 = 'Rehab & Recovery' -%}
+      {%- assign _categories = _cat_1 | append: '|' | append: _cat_2 | append: '|' | append: _cat_3 | append: '|' | append: _cat_4 | append: '|' | append: _cat_5 | split: '|' -%}
+      {%- for _cat in _categories -%}
+        {%- assign _cat_handle = _cat | handle -%}
         <a
-          href="{{ blog.url }}/tagged/{{ tag | handle }}"
-          class="blog-categories__link{% if current_tag == tag %} blog-categories__link--active{% endif %}"
+          href="{{ blog.url }}/tagged/{{ _cat_handle }}"
+          class="blog-categories__link{% if current_tag_handle == _cat_handle %} blog-categories__link--active{% endif %}"
         >
-          {{ tag }}
+          {{ _cat }}
         </a>
       {%- endfor -%}
     </nav>
@@ -179,7 +172,7 @@ article_tags: {{ _all_tags_arr | join: ',' }}
         }
       ],
       "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label"
+      "label": "t:sections.main-blog.settings.label"
     },
     {
       "type": "checkbox",
