@@ -6,7 +6,7 @@
     assign tpl_key = template.name | append: '.' | append: template.suffix
   endif
   assign header_dark_hero = false
-  assign dark_list = section.settings.dark_hero_templates | default: 'index, page.senzine' | split: ','
+  assign dark_list = section.settings.dark_hero_templates | default: 'index, collection, collection.smart-series, collection.mechanical-series, collection.flex-series, page.senzine, page.philosophy, page.engineering, page.app, page.refund-policy, page.shipping-policy' | split: ','
   for t in dark_list
     assign tt = t | strip | downcase
     if tt != blank and tt == tpl_key
@@ -869,7 +869,7 @@
       "id": "dark_hero_templates",
       "label": "Dark top pages (light header scheme)",
       "info": "Comma-separated templates whose top area is dark, so the header goes transparent with light ink while at top (hero starts under the header at y=0). Examples: index, collection, page.senzine",
-      "default": "index, collection, collection.smart-series, collection.mechanical-series, collection.flex-series, page.senzine, page.philosophy, page.engineering"
+      "default": "index, collection, collection.smart-series, collection.mechanical-series, collection.flex-series, page.senzine, page.philosophy, page.engineering, page.app, page.refund-policy, page.shipping-policy"
     },
     {
       "type": "image_picker",
