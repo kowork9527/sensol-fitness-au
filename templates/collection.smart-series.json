@@ -14,12 +14,19 @@
       "settings": {
         "eyebrow": "Series 01",
         "title": "Smart Series",
-        "subtitle": "Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching."
+        "subtitle": "Digital weight reformers powered by servo motors. 0.5 kg precision, dual-function Pilates and strength training, AI-driven coaching.",
+        "image": "shopify://shop_images/imgi_72_Frame_1165_1.png",
+        "overlay_opacity": 55
       }
     },
     "main-grid": {
       "type": "sensol-collection-grid",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "smart_count": "02",
+        "mech_count": "02",
+        "source_handle": ""
+      }
     },
     "compare": {
       "type": "sensol-collection-compare",
