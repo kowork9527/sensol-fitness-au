@@ -104,7 +104,11 @@
       >
         All
       </a>
-      {%- for tag in blog.all_tags -%}
+      {%- assign _blog_tags = blog.all_tags -%}
+      {%- if _blog_tags.size == 0 -%}
+        {%- assign _blog_tags = blog.tags | split: ', ' -%}
+      {%- endif -%}
+      {%- for tag in _blog_tags -%}
         <a
           href="{{ blog.url }}/tagged/{{ tag | handle }}"
           class="blog-categories__link{% if current_tag == tag %} blog-categories__link--active{% endif %}"
