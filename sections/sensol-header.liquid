@@ -35,6 +35,13 @@
     --header-ink-hover: rgba(247, 244, 240, 0.75);
   }
 
+  /* Mobile drawer is cream: while it is open, dark-hero pages flip back to dark ink
+     so the close (X) button and logo stay visible on the drawer surface */
+  body.drawer-open .sensol-header-section.on-dark-hero:not(.scrolled) {
+    --header-ink: #1A1816;
+    --header-ink-hover: #8A8279;
+  }
+
   .sensol-header-section.scrolled {
     background-color: #F7F4F0;
     box-shadow: 0 1px 0 #E3DFD9;
@@ -72,6 +79,10 @@
   /* Black logo image turns light on dark hero (scheme 2) */
   .sensol-header-section.on-dark-hero:not(.scrolled) .sensol-header__logo-img {
     filter: brightness(0) invert(1);
+  }
+
+  body.drawer-open .sensol-header-section.on-dark-hero:not(.scrolled) .sensol-header__logo-img {
+    filter: none;
   }
 
   .sensol-header__logo-text {
@@ -551,13 +562,12 @@
     }
   }
 
-  /* Dark-hero page: hero sits directly under the transparent header at y=0,
-     so the light header ink stays on the dark hero (no light gap above it) */
-  {%- if header_dark_hero -%}
-    #MainContent[data-template="{{ template.name }}"] {
-      padding-top: 0 !important;
-    }
-  {%- endif -%}
+  /* Dark-hero pages: hero sits directly under the transparent header at y=0,
+     so the light header ink stays on the dark hero (no light gap above it).
+     Uses :has() so the exact page template controls it (no generic-template bleed) */
+  body:has(.sensol-header-section.on-dark-hero) #MainContent {
+    padding-top: 0 !important;
+  }
 {%- endstyle -%}
 
 <header class="sensol-header-section{% if header_dark_hero %} on-dark-hero{% endif %}" id="sensolHeader">
@@ -858,8 +868,8 @@
       "type": "text",
       "id": "dark_hero_templates",
       "label": "Dark top pages (light header scheme)",
-      "info": "Comma-separated templates whose top area is dark, so the header uses light ink while at top. Examples: index, page.senzine, page.contact",
-      "default": "index, page.senzine"
+      "info": "Comma-separated templates whose top area is dark, so the header goes transparent with light ink while at top (hero starts under the header at y=0). Examples: index, collection, page.senzine",
+      "default": "index, collection, collection.smart-series, collection.mechanical-series, collection.flex-series, page.senzine, page.philosophy, page.engineering"
     },
     {
       "type": "image_picker",
