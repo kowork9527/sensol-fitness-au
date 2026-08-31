@@ -14,13 +14,105 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .blog-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 32px 0 40px;
+    justify-content: center;
+  }
+
+  .blog-categories__link {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid rgba(var(--color-foreground), 0.2);
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .blog-categories__link:hover {
+    border-color: rgb(var(--color-foreground));
+    background: rgb(var(--color-background));
+  }
+
+  .blog-categories__link--active {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    border-color: rgb(var(--color-foreground));
+  }
+
+  @media screen and (max-width: 749px) {
+    .blog-categories {
+      gap: 8px;
+      margin: 20px 0 28px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .blog-categories::-webkit-scrollbar {
+      display: none;
+    }
+    .blog-categories__link {
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 6px 16px;
+      font-size: 13px;
+    }
+  }
+
+  .article-card__tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(var(--color-foreground), 0.6);
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+
+  .article-card__tag:hover {
+    color: rgb(var(--color-foreground));
+  }
 {%- endstyle -%}
+
+{%- liquid
+  assign current_tag = ''
+  if current_tags.size > 0
+    assign current_tag = current_tags | first
+  endif
+-%}
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
+
+    {% comment %} Category filter navigation {% endcomment %}
+    <nav class="blog-categories">
+      <a
+        href="{{ blog.url }}"
+        class="blog-categories__link{% if current_tag == '' %} blog-categories__link--active{% endif %}"
+      >
+        All
+      </a>
+      {%- for tag in blog.all_tags -%}
+        <a
+          href="{{ blog.url }}/tagged/{{ tag | handle }}"
+          class="blog-categories__link{% if current_tag == tag %} blog-categories__link--active{% endif %}"
+        >
+          {{ tag }}
+        </a>
+      {%- endfor -%}
+    </nav>
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
@@ -38,7 +130,8 @@
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: true
+            show_excerpt: true,
+            show_tag: true
           -%}
         </div>
       {%- endfor -%}
