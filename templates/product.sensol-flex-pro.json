@@ -451,7 +451,7 @@
         "spec_warranty"
       ],
       "settings": {
-        "image": "shopify://shop_images/imgi_17_47b0bd64-c188-47a2-9c34-21505192ce49_4.png",
+        "image": "shopify://shop_images/sensol__13.png",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -513,7 +513,7 @@
         "item_7"
       ],
       "settings": {
-        "image": "shopify://shop_images/imgi_17_3_d437d679-04bc-4ae3-ada5-da8348da1cf0.png",
+        "image": "shopify://shop_images/sensol__14.png",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
@@ -581,49 +581,10 @@
         "hi_3"
       ],
       "settings": {
-        "image": "shopify://shop_images/kling_20260817_IMAGE___Image1__4390_0.webp",
+        "image": "shopify://shop_images/sensol_catalog_1__05.png",
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The FLEX PRO pays for itself.",
         "text": "At $1,800 AUD, the FLEX PRO costs less than seven months of twice-weekly studio sessions at $45 per class. After that break-even point, every session is essentially free. Over three years, the savings amount to approximately $8,500–$13,400 compared to studio sessions — and that's before accounting for the additional strength training value that eliminates the need for a separate gym membership."
-      }
-    },
-    "sp_reviews": {
-      "type": "sensol-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "text": "I've been teaching reformer Pilates for 12 years and I've never experienced anything like the FLEX PRO. The 145° arm range allows me to perform and teach movements that are simply impossible on a traditional reformer — the snake, the twist, diagonal pull-throughs at extreme angles. The Off-centre training mode has become my secret weapon for clients with stability issues. This is the future of reformer training.",
-            "name": "Victoria S.",
-            "role": "Pilates Instructor, Byron Bay"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "text": "As a former rugby player, I need both strength and mobility. Traditional reformers maxed out at around 70 kg, which wasn't enough for my strength goals. The FLEX PRO's 150 kg max load is the real deal — heavy rows, chest presses, and overhead work that actually challenges my strength. Then I switch to Pilates mode for mobility and core work. It's like having a reformer, a cable machine, and a physical therapy tool all in one.",
-            "name": "Jackson M.",
-            "role": "Brisbane"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "text": "My physio recommended reformer Pilates for my chronic lower back pain, but at $120 per private session, it wasn't sustainable. The FLEX PRO's Constant Mode has been transformative — the even tension means I never get that scary 'catch' that springs can create. After 10 weeks of daily 30-minute sessions, my back pain has reduced by about 40%, I'm sleeping through the night, and I can play with my grandchildren without wincing.",
-            "name": "Diane W.",
-            "role": "Regional NSW"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Trusted by advanced practitioners."
       }
     },
     "sp_qa": {
@@ -754,7 +715,6 @@
     "sp_specs",
     "sp_included",
     "sp_roi",
-    "sp_reviews",
     "sp_qa",
     "sp_related"
   ]

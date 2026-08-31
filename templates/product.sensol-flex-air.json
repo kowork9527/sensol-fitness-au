@@ -275,32 +275,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:00",
-            "video_url": ""
+            "duration": "1:01",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/cf7adaf7d1284681b5031c281cabe6ce.mp4"
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "Beginner's First Session",
-            "duration": "3:30",
-            "video_url": ""
+            "duration": "0:21",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/c150c67925a147319681da0294e1f4b3.mp4"
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "Fold & Store",
-            "duration": "0:30",
-            "video_url": ""
+            "duration": "0:06",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/9abe98f1f71e4b98a52301ee1ecc5dc4.mp4"
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "FLEX AIR vs Studio",
-            "duration": "2:00",
-            "video_url": ""
+            "duration": "1:01",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/cf7adaf7d1284681b5031c281cabe6ce.mp4"
           }
         }
       },
@@ -467,6 +467,7 @@
         "spec_warranty"
       ],
       "settings": {
+        "image": "shopify://shop_images/sensol__11.png",
         "image_position": "right",
         "eyebrow": "Engineering",
         "title": "Every detail, measured."
@@ -528,6 +529,7 @@
         "item_7"
       ],
       "settings": {
+        "image": "shopify://shop_images/sensol__12.png",
         "eyebrow": "In the Box",
         "title": "Everything, included."
       }
@@ -595,48 +597,10 @@
         "hi_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/sensol_catalog_1__05.png",
         "eyebrow": "The Investment",
         "title": "Studio costs add up. The FLEX AIR pays for itself fast.",
         "text": "At $650 AUD, the FLEX AIR represents extraordinary value. If you attend reformer Pilates twice a week, the FLEX AIR pays for itself within two months. After that, every session is essentially free — train as often as you like, on your own schedule, without booking, commuting, or waiting for a class."
-      }
-    },
-    "sp_reviews": {
-      "type": "sensol-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "text": "I'd been wanting to try reformer Pilates for over a year but couldn't justify the studio prices — $45 a class adds up fast. The FLEX AIR cost me less than three months of studio sessions, and I can use it every day. The springs feel smooth and forgiving, which was perfect as a complete beginner. The Vesta app walked me through my first session step by step. After six weeks, I've already noticed improvements in my posture and core strength.",
-            "name": "Sarah M.",
-            "role": "Melbourne"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "text": "My physio recommended reformer Pilates after my knee surgery, but the waiting list for classes was 8 weeks and private sessions were $120 each. The FLEX AIR let me start my rehabilitation at home, at my own pace. The spring resistance is gentle enough for post-surgical recovery but progressive enough that I'm still using it months later. The app's rehab programme is excellent — clear, safe, and well-structured.",
-            "name": "Margaret T.",
-            "role": "Brisbane"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "text": "I compared every reformer on the Australian market before buying. The Fortis was cheaper but felt flimsy and had no app. The Your Reformer was beautiful but $2,800. The FLEX AIR hits the sweet spot: built like a proper machine, the app is genuinely useful, and it doubles as a strength trainer. I've saved hundreds compared to my old studio membership, and I workout more often because it's right there in my living room. The Lifetime Warranty sealed the deal for me.",
-            "name": "Priya K.",
-            "role": "Adelaide"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Loved by first-time reformer users."
       }
     },
     "sp_qa": {
@@ -737,17 +701,20 @@
         "label": "The FLEX Family",
         "title": "Built for every level.",
         "view_all_link": "/collections/all",
+        "product1_image": "shopify://shop_images/7.png",
         "product1_vendor": "Sensol",
         "product1_name": "FLEX PRO",
-        "product1_price": "From $1,800",
+        "product1_price": "From $2,299.00",
         "product1_url": "/products/sensol-flex-pro",
+        "product2_image": "shopify://shop_images/export_1.jpg",
         "product2_vendor": "Sensol",
         "product2_name": "RS03 PRO",
-        "product2_price": "From $2,800",
+        "product2_price": "From $3,899.00",
         "product2_url": "/products/sensol-rs03-pro",
+        "product3_image": "shopify://shop_images/imgi_28_7cf456be-0cdf-4aa8-88ca-e6075bf5ea77.webp",
         "product3_vendor": "Sensol",
         "product3_name": "RS03",
-        "product3_price": "From $2,400",
+        "product3_price": "From $3,099.00",
         "product3_url": "/products/sensol-rs03"
       }
     }
@@ -764,7 +731,6 @@
     "sp_specs",
     "sp_included",
     "sp_roi",
-    "sp_reviews",
     "sp_qa",
     "sp_related"
   ]

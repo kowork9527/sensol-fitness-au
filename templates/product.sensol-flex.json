@@ -14,12 +14,14 @@
       "settings": {
         "subtitle": "Grow Stronger, Train Smarter",
         "model_info": "Model FLEX / Smart Reformer · SKU: SNSL-FLEX-AU",
-        "padding_top": 140
+        "padding_top": 140,
+        "padding_bottom": 80
       }
     },
     "sp_banner": {
       "type": "sensol-product-banner",
       "settings": {
+        "image": "shopify://shop_images/e083be5e-d9cf-450d-b6d3-008a319bd4c0.png",
         "eyebrow": "Make it easy, Do it real",
         "title": "The reformer that grows with you.",
         "height": 70,
@@ -65,6 +67,10 @@
         "stat_4"
       ],
       "settings": {
+        "background": "#f7f4f0",
+        "text_color": "#1a1816",
+        "accent_color": "#8a8279",
+        "divider_color": "#d4cec6",
         "eyebrow": "Product Overview",
         "title": "The sweet spot of the FLEX Series.",
         "text": "The Sensol FLEX is the sweet spot of the FLEX Series — a mid-range reformer that grows with you from your first tentative footwork to challenging full-body strength sessions. With 90 kg of maximum resistance powered by dual 1000W servo motors and 0.5 kg precision increments, the FLEX provides the progressive challenge that committed practitioners demand, without the premium price tag of studio-grade equipment."
@@ -111,6 +117,7 @@
       "settings": {
         "color_scheme": "dark",
         "image_position": "left",
+        "image": "shopify://shop_images/e083be5e-d9cf-450d-b6d3-008a319bd4c0.png",
         "eyebrow": "Key Feature 01",
         "title": "90 kg Resistance That Grows With You",
         "text_1": "The FLEX delivers up to 90 kg of servo motor-precise resistance — 50% more than the FLEX AIR's 60 kg capacity. This means the FLEX won't plateau as your strength improves. Whether you're a beginner building foundational stability or an intermediate practitioner pushing into advanced movements, the 0.5 kg increment adjustments let you progress at precisely the right pace.",
@@ -265,28 +272,32 @@
           "type": "video_card",
           "settings": {
             "title": "Product Tour",
-            "duration": "1:30"
+            "duration": "1:30",
+            "video_url": ""
           }
         },
         "video_2": {
           "type": "video_card",
           "settings": {
             "title": "Pilates-to-Strength Transition",
-            "duration": "2:30"
+            "duration": "2:30",
+            "video_url": ""
           }
         },
         "video_3": {
           "type": "video_card",
           "settings": {
             "title": "FLEX vs Spring Reformer",
-            "duration": "2:00"
+            "duration": "2:00",
+            "video_url": ""
           }
         },
         "video_4": {
           "type": "video_card",
           "settings": {
             "title": "Testimonial Montage",
-            "duration": "1:15"
+            "duration": "1:15",
+            "video_url": ""
           }
         }
       },
@@ -586,45 +597,6 @@
         "text": "At $1,200 AUD, the FLEX delivers a compelling return on investment. For a dual-discipline user who previously maintained both a Pilates studio membership ($280/month) and a gym membership ($25/week), the combined savings of $388/month mean the FLEX pays for itself in just over 3 months. After that, you're saving nearly $4,700 per year."
       }
     },
-    "sp_reviews": {
-      "type": "sensol-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "text": "I've been doing reformer Pilates at studios for three years and honestly didn't expect a home machine to match the experience. The FLEX proved me wrong. The servo motor resistance is smoother than any spring system I've used. The Off-centre training mode is something you simply can't replicate on a traditional reformer, and it's been a game-changer for my core stability. I cancelled my studio membership and I'm actually training more consistently now.",
-            "name": "Emma R.",
-            "role": "Perth"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "text": "The dual-function capability is what sold me, and it's even better than I expected. I do Pilates three days a week and strength training two days — all on the same machine. The barbell bar and short handles are surprisingly versatile. The 90 kg max resistance is plenty for everything except heavy powerlifting. I've cancelled both my Pilates studio membership ($280/month) and my gym membership ($25/week). The FLEX paid for itself in under three months.",
-            "name": "Marcus T.",
-            "role": "Gold Coast"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "text": "As a physiotherapist, I'm cautious about recommending home fitness equipment. The FLEX is different — the 0.5 kg increments allow me to prescribe exact resistance levels for my patients' home programmes, and the three training modes offer rehabilitation protocols I can't replicate with spring-based reformers. The Constant Mode is particularly valuable for post-surgical rehabilitation, where maintaining even tension throughout the range of motion is critical. I've started recommending the FLEX to patients who need ongoing reformer work.",
-            "name": "Dr. Sarah L.",
-            "role": "Physiotherapist, Brisbane"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
-      "settings": {
-        "show_section": true,
-        "label": "Verified Owners",
-        "title": "Loved by committed practitioners."
-      }
-    },
     "sp_qa": {
       "type": "sensol-product-qa",
       "blocks": {
@@ -750,7 +722,6 @@
     "sp_specs",
     "sp_included",
     "sp_roi",
-    "sp_reviews",
     "sp_qa",
     "sp_related"
   ]
