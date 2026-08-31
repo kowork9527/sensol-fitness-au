@@ -91,9 +91,14 @@
   assign _blog_all_tags = blog.all_tags
 -%}
 
+{%- comment -%} Collect all unique tags from articles (since blog.all_tags may be empty in OS 2.0) {%- endcomment -%}
+{%- capture _all_tags_str -%}{%- for article in blog.articles -%}{{ article.tags | join: '|' }}|{%- endfor -%}{%- endcapture -%}
+{%- assign _all_tags_arr = _all_tags_str | split: '|' | uniq | sort -%}
+
 <div style="display:none" id="debug-outer">
-before_paginate_all_tags_count: {{ blog.all_tags | size }}
-before_paginate_tags: [{{ blog.tags }}]
+all_tags_count: {{ blog.all_tags | size }}
+article_tags_count: {{ _all_tags_arr | size }}
+article_tags: {{ _all_tags_arr | join: ',' }}
 </div>
 
 {%- paginate blog.articles by 6 -%}
@@ -113,7 +118,7 @@ before_paginate_tags: [{{ blog.tags }}]
       </a>
       {%- assign _blog_tags = _blog_all_tags -%}
       {%- if _blog_tags.size == 0 -%}
-        {%- assign _blog_tags = blog.tags | split: ', ' -%}
+        {%- assign _blog_tags = _all_tags_arr -%}
       {%- endif -%}
       {%- for tag in _blog_tags -%}
         <a
