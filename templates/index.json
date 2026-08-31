@@ -131,7 +131,8 @@
         "playstore_link": "https://play.google.com/store/apps/details?id=com.xfq.sensol.vesta",
         "show_qr": true,
         "more_link": "shopify://pages/app",
-        "more_label": "Explore the app"
+        "more_label": "Explore the app",
+        "phone_ratio": "9 / 19.5"
       },
       "blocks": {
         "feature_resistance": {

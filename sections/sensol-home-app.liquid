@@ -25,7 +25,7 @@
     overflow: hidden;
     background: #2a2724;
     border: 1px solid rgba(212, 206, 198, 0.12);
-    aspect-ratio: 3 / 4;
+    aspect-ratio: var(--phone-ratio, 9 / 19.5);
     max-width: 460px;
     margin: 0 auto;
   }
@@ -198,7 +198,7 @@
   }
 {%- endstyle -%}
 
-<section class="sensol-home-app">
+<section class="sensol-home-app" style="--phone-ratio: {{ section.settings.phone_ratio | default: '9 / 19.5' }};">
   <div class="sensol-home-app__inner">
     <div class="sensol-home-app__phone-col">
       <div class="sensol-home-app__phone-glow"></div>
@@ -341,6 +341,20 @@
       "id": "phone_image",
       "label": "Phone image",
       "info": "Leave empty to use the built-in app screen asset."
+    },
+    {
+      "type": "select",
+      "id": "phone_ratio",
+      "label": "Phone image aspect ratio",
+      "info": "Match this to your uploaded image. App screenshots are 9:19.5 (no cropping); marketing photos 3:4.",
+      "options": [
+        { "value": "9 / 19.5", "label": "9:19.5 (phone screenshot, no crop)" },
+        { "value": "3 / 4", "label": "3:4 (portrait photo)" },
+        { "value": "4 / 3", "label": "4:3 (landscape)" },
+        { "value": "1 / 1", "label": "1:1 (square)" }
+      ],
+      "default": "9 / 19.5",
+      "info": "App screenshots (750x1640) should use Phone screen 9:19.5."
     },
     {
       "type": "text",
