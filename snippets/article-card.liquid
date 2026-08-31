@@ -80,7 +80,7 @@
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
-            {%- if show_tag == true and article_first_tag != '' -%}
+            {%- if show_tag and article_first_tag != '' -%}
               <a href="{{ blog.url }}/tagged/{{ article_first_tag | handle }}" class="article-card__tag">
                 {{ article_first_tag }}
               </a>
@@ -124,7 +124,7 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          {%- if show_tag == true and article_first_tag != '' -%}
+          {%- if show_tag and article_first_tag != '' -%}
             <a href="{{ blog.url }}/tagged/{{ article_first_tag | handle }}" class="article-card__tag">
               {{ article_first_tag }}
             </a>
