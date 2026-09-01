@@ -1,0 +1,57 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-cta" id="refund-{{ section.id }}">
+  <div class="sc-refund-cta__inner">
+    <p class="sc-refund-cta__label">{{ section.settings.label }}</p>
+    <h2 class="sc-refund-cta__title">{{ section.settings.title }}</h2>
+    <p class="sc-refund-cta__text">{{ section.settings.text }}</p>
+    <div class="sc-refund-cta__contact">
+      <div class="sc-refund-cta__contact-item">
+        <span class="sc-refund-cta__contact-label">{{ section.settings.phone_label }}</span>
+        <span class="sc-refund-cta__contact-value">{{ section.settings.phone_value }}</span>
+      </div>
+      <div class="sc-refund-cta__contact-item">
+        <span class="sc-refund-cta__contact-label">{{ section.settings.email_label }}</span>
+        <span class="sc-refund-cta__contact-value">{{ section.settings.email_value }}</span>
+      </div>
+      <div class="sc-refund-cta__contact-item">
+        <span class="sc-refund-cta__contact-label">{{ section.settings.hours_label }}</span>
+        <span class="sc-refund-cta__contact-value">{{ section.settings.hours_value }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sc-refund-foot">
+  <div class="sc-refund-foot__inner">
+    <p class="sc-refund-foot__text">{{ section.settings.footnote }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Refund - Support CTA",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "Need Help?" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Contact Our Support Team" },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Support text",
+      "default": "If you have any questions about our Refund & Return Policy, or need to initiate a return, our Australian support team is here to help."
+    },
+    { "type": "text", "id": "phone_label", "label": "Phone label", "default": "Phone" },
+    { "type": "text", "id": "phone_value", "label": "Phone value", "default": "+61 480 899 797" },
+    { "type": "text", "id": "email_label", "label": "Email label", "default": "Email" },
+    { "type": "text", "id": "email_value", "label": "Email value", "default": "support@sensolfitness.com.au" },
+    { "type": "text", "id": "hours_label", "label": "Hours label", "default": "Hours" },
+    { "type": "text", "id": "hours_value", "label": "Hours value", "default": "Mon\u2013Fri 9:00\u201318:00 AEST" },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote (legal entity)",
+      "default": "DUTE FITNESS (AUSTRALIA) PTY. LTD. reserves the right to amend this policy at any time to remain compliant with evolving Australian statutory regulations. Trading as Sensol."
+    }
+  ],
+  "presets": [{ "name": "Refund - Support CTA" }]
+}
+{% endschema %}

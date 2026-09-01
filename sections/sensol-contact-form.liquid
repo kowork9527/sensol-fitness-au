@@ -1,0 +1,105 @@
+{{ 'sensol-contact.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-contact">
+  <section class="sc-section" id="sc-write">
+    <aside>
+      <p class="sc-section-num">{{ section.settings.num }}</p>
+      <p class="sc-section-tag"><strong>{{ section.settings.tag_main }}</strong> · {{ section.settings.tag_sub }}</p>
+    </aside>
+    <div class="sc-section-body">
+      <h2 class="sc-section-h">{{ section.settings.heading | newline_to_br }}</h2>
+      {%- if section.settings.intro != blank -%}
+        <p class="sc-section-p">{{ section.settings.intro | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- form 'contact', id: 'ContactForm', class: 'sc-letter' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="sc-letter-greet" style="color: #4a6b3a;">{{ section.settings.success_text }}</p>
+        {%- endif -%}
+        <div class="sc-letter-head">
+          <div>
+            <div class="lbl">— {{ section.settings.from_label }}</div>
+            <div class="val">{{ section.settings.from_value }}</div>
+          </div>
+          <div>
+            <div class="lbl">— {{ section.settings.to_label }}</div>
+            <div class="val">{{ section.settings.to_value }}</div>
+          </div>
+        </div>
+
+        <p class="sc-letter-greet">{{ section.settings.greeting }}</p>
+
+        <div class="sc-form-grid">
+          <div class="sc-field">
+            <label class="lbl" for="sc-name"><span class="num">01</span><span>— {{ section.settings.name_label }}</span><span class="req">{{ section.settings.name_req }}</span></label>
+            <input type="text" id="sc-name" name="contact[name]" required>
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-email"><span class="num">02</span><span>— {{ section.settings.email_label }}</span><span class="req">{{ section.settings.email_req }}</span></label>
+            <input type="email" id="sc-email" name="contact[email]" required>
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-phone"><span class="num">03</span><span>— {{ section.settings.phone_label }}</span><span class="req">{{ section.settings.phone_req }}</span></label>
+            <input type="tel" id="sc-phone" name="contact[phone]">
+          </div>
+          <div class="sc-field">
+            <label class="lbl" for="sc-subject"><span class="num">04</span><span>— {{ section.settings.subject_label }}</span><span class="req">OPTIONAL</span></label>
+            <select id="sc-subject" name="contact[subject]">
+              <option value="">{{ section.settings.subject_placeholder }}</option>
+              {%- assign subject_options = section.settings.subject_options | split: ',' -%}
+              {%- for opt in subject_options -%}
+                <option value="{{ opt | strip }}">{{ opt | strip }}</option>
+              {%- endfor -%}
+            </select>
+          </div>
+          <div class="sc-field full">
+            <label class="lbl" for="sc-body"><span class="num">05</span><span>— {{ section.settings.message_label }}</span><span class="req">{{ section.settings.message_req }}</span></label>
+            <textarea id="sc-body" name="contact[body]" required placeholder="{{ section.settings.message_placeholder }}"></textarea>
+          </div>
+        </div>
+
+        <div class="sc-letter-foot">
+          <div class="meta">{{ section.settings.foot_meta | newline_to_br }}</div>
+          <button type="submit" class="sc-send"><span>{{ section.settings.button_text }}</span><span class="arr">→</span></button>
+        </div>
+      {%- endform -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    { "type": "text", "id": "num", "label": "Number", "default": "02" },
+    { "type": "text", "id": "tag_main", "label": "Tag (bold part)", "default": "WRITE TO US" },
+    { "type": "text", "id": "tag_sub", "label": "Tag (rest)", "default": "LETTER FORMAT · REPLY ≤ 24 H" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Send a letter. <em>Not a form.</em>" },
+    { "type": "textarea", "id": "intro", "label": "Intro paragraph", "default": "A short paragraph is enough. Tell us what you're moving through — equipment, training, a question, a doubt. We read every line." },
+    { "type": "text", "id": "success_text", "label": "Success message", "default": "Thank you — your letter has been posted. We reply within one business day." },
+    { "type": "header", "content": "Letter header" },
+    { "type": "text", "id": "from_label", "label": "From label", "default": "From" },
+    { "type": "text", "id": "from_value", "label": "From value", "default": "You, somewhere on Earth" },
+    { "type": "text", "id": "to_label", "label": "To label", "default": "To" },
+    { "type": "text", "id": "to_value", "label": "To value", "default": "SENSOL — Studio 04, Collingwood VIC 3066" },
+    { "type": "text", "id": "greeting", "label": "Greeting", "default": "Dear SENSOL," },
+    { "type": "header", "content": "Form fields" },
+    { "type": "text", "id": "name_label", "label": "Name label", "default": "Name" },
+    { "type": "text", "id": "name_req", "label": "Name required note", "default": "REQUIRED" },
+    { "type": "text", "id": "email_label", "label": "Email label", "default": "Email" },
+    { "type": "text", "id": "email_req", "label": "Email required note", "default": "REQUIRED" },
+    { "type": "text", "id": "phone_label", "label": "Phone label", "default": "Phone" },
+    { "type": "text", "id": "phone_req", "label": "Phone required note", "default": "OPTIONAL" },
+    { "type": "text", "id": "subject_label", "label": "Subject label", "default": "Subject" },
+    { "type": "text", "id": "subject_placeholder", "label": "Subject placeholder", "default": "— Select a topic" },
+    { "type": "text", "id": "subject_options", "label": "Subject options (comma separated)", "default": "Equipment enquiry,Studio visit,Press / media,Other" },
+    { "type": "text", "id": "message_label", "label": "Message label", "default": "Message" },
+    { "type": "text", "id": "message_req", "label": "Message required note", "default": "REQUIRED" },
+    { "type": "text", "id": "message_placeholder", "label": "Message placeholder", "default": "Tell us, in your own time." },
+    { "type": "header", "content": "Footer" },
+    { "type": "textarea", "id": "foot_meta", "label": "Footer meta", "default": "— Posted via § 02 / 04\nSENSOL — Contact Dossier" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Post the letter" }
+  ],
+  "presets": [{ "name": "Contact Form" }]
+}
+{% endschema %}

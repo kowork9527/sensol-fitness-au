@@ -1,0 +1,105 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__commitment">
+    <div class="sensol-about__container--narrow">
+      {%- if section.settings.quote != blank -%}
+        <p class="sensol-about__commitment-quote">{{ section.settings.quote }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.para1 != blank -%}
+        <p class="sensol-about__commitment-body">{{ section.settings.para1 }}</p>
+      {%- endif -%}
+      {%- if section.settings.para2 != blank -%}
+        <p class="sensol-about__commitment-body">{{ section.settings.para2 }}</p>
+      {%- endif -%}
+      {%- if section.settings.para3 != blank -%}
+        <p class="sensol-about__commitment-body">{{ section.settings.para3 }}</p>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="sensol-about__section" style="padding-top: 0;">
+    <div class="sensol-about__container">
+      <div class="sensol-about__company">
+        {%- if section.settings.distributor != blank -%}
+          <div>
+            <p class="sensol-about__company-label">DISTRIBUTOR</p>
+            <p class="sensol-about__company-value">{{ section.settings.distributor }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.email != blank -%}
+          <div>
+            <p class="sensol-about__company-label">EMAIL</p>
+            <p class="sensol-about__company-value"><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.extra != blank -%}
+          <div>
+            <p class="sensol-about__company-label">{{ section.settings.extra_label | default: 'GENERAL' }}</p>
+            <p class="sensol-about__company-value">{{ section.settings.extra }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.legal != blank -%}
+          <div>
+            <p class="sensol-about__company-label">LEGAL</p>
+            <p class="sensol-about__company-value">{{ section.settings.legal }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.instagram != blank -%}
+          <div>
+            <p class="sensol-about__company-label">INSTAGRAM</p>
+            <p class="sensol-about__company-value"><a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">{{ section.settings.instagram }}</a></p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.youtube != blank -%}
+          <div>
+            <p class="sensol-about__company-label">YOUTUBE</p>
+            <p class="sensol-about__company-value"><a href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener">{{ section.settings.youtube }}</a></p>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Commitment",
+  "tag": "section",
+  "class": "sensol-about-section-commitment",
+  "settings": [
+    { "type": "header", "content": "Commitment statement" },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Statement (uppercase display)",
+      "default": "Build equipment that earns its place in the room."
+    },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "Sensol Fitness builds for people who train with intention. That is the whole brief." },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2" },
+    { "type": "textarea", "id": "para3", "label": "Paragraph 3" },
+    { "type": "header", "content": "Company information" },
+    {
+      "type": "textarea",
+      "id": "distributor",
+      "label": "Distributor",
+      "default": "Sensol Fitness Pty Ltd\n12 Sackville St, Collingwood VIC 3066"
+    },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@sensolfitness.com.au" },
+    { "type": "text", "id": "extra_label", "label": "Extra field label", "default": "SUPPORT" },
+    { "type": "text", "id": "extra", "label": "Extra field value", "default": "support@sensolfitness.com.au" },
+    { "type": "textarea", "id": "legal", "label": "Legal entity", "default": "DUTE FITNESS (AUSTRALIA) PTY. LTD.\nPrivate corporation" },
+    { "type": "text", "id": "instagram", "label": "Instagram handle", "default": "@sensolfitness" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "text", "id": "youtube", "label": "YouTube handle", "default": "@sensolfitness" },
+    { "type": "url", "id": "youtube_url", "label": "YouTube URL" }
+  ],
+  "presets": [{ "name": "About — Commitment" }]
+}
+{% endschema %}

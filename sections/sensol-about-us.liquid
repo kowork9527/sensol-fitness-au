@@ -1,0 +1,40 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section" style="background: #EDEAE5;">
+    <div class="sensol-about__container--narrow">
+      {%- if section.settings.label != blank -%}
+        <p class="sensol-about__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.para1 != blank -%}
+        <p class="sensol-about__body">{{ section.settings.para1 }}</p>
+      {%- endif -%}
+      {%- if section.settings.para2 != blank -%}
+        <p class="sensol-about__body">{{ section.settings.para2 }}</p>
+      {%- endif -%}
+      {%- if section.settings.para3 != blank -%}
+        <p class="sensol-about__body">{{ section.settings.para3 }}</p>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — US Years",
+  "tag": "section",
+  "class": "sensol-about-section-us",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "04 / THREE YEARS IN THE US" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Three years of American detours." },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "Between 2022 and 2025 Sensol shipped and serviced equipment across the United States. It was a period of listening — to coaches, to clinic owners, to people who trained at 5 a.m. before work." },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2", "default": "That detour shaped the current range: quieter drives, easier fold mechanisms, service routines that a single person can complete." },
+    { "type": "textarea", "id": "para3", "label": "Paragraph 3", "default": "We returned to Australia with a clearer idea of who we build for." }
+  ],
+  "presets": [{ "name": "About — US Years" }]
+}
+{% endschema %}

@@ -1,0 +1,73 @@
+{{ 'sensol-contact.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-contact">
+  <section class="sc-section">
+    <aside>
+      <p class="sc-section-num">{{ section.settings.num }}</p>
+      <p class="sc-section-tag"><strong>{{ section.settings.tag_main }}</strong> · {{ section.settings.tag_sub }}</p>
+    </aside>
+    <div class="sc-section-body">
+      <h2 class="sc-section-h">{{ section.settings.heading | newline_to_br }}</h2>
+      {%- if section.settings.intro != blank -%}
+        <p class="sc-section-p">{{ section.settings.intro | newline_to_br }}</p>
+      {%- endif -%}
+      <div class="sc-direct">
+        {%- for block in section.blocks -%}
+          <div class="col" {{ block.shopify_attributes }}>
+            <div class="col-tag">{{ block.settings.tag }}</div>
+            <div class="col-label">{{ block.settings.label }}</div>
+            <h3 class="col-h">{{ block.settings.headline | newline_to_br }}</h3>
+            <p class="col-v">
+              {%- if block.settings.link_url != blank and block.settings.link_text != blank -%}
+                <a href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+              {%- else -%}
+                {{ block.settings.value_html }}
+              {%- endif -%}
+            </p>
+            {%- if block.settings.meta != blank -%}
+              <p class="col-meta">{{ block.settings.meta | newline_to_br }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Direct Lines",
+  "settings": [
+    { "type": "text", "id": "num", "label": "Number", "default": "01" },
+    { "type": "text", "id": "tag_main", "label": "Tag (bold part)", "default": "DIRECT LINES" },
+    { "type": "text", "id": "tag_sub", "label": "Tag (rest)", "default": "PREFER EMAIL · MONO-FRI" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Three ways to reach <em>one human</em>." },
+    { "type": "textarea", "id": "intro", "label": "Intro paragraph", "default": "No ticket systems. No bots. The fastest reply is email, because we sit closer to it. Calls are returned between meetings. SMS is for studio bookings only." }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Contact column",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Column tag (A/B/C)", "default": "A" },
+        { "type": "text", "id": "label", "label": "Column label", "default": "— Email · preferred" },
+        { "type": "textarea", "id": "headline", "label": "Headline", "default": "The slow,\nthorough line." },
+        { "type": "text", "id": "link_text", "label": "Link text (leave empty to use custom HTML below)", "default": "hello@sensol.com.au" },
+        { "type": "text", "id": "link_url", "label": "Link URL (mailto: / tel: / https:)", "default": "mailto:hello@sensol.com.au" },
+        { "type": "textarea", "id": "value_html", "label": "Custom value HTML (used when link is empty)", "info": "Used for multi-link columns. One <a> per line." },
+        { "type": "textarea", "id": "meta", "label": "Meta note", "default": "Replies within 1 business day.\nThreading, attachments welcome." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Direct Lines",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column", "settings": { "tag": "B", "label": "— Voice · by appointment", "headline": "The 18-minute\nconversation.", "link_text": "+61 3 9421 0000", "link_url": "tel:+61394210000", "meta": "Tue · Wed · Thu\n10:00 — 16:00 AEST" } },
+        { "type": "column", "settings": { "tag": "C", "label": "— Channels · other", "headline": "For the rest\nof machines.", "link_text": "", "link_url": "", "value_html": "<a href=\"https://instagram.com/sensol\">Instagram</a><br>\n<a href=\"https://linkedin.com/company/sensol\">LinkedIn</a><br>\n<a href=\"https://wa.me/61394210000\">WhatsApp</a>", "meta": "Replies slower here.\nEmail remains the front door." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

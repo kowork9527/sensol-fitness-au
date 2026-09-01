@@ -25,14 +25,225 @@
         "hide_legacy_heroes": true
       }
     },
-    "main": {
-      "type": "main-page",
-      "settings": {
-      }
+    "guarantees": {
+      "type": "sensol-refund-guarantees",
+      "blocks": {
+        "a": {
+          "type": "guarantee",
+          "settings": {
+            "tag": "A",
+            "name": "Major Failure",
+            "text": "A major failure occurs when the product has a serious defect, is unsafe, or is substantially unfit for its intended purpose and cannot be easily fixed within a reasonable time. In this case, you can choose between a refund or a replacement."
+          }
+        },
+        "b": {
+          "type": "guarantee",
+          "settings": {
+            "tag": "B",
+            "name": "Minor Failure",
+            "text": "If the defect or failure is minor, we reserve the right to offer a free repair within a reasonable timeframe, or provide a replacement or refund at our discretion."
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b"
+      ],
+      "settings": {}
+    },
+    "conditions": {
+      "type": "sensol-refund-conditions",
+      "blocks": {
+        "c1": {
+          "type": "condition",
+          "settings": {
+            "tag": "Timeframe",
+            "name": "30 Days from Delivery",
+            "text": "You must notify our customer support team at +61 480 899 797 or via our official email within 30 days from the date your order was delivered."
+          }
+        },
+        "c2": {
+          "type": "condition",
+          "settings": {
+            "tag": "Product Condition",
+            "name": "Unused & Unassembled",
+            "text": "The item must be unused, unassembled, free from any cosmetic or structural damage, and in the exact same condition that you received it."
+          }
+        },
+        "c3": {
+          "type": "condition",
+          "settings": {
+            "tag": "Original Packaging",
+            "name": "Unopened Commercial Packaging",
+            "text": "The item must be in its original, unopened commercial packaging (including all pallets, straps, protective foam, and internal boxing). Items cannot be safely transported without their structured original packaging."
+          }
+        },
+        "c4": {
+          "type": "condition",
+          "settings": {
+            "tag": "Exclusions",
+            "name": "Non-Refundable Fees",
+            "text": "Delivery fees paid at the time of purchase (such as Remote Surcharge Area fees) are non-refundable."
+          }
+        },
+        "w1": {
+          "type": "warning_item",
+          "settings": {
+            "tag": "Return Freight",
+            "text": "The buyer is entirely responsible for arranging and paying for the return shipping to our designated warehouse in Australia (e.g., Victoria/New South Wales partners)."
+          }
+        },
+        "w2": {
+          "type": "warning_item",
+          "settings": {
+            "tag": "Specialist Pickup",
+            "text": "Standard courier networks will not accept items over 30kg. You must use our authorized heavy freight carriers. If a tail-lift or two-man delivery team is required, surcharges ranging from <strong>$65 to $200+ AUD</strong> will be deducted from your refund."
+          }
+        },
+        "w3": {
+          "type": "warning_item",
+          "settings": {
+            "tag": "Restocking Fee",
+            "text": "A restocking fee of <strong>15%</strong> of the original purchase price will be deducted from your refund to cover warehouse receiving, heavy-pallet handling, safety inspections, and repackaging evaluation."
+          }
+        },
+        "w4": {
+          "type": "warning_item",
+          "settings": {
+            "tag": "Non-Refundable",
+            "text": "Original delivery fees and remote surcharges paid at checkout are <strong>non-refundable</strong> under Change of Mind returns."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "settings": {}
+    },
+    "damaged": {
+      "type": "sensol-refund-damaged",
+      "blocks": {
+        "d1": {
+          "type": "col",
+          "settings": {
+            "label": "Report Immediately",
+            "title": "Within 24 Hours",
+            "text": "Stop using the item immediately. Contact us within <strong>24 hours</strong> of delivery with clear photographs and video evidence detailing the issue, along with your original order invoice."
+          }
+        },
+        "d2": {
+          "type": "col",
+          "settings": {
+            "label": "Return Shipping for Faulty Goods",
+            "title": "We Cover the Cost",
+            "text": "If the item is confirmed to have a structural or manufacturing defect under the ACL, <strong>we will cover the return freight costs</strong>. We will coordinate with our heavy-freight courier partners to arrange a scheduled pickup at our expense. You will be required to assist with the handover."
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2"
+      ],
+      "settings": {}
+    },
+    "steps": {
+      "type": "sensol-refund-steps",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "num": "Step 01",
+            "title": "Contact Support",
+            "text": "Call +61 480 899 797 or email our support desk with your Shopify Order Number (e.g., #AU1001)."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "num": "Step 02",
+            "title": "Provide Evidence",
+            "text": "Provide your reasons for return along with photographic proof of the unopened, boxed product state."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "num": "Step 03",
+            "title": "Receive RMA",
+            "text": "Once approved, we will issue a Return Merchandise Authorization (RMA) document and provide the designated warehouse address."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "num": "Step 04",
+            "title": "Ship with RMA",
+            "text": "Do not send products back to our warehouse without an authorized RMA. Ship only after approval."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {}
+    },
+    "timeline": {
+      "type": "sensol-refund-timeline",
+      "blocks": {
+        "t1": {
+          "type": "timeline_item",
+          "settings": {
+            "tag": "Step 1",
+            "title": "Safety & Quality Inspection",
+            "text": "Returned items undergo a thorough safety and quality inspection by our technicians, usually within 3–5 business days of arrival."
+          }
+        },
+        "t2": {
+          "type": "timeline_item",
+          "settings": {
+            "tag": "Step 2",
+            "title": "Refund Approved",
+            "text": "If approved, your refund will be processed automatically back to your original payment method (Stripe, PayPal, or Credit Card)."
+          }
+        },
+        "t3": {
+          "type": "timeline_item",
+          "settings": {
+            "tag": "Step 3",
+            "title": "Bank Processing",
+            "text": "It can take 5–10 business days for your financial institution or bank to clear and post the credit to your account."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "sensol-refund-cta",
+      "settings": {}
     }
   },
   "order": [
     "policy_hero",
-    "main"
+    "guarantees",
+    "conditions",
+    "damaged",
+    "steps",
+    "timeline",
+    "cta"
   ]
 }

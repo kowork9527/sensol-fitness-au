@@ -9,28 +9,161 @@
  */
 {
   "sections": {
-    "contact": {
-      "type": "sensol-contact",
-      "settings": {
-        "hero_label": "Get in touch",
-        "hero_title": "Start a conversation.",
-        "hero_sub": "We respond within one business day. AEST, Mon\u2013Fri.",
-        "info_label": "Direct lines",
-        "email": "hello@sensolfitness.com.au",
-        "phone": "+61 3 9000 0000",
-        "hours_weekday": "Mon \u2013 Fri \u00b7 9:00 \u2013 18:00 AEST",
-        "hours_weekend": "Sat \u00b7 10:00 \u2013 16:00 AEST",
-        "studio_line1": "By appointment only.",
-        "studio_line2": "Melbourne, Victoria, Australia",
-        "form_label": "Send a message",
-        "form_title": "Tell us what you're working on.",
-        "button_text": "Send message",
-        "company_name": "Dute Fitness (Australia) Pty. Ltd.",
-        "company_tagline": "Engineered in Melbourne. Built for stillness."
-      }
+    "hero": {
+      "type": "sensol-contact-hero",
+      "settings": {}
+    },
+    "direct": {
+      "type": "sensol-contact-direct",
+      "blocks": {
+        "col-a": {
+          "type": "column",
+          "settings": {
+            "tag": "A",
+            "label": "— Email · preferred",
+            "headline": "The slow,\nthorough line.",
+            "link_text": "hello@sensol.com.au",
+            "link_url": "mailto:hello@sensol.com.au",
+            "meta": "Replies within 1 business day.\nThreading, attachments welcome."
+          }
+        },
+        "col-b": {
+          "type": "column",
+          "settings": {
+            "tag": "B",
+            "label": "— Voice · by appointment",
+            "headline": "The 18-minute\nconversation.",
+            "link_text": "+61 3 9421 0000",
+            "link_url": "tel:+61394210000",
+            "meta": "Tue · Wed · Thu\n10:00 — 16:00 AEST"
+          }
+        },
+        "col-c": {
+          "type": "column",
+          "settings": {
+            "tag": "C",
+            "label": "— Channels · other",
+            "headline": "For the rest\nof machines.",
+            "link_text": "",
+            "link_url": "",
+            "value_html": "<a href=\"https://instagram.com/sensol\">Instagram</a><br>\n<a href=\"https://linkedin.com/company/sensol\">LinkedIn</a><br>\n<a href=\"https://wa.me/61394210000\">WhatsApp</a>",
+            "meta": "Replies slower here.\nEmail remains the front door."
+          }
+        }
+      },
+      "block_order": [
+        "col-a",
+        "col-b",
+        "col-c"
+      ],
+      "settings": {}
+    },
+    "form": {
+      "type": "sensol-contact-form",
+      "settings": {}
+    },
+    "studio": {
+      "type": "sensol-contact-studio",
+      "blocks": {
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "key": "STUDIO",
+            "value": "Studio 04, 35 Easey Street\nCollingwood VIC 3066"
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "key": "HOURS",
+            "value": "Tue — Fri · 10:00 — 16:00\nSat · by appointment"
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "key": "ACCESS",
+            "value": "Ground floor · ramp entry\n<em>Service animals welcome</em>"
+          }
+        },
+        "row-4": {
+          "type": "row",
+          "settings": {
+            "key": "PARKING",
+            "value": "Street · 1P on Easey\n<em>Cycle racks at door</em>"
+          }
+        },
+        "row-5": {
+          "type": "row",
+          "settings": {
+            "key": "TRANSIT",
+            "value": "Collingwood Station · 6 min walk\nRoute 86 tram · Stop 17"
+          }
+        },
+        "row-6": {
+          "type": "row",
+          "settings": {
+            "key": "TO BRING",
+            "value": "Grip socks · we provide the rest\n<em>First visit · allow 30 min</em>"
+          }
+        }
+      },
+      "block_order": [
+        "row-1",
+        "row-2",
+        "row-3",
+        "row-4",
+        "row-5",
+        "row-6"
+      ],
+      "settings": {}
+    },
+    "imprint": {
+      "type": "sensol-contact-imprint",
+      "blocks": {
+        "col-1": {
+          "type": "column",
+          "settings": {
+            "head": "ENTITY",
+            "content": "SENSOL Pty Ltd\nStudio 04, 35 Easey St\nCollingwood VIC 3066 AU"
+          }
+        },
+        "col-2": {
+          "type": "column",
+          "settings": {
+            "head": "POSTAL",
+            "content": "Reply Paid 4210\nCollingwood VIC 3066\nAustralia"
+          }
+        },
+        "col-3": {
+          "type": "column",
+          "settings": {
+            "head": "REGISTERED",
+            "content": "ABN 42 081 337 956\nACN 081 337 956\n<a href=\"https://abr.business.gov.au/\">ABN lookup</a>"
+          }
+        },
+        "col-4": {
+          "type": "column",
+          "settings": {
+            "head": "DIGITAL",
+            "content": "<a href=\"mailto:hello@sensol.com.au\">hello@sensol.com.au</a>\n<a href=\"https://instagram.com/sensol\">@sensol</a>"
+          }
+        }
+      },
+      "block_order": [
+        "col-1",
+        "col-2",
+        "col-3",
+        "col-4"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "contact"
+    "hero",
+    "direct",
+    "form",
+    "studio",
+    "imprint"
   ]
 }

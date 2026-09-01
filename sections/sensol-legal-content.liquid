@@ -1,0 +1,167 @@
+{{ 'sensol-legal.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  SENSOl Legal Content — generic sectioned policy body (privacy / terms / any legal page).
+  Sidebar TOC is auto-generated from blocks. Block types:
+    - section : numbered content block (num + heading + richtext body)
+    - note    : single-line inline note (renders inside flow, after its section)
+    - callout : dark callout box (label + richtext text)
+    - rights  : rights grid (5 fixed slots)
+{%- endcomment -%}
+
+<div class="sc-legal">
+  {%- if section.settings.fact1_num != blank or section.settings.fact2_num != blank or section.settings.fact3_num != blank -%}
+    <div class="sc-legal-facts">
+      {%- if section.settings.fact1_num != blank -%}
+        <div class="sc-legal-fact">
+          <span class="sc-legal-fact__num">{{ section.settings.fact1_num }}</span>
+          <span class="sc-legal-fact__label">{{ section.settings.fact1_label }}</span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.fact2_num != blank -%}
+        <div class="sc-legal-fact">
+          <span class="sc-legal-fact__num">{{ section.settings.fact2_num }}</span>
+          <span class="sc-legal-fact__label">{{ section.settings.fact2_label }}</span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.fact3_num != blank -%}
+        <div class="sc-legal-fact">
+          <span class="sc-legal-fact__num">{{ section.settings.fact3_num }}</span>
+          <span class="sc-legal-fact__label">{{ section.settings.fact3_label }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="sc-legal sc-legal-layout">
+    <aside class="sc-legal-sidebar">
+      <p class="sc-legal-sidebar__label">{{ section.settings.sidebar_label | default: 'Contents' }}</p>
+      <ul class="sc-legal-sidebar__nav">
+        {%- assign toc_idx = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'section' -%}
+            {%- assign toc_idx = toc_idx | plus: 1 -%}
+            <li><a href="#legal-sec-{{ toc_idx }}"><span class="sc-legal-sidebar__num">{{ block.settings.num }}</span>{{ block.settings.heading }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </aside>
+
+    <div class="sc-legal-content">
+      {%- assign sec_idx = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'section' -%}
+            {%- assign sec_idx = sec_idx | plus: 1 -%}
+            <section class="sc-legal-sec" id="legal-sec-{{ sec_idx }}" {{ block.shopify_attributes }}>
+              <div class="sc-legal-sec__head">
+                <span class="sc-legal-sec__num">{{ block.settings.num }}</span>
+                <div class="sc-legal-sec__line"></div>
+              </div>
+              <h2 class="sc-legal-sec__title">{{ block.settings.heading }}</h2>
+              <div class="sc-legal-sec__text">{{ block.settings.body }}</div>
+            </section>
+          {%- when 'note' -%}
+            <div class="sc-legal-note" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- when 'callout' -%}
+            <div class="sc-legal-callout" {{ block.shopify_attributes }}>
+              <p class="sc-legal-callout__label">{{ block.settings.label }}</p>
+              <p class="sc-legal-callout__text">{{ block.settings.text }}</p>
+            </div>
+          {%- when 'rights' -%}
+            <div class="sc-legal-rights" {{ block.shopify_attributes }}>
+              {%- for n in (1..5) -%}
+                {%- assign lbl = 'label' | append: n -%}
+                {%- assign ttl = 'title' | append: n -%}
+                {%- assign txt = 'text' | append: n -%}
+                {%- assign lbl_v = block.settings[lbl] -%}
+                {%- assign ttl_v = block.settings[ttl] -%}
+                {%- assign txt_v = block.settings[txt] -%}
+                {%- if ttl_v != blank -%}
+                  <div class="sc-legal-right">
+                    <p class="sc-legal-right__label">{{ lbl_v }}</p>
+                    <h3 class="sc-legal-right__title">{{ ttl_v }}</h3>
+                    <p class="sc-legal-right__text">{{ txt_v }}</p>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Legal Content",
+  "tag": "section",
+  "class": "sensol-legal-section",
+  "settings": [
+    { "type": "paragraph", "content": "Blocks: use 'Section' for numbered content, then attach Note / Callout / Rights right after the section they belong to." },
+    { "type": "text", "id": "sidebar_label", "label": "Sidebar label", "default": "Contents" },
+    { "type": "header", "content": "Facts row" },
+    { "type": "text", "id": "fact1_num", "label": "Fact 1 value" },
+    { "type": "text", "id": "fact1_label", "label": "Fact 1 label" },
+    { "type": "text", "id": "fact2_num", "label": "Fact 2 value" },
+    { "type": "text", "id": "fact2_label", "label": "Fact 2 label" },
+    { "type": "text", "id": "fact3_num", "label": "Fact 3 value" },
+    { "type": "text", "id": "fact3_label", "label": "Fact 3 label" }
+  ],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Section",
+      "settings": [
+        { "type": "text", "id": "num", "label": "Number (e.g. 01)" },
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "body", "label": "Body" }
+      ]
+    },
+    {
+      "type": "note",
+      "name": "Note (inline)",
+      "settings": [
+        { "type": "richtext", "id": "text", "label": "Note text" }
+      ]
+    },
+    {
+      "type": "callout",
+      "name": "Callout (dark box)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "richtext", "id": "text", "label": "Text" }
+      ]
+    },
+    {
+      "type": "rights",
+      "name": "Rights grid (5 slots)",
+      "settings": [
+        { "type": "text", "id": "label1", "label": "Right 1 label" },
+        { "type": "text", "id": "title1", "label": "Right 1 title" },
+        { "type": "textarea", "id": "text1", "label": "Right 1 text" },
+        { "type": "text", "id": "label2", "label": "Right 2 label" },
+        { "type": "text", "id": "title2", "label": "Right 2 title" },
+        { "type": "textarea", "id": "text2", "label": "Right 2 text" },
+        { "type": "text", "id": "label3", "label": "Right 3 label" },
+        { "type": "text", "id": "title3", "label": "Right 3 title" },
+        { "type": "textarea", "id": "text3", "label": "Right 3 text" },
+        { "type": "text", "id": "label4", "label": "Right 4 label" },
+        { "type": "text", "id": "title4", "label": "Right 4 title" },
+        { "type": "textarea", "id": "text4", "label": "Right 4 text" },
+        { "type": "text", "id": "label5", "label": "Right 5 label" },
+        { "type": "text", "id": "title5", "label": "Right 5 title" },
+        { "type": "textarea", "id": "text5", "label": "Right 5 text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Legal Content",
+      "blocks": [
+        { "type": "section" }
+      ]
+    }
+  ]
+}
+{% endschema %}

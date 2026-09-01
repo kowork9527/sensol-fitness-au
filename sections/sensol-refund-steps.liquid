@@ -1,0 +1,66 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-sec" id="refund-{{ section.id }}">
+  <div class="sc-refund-sec__inner">
+    <div class="sc-refund-sec__header">
+      <span class="sc-refund-sec__num">{{ section.settings.num }}</span>
+      <div class="sc-refund-sec__line"></div>
+    </div>
+    <h2 class="sc-refund-sec__title">{{ section.settings.title | newline_to_br }}</h2>
+    {%- if section.settings.lead != blank -%}
+      <p class="sc-refund-sec__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+    <div class="sc-refund-steps">
+      {%- for block in section.blocks -%}
+        <div class="sc-refund-step" {{ block.shopify_attributes }}>
+          <span class="sc-refund-step__num">{{ block.settings.num }}</span>
+          <h3 class="sc-refund-step__title">{{ block.settings.title }}</h3>
+          <p class="sc-refund-step__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Refund - Return Steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "num",
+      "label": "Section number",
+      "default": "04"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (line breaks preserved)",
+      "default": "How to Initiate\na Return"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Lead paragraph",
+      "default": "To start a return process, please follow these steps:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "num", "label": "Step label", "default": "Step 01" },
+        { "type": "text", "id": "title", "label": "Step title", "default": "Contact Support" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step text (HTML allowed: strong, em)",
+          "default": "Call +61 480 899 797 or email our support desk with your Shopify Order Number (e.g., #AU1001)."
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Refund - Return Steps" }]
+}
+{% endschema %}

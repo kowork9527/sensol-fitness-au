@@ -1,0 +1,54 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__opening">
+    {%- if section.settings.hero_image -%}
+      {{
+        section.settings.hero_image
+        | image_url: width: 2000
+        | image_tag:
+          class: 'sensol-about__opening-bg',
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '750, 990, 1200, 1500, 1800, 2000'
+      }}
+    {%- endif -%}
+
+    <div class="sensol-about__opening-inner">
+      {%- if section.settings.opening_label != blank -%}
+        <p class="sensol-about__opening-label">{{ section.settings.opening_label }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.opening_title != blank -%}
+        <h1 class="sensol-about__opening-title">{{ section.settings.opening_title }}</h1>
+      {%- endif -%}
+
+      <div class="sensol-about__opening-rule"></div>
+
+      {%- if section.settings.opening_subtitle != blank -%}
+        <p class="sensol-about__opening-subtitle">{{ section.settings.opening_subtitle }}</p>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Opening",
+  "tag": "section",
+  "class": "sensol-about-section-hero",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Opening background image" },
+    { "type": "text", "id": "opening_label", "label": "Eyebrow label", "default": "About SENSOl" },
+    { "type": "text", "id": "opening_title", "label": "Opening title", "default": "A New Language of Training" },
+    {
+      "type": "textarea",
+      "id": "opening_subtitle",
+      "label": "Opening subtitle",
+      "default": "Sensol Fitness is an Australian movement-equipment house. We design and build precision pilates reformers for people who take training seriously."
+    }
+  ],
+  "presets": [{ "name": "About — Opening" }]
+}
+{% endschema %}

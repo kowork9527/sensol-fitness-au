@@ -1,0 +1,90 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-sec" id="refund-{{ section.id }}">
+  <div class="sc-refund-sec__inner">
+    <div class="sc-refund-sec__header">
+      <span class="sc-refund-sec__num">{{ section.settings.num }}</span>
+      <div class="sc-refund-sec__line"></div>
+    </div>
+    <h2 class="sc-refund-sec__title">{{ section.settings.title | newline_to_br }}</h2>
+    {%- if section.settings.lead != blank -%}
+      <p class="sc-refund-sec__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+    <div class="sc-refund-timeline">
+      <div>
+        {%- for block in section.blocks -%}
+          <div class="sc-refund-timeline__item" {{ block.shopify_attributes }}>
+            <span class="sc-refund-timeline__item-tag">{{ block.settings.tag }}</span>
+            <div>
+              <h3 class="sc-refund-timeline__item-title">{{ block.settings.title }}</h3>
+              <p class="sc-refund-timeline__item-text">{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="sc-refund-timeline__proc">
+        <div class="sc-refund-timeline__proc-title">{{ section.settings.proc_title }}</div>
+        <div class="sc-refund-timeline__proc-steps">
+          {%- for i in (1..3) -%}
+            {%- capture k %}proc{{ i }}_num{% endcapture -%}
+            {%- capture kt %}proc{{ i }}_text{% endcapture -%}
+            <div class="sc-refund-timeline__proc-step">
+              <span class="sc-refund-timeline__proc-step-num">{{ section.settings[k] }}</span>
+              <span class="sc-refund-timeline__proc-step-text">{{ section.settings[kt] }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Refund - Processing Time",
+  "settings": [
+    {
+      "type": "text",
+      "id": "num",
+      "label": "Section number",
+      "default": "05"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (line breaks preserved)",
+      "default": "Refund Processing\nTime"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Lead paragraph",
+      "default": "Once your returned item is received at our Australian fulfillment center, the refund follows this process:"
+    },
+    { "type": "text", "id": "proc_title", "label": "Summary panel title", "default": "Processing Summary" },
+    { "type": "text", "id": "proc1_num", "label": "Summary item 1 label", "default": "01" },
+    { "type": "text", "id": "proc1_text", "label": "Summary item 1 text", "default": "3\u20135 Business Days \u2014 Inspection period at our fulfillment center" },
+    { "type": "text", "id": "proc2_num", "label": "Summary item 2 label", "default": "02" },
+    { "type": "text", "id": "proc2_text", "label": "Summary item 2 text", "default": "Immediate \u2014 Refund processed to original payment method upon approval" },
+    { "type": "text", "id": "proc3_num", "label": "Summary item 3 label", "default": "03" },
+    { "type": "text", "id": "proc3_text", "label": "Summary item 3 text", "default": "5\u201310 Business Days \u2014 Bank clearing time for credit to appear" }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_item",
+      "name": "Timeline step",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Step label", "default": "Step 1" },
+        { "type": "text", "id": "title", "label": "Step title", "default": "Safety & Quality Inspection" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step text (HTML allowed: strong, em)",
+          "default": "Returned items undergo a thorough safety and quality inspection by our technicians, usually within 3\u20135 business days of arrival."
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Refund - Processing Time" }]
+}
+{% endschema %}

@@ -1,0 +1,102 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-sec" style="background: #EDEAE5;" id="refund-{{ section.id }}">
+  <div class="sc-refund-sec__inner sc-refund-sec__bottom">
+    <div class="sc-refund-sec__header">
+      <span class="sc-refund-sec__num">{{ section.settings.num }}</span>
+      <div class="sc-refund-sec__line"></div>
+    </div>
+    <h2 class="sc-refund-sec__title">{{ section.settings.title | newline_to_br }}</h2>
+    {%- if section.settings.lead != blank -%}
+      <p class="sc-refund-sec__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+    <div class="sc-refund-conditions">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'condition' -%}
+          <div class="sc-refund-condition" {{ block.shopify_attributes }}>
+            <span class="sc-refund-condition__tag">{{ block.settings.tag }}</span>
+            <h3 class="sc-refund-condition__name">{{ block.settings.name }}</h3>
+            <p class="sc-refund-condition__text">{{ block.settings.text }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if section.blocks.size > 0 -%}
+    <div class="sc-refund-warning">
+      <div class="sc-refund-warning__label">{{ section.settings.warning_label }}</div>
+      <div class="sc-refund-warning__items">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'warning_item' -%}
+            <div class="sc-refund-warning__item" {{ block.shopify_attributes }}>
+              <span class="sc-refund-warning__item-tag">{{ block.settings.tag }}</span>
+              <p class="sc-refund-warning__item-text">{{ block.settings.text }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Refund - Change of Mind",
+  "settings": [
+    {
+      "type": "text",
+      "id": "num",
+      "label": "Section number",
+      "default": "02"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (line breaks preserved)",
+      "default": "Change of Mind\nReturns"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Lead paragraph",
+      "default": "We understand that your fitness needs may change. We offer a 30-day Change of Mind Return Policy, subject to the following strict conditions:"
+    },
+    {
+      "type": "text",
+      "id": "warning_label",
+      "label": "Warning box heading",
+      "default": "Important: Change of Mind Freight & Restocking Costs"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "condition",
+      "name": "Condition card",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Tag label", "default": "Timeframe" },
+        { "type": "text", "id": "name", "label": "Card title", "default": "30 Days from Delivery" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card text (HTML allowed: strong, em)",
+          "default": "You must notify our customer support team at +61 480 899 797 or via our official email within 30 days from the date your order was delivered."
+        }
+      ]
+    },
+    {
+      "type": "warning_item",
+      "name": "Warning item",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Item tag", "default": "Return Freight" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Item text (HTML allowed: strong, em)",
+          "default": "The buyer is entirely responsible for arranging and paying for the return shipping to our designated warehouse in Australia (e.g., Victoria/New South Wales partners)."
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Refund - Change of Mind" }]
+}
+{% endschema %}

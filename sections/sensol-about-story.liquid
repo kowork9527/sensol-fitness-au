@@ -1,0 +1,93 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section">
+    <div class="sensol-about__container">
+      <div class="sensol-about__grid">
+        <div class="sensol-about__grid-text">
+          {%- if section.settings.label != blank -%}
+            <p class="sensol-about__label">{{ section.settings.label }}</p>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.para1 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para1 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para2 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para2 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para3 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para3 }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.spec1_label != blank or section.settings.spec2_label != blank or section.settings.spec3_label != blank -%}
+            <div class="sensol-about__specs">
+              {%- if section.settings.spec1_label != blank -%}
+                <div>
+                  <span class="sensol-about__spec-value">{{ section.settings.spec1_value }}</span>
+                  <span class="sensol-about__spec-label">{{ section.settings.spec1_label }}</span>
+                </div>
+              {%- endif -%}
+              {%- if section.settings.spec2_label != blank -%}
+                <div>
+                  <span class="sensol-about__spec-value">{{ section.settings.spec2_value }}</span>
+                  <span class="sensol-about__spec-label">{{ section.settings.spec2_label }}</span>
+                </div>
+              {%- endif -%}
+              {%- if section.settings.spec3_label != blank -%}
+                <div>
+                  <span class="sensol-about__spec-value">{{ section.settings.spec3_value }}</span>
+                  <span class="sensol-about__spec-label">{{ section.settings.spec3_label }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="sensol-about__grid-img">
+          <div class="sensol-about__img-wrap">
+            {%- if section.settings.story_image -%}
+              {{
+                section.settings.story_image
+                | image_url: width: 1000
+                | image_tag:
+                  class: 'sensol-about__story-img',
+                  loading: 'lazy',
+                  sizes: '(min-width: 768px) 45vw, 100vw',
+                  widths: '400, 600, 750, 1000'
+              }}
+            {%- else -%}
+              <div class="sensol-about__img-placeholder"><span>SENSOl</span></div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Story",
+  "tag": "section",
+  "class": "sensol-about-section-story",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "01 / OUR STORY" },
+    { "type": "text", "id": "title", "label": "Title", "default": "From a single drawing to a product line." },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "Sensol began in 2021 with one question: what would a reformer look like if it were designed as an instrument rather than a machine?" },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2", "default": "The first RS01 was a single drawing, a wooden carriage and a borrowed workshop. It was tested by athletes, physiotherapists and pilates teachers for two years before it was allowed to carry a serial number." },
+    { "type": "textarea", "id": "para3", "label": "Paragraph 3", "default": "Today Sensol designs, engineers and builds every reformer in-house in Melbourne." },
+    { "type": "header", "content": "Stats row" },
+    { "type": "text", "id": "spec1_value", "label": "Stat 1 — value", "default": "2021" },
+    { "type": "text", "id": "spec1_label", "label": "Stat 1 — label", "default": "Founded in Melbourne" },
+    { "type": "text", "id": "spec2_value", "label": "Stat 2 — value", "default": "02" },
+    { "type": "text", "id": "spec2_label", "label": "Stat 2 — label", "default": "Years of prototype testing" },
+    { "type": "text", "id": "spec3_value", "label": "Stat 3 — value", "default": "100%" },
+    { "type": "text", "id": "spec3_label", "label": "Stat 3 — label", "default": "Engineered in-house" },
+    { "type": "image_picker", "id": "story_image", "label": "Story image" }
+  ],
+  "presets": [{ "name": "About — Story" }]
+}
+{% endschema %}
