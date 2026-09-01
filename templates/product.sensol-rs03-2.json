@@ -610,6 +610,27 @@
         "title": "Common questions.",
         "open_first": true
       }
+    },
+    "sensol_products_RLdYWY": {
+      "type": "sensol-products",
+      "name": "SENSOL Products",
+      "settings": {
+        "label": "2026 Selection",
+        "title": "Products",
+        "view_all_link": "shopify://collections/all",
+        "product1_vendor": "sensol fitness",
+        "product1_name": "Sensol RS02",
+        "product1_price": "$2,000",
+        "product1_url": "",
+        "product2_vendor": "sensol fitness",
+        "product2_name": "Sensol RS02 PRO",
+        "product2_price": "$2,400",
+        "product2_url": "",
+        "product3_vendor": "sensol fitness",
+        "product3_name": "Sensol FLEX AIR",
+        "product3_price": "$650",
+        "product3_url": ""
+      }
     }
   },
   "order": [
@@ -625,6 +646,7 @@
     "included",
     "roi",
     "1785994629c9c572e3",
-    "qa"
+    "qa",
+    "sensol_products_RLdYWY"
   ]
 }
