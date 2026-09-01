@@ -12,27 +12,104 @@
     "policy_hero": {
       "type": "sensol-policy-hero",
       "settings": {
-        "kicker": "Sensol \u2022 Coverage",
-        "title_1": "Warranty",
-        "title_2": "Policy",
-        "subtitle": "Every Sensol reformer is covered by a structural and component warranty. Register your machine, keep your proof of purchase, and we take care of the rest.",
-        "stat1_num": "2",
-        "stat1_label": "Years Structural",
-        "stat2_num": "1",
-        "stat2_label": "Year Components",
-        "stat3_num": "48h",
-        "stat3_label": "Claim Response",
+        "kicker": "Coverage & Care",
+        "subtitle": "Tiered protection for every Sensol system — frames, electronics, mechanical components and wear parts, backed by Australian Consumer Law.",
+        "stat1_label": "Frame Warranty",
+        "stat2_label": "Electronics Warranty",
+        "stat3_label": "Consumer Guarantees",
         "hide_legacy_heroes": true
       }
     },
-    "main": {
-      "type": "main-page",
+    "legal_content": {
+      "type": "sensol-legal-content",
+      "blocks": {
+        "b-1": {
+          "type": "text",
+          "settings": {
+            "num": "00",
+            "heading": "Overview",
+            "body": "<p>Welcome to Sensol (<strong>sensolfitness.com.au</strong>). We stand behind the professional engineering, durability, and commercial-grade quality of our smart fitness equipment. Our warranty policy is straightforward and designed to fully comply with the Australian Consumer Law (ACL) under the Competition and Consumer Act 2010.</p>\n      </div>"
+          }
+        },
+        "b-2": {
+          "type": "text",
+          "settings": {
+            "num": "01",
+            "heading": "Statutory Consumer Guarantees (ACL)",
+            "body": "<p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.</p>\n        <div class=\"sc-legal-callout\">\n          <p class=\"sc-legal-callout__label\">Important</p>\n          <p class=\"sc-legal-callout__text\">The commercial warranties outlined in Section 2 are <strong>in addition to</strong>, and do not limit or override, your statutory rights under the ACL.</p>\n        </div>\n      </div>"
+          }
+        },
+        "b-3": {
+          "type": "text",
+          "settings": {
+            "num": "02",
+            "heading": "Sensol Tiered Warranty Periods",
+            "body": "<p>We provide a voluntary Limited Commercial Warranty to the original purchaser for domestic, non-commercial home use, commencing from the official date of delivery recorded by our logistics partners:</p>\n      </div>\n      <div class=\"sc-warranty-tiers\">\n        <div class=\"sc-warranty-tier\">\n          <span class=\"sc-warranty-tier__name\">Structural Frame</span>\n          <span class=\"sc-warranty-tier__period\">5<span class=\"sc-warranty-tier__period-unit\">Years</span></span>\n          <p class=\"sc-warranty-tier__desc\">Covers structural <strong>steel welds, chassis integrity</strong>, and heavy-duty frame casting. Excludes cosmetic surface scratches or paint finish degradation.</p>\n        </div>\n        <div class=\"sc-warranty-tier\">\n          <span class=\"sc-warranty-tier__name\">Electric Motor &amp; Digital Resistance</span>\n          <span class=\"sc-warranty-tier__period\">2<span class=\"sc-warranty-tier__period-unit\">Years</span></span>\n          <p class=\"sc-warranty-tier__desc\">Covers the internal <strong>heavy-duty electric motor drive units</strong> and magnetic/digital resistance actuators.</p>\n        </div>\n        <div class=\"sc-warranty-tier\">\n          <span class=\"sc-warranty-tier__name\">Touchscreen Console &amp; Electronics</span>\n          <span class=\"sc-warranty-tier__period\">1<span class=\"sc-warranty-tier__period-unit\">Year</span></span>\n          <p class=\"sc-warranty-tier__desc\">Covers the electronic <strong>console, internal PCB mainboards</strong>, connection wiring, and advanced sensory components.</p>\n        </div>\n        <div class=\"sc-warranty-tier\">\n          <span class=\"sc-warranty-tier__name\">High-Wear Components</span>\n          <span class=\"sc-warranty-tier__period\">6<span class=\"sc-warranty-tier__period-unit\">Months</span></span>\n          <p class=\"sc-warranty-tier__desc\">Covers quick-wear accessories, including <strong>grips, resistance straps, pull cables</strong>, and soft-touch upholstery padding.</p>\n        </div>\n      </div>\n      <div class=\"sc-legal-note\">This warranty is strictly <strong>non-transferable</strong> and applies exclusively to the original buyer registered within our Shopify sales database.</div>"
+          }
+        },
+        "b-4": {
+          "type": "text",
+          "settings": {
+            "num": "03",
+            "heading": "Specific Warranty Exclusions",
+            "body": "<p>This commercial warranty strictly does not apply to any damage, malfunction, or failure resulting from:</p>\n      </div>\n      <ul class=\"sc-warranty-exclusions\">\n        <li>\n          <strong>Improper Self-Assembly</strong>\n          Failure to assemble, calibrate, or wire the unit in strict accordance with the official Sensol user manual.\n        </li>\n        <li>\n          <strong>Commercial Exploitation</strong>\n          Operation of domestic-grade equipment within commercial fitness studios, corporate gyms, cross-fit centers, or rehabilitation clinics.\n        </li>\n        <li>\n          <strong>Environmental &amp; Moisture Damage</strong>\n          Storing or operating the machinery in uninsulated garages, outdoor patios, or damp environments prone to humidity, causing rust, structural corrosion, or water ingress.\n        </li>\n        <li>\n          <strong>Electrical Grid Fluctuations</strong>\n          Terminal damage to PCB motherboards or digital motors caused by power grid surges, unstable voltage inputs, or failure to utilize an approved surge protector.\n        </li>\n      </ul>"
+          }
+        },
+        "b-5": {
+          "type": "text",
+          "settings": {
+            "num": "04",
+            "heading": "Heavy Freight Warranty &amp; Diagnostic Protocol",
+            "body": "<p>Because our smart fitness units consist of heavy and oversized equipment weighing between <strong>28kg and 52kg+</strong>, returning products for service incurs critical heavy-logistics overheads. To ensure speed of resolution and protect against unnecessary shipping, we enforce a strict multi-tier technical protocol:</p>\n      </div>\n      <div class=\"sc-warranty-steps\">\n        <div class=\"sc-warranty-step\">\n          <p class=\"sc-warranty-step__num\">Step 1</p>\n          <h3 class=\"sc-warranty-step__title\">Mandatory Remote Diagnostics</h3>\n          <p class=\"sc-warranty-step__text\">Before any hardware return is approved, you must contact our technical support desk via email or text message. You will be required to submit your official <strong>Shopify order number</strong> (e.g., #AU1001), a clear video clip, and high-resolution photos displaying the exact functional defect or the digital error code on the console screen.</p>\n        </div>\n        <div class=\"sc-warranty-step\">\n          <p class=\"sc-warranty-step__num\">Step 2</p>\n          <h3 class=\"sc-warranty-step__title\">Tiered Fault Resolution</h3>\n          <p class=\"sc-warranty-step__text\"><strong>Minor faults:</strong> If the defect is isolated to a modular part (detachable screen, external cable, friction strap), we will express-ship the replacement component free of charge with video installation guides. <strong>Major faults:</strong> If remote diagnostics prove a major structural or motor failure, we will issue a formal RMA and coordinate collection through our authorized heavy-freight networks.</p>\n        </div>\n        <div class=\"sc-warranty-step\">\n          <p class=\"sc-warranty-step__num\">Step 3</p>\n          <h3 class=\"sc-warranty-step__title\">Logistics &amp; Inspection</h3>\n          <p class=\"sc-warranty-step__text\">If our technicians confirm a valid manufacturing fault, <strong>Sensol absorbs 100% of all round-trip freight fees</strong>, labor, and parts. If no fault is found or the issue is caused by user misuse, the customer is liable for all freight and inspection costs.</p>\n        </div>\n      </div>"
+          }
+        },
+        "b-6": {
+          "type": "text",
+          "settings": {
+            "num": "05",
+            "heading": "Logistics &amp; Inspection Costs Allocation",
+            "body": "<div class=\"sc-legal-callout\">\n          <p class=\"sc-legal-callout__label\">Confirmed Manufacturing Fault (Covered under ACL)</p>\n          <p class=\"sc-legal-callout__text\">If our warehouse technicians confirm that the defect is a valid structural or electronic manufacturing issue, <strong>Sensol will absorb 100% of all round-trip heavy freight fees</strong>, workshop labor costs, and parts replacement fees.</p>\n        </div>\n        <div class=\"sc-warranty-warning\">\n          <p class=\"sc-warranty-warning__label\">No Fault Found / User Misuse Policy</p>\n          <p class=\"sc-warranty-warning__text\">If an oversized unit (28kg&ndash;52kg+) is collected and subsequently inspected, and our technicians determine that the fault was caused by <strong>user abuse, unauthorized modification, improper storage</strong>, or if no mechanical fault is detected, the customer will be legally held liable for the full round-trip heavy-freight expenses. This includes standard heavy freight shipping plus all mandatory hydraulic lift-gate (Tailgate) charges (ranging from <strong>$65 to $206+ AUD</strong> depending on location), alongside a flat <strong>$99 AUD</strong> workshop diagnostic inspection fee.</p>\n        </div>\n      </div>"
+          }
+        },
+        "b-7": {
+          "type": "text",
+          "settings": {
+            "num": "06",
+            "heading": "Local Support Infrastructure",
+            "body": "<p>For all warranty claims, parts requests, or operational troubleshooting, please reach out directly to our dedicated customer care desk via writing. To maintain a clear record of your warranty claim, <strong>we do not accept voice calls</strong>.</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Email</strong> <a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a> (or via our website contact form)</li>\n          <li><strong>WhatsApp / SMS</strong> <a href=\"tel:+61480899797\">+61 480 899 797</a> (Text Only)</li>\n        </ul>\n        <div class=\"sc-legal-note\" style=\"margin-top: 1.5rem;\">\n          <strong>Legal Compliance Notice:</strong> The Sensol commercial website, brand, and warranty provisions are operated and legally indemnified under <strong>DUTE FITNESS (AUSTRALIA) PTY. LTD.</strong>\n        </div>\n      </div>"
+          }
+        },
+        "b-8": {
+          "type": "callout",
+          "settings": {
+            "label": "Need to File a Claim?",
+            "text": "Contact our technical support desk with your order number and a description of the issue. We'll guide you through the diagnostic process."
+          }
+        }
+      },
+      "block_order": [
+        "b-1",
+        "b-2",
+        "b-3",
+        "b-4",
+        "b-5",
+        "b-6",
+        "b-7",
+        "b-8"
+      ],
       "settings": {
+        "sidebar_label": "Contents",
+        "fact1_num": "5 Years",
+        "fact1_label": "Max Coverage",
+        "fact2_num": "4 Tiers",
+        "fact2_label": "Warranty Periods",
+        "fact3_num": "ACL",
+        "fact3_label": "Compliant"
       }
     }
   },
   "order": [
     "policy_hero",
-    "main"
+    "legal_content"
   ]
 }
