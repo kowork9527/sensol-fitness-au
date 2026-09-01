@@ -1,0 +1,98 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section">
+    <div class="sensol-about__container">
+      {%- if section.settings.label != blank -%}
+        <p class="sensol-about__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="sensol-about__body" style="max-width: 700px; margin-bottom: 3rem;">{{ section.settings.intro }}</p>
+      {%- endif -%}
+
+      <div class="sensol-about__series">
+        {%- if section.settings.smart_label != blank -%}
+          <p class="sensol-about__series-label">{{ section.settings.smart_label }}</p>
+        {%- endif -%}
+        {%- if section.settings.smart_models != blank -%}
+          <p class="sensol-about__series-models">{{ section.settings.smart_models }}</p>
+        {%- endif -%}
+        {%- if section.settings.smart_desc != blank -%}
+          <p class="sensol-about__series-desc">{{ section.settings.smart_desc }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="sensol-about__series">
+        {%- if section.settings.flex_label != blank -%}
+          <p class="sensol-about__series-label">{{ section.settings.flex_label }}</p>
+        {%- endif -%}
+        {%- if section.settings.flex_models != blank -%}
+          <p class="sensol-about__series-models">{{ section.settings.flex_models }}</p>
+        {%- endif -%}
+        {%- if section.settings.flex_desc != blank -%}
+          <p class="sensol-about__series-desc">{{ section.settings.flex_desc }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.closing != blank -%}
+        <p class="sensol-about__body" style="max-width: 700px; margin-top: 2rem;">{{ section.settings.closing }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.line_image != blank -%}
+        <div style="margin-top: 4rem; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #EDEAE5;">
+          {{
+            section.settings.line_image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'sensol-about__line-img',
+              loading: 'lazy',
+              sizes: '100vw',
+              widths: '750, 990, 1200, 1600'
+          }}
+        </div>
+      {%- elsif section.settings.line_image_fallback != blank -%}
+        <div style="margin-top: 4rem; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #EDEAE5;">
+          <img src="{{ section.settings.line_image_fallback }}" class="sensol-about__line-img" style="width: 100%; height: 100%; object-fit: cover;" alt="" loading="lazy" />
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Product Line",
+  "tag": "section",
+  "class": "sensol-about-section-line",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "03 / PRODUCT LINE" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Two series. One design language." },
+    { "type": "textarea", "id": "intro", "label": "Intro paragraph", "default": "Every Sensol reformer shares the same frame geometry, the same running gear and the same standards of tolerance. What changes is the resistance system and the footprint." },
+    { "type": "header", "content": "Smart Series" },
+    { "type": "text", "id": "smart_label", "label": "Series label", "default": "SMART SERIES" },
+    { "type": "text", "id": "smart_models", "label": "Models", "default": "RS02 · RS02 PRO · RS03 PRO" },
+    {
+      "type": "textarea",
+      "id": "smart_desc",
+      "label": "Description",
+      "default": "Motorised digital resistance with 1 kg increments. Built for studios and home users who want measurable progress on every rep."
+    },
+    { "type": "header", "content": "Flex Series" },
+    { "type": "text", "id": "flex_label", "label": "Series label", "default": "FLEX SERIES" },
+    { "type": "text", "id": "flex_models", "label": "Models", "default": "FLEX · FLEX AIR · FLEX PRO" },
+    {
+      "type": "textarea",
+      "id": "flex_desc",
+      "label": "Description",
+      "default": "Spring-based reformers that fold upright in seconds. The same build quality, sized for apartments and small studios."
+    },
+    { "type": "textarea", "id": "closing", "label": "Closing paragraph", "default": "Both series are built on the same production line in Collingwood and ship with a full warranty." },
+    { "type": "image_picker", "id": "line_image", "label": "Product line image (16:9)" },
+    { "type": "text", "id": "line_image_fallback", "label": "Fallback image URL (auto)" },
+  ],
+  "presets": [{ "name": "About — Product Line" }]
+}
+{% endschema %}

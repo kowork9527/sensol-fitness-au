@@ -1,0 +1,66 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-sec" id="refund-{{ section.id }}">
+  <div class="sc-refund-sec__inner">
+    <div class="sc-refund-sec__header">
+      <span class="sc-refund-sec__num">{{ section.settings.num }}</span>
+      <div class="sc-refund-sec__line"></div>
+    </div>
+    <h2 class="sc-refund-sec__title">{{ section.settings.title | newline_to_br }}</h2>
+    {%- if section.settings.lead != blank -%}
+      <p class="sc-refund-sec__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+    <div class="sc-refund-guarantees">
+      {%- for block in section.blocks -%}
+        <div class="sc-refund-guarantee" {{ block.shopify_attributes }}>
+          <span class="sc-refund-guarantee__tag">{{ block.settings.tag }}</span>
+          <h3 class="sc-refund-guarantee__name">{{ block.settings.name }}</h3>
+          <p class="sc-refund-guarantee__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Refund - ACL Guarantees",
+  "settings": [
+    {
+      "type": "text",
+      "id": "num",
+      "label": "Section number",
+      "default": "01"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (line breaks preserved)",
+      "default": "Australian Consumer\nLaw Guarantees"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Lead paragraph",
+      "default": "Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guarantee",
+      "name": "Guarantee card",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Tag (A / B / C...)", "default": "A" },
+        { "type": "text", "id": "name", "label": "Card title", "default": "Major Failure" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card text (HTML allowed: strong, em)",
+          "default": "A major failure occurs when the product has a serious defect, is unsafe, or is substantially unfit for its intended purpose and cannot be easily fixed within a reasonable time. In this case, you can choose between a refund or a replacement."
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Refund - ACL Guarantees" }]
+}
+{% endschema %}

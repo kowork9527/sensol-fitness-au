@@ -3,10 +3,10 @@
     "policy_hero": {
       "type": "sensol-policy-hero",
       "settings": {
-        "kicker": "Sensol \u2022 Legal",
+        "kicker": "Sensol • Legal",
         "title_1": "Privacy",
         "title_2": "Policy",
-        "subtitle": "Last updated: July 31, 2026 \u2014 This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase using the Services.",
+        "subtitle": "Last updated: July 31, 2026 — This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase using the Services.",
         "stat1_num": "7",
         "stat1_label": "Data Categories",
         "stat2_num": "5",
@@ -16,14 +16,182 @@
         "hide_legacy_heroes": true
       }
     },
-    "main": {
-      "type": "main-page",
+    "legal_content": {
+      "type": "sensol-legal-content",
+      "blocks": {
+        "b-1": {
+          "type": "text",
+          "settings": {
+            "num": "00",
+            "heading": "Introduction",
+            "body": "<p>Sensol operates this store and website, including all related information, content, features, tools, products and services, in order to provide you with a curated shopping experience (the <strong>\"Services\"</strong>). Sensol is powered by Shopify, which enables us to provide the Services to you.</p>\n        <p>This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase or other transaction using the Services or otherwise communicate with us. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to the collection, processing, and disclosure of your personal information.</p>\n        <p>Please read this Privacy Policy carefully. By using and accessing any of the Services, you acknowledge that you have read and understand the collection, use, and disclosure of your information as described herein.</p>"
+          }
+        },
+        "b-2": {
+          "type": "text",
+          "settings": {
+            "num": "01",
+            "heading": "Personal Information We Collect",
+            "body": "<p>When we use the term \"personal information,\" we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified. We may collect or process the following categories of personal information:</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Contact details</strong> Your name, address, billing address, shipping address, phone number, and email address.</li>\n          <li><strong>Financial information</strong> Credit card, debit card, and financial account numbers, payment card information, transaction details, and other payment details.</li>\n          <li><strong>Account information</strong> Your username, password, security questions, preferences and settings.</li>\n          <li><strong>Transaction information</strong> Items you view, put in your cart, add to your wishlist, purchase, return, exchange or cancel, and your past transactions.</li>\n          <li><strong>Communications</strong> Information you include in communications with us, such as customer support inquiries.</li>\n          <li><strong>Device information</strong> Information about your device, browser, or network connection, your IP address, and other unique identifiers.</li>\n          <li><strong>Usage information</strong> Information regarding your interaction with the Services, including how and when you interact with or navigate the Services.</li>\n        </ul>"
+          }
+        },
+        "b-3": {
+          "type": "text",
+          "settings": {
+            "num": "02",
+            "heading": "Personal Information Sources",
+            "body": "<p>We may collect personal information from the following sources:</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Directly from you</strong> When you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information.</li>\n          <li><strong>Automatically</strong> From your device when you use our products or services or visit our websites, through cookies and similar technologies.</li>\n          <li><strong>Service providers</strong> When we engage them to enable certain technology and when they collect or process your personal information on our behalf.</li>\n          <li><strong>Partners</strong> From our partners or other third parties.</li>\n        </ul>"
+          }
+        },
+        "b-4": {
+          "type": "text",
+          "settings": {
+            "num": "03",
+            "heading": "How We Use Your Personal Information",
+            "body": "<p>Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Provide &amp; Improve</strong> To provide the Services, perform our contract with you, process payments, fulfill orders, remember your preferences, process purchases and returns, manage your account, arrange shipping, and create a customized shopping experience.</li>\n          <li><strong>Marketing &amp; Advertising</strong> To send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements based on your activity.</li>\n          <li><strong>Security &amp; Fraud</strong> To authenticate your account, provide a secure payment and shopping experience, detect and investigate fraudulent or malicious activity, and protect public safety.</li>\n          <li><strong>Communication</strong> To provide customer support, be responsive to you, provide effective services, and maintain our business relationship.</li>\n          <li><strong>Legal Reasons</strong> To comply with applicable law, respond to legal process, investigate litigation, and enforce our terms or policies.</li>\n        </ul>"
+          }
+        },
+        "b-5": {
+          "type": "text",
+          "settings": {
+            "num": "04",
+            "heading": "How We Disclose Personal Information",
+            "body": "<p>In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Service providers</strong> With Shopify, vendors and other third parties who perform services on our behalf (IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).</li>\n          <li><strong>Marketing partners</strong> With business and marketing partners to provide marketing services and advertise to you. We use Shopify to support personalized advertising based on your online activity.</li>\n          <li><strong>With your consent</strong> When you direct, request us or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through social media widgets.</li>\n          <li><strong>Affiliates &amp; legal</strong> With our affiliates, in connection with business transactions such as a merger or bankruptcy, to comply with legal obligations, enforce terms of service, and protect or defend the Services and our rights.</li>\n        </ul>"
+          }
+        },
+        "b-6": {
+          "type": "text",
+          "settings": {
+            "num": "05",
+            "heading": "Relationship with Shopify",
+            "body": "<p>The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside.</p>"
+          }
+        },
+        "b-7": {
+          "type": "callout",
+          "settings": {
+            "label": "Shopify's Role",
+            "text": "We use certain Shopify enhanced features that incorporate data obtained from your interactions with our Store. In these circumstances, <strong>Shopify is responsible for the processing of your personal information</strong>, including for responding to your requests to exercise your rights. Learn more at the <a href=\"https://www.shopify.com/legal/privacy/app-users\" target=\"_blank\" rel=\"noopener\" style=\"color:rgba(247,244,240,0.9);text-decoration:underline\">Shopify Consumer Privacy Policy</a> and exercise your rights at the <a href=\"https://privacy.shopify.com/en\" target=\"_blank\" rel=\"noopener\" style=\"color:rgba(247,244,240,0.9);text-decoration:underline\">Shopify Privacy Portal</a>."
+          }
+        },
+        "b-8": {
+          "type": "text",
+          "settings": {
+            "num": "06",
+            "heading": "Third-Party Websites and Links",
+            "body": "<p>The Services may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies. We do not guarantee and are not responsible for the privacy or security of such sites.</p>\n        <p>Information you provide on public or semi-public venues, including information you share on third-party social networking platforms, may be viewable by other users without limitation. Our inclusion of such links does not imply endorsement of the content on such platforms.</p>"
+          }
+        },
+        "b-9": {
+          "type": "text",
+          "settings": {
+            "num": "07",
+            "heading": "Children's Data",
+            "body": "<p>The Services are not intended for use by children, and we do not knowingly collect any personal information about children under the age of majority in your jurisdiction. If you are the parent or guardian of a child who has provided us with their personal information, you may contact us to request that it be deleted.</p>"
+          }
+        },
+        "b-10": {
+          "type": "note",
+          "settings": {
+            "text": "As of the Effective Date of this Privacy Policy, we do not have actual knowledge that we <strong>\"share\"</strong> or <strong>\"sell\"</strong> (as those terms are defined in applicable law) personal information of individuals under 16 years of age."
+          }
+        },
+        "b-11": {
+          "type": "text",
+          "settings": {
+            "num": "08",
+            "heading": "Security and Retention",
+            "body": "<p>Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee \"perfect security.\" Any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information.</p>\n        <p>How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, provide Services, comply with legal obligations, resolve disputes, or enforce applicable contracts and policies.</p>"
+          }
+        },
+        "b-12": {
+          "type": "text",
+          "settings": {
+            "num": "09",
+            "heading": "Your Rights and Choices",
+            "body": "<p>Depending on where you live, you may have some or all of the rights listed below. These rights are not absolute, may apply only in certain circumstances, and in certain cases we may decline your request as permitted by law.</p>"
+          }
+        },
+        "b-13": {
+          "type": "rights",
+          "settings": {
+            "label1": "Right 01",
+            "title1": "Right to Access / Know",
+            "text1": "You may request access to personal information that we hold about you."
+          }
+        },
+        "b-14": {
+          "type": "text",
+          "settings": {
+            "num": "10",
+            "heading": "Complaints",
+            "body": "<p>If you have complaints about how we process your personal information, please contact us using the details provided below. Depending on where you live, you may have the right to appeal our decision by contacting us, or lodge your complaint with your local data protection authority.</p>"
+          }
+        },
+        "b-15": {
+          "type": "text",
+          "settings": {
+            "num": "11",
+            "heading": "International Transfers",
+            "body": "<p>Please note that we may transfer, store and process your personal information outside the country you live in.</p>"
+          }
+        },
+        "b-16": {
+          "type": "note",
+          "settings": {
+            "text": "If we transfer your personal information out of the European Economic Area or the United Kingdom, we will rely on recognized transfer mechanisms like the <strong>European Commission's Standard Contractual Clauses</strong>, or any equivalent contracts issued by the relevant competent authority of the UK, unless the data transfer is to a country that has been determined to provide an adequate level of protection."
+          }
+        },
+        "b-17": {
+          "type": "text",
+          "settings": {
+            "num": "12",
+            "heading": "Changes to This Privacy Policy",
+            "body": "<p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the \"Last updated\" date, and provide notice as required by applicable law.</p>"
+          }
+        },
+        "b-18": {
+          "type": "text",
+          "settings": {
+            "num": "13",
+            "heading": "Contact",
+            "body": "<p>Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please contact us:</p>\n        <ul class=\"sc-legal-datalist\">\n          <li><strong>Phone</strong> <a href=\"tel:+61480899797\">+61 480 899 797</a></li>\n          <li><strong>Email</strong> <a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a></li>\n          <li><strong>Address</strong> Melaan Way, Clyde North VIC 3978, Australia</li>\n        </ul>"
+          }
+        }
+      },
       "settings": {
-      }
+        "sidebar_label": "Contents",
+        "fact1_num": "7",
+        "fact1_label": "Data Categories",
+        "fact2_num": "5",
+        "fact2_label": "Your Rights",
+        "fact3_num": "AU",
+        "fact3_label": "Jurisdiction"
+      },
+      "block_order": [
+        "b-1",
+        "b-2",
+        "b-3",
+        "b-4",
+        "b-5",
+        "b-6",
+        "b-7",
+        "b-8",
+        "b-9",
+        "b-10",
+        "b-11",
+        "b-12",
+        "b-13",
+        "b-14",
+        "b-15",
+        "b-16",
+        "b-17",
+        "b-18"
+      ]
     }
   },
   "order": [
     "policy_hero",
-    "main"
+    "legal_content"
   ]
 }

@@ -1,0 +1,83 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section">
+    <div class="sensol-about__container">
+      <div class="sensol-about__grid">
+        <div class="sensol-about__grid-text">
+          {%- if section.settings.label != blank -%}
+            <p class="sensol-about__label">{{ section.settings.label }}</p>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.para1 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para1 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para2 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para2 }}</p>
+          {%- endif -%}
+
+          <div class="sensol-about__pilates-audience">
+            {%- if section.settings.studio_label != blank -%}
+              <p class="sensol-about__audience-label">{{ section.settings.studio_label }}</p>
+            {%- endif -%}
+            {%- if section.settings.studio_text != blank -%}
+              <p class="sensol-about__audience-body">{{ section.settings.studio_text }}</p>
+            {%- endif -%}
+
+            {%- if section.settings.home_label != blank -%}
+              <p class="sensol-about__audience-label">{{ section.settings.home_label }}</p>
+            {%- endif -%}
+            {%- if section.settings.home_text != blank -%}
+              <p class="sensol-about__audience-body">{{ section.settings.home_text }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="sensol-about__grid-img">
+          <div class="sensol-about__img-wrap">
+            {%- if section.settings.image != blank -%}
+              {{
+                section.settings.image
+                | image_url: width: 1000
+                | image_tag:
+                  class: 'sensol-about__pilates-img',
+                  loading: 'lazy',
+                  sizes: '(min-width: 768px) 45vw, 100vw',
+                  widths: '400, 600, 750, 1000'
+              }}
+            {%- elsif section.settings.image_fallback != blank -%}
+    <img src="{{ section.settings.image_fallback }}" class="sensol-about__pilates-img" alt="" loading="lazy" />
+    {%- else -%}
+              <div class="sensol-about__img-placeholder"><span>FOR PILATES</span></div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Pilates",
+  "tag": "section",
+  "class": "sensol-about-section-pilates",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "06 / BUILT FOR PILATES" },
+    { "type": "text", "id": "title", "label": "Title", "default": "A machine designed around a method." },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "Pilates is not exercise equipment — it is a method of controlled movement. A reformer should disappear under the practitioner's attention." },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2", "default": "Every decision, from the carriage glide to the rope tension, is measured against that standard." },
+    { "type": "header", "content": "Audience blocks" },
+    { "type": "text", "id": "studio_label", "label": "Studio label", "default": "FOR STUDIO OWNERS" },
+    { "type": "textarea", "id": "studio_text", "label": "Studio text", "default": "Racks, dollies and service schedules built for eight-hour days." },
+    { "type": "text", "id": "home_label", "label": "Home label", "default": "FOR HOME PRACTITIONERS" },
+    { "type": "textarea", "id": "home_text", "label": "Home text", "default": "Folding frames and quiet drives for apartments and shared spaces." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL (auto)" },
+  ],
+  "presets": [{ "name": "About — Pilates" }]
+}
+{% endschema %}

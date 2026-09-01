@@ -1,0 +1,95 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section sensol-about__au">
+    <div class="sensol-about__container">
+      <div class="sensol-about__grid">
+        <div class="sensol-about__grid-text">
+          {%- if section.settings.label != blank -%}
+            <p class="sensol-about__label">{{ section.settings.label }}</p>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.para1 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para1 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para2 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para2 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para3 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para3 }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.commit1 != blank or section.settings.commit2 != blank or section.settings.commit3 != blank or section.settings.commit4 != blank -%}
+            <ul class="sensol-about__au-commitments">
+              {%- if section.settings.commit1 != blank -%}<li>{{ section.settings.commit1 }}</li>{%- endif -%}
+              {%- if section.settings.commit2 != blank -%}<li>{{ section.settings.commit2 }}</li>{%- endif -%}
+              {%- if section.settings.commit3 != blank -%}<li>{{ section.settings.commit3 }}</li>{%- endif -%}
+              {%- if section.settings.commit4 != blank -%}<li>{{ section.settings.commit4 }}</li>{%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.closing != blank -%}
+            <p class="sensol-about__body" style="margin-top: 2rem;">{{ section.settings.closing }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.cities != blank -%}
+            <div class="sensol-about__au-cities">
+              {%- assign city_list = section.settings.cities | split: ',' -%}
+              {%- for city in city_list -%}
+                <span class="sensol-about__au-city">{{ city | strip }}</span>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="sensol-about__grid-img">
+          <div class="sensol-about__img-wrap">
+            {%- if section.settings.image != blank -%}
+              {{
+                section.settings.image
+                | image_url: width: 1000
+                | image_tag:
+                  class: 'sensol-about__au-img',
+                  loading: 'lazy',
+                  sizes: '(min-width: 768px) 45vw, 100vw',
+                  widths: '400, 600, 750, 1000'
+              }}
+            {%- elsif section.settings.image_fallback != blank -%}
+    <img src="{{ section.settings.image_fallback }}" class="sensol-about__au-img" alt="" loading="lazy" />
+    {%- else -%}
+              <div class="sensol-about__img-placeholder"><span>MELBOURNE</span></div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Australia",
+  "tag": "section",
+  "class": "sensol-about-section-au",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "05 / BACK IN AUSTRALIA" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Home, again." },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "From 2026 Sensol operates from Collingwood, Melbourne. Design, engineering and assembly happen under one roof." },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2", "default": "The US chapter continues as a remote chapter — service partners on both coasts, spare parts stocked locally." },
+    { "type": "textarea", "id": "para3", "label": "Paragraph 3", "default": "Everything else returns to the workshop where it started." },
+    { "type": "header", "content": "Commitments list" },
+    { "type": "textarea", "id": "commit1", "label": "Commitment 1", "default": "— Every reformer assembled and inspected in Collingwood" },
+    { "type": "textarea", "id": "commit2", "label": "Commitment 2", "default": "— Spare parts stocked and shipped within 48 hours" },
+    { "type": "textarea", "id": "commit3", "label": "Commitment 3", "default": "— Full warranty and return rights under Australian law" },
+    { "type": "textarea", "id": "commit4", "label": "Commitment 4", "default": "— Service network across metro and regional Australia" },
+    { "type": "textarea", "id": "closing", "label": "Closing paragraph", "default": "Melbourne is the base, the road is still open." },
+    { "type": "text", "id": "cities", "label": "City chips (comma-separated)", "default": "MELBOURNE, SYDNEY, BRISBANE, ADELAIDE, PERTH" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL (auto)" },
+  ],
+  "presets": [{ "name": "About — Australia" }]
+}
+{% endschema %}

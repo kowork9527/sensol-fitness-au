@@ -1,0 +1,57 @@
+{{ 'sensol-refund.css' | asset_url | stylesheet_tag }}
+
+<section class="sc-refund-damaged" id="refund-{{ section.id }}">
+  <div class="sc-refund-damaged__inner">
+    <div class="sc-refund-sec__header" style="margin-bottom: 2rem;">
+      <span class="sc-refund-sec__num" style="color: #B5ADA4;">{{ section.settings.num }}</span>
+      <div class="sc-refund-sec__line" style="background: rgba(212,206,198,0.2);"></div>
+    </div>
+    <h2 class="sc-refund-sec__title" style="color: #F7F4F0; margin-bottom: 3rem;">{{ section.settings.title | newline_to_br }}</h2>
+    <div class="sc-refund-damaged__grid">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <span class="sc-refund-damaged__col-label">{{ block.settings.label }}</span>
+          <h3 class="sc-refund-damaged__col-title">{{ block.settings.title }}</h3>
+          <p class="sc-refund-damaged__col-text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Refund - Damaged/Faulty",
+  "settings": [
+    {
+      "type": "text",
+      "id": "num",
+      "label": "Section number",
+      "default": "03"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (line breaks preserved)",
+      "default": "Damaged, Faulty, or\nIncorrect Items"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "col",
+      "name": "Column",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Column label", "default": "Report Immediately" },
+        { "type": "text", "id": "title", "label": "Column title", "default": "Within 24 Hours" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Column text (HTML allowed: strong, em)",
+          "default": "Stop using the item immediately. Contact us within <strong>24 hours</strong> of delivery with clear photographs and video evidence detailing the issue, along with your original order invoice."
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Refund - Damaged/Faulty" }]
+}
+{% endschema %}

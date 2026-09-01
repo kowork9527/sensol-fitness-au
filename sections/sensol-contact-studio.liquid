@@ -1,0 +1,73 @@
+{{ 'sensol-contact.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-contact">
+  <section class="sc-visit">
+    <div class="sc-visit-inner">
+      <aside>
+        <p class="sc-section-num">{{ section.settings.num }}</p>
+        <p class="sc-section-tag"><strong>{{ section.settings.tag_main }}</strong> · {{ section.settings.tag_sub }}</p>
+      </aside>
+      <div class="sc-section-body">
+        <h2 class="sc-section-h">{{ section.settings.heading | newline_to_br }}</h2>
+        {%- if section.settings.intro != blank -%}
+          <p class="sc-section-p">{{ section.settings.intro | newline_to_br }}</p>
+        {%- endif -%}
+        <div class="sc-visit-card">
+          <div class="left">
+            <div class="head">— {{ section.settings.card_tag }} <strong>{{ section.settings.card_tag_strong }}</strong></div>
+            {%- for block in section.blocks -%}
+              <div class="row" {{ block.shopify_attributes }}>
+                <div class="k">{{ block.settings.key }}</div>
+                <div class="v">{{ block.settings.value | newline_to_br }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+          {%- if section.settings.desk_image != blank -%}
+            <div class="right" style="background-image: url('{{ section.settings.desk_image | image_url: width: 900 }}')"></div>
+          {%- else -%}
+            <div class="right" style="background-image: url('{{ 'contact-desk.jpg' | asset_url }}')"></div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Studio",
+  "settings": [
+    { "type": "text", "id": "num", "label": "Number", "default": "03" },
+    { "type": "text", "id": "tag_main", "label": "Tag (bold part)", "default": "VISIT THE STUDIO" },
+    { "type": "text", "id": "tag_sub", "label": "Tag (rest)", "default": "BY APPOINTMENT · COLLINGWOOD" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Machines you can <em>touch</em>." },
+    { "type": "textarea", "id": "intro", "label": "Intro paragraph", "default": "The studio is a working space, not a showroom. FLEX and RS line up along the wall, adjusted and re-adjusted daily. Come feel the difference between spring resistance and digital — it cannot be explained, only tried." },
+    { "type": "text", "id": "card_tag", "label": "Card tag (before bold)", "default": "SHOWROOM" },
+    { "type": "text", "id": "card_tag_strong", "label": "Card tag (bold part)", "default": "ADDRESS · HOURS · ACCESS" },
+    { "type": "image_picker", "id": "desk_image", "label": "Studio image" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Info row",
+      "settings": [
+        { "type": "text", "id": "key", "label": "Row label", "default": "STUDIO" },
+        { "type": "textarea", "id": "value", "label": "Row value (HTML allowed)", "default": "Studio 04, 35 Easey Street\nCollingwood VIC 3066" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Studio",
+      "blocks": [
+        { "type": "row", "settings": { "key": "STUDIO", "value": "Studio 04, 35 Easey Street\nCollingwood VIC 3066" } },
+        { "type": "row", "settings": { "key": "HOURS", "value": "Tue — Fri · 10:00 — 16:00\nSat · by appointment" } },
+        { "type": "row", "settings": { "key": "ACCESS", "value": "Ground floor · ramp entry\n<em>Service animals welcome</em>" } },
+        { "type": "row", "settings": { "key": "PARKING", "value": "Street · 1P on Easey\n<em>Cycle racks at door</em>" } },
+        { "type": "row", "settings": { "key": "TRANSIT", "value": "Collingwood Station · 6 min walk\nRoute 86 tram · Stop 17" } },
+        { "type": "row", "settings": { "key": "TO BRING", "value": "Grip socks · we provide the rest\n<em>First visit · allow 30 min</em>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

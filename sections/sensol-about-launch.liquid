@@ -1,0 +1,66 @@
+{{ 'sensol-about.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-about">
+  <section class="sensol-about__section" style="background: #EDEAE5;">
+    <div class="sensol-about__container">
+      <div class="sensol-about__grid sensol-about__grid--reverse">
+        <div class="sensol-about__grid-text">
+          {%- if section.settings.label != blank -%}
+            <p class="sensol-about__label">{{ section.settings.label }}</p>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 class="sensol-about__heading">{{ section.settings.title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.para1 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para1 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para2 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para2 }}</p>
+          {%- endif -%}
+          {%- if section.settings.para3 != blank -%}
+            <p class="sensol-about__body">{{ section.settings.para3 }}</p>
+          {%- endif -%}
+        </div>
+
+        <div class="sensol-about__grid-img">
+          <div class="sensol-about__img-wrap">
+            {%- if section.settings.launch_image != blank -%}
+              {{
+                section.settings.launch_image
+                | image_url: width: 1000
+                | image_tag:
+                  class: 'sensol-about__launch-img',
+                  loading: 'lazy',
+                  sizes: '(min-width: 768px) 45vw, 100vw',
+                  widths: '400, 600, 750, 1000'
+              }}
+            {%- elsif section.settings.launch_image_fallback != blank -%}
+    <img src="{{ section.settings.launch_image_fallback }}" class="sensol-about__launch-img" alt="" loading="lazy" />
+    {%- else -%}
+              <div class="sensol-about__img-placeholder"><span>SENSOl</span></div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "About — Launch",
+  "tag": "section",
+  "class": "sensol-about-section-launch",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "02 / PUBLIC LAUNCH" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Two years of silence, then a debut." },
+    { "type": "textarea", "id": "para1", "label": "Paragraph 1", "default": "In 2023 the RS02 made its public debut in a Collingwood studio. It had no launch event, no campaign — only practitioners who had used the prototypes and asked to keep them." },
+    { "type": "textarea", "id": "para2", "label": "Paragraph 2", "default": "The RS02 PRO and RS03 PRO followed, extending the same design language with motorised resistance and a taller frame for taller bodies." },
+    { "type": "textarea", "id": "para3", "label": "Paragraph 3", "default": "In 2025 the FLEX series brought the same engineering to folding, apartment-scale reformers." },
+    { "type": "image_picker", "id": "launch_image", "label": "Launch image" },
+    { "type": "text", "id": "launch_image_fallback", "label": "Fallback image URL (auto)" },
+  ],
+  "presets": [{ "name": "About — Launch" }]
+}
+{% endschema %}

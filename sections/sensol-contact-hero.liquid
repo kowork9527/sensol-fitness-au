@@ -1,0 +1,58 @@
+{{ 'sensol-contact.css' | asset_url | stylesheet_tag }}
+
+<div class="sensol-contact">
+  <section class="sc-hero">
+    {%- if section.settings.hero_image != blank -%}
+      <div class="sc-hero-img">{{ section.settings.hero_image | image_url: width: 2400 | image_tag: alt: 'SENSOL studio', loading: 'eager' }}</div>
+    {%- else -%}
+      <div class="sc-hero-img"><img src="{{ 'contact-hero.jpg' | asset_url }}" alt="SENSOL studio" loading="eager"></div>
+    {%- endif -%}
+    <div class="sc-hero-content">
+      <div>
+        <h1>{{ section.settings.title | newline_to_br }}</h1>
+      </div>
+      <div class="sc-hero-side">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sc-hero-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.sub != blank -%}
+          <p class="sc-hero-sub">{{ section.settings.sub | newline_to_br }}</p>
+        {%- endif -%}
+        <div class="sc-hero-meta">
+          <div>
+            <div class="label">{{ section.settings.meta1_label }}</div>
+            <div class="val">{{ section.settings.meta1_value }}</div>
+          </div>
+          <div>
+            <div class="label">{{ section.settings.meta2_label }}</div>
+            <div class="val">{{ section.settings.meta2_value }}</div>
+          </div>
+          <div>
+            <div class="label">{{ section.settings.meta3_label }}</div>
+            <div class="val">{{ section.settings.meta3_value }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Hero",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "— § 00 · PREFACE" },
+    { "type": "textarea", "id": "title", "label": "Title (HTML allowed, line breaks kept)", "default": "A line,\n<em>not a form,</em>\nis the shortest\npath between us." },
+    { "type": "textarea", "id": "sub", "label": "Subtitle", "default": "SENSOL is built quietly, piece by piece, in Melbourne. We answer our own emails — usually within one business day, often sooner." },
+    { "type": "header", "content": "Meta columns" },
+    { "type": "text", "id": "meta1_label", "label": "Meta 1 label", "default": "Reading time" },
+    { "type": "text", "id": "meta1_value", "label": "Meta 1 value", "default": "≈ 4 min" },
+    { "type": "text", "id": "meta2_label", "label": "Meta 2 label", "default": "SLA" },
+    { "type": "text", "id": "meta2_value", "label": "Meta 2 value", "default": "≤ 24 h" },
+    { "type": "text", "id": "meta3_label", "label": "Meta 3 label", "default": "Coverage" },
+    { "type": "text", "id": "meta3_value", "label": "Meta 3 value", "default": "Mon — Sat" }
+  ],
+  "presets": [{ "name": "Contact Hero" }]
+}
+{% endschema %}
