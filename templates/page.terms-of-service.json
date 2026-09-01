@@ -1,23 +1,29 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
+    "policy_hero": {
+      "type": "sensol-policy-hero",
+      "settings": {
+        "kicker": "Sensol \u2022 Legal",
+        "title_1": "Terms of",
+        "title_2": "Service",
+        "subtitle": "Last updated: August 2026 \u2014 The terms and conditions that describe your rights and responsibilities when using our Services. Please read carefully, as they include important information about warranty disclaimers and limitations of liability.",
+        "stat1_num": "25",
+        "stat1_label": "Sections",
+        "stat2_num": "AU",
+        "stat2_label": "Jurisdiction",
+        "stat3_num": "AU$",
+        "stat3_label": "All Transactions",
+        "hide_legacy_heroes": true
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
       }
     }
   },
   "order": [
+    "policy_hero",
     "main"
   ]
 }

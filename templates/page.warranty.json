@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "policy_hero": {
+      "type": "sensol-policy-hero",
+      "settings": {
+        "kicker": "Sensol \u2022 Coverage",
+        "title_1": "Warranty",
+        "title_2": "Policy",
+        "subtitle": "Every Sensol reformer is covered by a structural and component warranty. Register your machine, keep your proof of purchase, and we take care of the rest.",
+        "stat1_num": "2",
+        "stat1_label": "Years Structural",
+        "stat2_num": "1",
+        "stat2_label": "Year Components",
+        "stat3_num": "48h",
+        "stat3_label": "Claim Response",
+        "hide_legacy_heroes": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "policy_hero",
+    "main"
+  ]
+}
