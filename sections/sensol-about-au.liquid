@@ -57,7 +57,9 @@
                   sizes: '(min-width: 768px) 45vw, 100vw',
                   widths: '400, 600, 750, 1000'
               }}
-            {%- else -%}
+            {%- elsif section.settings.image_fallback != blank -%}
+    <img src="{{ section.settings.image_fallback }}" class="sensol-about__au-img" alt="" loading="lazy" />
+    {%- else -%}
               <div class="sensol-about__img-placeholder"><span>MELBOURNE</span></div>
             {%- endif -%}
           </div>
@@ -85,7 +87,8 @@
     { "type": "textarea", "id": "commit4", "label": "Commitment 4", "default": "— Service network across metro and regional Australia" },
     { "type": "textarea", "id": "closing", "label": "Closing paragraph", "default": "Melbourne is the base, the road is still open." },
     { "type": "text", "id": "cities", "label": "City chips (comma-separated)", "default": "MELBOURNE, SYDNEY, BRISBANE, ADELAIDE, PERTH" },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL (auto)" },
   ],
   "presets": [{ "name": "About — Australia" }]
 }

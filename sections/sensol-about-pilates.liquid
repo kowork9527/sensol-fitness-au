@@ -48,7 +48,9 @@
                   sizes: '(min-width: 768px) 45vw, 100vw',
                   widths: '400, 600, 750, 1000'
               }}
-            {%- else -%}
+            {%- elsif section.settings.image_fallback != blank -%}
+    <img src="{{ section.settings.image_fallback }}" class="sensol-about__pilates-img" alt="" loading="lazy" />
+    {%- else -%}
               <div class="sensol-about__img-placeholder"><span>FOR PILATES</span></div>
             {%- endif -%}
           </div>
@@ -73,7 +75,8 @@
     { "type": "textarea", "id": "studio_text", "label": "Studio text", "default": "Racks, dollies and service schedules built for eight-hour days." },
     { "type": "text", "id": "home_label", "label": "Home label", "default": "FOR HOME PRACTITIONERS" },
     { "type": "textarea", "id": "home_text", "label": "Home text", "default": "Folding frames and quiet drives for apartments and shared spaces." },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Fallback image URL (auto)" },
   ],
   "presets": [{ "name": "About — Pilates" }]
 }
