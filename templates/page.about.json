@@ -33,7 +33,8 @@
         "spec2_label": "PUBLIC DEBUT",
         "spec3_value": "FLEX",
         "spec3_label": "FOLDING LINE",
-        "story_image": "shopify://shop_images/jimeng-2026-08-03-4636_72e83309-0dc6-4d8e-8d20-1d97013d1c56.png"
+        "story_image": "shopify://shop_images/jimeng-2026-08-03-4636_72e83309-0dc6-4d8e-8d20-1d97013d1c56.png",
+        "story_image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_389_pro_3_a8844b6a-60f8-490b-99e7-dd54444230fd.jpg?v=1787621629&width=800"
       }
     },
     "launch": {
@@ -44,7 +45,8 @@
         "para1": "In 2023, the RS02 became the first SENSOl reformer available to the public. It shipped with a promise that still stands: every unit is assembled, calibrated and signed off in Collingwood.",
         "para2": "The RS03 PRO followed in 2024, extending the range with a wider frame for taller practitioners.",
         "para3": "In 2025, the FLEX series brought the same engineering to folding, apartment-scale reformers — for people who refuse to compromise on training, only on space.",
-        "launch_image": "shopify://shop_images/jimeng-2026-08-03-4622_2f5a683f-1fbd-4a5b-88f3-2b570a72226f.png"
+        "launch_image": "shopify://shop_images/jimeng-2026-08-03-4622_2f5a683f-1fbd-4a5b-88f3-2b570a72226f.png",
+        "launch_image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/from-concept-to-community-in-september-2023-sensol-launched-simultaneously-on-kickstarter-and-indiegogo-the-kickstarter-campaign-reached-533-of-its-funding-goal-drawing-supporters-fro.png?v=1787622186&width=800"
       }
     },
     "line": {
@@ -56,7 +58,8 @@
         "smart_desc": "Digital weight reformers with servo motors. Resistance from 1 to 90 kg, adjustable in 1 kg steps from the touchscreen or the app.",
         "flex_desc": "Spring-based reformers engineered to fold upright in seconds, with the same frame, the same glide, and a footprint that fits a city apartment.",
         "closing": "Every unit is assembled in Collingwood, tested for 72 hours, and shipped with a full warranty.",
-        "line_image": "shopify://shop_images/jimeng-2026-08-03-4646_00d76b56-0c6c-4081-a69b-7437cbf6848b.png"
+        "line_image": "shopify://shop_images/jimeng-2026-08-03-4646_00d76b56-0c6c-4081-a69b-7437cbf6848b.png",
+        "line_image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/kling_20260818_IMAGE_Create_a_p_4224_0.png?v=1787625474&width=1400"
       }
     },
     "us": {
@@ -83,7 +86,8 @@
         "commit4": "Service network across metro and regional Australia",
         "closing": "Sensol is a Melbourne company, and it always will be.",
         "cities": "MELBOURNE, SYDNEY, BRISBANE, ADELAIDE, PERTH",
-        "image": "shopify://shop_images/jimeng-2026-08-03-4626_05b3c9dc-5fd4-4959-98a7-08d31984139b.png"
+        "image": "shopify://shop_images/jimeng-2026-08-03-4626_05b3c9dc-5fd4-4959-98a7-08d31984139b.png",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/jimeng-2026-08-25.webp?v=1787627138&width=800"
       }
     },
     "pilates": {
@@ -94,7 +98,8 @@
         "para1": "Pilates is a practice of control. A reformer should be quiet enough to hear your breathing, and smooth enough to feel every transition.",
         "para2": "We obsess over the details practitioners never name, but always feel: rope tension, footbar height, carriage glide.",
         "studio_text": "Professional use, daily classes, zero downtime.",
-        "home_text": "Folding frames, quiet drives, apartment footprints."
+        "home_text": "Folding frames, quiet drives, apartment footprints.",
+        "image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/image.webp?v=1787638156&width=800"
       }
     },
     "commitment": {
