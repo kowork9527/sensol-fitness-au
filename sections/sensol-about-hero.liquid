@@ -2,7 +2,7 @@
 
 <div class="sensol-about">
   <section class="sensol-about__opening">
-    {%- if section.settings.hero_image -%}
+    {%- if section.settings.hero_image != blank -%}
       {{
         section.settings.hero_image
         | image_url: width: 2000

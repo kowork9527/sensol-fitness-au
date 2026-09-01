@@ -25,7 +25,7 @@
 
         <div class="sensol-about__grid-img">
           <div class="sensol-about__img-wrap">
-            {%- if section.settings.launch_image -%}
+            {%- if section.settings.launch_image != blank -%}
               {{
                 section.settings.launch_image
                 | image_url: width: 1000

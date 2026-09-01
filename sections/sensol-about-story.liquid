@@ -48,7 +48,7 @@
 
         <div class="sensol-about__grid-img">
           <div class="sensol-about__img-wrap">
-            {%- if section.settings.story_image -%}
+            {%- if section.settings.story_image != blank -%}
               {{
                 section.settings.story_image
                 | image_url: width: 1000

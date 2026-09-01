@@ -2,7 +2,7 @@
 
 <div class="sensol-contact">
   <section class="sc-hero">
-    {%- if section.settings.hero_image -%}
+    {%- if section.settings.hero_image != blank -%}
       <div class="sc-hero-img">{{ section.settings.hero_image | image_url: width: 2400 | image_tag: alt: 'SENSOL studio', loading: 'eager' }}</div>
     {%- else -%}
       <div class="sc-hero-img"><img src="{{ 'contact-hero.jpg' | asset_url }}" alt="SENSOL studio" loading="eager"></div>

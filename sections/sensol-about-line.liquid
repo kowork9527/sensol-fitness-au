@@ -41,7 +41,7 @@
         <p class="sensol-about__body" style="max-width: 700px; margin-top: 2rem;">{{ section.settings.closing }}</p>
       {%- endif -%}
 
-      {%- if section.settings.line_image -%}
+      {%- if section.settings.line_image != blank -%}
         <div style="margin-top: 4rem; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #EDEAE5;">
           {{
             section.settings.line_image

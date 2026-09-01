@@ -22,7 +22,7 @@
               </div>
             {%- endfor -%}
           </div>
-          {%- if section.settings.desk_image -%}
+          {%- if section.settings.desk_image != blank -%}
             <div class="right" style="background-image: url('{{ section.settings.desk_image | image_url: width: 900 }}')"></div>
           {%- else -%}
             <div class="right" style="background-image: url('{{ 'contact-desk.jpg' | asset_url }}')"></div>
