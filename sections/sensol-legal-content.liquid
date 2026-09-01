@@ -39,7 +39,7 @@
       <ul class="sc-legal-sidebar__nav">
         {%- assign toc_idx = 0 -%}
         {%- for block in section.blocks -%}
-          {%- if block.type == 'section' -%}
+          {%- if block.type == 'text' -%}
             {%- assign toc_idx = toc_idx | plus: 1 -%}
             <li><a href="#legal-sec-{{ toc_idx }}"><span class="sc-legal-sidebar__num">{{ block.settings.num }}</span>{{ block.settings.heading }}</a></li>
           {%- endif -%}
@@ -51,7 +51,7 @@
       {%- assign sec_idx = 0 -%}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'section' -%}
+          {%- when 'text' -%}
             {%- assign sec_idx = sec_idx | plus: 1 -%}
             <section class="sc-legal-sec" id="legal-sec-{{ sec_idx }}" {{ block.shopify_attributes }}>
               <div class="sc-legal-sec__head">
@@ -110,7 +110,7 @@
   ],
   "blocks": [
     {
-      "type": "section",
+      "type": "text",
       "name": "Section",
       "settings": [
         { "type": "text", "id": "num", "label": "Number (e.g. 01)" },
@@ -159,7 +159,7 @@
     {
       "name": "Legal Content",
       "blocks": [
-        { "type": "section" }
+        { "type": "text" }
       ]
     }
   ]
