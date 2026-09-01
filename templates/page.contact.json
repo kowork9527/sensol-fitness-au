@@ -1,8 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "sensol-contact-hero",
       "settings": {
+        "eyebrow": "— § 00 · PREFACE",
+        "title": "A line,\n<em>not a form,</em>\nis the shortest\npath between us.",
+        "sub": "SENSOL is built quietly, piece by piece, in Melbourne. We answer our own emails — usually within one business day, often sooner.",
+        "meta1_label": "Reading time",
+        "meta1_value": "≈ 4 min",
+        "meta2_label": "SLA",
+        "meta2_value": "≤ 24 h",
+        "meta3_label": "Coverage",
+        "meta3_value": "Mon — Sat"
       }
     },
     "direct": {
@@ -16,6 +34,7 @@
             "headline": "The slow,\nthorough line.",
             "link_text": "hello@sensol.com.au",
             "link_url": "mailto:hello@sensol.com.au",
+            "value_html": "",
             "meta": "Replies within 1 business day.\nThreading, attachments welcome."
           }
         },
@@ -27,6 +46,7 @@
             "headline": "The 18-minute\nconversation.",
             "link_text": "+61 3 9421 0000",
             "link_url": "tel:+61394210000",
+            "value_html": "",
             "meta": "Tue · Wed · Thu\n10:00 — 16:00 AEST"
           }
         },
@@ -43,11 +63,47 @@
           }
         }
       },
-      "block_order": ["col-a", "col-b", "col-c"]
+      "block_order": [
+        "col-a",
+        "col-b",
+        "col-c"
+      ],
+      "settings": {
+        "num": "01",
+        "tag_main": "DIRECT LINES",
+        "tag_sub": "PREFER EMAIL · MONO-FRI",
+        "heading": "Three ways to reach <em>one human</em>.",
+        "intro": "No ticket systems. No bots. The fastest reply is email, because we sit closer to it. Calls are returned between meetings. SMS is for studio bookings only."
+      }
     },
     "form": {
       "type": "sensol-contact-form",
       "settings": {
+        "num": "02",
+        "tag_main": "WRITE TO US",
+        "tag_sub": "LETTER FORMAT · REPLY ≤ 24 H",
+        "heading": "Send a letter. <em>Not a form.</em>",
+        "intro": "A short paragraph is enough. Tell us what you're moving through — equipment, training, a question, a doubt. We read every line.",
+        "success_text": "Thank you — your letter has been posted. We reply within one business day.",
+        "from_label": "From",
+        "from_value": "You, somewhere on Earth",
+        "to_label": "To",
+        "to_value": "SENSOL — Studio 04, Collingwood VIC 3066",
+        "greeting": "Dear SENSOL,",
+        "name_label": "Name",
+        "name_req": "REQUIRED",
+        "email_label": "Email",
+        "email_req": "REQUIRED",
+        "phone_label": "Phone",
+        "phone_req": "OPTIONAL",
+        "subject_label": "Subject",
+        "subject_placeholder": "— Select a topic",
+        "subject_options": "Equipment enquiry,Studio visit,Press / media,Other",
+        "message_label": "Message",
+        "message_req": "REQUIRED",
+        "message_placeholder": "Tell us, in your own time.",
+        "foot_meta": "— Posted via § 02 / 04\nSENSOL — Contact Dossier",
+        "button_text": "Post the letter"
       }
     },
     "studio": {
@@ -96,7 +152,24 @@
           }
         }
       },
-      "block_order": ["row-1", "row-2", "row-3", "row-4", "row-5", "row-6"]
+      "block_order": [
+        "row-1",
+        "row-2",
+        "row-3",
+        "row-4",
+        "row-5",
+        "row-6"
+      ],
+      "disabled": true,
+      "settings": {
+        "num": "03",
+        "tag_main": "VISIT THE STUDIO",
+        "tag_sub": "BY APPOINTMENT · COLLINGWOOD",
+        "heading": "Machines you can <em>touch</em>.",
+        "intro": "The studio is a working space, not a showroom. FLEX and RS line up along the wall, adjusted and re-adjusted daily. Come feel the difference between spring resistance and digital — it cannot be explained, only tried.",
+        "card_tag": "SHOWROOM",
+        "card_tag_strong": "ADDRESS · HOURS · ACCESS"
+      }
     },
     "imprint": {
       "type": "sensol-contact-imprint",
@@ -130,8 +203,25 @@
           }
         }
       },
-      "block_order": ["col-1", "col-2", "col-3", "col-4"]
+      "block_order": [
+        "col-1",
+        "col-2",
+        "col-3",
+        "col-4"
+      ],
+      "settings": {
+        "heading": "Legal, physical, postal.",
+        "foot_left": "SENSOL PTY LTD",
+        "foot_center": "ABN 42 081 337 956",
+        "foot_right": "EST. MELBOURNE, 2021"
+      }
     }
   },
-  "order": ["hero", "direct", "form", "studio", "imprint"]
+  "order": [
+    "hero",
+    "direct",
+    "form",
+    "studio",
+    "imprint"
+  ]
 }
