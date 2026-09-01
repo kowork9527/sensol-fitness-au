@@ -13,6 +13,7 @@
       "type": "sensol-about-hero",
       "settings": {
         "hero_image": "shopify://shop_images/jimeng-2026-08-03-4640_58fbdf09-bf61-48a4-a7ec-a87f8321f42e.png",
+        "hero_image_fallback": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/imgi_142_Frame_1085.webp?v=1785228867&width=2000",
         "opening_label": "",
         "opening_title": "",
         "opening_subtitle": "Precision. Craft. Obsession."
@@ -23,9 +24,9 @@
       "settings": {
         "label": "OUR STORY",
         "title": "Engineered in Melbourne, inspired by movement.",
-        "para1": "SENSOl was born in a Collingwood workshop in 2021, when a mechanical engineer and a pilates instructor decided that the reformer \u2014 the heart of the method \u2014 deserved better engineering.",
+        "para1": "SENSOl was born in a Collingwood workshop in 2021, when a mechanical engineer and a pilates instructor decided that the reformer — the heart of the method — deserved better engineering.",
         "para2": "We spent two years drawing, cutting, welding and testing before the first RS01 left the workshop. It went to a single studio, under one condition: tell us everything that breaks.",
-        "para3": "Nothing broke. But the feedback reshaped the RS02, the RS03 PRO and the FLEX series \u2014 each one quieter, tighter, and more honest than the last.",
+        "para3": "Nothing broke. But the feedback reshaped the RS02, the RS03 PRO and the FLEX series — each one quieter, tighter, and more honest than the last.",
         "spec1_value": "RS01",
         "spec1_label": "SOLO PROTOTYPE",
         "spec2_value": "RS02",
@@ -42,7 +43,7 @@
         "title": "From prototype to product line.",
         "para1": "In 2023, the RS02 became the first SENSOl reformer available to the public. It shipped with a promise that still stands: every unit is assembled, calibrated and signed off in Collingwood.",
         "para2": "The RS03 PRO followed in 2024, extending the range with a wider frame for taller practitioners.",
-        "para3": "In 2025, the FLEX series brought the same engineering to folding, apartment-scale reformers \u2014 for people who refuse to compromise on training, only on space.",
+        "para3": "In 2025, the FLEX series brought the same engineering to folding, apartment-scale reformers — for people who refuse to compromise on training, only on space.",
         "launch_image": "shopify://shop_images/jimeng-2026-08-03-4622_2f5a683f-1fbd-4a5b-88f3-2b570a72226f.png"
       }
     },
@@ -63,7 +64,7 @@
       "settings": {
         "label": "THREE YEARS IN THE US",
         "title": "Learning from the road.",
-        "para1": "Between 2022 and 2025, SENSOl shipped and serviced equipment across the United States \u2014 from studios in Brooklyn to home gyms in Los Angeles.",
+        "para1": "Between 2022 and 2025, SENSOl shipped and serviced equipment across the United States — from studios in Brooklyn to home gyms in Los Angeles.",
         "para2": "That chapter is now a remote one: service partners on both coasts, spare parts stocked locally, and the same standards we hold at home.",
         "para3": "The detour shaped the current range: quieter drives, easier fold mechanisms, and service routines a single person can complete."
       }
@@ -99,18 +100,27 @@
     "commitment": {
       "type": "sensol-about-commitment",
       "settings": {
-        "quote": "\u201cBuild equipment that earns its place in the room.\u201d",
+        "quote": "“Build equipment that earns its place in the room.”",
         "para1": "That is the whole brief. We build for people who train with intention, in rooms they care about, on equipment they intend to keep.",
         "para2": "If a part can be simpler, we simplify it. If a tolerance can be tighter, we tighten it. If a machine can be quieter, we quiet it.",
-        "distributor": "SENSOl FITNESS\u00ae\n12 Sackville St, Collingwood\nMelbourne VIC 3066",
+        "distributor": "SENSOl FITNESS®\n12 Sackville St, Collingwood\nMelbourne VIC 3066",
         "email": "info@sensolfitness.com.au",
         "extra_label": "SUPPORT",
         "extra": "support@sensolfitness.com.au",
-        "legal": "DUTE FITNESS (AUSTRALIA) PTY. LTD.\nPrivate corporation \u2022 Melaan Way, Clyde North, VIC 3978, Australia\n(+61) 480-899-797",
+        "legal": "DUTE FITNESS (AUSTRALIA) PTY. LTD.\nPrivate corporation • Melaan Way, Clyde North, VIC 3978, Australia\n(+61) 480-899-797",
         "instagram": "@sensolfitness",
         "youtube": "@sensolfitness"
       }
     }
   },
-  "order": ["opening", "story", "launch", "line", "us", "au", "pilates", "commitment"]
+  "order": [
+    "opening",
+    "story",
+    "launch",
+    "line",
+    "us",
+    "au",
+    "pilates",
+    "commitment"
+  ]
 }
