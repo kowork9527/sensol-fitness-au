@@ -1,15 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "policy_hero": {
       "type": "sensol-policy-hero",
       "settings": {
+        "hero_image": "shopify://shop_images/jimeng-2026-08-03-2978_632219c1-d5e0-4722-9ed3-ceda8e76531e.webp",
         "kicker": "Delivery & Returns",
         "title_1": "Shipping",
         "title_2": "Policy",
         "subtitle": "Everything you need to know about delivery, processing times, and returns for Sensol fitness equipment across Australia.",
         "stat1_num": "Free",
         "stat1_label": "Metro Delivery",
-        "stat2_num": "2\u20135",
+        "stat2_num": "2–5",
         "stat2_label": "Business Days",
         "stat3_num": "Insured",
         "stat3_label": "Every Shipment",
@@ -19,6 +29,8 @@
     "main": {
       "type": "main-page",
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
