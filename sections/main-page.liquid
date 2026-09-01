@@ -1,16 +1,45 @@
 {%- if page.handle == 'contact' -%}
-  {%- section 'sensol-contact' -%}
+  {%- comment -%}
+    Contact page: rendered by templates/page.contact.json (sensol-contact
+    section). Fallback for default-template rendering shows the rich-text
+    body instead of section tags (forbidden inside sections).
+  {%- endcomment -%}
+  {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    <h1 class="main-page-title page-title h0">{{ page.title | escape }}</h1>
+    <div class="rte">{{ page.content }}</div>
+  </div>
 {%- elsif page.handle == 'philosophy' -%}
   {%- render 'sensol-philosophy-page' -%}
 {%- elsif page.handle == 'shipping-policy' or page.handle contains 'shipping' -%}
-  {%- section 'sensol-shipping-hero' -%}
-  {%- section 'sensol-shipping-domestic' -%}
-  {%- section 'sensol-shipping-fees' -%}
-  {%- section 'sensol-shipping-requirements' -%}
-  {%- section 'sensol-shipping-dimensions' -%}
-  {%- section 'sensol-shipping-international' -%}
-  {%- section 'sensol-shipping-issues' -%}
-  {%- section 'sensol-shipping-returns' -%}
+  {%- comment -%}
+    Shipping page: hero + stats come from templates/page.shipping-policy.json
+    (sensol-policy-hero section). This branch only renders the rich-text body
+    below the hero. Section tags are forbidden inside sections
+    (Liquid error: Cannot render sections inside sections) - the old
+    8-section approach has been removed.
+  {%- endcomment -%}
+  {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    <div class="rte">
+      {{ page.content }}
+    </div>
+  </div>
 {%- elsif page.handle == 'refund-policy' or page.handle contains 'refund' or page.handle contains 'return' -%}
   {%- render 'sensol-refund-page' -%}
 {%- elsif page.handle == 'terms-of-service' or page.handle contains 'terms' -%}
@@ -21,14 +50,16 @@
   {%- render 'sensol-warranty-page' -%}
 {%- elsif page.handle == 'app' -%}
   {%- comment -%}
-    App page: driven by templates/page.app.json (section-based, editable in theme editor).
-    This branch is the fallback when the page uses the default template - renders
-    the same modular sections with their schema defaults.
+    App page: rendered by templates/page.app.json (sensol-app-* sections).
+    Fallback for default-template rendering shows the rich-text body.
+    Section tags are forbidden inside sections (Liquid error:
+    Cannot render sections inside sections).
   {%- endcomment -%}
-  {%- section 'sensol-app-hero' -%}
-  {%- section 'sensol-app-tour' -%}
-  {%- section 'sensol-app-features' -%}
-  {%- section 'sensol-app-download' -%}
+  {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    <h1 class="main-page-title page-title h0">{{ page.title | escape }}</h1>
+    <div class="rte">{{ page.content }}</div>
+  </div>
 {%- elsif page.handle == 'training-system' or page.handle contains 'training' -%}
   {%- render 'sensol-training-system-page' -%}
 {%- elsif page.handle == 'senzine' or page.handle contains 'senzine' -%}
