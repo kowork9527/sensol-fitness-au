@@ -3,7 +3,7 @@
  * IMPORTANT: The contents of this file are auto-generated.
  *
  * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
+ * or related systems. Please exercise caution when any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
@@ -26,16 +26,43 @@
         "hide_legacy_heroes": false
       }
     },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+    "domestic": {
+      "type": "sensol-shipping-domestic",
+      "settings": {}
+    },
+    "fees": {
+      "type": "sensol-shipping-fees",
+      "settings": {}
+    },
+    "international": {
+      "type": "sensol-shipping-international",
+      "settings": {}
+    },
+    "requirements": {
+      "type": "sensol-shipping-requirements",
+      "settings": {}
+    },
+    "issues": {
+      "type": "sensol-shipping-issues",
+      "settings": {}
+    },
+    "returns": {
+      "type": "sensol-shipping-returns",
+      "settings": {}
+    },
+    "dimensions": {
+      "type": "sensol-shipping-dimensions",
+      "settings": {}
     }
   },
   "order": [
     "policy_hero",
-    "main"
+    "domestic",
+    "fees",
+    "international",
+    "requirements",
+    "issues",
+    "returns",
+    "dimensions"
   ]
 }
