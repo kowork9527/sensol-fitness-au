@@ -12,16 +12,16 @@
     "policy_hero": {
       "type": "sensol-policy-hero",
       "settings": {
-        "kicker": "Sensol \u2022 Legal",
-        "title_1": "Terms of",
-        "title_2": "Service",
-        "subtitle": "Last updated: August 2026 \u2014 The terms and conditions that describe your rights and responsibilities when using our Services. Please read carefully, as they include important information about warranty disclaimers and limitations of liability.",
-        "stat1_num": "25",
-        "stat1_label": "Sections",
-        "stat2_num": "AU",
-        "stat2_label": "Jurisdiction",
-        "stat3_num": "AU$",
-        "stat3_label": "All Transactions",
+        "kicker": "Sensol \u2022 Coverage",
+        "title_1": "Warranty",
+        "title_2": "Policy",
+        "subtitle": "Every Sensol reformer is covered by a structural and component warranty. Register your machine, keep your proof of purchase, and we take care of the rest.",
+        "stat1_num": "2",
+        "stat1_label": "Years Structural",
+        "stat2_num": "1",
+        "stat2_label": "Year Components",
+        "stat3_num": "48h",
+        "stat3_label": "Claim Response",
         "hide_legacy_heroes": true
       }
     },

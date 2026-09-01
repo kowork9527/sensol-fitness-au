@@ -1,0 +1,219 @@
+{%- comment -%}
+  sensol-policy-hero: universal policy page hero with configurable background image.
+  Used by shipping / refund / privacy / terms page templates.
+  Optionally hides the legacy inline heroes that live inside page HTML content.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} .sp-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    background-color: #1A1816;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.55;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26, 24, 22, 0.62) 0%, rgba(26, 24, 22, 0.42) 45%, rgba(26, 24, 22, 0.88) 100%);
+  }
+  #shopify-section-{{ section.id }} .sp-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem 6rem;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #B5ADA4;
+    margin-bottom: 1.5rem;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__title {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 200;
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    color: #F7F4F0;
+    margin-bottom: 1.5rem;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__sub {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(247, 244, 240, 0.75);
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__stats {
+    display: flex;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__stat-num {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    color: #F7F4F0;
+    line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .sp-hero__stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8A8279;
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .sp-hero { min-height: 64vh; }
+    #shopify-section-{{ section.id }} .sp-hero__inner { padding: 0 1.5rem 3.5rem; }
+    #shopify-section-{{ section.id }} .sp-hero__stats { gap: 1.5rem; }
+  }
+  {%- if section.settings.hide_legacy_heroes %}
+  #shopify-section-{{ section.id }} ~ * .sc-refund-hero,
+  #shopify-section-{{ section.id }} ~ * .sc-legal-hero,
+  .sc-refund-hero,
+  .sc-legal-hero {
+    display: none !important;
+  }
+  {%- endif -%}
+</style>
+
+<section class="sp-hero">
+  {%- if section.settings.hero_image != blank -%}
+    <div class="sp-hero__bg" style="background-image: url('{{ section.settings.hero_image | image_url: width: 2000 }}');"></div>
+    <div class="sp-hero__overlay"></div>
+  {%- endif -%}
+  <div class="sp-hero__inner">
+    {%- if section.settings.kicker != blank -%}
+      <p class="sp-hero__kicker">{{ section.settings.kicker }}</p>
+    {%- endif -%}
+    {%- if section.settings.title_1 != blank -%}
+      <h1 class="sp-hero__title">
+        {{ section.settings.title_1 }}{% if section.settings.title_2 != blank %} <em style="font-style: italic;">{{ section.settings.title_2 }}</em>{% endif %}
+      </h1>
+    {%- endif -%}
+    {%- if section.settings.subtitle != blank -%}
+      <p class="sp-hero__sub">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+    {%- if section.settings.stat1_num != blank or section.settings.stat2_num != blank or section.settings.stat3_num != blank -%}
+      <div class="sp-hero__stats">
+        {%- if section.settings.stat1_num != blank -%}
+          <div class="sp-hero__stat">
+            <span class="sp-hero__stat-num">{{ section.settings.stat1_num }}</span>
+            <span class="sp-hero__stat-label">{{ section.settings.stat1_label }}</span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.stat2_num != blank -%}
+          <div class="sp-hero__stat">
+            <span class="sp-hero__stat-num">{{ section.settings.stat2_num }}</span>
+            <span class="sp-hero__stat-label">{{ section.settings.stat2_label }}</span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.stat3_num != blank -%}
+          <div class="sp-hero__stat">
+            <span class="sp-hero__stat-num">{{ section.settings.stat3_num }}</span>
+            <span class="sp-hero__stat-label">{{ section.settings.stat3_label }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Policy Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image",
+      "info": "Shown with a dark overlay; text stays readable. Leave empty for a plain dark background."
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker (small uppercase text)"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title line 1"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title line 2 (italic, optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "header",
+      "content": "Stats"
+    },
+    {
+      "type": "text",
+      "id": "stat1_num",
+      "label": "Stat 1 - number"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 - label"
+    },
+    {
+      "type": "text",
+      "id": "stat2_num",
+      "label": "Stat 2 - number"
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 - label"
+    },
+    {
+      "type": "text",
+      "id": "stat3_num",
+      "label": "Stat 3 - number"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 - label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_legacy_heroes",
+      "label": "Hide old inline hero in page content",
+      "info": "Removes the legacy hero block that is embedded in the page HTML content (sc-refund-hero / sc-legal-hero).",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy Hero"
+    }
+  ]
+}
+{% endschema %}

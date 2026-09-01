@@ -1,14 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "policy_hero": {
+      "type": "sensol-policy-hero",
+      "settings": {
+        "kicker": "Refund & Returns",
+        "title_1": "Refund",
+        "title_2": "Policy",
+        "subtitle": "Our Refund & Return Policy complies fully with the Australian Consumer Law. Due to the heavy and oversized nature of our fitness equipment, distinct conditions apply to returns.",
+        "stat1_num": "30",
+        "stat1_label": "Day Change of Mind",
+        "stat2_num": "24h",
+        "stat2_label": "Report Damage",
+        "stat3_num": "ACL",
+        "stat3_label": "Compliant",
+        "hide_legacy_heroes": true
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
       }
     }
   },
   "order": [
+    "policy_hero",
     "main"
   ]
 }
