@@ -32,8 +32,8 @@
             "tag": "A",
             "label": "— Email · preferred",
             "headline": "The slow,\nthorough line.",
-            "link_text": "hello@sensol.com.au",
-            "link_url": "mailto:hello@sensol.com.au",
+            "link_text": "support@sensolfitness.com.au",
+            "link_url": "mailto:support@sensolfitness.com.au",
             "value_html": "",
             "meta": "Replies within 1 business day.\nThreading, attachments welcome."
           }
@@ -44,8 +44,8 @@
             "tag": "B",
             "label": "— Voice · by appointment",
             "headline": "The 18-minute\nconversation.",
-            "link_text": "+61 3 9421 0000",
-            "link_url": "tel:+61394210000",
+            "link_text": "(+61) 480-899-797",
+            "link_url": "tel:+61480899797",
             "value_html": "",
             "meta": "Tue · Wed · Thu\n10:00 — 16:00 AEST"
           }
@@ -58,7 +58,7 @@
             "headline": "For the rest\nof machines.",
             "link_text": "",
             "link_url": "",
-            "value_html": "<a href=\"https://instagram.com/sensol\">Instagram</a><br>\n<a href=\"https://linkedin.com/company/sensol\">LinkedIn</a><br>\n<a href=\"https://wa.me/61394210000\">WhatsApp</a>",
+            "value_html": "<a href=\"https://instagram.com/sensol\">Instagram</a><br>\n<a href=\"https://linkedin.com/company/sensol\">LinkedIn</a><br>\n<a href=\"https://wa.me/61480899797\">WhatsApp</a>",
             "meta": "Replies slower here.\nEmail remains the front door."
           }
         }
@@ -199,7 +199,7 @@
           "type": "column",
           "settings": {
             "head": "DIGITAL",
-            "content": "<a href=\"mailto:hello@sensol.com.au\">hello@sensol.com.au</a>\n<a href=\"https://instagram.com/sensol\">@sensol</a>"
+            "content": "<a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a>\n<a href=\"https://instagram.com/sensol\">@sensol</a>"
           }
         }
       },
