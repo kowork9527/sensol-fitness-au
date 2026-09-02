@@ -24,9 +24,9 @@
   "name": "Contact Imprint",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Legal, physical, postal." },
-    { "type": "text", "id": "foot_left", "label": "Footer left", "default": "SENSOL PTY LTD" },
-    { "type": "text", "id": "foot_center", "label": "Footer center", "default": "ABN 42 081 337 956" },
-    { "type": "text", "id": "foot_right", "label": "Footer right", "default": "EST. MELBOURNE, 2021" }
+    { "type": "text", "id": "foot_left", "label": "Footer left" },
+    { "type": "text", "id": "foot_center", "label": "Footer center" },
+    { "type": "text", "id": "foot_right", "label": "Footer right" }
   ],
   "blocks": [
     {
@@ -34,7 +34,7 @@
       "name": "Imprint column",
       "settings": [
         { "type": "text", "id": "head", "label": "Column heading", "default": "ENTITY" },
-        { "type": "textarea", "id": "content", "label": "Column content (HTML allowed)", "default": "SENSOL Pty Ltd\nStudio 04, 35 Easey St\nCollingwood VIC 3066 AU" }
+        { "type": "textarea", "id": "content", "label": "Column content (HTML allowed)" }
       ]
     }
   ],
@@ -42,10 +42,7 @@
     {
       "name": "Contact Imprint",
       "blocks": [
-        { "type": "column", "settings": { "head": "ENTITY", "content": "SENSOL Pty Ltd\nStudio 04, 35 Easey St\nCollingwood VIC 3066 AU" } },
-        { "type": "column", "settings": { "head": "POSTAL", "content": "Reply Paid 4210\nCollingwood VIC 3066\nAustralia" } },
-        { "type": "column", "settings": { "head": "REGISTERED", "content": "ABN 42 081 337 956\nACN 081 337 956\n<a href=\"https://abr.business.gov.au/\">ABN lookup</a>" } },
-        { "type": "column", "settings": { "head": "DIGITAL", "content": "<a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a>\n<a href=\"https://instagram.com/sensol\">@sensol</a>" } }
+                                { "type": "column", "settings": { "head": "DIGITAL", "content": "<a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a>\n<a href=\"https://instagram.com/sensol\">@sensol</a>" } }
       ]
     }
   ]
