@@ -1,16 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "policy_hero": {
       "type": "sensol-policy-hero",
       "settings": {
         "kicker": "Coverage & Care",
-        "title": "Warranty Policy",
         "subtitle": "Tiered protection for every Sensol system — frames, electronics, mechanical components and wear parts, backed by Australian Consumer Law.",
-        "stat1_value": "5 Years",
         "stat1_label": "Frame Warranty",
-        "stat2_value": "3 Years",
         "stat2_label": "Electronics Warranty",
-        "stat3_value": "ACL",
         "stat3_label": "Consumer Guarantees",
         "hide_legacy_heroes": true
       }
@@ -82,15 +87,6 @@
           }
         }
       },
-      "settings": {
-        "sidebar_label": "Contents",
-        "fact1_num": "5 Years",
-        "fact1_label": "Max Coverage",
-        "fact2_num": "4 Tiers",
-        "fact2_label": "Warranty Periods",
-        "fact3_num": "ACL",
-        "fact3_label": "Compliant"
-      },
       "block_order": [
         "b-1",
         "b-2",
@@ -100,7 +96,16 @@
         "b-6",
         "b-7",
         "b-8"
-      ]
+      ],
+      "settings": {
+        "sidebar_label": "Contents",
+        "fact1_num": "5 Years",
+        "fact1_label": "Max Coverage",
+        "fact2_num": "4 Tiers",
+        "fact2_label": "Warranty Periods",
+        "fact3_num": "ACL",
+        "fact3_label": "Compliant"
+      }
     }
   },
   "order": [

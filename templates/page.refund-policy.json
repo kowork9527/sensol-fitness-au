@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "policy_hero": {
@@ -39,7 +48,8 @@
       "block_order": [
         "a",
         "b"
-      ]
+      ],
+      "settings": {}
     },
     "conditions": {
       "type": "sensol-refund-conditions",
@@ -114,7 +124,8 @@
         "w2",
         "w3",
         "w4"
-      ]
+      ],
+      "settings": {}
     },
     "damaged": {
       "type": "sensol-refund-damaged",
@@ -139,7 +150,8 @@
       "block_order": [
         "d1",
         "d2"
-      ]
+      ],
+      "settings": {}
     },
     "steps": {
       "type": "sensol-refund-steps",
@@ -182,7 +194,8 @@
         "s2",
         "s3",
         "s4"
-      ]
+      ],
+      "settings": {}
     },
     "timeline": {
       "type": "sensol-refund-timeline",
@@ -216,7 +229,8 @@
         "t1",
         "t2",
         "t3"
-      ]
+      ],
+      "settings": {}
     },
     "cta": {
       "type": "sensol-refund-cta",
