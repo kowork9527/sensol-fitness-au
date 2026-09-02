@@ -96,11 +96,39 @@
         "foot_meta": "— Posted via § 02 / 04\nSENSOL — Contact Dossier",
         "button_text": "Post the letter"
       }
+    },
+    "imprint": {
+      "type": "sensol-contact-imprint",
+      "blocks": {
+        "col-1": {
+          "type": "column",
+          "settings": {
+            "head": "ENTITY",
+            "content": "DUTE FITNESS (AUSTRALIA) PTY. LTD.\nMelaan Way, Clyde North VIC 3978\nAustralia"
+          }
+        },
+        "col-2": {
+          "type": "column",
+          "settings": {
+            "head": "DIGITAL",
+            "content": "<a href=\"mailto:support@sensolfitness.com.au\">support@sensolfitness.com.au</a>"
+          }
+        }
+      },
+      "block_order": [
+        "col-1",
+        "col-2"
+      ],
+      "settings": {
+        "foot_left": "SENSOL",
+        "foot_right": "MELBOURNE, AUSTRALIA"
+      }
     }
   },
   "order": [
     "hero",
     "direct",
-    "form"
+    "form",
+    "imprint"
   ]
 }
