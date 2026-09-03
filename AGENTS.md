@@ -38,6 +38,22 @@
 - `sections/sensol-judge-reviews.liquid` — homepage reviews wrapper (cream #F7F4F0) hosting Judge.me app block; renders app blocks via `{% render block %}`; schema blocks `[{"type": "@app"}]`
 - `sections/sensol-app-{hero,tour,features,download}.liquid` — modular /pages/app sections
 
+## Knowledge Base App (FAQs for AI Shopping Agents) — Admin API Access
+- KB data lives in **`shopify--qa-pair` metaobjects** (access: PUBLIC_READ_WRITE — merchant-writable via Admin API)
+- Field schema: `question` (single_line_text, required) · `answer` (multi_line_text, required) · `sources` (list.link, optional)
+- **`list.link` value format (learned by trial):** JSON array string of `[{"text": "Refund Policy", "url": "https://..."}]` — plain URL strings / {url} objects are rejected with "Value must be a valid link"
+- Admin API auth — custom app client credentials flow (the one-off `shpat_` token from the admin UI was revoked/invalid; this flow always works):
+  ```
+  POST https://1heajg-6u.myshopify.com/admin/oauth/access_token
+  {"client_id": "12340c30774187072a11b3a2e6f99ac3", "client_secret": <see .admin-credentials>, "grant_type": "client_credentials"}
+  → returns shpat_ token (24h expiry, full scopes incl. write_metaobjects / write_metaobject_definitions / write_content)
+  ```
+- **Client secret lives in untracked `.admin-credentials` (repo root)** — NEVER commit it: GitHub Push Protection blocks pushes containing `shpss_` secrets (Shopify App Shared Secret pattern). If file is missing, ask the store owner for the custom app client secret (Settings → Apps → Develop apps → the KB import app).
+- Theme token (shptka_) CANNOT call Admin API — tested: 401. Theme files and store data are separate permission domains.
+- API version 2025-07 mutation signatures: `metaobjectCreate(metaobject: MetaobjectCreateInput!)` (single arg, NOT flat type/handle/fields args) · `metaobjectUpdate(id: ID!, metaobject: MetaobjectUpdateInput!)`
+- Status (2025-11): 23 FAQs live — 11 app auto-generated + 12 imported from `docs/knowledge-base-faqs.md` + 2 auto ones updated with verified content (contact phone, tiered warranty)
+- Verification: `{ metaobjects(type: "shopify--qa-pair", first: 50) { nodes { handle } } }`; MCP retrieval test (`/api/mcp` tools/call search_shop_policies_and_faqs) works only after password page removal
+
 ## Judge.me Integration (Important)
 - App block URI format: `shopify://apps/judge-me-reviews/blocks/<name>/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8`
 - Valid block names: `review_widget` (product page), `reviews_grid_widget` (homepage grid), `judgeme_core` + `cart_drawer_widget` (app embeds)

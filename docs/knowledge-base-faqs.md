@@ -1,10 +1,15 @@
 # Shopify Knowledge Base — Sensol Fitness FAQ 内容集
 
+> **状态：已全部录入（2025-11）**
+> - 12 条新建（政策 7 + 产品 5 + 品牌 2 中的 12 条）+ 2 条更新（联系客服、保修）已通过 Admin API（`shopify--qa-pair` metaobjects）写入线上 Knowledge Base，共 23 条 FAQ 生效
+> - 第 3 条"Is shipping free?"跳过——App 已自动生成更详细的 "Do you offer free shipping?" 条目
+> - 第 4、6 条以更新方式覆盖了自动生成的模糊答案（分层保修、联系客服电话）
+> - 带 sources 的条目已附上政策页引用链接（Refund/Shipping/Warranty/Contact）
+>
 > 用途：录入 Shopify Admin → Apps → **Knowledge Base**（App Store 免费官方应用）。
 > 这些 FAQ 是 AI 购物助手（Storefront MCP 的 `search_shop_policies_and_faqs` 工具）的信任数据源，
 > 保证 AI 对话中关于 Sensol 的回答准确、符合品牌。
 >
-> 录入方式：Knowledge Base → **Add FAQ** → 粘贴 Question / Answer → Save。
 > 所有内容均来自店铺已上线的政策页与产品线事实，Answer 保持 1-2 句（App 规范）。
 
 ---

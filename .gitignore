@@ -115,3 +115,4 @@ tsconfig.json
 # Prevent accidental screenshot commits
 assets/image_2026*.png
 assets/screenshot*.png
+.admin-credentials
