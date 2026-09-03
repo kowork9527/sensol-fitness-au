@@ -204,6 +204,7 @@
       "block_order": [
         "judgeme_grid"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "What they say",
         "title": "Trained by design.",
