@@ -76,6 +76,13 @@
 - Then grep the downloaded HTML: check `action="/password"` count is 0 (real page), verify section markup, img attributes, and the section's `<style data-shopify>` rules actually match the elements.
 - Theme CSS conflict scan: download all linked `assets/*.css` and regex-scan rules whose selectors contain `img` with width/height/object-fit - confirm none apply to the section being changed.
 
+## Launch Check Audit (2025-11)
+- "Launch Check" is a Shopify first-party app (handle: `launch-check`); its report lives in Shopify internal systems — NOT readable via API. Audit store settings directly instead.
+- Audit endpoints: REST `policies.json` / `shipping_zones.json` / `shop.json`; GraphQL `appInstallations` (needs read_apps), `deliveryProfiles { profileLocationGroups { locationGroupZones } }`, `products { seo }`.
+- Fix mutations: `productUpdate` (descriptionHtml, seo {title,description} — works on ACTIVE and DRAFT), `deliveryProfileUpdate` has `zonesToDelete: [ID!]`.
+- Fixed in 2025-11: FLEX AIR empty product description (filled from store's own landing/specs content), International shipping zone with 27 countries and zero rates (deleted — store ships AU only per policies/FAQ), 3 draft products missing SEO titles/descriptions.
+- Store facts: all inventory sits in AU Warehouse (Brooklyn VIC); a second active location in Shajing Town Baoan CN holds zero stock (kept as-is, no online fulfillment impact).
+
 ## Deployment Rules (User Requirement - MANDATORY)
 - **Shopify changes take effect IMMEDIATELY. There is NO cache delay - never blame cache.** If a change does not show on the frontend after upload, it did NOT succeed. Debug in this strict order:
   1. Code problem (Liquid logic, template errors)
