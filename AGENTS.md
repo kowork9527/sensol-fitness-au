@@ -83,6 +83,14 @@
 - Fixed in 2025-11: FLEX AIR empty product description (filled from store's own landing/specs content), International shipping zone with 27 countries and zero rates (deleted — store ships AU only per policies/FAQ), 3 draft products missing SEO titles/descriptions.
 - Store facts: all inventory sits in AU Warehouse (Brooklyn VIC); a second active location in Shajing Town Baoan CN holds zero stock (kept as-is, no online fulfillment impact).
 
+## Launch Check PDF Report (2025-11, second round — user exported it)
+- User exported the official report as PDF (43 checks: 14 Ready / 6 Not ready / 17 Check manually / 5 Confirm set up / 1 Could not complete). When the user provides the PDF, it IS the authoritative checklist — fix what it names instead of re-auditing blindly.
+- Mutation signatures learned (2025-07): `shopPolicyUpdate(shopPolicy: {type: SHIPPING_POLICY, body})` — type value is `SHIPPING_POLICY`, NOT `SHIPPING`. `productUpdateMedia(productId: ID!, media: [{id, alt}])` — batch alt updates per product. `inventoryItemUpdate(id, input: {harmonizedSystemCode: "950691"})` — HS code lives on the inventoryItem, not variant. `productVariantsBulkUpdate` with `compareAtPrice: null` clears compare-at.
+- REST `shipping_zones.json` returns zones WITHOUT rates now (delivery-profiles era); read rates via GraphQL `deliveryProfiles → methodDefinitions → rateProvider{...on DeliveryRateDefinition{price}}`.
+- DRAFT products 404 on the live storefront — render-level verification impossible for drafts; verify at data level (mutation result) only.
+- Fixed in round 2: shipping policy `[contact email to be added]` placeholder → support@sensolfitness.com.au; NZ/International future-state paragraphs → one honest concise section; 56 product media alt texts (written via image recognition, en-AU tone, product-prefixed); RS02 PRO description embedded img alt (hotlinked from another store's CDN path 0551/3874/6533 — 200 OK); 3 draft products compareAt==price cleared; HS code 950691 set on all 21 inventory items; homepage meta description 290→148 chars via theme.liquid render override (Preferences meta description has no Admin API — theme-level `{% if page_description == ... %}` override + meta-tags.liquid og_description sync).
+- Shipping rates truth: Domestic Standard $11 / Standard (conditional) $0 / Express $15 — free shipping is conditional, so meta description copy avoids the claim... kept "Free Shipping" out of the concise version.
+
 ## Deployment Rules (User Requirement - MANDATORY)
 - **Shopify changes take effect IMMEDIATELY. There is NO cache delay - never blame cache.** If a change does not show on the frontend after upload, it did NOT succeed. Debug in this strict order:
   1. Code problem (Liquid logic, template errors)
