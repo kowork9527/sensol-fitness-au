@@ -22,13 +22,21 @@
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless page_title contains 'Sensol' %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
+    {%- liquid
+    assign seo_description = page_description
+    if template.name == 'article' and article.metafields.global.description != blank
+      assign seo_description = article.metafields.global.description
+    elsif template.name == 'blog' and blog.metafields.global.description != blank
+      assign seo_description = blog.metafields.global.description
+    endif
+  -%}
     {%- if request.page_type == 'index' -%}
       <meta name="description" content="Sensol Fitness premium Pilates reformers for home workouts — Smart Series digital weight and FLEX spring models. Ships across Australia.">
-    {%- elsif page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
+    {%- elsif seo_description -%}
+      <meta name="description" content="{{ seo_description | escape }}">
     {%- endif -%}
 
     {% render 'meta-tags' %}

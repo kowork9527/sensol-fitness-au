@@ -17,6 +17,27 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": {{ blog.title | json }},
+  "url": {{ shop.url | append: blog.url | json }},
+  "description": {{ blog.metafields.global.description.value | default: blog.title | json }},
+  "publisher": { "@type": "Organization", "name": "Sensol", "url": {{ shop.url | json }} }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop.url | json }} },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": {{ shop.url | append: "/blogs" | json }} },
+    { "@type": "ListItem", "position": 3, "name": {{ blog.title | json }}, "item": {{ shop.url | append: blog.url | json }} }
+  ]
+}
+</script>
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
