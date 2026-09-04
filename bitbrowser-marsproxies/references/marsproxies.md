@@ -14,6 +14,7 @@
 - 标准格式：`host:port:user:pass`，datacenter 默认端口 `44444`
 - **协议是订单级开关**：Dashboard → 对应订单 → Details → **Select port** → 选 HTTP/HTTPS 或 SOCKS5。切换后 Product Info 列表自动更新，**端口号可能变化**，必须以最新为准
 - 同一时刻一个订单只讲一种协议（不是同端口双协议）
+- **协议级实证方法（2025-11 实战）**：用裸 socket 对 44444 逐个发两种握手——HTTP `CONNECT ip-api.com:80` + SOCKS5 greeting `\x05\x02\x00\x02`。结果 5/5 IP：HTTP 返回 `200 Connection Established`，SOCKS5 **超时**（不是拒绝）。超时=HTTP 服务器把 SOCKS5 字节当残缺 HTTP 请求死等 `\r\n\r\n`。不要用 curl 下结论——沙箱出口的 DPI 会污染 SOCKS5 测试结果，裸 socket 双协议对照才是干净的
 - 重置凭证（Reset credentials）每小时只能一次
 - 验证代理可用：`curl -x http://user:pass@host:port http://ip-api.com/json/`
 
