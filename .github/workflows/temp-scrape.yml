@@ -1,18 +1,25 @@
 name: temp-scrape
 on:
-  workflow_dispatch:
-    inputs:
-      target_url:
-        required: true
+  push:
+    branches: [main]
+    paths: ['scraper-target.txt']
+permissions:
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch URL
-        run: curl -sL --max-time 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "${{ github.event.inputs.target_url }}" -o result.json -w "HTTP:%{http_code} SIZE:%{size_download}B"
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: result
-          path: result.json
-          retention-days: 1
+      - uses: actions/checkout@v4
+      - name: Fetch
+        run: |
+          URL=$(cat scraper-target.txt | tr -d '[:space:]')
+          curl -sL --max-time 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "$URL" -o result.json -w "HTTP:%{http_code} SIZE:%{size_download}B"
+      - name: Save result
+        run: |
+          git config user.name "scrape-bot"
+          git config user.email "bot@users.noreply.github.com"
+          mkdir -p scrape-output
+          cp result.json scrape-output/result.json
+          git add scrape-output/result.json
+          git commit -m "scrape result" || echo "no change"
+          git push
