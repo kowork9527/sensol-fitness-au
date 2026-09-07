@@ -49,6 +49,10 @@
   .sp-video__slide.is-active {
     pointer-events: auto;
   }
+  .sp-video.is-snapping .sp-video__track,
+  .sp-video.is-snapping .sp-video__slide {
+    transition: none !important;
+  }
   .sp-video__frame {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -255,47 +259,92 @@
     if (!root) return;
     var track = root.querySelector('[data-track]');
     var viewport = root.querySelector('[data-viewport]');
-    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-slide]'));
+    var realSlides = Array.prototype.slice.call(root.querySelectorAll('[data-slide]'));
     var dots = Array.prototype.slice.call(root.querySelectorAll('[data-dot]'));
     var prevBtn = root.querySelector('[data-prev]');
     var nextBtn = root.querySelector('[data-next]');
-    if (!track || slides.length === 0) return;
-    var current = 0;
-    var N = slides.length;
+    if (!track || realSlides.length === 0) return;
+    var N = realSlides.length;
     var single = N === 1;
+    var slides = realSlides;
+    var current = single ? 0 : 2;
+
+    if (!single) {
+      var cLast = realSlides[N - 1].cloneNode(true);
+      var cPrev = realSlides[N - 2].cloneNode(true);
+      track.insertBefore(cLast, realSlides[0]);
+      track.insertBefore(cPrev, cLast);
+      var cFirst = realSlides[0].cloneNode(true);
+      var cSecond = realSlides[1].cloneNode(true);
+      track.appendChild(cFirst);
+      track.appendChild(cSecond);
+      slides = Array.prototype.slice.call(track.querySelectorAll('[data-slide]'));
+    }
 
     function slideWidth() {
-      return slides[0].getBoundingClientRect().width;
+      return slides[0].offsetWidth;
+    }
+
+    function logicalIndex() {
+      return ((current - 2) % N + N) % N;
     }
 
     function render() {
       var S = slideWidth();
       var W = viewport.clientWidth;
       track.style.transform = 'translateX(' + (W / 2 - S / 2 - current * S) + 'px)';
-      for (var i = 0; i < N; i++) {
-        var d = i - current;
+      for (var j = 0; j < slides.length; j++) {
+        var d = j - current;
         var ad = Math.abs(d);
-        var sc = Math.max(1 - 0.2 * ad, 0);
+        var sc = Math.max(1 - 0.2 * ad, 0.4);
         var op = Math.max(1 - 0.5 * ad, 0);
-        slides[i].style.transform = 'scale(' + sc.toFixed(3) + ')';
-        slides[i].style.opacity = op.toFixed(3);
-        slides[i].style.zIndex = String(10 - ad);
-        slides[i].classList.toggle('is-active', i === current);
-        if (dots[i]) dots[i].classList.toggle('is-active', i === current);
+        slides[j].style.transform = 'scale(' + sc.toFixed(3) + ')';
+        slides[j].style.opacity = op.toFixed(3);
+        slides[j].style.zIndex = String(10 - ad);
+        slides[j].classList.toggle('is-active', j === current);
       }
-      if (prevBtn) prevBtn.disabled = single || current === 0;
-      if (nextBtn) nextBtn.disabled = single || current === N - 1;
+      var k = single ? 0 : logicalIndex();
+      for (var i = 0; i < dots.length; i++) {
+        if (dots[i]) dots[i].classList.toggle('is-active', i === k);
+      }
     }
 
-    function go(i) {
-      current = Math.max(0, Math.min(N - 1, i));
+    function go(delta) {
+      if (single) return;
+      current = current + delta;
+      while (current > N + 3) current -= N;
+      while (current < 0) current += N;
       render();
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { go(current + 1); });
+    function goTo(k) {
+      if (single) return;
+      var best = k + 2;
+      var bd = Math.abs(k + 2 - current);
+      var c;
+      c = k + 2 - N;
+      if (c >= 0 && Math.abs(c - current) < bd) { best = c; bd = Math.abs(c - current); }
+      c = k + 2 + N;
+      if (c <= N + 3 && Math.abs(c - current) < bd) { best = c; bd = Math.abs(c - current); }
+      current = best;
+      render();
+    }
+
+    track.addEventListener('transitionend', function (e) {
+      if (single || e.target !== track || e.propertyName !== 'transform') return;
+      if (current < 2 || current > N + 1) {
+        current = logicalIndex() + 2;
+        root.classList.add('is-snapping');
+        render();
+        void root.offsetHeight;
+        root.classList.remove('is-snapping');
+      }
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); });
     dots.forEach(function (dt, i) {
-      dt.addEventListener('click', function () { go(i); });
+      dt.addEventListener('click', function () { goTo(i); });
     });
     window.addEventListener('resize', render);
 
