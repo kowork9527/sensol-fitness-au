@@ -224,34 +224,37 @@
         "card_1": {
           "type": "video_card",
           "settings": {
-            "title": "Full Showcase",
-            "meta": "0:21",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/67c7ce4cbe7948afbfd16b0d7ead1f02.mp4",
-            "poster_image": "shopify://shop_images/mq2_1.webp"
+            "poster_asset": "sp-video-poster-1.jpg",
+            "title": "Full Showcase",
+            "text": "A complete tour of the RS03 — from setup and digital weight adjustments to every movement in between."
           }
         },
         "card_2": {
           "type": "video_card",
           "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4",
+            "poster_asset": "sp-video-poster-2.jpg",
             "title": "Arm Range Demo",
-            "meta": "0:15",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/bbbfc0306c24423bb3a06786311e6354.mp4"
+            "text": "Adjustable arm range demonstrated live on the machine, from compact rows to full extension."
           }
         },
         "card_3": {
           "type": "video_card",
           "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4",
+            "poster_asset": "sp-video-poster-3.jpg",
             "title": "Pilates Flow",
-            "meta": "0:18",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/caf3cdb083aa484daf3c10ff4c17562d.mp4"
+            "text": "A flowing reformer sequence — smooth transitions, controlled breathing, resistance guided to the kilogram."
           }
         },
         "card_4": {
           "type": "video_card",
           "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4",
+            "poster_asset": "sp-video-poster-4.jpg",
             "title": "Strength Training",
-            "meta": "0:22",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/4ce569c65261473fbe00be2a7ebb2fa7.mp4"
+            "text": "Strength work with constant digital tension — slow control, precise load, no springs to swap."
           }
         }
       },
@@ -262,8 +265,7 @@
         "card_4"
       ],
       "settings": {
-        "eyebrow": "See It Move",
-        "title": "Precision in motion."
+        "title": "Sample Our Expert-Led Pilates Workouts"
       }
     },
     "specs": {

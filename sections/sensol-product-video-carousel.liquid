@@ -1,5 +1,4 @@
 {%- liquid
-  assign s = section.settings
   assign has_video = false
   for block in section.blocks
     if block.settings.video != blank or block.settings.video_url != blank
@@ -9,103 +8,314 @@
 -%}
 {%- if has_video -%}
 <style>
-#shopify-section-{{ section.id }} .sp-video{font-family:'Inter',sans-serif;background:#1A1816;color:#F7F4F0;padding:120px 0;overflow:hidden}
-#shopify-section-{{ section.id }} .sp-video__header{max-width:800px;margin:0 auto 60px;padding:0 40px;text-align:center}
-#shopify-section-{{ section.id }} .sp-video__eyebrow{font-size:11px;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:#B5ADA4;margin-bottom:24px}
-#shopify-section-{{ section.id }} .sp-video__title{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:0.04em;max-width:640px;margin:0 auto;line-height:1.2;color:#F7F4F0!important}
-#shopify-section-{{ section.id }} .sp-video__grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:28px;max-width:1280px;margin:0 auto;padding:0 40px}
-#shopify-section-{{ section.id }} .sp-video__card{flex:1 1 360px;max-width:520px;min-width:0}
-#shopify-section-{{ section.id }} .sp-video__frame{aspect-ratio:16/9;background:#2A2826;border-radius:4px;overflow:hidden;position:relative;cursor:pointer}
-#shopify-section-{{ section.id }} .sp-video__frame video{width:100%;height:100%;object-fit:cover;display:block}
-#shopify-section-{{ section.id }} .sp-video__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);transition:background 0.4s cubic-bezier(0.25,0.1,0.25,1);border:none;padding:0;width:100%;cursor:pointer}
-#shopify-section-{{ section.id }} .sp-video__overlay:hover{background:rgba(0,0,0,0.15)}
-#shopify-section-{{ section.id }} .sp-video__overlay.is-hidden{display:none}
-#shopify-section-{{ section.id }} .sp-video__play{width:56px;height:56px;border:2px solid rgba(255,255,255,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 0.3s cubic-bezier(0.25,0.1,0.25,1);background:rgba(0,0,0,0.2)}
-#shopify-section-{{ section.id }} .sp-video__play svg{width:20px;height:20px;fill:#fff;margin-left:3px}
-#shopify-section-{{ section.id }} .sp-video__card:hover .sp-video__play{transform:scale(1.1)}
-#shopify-section-{{ section.id }} .sp-video__overlay:focus-visible{outline:2px solid #B5ADA4;outline-offset:2px}
-#shopify-section-{{ section.id }} .sp-video__caption{padding:20px 4px 0;text-align:center}
-#shopify-section-{{ section.id }} .sp-video__card-title{font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#F7F4F0}
-#shopify-section-{{ section.id }} .sp-video__meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8279;margin-top:6px}
-@media(max-width:768px){
-#shopify-section-{{ section.id }} .sp-video{padding:80px 0}
-#shopify-section-{{ section.id }} .sp-video__header{padding:0 20px;margin-bottom:40px}
-#shopify-section-{{ section.id }} .sp-video__grid{padding:0 20px;gap:32px}
-#shopify-section-{{ section.id }} .sp-video__card{flex:1 1 100%;max-width:560px}
-}
+  .sp-video {
+    background: #F7F4F0;
+    padding: 96px 0 108px;
+    overflow: hidden;
+  }
+  .sp-video__wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .sp-video__title {
+    margin: 0 0 52px;
+    text-align: center;
+    color: #1A1816;
+    font-size: clamp(26px, 3.2vw, 40px);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .sp-video__carousel {
+    position: relative;
+  }
+  .sp-video__viewport {
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  .sp-video__track {
+    display: flex;
+    align-items: flex-start;
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .sp-video__slide {
+    flex: 0 0 var(--sp-slide-w, 675px);
+    transform-origin: center;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+  .sp-video__slide.is-active {
+    pointer-events: auto;
+  }
+  .sp-video__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #1A1816;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .sp-video__el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 0;
+  }
+  .sp-video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.35s ease;
+    z-index: 2;
+  }
+  .sp-video__play:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .sp-video__play svg {
+    display: block;
+    width: 64px;
+    height: 64px;
+  }
+  .sp-video__play.is-hidden {
+    display: none;
+  }
+  .sp-video__name {
+    margin: 22px 0 0;
+    color: #1A1816;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .sp-video__desc {
+    margin: 10px 0 0;
+    color: #57534E;
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .sp-video__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 44px;
+  }
+  .sp-video__arrow {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s ease;
+    border-radius: 50%;
+  }
+  .sp-video__arrow svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+  .sp-video__arrow:disabled {
+    opacity: 0.22;
+    cursor: default;
+  }
+  .sp-video__dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sp-video__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #D8D2CA;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+  .sp-video__dot.is-active {
+    background: #1A1816;
+  }
+  @media (max-width: 749px) {
+    .sp-video {
+      padding: 64px 0 72px;
+    }
+    .sp-video__title {
+      margin-bottom: 36px;
+    }
+    .sp-video__slide {
+      --sp-slide-w: 340px;
+    }
+    .sp-video__name {
+      font-size: 16px;
+    }
+    .sp-video__desc {
+      font-size: 13.5px;
+    }
+    .sp-video__controls {
+      margin-top: 32px;
+      gap: 20px;
+    }
+  }
+  @media (min-width: 750px) {
+    .sp-video__slide {
+      --sp-slide-w: 675px;
+    }
+  }
 </style>
 
-<section class="sp-video">
-  <div class="sp-video__header">
-    {%- if s.eyebrow != blank -%}
-    <div class="sp-video__eyebrow">{{ s.eyebrow }}</div>
+<section class="sp-video" data-sp-video="{{ section.id }}">
+  <div class="sp-video__wrap">
+    {%- if section.settings.title != blank -%}
+      <h2 class="sp-video__title">{{ section.settings.title }}</h2>
     {%- endif -%}
-    {%- if s.title != blank -%}
-    <h2 class="sp-video__title">{{ s.title }}</h2>
-    {%- endif -%}
-  </div>
-  <div class="sp-video__grid" id="spVideoGrid-{{ section.id }}">
-    {%- for block in section.blocks -%}
-      {%- liquid
-        assign v = block.settings.video
-        assign vurl = block.settings.video_url
-        assign poster = block.settings.poster_image
-      -%}
-      {%- if v != blank or vurl != blank -%}
-      <div class="sp-video__card" {{ block.shopify_attributes }}>
-        <div class="sp-video__frame" data-video-card="{{ block.id }}">
-          {%- if v != blank -%}
-            {{ v | video_tag: image_size: '960x', class: 'sp-video__el', playsinline: true, preload: 'metadata' }}
-          {%- elsif vurl != blank -%}
-            {%- if poster != blank -%}
-              {%- assign poster_url = poster | image_url: width: 960 -%}
-              <video src="{{ vurl }}" poster="{{ poster_url }}" preload="metadata" playsinline class="sp-video__el"></video>
-            {%- else -%}
-              <video src="{{ vurl }}" preload="metadata" playsinline class="sp-video__el"></video>
+    <div class="sp-video__carousel" data-carousel>
+      <div class="sp-video__viewport" data-viewport>
+        <div class="sp-video__track" data-track>
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign vobj = block.settings.video
+              assign vurl = block.settings.video_url
+              assign poster_src = ''
+              if block.settings.poster_image != blank
+                assign poster_src = block.settings.poster_image | image_url: width: 960
+              elsif block.settings.poster_asset != blank
+                assign poster_src = block.settings.poster_asset | asset_url
+              endif
+            -%}
+            {%- if vobj != blank or vurl != blank -%}
+              <div class="sp-video__slide" data-slide {{ block.shopify_attributes }}>
+                <div class="sp-video__frame">
+                  {%- if vobj != blank -%}
+                    {{ vobj | video_tag: image_size: '960x', playsinline: true, preload: 'metadata', class: 'sp-video__el' }}
+                  {%- else -%}
+                    <video class="sp-video__el" playsinline preload="metadata"{% if poster_src != blank %} poster="{{ poster_src }}"{% endif %}>
+                      <source src="{{ vurl }}" type="video/mp4">
+                    </video>
+                  {%- endif -%}
+                  <button type="button" class="sp-video__play" data-play aria-label="Play video">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                      <circle cx="32" cy="32" r="32" fill="#1A1816" fill-opacity="0.75"></circle>
+                      <path d="M45.7368 29.3072C47.4211 30.2818 47.4211 32.7182 45.7368 33.6928L26.7895 44.657C25.1053 45.6316 23 44.4133 23 42.4642L23 20.5358C23 18.5867 25.1053 17.3684 26.7895 18.343L45.7368 29.3072Z" fill="white"></path>
+                    </svg>
+                  </button>
+                </div>
+                {%- if block.settings.title != blank -%}
+                  <h4 class="sp-video__name">{{ block.settings.title }}</h4>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="sp-video__desc">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </div>
             {%- endif -%}
-          {%- endif -%}
-          <button type="button" class="sp-video__overlay" data-video-overlay aria-label="Play video: {{ block.settings.title | escape }}">
-            <span class="sp-video__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-        </div>
-        <div class="sp-video__caption">
-          {%- if block.settings.title != blank -%}
-          <div class="sp-video__card-title">{{ block.settings.title }}</div>
-          {%- endif -%}
-          {%- if block.settings.meta != blank -%}
-          <div class="sp-video__meta">{{ block.settings.meta }}</div>
-          {%- endif -%}
+          {%- endfor -%}
         </div>
       </div>
-      {%- endif -%}
-    {%- endfor -%}
+      <div class="sp-video__controls">
+        <button type="button" class="sp-video__arrow" data-prev aria-label="Previous video">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M16.2296 7L9.48047 13.7491L16.2296 20.4982" stroke="#1A1816" stroke-width="3.5" stroke-linecap="round"></path>
+          </svg>
+        </button>
+        <div class="sp-video__dots" data-dots>
+          {%- for block in section.blocks -%}
+            {%- if block.settings.video != blank or block.settings.video_url != blank -%}
+              <button type="button" class="sp-video__dot" data-dot aria-label="Go to video {{ forloop.index }}"></button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <button type="button" class="sp-video__arrow" data-next aria-label="Next video">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M11.7695 7L18.5187 13.7491L11.7695 20.4982" stroke="#1A1816" stroke-width="3.5" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
-(function(){
-  var grid = document.getElementById('spVideoGrid-{{ section.id }}');
-  if(!grid) return;
-  var cards = grid.querySelectorAll('[data-video-card]');
-  cards.forEach(function(frame){
-    var overlay = frame.querySelector('[data-video-overlay]');
-    var video = frame.querySelector('video');
-    if(!video || !overlay) return;
-    overlay.addEventListener('click', function(){
-      video.setAttribute('controls','controls');
-      overlay.classList.add('is-hidden');
-      var p = video.play();
-      if(p && p.catch) p.catch(function(){});
+  (function () {
+    var root = document.querySelector('[data-sp-video="{{ section.id }}"]');
+    if (!root) return;
+    var track = root.querySelector('[data-track]');
+    var viewport = root.querySelector('[data-viewport]');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-slide]'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('[data-dot]'));
+    var prevBtn = root.querySelector('[data-prev]');
+    var nextBtn = root.querySelector('[data-next]');
+    if (!track || slides.length === 0) return;
+    var current = 0;
+    var N = slides.length;
+    var single = N === 1;
+
+    function slideWidth() {
+      return slides[0].getBoundingClientRect().width;
+    }
+
+    function render() {
+      var S = slideWidth();
+      var W = viewport.clientWidth;
+      track.style.transform = 'translateX(' + (W / 2 - S / 2 - current * S) + 'px)';
+      for (var i = 0; i < N; i++) {
+        var d = i - current;
+        var ad = Math.abs(d);
+        var sc = Math.max(1 - 0.2 * ad, 0);
+        var op = Math.max(1 - 0.5 * ad, 0);
+        slides[i].style.transform = 'scale(' + sc.toFixed(3) + ')';
+        slides[i].style.opacity = op.toFixed(3);
+        slides[i].style.zIndex = String(10 - ad);
+        slides[i].classList.toggle('is-active', i === current);
+        if (dots[i]) dots[i].classList.toggle('is-active', i === current);
+      }
+      if (prevBtn) prevBtn.disabled = single || current === 0;
+      if (nextBtn) nextBtn.disabled = single || current === N - 1;
+    }
+
+    function go(i) {
+      current = Math.max(0, Math.min(N - 1, i));
+      render();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(current + 1); });
+    dots.forEach(function (dt, i) {
+      dt.addEventListener('click', function () { go(i); });
     });
-    video.addEventListener('ended', function(){
-      overlay.classList.remove('is-hidden');
-      video.removeAttribute('controls');
+    window.addEventListener('resize', render);
+
+    root.querySelectorAll('[data-play]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var vid = btn.parentNode.querySelector('.sp-video__el');
+        if (!vid) return;
+        vid.setAttribute('controls', 'controls');
+        btn.classList.add('is-hidden');
+        vid.play();
+        vid.addEventListener('ended', function () {
+          vid.removeAttribute('controls');
+          try { vid.currentTime = 0; } catch (e) {}
+          btn.classList.remove('is-hidden');
+        });
+      });
     });
-    video.addEventListener('pause', function(){
-      if(video.currentTime > 0 && !video.ended) return;
-    });
-  });
-})();
+
+    render();
+  })();
 </script>
 {%- endif -%}
 
@@ -114,24 +324,62 @@
   "name": "SP Workout Samples",
   "tag": "section",
   "class": "sp-video-section",
-  "max_blocks": 4,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Senzine On Demand" },
-    { "type": "text", "id": "title", "label": "Title", "default": "Sample our expert-led workouts." }
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Sample Our Expert-Led Pilates Workouts"
+    }
   ],
   "blocks": [
     {
       "type": "video_card",
-      "name": "Workout Video",
+      "name": "Video card",
       "settings": [
-        { "type": "video", "id": "video", "label": "Video (upload, preferred)" },
-        { "type": "url", "id": "video_url", "label": "External video URL (mp4 fallback)" },
-        { "type": "image_picker", "id": "poster_image", "label": "Poster image (external URL mode only)" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Full-Body Reformer Flow" },
-        { "type": "text", "id": "meta", "label": "Meta (duration / level)", "default": "20 min · All levels" }
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (Shopify upload - preferred)"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL (external mp4 - fallback)",
+          "info": "Direct .mp4 link, e.g. a Shopify CDN video URL. Used only when no video is uploaded above."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster image (for external URL videos)",
+          "info": "Shown before the video plays. Optional for uploaded videos (Shopify auto-generates a preview)."
+        },
+        {
+          "type": "text",
+          "id": "poster_asset",
+          "label": "Poster theme asset filename",
+          "info": "Advanced: poster stored as a theme asset, e.g. sp-video-poster-1.jpg. Used when no poster image is picked."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "Workout name"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card description",
+          "info": "Short paragraph shown under the card title."
+        }
       ]
     }
   ],
-  "presets": [{ "name": "SP Workout Samples", "blocks": [{ "type": "video_card" }] }]
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "SP Workout Samples"
+    }
+  ]
 }
 {% endschema %}
