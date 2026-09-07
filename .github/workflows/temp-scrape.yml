@@ -1,0 +1,29 @@
+name: temp-scrape
+on:
+  push:
+    branches: [main]
+    paths: ['scraper-targets.txt']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch all
+        run: |
+          mkdir -p scrape-output
+          cp scraper-targets.txt scrape-output/targets.txt
+          i=0
+          while IFS= read -r line; do
+            [ -z "$line" ] && continue
+            i=$((i+1))
+            curl -sL --max-time 40 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "$line" -o "scrape-output/r$i.xml" -w "r$i HTTP:%{http_code} SIZE:%{size_download}B $line\n"
+          done < scraper-targets.txt
+      - name: Save
+        run: |
+          git config user.name "scrape-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add scrape-output
+          git commit -m "scrape results" || echo "no change"
+          git push
