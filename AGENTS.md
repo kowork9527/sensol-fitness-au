@@ -63,6 +63,12 @@
 - Judge.me public API requires auth - store review count is NOT verifiable anonymously
 - Widget colors/styling live in Judge.me admin (Settings > Widgets), not the theme
 
+## Product Page Rules (User Requirement, 2026-08)
+- **NEVER reuse collection-page sections in product templates** (e.g. `sensol-collection-compare` stays on collection pages only) — user mandate.
+- Trust messaging already covered on product pages (specs table "Lifetime Warranty" row + QA answers: 30-day refund, free AU shipping) — do NOT duplicate with trust bands.
+- SP Video Carousel removed from all 6 sensol-* product templates (2026-08, cards were empty shells — no video_url/poster ever filled); section file `sensol-product-video-carousel.liquid` KEPT for restoration once real video assets exist.
+- Hotspot-ready product images verified by visual inspection (clean bg, no people, parts visible): RS03 `01.jpg`, RS03 PRO `pro_1.jpg`, FLEX AIR `mini.51.jpg`, FLEX PRO `FLEXPRO.95.jpg`.
+
 ## Liquid Pitfalls (Learned the Hard Way)
 - **`push` filter does NOT work with product drops** in Shopify Liquid (`{% assign arr = arr | push: product %}` silently keeps the array empty). Use a counter + direct assignment instead (`{% assign p1 = product %}`).
 - **Never use inline filters on `image_tag` named arguments** (`alt: setting | default: 'x'`). The parser cuts the argument list at `|` and ALL subsequent params (e.g. `class:`) are silently DROPPED - the img renders without the class, so CSS never matches. This caused the "phone image ignores its frame" bug. Fix: pre-assign with `{%- assign alt_text = settings.alt | default: 'x' -%}` then pass the plain variable.
