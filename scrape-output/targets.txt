@@ -1,8 +1,4 @@
-https://www.reddit.com/r/pilatesreformer/.rss
 https://www.reddit.com/r/pilates/.rss
-https://www.reddit.com/search.rss?q=pilates%20reformer&sort=hot&t=week
-https://www.reddit.com/search.rss?q=reformer%20recommendation&sort=new&t=week
-https://www.reddit.com/search.rss?q=%22worth%20it%22%20reformer&sort=relevance&t=month
 https://www.reddit.com/r/pilatesreformer/comments/1w2yixw/.rss
 https://www.reddit.com/r/pilatesreformer/comments/1w9ggza/.rss
 https://www.reddit.com/r/pilatesreformer/comments/1w5hhwu/.rss
