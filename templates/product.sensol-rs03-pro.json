@@ -268,6 +268,9 @@
         "text_2": "Standard Mode — Progressive resistance through the concentric phase, ideal for building strength. Off-centre Mode — Asymmetric resistance that challenges stabilisers and corrects imbalances. Constant Mode — Uniform resistance throughout the entire range, eliminating spring slack. No spring reformer in the world offers training modes."
       }
     },
+    "sp_video": {
+      "type": "sensol-product-video-carousel"
+    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -663,6 +666,7 @@
     "sp_feature_motor",
     "sp_feature_arm",
     "sp_feature_modes",
+    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",

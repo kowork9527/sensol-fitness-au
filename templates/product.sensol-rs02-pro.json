@@ -258,6 +258,9 @@
         "text_2": "The Balanced Body Allegro 2 (~$6,000+ AUD) is the studio standard, known for its 'Silent Glide' carriage. The RS02 PRO matches that smoothness while adding digital weight precision that the Allegro 2's spring system cannot offer — all at less than half the price. For instructors who need a home practice base, the PRO is the closest thing to a studio reformer with smart technology built in."
       }
     },
+    "sp_video": {
+      "type": "sensol-product-video-carousel"
+    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -711,6 +714,7 @@
     "sp_feature_pathways",
     "sp_feature_arms",
     "sp_feature_studio",
+    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",

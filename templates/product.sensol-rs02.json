@@ -258,6 +258,9 @@
         "text_2": "Traditional reformers like the Align-Pilates F3 require a dedicated room — they are 1.8+ metres long and cannot be stored vertically. The Your Reformer offers a foldable option but still occupies significant floor space. The RS02's vertical storage is unique in the smart fitness category, and its noiseless motor design eliminates the squeaking and clanging of spring reformers."
       }
     },
+    "sp_video": {
+      "type": "sensol-product-video-carousel"
+    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -703,6 +706,7 @@
     "sp_feature_dual",
     "sp_feature_app",
     "sp_feature_compact",
+    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",

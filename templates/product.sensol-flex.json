@@ -265,6 +265,9 @@
         "text_2": "The black matte finish is a durable powder coating that resists sweat, scratches, and daily wear. The Your Reformer ($2,795) uses maple or walnut wood frames that are beautiful but bulky, heavy, and susceptible to humidity damage. The FLEX's steel-and-alloy construction is more durable, more stable, and costs less than half the price."
       }
     },
+    "sp_video": {
+      "type": "sensol-product-video-carousel"
+    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -670,6 +673,7 @@
     "sp_feature_versatility",
     "sp_feature_modes",
     "sp_feature_build",
+    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",

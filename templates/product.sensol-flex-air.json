@@ -268,6 +268,9 @@
         "text_2": "Wi-Fi and Bluetooth connectivity ensure seamless syncing. NordicTrack's iFIT costs $34/month. Frame Fitness charges $39.99/month. The Vesta Sensol App is included free — saving you up to $480 per year in subscription fees. No monthly fees, no locked content, no usage limits."
       }
     },
+    "sp_video": {
+      "type": "sensol-product-video-carousel"
+    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -679,6 +682,7 @@
     "sp_feature_foldable",
     "sp_feature_resistance",
     "sp_feature_app",
+    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",
