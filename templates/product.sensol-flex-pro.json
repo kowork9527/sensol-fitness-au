@@ -268,54 +268,6 @@
         "text_2": "The black matte powder coating is industrial-grade, resisting sweat, scratches, and the cumulative wear of daily high-intensity training. Unlike wooden frames susceptible to humidity, the FLEX PRO's steel construction is impervious to environmental conditions — suitable for garages, sunrooms, and any Australian climate."
       }
     },
-    "sp_video": {
-      "type": "sensol-product-video-carousel",
-      "blocks": {
-        "video_1": {
-          "type": "video_card",
-          "settings": {
-            "title": "Product Tour",
-            "duration": "0:41",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/6cd56d35a7044421a75a87039c0770d4.mp4"
-          }
-        },
-        "video_2": {
-          "type": "video_card",
-          "settings": {
-            "title": "145° Arm Showcase",
-            "duration": "0:28",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/a2d207459f3b426fad0b03083c72e173.mp4"
-          }
-        },
-        "video_3": {
-          "type": "video_card",
-          "settings": {
-            "title": "Training Modes Explained",
-            "duration": "0:26",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e61e4324f4fa48b69d733b91ca5e4521.mp4"
-          }
-        },
-        "video_4": {
-          "type": "video_card",
-          "settings": {
-            "title": "Advanced Movements",
-            "duration": "0:21",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/528e7d731d5746cc96dcc42f4cf230f8.mp4"
-          }
-        }
-      },
-      "block_order": [
-        "video_1",
-        "video_2",
-        "video_3",
-        "video_4"
-      ],
-      "settings": {
-        "eyebrow": "See It Move",
-        "title": "Advanced precision in motion.",
-        "show_hint": true
-      }
-    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -711,7 +663,6 @@
     "sp_feature_arm",
     "sp_feature_modes",
     "sp_feature_build",
-    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",

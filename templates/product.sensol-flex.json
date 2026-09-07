@@ -265,54 +265,6 @@
         "text_2": "The black matte finish is a durable powder coating that resists sweat, scratches, and daily wear. The Your Reformer ($2,795) uses maple or walnut wood frames that are beautiful but bulky, heavy, and susceptible to humidity damage. The FLEX's steel-and-alloy construction is more durable, more stable, and costs less than half the price."
       }
     },
-    "sp_video": {
-      "type": "sensol-product-video-carousel",
-      "blocks": {
-        "video_1": {
-          "type": "video_card",
-          "settings": {
-            "title": "Product Tour",
-            "duration": "1:30",
-            "video_url": ""
-          }
-        },
-        "video_2": {
-          "type": "video_card",
-          "settings": {
-            "title": "Pilates-to-Strength Transition",
-            "duration": "2:30",
-            "video_url": ""
-          }
-        },
-        "video_3": {
-          "type": "video_card",
-          "settings": {
-            "title": "FLEX vs Spring Reformer",
-            "duration": "2:00",
-            "video_url": ""
-          }
-        },
-        "video_4": {
-          "type": "video_card",
-          "settings": {
-            "title": "Testimonial Montage",
-            "duration": "1:15",
-            "video_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "video_1",
-        "video_2",
-        "video_3",
-        "video_4"
-      ],
-      "settings": {
-        "eyebrow": "See It In Action",
-        "title": "Three modes. One machine. Endless potential.",
-        "show_hint": true
-      }
-    },
     "sp_specs": {
       "type": "sensol-product-specs",
       "blocks": {
@@ -718,7 +670,6 @@
     "sp_feature_versatility",
     "sp_feature_modes",
     "sp_feature_build",
-    "sp_video",
     "sp_specs",
     "sp_included",
     "sp_roi",
