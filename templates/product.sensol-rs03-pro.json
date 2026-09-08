@@ -15,7 +15,10 @@
         "subtitle": "The Studio. Reimagined for Home.",
         "model_info": "Model RS03 PRO / Flagship Smart Reformer · SKU: SNSL-RS03-PRO-AU",
         "padding_top": 140,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "backorder_notice_enabled": false,
+        "backorder_title": "Pre-Order Notice",
+        "backorder_notice": "This item is currently on pre-order and will ship as soon as new stock arrives."
       }
     },
     "sp_banner": {
@@ -269,7 +272,10 @@
       }
     },
     "sp_video": {
-      "type": "sensol-product-video-carousel"
+      "type": "sensol-product-video-carousel",
+      "settings": {
+        "title": "Sample Our Expert-Led Pilates Workouts"
+      }
     },
     "sp_specs": {
       "type": "sensol-product-specs",
@@ -642,7 +648,7 @@
         "view_all_link": "/collections/all",
         "product1_image": "shopify://shop_images/export_1.jpg",
         "product1_vendor": "Sensol",
-        "product1_name": "RS03",
+        "product1_name": "RS03 Pro",
         "product1_price": "From $3,899.00",
         "product1_url": "shopify://products/sensol-rs03-pro",
         "product2_image": "shopify://shop_images/1.png",
