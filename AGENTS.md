@@ -35,6 +35,7 @@
 - `sections/sensol-collection-stats.liquid` — stats with Liquid `{% case collection.handle %}` logic (no schema settings needed)
 - `sections/sensol-collection-content.liquid` — bottom content section
 - `sections/sensol-home-app.liquid` — homepage App Download teaser (dark #1A1816, phone image + feature blocks + store buttons + compact QRs; correct links: id6747697213 / com.xfq.sensol.vesta)
+  - **Phone Screen Carousel** (2026-08): phone column is now an AUTO-PLAYING infinite carousel of 6 app screenshots (screen_01 from Files via `image` setting + screen_02–06 theme assets via `asset_name` setting). Slides absolute-centered, circular offset math (dn in [-N/2, N/2)), per-slide instant snap (`.is-snapping`) when a slide's offset wraps — teleports happen at opacity 0 (|dn|>=2 slides are invisible), so no flying artifacts, NO DOM clones needed. Autoplay 3.5s/tick right-to-left; pauses on hover/touch/offscreen (IntersectionObserver); dots jump to logical index. Features list renders only `block.type == 'feature'`; carousel renders `block.type == 'screen'`.
 - `sections/sensol-judge-reviews.liquid` — homepage reviews wrapper (cream #F7F4F0) hosting Judge.me app block; renders app blocks via `{% render block %}`; schema blocks `[{"type": "@app"}]`
 - `sections/sensol-app-{hero,tour,features,download}.liquid` — modular /pages/app sections
 
