@@ -422,7 +422,20 @@
       font-size: 22px;
     }
   }
-{%- endstyle -%}
+
+  .rs03pro-pay-icons-{{ section.id }} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .rs03pro-pay-icons-{{ section.id }} svg.rs03pro-pay-icon {
+    width: 38px;
+    height: auto;
+    border-radius: 3px;
+  }
+  {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
   <!-- Breadcrumb Navigation -->
@@ -509,6 +522,14 @@
         <div class="rs03pro-payment-buttons-{{ section.id }}">
           {{ form | payment_button }}
         </div>
+
+        {%- if shop.enabled_payment_types.size > 0 -%}
+          <div class="rs03pro-pay-icons-{{ section.id }}" aria-label="Supported payment methods">
+            {%- for type in shop.enabled_payment_types -%}
+              {{ type | payment_type_svg_tag: 'rs03pro-pay-icon' }}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       {%- endform -%}
 
       <ul class="rs03pro-features-{{ section.id }}">
