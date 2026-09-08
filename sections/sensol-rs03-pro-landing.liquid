@@ -435,6 +435,18 @@
     height: auto;
     border-radius: 3px;
   }
+  /* Variant color swatches */
+  .rs03pro-variants-{{ section.id }} { margin: 0 0 22px 0; }
+  .rs03pro-variant-label-{{ section.id }} { font-size: 14px; color: #8A857D; margin-bottom: 12px; letter-spacing: 0.02em; }
+  .rs03pro-variant-label-value-{{ section.id }} { color: #1A1816; font-weight: 600; }
+  .rs03pro-swatches-{{ section.id }} { display: flex; flex-wrap: wrap; gap: 12px; }
+  .rs03pro-swatch-{{ section.id }} { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #E5E0D8; background: transparent; padding: 0; cursor: pointer; position: relative; display: inline-flex; align-items: center; justify-content: center; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .rs03pro-swatch-{{ section.id }}:hover { border-color: #1A1816; }
+  .rs03pro-swatch-{{ section.id }}.is-selected { border-color: #1A1816; box-shadow: 0 0 0 1px #1A1816; }
+  .rs03pro-swatch-dot-{{ section.id }} { width: 30px; height: 30px; border-radius: 50%; display: block; }
+  .rs03pro-swatch-{{ section.id }}.is-unavailable { cursor: not-allowed; }
+  .rs03pro-swatch-{{ section.id }}.is-unavailable .rs03pro-swatch-dot-{{ section.id }} { opacity: 0.35; }
+  .rs03pro-swatch-{{ section.id }}.is-unavailable::after { content: ''; position: absolute; top: 50%; left: 50%; width: 34px; height: 1.5px; background: #8A857D; transform: translate(-50%, -50%) rotate(-45deg); }
   {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
@@ -506,6 +518,49 @@
         <div class="rs03pro-info-stock-{{ section.id }} rs03pro-info-stock-out-{{ section.id }}">Sold Out</div>
       {%- endif -%}
 
+      {%- if p.options.size == 1 and p.variants.size > 1 -%}
+      <div class="rs03pro-variants-{{ section.id }}" id="rs03pro-variant-picker-{{ section.id }}">
+        <div class="rs03pro-variant-label-{{ section.id }}">
+          <span class="rs03pro-variant-label-name-{{ section.id }}">{{ p.options_with_values.first.name }}:</span>
+          <span class="rs03pro-variant-label-value-{{ section.id }}" data-variant-selected-name>{{ p.selected_or_first_available_variant.title }}</span>
+        </div>
+        <div class="rs03pro-swatches-{{ section.id }}" aria-label="{{ p.options_with_values.first.name | escape }}">
+          {%- for v in p.variants -%}
+            {%- assign c_name = v.title | strip | downcase -%}
+            {%- if c_name == 'black' -%}
+              {%- assign c_hex = '#1A1816' -%}
+            {%- elsif c_name == 'black brown' -%}
+              {%- assign c_hex = '#3D2C22' -%}
+            {%- elsif c_name == 'deep brown' -%}
+              {%- assign c_hex = '#5B4636' -%}
+            {%- elsif c_name == 'beige' -%}
+              {%- assign c_hex = '#E2D8C6' -%}
+            {%- elsif c_name == 'light gray' or c_name == 'light grey' -%}
+              {%- assign c_hex = '#CEC9C2' -%}
+            {%- elsif c_name == 'gray' or c_name == 'grey' -%}
+              {%- assign c_hex = '#A5A19A' -%}
+            {%- elsif c_name == 'light green' -%}
+              {%- assign c_hex = '#BCCBB2' -%}
+            {%- else -%}
+              {%- assign c_hex = '#A5A19A' -%}
+            {%- endif -%}
+            <button type="button"
+              class="rs03pro-swatch-{{ section.id }}{% if v.id == p.selected_or_first_available_variant.id %} is-selected{% endif %}{% unless v.available %} is-unavailable{% endunless %}"
+              data-variant-id="{{ v.id }}"
+              data-variant-title="{{ v.title | escape }}"
+              data-variant-price="{{ v.price | money }}"
+              data-variant-compare="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money }}{% endif %}"
+              data-variant-afterpay="{{ v.price | divided_by: 4 | money }}"
+              data-variant-available="{% if v.available %}true{% else %}false{% endif %}"
+              title="{{ v.title | escape }}"
+              aria-label="{{ v.title | escape }}{% unless v.available %} — sold out{% endunless %}"
+              aria-pressed="{% if v.id == p.selected_or_first_available_variant.id %}true{% else %}false{% endif %}">
+              <span class="rs03pro-swatch-dot-{{ section.id }}" style="background-color: {{ c_hex }};"></span>
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
       {%- form 'product', p, id: 'product-form-rs03pro-' -%}
         <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" class="product-variant-id">
         <div class="subscriptions_app_embed_block"></div>
@@ -646,6 +701,49 @@
     }
   });
 })();
+  /* Variant color swatch picker */
+  (function() {
+    var wrap = document.getElementById('rs03pro-variant-picker-{{ section.id }}');
+    if (!wrap) return;
+    var form = wrap.parentNode.querySelector('form');
+    if (!form) return;
+    var idInput = form.querySelector('.product-variant-id');
+    var addBtn = form.querySelector('button[name="add"]');
+    var labelValue = wrap.querySelector('[data-variant-selected-name]');
+    var root = wrap.parentNode;
+    var priceEl = root.querySelector('.rs03pro-info-price-{{ section.id }}');
+    var afterpayEl = root.querySelector('.rs03pro-info-afterpay-{{ section.id }}');
+    var stockEl = root.querySelector('.rs03pro-info-stock-{{ section.id }}');
+    var swatches = wrap.querySelectorAll('.rs03pro-swatch-{{ section.id }}');
+    swatches.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        swatches.forEach(function(b) {
+          b.classList.remove('is-selected');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-selected');
+        btn.setAttribute('aria-pressed', 'true');
+        if (idInput) idInput.value = btn.getAttribute('data-variant-id');
+        if (labelValue) labelValue.textContent = btn.getAttribute('data-variant-title');
+        var avail = btn.getAttribute('data-variant-available') === 'true';
+        if (priceEl) {
+          var compare = btn.getAttribute('data-variant-compare');
+          var price = btn.getAttribute('data-variant-price');
+          priceEl.innerHTML = (compare ? '<s>' + compare + '</s> ' : '') + price + ' AUD';
+        }
+        if (afterpayEl) afterpayEl.textContent = 'or 4 interest-free payments of ' + btn.getAttribute('data-variant-afterpay') + ' with Afterpay';
+        if (stockEl) {
+          stockEl.classList.toggle('rs03pro-info-stock-in-{{ section.id }}', avail);
+          stockEl.classList.toggle('rs03pro-info-stock-out-{{ section.id }}', !avail);
+          stockEl.textContent = avail ? 'In Stock' : 'Sold Out';
+        }
+        if (addBtn) {
+          addBtn.disabled = !avail;
+          addBtn.textContent = avail ? 'Add to Cart' : 'Sold Out';
+        }
+      });
+    });
+  })();
 </script>
 
 {% schema %}
