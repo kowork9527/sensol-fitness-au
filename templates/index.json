@@ -144,12 +144,60 @@
             "name": "Performance Analytics",
             "desc": "Track your progress with detailed session insights"
           }
+        },
+        "screen_1": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App class player screen",
+            "image": "shopify://shop_images/screen_01.png"
+          }
+        },
+        "screen_2": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App discover page with class categories",
+            "asset_name": "screen_02.png"
+          }
+        },
+        "screen_3": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App class library browsing",
+            "asset_name": "screen_03.png"
+          }
+        },
+        "screen_4": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App training plan with 12-session schedule",
+            "asset_name": "screen_04.png"
+          }
+        },
+        "screen_5": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App 45-minute course introduction",
+            "asset_name": "screen_05.png"
+          }
+        },
+        "screen_6": {
+          "type": "screen",
+          "settings": {
+            "alt": "Sensol App active workout session with next exercise",
+            "asset_name": "screen_06.png"
+          }
         }
       },
       "block_order": [
         "feature_resistance",
         "feature_programs",
-        "feature_analytics"
+        "feature_analytics",
+        "screen_1",
+        "screen_2",
+        "screen_3",
+        "screen_4",
+        "screen_5",
+        "screen_6"
       ],
       "settings": {
         "phone_image": "shopify://shop_images/screen_01.png",

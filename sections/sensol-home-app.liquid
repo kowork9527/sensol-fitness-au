@@ -42,6 +42,61 @@
     background: radial-gradient(ellipse at center, rgba(212, 206, 198, 0.06), transparent 65%);
     pointer-events: none;
   }
+
+  /* --- Phone screens carousel (auto, right-to-left, infinite loop) --- */
+  .sensol-home-app__carousel {
+    --phone-w: 250px;
+    position: relative;
+  }
+  .sensol-home-app__stage {
+    position: relative;
+    height: calc(var(--phone-w) * 2.167);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .sensol-home-app__slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--phone-w);
+    margin-left: calc(var(--phone-w) / -2);
+    border-radius: 28px;
+    overflow: hidden;
+    background: #2a2724;
+    border: 1px solid rgba(212, 206, 198, 0.12);
+    aspect-ratio: 9 / 19.5;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.65s ease;
+    will-change: transform, opacity;
+  }
+  .sensol-home-app__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sensol-home-app__slide.is-snapping,
+  .sensol-home-app__carousel.is-snapping .sensol-home-app__slide {
+    transition: none !important;
+  }
+  .sensol-home-app__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 26px;
+  }
+  .sensol-home-app__dot {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(212, 206, 198, 0.25);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .sensol-home-app__dot:hover { background: rgba(212, 206, 198, 0.5); }
+  .sensol-home-app__dot.is-active { background: #D4CEC6; transform: scale(1.25); }
   .sensol-home-app__label {
     font-size: 11px;
     font-weight: 500;
@@ -188,10 +243,13 @@
       gap: 48px;
     }
     .sensol-home-app__phone-image-wrap { max-width: 260px; }
+    .sensol-home-app__carousel { --phone-w: 220px; }
   }
   @media (max-width: 640px) {
     .sensol-home-app { padding: 56px 16px; }
     .sensol-home-app__phone-image-wrap { max-width: 220px; }
+    .sensol-home-app__carousel { --phone-w: 195px; }
+    .sensol-home-app__dots { margin-top: 20px; }
     .sensol-home-app__cta-row { flex-direction: column; align-items: stretch; }
     .sensol-home-app__store-btn { justify-content: flex-start; }
     .sensol-home-app__qr-row { flex-wrap: wrap; }
@@ -203,7 +261,41 @@
   <div class="sensol-home-app__inner">
     <div class="sensol-home-app__phone-col">
       <div class="sensol-home-app__phone-glow"></div>
-      {%- if section.settings.phone_image != blank -%}
+      {%- assign screen_blocks = section.blocks | where: 'type', 'screen' -%}
+      {%- if screen_blocks.size > 0 -%}
+        <div class="sensol-home-app__carousel" data-app-carousel>
+          <div class="sensol-home-app__stage">
+            {%- for block in screen_blocks -%}
+              {%- assign screen_alt = block.settings.alt | default: 'Sensol App' -%}
+              <div class="sensol-home-app__slide" data-app-slide {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 920 | image_tag:
+                    loading: 'lazy',
+                    widths: '460, 690, 920',
+                    sizes: '(min-width: 969px) 300px, (min-width: 641px) 260px, 220px',
+                    alt: screen_alt,
+                    class: 'sensol-home-app__phone-image'
+                  }}
+                {%- elsif block.settings.asset_name != blank -%}
+                  <img
+                    src="{{ block.settings.asset_name | asset_url }}"
+                    alt="{{ screen_alt | escape }}"
+                    class="sensol-home-app__phone-image"
+                    loading="lazy"
+                    width="460"
+                    height="1000"
+                  />
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="sensol-home-app__dots">
+            {%- for block in screen_blocks -%}
+              <button class="sensol-home-app__dot" type="button" data-app-dot aria-label="App screen {{ forloop.index }}"></button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- elsif section.settings.phone_image != blank -%}
         {%- assign phone_alt_text = section.settings.phone_alt | default: 'Sensol App' -%}
         <div class="sensol-home-app__phone-image-wrap">
           {{ section.settings.phone_image | image_url: width: 920 | image_tag:
@@ -237,9 +329,10 @@
         <p class="sensol-home-app__desc">{{ section.settings.description | escape }}</p>
       {%- endif -%}
 
-      {%- if section.blocks.size > 0 -%}
+      {%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+      {%- if feature_blocks.size > 0 -%}
         <ul class="sensol-home-app__features">
-          {%- for block in section.blocks -%}
+          {%- for block in feature_blocks -%}
             <li class="sensol-home-app__feature" {{ block.shopify_attributes }}>
               {%- if block.settings.icon != 'none' -%}
                 {%- case block.settings.icon -%}
@@ -332,6 +425,135 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    var carousels = document.querySelectorAll('[data-app-carousel]');
+    carousels.forEach(function (root) {
+      var slides = Array.prototype.slice.call(root.querySelectorAll('[data-app-slide]'));
+      var dots = Array.prototype.slice.call(root.querySelectorAll('[data-app-dot]'));
+      var N = slides.length;
+      if (N < 2) {
+        if (slides[0]) slides[0].style.transform = 'translateX(0)';
+        return;
+      }
+      var pos = 0;
+      var timer = null;
+      var visible = false;
+      var paused = false;
+
+      function wrapD(d) {
+        var dn = ((d % N) + N) % N;
+        if (dn > N / 2) dn -= N;
+        return dn;
+      }
+
+      function apply(sl, dn) {
+        var ad = Math.abs(dn);
+        var stage = sl.parentElement;
+        var phoneW = stage.offsetWidth * 0.44;
+        var x = dn * phoneW * 0.68;
+        var scale = ad === 0 ? 1 : 0.72;
+        var opacity = ad === 0 ? 1 : ad === 1 ? 0.5 : 0;
+        sl.style.transform = 'translateX(' + x + 'px) scale(' + scale + ')';
+        sl.style.opacity = opacity;
+        sl.style.zIndex = String(10 - ad);
+        sl.style.pointerEvents = ad === 0 ? 'auto' : 'none';
+      }
+
+      function render() {
+        slides.forEach(function (sl, i) {
+          var dn = wrapD(i - pos);
+          var prev = sl.__dn;
+          if (prev !== undefined && Math.abs(dn - prev) > N / 2) {
+            sl.classList.add('is-snapping');
+            apply(sl, dn);
+            void sl.offsetHeight;
+            sl.classList.remove('is-snapping');
+          } else {
+            apply(sl, dn);
+          }
+          sl.__dn = dn;
+        });
+        dots.forEach(function (dt, i) {
+          var active = ((pos % N) + N) % N === i;
+          dt.classList.toggle('is-active', active);
+        });
+      }
+
+      function tick() {
+        pos += 1;
+        render();
+      }
+
+      function start() {
+        if (timer || paused || !visible || document.hidden) return;
+        timer = setInterval(tick, 3500);
+      }
+
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      dots.forEach(function (dt, i) {
+        dt.addEventListener('click', function () {
+          stop();
+          var current = ((pos % N) + N) % N;
+          var delta = i - current;
+          if (delta > N / 2) delta -= N;
+          if (delta < -N / 2) delta += N;
+          pos += delta;
+          render();
+          start();
+        });
+      });
+
+      root.addEventListener('mouseenter', function () {
+        paused = true;
+        stop();
+      });
+      root.addEventListener('mouseleave', function () {
+        paused = false;
+        start();
+      });
+      root.addEventListener('touchstart', function () {
+        paused = true;
+        stop();
+      }, { passive: true });
+      root.addEventListener('touchend', function () {
+        paused = false;
+        start();
+      });
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          stop();
+        } else {
+          start();
+        }
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          visible = entries[0].isIntersecting;
+          if (visible) {
+            start();
+          } else {
+            stop();
+          }
+        }, { threshold: 0.15 }).observe(root);
+      } else {
+        visible = true;
+        start();
+      }
+
+      render();
+    });
+  })();
+</script>
+
 {% schema %}{
   "name": "Sensol Home App",
   "tag": "section",
@@ -416,6 +638,30 @@
     }
   ],
   "blocks": [
+    {
+      "type": "screen",
+      "name": "App screen",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Screenshot (Files)",
+          "info": "Optional. Takes priority over the theme-asset filename below."
+        },
+        {
+          "type": "text",
+          "id": "asset_name",
+          "label": "Theme asset filename",
+          "info": "File inside the theme assets folder, e.g. screen_02.png"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "default": "Sensol App screen"
+        }
+      ]
+    },
     {
       "type": "feature",
       "name": "Feature",
