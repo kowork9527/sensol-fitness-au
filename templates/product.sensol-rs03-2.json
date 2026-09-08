@@ -13,7 +13,8 @@
       "type": "sensol-rs03-landing",
       "settings": {
         "padding_top": 140,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "backorder_notice_enabled": true
       }
     },
     "banner": {
