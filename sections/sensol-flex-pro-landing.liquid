@@ -508,10 +508,17 @@
         <span>30-DAY MONEY-BACK</span>
       </div>
 
-      {%- if p.available -%}
-        <div class="flexpro-info-stock-{{ section.id }} flexpro-info-stock-in-{{ section.id }}">In Stock</div>
-      {%- else -%}
+      {%- assign sv = p.selected_or_first_available_variant -%}
+      {%- assign sv_sellable = false -%}
+      {%- if sv.available or sv.inventory_policy == 'continue' -%}
+        {%- assign sv_sellable = true -%}
+      {%- endif -%}
+      {%- if sv.available == false -%}
         <div class="flexpro-info-stock-{{ section.id }} flexpro-info-stock-out-{{ section.id }}">Sold Out</div>
+      {%- elsif sv.inventory_quantity == 0 -%}
+        <div class="flexpro-info-stock-{{ section.id }} flexpro-info-stock-in-{{ section.id }}">Available to Order</div>
+      {%- else -%}
+        <div class="flexpro-info-stock-{{ section.id }} flexpro-info-stock-in-{{ section.id }}">In Stock</div>
       {%- endif -%}
 
       {%- if p.options.size == 1 and p.variants.size > 1 -%}
@@ -540,16 +547,22 @@
             {%- else -%}
               {%- assign c_hex = '#A5A19A' -%}
             {%- endif -%}
+            {%- if v.available or v.inventory_policy == 'continue' -%}
+              {%- assign v_sellable = true -%}
+            {%- else -%}
+              {%- assign v_sellable = false -%}
+            {%- endif -%}
             <button type="button"
-              class="flexpro-swatch-{{ section.id }}{% if v.id == p.selected_or_first_available_variant.id %} is-selected{% endif %}{% unless v.available %} is-unavailable{% endunless %}"
+              class="flexpro-swatch-{{ section.id }}{% if v.id == p.selected_or_first_available_variant.id %} is-selected{% endif %}{% unless v_sellable %} is-unavailable{% endunless %}"
               data-variant-id="{{ v.id }}"
               data-variant-title="{{ v.title | escape }}"
               data-variant-price="{{ v.price | money }}"
               data-variant-compare="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money }}{% endif %}"
               data-variant-afterpay="{{ v.price | divided_by: 4 | money }}"
-              data-variant-available="{% if v.available %}true{% else %}false{% endif %}"
+              data-variant-available="{% if v_sellable %}true{% else %}false{% endif %}"
+              data-variant-state="{% if v.available == false %}sold_out{% elsif v.inventory_quantity == 0 %}backorder{% else %}in_stock{% endif %}"
               title="{{ v.title | escape }}"
-              aria-label="{{ v.title | escape }}{% unless v.available %} — sold out{% endunless %}"
+              aria-label="{{ v.title | escape }}{% unless v_sellable %} — sold out{% endunless %}"
               aria-pressed="{% if v.id == p.selected_or_first_available_variant.id %}true{% else %}false{% endif %}">
               <span class="flexpro-swatch-dot-{{ section.id }}" style="background-color: {{ c_hex }};"></span>
             </button>
@@ -565,8 +578,8 @@
           <input class="flexpro-qty-input-{{ section.id }}" type="number" id="Quantity-fp-{{ section.id }}" name="quantity" value="1" min="1">
         </div>
 
-        <button class="flexpro-add-{{ section.id }}" type="submit" name="add" {%- unless p.available -%}disabled{%- endunless -%}>
-          {%- if p.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+        <button class="flexpro-add-{{ section.id }}" type="submit" name="add" {%- unless sv_sellable -%}disabled{%- endunless -%}>
+          {%- if sv_sellable -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
         </button>
         
         <div class="flexpro-payment-buttons-{{ section.id }}">
@@ -719,6 +732,7 @@
         if (idInput) idInput.value = btn.getAttribute('data-variant-id');
         if (labelValue) labelValue.textContent = btn.getAttribute('data-variant-title');
         var avail = btn.getAttribute('data-variant-available') === 'true';
+        var state = btn.getAttribute('data-variant-state') || (avail ? 'in_stock' : 'sold_out');
         if (priceEl) {
           var compare = btn.getAttribute('data-variant-compare');
           var price = btn.getAttribute('data-variant-price');
@@ -728,7 +742,7 @@
         if (stockEl) {
           stockEl.classList.toggle('flexpro-info-stock-in-{{ section.id }}', avail);
           stockEl.classList.toggle('flexpro-info-stock-out-{{ section.id }}', !avail);
-          stockEl.textContent = avail ? 'In Stock' : 'Sold Out';
+          stockEl.textContent = state === 'in_stock' ? 'In Stock' : (state === 'backorder' ? 'Available to Order' : 'Sold Out');
         }
         if (addBtn) {
           addBtn.disabled = !avail;
