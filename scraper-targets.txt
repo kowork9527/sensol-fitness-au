@@ -1,6 +1,0 @@
-https://www.reddit.com/r/pilatesreformer/.rss
-https://www.reddit.com/r/pilates/.rss
-https://www.reddit.com/search.rss?q=pilates%20reformer&sort=new&t=week
-https://www.reddit.com/search.rss?q=pilates%20reformer&sort=hot&t=week
-https://www.reddit.com/search.rss?q=foldable%20pilates%20reformer&sort=hot&t=week
-https://www.reddit.com/search.rss?q=pilates%20reformer%20review&sort=hot&t=week
