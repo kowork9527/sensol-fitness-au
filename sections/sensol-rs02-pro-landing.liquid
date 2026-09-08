@@ -447,6 +447,20 @@
   .rs02pro-swatch-{{ section.id }}.is-unavailable { cursor: not-allowed; }
   .rs02pro-swatch-{{ section.id }}.is-unavailable .rs02pro-swatch-dot-{{ section.id }} { opacity: 0.35; }
   .rs02pro-swatch-{{ section.id }}.is-unavailable::after { content: ''; position: absolute; top: 50%; left: 50%; width: 34px; height: 1.5px; background: #8A857D; transform: translate(-50%, -50%) rotate(-45deg); }
+  /* Backorder / pre-order notice */
+  .rs02pro-backorder-note-{{ section.id }} { display: flex; align-items: flex-start; gap: 14px; background: #FDF6E7; border: 1.5px solid #D9A13B; border-left: 4px solid #D9A13B; border-radius: 10px; padding: 14px 16px; margin: 0 0 20px 0; animation: rs02pro-backorder-in-{{ section.id }} 0.3s ease; }
+  .rs02pro-backorder-icon-{{ section.id }} { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: #D9A13B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .rs02pro-backorder-icon-{{ section.id }} svg { width: 20px; height: 20px; }
+  .rs02pro-backorder-text-{{ section.id }} { flex: 1; min-width: 0; }
+  .rs02pro-backorder-title-{{ section.id }} { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7A5514; margin-bottom: 3px; }
+  .rs02pro-backorder-msg-{{ section.id }} { font-size: 14.5px; line-height: 1.55; font-weight: 500; color: #4A3A15; margin: 0; }
+  @keyframes rs02pro-backorder-in-{{ section.id }} { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  @media screen and (max-width: 749px) {
+    .rs02pro-backorder-note-{{ section.id }} { gap: 11px; padding: 12px 13px; }
+    .rs02pro-backorder-icon-{{ section.id }} { width: 32px; height: 32px; }
+    .rs02pro-backorder-icon-{{ section.id }} svg { width: 17px; height: 17px; }
+    .rs02pro-backorder-msg-{{ section.id }} { font-size: 13.5px; }
+  }
   {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
@@ -571,6 +585,25 @@
               <span class="rs02pro-swatch-dot-{{ section.id }}" style="background-color: {{ c_hex }};"></span>
             </button>
           {%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
+      {%- assign sv_state = 'in_stock' -%}
+      {%- if sv.available == false -%}
+        {%- assign sv_state = 'sold_out' -%}
+      {%- elsif sv.inventory_quantity == 0 -%}
+        {%- assign sv_state = 'backorder' -%}
+      {%- endif -%}
+      {%- if section.settings.backorder_notice != blank and sv_state == 'backorder' -%}
+      <div class="rs02pro-backorder-note-{{ section.id }}" data-backorder-note role="alert">
+        <div class="rs02pro-backorder-icon-{{ section.id }}" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+        </div>
+        <div class="rs02pro-backorder-text-{{ section.id }}">
+          {%- if section.settings.backorder_title != blank -%}
+          <span class="rs02pro-backorder-title-{{ section.id }}">{{ section.settings.backorder_title }}</span>
+          {%- endif -%}
+          <p class="rs02pro-backorder-msg-{{ section.id }}">{{ section.settings.backorder_notice | escape | newline_to_br }}</p>
         </div>
       </div>
       {%- endif -%}
@@ -725,6 +758,7 @@
     var priceEl = root.querySelector('.rs02pro-info-price-{{ section.id }}');
     var afterpayEl = root.querySelector('.rs02pro-info-afterpay-{{ section.id }}');
     var stockEl = root.querySelector('.rs02pro-info-stock-{{ section.id }}');
+    var noteEl = root.querySelector('[data-backorder-note]');
     var swatches = wrap.querySelectorAll('.rs02pro-swatch-{{ section.id }}');
     swatches.forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -749,6 +783,7 @@
           stockEl.classList.toggle('rs02pro-info-stock-out-{{ section.id }}', !avail);
           stockEl.textContent = state === 'in_stock' ? 'In Stock' : (state === 'backorder' ? 'Available to Order' : 'Sold Out');
         }
+        if (noteEl) noteEl.style.display = state === 'backorder' ? '' : 'none';
         if (addBtn) {
           addBtn.disabled = !avail;
           addBtn.textContent = avail ? 'Add to Cart' : 'Sold Out';
@@ -799,6 +834,23 @@
       "unit": "px",
       "label": "Bottom padding",
       "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Pre-order notice"
+    },
+    {
+      "type": "text",
+      "id": "backorder_title",
+      "label": "Notice title",
+      "default": "Pre-Order Notice"
+    },
+    {
+      "type": "textarea",
+      "id": "backorder_notice",
+      "label": "Notice message",
+      "default": "This item is currently on pre-order and will ship as soon as new stock arrives.",
+      "info": "Shows prominently above the Add to Cart button when the selected variant is sellable but out of stock (Continue selling enabled). Add your shipping date here."
     }
   ],
   "presets": [
