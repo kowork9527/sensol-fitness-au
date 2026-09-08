@@ -258,6 +258,110 @@
         "title": "Trained by design.",
         "head_note": "Genuine reviews collected and verified by Judge.me"
       }
+    },
+    "sensol_home_instagram": {
+      "type": "sensol-home-instagram",
+      "blocks": {
+        "ig_tile_1": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-01.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Woman training on the Sensol reformer in cream activewear"
+          }
+        },
+        "ig_tile_2": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-02.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Plank hold on the Sensol reformer in navy activewear"
+          }
+        },
+        "ig_tile_3": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-03.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Seated rest on the Sensol reformer in taupe activewear"
+          }
+        },
+        "ig_tile_4": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-05.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Side plank on the Sensol reformer in a dark studio"
+          }
+        },
+        "ig_tile_5": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-07.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Leg exercise on the Sensol reformer in navy activewear"
+          }
+        },
+        "ig_tile_6": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-08.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Standing stretch on the Sensol reformer in cream activewear"
+          }
+        },
+        "ig_tile_7": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-04.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Low lunge stretch on the Sensol reformer in light blue"
+          }
+        },
+        "ig_tile_8": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-06.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Sensol reformer styled in a warm living space"
+          }
+        },
+        "ig_tile_9": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-09.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Supine pull on the Sensol reformer in periwinkle activewear"
+          }
+        },
+        "ig_tile_10": {
+          "type": "tile",
+          "settings": {
+            "asset_name": "ig-wall-10.jpg",
+            "link": "https://www.instagram.com/sensol_fitness/",
+            "alt": "Seated resistance exercise on the Sensol reformer"
+          }
+        }
+      },
+      "block_order": [
+        "ig_tile_1",
+        "ig_tile_2",
+        "ig_tile_3",
+        "ig_tile_4",
+        "ig_tile_5",
+        "ig_tile_6",
+        "ig_tile_7",
+        "ig_tile_8",
+        "ig_tile_9",
+        "ig_tile_10"
+      ],
+      "settings": {
+        "label": "@sensol_fitness",
+        "heading": "Sensol in the world",
+        "subheading": "Across spaces, cities, and routines — sensol becomes part of how people move, train, and live.",
+        "follow_label": "Follow us",
+        "follow_link": "https://www.instagram.com/sensol_fitness/"
+      }
     }
   },
   "order": [
@@ -269,6 +373,7 @@
     "sensol-senzine",
     "sensol-products",
     "sensol_home_app",
+    "sensol_home_instagram",
     "sensol_judge_reviews"
   ]
 }
