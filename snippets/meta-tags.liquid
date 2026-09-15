@@ -3,7 +3,7 @@
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
   if request.page_type == 'index'
-    assign og_description = 'Sensol Fitness premium Pilates reformers for home workouts — Smart Series digital weight and FLEX spring models. Ships across Australia.' | replace: 'Sensol Fitness', 'Sensol'
+    assign og_description = 'Sensol Pilates reformers in Australia: FLEX AIR and FLEX PRO spring reformers, plus RS03 and RS03 PRO smart motorised reformers. Compare specifications and choose your setup.'
   else
     assign og_description = page_description | default: shop.description | default: shop.name | replace: 'Sensol Fitness', 'Sensol'
   endif
