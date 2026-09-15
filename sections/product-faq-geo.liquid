@@ -1,125 +1,79 @@
 {%- if product != blank -%}
+  {%- case product.handle -%}
+    {%- when 'sensol-flex-air' -%}
+      {%- assign faq_q1 = 'What is the Sensol FLEX AIR?' -%}{%- assign faq_a1 = 'The Sensol FLEX AIR is a mechanical Pilates reformer in the Sensol FLEX series, using spring resistance and an aluminium rail.' -%}
+      {%- assign faq_q2 = 'What resistance does the FLEX AIR use?' -%}{%- assign faq_a2 = 'FLEX AIR uses spring resistance with Chinese steel wire springs.' -%}
+      {%- assign faq_q3 = 'What is the maximum user load for FLEX AIR?' -%}{%- assign faq_a3 = 'The maximum load is 120 kg.' -%}
+      {%- assign faq_q4 = 'How large is the FLEX AIR?' -%}{%- assign faq_a4 = 'Its product dimensions are 1645 × 616 × 439 mm.' -%}
+      {%- assign faq_q5 = 'What is the FLEX AIR carriage size?' -%}{%- assign faq_a5 = 'The sliding bed is 410 × 300 mm.' -%}
+      {%- assign faq_q6 = 'How much does the FLEX AIR weigh?' -%}{%- assign faq_a6 = 'The net weight is 25 kg and the gross weight is 28 kg.' -%}
+      {%- assign faq_q7 = 'What is the FLEX AIR maximum stroke?' -%}{%- assign faq_a7 = 'The maximum stroke is 840 mm.' -%}
+      {%- assign faq_q8 = 'Does FLEX AIR work with an app?' -%}{%- assign faq_a8 = 'Yes. The FLEX AIR is equipped with an app.' -%}
+    {%- when 'sensol-flex-pro' -%}
+      {%- assign faq_q1 = 'What is the Sensol FLEX PRO?' -%}{%- assign faq_a1 = 'The Sensol FLEX PRO is a mechanical Pilates reformer using spring resistance, an aluminium rail and a rear dual-column configuration.' -%}
+      {%- assign faq_q2 = 'What resistance does the FLEX PRO use?' -%}{%- assign faq_a2 = 'FLEX PRO uses German steel wire spring resistance.' -%}
+      {%- assign faq_q3 = 'What is the maximum user load for FLEX PRO?' -%}{%- assign faq_a3 = 'The maximum load is 150 kg.' -%}
+      {%- assign faq_q4 = 'How large is the FLEX PRO?' -%}{%- assign faq_a4 = 'Its product dimensions are 1920 × 640 × 452 mm.' -%}
+      {%- assign faq_q5 = 'What is the FLEX PRO carriage size?' -%}{%- assign faq_a5 = 'The carriage is 460 × 900 mm.' -%}
+      {%- assign faq_q6 = 'How much does the FLEX PRO weigh?' -%}{%- assign faq_a6 = 'The net weight is 38 kg and the gross weight is 42 kg.' -%}
+      {%- assign faq_q7 = 'What is the FLEX PRO maximum stroke?' -%}{%- assign faq_a7 = 'The maximum stroke is 860 mm.' -%}
+      {%- assign faq_q8 = 'What accessories are specified for FLEX PRO?' -%}{%- assign faq_a8 = 'The configuration specifies hand and foot straps, plus long ropes.' -%}
+    {%- when 'sensol-rs03' -%}
+      {%- assign faq_q1 = 'What is the Sensol RS03?' -%}{%- assign faq_a1 = 'The Sensol RS03 is a Smart Series Pilates reformer with an aluminium rail and motorised resistance system.' -%}
+      {%- assign faq_q2 = 'What is the maximum resistance of the RS03?' -%}{%- assign faq_a2 = 'The maximum resistance is 45 kg, with 1 kg adjustment precision.' -%}
+      {%- assign faq_q3 = 'What is the RS03 motor power?' -%}{%- assign faq_a3 = 'The total motor power is 500 W.' -%}
+      {%- assign faq_q4 = 'What is the maximum user load for RS03?' -%}{%- assign faq_a4 = 'The maximum load is 150 kg.' -%}
+      {%- assign faq_q5 = 'What resistance modes does RS03 have?' -%}{%- assign faq_a5 = 'The specified modes are Standard, Centrifugal and Elastic.' -%}
+      {%- assign faq_q6 = 'What are the RS03 carriage and stroke dimensions?' -%}{%- assign faq_a6 = 'The carriage is 460 × 900 mm and the maximum stroke is 860 mm.' -%}
+      {%- assign faq_q7 = 'What rope is used on the RS03?' -%}{%- assign faq_a7 = 'RS03 uses 3.8 mm High Molecular Nylon Rope, with a specified rope load of 300 kg and rope stroke of 1500 mm.' -%}
+      {%- assign faq_q8 = 'What power supply does RS03 use?' -%}{%- assign faq_a8 = 'The specified power supply is 220 V / 50 Hz.' -%}
+    {%- when 'sensol-rs03-pro' -%}
+      {%- assign faq_q1 = 'What is the Sensol RS03 PRO?' -%}{%- assign faq_a1 = 'The Sensol RS03 PRO is a Smart Series Pilates reformer with motorised resistance, an aluminium rail and a rear dual-column configuration.' -%}
+      {%- assign faq_q2 = 'What is the maximum resistance of the RS03 PRO?' -%}{%- assign faq_a2 = 'The maximum resistance is 45 kg, with 1 kg adjustment precision.' -%}
+      {%- assign faq_q3 = 'What is the RS03 PRO motor power?' -%}{%- assign faq_a3 = 'The total motor power is 500 W.' -%}
+      {%- assign faq_q4 = 'What is the maximum user load for RS03 PRO?' -%}{%- assign faq_a4 = 'The maximum load is 150 kg.' -%}
+      {%- assign faq_q5 = 'What resistance modes does RS03 PRO have?' -%}{%- assign faq_a5 = 'The specified modes are Standard, Centrifugal and Elastic.' -%}
+      {%- assign faq_q6 = 'How large is the RS03 PRO?' -%}{%- assign faq_a6 = 'Its product dimensions are 1920 × 640 × 452 mm.' -%}
+      {%- assign faq_q7 = 'What rope is used on the RS03 PRO?' -%}{%- assign faq_a7 = 'RS03 PRO uses 3.8 mm High Molecular Nylon Rope, with a specified rope load of 300 kg and rope stroke of 1500 mm.' -%}
+      {%- assign faq_q8 = 'How much does the RS03 PRO weigh?' -%}{%- assign faq_a8 = 'The net weight is 47 kg and the gross weight is 52 kg.' -%}
+    {%- else -%}
+      {%- assign faq_q1 = 'What is this Sensol reformer?' -%}{%- assign faq_a1 = product.description | strip_html | truncate: 300 -%}
+      {%- assign faq_q2 = 'Where can I find the technical specifications?' -%}{%- assign faq_a2 = 'The product description contains the current technical information for this model.' -%}
+      {%- assign faq_q3 = 'How do I choose between Sensol reformers?' -%}{%- assign faq_a3 = 'Compare the resistance system, dimensions, load capacity and configuration of the models shown in the Sensol range.' -%}
+      {%- assign faq_q4 = 'Where can I check the current price?' -%}{%- assign faq_a4 = 'The current price is shown on this product page and is managed by Shopify.' -%}
+      {%- assign faq_q5 = 'Where can I get product support?' -%}{%- assign faq_a5 = 'Contact Sensol support using the contact details provided on the website.' -%}
+      {%- assign faq_q6 = 'Are specifications subject to change?' -%}{%- assign faq_a6 = 'Use the current product page as the commercial reference and contact Sensol if you need confirmation for a specific configuration.' -%}
+      {%- assign faq_q7 = 'Does Sensol offer different reformer configurations?' -%}{%- assign faq_a7 = 'Yes. Sensol offers mechanical FLEX models and Smart Series models.' -%}
+      {%- assign faq_q8 = 'Can I compare Sensol models?' -%}{%- assign faq_a8 = 'Yes. The Sensol range can be compared by resistance system, load capacity, dimensions and configuration.' -%}
+  {%- endcase -%}
+
   <section class="page-width" aria-labelledby="sensol-product-faq-heading">
     <div class="product-faq-geo">
       <h2 id="sensol-product-faq-heading">{{ section.settings.heading }}</h2>
       <div class="product-faq-geo__list">
-        {%- case product.handle -%}
-          {%- when 'sensol-flex-air' -%}
-            {%- assign faq_q1 = 'What is the Sensol FLEX AIR?' -%}
-            {%- assign faq_a1 = 'The Sensol FLEX AIR is a mechanical Pilates reformer in the Sensol FLEX series, using spring resistance and an aluminium rail.' -%}
-            {%- assign faq_q2 = 'What resistance does the FLEX AIR use?' -%}
-            {%- assign faq_a2 = 'FLEX AIR uses spring resistance with Chinese steel wire springs.' -%}
-            {%- assign faq_q3 = 'What is the maximum user load for FLEX AIR?' -%}
-            {%- assign faq_a3 = 'The maximum load is 120 kg.' -%}
-            {%- assign faq_q4 = 'How large is the FLEX AIR?' -%}
-            {%- assign faq_a4 = 'Its product dimensions are 1645 × 616 × 439 mm.' -%}
-            {%- assign faq_q5 = 'What is the FLEX AIR carriage size?' -%}
-            {%- assign faq_a5 = 'The sliding bed is 410 × 300 mm.' -%}
-            {%- assign faq_q6 = 'How much does the FLEX AIR weigh?' -%}
-            {%- assign faq_a6 = 'The net weight is 25 kg and the gross weight is 28 kg.' -%}
-            {%- assign faq_q7 = 'What is the FLEX AIR maximum stroke?' -%}
-            {%- assign faq_a7 = 'The maximum stroke is 840 mm.' -%}
-            {%- assign faq_q8 = 'Does FLEX AIR work with an app?' -%}
-            {%- assign faq_a8 = 'Yes. The FLEX AIR is equipped with an app.' -%}
-          {%- when 'sensol-flex-pro' -%}
-            {%- assign faq_q1 = 'What is the Sensol FLEX PRO?' -%}
-            {%- assign faq_a1 = 'The Sensol FLEX PRO is a mechanical Pilates reformer using spring resistance, an aluminium rail and a rear dual-column configuration.' -%}
-            {%- assign faq_q2 = 'What resistance does the FLEX PRO use?' -%}
-            {%- assign faq_a2 = 'FLEX PRO uses German steel wire spring resistance.' -%}
-            {%- assign faq_q3 = 'What is the maximum user load for FLEX PRO?' -%}
-            {%- assign faq_a3 = 'The maximum load is 150 kg.' -%}
-            {%- assign faq_q4 = 'How large is the FLEX PRO?' -%}
-            {%- assign faq_a4 = 'Its product dimensions are 1920 × 640 × 452 mm.' -%}
-            {%- assign faq_q5 = 'What is the FLEX PRO carriage size?' -%}
-            {%- assign faq_a5 = 'The carriage is 460 × 900 mm.' -%}
-            {%- assign faq_q6 = 'How much does the FLEX PRO weigh?' -%}
-            {%- assign faq_a6 = 'The net weight is 38 kg and the gross weight is 42 kg.' -%}
-            {%- assign faq_q7 = 'What is the FLEX PRO maximum stroke?' -%}
-            {%- assign faq_a7 = 'The maximum stroke is 860 mm.' -%}
-            {%- assign faq_q8 = 'What accessories are specified for FLEX PRO?' -%}
-            {%- assign faq_a8 = 'The configuration specifies hand and foot straps, plus long ropes.' -%}
-          {%- when 'sensol-rs03' -%}
-            {%- assign faq_q1 = 'What is the Sensol RS03?' -%}
-            {%- assign faq_a1 = 'The Sensol RS03 is a Smart Series Pilates reformer with an aluminium rail and motorised resistance system.' -%}
-            {%- assign faq_q2 = 'What is the maximum resistance of the RS03?' -%}
-            {%- assign faq_a2 = 'The maximum resistance is 45 kg, with 1 kg adjustment precision.' -%}
-            {%- assign faq_q3 = 'What is the RS03 motor power?' -%}
-            {%- assign faq_a3 = 'The total motor power is 500 W.' -%}
-            {%- assign faq_q4 = 'What is the maximum user load for RS03?' -%}
-            {%- assign faq_a4 = 'The maximum load is 150 kg.' -%}
-            {%- assign faq_q5 = 'What resistance modes does RS03 have?' -%}
-            {%- assign faq_a5 = 'The specified modes are Standard, Centrifugal and Elastic.' -%}
-            {%- assign faq_q6 = 'What are the RS03 carriage and stroke dimensions?' -%}
-            {%- assign faq_a6 = 'The carriage is 460 × 900 mm and the maximum stroke is 860 mm.' -%}
-            {%- assign faq_q7 = 'What rope is used on the RS03?' -%}
-            {%- assign faq_a7 = 'RS03 uses 3.8 mm High Molecular Nylon Rope, with a specified rope load of 300 kg and rope stroke of 1500 mm.' -%}
-            {%- assign faq_q8 = 'What power supply does RS03 use?' -%}
-            {%- assign faq_a8 = 'The specified power supply is 220 V / 50 Hz.' -%}
-          {%- when 'sensol-rs03-pro' -%}
-            {%- assign faq_q1 = 'What is the Sensol RS03 PRO?' -%}
-            {%- assign faq_a1 = 'The Sensol RS03 PRO is a Smart Series Pilates reformer with motorised resistance, an aluminium rail and a rear dual-column configuration.' -%}
-            {%- assign faq_q2 = 'What is the maximum resistance of the RS03 PRO?' -%}
-            {%- assign faq_a2 = 'The maximum resistance is 45 kg, with 1 kg adjustment precision.' -%}
-            {%- assign faq_q3 = 'What is the RS03 PRO motor power?' -%}
-            {%- assign faq_a3 = 'The total motor power is 500 W.' -%}
-            {%- assign faq_q4 = 'What is the maximum user load for RS03 PRO?' -%}
-            {%- assign faq_a4 = 'The maximum load is 150 kg.' -%}
-            {%- assign faq_q5 = 'What resistance modes does RS03 PRO have?' -%}
-            {%- assign faq_a5 = 'The specified modes are Standard, Centrifugal and Elastic.' -%}
-            {%- assign faq_q6 = 'How large is the RS03 PRO?' -%}
-            {%- assign faq_a6 = 'Its product dimensions are 1920 × 640 × 452 mm.' -%}
-            {%- assign faq_q7 = 'What rope is used on the RS03 PRO?' -%}
-            {%- assign faq_a7 = 'RS03 PRO uses 3.8 mm High Molecular Nylon Rope, with a specified rope load of 300 kg and rope stroke of 1500 mm.' -%}
-            {%- assign faq_q8 = 'How much does the RS03 PRO weigh?' -%}
-            {%- assign faq_a8 = 'The net weight is 47 kg and the gross weight is 52 kg.' -%}
-          {%- else -%}
-            {%- assign faq_q1 = 'What is this Sensol reformer?' -%}
-            {%- assign faq_a1 = product.description | strip_html | truncate: 300 -%}
-            {%- assign faq_q2 = 'Where can I find the technical specifications?' -%}
-            {%- assign faq_a2 = 'The product description contains the current technical information for this model.' -%}
-            {%- assign faq_q3 = 'How do I choose between Sensol reformers?' -%}
-            {%- assign faq_a3 = 'Compare the resistance system, dimensions, load capacity and configuration of the models shown in the Sensol range.' -%}
-            {%- assign faq_q4 = 'Where can I check the current price?' -%}
-            {%- assign faq_a4 = 'The current price is shown on this product page and is managed by Shopify.' -%}
-            {%- assign faq_q5 = 'Where can I get product support?' -%}
-            {%- assign faq_a5 = 'Contact Sensol support using the contact details provided on the website.' -%}
-            {%- assign faq_q6 = 'Are specifications subject to change?' -%}
-            {%- assign faq_a6 = 'Use the current product page as the commercial reference and contact Sensol if you need confirmation for a specific configuration.' -%}
-            {%- assign faq_q7 = 'Does Sensol offer different reformer configurations?' -%}
-            {%- assign faq_a7 = 'Yes. Sensol offers mechanical FLEX models and Smart Series models.' -%}
-            {%- assign faq_q8 = 'Can I compare Sensol models?' -%}
-            {%- assign faq_a8 = 'Yes. The Sensol range can be compared by resistance system, load capacity, dimensions and configuration.' -%}
-        {%- endcase -%}
-
-        {%- for i in (1..8) -%}
-          {%- assign q_key = 'faq_q' | append: i -%}
-          {%- assign a_key = 'faq_a' | append: i -%}
-          {%- assign question = [q_key] -%}
-          {%- assign answer = [a_key] -%}
-          <details class="product-faq-geo__item">
-            <summary>{{ question }}</summary>
-            <div class="product-faq-geo__answer">{{ answer }}</div>
-          </details>
-        {%- endfor -%}
+        <details class="product-faq-geo__item"><summary>{{ faq_q1 }}</summary><div class="product-faq-geo__answer">{{ faq_a1 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q2 }}</summary><div class="product-faq-geo__answer">{{ faq_a2 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q3 }}</summary><div class="product-faq-geo__answer">{{ faq_a3 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q4 }}</summary><div class="product-faq-geo__answer">{{ faq_a4 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q5 }}</summary><div class="product-faq-geo__answer">{{ faq_a5 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q6 }}</summary><div class="product-faq-geo__answer">{{ faq_a6 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q7 }}</summary><div class="product-faq-geo__answer">{{ faq_a7 }}</div></details>
+        <details class="product-faq-geo__item"><summary>{{ faq_q8 }}</summary><div class="product-faq-geo__answer">{{ faq_a8 }}</div></details>
       </div>
     </div>
   </section>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type":"Question","name":{{ faq_q1 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a1 | json }}}},
-      {"@type":"Question","name":{{ faq_q2 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a2 | json }}}},
-      {"@type":"Question","name":{{ faq_q3 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a3 | json }}}},
-      {"@type":"Question","name":{{ faq_q4 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a4 | json }}}},
-      {"@type":"Question","name":{{ faq_q5 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a5 | json }}}},
-      {"@type":"Question","name":{{ faq_q6 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a6 | json }}}},
-      {"@type":"Question","name":{{ faq_q7 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a7 | json }}}},
-      {"@type":"Question","name":{{ faq_q8 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a8 | json }}}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":{{ faq_q1 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a1 | json }}}},
+    {"@type":"Question","name":{{ faq_q2 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a2 | json }}}},
+    {"@type":"Question","name":{{ faq_q3 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a3 | json }}}},
+    {"@type":"Question","name":{{ faq_q4 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a4 | json }}}},
+    {"@type":"Question","name":{{ faq_q5 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a5 | json }}}},
+    {"@type":"Question","name":{{ faq_q6 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a6 | json }}}},
+    {"@type":"Question","name":{{ faq_q7 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a7 | json }}}},
+    {"@type":"Question","name":{{ faq_q8 | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a8 | json }}}}
+  ]}
   </script>
 
   <style>
@@ -131,12 +85,6 @@
   </style>
 
   {% schema %}
-  {
-    "name": "Product FAQ — GEO",
-    "settings": [
-      {"type":"text","id":"heading","label":"Heading","default":"Product questions"}
-    ],
-    "presets": [{"name":"Product FAQ — GEO"}]
-  }
+  {"name":"Product FAQ — GEO","settings":[{"type":"text","id":"heading","label":"Heading","default":"Product questions"}],"presets":[{"name":"Product FAQ — GEO"}]}
   {% endschema %}
 {%- endif -%}
