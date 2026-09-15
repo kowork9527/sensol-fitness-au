@@ -130,12 +130,19 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "product-faq-geo": {
+      "type": "product-faq-geo",
+      "settings": {
+        "heading": "Product questions"
+      }
     }
   },
   "order": [
     "main",
     "disclosures",
     "178537778718aba56f",
+    "product-faq-geo",
     "related-products"
   ]
 }
