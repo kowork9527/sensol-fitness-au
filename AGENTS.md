@@ -92,6 +92,11 @@
 - Then grep the downloaded HTML: check `action="/password"` count is 0 (real page), verify section markup, img attributes, and the section's `<style data-shopify>` rules actually match the elements.
 - Theme CSS conflict scan: download all linked `assets/*.css` and regex-scan rules whose selectors contain `img` with width/height/object-fit - confirm none apply to the section being changed.
 
+## Logistics / Freight Forwarder (璟川)
+- Freight forwarder: 璟川国际物流 (Shenzhen Jingchuan International Logistics, www.sz-jcgj.com, hotline 153-0261-2912) — CN-AU specialist. Channels: 海派 DDP (25-30d door-to-door, incl. GST+clearance), 海派 DDU (30-35d), 空派 (10-17d), 整柜, 纯电DG柜; AU side: Sydney/Melbourne self-operated warehouses, own truck fleet, first-hand FASTWAY/AU Post/TOLL/Allied Express accounts. Price positioning: mid-to-low; rates are CONTRACTUAL (not published anywhere public) — quotes come from their sales/WeChat.
+- Billing rule (their published method): volumetric weight = L×W×H(cm)/6000, billable = max(actual, volumetric). Sea LCL often has per-ticket minimums; residential address surcharge + tail-lift fee apply (Gold Coast QLD = normal delivery zone, not remote).
+- Packaging specs source of truth: `assets/Details-au.xlsx` — FLEX AIR net 25kg / gross 28kg, carton Option1 1750×625×190mm (0.208 CBM → 34.6kg volumetric) or Option2 1200×900×180mm (0.194 CBM → 32.4kg); FLEX PRO 38/42kg, RS03 42/47kg, RS03 PRO 47/52kg — all 2040×680×180mm carton.
+
 ## Launch Check Audit (2025-11)
 - "Launch Check" is a Shopify first-party app (handle: `launch-check`); its report lives in Shopify internal systems — NOT readable via API. Audit store settings directly instead.
 - Audit endpoints: REST `policies.json` / `shipping_zones.json` / `shop.json`; GraphQL `appInstallations` (needs read_apps), `deliveryProfiles { profileLocationGroups { locationGroupZones } }`, `products { seo }`.
