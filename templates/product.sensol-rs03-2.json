@@ -14,7 +14,9 @@
       "settings": {
         "padding_top": 140,
         "padding_bottom": 80,
-        "backorder_notice_enabled": true
+        "backorder_notice_enabled": false,
+        "backorder_title": "Pre-Order Notice",
+        "backorder_notice": "This item is currently on pre-order and will ship as soon as new stock arrives."
       }
     },
     "banner": {
