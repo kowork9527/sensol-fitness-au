@@ -1,0 +1,11 @@
+{% if request.page_type == 'product' and product.handle == 'sensol-flex-air' %}
+{% assign cart_air = all_products['sensol-flex-air'] %}
+<section class="sensol-cart-picker" tabindex="-1" aria-label="FLEX AIR selection in your cart">
+<h3>FLEX AIR</h3><p>{{ cart_air.price | money_with_currency }}</p>
+<form class="sensol-cart-add" action="{{ routes.cart_add_url }}" method="post">
+<label for="CartAirVariant">Colour</label><select id="CartAirVariant" name="id">{% for variant in cart_air.variants %}<option value="{{ variant.id }}" data-available="{{ variant.available }}" {% if variant == cart_air.selected_or_first_available_variant %}selected{% endif %}>{{ variant.title | escape }}{% unless variant.available %} — Sold out{% endunless %}</option>{% endfor %}</select>
+<label for="CartAirQuantity">Quantity</label><input id="CartAirQuantity" name="quantity" type="number" min="1" value="1">
+<button class="button" type="submit" {% unless cart_air.available %}disabled{% endunless %}>{% if cart_air.available %}Add to cart{% else %}Sold out{% endif %}</button>
+<p role="status">{% unless cart_air.available %}FLEX AIR is currently sold out in all colours.{% endunless %}</p>
+</form></section>
+{% endif %}

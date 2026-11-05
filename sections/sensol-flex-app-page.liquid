@@ -1,0 +1,5 @@
+{{ 'ssm-air-only.css' | asset_url | stylesheet_tag }}
+{{ 'ssm-home-discovery.css' | asset_url | stylesheet_tag }}
+<section class="ss-app-page" aria-label="SENSOL FLEX app"><header class="ss-app-page-heading"><p class="smh-kicker">THE SENSOL FLEX APP</p><h1>Your practice.<br>Your own rhythm.</h1><p>Guided classes for FLEX AIR.</p></header>{% render 'sensol-flex-app-preview', section: section %}</section>
+<script src="{{ 'ssm-flex-app.js' | asset_url }}" defer></script>
+{% schema %}{"name":"SENSOL FLEX app","settings":[],"presets":[{"name":"SENSOL FLEX app"}]}{% endschema %}

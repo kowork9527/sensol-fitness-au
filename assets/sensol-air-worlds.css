@@ -1,0 +1,24 @@
+.air-worlds{position:relative;height:auto;background:#deddd7;color:#192019;font-family:Arial,Helvetica,sans-serif;scroll-margin-top:80px}
+.air-worlds .air-world-stage{position:relative;height:auto;overflow:hidden;background:#deddd7;padding:80px 0 120px;isolation:isolate}
+.air-world-stage>header{padding:0 6% 34px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.air-world-stage>header p{font-size:11px;font-weight:700;letter-spacing:.1em;margin:0}
+.air-world-stage>header h2{font-size:clamp(30px,3.3vw,46px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin:0}
+.air-world-banner{position:relative}
+.air-world-track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;position:relative;touch-action:pan-x pan-y pinch-zoom}
+.air-world-track::-webkit-scrollbar{display:none}
+.air-world-track:focus-visible{outline:3px solid #81664b;outline-offset:-3px}
+.air-world-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;margin:0}
+.air-world-visual{width:100%;aspect-ratio:1672/941;overflow:hidden}
+.air-world-visual img{display:block;width:100%;height:100%;object-fit:contain;max-width:none}
+.air-world-caption{padding:36px 6% 20px;display:grid;grid-template-columns:1fr 1.05fr;gap:7%;align-items:start}
+.air-world-caption span{font-size:11px;font-weight:700;letter-spacing:.1em}
+.air-world-caption h3{font-size:clamp(28px,3vw,42px);line-height:1.1;letter-spacing:-.035em;font-weight:600;margin:16px 0 0;max-width:520px}
+.air-world-caption p{font-size:18px;line-height:1.5;margin:0}
+.air-world-caption small{display:block;font-size:12px;line-height:1.5;margin-top:14px;color:#495047}
+.air-world-arrow{position:absolute;top:calc(100vw * .2814);transform:translateY(-50%);width:60px;height:60px;display:grid;place-items:center;border:1px solid #ffffff70;border-radius:50%;background:#f7f4f0ed;color:#192019;font:30px Arial,Helvetica,sans-serif;cursor:pointer;z-index:2;box-shadow:0 3px 20px #00000015;transition:background .2s,scale .2s}
+.air-world-prev{left:2.5%}.air-world-next{right:2.5%}.air-world-arrow:hover{background:#fff;scale:1.06}.air-world-arrow:focus-visible{outline:3px solid #81664b;outline-offset:4px}
+.air-world-footer{display:flex;justify-content:space-between;align-items:center;padding:8px 6% 0;color:#495047;font-size:10px;letter-spacing:.04em}
+.air-world-footer [data-world-status]{font-size:12px;font-weight:700;color:#192019;letter-spacing:.1em}
+@media(max-width:749px){.air-worlds .air-world-stage{padding:70px 0 110px}.air-world-stage>header{display:block;padding-bottom:24px}.air-world-stage>header p{font-size:10px;margin-bottom:14px}.air-world-stage>header h2{font-size:30px}.air-world-caption{grid-template-columns:1fr;gap:20px;padding:26px 6% 22px}.air-world-caption h3{font-size:30px;margin-top:12px}.air-world-caption p{font-size:16px;line-height:1.5}.air-world-caption small{font-size:11px;margin-top:12px}.air-world-arrow{width:40px;height:40px;font-size:24px}.air-world-prev{left:3%}.air-world-next{right:3%}}
+@media(prefers-reduced-motion:reduce){.air-world-arrow{transition:none}}
+

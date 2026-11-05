@@ -1,0 +1,24 @@
+<section class="air-bridge" data-air-bridge aria-label="Your equipment. Your space.">
+  <div class="air-bridge-stage">
+    <header><p>YOUR EQUIPMENT. YOUR SPACE.</p><h2>A reformer that fits <br>your everyday life.</h2></header>
+    <div class="air-bridge-panels">
+      <article class="air-bridge-panel is-active" data-bridge-panel="0">
+        <figure><img src="{{ 'sensol-air-bridge-spring.webp' | asset_url }}" width="3000" height="1688" alt="Real top view of FLEX AIR showing its rail, two platforms and resistance springs" loading="lazy"></figure>
+        <div class="air-bridge-copy"><span>01 / MECHANICAL RESISTANCE</span><h3>Spring resistance.</h3><p>Your movement drives the sliding platform against mechanical spring resistance. The rail, cushioned platform and support handles form one Pilates reformer.</p><small>Steel-wire springs · Aluminium rail</small></div>
+      </article>
+      <article class="air-bridge-panel air-bridge-panel--reverse" data-bridge-panel="1" aria-hidden="true">
+        <figure><img src="{{ 'sensol-air-bridge-whole.webp' | asset_url }}" width="3000" height="1688" alt="Complete beige FLEX AIR reformer with low rail, pads and support handles" loading="lazy"></figure>
+        <div class="air-bridge-copy"><span>02 / NON-ELECTRIC EQUIPMENT</span><h3>No power outlet <br>needed.</h3><p>FLEX AIR works without a powered drive. Set up on a dry, firm, level surface with enough space around the equipment for your movements.</p><small>Extended footprint · 1645 × 616 mm</small></div>
+      </article>
+      <article class="air-bridge-panel air-bridge-panel--storage" data-bridge-panel="2" aria-hidden="true">
+        <figure><img src="{{ 'sensol-air-bridge-storage.webp' | asset_url }}" width="1000" height="1464" alt="Original product photograph of FLEX AIR stored upright beside a model" loading="lazy"></figure>
+        <div class="air-bridge-copy"><span>03 / BETWEEN SESSIONS</span><h3>Space when <br>you need it.</h3><p>Store FLEX AIR upright between sessions and return the floor to everyday use. Bring it out when you are ready to use your equipment.</p><small>Upright position shown is for storage · Net weight 25 kg</small></div>
+      </article>
+    </div>
+    <nav aria-label="Explore FLEX AIR everyday features"><button type="button" data-bridge-go="0" aria-pressed="true">Spring resistance</button><button type="button" data-bridge-go="1" aria-pressed="false">No power</button><button type="button" data-bridge-go="2" aria-pressed="false">Upright storage</button></nav>
+    <p class="air-bridge-cue">Scroll to see what makes it fit your life ↓</p>
+  </div>
+</section>
+{{ 'sensol-air-bridge.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sensol-air-bridge.js' | asset_url }}" defer></script>
+

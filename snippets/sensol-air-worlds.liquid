@@ -1,0 +1,28 @@
+<section class="air-worlds" data-air-worlds aria-label="FLEX AIR in four spaces">
+<div class="air-world-stage">
+<header><p>02 / IN YOUR SPACE</p><h2>Built for your space.</h2></header>
+<div class="air-world-banner">
+<div class="air-world-track" data-world-track tabindex="0" role="region" aria-roledescription="carousel" aria-label="FLEX AIR scene banners. Use left and right arrows to explore.">
+{% assign worlds = 'home|dorm|mountain|studio' | split: '|' %}
+{% assign labels = '01 / LIVING ROOM|02 / STUDENT ROOM|03 / LAKESIDE|04 / PILATES STUDIO' | split: '|' %}
+{% assign headings = 'Your living room. Your own equipment.|Your room. With room to spare.|Fresh air. No plug needed.|Learn in the studio. Know your own reformer.' | split: '|' %}
+{% assign bodies = 'Set up in your living room without a power outlet. Fold FLEX AIR away between sessions, so the room can return to everyday use.|FLEX AIR can be stored upright as shown, returning floor space to study and everyday living. Set it out only where there is enough movement clearance.|No power outlet needed. Set FLEX AIR on a firm, level surface with a full exercise mat beneath its supports, and take your equipment beyond four walls.|An instructor can demonstrate the rail, platform and resistance attachments. Learn FLEX AIR in class and use the same equipment at home.' | split: '|' %}
+{% assign notes = 'Leave clearance around the 1645 × 616 mm footprint.|Check room clearance and accommodation rules. Net weight: 25 kg.|Choose dry, firm ground away from the water. Mat shown separately.|Follow instructor guidance. Shown Pilates ring is not listed among included accessories.' | split: '|' %}
+{% assign descriptions = 'Model using beige FLEX AIR in a lived-in Australian living room with sofa and television|Model beside vertically stored FLEX AIR in an Australian student studio room|Model performing a supported knee tuck on FLEX AIR on a full exercise mat beside an Australian lake|Model using black FLEX AIR in a Pilates teaching studio with mirrored walls and equipment storage' | split: '|' %}
+{% for world in worlds %}
+{% capture world_asset %}{% if world == 'mountain' %}sensol-air-world-lakeside-v2.webp{% elsif world == 'home' or world == 'studio' %}sensol-air-world-scale-{{ world }}.webp{% else %}sensol-air-world-grounded-{{ world }}.webp{% endif %}{% endcapture %}
+<article class="air-world-slide" data-world-slide="{{ forloop.index0 }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of 4: {{ labels[forloop.index0] }}">
+<div class="air-world-visual"><img src="{{ world_asset | asset_url }}" width="1672" height="941" alt="{{ descriptions[forloop.index0] }}" loading="lazy" draggable="false"></div>
+<div class="air-world-caption"><div><span>{{ labels[forloop.index0] }}</span><h3>{{ headings[forloop.index0] }}</h3></div><div><p>{{ bodies[forloop.index0] }}</p><small>{{ notes[forloop.index0] }}</small></div></div>
+</article>
+{% endfor %}
+</div>
+<button type="button" class="air-world-arrow air-world-prev" data-world-prev aria-label="Previous FLEX AIR scene"><span aria-hidden="true">←</span></button>
+<button type="button" class="air-world-arrow air-world-next" data-world-next aria-label="Next FLEX AIR scene"><span aria-hidden="true">→</span></button>
+</div>
+<div class="air-world-footer"><span>Designed scene visualisations</span><span data-world-status role="status" aria-live="polite">01 / 04</span></div>
+</div>
+</section>
+{{ 'sensol-air-worlds.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sensol-air-worlds.js' | asset_url }}" defer></script>
+

@@ -1,0 +1,23 @@
+{% assign colour_names = 'Beige|Deep Brown|Black Brown|Gray|Black' | split: '|' %}
+{% assign colour_swatches = '#b9b2a2|#514034|#302a28|#484a47|#202120' | split: '|' %}
+{% assign colour_offsets = '-71.6667%|-176.6667%|-281.6667%|-386.6667%|-491.6667%' | split: '|' %}
+<section class="air-colours" aria-labelledby="air-colours-title-{{ section.id }}" data-air-colours>
+  <div class="air-colours-heading"><div><p class="motion-eyebrow">THE FINISH / FLEX AIR</p><h2 id="air-colours-title-{{ section.id }}">Five colours.<br>Your FLEX AIR.</h2></div><p>The same reformer, in five finishes.<br>Choose the colour that belongs in your space.</p></div>
+  <div class="air-colour-grid" role="group" aria-label="FLEX AIR colours">
+    {% for name in colour_names %}
+      {% assign index = forloop.index0 %}
+      {% assign colour_variant = flex_product.variants | where: 'title', name | first %}
+      {% if colour_variant != blank %}
+        {% if request.page_type == 'product' %}<button type="button" class="air-colour-card" data-air-variant="{{ colour_variant.id }}" data-air-name="{{ name | escape }}" aria-pressed="{% if colour_variant == flex_product.selected_or_first_available_variant %}true{% else %}false{% endif %}">{% else %}<a class="air-colour-card" href="{{ colour_variant.url }}">{% endif %}
+          <span class="air-colour-image"><img src="{{ 'sensol-flex-air-colours-hd.webp' | asset_url }}" alt="FLEX AIR in {{ name | escape }}" width="1577" height="997" loading="lazy" style="left:{{ colour_offsets[index] }}"></span>
+          <span class="air-colour-label"><i style="background:{{ colour_swatches[index] }}" aria-hidden="true"></i><strong>{{ name }}</strong><span class="air-colour-tick" aria-hidden="true">✓</span></span>
+          {% unless colour_variant.available %}<span class="air-colour-stock">Currently sold out</span>{% endunless %}
+        {% if request.page_type == 'product' %}</button>{% else %}</a>{% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <p class="air-colour-selection" role="status" aria-live="polite">{% if request.page_type == 'product' %}Selected colour: <strong data-air-colour-selected>{{ flex_product.selected_or_first_available_variant.title | escape }}</strong>{% else %}Explore the five finishes above.{% endif %}</p>
+  <p class="air-colour-note">Colour appearance may vary with lighting and your screen.</p>
+</section>
+{{ 'sensol-air-colours.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sensol-air-colours.js' | asset_url }}" defer></script>

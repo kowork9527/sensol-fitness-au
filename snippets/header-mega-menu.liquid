@@ -8,6 +8,7 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
+{% if link.handle == "products" or link.url contains "/collections/" %}<li><a href="/products/sensol-flex-air" class="header__menu-item list-menu__item link link--text focus-inset">FLEX AIR</a></li>{% continue %}{% endif %}
       <li>
         {%- if link.links != blank -%}
           <header-menu>

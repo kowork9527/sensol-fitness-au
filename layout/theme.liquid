@@ -1,11 +1,8 @@
-<!-- SENSWEB-THEME-V4-CHECK -->
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="cache-bust" content="1786005185">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
@@ -22,22 +19,12 @@
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains 'Sensol' %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {%- liquid
-    assign seo_description = page_description
-    if template.name == 'article' and article.metafields.global.description != blank
-      assign seo_description = article.metafields.global.description
-    elsif template.name == 'blog' and blog.metafields.global.description != blank
-      assign seo_description = blog.metafields.global.description
-    endif
-  -%}
-    {%- if request.page_type == 'index' -%}
-      <meta name="description" content="Sensol Fitness premium Pilates reformers for home workouts — Smart Series digital weight and FLEX spring models. Ships across Australia.">
-    {%- elsif seo_description -%}
-      <meta name="description" content="{{ seo_description | escape }}">
-    {%- endif -%}
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
 
     {% render 'meta-tags' %}
 
@@ -292,47 +279,9 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    {%- style -%}
-      /* ---- SENSOL Global Override — inlined ---- */
-      :root {
-        --sensol-bg: #F7F4F0;
-        --sensol-bg-dark: #1A1816;
-        --sensol-text: #1A1816;
-        --sensol-text-light: #F7F4F0;
-        --sensol-text-muted: #8A8279;
-        --sensol-border: #D4CEC6;
-        --sensol-accent: #B5ADA4;
-        --sensol-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        --sensol-transition: cubic-bezier(0.25, 0.1, 0.25, 1);
-        --sensol-cache-check: #CACHE123;
-      }
-      body, .shopify-section { font-family: var(--sensol-font) !important; }
-      h1, h2, h3, h4, h5, h6, .heading-font, .header__heading, .banner__heading { font-family: var(--sensol-font) !important; }
-      .section-spacing, .shopify-section + .shopify-section { margin-top: 0 !important; }
-      .shopify-section { padding-top: 0 !important; padding-bottom: 0 !important; }
-      #shopify-section-sensol-header, .shopify-section.sensol-header-section-wrapper { background: transparent !important; margin: 0 !important; }
-      #shopify-section-sensol-hero, .shopify-section.sensol-hero-section { background: transparent !important; margin: 0 !important; }
-      [id^="shopify-section-sensol-"]:not(#shopify-section-sensol-footer):not(.sensol-footer-section) { background: transparent !important; }
-      .section-full-width .page-width { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
-      body { background-color: var(--sensol-bg) !important; color: var(--sensol-text) !important; }
-      .announcement-bar-section { display: none !important; }
-      /* Ensure minimum font sizes on mobile for Sensol sections */
-      @media (max-width: 749px) {
-        .sensol-hide-mobile { display: none !important; }
-        [id^="shopify-section-sensol-"] h1 { font-size: 2.25rem !important; }
-        [id^="shopify-section-sensol-"] h2 { font-size: 1.625rem !important; }
-        [id^="shopify-section-sensol-"] h3 { font-size: 1.125rem !important; }
-        [id^="shopify-section-sensol-"] p { font-size: 0.9375rem !important; }
-        [id^="shopify-section-sensol-"] .sensol-label { font-size: 0.6875rem !important; }
-      }
-      @media (min-width: 750px) { .sensol-hide-desktop { display: none !important; } }
-    {%- endstyle -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
-    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
+    {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
       {{ 'component-cart.css' | asset_url | stylesheet_tag }}
       {{ 'component-totals.css' | asset_url | stylesheet_tag }}
@@ -370,67 +319,15 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  
-  <!-- GLOBAL NAV ZINDEX FIX -->
-  <style>
-  .shopify-section-group-header-group,
-  .sensol-header-section-wrapper {
-    position: relative !important;
-    z-index: 1000 !important;
-  }
-  .sensol-hero-section,
-  #shopify-section-template--28523276173444__sensol-hero {
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  .sensol-header-section {
-    pointer-events: auto !important;
-  }
-  .sensol-header__nav,
-  .sensol-header__nav a,
-  .sensol-header__link,
-  .sensol-header__shop-btn,
-  .sensol-header__actions a,
-  .sensol-header__actions button,
-  .sensol-header__logo,
-  .sensol-header__hamburger {
-    pointer-events: auto !important;
-    position: relative;
-    z-index: 1002;
-  }
-
-  /* BLOG CONTENT VISIBILITY SAFETY (2026-08):
-     Blog list & article pages must never hide content behind Dawn's
-     scroll-trigger lazy animation. If IntersectionObserver init is delayed
-     or broken (app JS errors on these pages), elements stay at opacity .01
-     and content appears "merged/overlapping" with the background.
-     Force content visible on these reading pages - also better for SEO. */
-  [data-template="blog"] .scroll-trigger,
-  [data-template="article"] .scroll-trigger {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
-
-  /* BLOG ARTICLE HERO IMAGE: hidden on article pages.
-     The full-width hero image at the top of blog posts is too large and
-     pushes the actual content far down the page, hurting readability.
-     Text content starts right after the header instead. */
-  [data-template="article"] .article-template__hero-container {
-    display: none !important;
-  }
-  </style>
+  {% if product.handle == 'sensol-flex-air' or product.handle == 'sensol-flex-pro' or product.handle == 'sensol-rs03' or product.handle == 'sensol-rs03-pro' %}<style>body{font-family:Arial,Helvetica,sans-serif;background:#deddd7;color:#192019}#MainContent{padding:0}.header-wrapper{position:fixed;left:0;right:0;top:0;background:transparent;border:0;z-index:50;transition:background .2s}.header-wrapper.on-content{background:#deddd7ef;backdrop-filter:blur(8px)}.header-wrapper .header{padding-top:12px;padding-bottom:12px}.section-header{z-index:50}.shopify-section-group-header-group{margin:0}.closing-visible .motion-floating-cta{opacity:0;pointer-events:none}</style>{% endif %}
 </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-{% render 'nav-fix' %}
-  
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
+    {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
@@ -502,8 +399,9 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.cart_type == 'drawer' or settings.cart_type == 'notification' -%}
+    {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
 </html>
+

@@ -1,24 +1,13 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
-      "type": "sensol-list-collections",
+      "type": "main-list-collections",
       "settings": {
-        "eyebrow": "Sensol Fitness",
         "title": "Collections",
-        "subtitle": "Two series, one standard. Explore the full Sensol lineup and find the reformer built for your training.",
-        "image": "shopify://shop_images/product_lineup_v3.jpg",
-        "header_eyebrow": "Explore",
-        "header_title": "Shop by series",
-        "handles": "smart-series,mechanical-series,flex-series,products"
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "columns_mobile": "2"
       }
     }
   },

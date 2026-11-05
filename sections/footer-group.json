@@ -1,34 +1,37 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "Footer",
   "type": "footer",
   "sections": {
-    "sensol-footer": {
-      "type": "sensol-footer",
+    "footer": {
+      "type": "sensol-motion-footer",
+      "blocks": {
+        "brand": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": false
+          }
+        }
+      },
+      "block_order": [
+        "brand"
+      ],
       "settings": {
-        "logo": "shopify://shop_images/2_1logo_01.webp",
-        "logo_width": 200,
-        "brand_desc": "Redefining the role of fitness in modern living. Intelligent training systems that merge performance, technology, and spatial aesthetics. Founded 2022.",
-        "social_instagram": "",
-        "social_youtube": "",
-        "social_linkedin": "",
-        "product_menu": "footer",
-        "company_menu": "company",
-        "legal_menu": "service-policy",
-        "newsletter_desc": "Subscribe for exclusive updates, early access to new products, and stories from the world of Sensol.",
-        "contact_email": "support@sensolfitness.com.au"
+        "color_scheme": "scheme-3",
+        "newsletter_enable": true,
+        "newsletter_heading": "Keep your practice moving.",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 48,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "sensol-footer"
+    "footer"
   ]
 }

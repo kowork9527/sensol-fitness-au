@@ -1,0 +1,34 @@
+(() => {
+ const mount=root=>{
+  if(root.dataset.mounted)return;root.dataset.mounted='true';
+  const data=JSON.parse(root.querySelector('[data-eng-models]').textContent),$=s=>root.querySelector(s),$$=s=>[...root.querySelectorAll(s)];
+  const clean=[],on=(el,name,fn)=>{el.addEventListener(name,fn);clean.push(()=>el.removeEventListener(name,fn));};
+  let selected=0,part=-1,viewMode="front",zoom=1,tx=0,ty=0,drag=null;
+  const viewer=$('.se-inspector'),plane=$('.se-image-plane'),svgNS='http://www.w3.org/2000/svg';on($('[data-eng-image]'),'load',()=>{$('[data-eng-image]').style.opacity='1';});
+  const clamp=(v,max)=>Math.max(-max,Math.min(max,v));
+  const transform=()=>{tx=clamp(tx,(zoom-1)*plane.clientWidth/2);ty=clamp(ty,(zoom-1)*plane.clientHeight/2);plane.style.transform=`translate(${tx}px,${ty}px) scale(${zoom})`;};
+  const frame=()=>{zoom=part<0?1:2.4;const f=data[selected].features[part];tx=f?(.5-f.x/100)*plane.clientWidth*zoom:0;ty=f?(.5-f.y/100)*plane.clientHeight*zoom:0;transform();};
+  const renderPart=()=>{const m=data[selected],f=m.features[part];
+   const photoMode=f?f.view:viewMode,isSide=photoMode==='side'&&m.sideImage,image=$('[data-eng-image]');
+   const source=isSide?m.sideImage:m.image;if(image.getAttribute('src')!==source){image.style.opacity='0';image.src=source;}if(image.complete&&image.naturalWidth)image.style.opacity='1';image.alt=m.name+(isSide?' manual side profile':' top view');
+   plane.dataset.photo=isSide?m.sideStyle:m.orientation;
+   $$('[data-eng-view-mode]').forEach(b=>{b.hidden=b.dataset.engViewMode==='side'&&!m.sideImage;b.setAttribute('aria-pressed',String(b.dataset.engViewMode===(isSide?'side':'front')));});
+   $('[data-eng-photo-label]').textContent=isSide?'Side profile / product manual':'Top view';
+   viewer.dataset.detail=String(part>=0);$('[data-eng-reset]').hidden=part<0;$('[data-eng-view]').textContent=f?'DETAIL VIEW / DRAG TO INSPECT':'FULL PRODUCT VIEW';$('[data-eng-part-title]').textContent=f?f.title:'One complete platform.';$('[data-eng-part-copy]').textContent=f?f.copy:`Explore the ${m.name} resistance system, carriage and supporting structure.`;$$('[data-eng-part]').forEach((b,i)=>{b.textContent=m.features[i].title+' ↗';b.setAttribute('aria-pressed',String(i===part));});frame();};
+  const renderPlan=()=>{};
+  const choose=i=>{selected=i;part=-1;viewMode='front';const m=data[i];$('[data-eng-model-name]').textContent=m.name;$('[data-eng-travel]').textContent=m.travel+' mm';$('[data-eng-bed]').textContent=m.bed+' mm';$('[data-eng-load]').textContent=m.capacity+' kg';$('[data-eng-product]').href='/products/'+m.handle;$('[data-eng-product]').textContent='Explore '+m.name+' ↗';$$('button[data-eng-model]').forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));renderPart();renderPlan();};
+  $$('button[data-eng-model]').forEach(b=>on(b,'click',()=>choose(Number(b.dataset.engModel))));
+  $$('[data-eng-plan-model]').forEach(b=>on(b,'click',()=>choose(Number(b.dataset.engPlanModel))));
+  $$('[data-eng-part]').forEach(b=>on(b,'click',()=>{part=Number(b.dataset.engPart);renderPart();}));
+  $$('[data-engineering-inspect]').forEach(a=>on(a,'click',()=>{choose(Number(a.dataset.engineeringInspect));part=0;renderPart();}));
+  $$('[data-eng-view-mode]').forEach(b=>on(b,'click',()=>{viewMode=b.dataset.engViewMode;part=-1;renderPart();}));
+  on($('[data-eng-reset]'),'click',()=>{part=-1;viewMode='front';renderPart();viewer.focus({preventScroll:true});});
+  on(viewer,'keydown',e=>{if(e.key==='Escape'){part=-1;viewMode='front';renderPart();}});
+  on(window,'resize',frame);
+  on(viewer,'pointerdown',e=>{if(part<0||e.target.closest('button'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,tx,ty};viewer.dataset.dragging='true';viewer.setPointerCapture(e.pointerId);});
+  on(viewer,'pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;tx=drag.tx+e.clientX-drag.x;ty=drag.ty+e.clientY-drag.y;transform();});
+  const stop=()=>{drag=null;viewer.dataset.dragging='false';};on(viewer,'pointerup',stop);on(viewer,'pointercancel',stop);
+  on(document,'shopify:section:unload',e=>{if(e.detail?.sectionId===root.dataset.sectionId)clean.forEach(fn=>fn());});choose(selected);
+ };
+ document.querySelectorAll('[data-sensol-engineering]').forEach(mount);document.addEventListener('shopify:section:load',e=>e.target.querySelectorAll('[data-sensol-engineering]').forEach(mount));
+})();

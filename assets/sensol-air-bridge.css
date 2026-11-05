@@ -1,0 +1,23 @@
+.air-bridge{height:330svh;background:#f4f1e9;color:#20251f;font-family:Arial,Helvetica,sans-serif}
+.air-bridge-stage{position:sticky;top:0;height:100svh;min-height:580px;overflow:hidden;isolation:isolate;background:#f4f1e9}
+.air-bridge header{position:absolute;z-index:2;top:95px;left:6%;right:6%;display:flex;justify-content:space-between;align-items:flex-start;gap:30px}
+.air-bridge header p,.air-bridge-copy>span{font-size:12px;font-weight:700;letter-spacing:.1em;line-height:1.4;margin:8px 0}
+.air-bridge header h2{font-family:inherit;font-weight:600;font-size:clamp(28px,3vw,42px);line-height:1.1;letter-spacing:-.04em;margin:0;color:inherit}
+.air-bridge-panels{position:absolute;top:205px;left:6%;right:6%;bottom:155px}
+.air-bridge-panel{position:absolute;inset:0;display:grid;grid-template-columns:60% 34%;gap:6%;align-items:center;opacity:0;visibility:hidden;pointer-events:none}
+.air-bridge-panel.is-active{opacity:1;visibility:visible}.air-bridge-panel{mix-blend-mode:multiply}
+.air-bridge-panel figure{margin:0;min-width:0;min-height:0;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.air-bridge-panel img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transform:scale(var(--bridge-scale,1));transform-origin:65% 50%;will-change:transform}
+.air-bridge-copy h3{font-family:inherit;font-size:clamp(30px,3.2vw,46px);font-weight:600;line-height:1.08;letter-spacing:-.035em;margin:18px 0;color:inherit}
+.air-bridge-copy p{font-size:17px;line-height:1.6;margin:0 0 20px;max-width:380px}
+.air-bridge-copy small{display:block;font-size:12px;line-height:1.6;max-width:340px;color:#4e574a}
+.air-bridge-panel--reverse{grid-template-columns:34% 60%}.air-bridge-panel--reverse figure{grid-column:2;grid-row:1}.air-bridge-panel--reverse .air-bridge-copy{grid-column:1;grid-row:1}
+.air-bridge-panel--storage img{transform-origin:50% 70%;max-width:500px}
+.air-bridge nav{position:absolute;z-index:3;bottom:105px;left:6%;right:160px;display:flex;gap:28px;justify-content:center}
+.air-bridge nav button{font:700 13px/1.5 Arial,Helvetica,sans-serif;padding:9px 0;border:0;border-bottom:2px solid transparent;background:transparent;color:inherit;cursor:pointer}
+.air-bridge nav button[aria-pressed=true]{border-color:currentColor}.air-bridge nav button:focus-visible{outline:2px solid #81664b;outline-offset:5px}
+.air-bridge-cue{position:absolute;left:6%;bottom:77px;font-size:11px;margin:0;letter-spacing:.02em}
+@media(max-width:749px){.air-bridge{height:300svh}.air-bridge-stage{min-height:650px}.air-bridge header{top:85px;display:block;left:7%;right:7%}.air-bridge header p{font-size:10px;margin:0 0 10px}.air-bridge header h2{font-size:27px;line-height:1.1}.air-bridge header h2 br{display:none}.air-bridge-panels{top:180px;bottom:245px;left:7%;right:7%}.air-bridge-panel,.air-bridge-panel--reverse{display:flex;flex-direction:column;gap:14px;align-items:stretch}.air-bridge-panel figure{height:44%;flex:0 0 44%;overflow:visible}.air-bridge-panel img{max-height:100%;transform-origin:50% 50%}.air-bridge-panel--storage img{width:auto;max-width:100%}.air-bridge-copy>span{font-size:10px;margin:0}.air-bridge-copy h3{font-size:29px;margin:10px 0;line-height:1.08}.air-bridge-copy h3 br{display:none}.air-bridge-copy p{font-size:14px;line-height:1.5;margin:0 0 10px}.air-bridge-copy small{font-size:11px;line-height:1.4}.air-bridge nav{bottom:220px;left:7%;right:7%;gap:15px;justify-content:space-between}.air-bridge nav button{font-size:11px}.air-bridge-cue{display:none}}
+@media(prefers-reduced-motion:reduce){.air-bridge{height:auto}.air-bridge-stage{position:relative;height:auto;min-height:0;overflow:visible;padding:90px 6% 120px}.air-bridge header{position:static;display:block;margin-bottom:40px}.air-bridge-panels{position:static}.air-bridge-panel,.air-bridge-panel--reverse{position:static;opacity:1!important;visibility:visible!important;display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:60px 0}.air-bridge-panel figure{height:350px}.air-bridge-panel img{transform:none!important}.air-bridge-panel--reverse figure{grid-column:1}.air-bridge-panel--reverse .air-bridge-copy{grid-column:2}.air-bridge nav,.air-bridge-cue{display:none}}
+@media(max-width:749px) and (prefers-reduced-motion:reduce){.air-bridge-panel,.air-bridge-panel--reverse{display:flex;gap:25px}.air-bridge-panel figure{height:230px;flex:none}}
+

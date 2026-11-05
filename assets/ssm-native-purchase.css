@@ -1,0 +1,107 @@
+.sensol-native-purchase{display:block;--ink:#192019;--muted:#586056;--line:#b6b9af;box-sizing:border-box;background:#deddd7;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.sensol-native-purchase *{box-sizing:border-box}
+.sensol-native-purchase .closing{max-width:1440px;margin:auto;padding:64px 6% 80px;scroll-margin-top:84px}
+.sensol-native-purchase .overline{font-size:11px;letter-spacing:.13em;font-weight:700;margin:0 0 38px}
+.sensol-native-purchase .purchase{display:grid;grid-template-columns:1.15fr 1fr;gap:9%;align-items:start}
+.sensol-native-purchase .intro{min-width:0}
+.sensol-native-purchase .brand{font-size:13px;font-weight:700;letter-spacing:.3em;margin:0 0 30px}
+.sensol-native-purchase .intro h2{font-size:clamp(55px,7.5vw,106px);line-height:1;letter-spacing:-.055em;margin:0 0 28px;color:inherit;font-weight:500}
+.sensol-native-purchase .type{font-size:25px;line-height:1.3;letter-spacing:-.02em;margin:0 0 28px}
+.sensol-native-purchase .description{font-size:18px;line-height:1.65;max-width:395px;margin:0;color:var(--muted)}
+.sensol-native-purchase .policy-list{margin-top:42px;border-top:1px solid var(--line)}
+.sensol-native-purchase .policy-list a{display:block;color:var(--ink);text-decoration:none;padding:21px 0;border-bottom:1px solid var(--line)}
+.sensol-native-purchase .policy-list a>span{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;margin-bottom:9px}
+.sensol-native-purchase .policy-list strong{display:flex;justify-content:space-between;font-size:17px;font-weight:600}
+.sensol-native-purchase .policy-list b{font-weight:400}
+.sensol-native-purchase .policy-list small{display:block;font-size:13px;color:var(--muted);margin-top:9px}
+.sensol-native-purchase .social{margin-top:30px}
+.sensol-native-purchase .social>span{font-size:10px;letter-spacing:.1em;font-weight:700}
+.sensol-native-purchase .social>div{display:flex;gap:11px;margin-top:15px}
+.sensol-native-purchase .social button{background:transparent;color:var(--ink);width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.sensol-native-purchase .social svg{width:18px;height:18px;fill:currentColor}
+.sensol-native-purchase .social #copy-link svg{fill:none}
+.sensol-native-purchase .social small{display:block;color:var(--muted);font-size:11px;margin-top:12px}
+.sensol-native-purchase .brandline{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:55px;padding-top:22px;font-size:11px;letter-spacing:.07em;flex-wrap:wrap}
+.sensol-native-purchase .checkout{min-width:0;border-top:1px solid var(--ink);padding-top:24px;outline:none}
+.sensol-native-purchase .price{font-size:32px;letter-spacing:-.03em;line-height:1.2}
+.sensol-native-purchase .price__container{margin:0}
+.sensol-native-purchase .price__regular{display:block}
+.sensol-native-purchase .price__sale{display:none}
+.sensol-native-purchase .price--on-sale .price__regular{display:none}
+.sensol-native-purchase .price--on-sale .price__sale{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline}
+.sensol-native-purchase .price-item{white-space:nowrap}
+.sensol-native-purchase .price-item--regular{font-size:inherit}
+.sensol-native-purchase .price__sale s.price-item--regular{font-size:15px;letter-spacing:0;color:var(--muted)}
+.sensol-native-purchase .tax{font-size:12px;color:var(--muted);margin:14px 0 18px;line-height:1.6}
+.sensol-native-purchase .availability{color:var(--muted);font-size:13px;margin:0 0 24px}
+.sensol-native-purchase variant-selects{display:block;margin:0 0 28px}
+.sensol-native-purchase .product-form__input{padding:0;margin:0 0 24px;max-width:none;border:0}
+.sensol-native-purchase .form__label{display:block;font-size:14px;margin:0 0 14px;color:var(--ink);line-height:1.5}
+.sensol-native-purchase .ssm-options-grid{display:grid;grid-template-columns:repeat(var(--ssm-option-count,3),minmax(0,1fr));max-width:calc(var(--ssm-option-count,3)*88px);gap:8px;align-items:stretch}
+.sensol-native-purchase .ssm-option{position:relative}
+.sensol-native-purchase .ssm-option>input{position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;clip:rect(0,0,0,0)}
+.sensol-native-purchase .ssm-option>label{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;width:100%;min-width:0;min-height:82px;padding:8px 5px;border:1px solid transparent;border-radius:8px;text-align:center;font-size:12px;line-height:1.35;color:var(--ink);cursor:pointer;margin:0;background:transparent}
+.sensol-native-purchase .ssm-option>input:checked+label{border-color:var(--ink);background:#ffffff30}
+.sensol-native-purchase .ssm-option>input:focus-visible+label{outline:2px solid #81664b;outline-offset:3px}
+.sensol-native-purchase .ssm-option>label:hover{border-color:#858b7f}
+.sensol-native-purchase .ssm-colour-dot{display:block;width:34px;height:34px;flex:none;border:1px solid #19201925;border-radius:50%;background:var(--ssm-colour)}
+.sensol-native-purchase .quantity{min-height:46px;width:138px;border:1px solid #92978d;color:var(--ink)}
+.sensol-native-purchase .quantity:after,.sensol-native-purchase .quantity:before{box-shadow:none}
+.sensol-native-purchase .quantity__button{width:44px;background:transparent}
+.sensol-native-purchase .quantity__input{font-size:15px}
+.sensol-native-purchase product-form{display:block;margin:24px 0 0}
+.sensol-native-purchase .product-form__buttons{display:flex!important;flex-direction:column!important;gap:12px;width:100%;max-width:none}
+.sensol-native-purchase .product-form__submit{width:100%;height:52px!important;min-height:52px!important;padding:12px;margin:0!important;font-size:15px!important;font-weight:500!important;line-height:1.3;letter-spacing:.04em}
+.sensol-native-purchase .shopify-payment-button{display:block!important;width:100%;margin:0!important}
+.sensol-native-purchase .shopify-payment-button__button{width:100%;min-height:50px}
+.sensol-native-purchase .shopify-payment-button__more-options{font-size:13px;margin:14px 0 0}
+.sensol-native-purchase .accepted{border-top:1px solid var(--line);margin-top:28px;padding-top:21px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;color:var(--muted);font-size:11px;line-height:1.5}
+.sensol-native-purchase .accepted>div{display:flex;gap:6px;flex-wrap:wrap}
+.sensol-native-purchase .accepted svg{width:36px;height:23px}
+.sensol-native-purchase .ssm-panel-header{display:none}
+.sensol-native-purchase .ssm-purchase-backdrop[hidden]{display:none}
+.sensol-native-purchase .ssm-purchase-backdrop{position:fixed;inset:0;z-index:99998;display:block;width:100%;height:100%;border:0;background:#15201880;backdrop-filter:blur(4px);cursor:pointer}
+.sensol-native-purchase.ssm-panel-open .checkout{position:fixed;z-index:99999;top:18px;bottom:18px;right:18px;width:min(480px,calc(100vw - 36px));max-height:calc(100dvh - 36px);overflow:auto;overscroll-behavior:contain;background:#efede6;border:1px solid #c6c9bf;border-radius:18px;padding:26px;box-shadow:0 12px 70px #0003;scrollbar-gutter:stable}
+.sensol-native-purchase.ssm-panel-open .ssm-panel-header{display:flex;justify-content:space-between;align-items:start;gap:16px;margin:0 0 24px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.sensol-native-purchase .ssm-panel-header p{font-size:10px;letter-spacing:.13em;margin:0 0 9px}
+.sensol-native-purchase .ssm-panel-header h2{font-size:36px;line-height:1.05;letter-spacing:-.04em;margin:0;color:var(--ink);font-weight:500}
+.sensol-native-purchase .ssm-panel-header button{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;width:40px;height:40px;flex:none;background:transparent;font:28px/1 Arial;color:var(--ink);cursor:pointer}
+.sensol-native-purchase .ssm-panel-header button:focus-visible{outline:2px solid #81664b;outline-offset:3px}
+body.sensol-purchase-open{overflow:hidden!important}
+body.sensol-purchase-open [data-sensol-purchase-open]{visibility:hidden!important;pointer-events:none!important}
+body:has(.sensol-native-purchase) [data-sensol-purchase-open][hidden]{display:none!important}
+body.sensol-purchase-open shopify-chat{display:none!important}
+body.closing-visible:has(.sensol-native-purchase) shopify-chat{display:none!important}
+.sensol-native-purchase.ssm-panel-open .ssm-panel-header{padding-bottom:12px;margin-bottom:14px}
+.sensol-native-purchase.ssm-panel-open .ssm-panel-header p{margin-bottom:6px}
+.sensol-native-purchase.ssm-panel-open .ssm-panel-header h2{font-size:32px}
+.sensol-native-purchase.ssm-panel-open .price{font-size:30px}
+.sensol-native-purchase.ssm-panel-open .tax{margin:10px 0 12px}
+.sensol-native-purchase.ssm-panel-open .availability{margin-bottom:12px}
+.sensol-native-purchase.ssm-panel-open variant-selects{margin-bottom:18px}
+.sensol-native-purchase.ssm-panel-open .product-form__input{margin-bottom:16px}
+.sensol-native-purchase.ssm-panel-open .form__label{margin-bottom:10px}
+.sensol-native-purchase.ssm-panel-open .ssm-option>label{min-height:72px;gap:7px;padding:6px}
+.sensol-native-purchase.ssm-panel-open product-form{margin-top:16px}
+.sensol-native-purchase.ssm-panel-open .product-form__buttons{gap:10px}
+.sensol-native-purchase.ssm-panel-open .accepted{margin-top:14px;padding-top:12px;gap:8px;font-size:10px}
+.sensol-native-purchase.ssm-panel-open .accepted svg{width:30px;height:20px}
+@media(max-width:749px){
+.sensol-native-purchase .closing{padding:42px 6% 54px}
+.sensol-native-purchase .purchase{grid-template-columns:1fr;gap:38px}
+.sensol-native-purchase .overline{margin-bottom:30px}
+.sensol-native-purchase .brand{font-size:12px;margin-bottom:22px}
+.sensol-native-purchase .intro h2{font-size:clamp(48px,12vw,64px);margin-bottom:22px}
+.sensol-native-purchase .type{font-size:21px;margin-bottom:20px}
+.sensol-native-purchase .description{font-size:16px}
+.sensol-native-purchase .policy-list{margin-top:30px}
+.sensol-native-purchase .policy-list strong{font-size:15px}
+.sensol-native-purchase .price{font-size:29px}
+.sensol-native-purchase .ssm-options-grid{gap:8px}
+.sensol-native-purchase .ssm-option>label{min-width:0;font-size:11px;padding:8px 3px}
+.sensol-native-purchase .brandline{margin-top:38px;gap:12px;line-height:1.6}
+.sensol-native-purchase.ssm-panel-open .checkout{top:8px;bottom:8px;right:8px;width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:23px 20px calc(23px + env(safe-area-inset-bottom));border-radius:16px}
+.sensol-native-purchase.ssm-panel-open .ssm-panel-header{margin-bottom:20px;padding-bottom:20px}
+.sensol-native-purchase .ssm-panel-header h2{font-size:32px}
+.sensol-native-purchase .accepted svg{width:33px;height:22px}
+}

@@ -1,0 +1,172 @@
+{% doc %}
+  @prompt
+    创建一个用于 Shopify 首页的完整单屏沉浸式主视觉区块，尽量在一个区块内呈现以下截图所述的整页视觉，而不是普通横幅。主题为 AI agent 品牌的极简黑白着陆页，桌面视口以约 1208×884 为布局参考，整个画面高度至少一屏，主背景为自动播放、静音、循环、内联播放的视频，视频 URL 可在编辑器配置，默认参考视频 https://d8j0ent1cm9l24.cloudfront.net/user_38xz2xbkVGw3otWXHDIWA1P/hf_20260903_113714_92f54685-af66-4020-8f35-dbb8871d9d32.mp4 。不要使用之前上传的普拉提人物图，此次先保留视频以便稍后更换。覆于视频之上的内容包括顶部极简自定义品牌标志和 Benefits、About、Support、FAQ 导航，以及右侧 Deploy your agent 行动按钮；左侧两行英文标题 The agent that thinks, / decides, and executes.，副标题 Delegate your entire workflow to an AI that runs 24/7 — you set the goal, it handles everything else.，Deploy your agent 按钮和 Free to start · Live in 5 minutes 注记；底部四个品牌字标构成信任行。白色排版、克制留白、锐角按钮、Geist 风格正文搭配 Workmark 风格品牌字标，主标题、导航和底部字标按层次依次入场，尊重减少动态效果设置。移动端转换为单栏、收起导航到可操作的汉堡菜单，保持全屏背景视频及文字可读。所有导航、按钮目标与视频可在主题编辑器中设置，不要凭空填充不存在的页面链接。注意这只是首页单屏页面的视觉区块，避免重复主题已有的页眉或页脚，如可行请提供隐藏重复导航的设置。
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-agent-hero-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    color: {{ block.settings.text_color }};
+    background: #111;
+    font-family: {{ block.settings.body_font.family }}, {{ block.settings.body_font.fallback_families }};
+  }
+  .ai-agent-hero-{{ ai_gen_id }} video,
+  .ai-agent-hero-{{ ai_gen_id }}__shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .ai-agent-hero-{{ ai_gen_id }} video { object-fit: cover; z-index: -2; }
+  .ai-agent-hero-{{ ai_gen_id }}__shade { z-index: -1; background: rgba(0,0,0,{{ block.settings.overlay_opacity | divided_by: 100.0 }}); }
+  .ai-agent-hero-{{ ai_gen_id }}__inner {
+    min-height: 100vh;
+    min-height: 100svh;
+    box-sizing: border-box;
+    padding: clamp(24px, 3.3vw, 48px) clamp(24px, 5.2vw, 76px) 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .ai-agent-hero-{{ ai_gen_id }}__header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .ai-agent-hero-{{ ai_gen_id }}__brand { color: inherit; text-decoration: none; font-size: 23px; letter-spacing: -.07em; font-weight: 650; white-space: nowrap; }
+  .ai-agent-hero-{{ ai_gen_id }}__nav { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 38px); margin-left: auto; }
+  .ai-agent-hero-{{ ai_gen_id }}__nav a { color: inherit; text-decoration: none; font-size: 13px; opacity: .94; }
+  .ai-agent-hero-{{ ai_gen_id }}__nav a:hover, .ai-agent-hero-{{ ai_gen_id }}__brand:hover { opacity: .72; }
+  .ai-agent-hero-{{ ai_gen_id }}__top-cta,
+  .ai-agent-hero-{{ ai_gen_id }}__main-cta { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 0 22px; box-sizing: border-box; border: 1px solid {{ block.settings.button_border }}; background: {{ block.settings.button_background }}; color: {{ block.settings.button_text }}; text-decoration: none; font-size: 13px; font-weight: 550; transition: opacity .2s ease; }
+  .ai-agent-hero-{{ ai_gen_id }}__top-cta:hover, .ai-agent-hero-{{ ai_gen_id }}__main-cta:hover { opacity: .78; }
+  .ai-agent-hero-{{ ai_gen_id }}__body { flex: 1; display: flex; align-items: center; }
+  .ai-agent-hero-{{ ai_gen_id }}__copy { max-width: 690px; padding: 60px 0 68px; }
+  .ai-agent-hero-{{ ai_gen_id }}__title { margin: 0 0 20px; max-width: 700px; color: inherit; font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }}; font-size: clamp(48px, 7.2vw, 94px); line-height: .99; letter-spacing: -.065em; font-weight: 500; }
+  .ai-agent-hero-{{ ai_gen_id }}__title span { display: block; }
+  .ai-agent-hero-{{ ai_gen_id }}__description { max-width: 510px; margin: 0 0 29px; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.55; color: inherit; opacity: .94; }
+  .ai-agent-hero-{{ ai_gen_id }}__note { display: block; margin-top: 14px; font-size: 12px; letter-spacing: .01em; opacity: .9; }
+  .ai-agent-hero-{{ ai_gen_id }}__footer { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; border-top: 1px solid rgba(255,255,255,.38); padding-top: 20px; }
+  .ai-agent-hero-{{ ai_gen_id }}__wordmark { text-align: center; color: inherit; font-size: clamp(15px, 1.8vw, 22px); font-weight: 650; letter-spacing: -.055em; opacity: .94; }
+  .ai-agent-hero-{{ ai_gen_id }}__menu-toggle { display: none; color: inherit; background: transparent; border: 1px solid rgba(255,255,255,.7); padding: 10px 12px; font: inherit; cursor: pointer; }
+  .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__header,
+  .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__copy,
+  .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__footer { animation: ai-agent-enter-{{ ai_gen_id }} .75s ease both; }
+  .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__copy { animation-delay: .16s; }
+  .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__footer { animation-delay: .3s; }
+  @keyframes ai-agent-enter-{{ ai_gen_id }} { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__header, .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__copy, .ai-agent-hero-{{ ai_gen_id }}[data-motion="on"] .ai-agent-hero-{{ ai_gen_id }}__footer { animation: none; } .ai-agent-hero-{{ ai_gen_id }}__top-cta, .ai-agent-hero-{{ ai_gen_id }}__main-cta { transition: none; } }
+  @media (max-width: 749px) {
+    .ai-agent-hero-{{ ai_gen_id }} { width: 100%; }
+    .ai-agent-hero-{{ ai_gen_id }}__inner { padding: 22px 22px 22px; }
+    .ai-agent-hero-{{ ai_gen_id }}__header { flex-wrap: wrap; }
+    .ai-agent-hero-{{ ai_gen_id }}__nav { display: none; order: 4; flex-basis: 100%; flex-direction: column; align-items: flex-start; gap: 18px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.35); }
+    .ai-agent-hero-{{ ai_gen_id }}__nav.is-open { display: flex; }
+    .ai-agent-hero-{{ ai_gen_id }}__menu-toggle { display: inline-flex; margin-left: auto; }
+    .ai-agent-hero-{{ ai_gen_id }}__top-cta { display: none; }
+    .ai-agent-hero-{{ ai_gen_id }}__body { align-items: center; }
+    .ai-agent-hero-{{ ai_gen_id }}__copy { padding: 48px 0; }
+    .ai-agent-hero-{{ ai_gen_id }}__title { font-size: clamp(45px, 12vw, 68px); }
+    .ai-agent-hero-{{ ai_gen_id }}__description { max-width: 410px; }
+    .ai-agent-hero-{{ ai_gen_id }}__footer { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; padding-top: 16px; }
+  }
+{% endstyle %}
+
+<agent-hero-{{ ai_gen_id }} class="ai-agent-hero-{{ ai_gen_id }}" data-motion="{% if block.settings.enable_entrance %}on{% else %}off{% endif %}" {{ block.shopify_attributes }}>
+  {% if block.settings.video_url != blank %}<video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="{{ block.settings.video_url | escape }}" type="video/mp4"></video>{% endif %}
+  <div class="ai-agent-hero-{{ ai_gen_id }}__shade" aria-hidden="true"></div>
+  <div class="ai-agent-hero-{{ ai_gen_id }}__inner">
+    <header class="ai-agent-hero-{{ ai_gen_id }}__header">
+      {% if block.settings.brand_link != blank %}<a class="ai-agent-hero-{{ ai_gen_id }}__brand" href="{{ block.settings.brand_link }}">{{ block.settings.brand_name | escape }}</a>{% else %}<span class="ai-agent-hero-{{ ai_gen_id }}__brand">{{ block.settings.brand_name | escape }}</span>{% endif %}
+      <nav class="ai-agent-hero-{{ ai_gen_id }}__nav" aria-label="Main navigation">
+        {% if block.settings.benefits_link != blank %}<a href="{{ block.settings.benefits_link }}">Benefits</a>{% endif %}
+        {% if block.settings.about_link != blank %}<a href="{{ block.settings.about_link }}">About</a>{% endif %}
+        {% if block.settings.support_link != blank %}<a href="{{ block.settings.support_link }}">Support</a>{% endif %}
+        {% if block.settings.faq_link != blank %}<a href="{{ block.settings.faq_link }}">FAQ</a>{% endif %}
+      </nav>
+      {% if block.settings.cta_link != blank %}<a class="ai-agent-hero-{{ ai_gen_id }}__top-cta" href="{{ block.settings.cta_link }}">{{ block.settings.cta_label | escape }}</a>{% endif %}
+      <button class="ai-agent-hero-{{ ai_gen_id }}__menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation"><span>Menu</span></button>
+    </header>
+    <main class="ai-agent-hero-{{ ai_gen_id }}__body">
+      <div class="ai-agent-hero-{{ ai_gen_id }}__copy">
+        <h1 class="ai-agent-hero-{{ ai_gen_id }}__title"><span>{{ block.settings.title_line_one | escape }}</span><span>{{ block.settings.title_line_two | escape }}</span></h1>
+        <p class="ai-agent-hero-{{ ai_gen_id }}__description">{{ block.settings.description | escape }}</p>
+        {% if block.settings.cta_link != blank %}<a class="ai-agent-hero-{{ ai_gen_id }}__main-cta" href="{{ block.settings.cta_link }}">{{ block.settings.cta_label | escape }}</a>{% endif %}
+        <span class="ai-agent-hero-{{ ai_gen_id }}__note">{{ block.settings.note | escape }}</span>
+      </div>
+    </main>
+    <div class="ai-agent-hero-{{ ai_gen_id }}__footer" aria-label="Trusted by">
+      {% if block.settings.wordmark_one != blank %}<span class="ai-agent-hero-{{ ai_gen_id }}__wordmark">{{ block.settings.wordmark_one | escape }}</span>{% endif %}
+      {% if block.settings.wordmark_two != blank %}<span class="ai-agent-hero-{{ ai_gen_id }}__wordmark">{{ block.settings.wordmark_two | escape }}</span>{% endif %}
+      {% if block.settings.wordmark_three != blank %}<span class="ai-agent-hero-{{ ai_gen_id }}__wordmark">{{ block.settings.wordmark_three | escape }}</span>{% endif %}
+      {% if block.settings.wordmark_four != blank %}<span class="ai-agent-hero-{{ ai_gen_id }}__wordmark">{{ block.settings.wordmark_four | escape }}</span>{% endif %}
+    </div>
+  </div>
+</agent-hero-{{ ai_gen_id }}>
+
+<script>
+  (() => {
+    const tagName = 'agent-hero-{{ ai_gen_id }}';
+    if (customElements.get(tagName)) return;
+    class AgentHero extends HTMLElement {
+      connectedCallback() {
+        this.toggle = this.querySelector('.ai-agent-hero-{{ ai_gen_id }}__menu-toggle');
+        this.nav = this.querySelector('.ai-agent-hero-{{ ai_gen_id }}__nav');
+        if (!this.toggle || !this.nav) return;
+        this.toggle.addEventListener('click', () => {
+          const expanded = this.toggle.getAttribute('aria-expanded') === 'true';
+          this.toggle.setAttribute('aria-expanded', String(!expanded));
+          this.toggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+          this.nav.classList.toggle('is-open', !expanded);
+        });
+      }
+    }
+    customElements.define(tagName, AgentHero);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "AI agent hero",
+  "settings": [
+    { "type": "header", "content": "Background video" },
+    { "type": "text", "id": "video_url", "label": "MP4 video URL", "default": "https://d8j0ent1cm9l24.cloudfront.net/user_38xz2xbkVGw3otWXHDIWA1P/hf_20260903_113714_92f54685-af66-4020-8f35-dbb8871d9d32.mp4" },
+    { "type": "range", "id": "overlay_opacity", "label": "Dark overlay", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 35 },
+    { "type": "header", "content": "Brand and navigation" },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "AGENT" },
+    { "type": "url", "id": "brand_link", "label": "Brand link" },
+    { "type": "url", "id": "benefits_link", "label": "Benefits link" },
+    { "type": "url", "id": "about_link", "label": "About link" },
+    { "type": "url", "id": "support_link", "label": "Support link" },
+    { "type": "url", "id": "faq_link", "label": "FAQ link" },
+    { "type": "checkbox", "id": "hide_theme_header", "label": "Hide theme header and footer", "default": false },
+    { "type": "header", "content": "Hero content" },
+    { "type": "text", "id": "title_line_one", "label": "Title line one", "default": "The agent that thinks," },
+    { "type": "text", "id": "title_line_two", "label": "Title line two", "default": "decides, and executes." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Delegate your entire workflow to an AI that runs 24/7 — you set the goal, it handles everything else." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Deploy your agent" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "note", "label": "Button note", "default": "Free to start · Live in 5 minutes" },
+    { "type": "header", "content": "Trust wordmarks" },
+    { "type": "text", "id": "wordmark_one", "label": "Wordmark one", "default": "NORTHSTAR" },
+    { "type": "text", "id": "wordmark_two", "label": "Wordmark two", "default": "KINETIC" },
+    { "type": "text", "id": "wordmark_three", "label": "Wordmark three", "default": "OTHERWISE" },
+    { "type": "text", "id": "wordmark_four", "label": "Wordmark four", "default": "FORM / FIELD" },
+    { "type": "header", "content": "Typography and layout" },
+    { "type": "font_picker", "id": "body_font", "label": "Body font", "default": "assistant_n4" },
+    { "type": "font_picker", "id": "heading_font", "label": "Heading font", "default": "assistant_n4" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_background", "label": "Button background", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_text", "label": "Button text", "default": "#111111" },
+    { "type": "color", "id": "button_border", "label": "Button border", "default": "#FFFFFF" },
+    { "type": "checkbox", "id": "enable_entrance", "label": "Enable entrance effects", "default": true },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [{ "name": "AI agent hero" }],
+  "tag": null,
+  "class": "ai-agent-hero-block"
+}
+{% endschema %}

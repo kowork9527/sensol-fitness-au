@@ -1,0 +1,30 @@
+<section class="air-story air-parts" data-air-parts aria-label="Inside FLEX AIR">
+<div class="air-parts-stage">
+<header><p>01 / INSIDE FLEX AIR</p><h2>Discover what makes FLEX AIR.</h2><span>Tap a detail. See why it matters.</span></header>
+<div class="air-parts-scene">
+<figure class="air-parts-unit">
+<div class="air-parts-photo"><img src="{{ 'sensol-air-parts-top.webp' | asset_url }}" width="3500" height="1969" alt="Your supplied FLEX AIR top view, rotated vertically to explore its components" loading="lazy"></div>
+<button type="button" class="air-parts-pin" style="--x:50%;--y:24%" data-air-part="0" aria-label="Explore aluminium rail" aria-pressed="false"><b>1</b><span>Rail</span></button>
+<button type="button" class="air-parts-pin" style="--x:50%;--y:37%" data-air-part="1" aria-label="Explore padded platform" aria-pressed="false"><b>2</b><span>Platform</span></button>
+<button type="button" class="air-parts-pin" style="--x:65%;--y:62%" data-air-part="2" aria-label="Explore spring mechanism" aria-pressed="false"><b>3</b><span>Springs</span></button>
+<button type="button" class="air-parts-pin" style="--x:22%;--y:85%" data-air-part="3" aria-label="Explore PU armrests" aria-pressed="false"><b>4</b><span>Armrests</span></button>
+</figure>
+<div class="air-parts-detail" hidden>
+<div class="air-detail-media" aria-live="polite">
+<div class="air-detail-image air-detail-rail" data-part-image="0" role="img" aria-label="Enlarged aluminium rail from the supplied top-view photograph" style="background-image:url({{ 'sensol-air-parts-top.webp' | asset_url }})" hidden></div>
+<div class="air-detail-image air-detail-platform" data-part-image="1" role="img" aria-label="Enlarged leather-covered foam platform from the supplied photograph" style="background-image:url({{ 'sensol-air-parts-top.webp' | asset_url }})" hidden></div>
+<div class="air-detail-image air-detail-springs" data-part-image="2" role="img" aria-label="Enlarged spring attachments from the supplied photograph" style="background-image:url({{ 'sensol-air-parts-top.webp' | asset_url }})" hidden></div>
+<div class="air-detail-image air-detail-armrests" data-part-image="3" role="img" aria-label="Enlarged PU armrest and support frame from the supplied photograph" style="background-image:url({{ 'sensol-air-parts-top.webp' | asset_url }})" hidden></div>
+</div>
+<button class="air-parts-close" type="button" data-part-close aria-label="Close part detail"><span aria-hidden="true">×</span></button>
+<div class="air-parts-readout" aria-live="polite" hidden>
+<div><span data-part-kicker></span><h3 data-part-title></h3></div>
+<div><h4>Why it is designed this way</h4><p data-part-why></p></div>
+<div><h4>What that means for you</h4><p data-part-benefit></p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{{ 'sensol-air-story.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sensol-air-story.js' | asset_url }}" defer></script>

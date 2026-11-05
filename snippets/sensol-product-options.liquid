@@ -1,0 +1,40 @@
+{% unless product.has_only_default_variant %}
+<variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" data-product-handle="{{ product.handle }}" data-product-title="{{ product.title | escape }}" data-product-id="{{ product.id }}" data-currency-code="{{ cart.currency.iso_code }}" data-selected-price-amount="{{ product.selected_or_first_available_variant.price | divided_by: 100.0 }}" {{ block.shopify_attributes }}>
+{% for option in product.options_with_values %}
+{% assign option_key = option.name | downcase %}
+<fieldset class="js product-form__input ssm-options">
+<legend class="form__label">{{ option.name | escape }}: <span data-selected-value>{{ option.selected_value | escape }}</span></legend>
+<div class="ssm-options-grid" style="--ssm-option-count:{{ option.values.size }}">
+{% for value in option.values %}
+{% capture input_id %}{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}{% endcapture %}
+{% liquid
+  assign colour = value | downcase
+  assign swatch_colour = colour
+  case colour
+    when 'black'
+      assign swatch_colour = '#1c1d1c'
+    when 'light gray', 'light grey', 'gray', 'grey'
+      assign swatch_colour = '#bcbcb4'
+    when 'light green'
+      assign swatch_colour = '#bbc6b3'
+    when 'oatmeal', 'beige'
+      assign swatch_colour = '#d7c5a8'
+    when 'chocolate brown', 'chocolate'
+      assign swatch_colour = '#574438'
+    when 'caramel dark brown', 'caramel', 'dark brown'
+      assign swatch_colour = '#8b5f40'
+  endcase
+  if swatch_colour == colour and value.swatch.color
+    assign swatch_colour = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+  endif
+%}
+<div class="ssm-option">
+<input type="radio" id="{{ input_id }}" name="{{ option.name | escape }}-{{ option.position }}" value="{{ value | escape }}" form="{{ product_form_id }}" {% if value.selected %}checked{% endif %} data-product-url="{{ value.product_url }}" data-option-value-id="{{ value.id }}" data-option-name="{{ option.name | escape }}">
+<label for="{{ input_id }}" title="{{ value | escape }}{% unless value.available %} — Sold out{% endunless %}">
+{% if option_key contains 'color' or option_key contains 'colour' %}<span class="ssm-colour-dot" style="--ssm-colour:{{ swatch_colour | escape }}" aria-hidden="true"></span>{% endif %}
+<span>{{ value | escape }}</span>{% unless value.available %}<span class="visually-hidden"> — Sold out</span>{% endunless %}
+</label></div>
+{% endfor %}</div></fieldset>
+{% endfor %}
+<script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
+</variant-selects>{% endunless %}

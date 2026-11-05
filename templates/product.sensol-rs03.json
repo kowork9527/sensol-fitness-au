@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "motion": {
+      "type": "sensol-motion-rs03",
+      "settings": {}
+    },
+    "purchase": {
+      "type": "sensol-native-purchase",
+      "blocks": {
+        "variants": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "variants",
+        "quantity",
+        "buy"
+      ],
+      "settings": {
+        "description": "Motorised resistance up to 45 kg. Adjustment in 1 kg steps. Pilates and strength training on one platform."
+      }
+    },
+    "reviews": {
+      "type": "sensol-native-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "motion",
+    "purchase",
+    "reviews"
+  ]
+}

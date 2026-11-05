@@ -1,0 +1,53 @@
+/* Scoped RS03 PRO revision, using the AIR spacing and interaction hierarchy. */
+.pro-only .family-switch{display:none}
+.pro-only .motion-scene .motion-frame{inset:0;width:100%;height:100%;background:#e9e6df}
+.pro-only .motion-story{height:600svh}
+.pro-only .motion-scene::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#f7f4f0aa 0%,transparent 17%)}
+.pro-only .ss-header{background:transparent;backdrop-filter:none;transition:background .25s}
+.pro-only .ss-header.on-content{background:#efede6f5;backdrop-filter:blur(12px)}
+.pro-only .motion-copy,.pro-only .motion-scene.portrait .motion-copy{left:6%;top:17%;bottom:auto;width:38%;max-width:470px;color:#192019}
+.pro-only .motion-copy.right,.pro-only .motion-scene.portrait .motion-copy.right{left:auto;right:6%;width:38%}
+.pro-only .motion-copy h2{font-size:clamp(40px,4.5vw,68px);line-height:1.04;letter-spacing:-.045em;margin:18px 0}
+.pro-only .motion-copy p:last-child{font-size:18px;max-width:360px;line-height:1.55}
+.pro-only .motion-progress{background:transparent;border-color:#19201955;bottom:95px}
+.pro-only .motion-scene[data-chapter="2"] .motion-copy{top:14%;width:44%}
+.pro-only .motion-scene[data-chapter="3"] .motion-copy{top:12%}
+.pro-only .family-section{scroll-margin-top:84px}
+.pro-only .inside{background:#f4f5f9}
+.pro-only .inside-stage{height:760px;overflow:visible}
+.pro-only .machine-wrap{width:480px;height:720px;top:0}
+.pro-only .machine-wrap>img{mix-blend-mode:darken}
+.pro-only .hotspot{transform:translate(-50%,-50%)}
+.pro-only .inside-stage[data-side=right] .machine-wrap{transform:translateX(calc(-50% - 185px))}
+.pro-only .inside-stage[data-side=left] .machine-wrap{transform:translateX(calc(-50% + 185px))}
+.pro-only .part-view{top:110px;width:320px;text-align:left}
+.pro-only .part-circle{background:#fff;width:280px;height:280px}
+.pro-only .part-view h3{font-size:28px;line-height:1.15;margin:0 0 16px}
+.pro-only .part-view p{line-height:1.65}
+@media(max-width:749px){
+ .pro-only .motion-story{height:570svh}
+ .pro-only .motion-copy,.pro-only .motion-scene.portrait .motion-copy,.pro-only .motion-copy.right,.pro-only .motion-scene.portrait .motion-copy.right{left:6%;right:auto;top:15%;width:86%;max-width:340px}
+ .pro-only .motion-copy h2{font-size:38px;max-width:315px}
+ .pro-only .motion-copy p:last-child{font-size:16px;max-width:260px}
+ .pro-only .motion-scene[data-chapter="0"] .motion-copy{top:11%}
+ .pro-only .motion-scene[data-chapter="0"]::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#f7f4f0bb 0%,#f7f4f066 32%,transparent 53%)}
+ .pro-only .motion-scene[data-chapter="1"] .motion-copy{top:13%}
+ .pro-only .motion-scene[data-chapter="1"] .motion-copy{color:#f7f4f0;text-shadow:0 1px 10px #0005}
+ .pro-only .motion-scene[data-chapter="1"]::before{background:linear-gradient(180deg,#19201966 0%,transparent 18%)}
+ .pro-only:has(.motion-scene[data-chapter="1"]) .ss-header:not(.on-content){color:#f7f4f0}
+ .pro-only:has(.motion-scene[data-chapter="1"]) .ss-header:not(.on-content) .ss-logo img{filter:brightness(0) invert(1)}
+ .pro-only .motion-scene[data-chapter="2"] .motion-copy{top:13%;width:86%}
+ .pro-only .motion-scene.portrait[data-chapter="3"] .motion-copy.right{top:9%}
+ .pro-only .motion-scene[data-chapter="3"] .motion-copy h2{font-size:36px}
+ .pro-only .motion-progress{left:6%;right:6%;bottom:96px}
+ .pro-only .motion-progress button{font-size:9px;min-height:36px}
+ .pro-only .motion-progress,.pro-only .motion-progress button{color:#fff!important;border-color:#ffffff80!important;text-shadow:0 1px 6px #0009}
+ .pro-only .inside-stage{height:580px;overflow:hidden;transition:height .4s}
+ .pro-only .inside-stage[data-side]{height:1100px}
+ .pro-only .machine-wrap{width:100%;height:auto;aspect-ratio:2/3;top:0}
+ .pro-only .inside-stage[data-side] .machine-wrap{transform:translateX(-50%)}
+ .pro-only .part-view,.pro-only .inside-stage[data-side=left] .part-view{top:570px;left:0;right:0;width:100%;display:block;text-align:center}
+ .pro-only .inside-stage[data-side] .part-circle{width:220px;height:220px;margin:0 auto 24px}
+ .pro-only .part-view h3{font-size:27px}
+ .pro-only .part-view p{font-size:15px;max-width:330px;margin:auto}
+}
