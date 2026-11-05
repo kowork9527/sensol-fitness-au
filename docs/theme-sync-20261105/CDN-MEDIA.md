@@ -1,0 +1,1 @@
+The complete source snapshot is retained on codex/dawn-motion-full-backup-20261105. Shopify GitHub integration limits imports to 50 MB. This connected branch removes unused legacy uploads and references original ssm media at the existing Shopify theme CDN (t/32). Preserve source theme 195950084228: its media is a dependency. No image resizing or design changes were made.
