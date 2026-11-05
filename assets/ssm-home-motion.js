@@ -7,10 +7,10 @@
     const $ = s => root.querySelector(s), $$ = s => [...root.querySelectorAll(s)];
     const cleanup = [];
     const on = (el, event, fn, options) => { el.addEventListener(event, fn, options); cleanup.push(() => el.removeEventListener(event, fn, options)); };
-    const play = video => { const p = video.play(); if (p?.catch) p.catch(() => {}); };
+    const play = video => { if(document.hidden)return; if(video.dataset.pendingSrc && video.getAttribute('src')!==video.dataset.pendingSrc) video.src=video.dataset.pendingSrc; const p = video.play(); if (p?.catch) p.catch(() => {}); };
     const hero = $('[data-home-hero]');
     const heroSize = window.matchMedia('(max-width:749px)');
-    const chooseHeroSource = () => {const mobile=heroSize.matches;hero.poster=mobile?hero.dataset.mobilePoster:hero.dataset.desktopPoster;hero.src=mobile?hero.dataset.mobileSrc:hero.dataset.desktopSrc;};
+    const chooseHeroSource = () => {const mobile=heroSize.matches;hero.poster=mobile?hero.dataset.mobilePoster:hero.dataset.desktopPoster;hero.dataset.pendingSrc=mobile?hero.dataset.mobileSrc:hero.dataset.desktopSrc;if(hero.hasAttribute('src')&&hero.getAttribute('src')!==hero.dataset.pendingSrc)hero.src=hero.dataset.pendingSrc;};
     chooseHeroSource();
     on(hero,'loadedmetadata',()=>{if(heroSize.matches&&hero.duration>20)hero.currentTime=12;});
     on(hero,'timeupdate',()=>{if(heroSize.matches&&hero.currentTime>=20)hero.currentTime=12;});
@@ -63,8 +63,7 @@
       if(!reduced)$('.smh-timeline-readout').animate([{opacity:.2,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:550,easing:'cubic-bezier(.2,.7,.2,1)'});
     };
     const updateEra = () => {
-      if(root.dataset.homeRedesign==='v4')return;
-      raf = 0; if (Date.now() < manualEraUntil || reduced) return;
+      raf = 0; if(['v4','v6'].includes(root.dataset.homeRedesign))return; if (Date.now() < manualEraUntil || reduced) return;
       const r = journey.getBoundingClientRect(), range = Math.max(1,journey.offsetHeight - window.innerHeight);
       showEra(Math.floor(Math.max(0,Math.min(.999,-r.top/range))*4));
     };
@@ -82,6 +81,9 @@
     $$('[data-space-index]').forEach((b,i)=>on(b,'click',()=>selectSpace(i)));$$('[data-space-image]').forEach((b,i)=>on(b,'click',()=>selectSpace(i)));selectSpace(0);
     const setup=$('.smh-setup');
     on(setup,'toggle',()=>{if(!setup.open)$$('[data-setup-video]').forEach(v=>v.pause());});
+    const loadSetup=()=>{if(!setup.open)return;setup.querySelectorAll('source[data-src]').forEach(source=>{source.src=source.dataset.src;source.removeAttribute('data-src');});};
+    on(setup,'toggle',loadSetup);loadSetup();
+    on(document,'visibilitychange',()=>{if(document.hidden)hero.pause();else if(!heroUserPaused&&(intro.hidden||opening)&&hero.getBoundingClientRect().bottom>0&&hero.getBoundingClientRect().top<innerHeight)play(hero);});
     $$('[data-setup-video]').forEach(v=>on(v,'play',()=>{$$('[data-setup-video]').forEach(other=>{if(other!==v)other.pause();});}));
     // Pointer-follow and scroll progression share one frame loop per event burst.
     let motionFrame=0;const sceneState=new Map();
@@ -98,3 +100,4 @@
   document.querySelectorAll('[data-sensol-home]').forEach(mount);
   document.addEventListener('shopify:section:load',e => mount(e.target.querySelector('[data-sensol-home]')));
 })();
+

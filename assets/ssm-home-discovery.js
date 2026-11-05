@@ -7,7 +7,7 @@
     const clean=[];const on=(el,event,fn,options)=>{el.addEventListener(event,fn,options);clean.push(()=>el.removeEventListener(event,fn,options));};
     const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const animate=el=>{if(!reduced)el.animate([{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:380,easing:'ease-out'});};
-    const safePlay=v=>{const p=v.play();if(p?.catch)p.catch(()=>{});};
+    const safePlay=v=>{if(document.hidden)return;const source=v.querySelector('source[data-src]');if(source){v.src=source.dataset.src;source.removeAttribute('data-src');}const p=v.play();if(p?.catch)p.catch(()=>{});};
     let modelIndex=Number($('[data-stage]').dataset.active||0),featureIndex=-1;
     const viewer=$('.ss-structure-photo'),plane=$('.ss-inspect-plane'),reset=$('[data-inspect-reset]');
     let zoom=1,tx=0,ty=0,drag=null;
@@ -57,6 +57,7 @@
     $$('[data-motion-film]').forEach((b,i)=>on(b,'click',()=>chooseFilm(i)));
     on(toggle,'click',()=>{if(video.paused){userPaused=false;safePlay(video);}else{userPaused=true;video.pause();}});
     on(seek,'input',()=>{userPaused=true;scrubbing=true;video.pause();if(Number.isFinite(video.duration))video.currentTime=Number(seek.value)/1000*video.duration;sync();});on(seek,'change',()=>{scrubbing=false;sync();});
+    on(document,'visibilitychange',()=>{if(document.hidden){video.pause();player.pause();}else if(visible&&!userPaused)safePlay(video);});
     const filmObserver=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible&&!userPaused)safePlay(video);else video.pause();},{threshold:.25});filmObserver.observe(video);clean.push(()=>filmObserver.disconnect());
     const strip=$('[data-story-strip]'),dialog=$('[data-story-dialog]'),player=$('[data-story-player]'),still=$('[data-story-still]');
     on($('[data-story-next]'),'click',()=>strip.scrollBy({left:strip.clientWidth*.72,behavior:reduced?'instant':'smooth'}));on($('[data-story-prev]'),'click',()=>strip.scrollBy({left:-strip.clientWidth*.72,behavior:reduced?'instant':'smooth'}));
@@ -68,3 +69,4 @@
   document.querySelectorAll('[data-sensol-home]').forEach(mount);
   document.addEventListener('shopify:section:load',e=>mount(e.target.querySelector('[data-sensol-home]')));
 })();
+
