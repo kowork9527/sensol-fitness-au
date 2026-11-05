@@ -7,7 +7,7 @@
     const clean=[];const on=(el,event,fn,options)=>{el.addEventListener(event,fn,options);clean.push(()=>el.removeEventListener(event,fn,options));};
     const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const animate=el=>{if(!reduced)el.animate([{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:380,easing:'ease-out'});};
-    const safePlay=v=>{if(document.hidden)return;const source=v.querySelector('source[data-src]');if(source){v.src=source.dataset.src;source.removeAttribute('data-src');}const p=v.play();if(p?.catch)p.catch(()=>{});};
+    const safePlay=v=>{if(document.hidden)return;const source=v.querySelector('source[data-src]');if(source){if(!v.getAttribute('src'))v.src=source.dataset.src;source.removeAttribute('data-src');}const p=v.play();if(p?.catch)p.catch(()=>{});};
     let modelIndex=Number($('[data-stage]').dataset.active||0),featureIndex=-1;
     const viewer=$('.ss-structure-photo'),plane=$('.ss-inspect-plane'),reset=$('[data-inspect-reset]');
     let zoom=1,tx=0,ty=0,drag=null;
