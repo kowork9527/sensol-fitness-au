@@ -2762,5 +2762,85 @@
     "pixels_identical": true,
     "path": "images/e2760bba19dcee74.webp",
     "sha256": "29367d668806185aacb40841b7dc2e188dfa7cbc41ce9558cebe8cc8392ae231"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/1.png",
+    "original_bytes": 1459109,
+    "webp_bytes": 841550,
+    "width": 1841,
+    "height": 1841,
+    "pixels_identical": true,
+    "path": "images/1e253a6bb064bae3.webp",
+    "sha256": "64117bebdec81d24b5aa87b4d5395700fe8eafcfc455af06edd9bdd6ac6cfd18"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/Screen_Shot_2026-04-15_at_12.45.43_PM.png",
+    "original_bytes": 2870584,
+    "webp_bytes": 1834302,
+    "width": 1130,
+    "height": 1698,
+    "pixels_identical": true,
+    "path": "images/693100051adafb1b.webp",
+    "sha256": "597849fd02f4269e19911177b924a412a6ab00ca791dd223fd7e46fe462f5982"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/Screen_Shot_2026-04-15_at_12.45.53_PM.png",
+    "original_bytes": 2172112,
+    "webp_bytes": 1448958,
+    "width": 1094,
+    "height": 1568,
+    "pixels_identical": true,
+    "path": "images/6c5f14c5e1e06a5f.webp",
+    "sha256": "b915916903f3ba419a72e8d0686b4ecc03868c8b0202d9b9cffb22282a19c93d"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/Screen_Shot_2026-04-15_at_12.46.00_PM.png",
+    "original_bytes": 2535846,
+    "webp_bytes": 1645086,
+    "width": 1102,
+    "height": 1658,
+    "pixels_identical": true,
+    "path": "images/d93a3b8a5badea8c.webp",
+    "sha256": "96b097f4dfd713da49fe446e15212b7d35361abe436f0144c7e08bcad7bf123b"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/Screen_Shot_2026-04-15_at_12.46.06_PM.png",
+    "original_bytes": 2553566,
+    "webp_bytes": 1656842,
+    "width": 1092,
+    "height": 1648,
+    "pixels_identical": true,
+    "path": "images/c1e0fdcc3c9151dd.webp",
+    "sha256": "c5ad72d62708efd75acd5fa62f96ad5c5d225ffa6868476467863a9159d4e442"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/mini.51.jpg",
+    "original_bytes": 360894,
+    "webp_bytes": 1221486,
+    "width": 3840,
+    "height": 2160,
+    "pixels_identical": true,
+    "path": "images/a9b7fbd422070e6a.webp",
+    "sha256": "6544c691a60baf1fee39cd120ff8f8f47b3b78c784375e0f74a22c70acd003d7"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/mini.55.jpg",
+    "original_bytes": 491797,
+    "webp_bytes": 1403918,
+    "width": 3840,
+    "height": 2160,
+    "pixels_identical": true,
+    "path": "images/5cbb2fe4cfd51e6c.webp",
+    "sha256": "c54eea8f30a01a804173a7012c0c2dbfc9ff7fcaf736920fc7b32d762926522f"
+  },
+  {
+    "source": "https://cdn.shopify.com/s/files/1/1020/4263/2324/files/mini.57.jpg",
+    "original_bytes": 372054,
+    "webp_bytes": 1248216,
+    "width": 3840,
+    "height": 2160,
+    "pixels_identical": true,
+    "path": "images/0da561b9a79a3d96.webp",
+    "sha256": "08cc1e4be3876a5a609cbb5b61d11b42c3a589a5f6d5eeff708ca5d47d10dbb6"
   }
 ]
