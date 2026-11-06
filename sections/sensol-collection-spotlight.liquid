@@ -106,9 +106,9 @@
     </div>
     <div class="sc-spot-{{ section.id }}__media">
       {%- if collection.image -%}
-        <img src="{{ collection.image | image_url: width: 800 }}" alt="Smart Series" loading="lazy">
+        <img width="{{ collection.image.width }}" height="{{ collection.image.height }}" src="{{ collection.image | image_url: width: 800 }}" alt="Smart Series" loading="lazy">
       {%- else -%}
-        <img src="{{ 'contact-hero.jpg' | asset_url }}" alt="Smart Series" loading="lazy">
+        <img width="2048" height="2048" src="{{ 'https://raw.githubusercontent.com/kowork9527/sensol-fitness-au/9f7ca6a3e1e728e59e9459f0db7e5369de3ce83b/images/contact-hero-2c27dee2.webp' }}" alt="Smart Series" loading="lazy">
       {%- endif -%}
     </div>
   </div>
@@ -118,9 +118,9 @@
   <div class="sc-spot-{{ section.id }}__inner">
     <div class="sc-spot-{{ section.id }}__media">
       {%- if collection.image -%}
-        <img src="{{ collection.image | image_url: width: 800 }}" alt="Mechanical Series" loading="lazy">
+        <img width="{{ collection.image.width }}" height="{{ collection.image.height }}" src="{{ collection.image | image_url: width: 800 }}" alt="Mechanical Series" loading="lazy">
       {%- else -%}
-        <img src="{{ 'contact-desk.jpg' | asset_url }}" alt="Mechanical Series" loading="lazy">
+        <img width="2048" height="2048" src="{{ 'https://raw.githubusercontent.com/kowork9527/sensol-fitness-au/9f7ca6a3e1e728e59e9459f0db7e5369de3ce83b/images/contact-desk-38d42191.webp' }}" alt="Mechanical Series" loading="lazy">
       {%- endif -%}
     </div>
     <div>
@@ -170,9 +170,9 @@
     </div>
     <div class="sc-spot-{{ section.id }}__media">
       {%- if collection.image -%}
-        <img src="{{ collection.image | image_url: width: 800 }}" alt="Flex Series" loading="lazy">
+        <img width="{{ collection.image.width }}" height="{{ collection.image.height }}" src="{{ collection.image | image_url: width: 800 }}" alt="Flex Series" loading="lazy">
       {%- else -%}
-        <img src="{{ 'contact-hero.jpg' | asset_url }}" alt="Flex Series" loading="lazy">
+        <img width="2048" height="2048" src="{{ 'https://raw.githubusercontent.com/kowork9527/sensol-fitness-au/9f7ca6a3e1e728e59e9459f0db7e5369de3ce83b/images/contact-hero-2c27dee2.webp' }}" alt="Flex Series" loading="lazy">
       {%- endif -%}
     </div>
   </div>

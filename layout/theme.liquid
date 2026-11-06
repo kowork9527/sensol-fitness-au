@@ -340,7 +340,7 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
-      {{ content_for_layout }}
+      {% capture sensol_page_html %}{{ content_for_layout }}{% endcapture %}{% render 'sensol-lossless-images', html: sensol_page_html %}
     </main>
 
     {% sections 'footer-group' %}

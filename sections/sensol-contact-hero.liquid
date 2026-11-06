@@ -5,7 +5,7 @@
     {%- if section.settings.hero_image != blank -%}
       <div class="sc-hero-img">{{ section.settings.hero_image | image_url: width: 2400 | image_tag: alt: 'SENSOL studio', loading: 'eager' }}</div>
     {%- else -%}
-      <div class="sc-hero-img"><img src="{{ 'contact-hero.jpg' | asset_url }}" alt="SENSOL studio" loading="eager"></div>
+      <div class="sc-hero-img"><img width="2048" height="2048" src="{{ 'https://raw.githubusercontent.com/kowork9527/sensol-fitness-au/9f7ca6a3e1e728e59e9459f0db7e5369de3ce83b/images/contact-hero-2c27dee2.webp' }}" alt="SENSOL studio" loading="eager"></div>
     {%- endif -%}
     <div class="sc-hero-content">
       <div>
