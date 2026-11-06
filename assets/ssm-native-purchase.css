@@ -34,6 +34,15 @@
 .sensol-native-purchase .price__sale s.price-item--regular{font-size:15px;letter-spacing:0;color:var(--muted)}
 .sensol-native-purchase .tax{font-size:12px;color:var(--muted);margin:14px 0 18px;line-height:1.6}
 .sensol-native-purchase .availability{color:var(--muted);font-size:13px;margin:0 0 24px}
+.sensol-native-purchase .ssm-preorder{padding:18px 20px;margin:0 0 24px;border:1px solid var(--line);border-left:3px solid var(--ink);background:#ffffff24;overflow-wrap:anywhere}
+.sensol-native-purchase .ssm-preorder h3{margin:0;font-size:16px;font-weight:600;line-height:1.4;letter-spacing:0;color:var(--ink)}
+.sensol-native-purchase .ssm-preorder p{font-size:13px;line-height:1.6;margin:8px 0 0}
+.sensol-native-purchase .ssm-preorder-activity{color:var(--muted)}
+.sensol-native-purchase .ssm-preorder dl{margin:14px 0 0;border-top:1px solid var(--line);padding-top:12px;display:grid;gap:10px}
+.sensol-native-purchase .ssm-preorder dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;font-size:12px;line-height:1.5}
+.sensol-native-purchase .ssm-preorder dt{color:var(--muted)}
+.sensol-native-purchase .ssm-preorder dd{margin:0;text-align:right;color:var(--ink);font-weight:600}
+@media(max-width:400px){.sensol-native-purchase .ssm-preorder{padding:15px}.sensol-native-purchase .ssm-preorder dl>div{grid-template-columns:1fr;gap:2px}.sensol-native-purchase .ssm-preorder dd{text-align:left}}
 .sensol-native-purchase variant-selects{display:block;margin:0 0 28px}
 .sensol-native-purchase .product-form__input{padding:0;margin:0 0 24px;max-width:none;border:0}
 .sensol-native-purchase .form__label{display:block;font-size:14px;margin:0 0 14px;color:var(--ink);line-height:1.5}

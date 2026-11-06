@@ -14,6 +14,19 @@
 <div id="price-{{ section.id }}" role="status">{% render 'price', product: product, use_variant: true, show_badges: false %}</div>
 <p class="tax">{% if cart.taxes_included %}Taxes included. {% endif %}Shipping calculated at checkout.</p>
 <div id="Inventory-{{ section.id }}" class="availability">{% if product.selected_or_first_available_variant.available %}Available{% else %}Currently sold out{% endif %}</div>
+{% if section.settings.preorder_enabled %}
+  <aside class="ssm-preorder" aria-labelledby="PreorderHeading-{{ section.id }}">
+    <h3 id="PreorderHeading-{{ section.id }}">{{ section.settings.preorder_heading | escape }}</h3>
+    {% if section.settings.preorder_opening != blank %}<p class="ssm-preorder-opening">{{ section.settings.preorder_opening | escape }}</p>{% endif %}
+    {% if section.settings.preorder_activity != blank %}<p class="ssm-preorder-activity">{{ section.settings.preorder_activity | escape | newline_to_br }}</p>{% endif %}
+    {% if section.settings.preorder_arrival != blank or section.settings.preorder_dispatch != blank %}
+      <dl>
+        {% if section.settings.preorder_arrival != blank %}<div><dt>Estimated stock arrival</dt><dd>{{ section.settings.preorder_arrival | escape }}</dd></div>{% endif %}
+        {% if section.settings.preorder_dispatch != blank %}<div><dt>Estimated dispatch</dt><dd>{{ section.settings.preorder_dispatch | escape }}</dd></div>{% endif %}
+      </dl>
+    {% endif %}
+  </aside>
+{% endif %}
 {% for block in section.blocks %}{% case block.type %}
 {% when 'variant_picker' %}{% render 'sensol-product-options', product: product, block: block, product_form_id: product_form_id %}
 {% when 'quantity_selector' %}
@@ -261,7 +274,15 @@
       "id": "description",
       "label": "Product introduction",
       "default": "Pilates reformer. Choose your finish and explore the details above."
-    }
+    },
+    { "type": "header", "content": "预售说明 / Pre-order information" },
+    { "type": "paragraph", "content": "仅控制购买区与悬浮购买面板的说明展示。不会修改库存、开启购买或自动设置折扣。各产品模板独立填写；面向顾客的内容请填写英文。到货指入库，发货指寄出，不是送达日期。" },
+    { "type": "checkbox", "id": "preorder_enabled", "label": "显示预售说明", "default": false },
+    { "type": "text", "id": "preorder_heading", "label": "说明标题", "default": "Pre-order information" },
+    { "type": "text", "id": "preorder_opening", "label": "预售开放时间说明", "info": "例如：Pre-orders open 15 November 2026. 可在开售后改成 Pre-orders are now open." },
+    { "type": "textarea", "id": "preorder_activity", "label": "活动内容", "info": "填写活动优惠和条件；实际价格及折扣仍需在 Shopify 单独配置。留空不显示。" },
+    { "type": "text", "id": "preorder_arrival", "label": "预计到货 / 入库时间", "info": "可填写日期或时间范围，例如：December 2026。留空不显示。" },
+    { "type": "text", "id": "preorder_dispatch", "label": "购买后预计发货日期", "info": "例如：Dispatch from 10 December 2026，或 Within 3 business days of stock arrival。留空不显示。" }
   ],
   "presets": [
     {
