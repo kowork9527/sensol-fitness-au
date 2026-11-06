@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "motion": {
@@ -34,9 +43,11 @@
       "settings": {
         "description": "Spring resistance. A cushioned sliding platform. An aluminium rail. Choose the finish that belongs in your space.",
         "preorder_enabled": true,
+        "preorder_heading": "Pre-order information",
         "preorder_opening": "Pre-orders open 15 November 2026.",
         "preorder_activity": "Sensol Early Bird Presale — Save A$90 on FLEX AIR\nStarting November 15, 2026, save A$90 on FLEX AIR with our early bird presale offer.",
-        "preorder_dispatch": ""
+        "preorder_arrival": "December 7, 2026",
+        "preorder_dispatch": "December 15, 2026"
       }
     },
     "reviews": {
